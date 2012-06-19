@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% load humanize %}
+
+{% block title %} Language Families: {% endblock %}
+
+{% block content %}
+    
+    <h1>Language Families</h1>
+    
+    {% if families %}
+        <table class="table-striped table-condensed">
+            <thead>
+                <tr>
+                  <th><a href="./?order=family">Family</a></th>
+                  <th><a href="./?order=count">Number of Languages</a></th>
+                </tr>
+            </thead>
+        {% for family in families %}
+            <tr>
+                <td>
+                    <a href="{{ family.get_absolute_url }}" title="Details for {{ family.family }}">{{ family.family }} </a>
+                </td>
+                <td>
+                    <a href="{{ family.get_absolute_url }}" title="Details for {{ family.family }}">{{ family.count|intcomma }} </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% else %}
+        <p>No languages are available.</p>
+    {% endif %}
+
+{% endblock %}

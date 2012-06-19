@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %} Languages: {% endblock %}
+
+{% block content %}
+
+    {% if languages %}
+        <table class="table-striped table-condensed">
+            <thead>
+                <tr>
+                  <th><a href="./?order=family">Family</a></th>
+                  <th><a href="./?order=language">Language</a></th>
+                  <th><a href="./?order=isocode">ISO-Code</a></th>
+                </tr>
+            </thead>
+            
+        {% for language in languages %}
+            <tr>
+                <td>
+                    <a href="{{ language.family.get_absolute_url }}" title="Details for {{ language.family }}">{{ language.family }} </a>
+                </td>
+                <td>
+                    <a href="{{ language.get_absolute_url }}" title="Details for {{ language.language }}">{{ language.language }} </a>
+                </td>
+                <td>
+                    <a href="{% url iso-lookup language.isocode %}" title="Details for {{ language.language }}">{{ language.isocode }} </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% else %}
+        <p>No languages are available.</p>
+    {% endif %}
+
+{% endblock %}

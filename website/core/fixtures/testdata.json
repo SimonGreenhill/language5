@@ -1,0 +1,8 @@
+[{"pk": 1, "model":"auth.user", "fields": {"username": "simon", "first_name": "", "last_name": "", "is_active": true, "is_superuser": true, "is_staff": true, "last_login": "2009-04-18 05:54:56", "groups": [], "user_permissions": [], "password": "", "email": "test@example.com", "date_joined": "2009-04-18 05:54:56"}}, 
+{"pk": 1, "model": "core.language", "fields": {"added": "2009-04-18 05:55:21", "language": "Language1", "classification": "Austronesian, Malayo-Polynesian, Bali-Sasak", "editor": 1, "isocode": "aaa", "slug": "language1", "family": 1, "editor": 1, "is_current": true}}, 
+{"pk": 1, "model": "core.alternatenames", "fields": {"slug": "fudge", "added": "2009-04-18 06:41:37", "editor": 1, "language": 1, "name": "fudge", "is_current": true}},
+{"pk": 2, "model": "core.language", "fields": {"added": "2009-04-18 05:55:21", "language": "Language2", "classification": "Austronesian, Malayo-Polynesian, Bali-Sasak", "editor": 1, "isocode": "aaa", "slug": "language2", "family": 1, "is_current": true}}, 
+{"pk": 3, "model": "core.language", "fields": {"added": "2009-04-18 05:55:21", "language": "Language3", "classification": "Austronesian, Malayo-Polynesian, Bali-Sasak", "editor": 1, "isocode": "bbb", "slug": "language3", "family": 1, "is_current": true}}, 
+{"pk": 1, "model": "core.family", "fields": {"slug": "austronesian", "added": "2009-04-18 05:55:21", "editor": 1, "family": "Austronesian", "is_current": true}}
+]
+

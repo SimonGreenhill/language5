@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %} {{ language.language }} {% endblock %}
+
+{% block content %}
+    <h1>{{ language.language }}</h1>
+    
+    {% if alternatenames %}
+        <p>
+            <strong>Also Known As: </strong>
+            {% for name in alternatenames %}
+                {{ name.name }}
+            {% endfor %}
+        </p>
+    {% endif %}
+    
+    <p> 
+        <strong>Classification:</strong> 
+        {{ language.classification }}
+    </p>
+    
+    <h2> Links to Resources: </h2>
+    
+    <ul>
+        {% if links %}
+            {% for link in links %}
+                <li><a href="{{ link.link }}">{{ link.description }}</a></li>
+            {% endfor %}
+        {% else %}
+            <li>No resources found.</li>
+        {% endif %}
+    </ul>
+    
+    <h2> Lexicon: </h2>
+    
+    TODO
+    
+    
+{% endblock %}

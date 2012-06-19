@@ -1,0 +1,71 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <title>{% block title %} Language3 {% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="" /> 
+  <meta name="description" content="" />
+  <meta name="author" content="Simon J. Greenhill">
+  
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  
+  {% if debug %}
+    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}" />
+    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap-responsive.css" %}" />
+  {% else %}
+    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.min.css" %}" />
+    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap-responsive.min.css" %}" />
+  {% endif %}
+</head>
+<body>
+    <!-- Masthead -->
+    <header class="jumbotron subhead" id="overview">
+      <h1>Language 5 Testsite</h1>
+    </header>
+    
+    
+    <div class="row">
+        <!--navigations bar content-->
+        <div class="span2">
+            {% comment %} TODO: Work out how to add 'active' <li class="active"> {% endcomment %}
+            <ul class="nav nav-list">
+                <li>
+                    <a href="{% url family-index %}">Families</a>
+                </li>
+                <li>
+                    <a href="{% url language-index %}">Languages</a>
+                </li>
+                
+                <li class="nav-header">Admin</li>
+                <li class="divider"><!-- divider --></li>
+                <li>
+                    <a href="{% url admin:index %}">Admin</a>
+                </li>
+            </ul>
+        </div>
+        <!--Body content-->
+        <div class="span10">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    
+    <div class="row">
+        <!-- footer -->
+        <div class="span12">&copy; 2012. Simon J. Greenhill. </div>
+    </div>
+    
+    <!-- javascript -->
+    <script src="{% static "/js/jquery.js" %}"></script>
+    <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+    
+</body>
+</html>
+
+
+
