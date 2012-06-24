@@ -35,8 +35,9 @@ def language_detail(request, language):
         return render_to_response('language/detail.html', out)
     except Language.DoesNotExist:
         pass
+    
     try:
-        return redirect(AlternateNames.objects.get(slug=language).language.get_absolute_url())
+        return redirect(AlternateNames.objects.get(slug=language).language, permanent=True)
     except AlternateNames.DoesNotExist:
         pass
         
@@ -54,7 +55,7 @@ def iso_lookup(request, iso):
     """
     languages = Language.objects.all().filter(isocode=iso)
     if len(languages) == 1:
-        return redirect(languages[0].get_absolute_url())
+        return redirect(languages[0], permanent=True)
     elif len(languages) > 1:
         return render_to_response('language/index.html', {'languages': languages})
     else:

@@ -5,7 +5,6 @@ class TrackedModel(models.Model):
     """Abstract base class containing editorial information"""
     editor = models.ForeignKey(User)
     added = models.DateTimeField(auto_now_add=True)
-    is_current = models.BooleanField()
     
     class Meta:
         abstract = True
@@ -35,7 +34,7 @@ class Language(TrackedModel):
     classification = models.TextField(blank=True)
     information = models.TextField(blank=True)
     
-    family = models.ForeignKey(Family, blank=True)
+    family = models.ManyToManyField(Family, blank=True)
     
     def __unicode__(self):
         return self.name

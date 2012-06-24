@@ -18,14 +18,14 @@ urlpatterns = patterns('',
     # Show all languages
     url(r'^language/$', 'core.views.language_index', name="language-index"),
     # Show the given language
-    url(r'^language/(?P<language>.+)/$', 'core.views.language_detail', name="language-detail"),
+    url(r'^language/(?P<language>.+)$', 'core.views.language_detail', name="language-detail"),
     # redirects to the language page ^
-    url(r'^iso/(?P<iso>\w{3})/$', 'core.views.iso_lookup', name="iso-lookup"),
+    url(r'^iso/(?P<iso>\w{3})$', 'core.views.iso_lookup', name="iso-lookup"),
     
     # Show all families
     url(r'^family/$', 'core.views.family_index', name="family-index"),
     # Show the given language
-    url(r'^family/(?P<family>.+)/$', 'core.views.family_detail', name="family-detail"),
+    url(r'^family/(?P<family>.+)$', 'core.views.family_detail', name="family-detail"),
     
     #   (r'^family/(?P<family>\w+)/word/(?P<word>\w+)', ''), # 
     
