@@ -13,6 +13,11 @@ class Test_LanguageIndex(TestCase):
     def setUp(self):
         self.client = Client()
     
+    def missing_trailing_slash(self):
+        """index pages should redirect to trailing slash"""
+        response = self.client.get('/language')
+        self.assertRedirects(response, '/language/', status_code=301, target_status_code=200)
+    
     def test_index(self):
         "Test languages.index"
         response = self.client.get('/language/')
@@ -98,4 +103,50 @@ class Test_ISOLookup(TestCase):
         self.failUnlessEqual(response.status_code, 404)
 
 
-#class Test_Family
+
+class Test_FamilyIndex(TestCase):
+    """Tests the family_index view"""
+    fixtures = ['testdata.json']
+    def setUp(self):
+        self.client = Client()
+    
+    def missing_trailing_slash(self):
+        """index pages should redirect to trailing slash"""
+        response = self.client.get('/family')
+        self.assertRedirects(response, '/family/', status_code=301, target_status_code=200)
+    
+    def test_family_index(self):
+        response = self.client.get('/family/')
+        self.assertContains(response, 'Austronesian')
+        self.assertContains(response, 'Mayan')
+        
+        
+        
+        
+class Test_FamilyDetail(TestCase):
+    """Tests the family_detail view"""
+    fixtures = ['testdata.json']
+    def setUp(self):
+        self.client = Client()
+    
+    def test_404_on_missing_family(self):
+        response = self.client.get('/family/basque')
+        self.failUnlessEqual(response.status_code, 404)
+        
+    def test_family_detail_1(self):
+        response = self.client.get('/family/austronesian')
+        self.assertContains(response, 'Austronesian')
+        # 1 & 3 are Austronesian
+        self.assertContains(response, 'Language1')
+        self.assertNotContains(response, 'Language2')
+        self.assertContains(response, 'Language3')
+    
+    def test_family_detail_2(self):
+        response = self.client.get('/family/mayan')
+        self.assertContains(response, 'Mayan')
+        # 2 & 3 are Mayan
+        self.assertNotContains(response, 'Language1')
+        self.assertContains(response, 'Language2')
+        self.assertContains(response, 'Language3')
+
+    

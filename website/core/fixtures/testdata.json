@@ -4,15 +4,14 @@
      "is_active": true, "is_superuser": true, "is_staff": true, 
       "last_login": "2012-06-24T11:04:52.734Z", "groups": [], 
       "user_permissions": [], 
-      "password": "pbkdf2_sha256$10000$bHKlJVKvkdh9$TVV5EgUpk3gtRFvFfEk0rvwoyLGr+B2z9w6ndxKKTdE=", 
+      "password": "pbkdf2_sha256$10000$ZLUvZNYJrvFV$ticrXPNcuqS91VqCzPhgZBYOiRNhSSwKJC/iCgSDiHc=", 
       "email": "simon@simon.net.nz", 
       "date_joined": "2012-06-24T11:04:52.734Z"}},
 
 {"pk": 1, "model": "core.family", "fields": 
     {"added": "2011-09-01T10:20:30Z", "editor": 1, "family": "Austronesian", "slug": "austronesian"}}, 
-
-    {"pk": 1, "model": "core.family", "fields": 
-        {"added": "2011-09-01T10:20:30Z", "editor": 1, "family": "Mayan", "slug": "mayan"}}, 
+{"pk": 2, "model": "core.family", "fields": 
+    {"added": "2011-09-01T10:20:30Z", "editor": 1, "family": "Mayan", "slug": "mayan"}}, 
 
 {"pk": 1, "model": "core.language", "fields": 
     {"information": "", "family": [1], "added": "2011-09-01T10:20:30Z", 

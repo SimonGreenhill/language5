@@ -4,3 +4,5 @@ syntax: glob
 
 syntax: regexp
 ^doc/_build
+^website/website/database.db
+

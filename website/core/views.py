@@ -70,19 +70,17 @@ def family_index(request):
     order = request.GET.get('order', 'family')
     if order not in ['family', 'count']:
         order = 'family'
-
     families = Family.objects.annotate(count=Count('language')).order_by(order)
     return render_to_response('family/index.html', {'families': families})
 
 
 def family_detail(request, family):
     """Show Family Details"""
-
     # sort out ordering
     order = request.GET.get('order', 'name')
-    if order not in ['name', 'count', 'isocode']:
-        order = 'name'
-
+    if order not in ['language', 'count', 'isocode']:
+        order = 'language'
+    
     f = get_object_or_404(Family, slug=family)
     l = f.language_set.all().order_by(order)
     return render_to_response('family/detail.html', {'family': f, 'languages':l})
