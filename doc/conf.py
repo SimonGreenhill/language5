@@ -42,8 +42,8 @@ source_encoding = 'utf-8'
 master_doc = 'index'
 
 # General information about the project.
-project = u'language3'
-copyright = u'2010, Simon J. Greenhill'
+project = u'language5'
+copyright = u'2012, Simon J. Greenhill'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -177,7 +177,7 @@ htmlhelp_basename = 'language3doc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'language3.tex', u'language3 Documentation',
+  ('index', 'language5.tex', u'language5 Documentation',
    u'Simon J. Greenhill', 'manual'),
 ]
 

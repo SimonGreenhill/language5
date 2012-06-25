@@ -11,10 +11,11 @@ Contents:
 .. toctree::
    :maxdepth: 2
    
-   Pages
-    hello
-   
-   Database Structure for Languages <databases/languages>
+   Database Structure for Languages <databases/core>
+   URL Conventions <urls>
+
+
+
 
 
 Indices and tables

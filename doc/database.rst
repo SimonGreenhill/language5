@@ -1,5 +1,22 @@
-Database: languages
-===================
+Database:
+=========
+
+Family
+------
+
+Contains language family/subgroup names. This is designed to be a broad
+classification system with each language belonging to one or more "families". 
+
+Field       Type         Size     Misc      Details
+-----       ----         ----     ----      -------
+family      CharField     64      Unique    Stores Language Family Name
+slug        SlugField     64      Unique    "Slug" of family name for URLS.
+
+
+
+
+
+
 
 ``languages`` is the main table for data about each language.
 

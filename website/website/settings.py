@@ -126,6 +126,8 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     
     # third-party
+    'django_extensions',
+
     'south',                # south: database migrations
     'reversion',            # reversion: object version control.
     'robots',               # django-robots: robots.txt handling
