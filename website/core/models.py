@@ -18,9 +18,6 @@ class Family(TrackedModel):
     def __unicode__(self):
         return self.family
         
-    def get_absolute_url(self):
-        return "/family/%s" % self.slug
-    
     class Meta:
         db_table = 'families'
     
@@ -38,9 +35,6 @@ class Language(TrackedModel):
     
     def __unicode__(self):
         return self.language
-        
-    def get_absolute_url(self):
-        return "/language/%s" % self.slug
         
     class Meta:
         unique_together = ("isocode", "language")

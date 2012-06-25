@@ -17,10 +17,12 @@
         {% for language in languages %}
             <tr>
                 <td>
-                    <a href="{{ language.family.get_absolute_url }}" title="Details for {{ language.family }}">{{ language.family }} </a>
+                    {% for family in language.family.all %}
+                        <a href="{% url family-detail family.slug %}" title="Details for {{ family.family }}">{{ family.family }} </a>
+                    {% endfor %}
                 </td>
                 <td>
-                    <a href="{{ language.get_absolute_url }}" title="Details for {{ language.language }}">{{ language.language }} </a>
+                    <a href="{% url language-detail language.slug %}" title="Details for {{ language.language }}">{{ language.language }} </a>
                 </td>
                 <td>
                     <a href="{% url iso-lookup language.isocode %}" title="Details for {{ language.language }}">{{ language.isocode }} </a>

@@ -22,42 +22,85 @@
     <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.min.css" %}" />
     <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap-responsive.min.css" %}" />
   {% endif %}
+  
+  <style type="text/css">
+      html, body { 
+          height: 100%; 
+      }
+    body {
+      padding-top: 60px;
+      padding-bottom: 40px;
+    }
+    .sidebar-nav {
+      padding: 9px 0;
+    }
+  </style>
+  
 </head>
 <body>
-    <!-- Masthead -->
-    <header class="jumbotron subhead" id="overview">
-      <h1>Language 5 Testsite</h1>
-    </header>
     
-    <div class="row">
-        <!--navigations bar content-->
-        <div class="span2">
-            {% comment %} TODO: Work out how to add 'active' <li class="active"> {% endcomment %}
-            <ul class="nav nav-list">
-                <li>
-                    <a href="{% url family-index %}">Families</a>
-                </li>
-                <li>
-                    <a href="{% url language-index %}">Languages</a>
-                </li>
-                
-                <li class="nav-header">Admin</li>
-                <li class="divider"><!-- divider --></li>
-                <li>
-                    <a href="{% url admin:index %}">Admin</a>
-                </li>
+    
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="{% url index %}">Project name</a>
+          {% comment %}
+          <div class="btn-group pull-right">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="icon-user"></i> Username
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Profile</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Sign Out</a></li>
             </ul>
+          </div>
+          {% endcomment %}
+          </div><!--/.nav-collapse -->
         </div>
-        <!--Body content-->
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span2">
+          <div class="well sidebar-nav">
+              {% comment %} TODO: Work out how to add 'active' <li class="active"> {% endcomment %}
+              <ul class="nav nav-list">
+                  <li>
+                      <a href="{% url family-index %}">Families</a>
+                  </li>
+                  <li>
+                      <a href="{% url language-index %}">Languages</a>
+                  </li>
+                  <li>
+                      <a href="{% url about %}">About</a>
+                  </li>                  
+                  <li class="nav-header">Admin</li>
+                  <li class="divider"><!-- divider --></li>
+                  <li>
+                      <a href="{% url admin:index %}">Admin</a>
+                  </li>
+              </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
         <div class="span10">
-            {% block content %}{% endblock %}
-        </div>
-    </div>
-    
-    <div class="row">
-        <!-- footer -->
-        <div class="span12">&copy; 2012. Simon J. Greenhill. </div>
-    </div>
+          <div class="row-fluid">
+              {% block content %}{% endblock %}
+          </div><!--/row-->
+        </div><!--/span-->
+      </div><!--/row-->
+      
+      <footer>
+        <p>&copy; 2012. Simon J. Greenhill. </p>
+      </footer>
+    </div><!--/.fluid-container-->
     
     <!-- javascript -->
     <script src="{% static "/js/jquery.js" %}"></script>

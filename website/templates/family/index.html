@@ -19,10 +19,10 @@
         {% for family in families %}
             <tr>
                 <td>
-                    <a href="{{ family.get_absolute_url }}" title="Details for {{ family.family }}">{{ family.family }} </a>
+                    <a href="{% url family-detail family.slug %}" title="Details for {{ family.family }}">{{ family.family }} </a>
                 </td>
                 <td>
-                    <a href="{{ family.get_absolute_url }}" title="Details for {{ family.family }}">{{ family.count|intcomma }} </a>
+                    <a href="{% url family-detail family.slug %}" title="Details for {{ family.family }}">{{ family.count|intcomma }} </a>
                 </td>
             </tr>
         {% endfor %}

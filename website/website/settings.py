@@ -4,8 +4,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.split(BASE_DIR)[0]
 
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
+DEBUG = TEMPLATE_DEBUG = True
 
 ADMINS = (
     ('Simon J. Greenhill', 'simon@simon.net.nz'),
@@ -92,15 +91,15 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
-)
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
 
 ROOT_URLCONF = 'website.urls'
 
@@ -111,7 +110,7 @@ TEMPLATE_DIRS = (
     os.path.join(ROOT_DIR, 'templates'),
 )
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -126,15 +125,18 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     
     # third-party
-    'django_extensions',
-
     'south',                # south: database migrations
     'reversion',            # reversion: object version control.
     'robots',               # django-robots: robots.txt handling
     
     # website
     'core',
-)
+]
+
+if DEBUG:
+    INSTALLED_APPS.append("debug_toolbar")
+    INSTALLED_APPS.append("django_extensions") # pretty schema generation
+    MIDDLEWARE_CLASSES.append('debug_toolbar.middleware.DebugToolbarMiddleware')
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

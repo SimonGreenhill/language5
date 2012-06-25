@@ -5,7 +5,7 @@ from core.models import Language, AlternateNames, Family, Links, Locations
 
 class LanguageAdmin(VersionAdmin):
     ##form = LanguageAdminForm
-    list_display = ('language', 'family', 'isocode', 'added')
+    list_display = ('language', 'isocode', 'added')
     inlines = []
     list_filter = ['added',] # ADD FAMILY
     date_hierarchy = 'added'
