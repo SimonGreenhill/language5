@@ -1,0 +1,21 @@
+{% load olac_tags %}
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/
+         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+    <responseDate>{% now "c" %}</responseDate>
+    <request verb="ListMetadataFormats">{{ OLAC.url }}</request>
+     <ListMetadataFormats>
+      <metadataFormat>
+       <metadataPrefix>oai_dc</metadataPrefix>
+        <schema>http://www.openarchives.org/OAI/2.0/oai_dc.xsd</schema>
+        <metadataNamespace>http://www.openarchives.org/OAI/2.0/oai_dc/</metadataNamespace>
+      </metadataFormat>
+      <metadataFormat>
+       <metadataPrefix>olac</metadataPrefix>
+        <schema>http://www.language-archives.org/OLAC/1.1/olac.xsd</schema>
+        <metadataNamespace>http://www.language-archives.org/OLAC/1.1/</metadataNamespace>
+      </metadataFormat>
+    </ListMetadataFormats>
+</OAI-PMH>

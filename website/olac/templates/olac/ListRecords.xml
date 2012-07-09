@@ -1,0 +1,57 @@
+{% load olac_tags %}
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/
+         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+    <responseDate>{% now "c" %}</responseDate>
+    <request verb="ListRecords" metadataPrefix="{{ metadataPrefix }}">{{ url }}</request>
+    
+    <ListRecords>
+    {% for obj in object_list %}
+    <record>
+        <header>
+            <identifier>{{ obj|oai_id }}</identifier>
+            <datestamp>{{ last_update|date:"Y-m-d" }}</datestamp>
+        </header>
+        {% ifequal metadataPrefix 'oai_dc' %}
+            <metadata>
+                <oai_dc:dc xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dc="http://purl.org/dc/elements/1.1/">
+                    <dc:title>{{ OLAC.repositoryName }} Resources for {{ obj.language }}</dc:title>
+                    {% for d in OLAC.depositor %}
+                        <dc:contributor>{{ d.0 }}</dc:contributor>
+                    {% endfor %}
+                    <dc:description>Vocabulary for {{ obj.language }} in {{ OLAC.repositoryName }}</dc:description>
+                    <dc:publisher>{{ OLAC.repositoryName }} ({{ OLAC.oai_url }})</dc:publisher>
+                    <dc:date xsi:type="dcterms:W3CDTF">{{ last_update|date:"Y-m-d" }}</dc:date>
+                    <dc:identifier xsi:type="dcterms:URI">http://{{ OLAC.oai_url }}{{ obj.get_absolute_url }}</dc:identifier>
+                    <dc:type xsi:type="dcterms:DCMIType">Text</dc:type>
+                </oai_dc:dc>
+            </metadata>
+            
+        {% endifequal %}
+        
+        {% ifequal metadataPrefix 'olac' %}
+            <metadata>
+                <olac:olac xsi:schemaLocation="http://www.language-archives.org/OLAC/1.1/ http://www.language-archives.org/OLAC/1.1/olac.xsd" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:olac="http://www.language-archives.org/OLAC/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dc="http://purl.org/dc/elements/1.1/">
+                    <dc:title>{{ OLAC.repositoryName }} Resources for {{ obj.language }}</dc:title>
+                    {% for d in OLAC.depositor %}
+                        <dc:contributor xsi:type="olac:role" olac:code="editor">{{ d.0 }}</dc:contributor>
+                    {% endfor %}
+                    <dc:description>Vocabulary for {{ obj.language }} in {{ OLAC.repositoryName }}</dc:description>
+                    <dc:publisher>{{ OLAC.repositoryName }} ({{ OLAC.oai_url }})</dc:publisher>
+                    <dc:language xsi:type="olac:language" olac:code="eng" />
+                    <dc:subject xsi:type="olac:language" olac:code="{{ obj.isocode }}">{{ obj.language }}</dc:subject>
+                    <dc:date xsi:type="dcterms:W3CDTF">{{ last_update|date:"Y-m-d" }}</dc:date>
+                    <dc:identifier xsi:type="dcterms:URI">http://{{ OLAC.oai_url }}{{ obj.get_absolute_url }}</dc:identifier>
+                    <dc:type xsi:type="dcterms:DCMIType">Text</dc:type>
+                    <dc:type xsi:type="olac:linguistic-type" olac:code="lexicon"/>
+                    <dcterms:extent>{{ obj.entry_set.count }} entries</dcterms:extent>
+                </olac:olac>
+            </metadata>
+        {% endifequal %}
+    </record>
+    {% endfor %}
+    </ListRecords>
+    
+</OAI-PMH>

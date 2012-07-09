@@ -1,0 +1,19 @@
+{% load olac_tags %}
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/
+         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+    <responseDate>{% now "c" %}</responseDate>
+    <request verb="ListIdentifiers"
+            metadataPrefix="{{ metadataPrefix }}"
+            >{{ url }}</request>
+    <ListIdentifiers>
+    {% for obj in object_list %}
+        <header>
+            <identifier>{{ obj|oai_id }}</identifier>
+            <datestamp>{{ last_update|date:"Y-m-d" }}</datestamp>
+        </header>
+    {% endfor %}
+    </ListIdentifiers>
+</OAI-PMH>

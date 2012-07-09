@@ -1,6 +1,11 @@
 # Django settings for website project.
 import os
 
+PROJECT_NAME = "Language5"
+DOMAIN_NAME = "language5.org"
+
+
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.split(BASE_DIR)[0]
 
@@ -20,6 +25,7 @@ DATABASES = {
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        'TEST_NAME': None,               # use SQLite in-memory for testing
     }
 }
 
@@ -130,7 +136,8 @@ INSTALLED_APPS = [
     'robots',               # django-robots: robots.txt handling
     
     # website
-    'core',
+    'core',                 # core functionality
+    'olac',                 # OLAC utils
 ]
 
 if DEBUG:
@@ -167,15 +174,23 @@ LOGGING = {
     }
 }
 
+# Setup OLAC
+from olac.settings import OLAC_SETTINGS
+OLAC_SETTINGS['institution'] = 'Australian National University'
+OLAC_SETTINGS['institutionURL'] = 'http://anu.edu.au'
+OLAC_SETTINGS['shortLocation'] = 'Canberra, Australia'
 
 # cache the ``robots.txt`` for 24 hours (86400 seconds).
 ROBOTS_CACHE_TIMEOUT = 60*60*24
-
-
-
-
 
 try:
     from local_settings import *
 except ImportError:
     pass
+    
+import warnings
+warnings.filterwarnings(
+        'error', r"DateTimeField received a naive datetime",
+        RuntimeWarning, r'django\.db\.models\.fields')
+    
+    

@@ -14,7 +14,7 @@
     {"added": "2011-09-01T10:20:30Z", "editor": 1, "family": "Mayan", "slug": "mayan"}}, 
 
 {"pk": 1, "model": "core.language", "fields": 
-    {"information": "", "family": [1], "added": "2011-09-01T10:20:30Z", 
+    {"information": "", "family": [1], "added": "2010-09-01T10:20:30Z", 
      "classification": "Austronesian, Malayo-Polynesian, Bali-Sasak", 
      "language": "Language1",  "editor": 1, "isocode": "aaa", 
      "slug": "language1"}}, 
@@ -24,7 +24,7 @@
      "language": "Language2",  "editor": 1, "isocode": "aaa", 
      "slug": "language2"}}, 
 {"pk": 3, "model": "core.language", "fields": 
-    {"information": "", "family": [1,2], "added": "2011-09-01T10:20:30Z", 
+    {"information": "", "family": [1,2], "added": "2012-09-01T10:20:30Z", 
      "classification": "Austronesian, Malayo-Polynesian, Bali-Sasak", 
      "language": "Language3",  "editor": 1, "isocode": "bbb", 
      "slug": "language3"}}, 

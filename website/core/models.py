@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 
 class TrackedModel(models.Model):
@@ -17,7 +18,10 @@ class Family(TrackedModel):
     
     def __unicode__(self):
         return self.family
-        
+    
+    def get_absolute_url(self):
+        return reverse('core.views.family_detail', args=[self.slug])
+    
     class Meta:
         db_table = 'families'
     
@@ -35,6 +39,9 @@ class Language(TrackedModel):
     
     def __unicode__(self):
         return self.language
+    
+    def get_absolute_url(self):
+        return reverse('core.views.language_detail', args=[self.slug])
         
     class Meta:
         unique_together = ("isocode", "language")

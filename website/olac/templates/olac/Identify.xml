@@ -1,0 +1,47 @@
+{% load olac_tags %}
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/
+         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+    <responseDate>{% now "c" %}</responseDate>
+    <request verb="Identify">{{ url }}</request>
+    <Identify>
+        <repositoryName>{{ OLAC.repositoryName }}</repositoryName>
+        <baseURL>{{ OLAC.baseURL }}</baseURL>
+        <protocolVersion>2.0</protocolVersion>
+        {% for admin in OLAC.adminEmail %}
+            <adminEmail>{{ admin.1 }}</adminEmail>
+        {% endfor %}
+        <earliestDatestamp>2010-01-01</earliestDatestamp>
+        <deletedRecord>{{ OLAC.deletedRecord }}</deletedRecord>
+        <granularity>YYYY-MM-DD</granularity>
+        <description>
+            <oai-identifier 
+                xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai-identifier http://www.openarchives.org/OAI/2.0/oai-identifier.xsd"
+                xmlns="http://www.openarchives.org/OAI/2.0/oai-identifier"
+            >
+                <scheme>oai</scheme>
+                <repositoryIdentifier>{{ OLAC.repositoryIdentifier }}</repositoryIdentifier>
+                <delimiter>:</delimiter>
+                <sampleIdentifier>oai:pollex.org.nz:mri.75</sampleIdentifier>
+            </oai-identifier>
+        </description>
+        <description>
+            <olac-archive xsi:schemaLocation="http://www.language-archives.org/OLAC/1.1/olac-archive http://www.language-archives.org/OLAC/1.1/olac-archive.xsd" 
+                currentAsOf="{% now "Y-m-d" %}" type="institutional" xmlns="http://www.language-archives.org/OLAC/1.1/olac-archive">	
+                <archiveURL>{{ OLAC.oai_url }}</archiveURL>	
+                {% for d in OLAC.admins %}
+                    <participant role="Admin" name="{{ d.0 }}" email="{{ d.1 }}" />
+                {% endfor %}
+                <institution>{{ OLAC.institution }}</institution>
+                <institutionURL>{{ OLAC.institutionURL }}</institutionURL>
+                <shortLocation>{{ OLAC.shortLocation }}</shortLocation>
+                <synopsis>
+                    {{ OLAC.description }}
+                </synopsis>
+                <access>Open Access</access>
+            </olac-archive>
+        </description>
+    </Identify>
+</OAI-PMH>

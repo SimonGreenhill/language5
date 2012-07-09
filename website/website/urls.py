@@ -3,6 +3,8 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
+from sitemap import FamilySitemap, LanguageSitemap
+
 urlpatterns = patterns('',
     url(r'^$',
         'django.views.generic.simple.direct_to_template',
@@ -74,8 +76,14 @@ urlpatterns = patterns('',
     #    (r'^feeds/changes/(?P<language>\w+)', ''),
     
     # plumbing (sitemap, robots.txt)
-    ## (r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps})
+    (r'^sitemap\.xml$', 
+           'django.contrib.sitemaps.views.sitemap', 
+           {'sitemaps': {'families': FamilySitemap, 'languages': LanguageSitemap}}
+       ),
     (r'^robots\.txt$', include('robots.urls')),
+    
+    # OAI:
+    (r'^oai/', include('olac.urls')),
     
     # ADMIN
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
