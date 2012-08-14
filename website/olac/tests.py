@@ -471,7 +471,7 @@ class Test_GetRecord_metadataPrefix_oai_dc(TestCase):
     
     def setUp(self):
         self.client = Client()
-        id = 'oai:%s:aaa.1'
+        id = 'oai:xxx:aaa.1'
         self.response = self.client.get('/oai/?verb=GetRecord&metadataPrefix=oai_dc&identifier=%s' % id)
     
     def test_oai_dc(self):
@@ -559,3 +559,25 @@ class Test_GetRecord_metadataPrefix_olac(TestCase):
         self.assertContains(self.response, '<dcterms:extent>4 entries</dcterms:extent>', count=1)
     
     
+
+class TestNoHTML(TestCase):
+    """Test that the XML output does not contain html entities."""
+    
+    fixtures = ['testdata.json']
+    
+    def test_one(self):
+        l = Language.objects.get(pk=2)
+        l.language = '<language2'
+        l.save()
+        client = Client()
+        response = self.client.get('/oai/?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:%s:aaa.%d' % (TEST_DOMAIN, l.id))
+        self.assertNotContains(response, '&lt;')
+        self.assertNotContains(response, '&gt;')
+        
+    def test_two(self):
+        l = Language.objects.get(pk=2)
+        l.language = 'lang&uage2'
+        l.save()
+        client = Client()
+        response = self.client.get('/oai/?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:%s:aaa.%d' % (TEST_DOMAIN, l.id))
+        self.assertNotContains(response, '&amp;')
