@@ -1,14 +1,17 @@
 import re
+from django.contrib.sites.models import Site
 from django.conf import settings
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
+website = Site.objects.get_current()
+
 # OLAC Settings
 OLAC_SETTINGS = {
-    'oai_url': settings.DOMAIN_NAME, # Website URL
-    'repositoryName': settings.PROJECT_NAME,
-    'description': 'Generic OLAC repository',
-    'repositoryIdentifier': settings.DOMAIN_NAME,
-    'baseURL': 'http://%s/oai' % settings.DOMAIN_NAME, # URL to OAI implementation
+    'oai_url': website.domain,
+    'repositoryName': website.name,
+    'description': website.name,
+    'repositoryIdentifier': website.domain,
+    'baseURL': 'http://%s/oai' % website.domain, # URL to OAI implementation
     'adminEmail': settings.ADMINS, 
     'admins': settings.ADMINS,
     'deletedRecord': 'no', # deletedRecord policy
@@ -19,4 +22,3 @@ OLAC_SETTINGS = {
     'institutionURL': 'http://example.com',
     'shortLocation': 'Auckland, New Zealand',
 }
-TEMPLATE_CONTEXT_PROCESSORS = TEMPLATE_CONTEXT_PROCESSORS + ('olac.content_processors.',)
