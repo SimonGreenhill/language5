@@ -4,11 +4,32 @@ Language 5
 
 
 
-Todo
-----
+Todo:
+-----
 
-1. sitemaps: https://docs.djangoproject.com/en/dev/ref/contrib/sitemaps/
+* add language data
+* add cognate tables
+
+* add title, sitename, description, subject to website meta
+
+* hook up reversion to core
+
+* sitemaps: https://docs.djangoproject.com/en/dev/ref/contrib/sitemaps/
     -> define class.
 
-2. add mapping functionality
+* Fix OLAC
 
+* add a last_modified param to template (ANUtheme requires it)
+    reversion
+
+* add keywords
+
+* add sitemap
+
+* add RSS
+
+Done:
+-----
+
+* write core
+* set up ANU theme
