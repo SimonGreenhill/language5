@@ -1,12 +1,14 @@
 {% extends "base.html" %}
+{% load cache %}
+{% load staticfiles %}
 
-{% block title %} {{ project_name }} {% endblock %}
+{% block title %} {{ sitename }} {% endblock %}
 
 {% block content %}
     
 
     <div class="hero-unit">
-        <h1>{{ project_name }}</h1>
+        <h1>{{ sitename }}</h1>
       <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
       <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
     </div>
