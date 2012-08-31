@@ -93,6 +93,7 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = [
+    'djangosecure.middleware.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -135,11 +136,20 @@ INSTALLED_APPS = [
     'south',                # south: database migrations
     'reversion',            # reversion: object version control.
     'robots',               # django-robots: robots.txt handling
-    
+    'djangosecure',         # django-secure: Security helper
+
     # website
     'core',                 # core functionality
     'olac',                 # OLAC utils
 ]
+
+# Django-Security settings
+SECURE_FRAME_DENY = True    # prevent framing of pages.
+SECURE_BROWSER_XSS_FILTER = True # enable XSS protection
+SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_HTTPONLY = True
+
+
 
 if DEBUG:
     INSTALLED_APPS.append("debug_toolbar")
