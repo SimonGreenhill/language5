@@ -25,6 +25,7 @@ def language_detail(request, language):
     If nothing is found in the languages table, then the AlternateNames table is 
         checked for a match. If found, then this view will redirect to the canonical slug.
     """
+    # if we find the language slug, then render the language detail page.
     try:
         my_lang = Language.objects.get(slug=language)
         out = {
@@ -34,14 +35,10 @@ def language_detail(request, language):
         }
         return render_to_response('language/detail.html', out)
     except Language.DoesNotExist:
-        pass
-    
-    try:
+        # If we can find an alternate name, redirect it.
         return redirect(AlternateNames.objects.get(slug=language).language, permanent=True)
     except AlternateNames.DoesNotExist:
-        pass
-        
-    raise Http404
+        raise Http404
         
     
 def iso_lookup(request, iso):

@@ -15,9 +15,8 @@ from core.models import *
 
 from django.conf import settings
 OLAC = settings.OLAC_SETTINGS
+
 KNOWN_METADATA_PREFIXES = ('olac', 'oai_dc')
-
-
 
 ERRORS = {
     'badArgument': 'The request includes illegal arguments, is missing required arguments, includes a repeated argument, or values for arguments have an illegal syntax.',

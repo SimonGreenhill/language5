@@ -11,7 +11,8 @@ from core.models import *
 
 from olac.views import parse_time
 
-TEST_DOMAIN = settings.WEBSITE_DOMAIN #'example.com'
+TEST_DOMAIN = 'example.com'
+
 OLAC_SETTINGS = {
     'oai_url': TEST_DOMAIN,
     'repositoryName': 'repos_name',
