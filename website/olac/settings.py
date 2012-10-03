@@ -3,15 +3,13 @@ from django.contrib.sites.models import Site
 from django.conf import settings
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
-website = Site.objects.get_current()
-
 # OLAC Settings
 OLAC_SETTINGS = {
-    'oai_url': website.domain,
-    'repositoryName': website.name,
-    'description': website.name,
-    'repositoryIdentifier': website.domain,
-    'baseURL': 'http://%s/oai' % website.domain, # URL to OAI implementation
+    'oai_url': settings.WEBSITE_DOMAIN,
+    'repositoryName': settings.WEBSITE_NAME,
+    'description': settings.WEBSITE_NAME,
+    'repositoryIdentifier': settings.WEBSITE_DOMAIN,
+    'baseURL': 'http://%s/oai' % settings.WEBSITE_DOMAIN, # URL to OAI implementation
     'adminEmail': settings.ADMINS, 
     'admins': settings.ADMINS,
     'deletedRecord': 'no', # deletedRecord policy
