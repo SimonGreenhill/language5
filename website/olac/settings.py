@@ -1,7 +1,6 @@
 import re
 from django.contrib.sites.models import Site
 from django.conf import settings
-from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
 # handle defaults gracefully.
 # settings.ADMIN is always set in default settings.py

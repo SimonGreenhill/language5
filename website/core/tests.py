@@ -1,9 +1,6 @@
-from datetime import datetime
-
 from django.test import TestCase
 from django.test.client import Client
-from django.contrib.auth.models import User
-from core.models import Language, AlternateNames
+#from core.models import Language, AlternateNames
 
 
 class Test_LanguageIndex(TestCase):

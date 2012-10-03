@@ -7,7 +7,7 @@ from django.test.client import Client
 from django.test.utils import override_settings
 from django.conf import settings
 
-from core.models import *
+from core.models import Language
 
 from olac.views import parse_time
 
@@ -508,7 +508,7 @@ class Test_GetRecord_metadataPrefix_oai_dc(TestCase):
     def test_dc_type_dcterms(self):
         self.assertContains(self.response, '<dc:type xsi:type="dcterms:DCMIType">Text</dc:type>', count=1)
 
-    def test_dc_description(self):
+    def test_dc_description_full(self):
         self.assertContains(self.response, '<dc:description>Vocabulary for Language1', count=1)
     
  
@@ -553,7 +553,7 @@ class Test_GetRecord_metadataPrefix_olac(TestCase):
     def test_dc_type_lexicon(self):
         self.assertContains(self.response, '<dc:type xsi:type="olac:linguistic-type" olac:code="lexicon"/>', count=1)
     
-    def test_dc_description(self):
+    def test_dc_description_full(self):
         self.assertContains(self.response, '<dc:description>Vocabulary for Language2', count=1)
     
     @expectedFailure # NEED TO IMPLEMENT DATA MODEL
@@ -571,7 +571,6 @@ class TestNoHTML(TestCase):
         l = Language.objects.get(pk=2)
         l.language = '<language2'
         l.save()
-        client = Client()
         response = self.client.get('/oai/?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:%s:aaa.%d' % (TEST_DOMAIN, l.id))
         self.assertNotContains(response, '&lt;')
         self.assertNotContains(response, '&gt;')
@@ -580,6 +579,5 @@ class TestNoHTML(TestCase):
         l = Language.objects.get(pk=2)
         l.language = 'lang&uage2'
         l.save()
-        client = Client()
         response = self.client.get('/oai/?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:%s:aaa.%d' % (TEST_DOMAIN, l.id))
         self.assertNotContains(response, '&amp;')

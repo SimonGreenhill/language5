@@ -198,11 +198,11 @@ OLAC_SETTINGS['shortLocation'] = 'Canberra, Australia'
 # cache the ``robots.txt`` for 24 hours (86400 seconds).
 ROBOTS_CACHE_TIMEOUT = 60*60*24
 
-try:
-    from local_settings import *
-except ImportError:
-    pass
-    
+# try:
+#     from local_settings import *
+# except ImportError:
+#     pass
+#     
 import warnings
 warnings.filterwarnings(
         'error', r"DateTimeField received a naive datetime",

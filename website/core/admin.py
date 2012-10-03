@@ -1,5 +1,4 @@
 from django.contrib import admin
-from django import forms
 from reversion.admin import VersionAdmin
 from core.models import Language, AlternateNames, Family, Links, Locations
 

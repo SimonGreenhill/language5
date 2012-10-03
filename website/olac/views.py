@@ -1,17 +1,14 @@
 #http://www.openarchives.org/OAI/openarchivesprotocol.html
-import re
-
 import time
 from datetime import datetime
 
-from django.db import models
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.utils.timezone import utc
 
 from reversion.models import Revision
 
-from core.models import *
+from core.models import Language
 
 from django.conf import settings
 OLAC = settings.OLAC_SETTINGS
@@ -273,7 +270,7 @@ def ListMetadataFormats(request):
             
         isocode, language_id = ident.groups()
         try:
-            L = Language.objects.get(pk=language_id)
+            Language.objects.get(pk=language_id)
         except Language.DoesNotExist:
             return Error(request, ['idDoesNotExist'], out)
         return render_to_response('olac/ListMetadataFormats.xml', out, 
