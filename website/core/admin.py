@@ -19,7 +19,6 @@ class FamilyAdmin(VersionAdmin):
 class AlternateNamesAdmin(VersionAdmin):
     pass
 
-
 class LinksAdmin(VersionAdmin):
     pass
 
