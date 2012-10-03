@@ -35,10 +35,15 @@ def language_detail(request, language):
         }
         return render_to_response('language/detail.html', out)
     except Language.DoesNotExist:
-        # If we can find an alternate name, redirect it.
+        pass
+    
+    # If we can find an alternate name, redirect it.
+    try:
         return redirect(AlternateNames.objects.get(slug=language).language, permanent=True)
     except AlternateNames.DoesNotExist:
-        raise Http404
+        pass
+    # fail. Doesn't exist so pop out a 404
+    raise Http404
         
     
 def iso_lookup(request, iso):
