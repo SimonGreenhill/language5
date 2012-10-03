@@ -114,7 +114,7 @@ TEMPLATE_DIRS = (
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.auth.context_processors.auth",
-    "core.context_processors.InjectSettings",
+    "website.apps.core.context_processors.InjectSettings",
 )
 
 
@@ -139,8 +139,8 @@ INSTALLED_APPS = [
     'djangosecure',         # django-secure: Security helper
 
     # website
-    'core',                 # core functionality
-    'olac',                 # OLAC utils
+    'website.apps.core',                 # core functionality
+    'website.apps.olac',                 # OLAC utils
 ]
 
 # Django-Security settings
@@ -190,7 +190,7 @@ CACHES = {
 }
 
 # Setup OLAC
-from olac.settings import OLAC_SETTINGS
+from website.apps.olac.settings import OLAC_SETTINGS
 OLAC_SETTINGS['institution'] = 'Australian National University'
 OLAC_SETTINGS['institutionURL'] = 'http://anu.edu.au'
 OLAC_SETTINGS['shortLocation'] = 'Canberra, Australia'

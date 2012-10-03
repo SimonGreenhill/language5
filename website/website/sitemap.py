@@ -1,5 +1,5 @@
 from django.contrib.sitemaps import Sitemap
-from core.models import Language, Family
+from website.apps.core.models import Language, Family
 
 class LanguageSitemap(Sitemap):
     changefreq = "monthly"

@@ -1,7 +1,8 @@
 from django.db.models import Count
 from django.http import Http404
 from django.shortcuts import render_to_response, get_object_or_404, redirect
-from core.models import Family, Language, AlternateNames
+
+from website.apps.core.models import Family, Language, AlternateNames
 
 def language_index(request):
     "Language Index"

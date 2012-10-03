@@ -41,7 +41,7 @@ class Language(TrackedModel):
         return self.language
     
     def get_absolute_url(self):
-        return reverse('core.views.language_detail', args=[self.slug])
+        return reverse('website.apps.core.views.language_detail', args=[self.slug])
         
     class Meta:
         unique_together = ("isocode", "language")

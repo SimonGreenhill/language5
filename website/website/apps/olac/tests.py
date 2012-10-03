@@ -7,9 +7,9 @@ from django.test.client import Client
 from django.test.utils import override_settings
 from django.conf import settings
 
-from core.models import Language
+from website.apps.core.models import Language
 
-from olac.views import parse_time
+from views import parse_time
 
 TEST_DOMAIN = 'example.com'
 

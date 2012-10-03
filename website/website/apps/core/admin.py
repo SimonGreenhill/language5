@@ -1,6 +1,6 @@
 from django.contrib import admin
 from reversion.admin import VersionAdmin
-from core.models import Language, AlternateNames, Family, Links, Locations
+from website.apps.core.models import Language, AlternateNames, Family, Links, Locations
 
 class LanguageAdmin(VersionAdmin):
     ##form = LanguageAdminForm

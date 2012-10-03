@@ -8,7 +8,7 @@ from django.utils.timezone import utc
 
 from reversion.models import Revision
 
-from core.models import Language
+from website.apps.core.models import Language
 
 from django.conf import settings
 OLAC = settings.OLAC_SETTINGS
