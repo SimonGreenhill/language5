@@ -1,8 +1,0 @@
-django>=1.4                 # django framework
-django-reversion>=1.6.0     # versioning
-South>=0.7.5                # database migrations
-django-robots               # robots.txt
-pytz                        # timezone support
-django-secure               # security
-
-# git+https://github.com/SteefH/django-pagination-plus.git
