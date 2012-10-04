@@ -26,7 +26,7 @@ class Source(TrackedModel):
     
     def __unicode__(self):
         if self.year is not None:
-            return u"%s (%d)" % (self.author, self.year)
+            return "%s (%d)" % (self.author, self.year)
         else:
             return self.author
         

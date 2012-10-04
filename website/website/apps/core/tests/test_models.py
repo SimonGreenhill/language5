@@ -9,7 +9,7 @@ class GenericCRUDTestMixin(object):
     model = None # Override
     
     def _permute(self, value):
-        if isinstance(value, (str, unicode)):
+        if isinstance(value, basestring):
             return value[::-1]
         elif isinstance(value, (int, float)):
             return value + 1
@@ -99,9 +99,9 @@ class Test_Source(GenericCRUDTestMixin, TestCase):
     def test_repr(self):
         """Test source's special handling of repr"""
         s = Source.objects.get(pk=1)
-        self.assertEquals(unicode(s), "%s (%d)" % (self.vars['author'], self.vars['year']))
+        self.assertEquals(s.__unicode__(), "%s (%d)" % (self.vars['author'], self.vars['year']))
         s.year = None
-        self.assertEquals(unicode(s), self.vars['author'])
+        self.assertEquals(s.__unicode__(), self.vars['author'])
         
 
 

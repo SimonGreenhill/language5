@@ -49,17 +49,17 @@ def oai(request):
     except (KeyError, IndexError):
         return Identify(request) # No verb given!
     
-    if verb == u'Identify':
+    if verb == 'Identify':
         return Identify(request)
-    elif verb == u'ListIdentifiers':
+    elif verb == 'ListIdentifiers':
         return ListIdentifiers(request)
-    elif verb == u'ListMetadataFormats':
+    elif verb == 'ListMetadataFormats':
         return ListMetadataFormats(request)
-    elif verb == u'ListSets':
+    elif verb == 'ListSets':
         return ListSets(request)
-    elif verb == u'ListRecords':
+    elif verb == 'ListRecords':
         return ListRecords(request)
-    elif verb == u'GetRecord':
+    elif verb == 'GetRecord':
         return GetRecord(request)
     else:
         return Error(request, ['badVerb'])
@@ -167,7 +167,7 @@ def ListIdentifiers(request):
     error_list = []
     
     # metadataPrefix is REQUIRED
-    if request.REQUEST.has_key('metadataPrefix') == False:
+    if 'metadataPrefix' not in request.REQUEST:
         error_list.append('badArgument')
     elif request.REQUEST['metadataPrefix'] not in KNOWN_METADATA_PREFIXES:
         out['metadataPrefix'] = request.REQUEST['metadataPrefix']
@@ -178,9 +178,9 @@ def ListIdentifiers(request):
     else:
         out['metadataPrefix'] = request.REQUEST['metadataPrefix']
     
-    if request.REQUEST.has_key('set'):
+    if 'set' in request.REQUEST:
         error_list.append('noSetHierarchy')
-    if request.REQUEST.has_key('resumptionToken'):
+    if 'resumptionToken' in request.REQUEST:
         error_list.append('badResumptionToken')
         
     if len(error_list) > 0:
@@ -189,7 +189,7 @@ def ListIdentifiers(request):
     
     languages = Language.objects.all().exclude(isocode__exact="")
     
-    if request.REQUEST.has_key('from'):
+    if 'from' in request.REQUEST:
         out['from'] = request.REQUEST['from']
         try:
             frm = parse_time(request.REQUEST['from'])
@@ -203,7 +203,7 @@ def ListIdentifiers(request):
             #                          datetime_published__month='03', 
             #                          datetime_published__day='27')
         
-    if request.REQUEST.has_key('until'):
+    if 'until' in request.REQUEST:
         out['until'] = request.REQUEST['until']
         try:
             until = parse_time(request.REQUEST['until'])
@@ -261,7 +261,7 @@ def ListMetadataFormats(request):
     `noMetadataFormats` - There are no metadata formats available for the specified item.
     """
     out = {'url': request.build_absolute_uri()}
-    if request.REQUEST.has_key('identifier'):
+    if 'identifier' in request.REQUEST:
         # Check identifier:
         out['identifier'] = request.REQUEST['identifier']
         ident = OLAC['_identifier'].match(request.REQUEST['identifier'])
@@ -328,7 +328,7 @@ def ListRecords(request):
     error_list = []
     
     # metadataPrefix is REQUIRED
-    if request.REQUEST.has_key('metadataPrefix') == False:
+    if 'metadataPrefix' not in request.REQUEST:
         error_list.append('badArgument')
     elif request.REQUEST['metadataPrefix'] not in KNOWN_METADATA_PREFIXES:
         error_list.append('cannotDisseminateFormat')
@@ -340,9 +340,9 @@ def ListRecords(request):
         out['metadataPrefix'] = metadataPrefix
         
     # neither set nor resumptionToken are implemented
-    if request.REQUEST.has_key('set'):
+    if 'set' in request.REQUEST:
         error_list.append('noSetHierarchy')
-    if request.REQUEST.has_key('resumptionToken'):
+    if 'resumptionToken' in request.REQUEST:
         error_list.append('badResumptionToken')
     
     if len(error_list) > 0:
@@ -350,15 +350,15 @@ def ListRecords(request):
     
     languages = Language.objects.all().exclude(isocode__exact="")
     
-    if request.REQUEST.has_key('from'):
+    if 'from' in request.REQUEST:
         out['from'] = request.REQUEST['from']
         try:
             frm = parse_time(request.REQUEST['from'])
         except (TypeError, ValueError):
             return Error(request, ['badArgument'], out)
         languages = languages.filter(added__gte=frm)
-
-    if request.REQUEST.has_key('until'):
+        
+    if 'until' in request.REQUEST:
         out['until'] = request.REQUEST['until']
         try:
             until = parse_time(request.REQUEST['until'])
@@ -412,7 +412,7 @@ def GetRecord(request):
     error_list = []
     
     # metadataPrefix is REQUIRED
-    if request.REQUEST.has_key('metadataPrefix') == False:
+    if 'metadataPrefix' not in request.REQUEST:
         error_list.append('badArgument')
     elif request.REQUEST['metadataPrefix'] not in KNOWN_METADATA_PREFIXES:
         error_list.append('cannotDisseminateFormat')
@@ -420,7 +420,7 @@ def GetRecord(request):
         out['metadataPrefix'] = request.REQUEST['metadataPrefix']
         
     # identifier is REQUIRED
-    if request.REQUEST.has_key('identifier') == False:
+    if 'identifier' not in request.REQUEST:
         error_list.append('badArgument')
         
     if len(error_list) > 0:

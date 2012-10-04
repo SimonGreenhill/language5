@@ -3,7 +3,7 @@ from fabric.api import local
 
 def test():
     """Runs tests"""
-    local("python manage.py test core olac")
+    local("python manage.py test")
 
 def lint():
     """Runs pyflakes"""
