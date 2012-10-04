@@ -11,16 +11,60 @@ class TrackedModel(models.Model):
         abstract = True
 
 
+class Source(TrackedModel):
+    """Source Details"""
+    year = models.IntegerField(blank=True, null=True,
+        help_text="Year published")
+    author = models.CharField(max_length=255,
+        help_text="Short Author list e.g. (Smith et al.)")
+    slug = models.SlugField(max_length=64, unique=True, db_index=True,
+        help_text="`Slug` for author i.e. author-year (for use in URLS)")
+    reference = models.TextField(blank=True, null=True,
+        help_text="Reference for Source")
+    comment = models.TextField(blank=True, null=True,
+        help_text="Private comment on source")
+    
+    def __unicode__(self):
+        if self.year is not None:
+            return u"%s (%d)" % (self.author, self.year)
+        else:
+            return self.author
+        
+    def get_absolute_url(self):
+        return reverse('website.apps.core.views.source_detail', args=[self.slug])
+    
+    class Meta:
+        db_table = 'sources'
+    
+
+    
+class Note(TrackedModel):
+    """Notes/Information about a language"""
+    language = models.ForeignKey('Language')
+    source = models.ForeignKey('Source')
+    note = models.TextField(help_text="Note")
+    location = models.CharField(max_length=50, blank=True, null=True,
+        help_text="Location (e.g. p12)")
+    
+    def __unicode__(self):
+        return self.id
+    
+    class Meta:
+        db_table = 'notes'
+
+
 class Family(TrackedModel):
     """Language families/Subsets"""
-    family = models.CharField(max_length=64, unique=True)
-    slug = models.SlugField(max_length=64, unique=True)
+    family = models.CharField(max_length=64, unique=True,
+        help_text="Language Family")
+    slug = models.SlugField(max_length=64, unique=True,
+        help_text="`Slug` for language family (for use in URLS)")
     
     def __unicode__(self):
         return self.family
     
     def get_absolute_url(self):
-        return reverse('core.views.family_detail', args=[self.slug])
+        return reverse('website.apps.core.views.family_detail', args=[self.slug])
     
     class Meta:
         db_table = 'families'
@@ -29,13 +73,18 @@ class Family(TrackedModel):
 
 class Language(TrackedModel):
     """Stores language information"""
-    language = models.CharField(max_length=64, unique=True, db_index=True)
-    slug = models.SlugField(max_length=64, unique=True, db_index=True)
-    isocode = models.CharField(max_length=3, blank=True, db_index=True)
-    classification = models.TextField(blank=True)
-    information = models.TextField(blank=True)
-    
     family = models.ManyToManyField(Family, blank=True)
+    language = models.CharField(max_length=64, unique=True, db_index=True,
+        help_text="Language Name")
+    slug = models.SlugField(max_length=64, unique=True, db_index=True,
+        help_text="`Slug` for language (for use in URLS)")
+    isocode = models.CharField(max_length=3, blank=True, db_index=True,
+        help_text="3 character ISO-639-3 Code.")
+    classification = models.TextField(blank=True,
+        help_text="Classification String")
+    information = models.TextField(blank=True,
+        help_text="Information about language")
+    
     
     def __unicode__(self):
         return self.language
@@ -50,10 +99,11 @@ class Language(TrackedModel):
 
 class AlternateNames(TrackedModel):
     """Handles languages with multiple names"""
-    language = models.ForeignKey(Language)
-    
-    name = models.CharField(max_length=64, unique=True, db_index=True)
-    slug = models.SlugField(max_length=64, unique=True, db_index=True)
+    language = models.ForeignKey('Language')
+    name = models.CharField(max_length=64, unique=True, db_index=True,
+        help_text="Alternate Name for this language")
+    slug = models.SlugField(max_length=64, unique=True, db_index=True,
+        help_text="`Slug` for language (for use in URLS)")
     
     def __unicode__(self):
         return "%d AKA %s" % (self.language.id, self.slug)
@@ -65,10 +115,9 @@ class AlternateNames(TrackedModel):
 
 class Links(TrackedModel):
     """Stores links to language appropriate resources"""
-    language = models.ForeignKey(Language)
-    
-    link = models.URLField()
-    description = models.TextField()
+    language = models.ForeignKey('Language')
+    link = models.URLField(help_text="URL to link")
+    description = models.TextField(help_text="Language Description")
     
     def __unicode__(self):
         return "%d %s" % (self.language.id, self.link)
@@ -79,10 +128,9 @@ class Links(TrackedModel):
 
 
 class Locations(TrackedModel):
-    language = models.ForeignKey(Language)
-
-    longitude = models.FloatField()
-    latitude = models.FloatField()
+    language = models.ForeignKey('Language')
+    longitude = models.FloatField(help_text="Longitude")
+    latitude = models.FloatField(help_text="Latitiude")
 
     def __unicode__(self):
         return "%d %2.4f-%2.4f" % (self.language.id, self.longitude, self.latitude)
