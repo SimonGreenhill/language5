@@ -15,7 +15,6 @@ class LanguageAdmin(VersionAdmin):
 
 class SourceAdmin(VersionAdmin):
     prepopulated_fields = {'slug': ('author', 'year')}
-    date_hierarchy = 'year'
     list_filter = ['author', 'year']
 
 class NoteAdmin(VersionAdmin):

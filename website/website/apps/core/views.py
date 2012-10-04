@@ -15,7 +15,7 @@ def language_index(request):
     languages = Language.objects.all().select_related('family__family', 'family__slug')
     languages = languages.defer('information', 'classification')
     languages = languages.order_by(order)
-    return render_to_response('language/index.html', {'languages': languages})
+    return render_to_response('core/language_index.html', {'languages': languages})
 
 def language_detail(request, language):
     """
@@ -34,7 +34,7 @@ def language_detail(request, language):
             'alternatenames': my_lang.alternatename_set.all(),
             'links': my_lang.link_set.all(),
         }
-        return render_to_response('language/detail.html', out)
+        return render_to_response('core/language_detail.html', out)
     except Language.DoesNotExist:
         pass
     
@@ -60,7 +60,7 @@ def iso_lookup(request, iso):
     if len(languages) == 1:
         return redirect(languages[0], permanent=True)
     elif len(languages) > 1:
-        return render_to_response('language/index.html', {'languages': languages})
+        return render_to_response('core/language_index.html', {'languages': languages})
     else:
         raise Http404
         
@@ -72,7 +72,7 @@ def family_index(request):
     if order not in ['family', 'count']:
         order = 'family'
     families = Family.objects.annotate(count=Count('language')).order_by(order)
-    return render_to_response('family/index.html', {'families': families})
+    return render_to_response('core/family_index.html', {'families': families})
 
 
 def family_detail(request, family):
@@ -84,5 +84,5 @@ def family_detail(request, family):
     
     f = get_object_or_404(Family, slug=family)
     l = f.language_set.all().order_by(order)
-    return render_to_response('family/detail.html', {'family': f, 'languages':l})
+    return render_to_response('core/family_detail.html', {'family': f, 'languages':l})
 

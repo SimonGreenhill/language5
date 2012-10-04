@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from django.views.generic import TemplateView
 
 from django.contrib import admin
 admin.autodiscover()
@@ -6,23 +7,16 @@ admin.autodiscover()
 from sitemap import FamilySitemap, LanguageSitemap
 
 urlpatterns = patterns('',
+    
+    # Main Index
     url(r'^$',
-        'django.views.generic.simple.direct_to_template',
-        {'template': 'index.html'},
+        TemplateView.as_view(template_name="index.html"),
         name="index"
     ),
     
-    #    (r'^/news/', ) # project news
-    #    (r'^publications/', ''), # publications
-    #    (r'^doc/', ''), # documentation/faq/ etc
-            # -> about
-            # -> links
-            
-    #    (r'^add/', ''), # 
-    
+    # about
     url(r'^about',
-        'django.views.generic.simple.direct_to_template',
-        {'template': 'about.html'},
+        TemplateView.as_view(template_name="about.html"),
         name="about"
     ),
     
@@ -36,7 +30,7 @@ urlpatterns = patterns('',
         'website.apps.core.views.language_detail', 
         name="language-detail"
     ),
-    # redirects to the language page ^
+    # ISO Lookup: redirects to the language page ^
     url(r'^iso/(?P<iso>\w{3})$', 
         'website.apps.core.views.iso_lookup', 
         name="iso-lookup"
@@ -52,6 +46,9 @@ urlpatterns = patterns('',
         'website.apps.core.views.family_detail', 
         name="family-detail"
     ),
+    
+    
+
     
     #   (r'^family/(?P<family>\w+)/word/(?P<word>\w+)', ''), # 
     

@@ -143,6 +143,7 @@ INSTALLED_APPS = [
 
     # website
     'website.apps.core',                 # core functionality
+    'website.apps.lexicon',              # Lexicon
     'website.apps.olac',                 # OLAC utils
 ]
 
