@@ -1,7 +1,5 @@
 from django.test import TestCase
 from django.test.client import Client
-#from core.models import Language, AlternateNames
-
 
 class Test_LanguageIndex(TestCase):
     """Tests the Language Index page"""

@@ -97,7 +97,7 @@ class Language(TrackedModel):
         db_table = 'languages'
 
 
-class AlternateNames(TrackedModel):
+class AlternateName(TrackedModel):
     """Handles languages with multiple names"""
     language = models.ForeignKey('Language')
     name = models.CharField(max_length=64, unique=True, db_index=True,
@@ -113,7 +113,7 @@ class AlternateNames(TrackedModel):
         db_table = 'altnames'
 
 
-class Links(TrackedModel):
+class Link(TrackedModel):
     """Stores links to language appropriate resources"""
     language = models.ForeignKey('Language')
     link = models.URLField(help_text="URL to link")
@@ -127,7 +127,7 @@ class Links(TrackedModel):
         db_table = 'links'
 
 
-class Locations(TrackedModel):
+class Location(TrackedModel):
     language = models.ForeignKey('Language')
     longitude = models.FloatField(help_text="Longitude")
     latitude = models.FloatField(help_text="Latitiude")

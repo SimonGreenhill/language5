@@ -30,7 +30,7 @@
      "slug": "language3"}}, 
 
 
-{"pk": 1, "model": "core.alternatenames", "fields": 
+{"pk": 1, "model": "core.alternatename", "fields": 
     {"added": "2011-09-01T10:20:30Z", "name": "fudge", "language": 1,  
     "editor": 1, "slug": "fudge"}}
 ]

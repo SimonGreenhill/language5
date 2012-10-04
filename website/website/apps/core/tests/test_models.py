@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.test import TestCase
 from website.apps.core.models import Family, Language, Source, Note
-from website.apps.core.models import AlternateNames, Links, Locations
+from website.apps.core.models import AlternateName, Link, Location
 
 class GenericCRUDTestMixin(object):
     """Generic tests of CRUD functionality"""
@@ -130,28 +130,28 @@ class Test_Notes(GenericCRUDTestMixinWithSource, GenericCRUDTestMixinWithLanguag
         
 
 class Test_AlternateNames(GenericCRUDTestMixinWithLanguage, TestCase):
-    """Tests the AlternateNames Model"""
+    """Tests the AlternateName Model"""
     vars = {
         'name': 'NZ Maori',
         'slug': 'nzmaori',
     }
-    model = AlternateNames
+    model = AlternateName
     
 
-class Test_Links(GenericCRUDTestMixinWithLanguage, TestCase):
+class Test_Link(GenericCRUDTestMixinWithLanguage, TestCase):
     """Tests the Links Model"""
     vars = {
         'link': 'http://simon.net.nz',
         'description': 'good website',
     }
-    model = Links
+    model = Link
 
 
 class Test_Locations(GenericCRUDTestMixinWithLanguage, TestCase):
-    """Tests the Locations Model"""
+    """Tests the Location Model"""
     vars = {
         'longitude': 200,
         'latitude': 100,
     }
-    model = Locations
+    model = Location
 

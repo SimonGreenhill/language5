@@ -1,13 +1,13 @@
 from django.contrib import admin
 from reversion.admin import VersionAdmin
-from website.apps.core.models import Language, AlternateNames, Family
-from website.apps.core.models import Links, Locations, Source, Note
+from website.apps.core.models import Language, AlternateName, Family
+from website.apps.core.models import Link, Location, Source, Note
 
 class LanguageAdmin(VersionAdmin):
     ##form = LanguageAdminForm
     list_display = ('language', 'isocode', 'added')
     inlines = []
-    list_filter = ['added',] # ADD FAMILY
+    list_filter = ['added',] # ADD FAMILY?
     date_hierarchy = 'added'
     search_fields = ['language', 'isocode']
     prepopulated_fields = {'slug': ('language', )}
@@ -24,20 +24,20 @@ class NoteAdmin(VersionAdmin):
 class FamilyAdmin(VersionAdmin):
     pass
 
-class AlternateNamesAdmin(VersionAdmin):
+class AlternateNameAdmin(VersionAdmin):
     pass
 
-class LinksAdmin(VersionAdmin):
+class LinkAdmin(VersionAdmin):
     pass
 
-class LocationsAdmin(VersionAdmin):
+class LocationAdmin(VersionAdmin):
     pass
 
 
 admin.site.register(Language, LanguageAdmin)
 admin.site.register(Family, FamilyAdmin)
-admin.site.register(AlternateNames, AlternateNamesAdmin)
-admin.site.register(Links, LinksAdmin)
-admin.site.register(Locations, LocationsAdmin)
+admin.site.register(AlternateName, AlternateNameAdmin)
+admin.site.register(Link, LinkAdmin)
+admin.site.register(Location, LocationAdmin)
 admin.site.register(Source, SourceAdmin)
 admin.site.register(Note, NoteAdmin)

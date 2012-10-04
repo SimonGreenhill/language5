@@ -2,7 +2,7 @@ from django.db.models import Count
 from django.http import Http404
 from django.shortcuts import render_to_response, get_object_or_404, redirect
 
-from website.apps.core.models import Family, Language, AlternateNames
+from website.apps.core.models import Family, Language, AlternateName
 
 def language_index(request):
     "Language Index"
@@ -31,8 +31,8 @@ def language_detail(request, language):
         my_lang = Language.objects.get(slug=language)
         out = {
             'language': my_lang,
-            'alternatenames': my_lang.alternatenames_set.all(),
-            'links': my_lang.links_set.all(),
+            'alternatenames': my_lang.alternatename_set.all(),
+            'links': my_lang.link_set.all(),
         }
         return render_to_response('language/detail.html', out)
     except Language.DoesNotExist:
@@ -40,8 +40,8 @@ def language_detail(request, language):
     
     # If we can find an alternate name, redirect it.
     try:
-        return redirect(AlternateNames.objects.get(slug=language).language, permanent=True)
-    except AlternateNames.DoesNotExist:
+        return redirect(AlternateName.objects.get(slug=language).language, permanent=True)
+    except AlternateName.DoesNotExist:
         pass
     # fail. Doesn't exist so pop out a 404
     raise Http404
