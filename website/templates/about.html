@@ -1,9 +1,14 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
-{% block title %} About. {% endblock %}
+{% block title %} 
+    About {{ sitename }} 
+{% endblock %}
 
 {% block content %}
     <h1>About {{ sitename }}</h1>
+    
+    <p>TODO</p>
     
     <h2>Colophon / Technologies</h2>
     
@@ -15,7 +20,7 @@
         <tr>
             <td class="row">
                 <a href="http://www.unicode.org/">
-                    <img src="{{ STATIC_URL }}img/unicode.png" border="0" alt="Unicode®." title="Unicode®." />
+                    <img src="{% static "img/unicode.png" %}" border="0" alt="Unicode®." title="Unicode®." />
                 </a>
             </td>
             <td>All data are encoded according to the Unicode® Standard.
@@ -24,7 +29,7 @@
         <tr>
             <td class="row">
                 <a href="http://www.djangoproject.com/">
-                    <img src="{{ STATIC_URL }}img/django.gif" border="0" alt="Powered by Django." title="Powered by Django." />
+                    <img src="{% static "img/django.gif" %}" border="0" alt="Powered by Django." title="Powered by Django." />
                 </a>
             </td>
             <td>Django is a high-level Python Web framework that encourages rapid
@@ -35,7 +40,7 @@
         <tr>
             <td style="text-align: center;">
                 <a href="http://twitter.github.com/bootstrap/">
-                    <img src="{{ STATIC_URL }}img/bootstrap.png" border="0" alt="Bootstrap, from Twitter." title="Bootstrap, from Twitter." />
+                    <img src="{% static "img/bootstrap.png" %}" border="0" alt="Bootstrap, from Twitter." title="Bootstrap, from Twitter." />
                 </a>
             </td>
             <td>Bootstrap, from Twitter. Simple and flexible HTML, CSS, and Javascript for popular user 
@@ -46,7 +51,7 @@
         <tr>
             <td>
                 <a href="http://jquery.com/">
-                    <img src="{{ STATIC_URL }}img/jquery.png" border="0" alt="jQuery." title="jQuery." />
+                    <img src="{% static "img/jquery.png" %}" border="0" alt="jQuery." title="jQuery." />
                 </a>
             </td>
             <td>The jQuery Javascript library.</td>
@@ -54,7 +59,7 @@
         <tr>
             <td>
                 <a href="http://www.postgresql.org/">
-                    <img src="{{ STATIC_URL }}img/postgresql.gif" border="0" alt="PostgreSQL." title="PostgreSQL." />
+                    <img src="{% static "img/postgresql.gif" %}" border="0" alt="PostgreSQL." title="PostgreSQL." />
                 </a>
             </td>
             <td>The PostgreSQL open-source relational database engine.</td>
@@ -62,7 +67,7 @@
         <tr>
             <td>
                 <a href="http://www.sqlite.org/">
-                    <img src="{{ STATIC_URL }}img/sqlite.gif" border="0" alt="SQLite." title="SQLite." />
+                    <img src="{% static "img/sqlite.gif" %}" border="0" alt="SQLite." title="SQLite." />
                 </a>
             </td>
             <td>The SQLite open-source relational database engine.</td>

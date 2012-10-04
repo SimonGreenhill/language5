@@ -7,9 +7,6 @@ Language 5
 Todo:
 -----
 
-* add language data
-* add cognate tables
-
 * add title, sitename, description, subject to website meta
 
 * hook up reversion to core
@@ -27,6 +24,8 @@ Todo:
 * add sitemap
 
 * add RSS
+
+* add some content to about.html
 
 Done:
 -----
