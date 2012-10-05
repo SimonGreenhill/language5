@@ -138,15 +138,6 @@ class Test_AlternateNames(GenericCRUDTestMixinWithLanguage, TestCase):
     model = AlternateName
     
 
-class Test_Link(GenericCRUDTestMixinWithLanguage, TestCase):
-    """Tests the Links Model"""
-    vars = {
-        'link': 'http://simon.net.nz',
-        'description': 'good website',
-    }
-    model = Link
-
-
 class Test_Locations(GenericCRUDTestMixinWithLanguage, TestCase):
     """Tests the Location Model"""
     vars = {
