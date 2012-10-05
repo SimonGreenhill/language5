@@ -61,20 +61,46 @@ class Test_Language(TestCase):
         l = Language.objects.get(pk=1)
         l.information = None
         l.save()
-    
+
+
+class Test_LanguageAndFamily(TestCase):
+    """Tests the Language Family Model"""
+    def setUp(self):
+        self.editor = User.objects.create(username='admin')
+        self.lang1 = Language.objects.create(language='A', slug='langa', 
+                                             information='i.1', classification='a, b',
+                                             isocode='aaa', editor=self.editor)
+        self.lang2 = Language.objects.create(language='B', slug='langb',
+                                             information='i.2', classification='c, d, e',
+                                             isocode='bbb', editor=self.editor)
+        self.fam1 = Family.objects.create(family='F', slug='f', editor=self.editor)
+        self.fam2 = Family.objects.create(family='G', slug='g', editor=self.editor)
+        
     def test_adding_family(self):
-        f = Family.objects.create(family='F', slug='f', editor=self.editor)
-        self.lang1.family.add(f)
+        self.lang1.family.add(self.fam1)
         self.lang1.save()
         self.assertEquals(Language.objects.get(pk=self.lang1.id).family.all()[0].family, 'F')
         
     def test_multiple_families(self):
-        f = Family.objects.create(family='F', slug='f', editor=self.editor)
-        g = Family.objects.create(family='G', slug='g', editor=self.editor)
-        self.lang1.family.add(f)
-        self.lang1.family.add(g)
+        self.lang1.family.add(self.fam1)
+        self.lang1.family.add(self.fam2)
         self.lang1.save()
         
         db_obj = Language.objects.get(pk=self.lang1.id)
         self.assertEquals(db_obj.family.all()[0].family, 'F')
         self.assertEquals(db_obj.family.all()[1].family, 'G')
+        
+    def test_finding_language_via_family(self):
+        self.lang1.family.add(self.fam1)
+        self.lang1.save()
+        self.lang2.family.add(self.fam1)
+        self.lang2.save()
+        
+        f = Family.objects.get(pk=self.fam1.id)
+        self.assertEquals(len(f.language_set.all()), 2)
+        assert self.lang1 in f.language_set.all()
+        assert self.lang2 in f.language_set.all()
+        
+        
+        
+        
