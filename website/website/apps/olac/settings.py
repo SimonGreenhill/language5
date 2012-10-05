@@ -6,15 +6,9 @@ from django.conf import settings
 # settings.ADMIN is always set in default settings.py
 # We want to look for DOMAIN and NAME in a Site object.
 
-site = Site.objects.get_current()
-
 # DEFAULT OLAC Settings
 OLAC_SETTINGS = {
-    'oai_url': site.domain,
-    'repositoryName': site.name,
-    'description': site.name,
-    'repositoryIdentifier': site.domain,
-    'baseURL': 'http://%s/oai' % site.domain, # URL to OAI implementation
+    'description': '',
     'adminEmail': settings.ADMINS, 
     'admins': settings.ADMINS,
     'deletedRecord': 'no', # deletedRecord policy

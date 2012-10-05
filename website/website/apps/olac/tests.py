@@ -562,6 +562,7 @@ class Test_GetRecord_metadataPrefix_olac(TestCase):
         self.assertContains(self.response, '<dcterms:extent>4 entries</dcterms:extent>', count=1)
 
 
+@override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
 class TestNoHTML(TestCase):
     """Test that the XML output does not contain html entities."""
     
