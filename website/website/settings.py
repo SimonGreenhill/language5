@@ -4,7 +4,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.split(BASE_DIR)[0]
 
-DEBUG = TEMPLATE_DEBUG = True
+DEBUG = TEMPLATE_DEBUG = False
 
 ADMINS = (
     ('Simon J. Greenhill', 'simon@simon.net.nz'),
@@ -73,7 +73,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(ROOT_DIR, 'static'),
 )
-
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
