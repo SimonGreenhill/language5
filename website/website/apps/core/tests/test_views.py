@@ -76,7 +76,7 @@ class Test_ISOLookup(TestCase):
         # check that /iso/aaa/ is sent to a list of pages.
         response = self.client.get('/iso/aaa')
         self.failUnlessEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'language/index.html')
+        self.assertTemplateUsed(response, 'core/language_index.html')
         self.assertContains(response, 'Language1')
         self.assertContains(response, 'Language2')
         self.assertNotContains(response, 'Language3')
@@ -90,7 +90,7 @@ class Test_ISOLookup(TestCase):
         self.assertContains(response, 'Language3')
         self.assertNotContains(response, 'Language1')
         self.assertNotContains(response, 'Language2')
-        self.assertTemplateUsed(response, 'language/detail.html')
+        self.assertTemplateUsed(response, 'core/language_detail.html')
     
     def test_iso_notfound(self):
         "Test that a non-existant ISO code returns 404 Not Found"

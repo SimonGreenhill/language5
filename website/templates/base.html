@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <title>{% block title %} Language3 {% endblock %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="keywords" content="" /> 
+  <meta name="keywords" content="{{ site.name }}" /> 
   <meta name="description" content="" />
   <meta name="author" content="Simon J. Greenhill">
   
@@ -48,7 +48,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="{% url index %}">Project name</a>
+          <a class="brand" href="{% url index %}">{{ site.name }}</a>
           {% comment %}
           <div class="btn-group pull-right">
             <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
@@ -98,7 +98,7 @@
       </div><!--/row-->
       
       <footer>
-        <p>&copy; 2012. Simon J. Greenhill. </p>
+        <p>&copy; {% now "Y" %}. Simon J. Greenhill. </p>
       </footer>
     </div><!--/.fluid-container-->
     
