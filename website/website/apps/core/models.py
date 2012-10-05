@@ -78,13 +78,12 @@ class Language(TrackedModel):
         help_text="Language Name")
     slug = models.SlugField(max_length=64, unique=True, db_index=True,
         help_text="`Slug` for language (for use in URLS)")
-    isocode = models.CharField(max_length=3, blank=True, db_index=True,
+    isocode = models.CharField(max_length=3, blank=True, null=True, db_index=True,
         help_text="3 character ISO-639-3 Code.")
-    classification = models.TextField(blank=True,
+    classification = models.TextField(blank=True, null=True,
         help_text="Classification String")
-    information = models.TextField(blank=True,
+    information = models.TextField(blank=True, null=True,
         help_text="Information about language")
-    
     
     def __unicode__(self):
         return self.language
