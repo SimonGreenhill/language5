@@ -51,8 +51,8 @@ class Migration(SchemaMigration):
             ('language', self.gf('django.db.models.fields.CharField')(unique=True, max_length=64, db_index=True)),
             ('slug', self.gf('django.db.models.fields.SlugField')(unique=True, max_length=64)),
             ('isocode', self.gf('django.db.models.fields.CharField')(db_index=True, max_length=3, blank=True)),
-            ('classification', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('information', self.gf('django.db.models.fields.TextField')(blank=True)),
+            ('classification', self.gf('django.db.models.fields.TextField')(blank=True, null=True)),
+            ('information', self.gf('django.db.models.fields.TextField')(blank=True, null=True)),
         ))
         db.send_create_signal('core', ['Language'])
 
