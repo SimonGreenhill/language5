@@ -3,6 +3,19 @@ from django.test import TestCase
 
 from website.apps.lexicon.models import Word, WordSubset, Lexeme, Cognate
 
+class Test_Words(TestCase):
+    def test(self):
+        raise NotImplementedError("Not yet implemented.")
+
+class Test_Lexeme(TestCase):
+    def test(self):
+        raise NotImplementedError("Not yet implemented.")
+
+class Test_Cognate(TestCase):
+    def test(self):
+        raise NotImplementedError("Not yet implemented.")
+        
+
 class Test_WordSubset(TestCase):
     def setUp(self):
         self.editor = User.objects.create(username='admin')

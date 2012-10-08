@@ -8,10 +8,10 @@ from django.utils.timezone import utc
 
 from reversion.models import Revision
 
-from website.apps.core.models import Language
-
 from django.conf import settings
 OLAC = settings.OLAC_SETTINGS
+
+from website.apps.core.models import Language as Model
 
 KNOWN_METADATA_PREFIXES = ('olac', 'oai_dc')
 
@@ -187,7 +187,7 @@ def ListIdentifiers(request):
         return Error(request, error_list, out)
         
     
-    languages = Language.objects.all().exclude(isocode__exact="")
+    objects = Model.objects.all().exclude(isocode__exact="")
     
     if 'from' in request.REQUEST:
         out['from'] = request.REQUEST['from']
@@ -195,7 +195,7 @@ def ListIdentifiers(request):
             frm = parse_time(request.REQUEST['from'])
         except (TypeError, ValueError):
             return Error(request, ['badArgument'], out)
-        languages = languages.filter(added__gte=frm)
+        objects = objects.filter(added__gte=frm)
             #         
             # 
             # datetime_published__year=
@@ -210,12 +210,12 @@ def ListIdentifiers(request):
         except (TypeError, ValueError):
             return Error(request, ['badArgument'], out)
             
-        languages = languages.filter(added__lte=until)
+        objects = objects.filter(added__lte=until)
         
-    if len(languages) == 0:
+    if len(objects) == 0:
         return Error(request, ['noRecordsMatch'], out)
         
-    out['object_list'] = languages
+    out['object_list'] = objects
     return render_to_response('olac/ListIdentifiers.xml', out, 
         context_instance=RequestContext(request, {'OLAC': OLAC}), 
                             mimetype="application/xhtml+xml")
@@ -270,8 +270,8 @@ def ListMetadataFormats(request):
             
         isocode, language_id = ident.groups()
         try:
-            Language.objects.get(pk=language_id)
-        except Language.DoesNotExist:
+            Model.objects.get(pk=language_id)
+        except Model.DoesNotExist:
             return Error(request, ['idDoesNotExist'], out)
         return render_to_response('olac/ListMetadataFormats.xml', out, 
                     context_instance=RequestContext(request, {'OLAC': OLAC}), 
@@ -348,7 +348,7 @@ def ListRecords(request):
     if len(error_list) > 0:
         return Error(request, error_list, out)
     
-    languages = Language.objects.all().exclude(isocode__exact="")
+    objects = Model.objects.all().exclude(isocode__exact="")
     
     if 'from' in request.REQUEST:
         out['from'] = request.REQUEST['from']
@@ -356,7 +356,7 @@ def ListRecords(request):
             frm = parse_time(request.REQUEST['from'])
         except (TypeError, ValueError):
             return Error(request, ['badArgument'], out)
-        languages = languages.filter(added__gte=frm)
+        objects = objects.filter(added__gte=frm)
         
     if 'until' in request.REQUEST:
         out['until'] = request.REQUEST['until']
@@ -365,12 +365,12 @@ def ListRecords(request):
         except (TypeError, ValueError):
             return Error(request, ['badArgument'], out)
 
-        languages = languages.filter(added__lte=until)
+        objects = objects.filter(added__lte=until)
 
-    if len(languages) == 0:
+    if len(objects) == 0:
         return Error(request, ['noRecordsMatch'], out)
 
-    out['object_list'] = languages
+    out['object_list'] = objects
     return render_to_response('olac/ListRecords.xml', out, 
         context_instance=RequestContext(request, {'OLAC': OLAC}), 
                             mimetype="application/xhtml+xml")
@@ -434,8 +434,8 @@ def GetRecord(request):
         
     isocode, language_id = ident.groups()
     try:
-        L = Language.objects.get(pk=language_id)
-    except Language.DoesNotExist:
+        L = Model.objects.get(pk=language_id)
+    except Model.DoesNotExist:
         return Error(request, ['idDoesNotExist'], out)
     
     out['object'] = L

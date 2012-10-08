@@ -71,7 +71,7 @@ class TestValidIdentifiers(TestCase):
 @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
 class Test_Identify(TestCase):
     #This verb takes no arguments and returns information about a repository 
-    fixtures = ['testdata.json']
+    fixtures = ['test_core.json']
     
     def setUp(self):
         self.client = Client()
@@ -138,7 +138,7 @@ class Test_ListIdentifiers(TestCase):
     # repository's support for deletions, a returned header may have a status 
     # attribute of "deleted" if a record matching the arguments specified in 
     # the request has been deleted.
-    fixtures = ['testdata.json']
+    fixtures = ['test_core.json']
     
     def setUp(self):
         self.client = Client()
@@ -287,7 +287,7 @@ class Test_ListSets(TestCase):
 @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
 class Test_ListRecords(TestCase):
     """General tests for ListRecords"""
-    fixtures = ['testdata.json']
+    fixtures = ['test_core.json']
     
     def setUp(self):
         self.client = Client()
@@ -353,7 +353,7 @@ class Test_ListRecords(TestCase):
 @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
 class Test_ListRecords_metadataPrefix_oai_dc(TestCase):
     """Test the metadata for the `ListRecords` command under the oai_dc mode"""
-    fixtures = ['testdata.json']
+    fixtures = ['test_core.json']
     
     def setUp(self):
         self.client = Client()
@@ -398,7 +398,7 @@ class Test_ListRecords_metadataPrefix_oai_dc(TestCase):
 @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
 class Test_ListRecords_metadataPrefix_olac(TestCase):
     """Test the metadata for the `ListRecords` command under the olac mode"""
-    fixtures = ['testdata.json']
+    fixtures = ['test_core.json']
 
     def setUp(self):
         self.client = Client()
@@ -446,7 +446,7 @@ class Test_ListRecords_metadataPrefix_olac(TestCase):
 @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
 class Test_GetRecord(TestCase):
     """General tests for GetRecord"""
-    fixtures = ['testdata.json']
+    fixtures = ['test_core.json']
 
     def setUp(self):
         self.client = Client()
@@ -476,7 +476,7 @@ class Test_GetRecord(TestCase):
 @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
 class Test_GetRecord_metadataPrefix_oai_dc(TestCase):
     """Test the metadata for the `GetRecord` command under the oai_dc mode"""
-    fixtures = ['testdata.json']
+    fixtures = ['test_core.json']
     
     def setUp(self):
         self.client = Client()
@@ -518,7 +518,7 @@ class Test_GetRecord_metadataPrefix_oai_dc(TestCase):
 @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
 class Test_GetRecord_metadataPrefix_olac(TestCase):
     """Test the metadata for the `GetRecord` command under the olac mode"""
-    fixtures = ['testdata.json']
+    fixtures = ['test_core.json']
 
     def setUp(self):
         self.client = Client()
@@ -569,7 +569,7 @@ class Test_GetRecord_metadataPrefix_olac(TestCase):
 class TestNoHTML(TestCase):
     """Test that the XML output does not contain html entities."""
     
-    fixtures = ['testdata.json']
+    fixtures = ['test_core.json']
     
     def test_one(self):
         l = Language.objects.get(pk=2)
