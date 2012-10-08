@@ -1,21 +1,8 @@
 from django.contrib.auth.models import User
 from django.test import TestCase
-from website.apps.core.tests.test_models import GenericCRUDTestMixin
-from website.apps.core.tests.test_models import GenericCRUDTestMixinWithLanguage
-from website.apps.core.tests.test_models import GenericCRUDTestMixinWithSource
 
 from website.apps.lexicon.models import Word, WordSubset, Lexeme, Cognate
 
-class Test_Word(GenericCRUDTestMixin, TestCase):
-    """Tests the Word Model"""
-    vars = {
-        'word': 'Hand',
-        'slug': 'hand',
-        'full': 'a body part',
-    }
-    model = Word
-
-    
 class Test_WordSubset(TestCase):
     def setUp(self):
         self.editor = User.objects.create(username='admin')

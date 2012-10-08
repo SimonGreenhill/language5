@@ -6,16 +6,19 @@ from django.test import TestCase
 from django.test.client import Client
 from django.test.utils import override_settings
 from django.conf import settings
+from django.contrib.sites.models import Site
 
 from website.apps.core.models import Language
 
 from views import parse_time
 
-TEST_DOMAIN = 'example.com'
+site = Site.objects.get_current()
+TEST_DOMAIN = site.domain
+
 
 OLAC_SETTINGS = {
     'oai_url': TEST_DOMAIN,
-    'repositoryName': 'repos_name',
+    'repositoryName': site.name,
     'description': 'Generic OLAC repository',
     'repositoryIdentifier': TEST_DOMAIN,
     'baseURL': 'http://%s/oai' % TEST_DOMAIN,
