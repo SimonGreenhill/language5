@@ -59,3 +59,19 @@ class Test_Link(TestCase):
             Link.objects.create(language=self.lang1, link="http://simon.net.nz", 
                                 description=None, editor=self.editor)
     
+    def test_get_all_links_for_language(self):
+        lang = Language.objects.create(language='Test', slug='test',
+                                       isocode='ttt', editor=self.editor)
+        links = [      
+            Link.objects.create(language=lang, link="http://a.com", 
+                                description="A", editor=self.editor),
+            Link.objects.create(language=lang, link="http://b.com", 
+                                description="B", editor=self.editor),
+            Link.objects.create(language=lang, link="http://c.com", 
+                                description="C", editor=self.editor),
+        ]
+        db_links = lang.link_set.all()
+        self.assertEquals(len(db_links), len(links))
+        for db_link in db_links:
+            assert db_link in links
+        

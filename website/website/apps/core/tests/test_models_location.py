@@ -73,4 +73,9 @@ class Test_Location(TestCase):
         with self.assertRaises(ValueError):
             Location.objects.create(language=self.lang1, longitude=90.9, 
                                 latitude='hello', editor=self.editor)
-
+    
+    def test_get_locations_for_language(self):
+        self.assertEquals(len(self.lang1.location_set.all()), 1)
+        self.lang1.location_set.all()[0].latitude = 80.2
+        self.lang1.location_set.all()[0].longitude = 130.1
+        
