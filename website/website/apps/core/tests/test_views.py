@@ -3,7 +3,7 @@ from django.test.client import Client
 
 class Test_LanguageIndex(TestCase):
     """Tests the Language Index page"""
-    fixtures = ['testdata.json']
+    fixtures = ['test_core.json']
     
     def setUp(self):
         self.client = Client()
@@ -24,7 +24,7 @@ class Test_LanguageIndex(TestCase):
 
 class Test_LanguageDetails(TestCase):
     """Tests the Language Details Page"""
-    fixtures = ['testdata.json']
+    fixtures = ['test_core.json']
     
     def setUp(self):
         self.client = Client()
@@ -67,7 +67,7 @@ class Test_ISOLookup(TestCase):
         1 Matching entry - redirect to languages.details page
         >1 Matching entries - show a list of the languages
     """
-    fixtures = ['testdata.json']
+    fixtures = ['test_core.json']
     def setUp(self):
         self.client = Client()
     
@@ -101,7 +101,7 @@ class Test_ISOLookup(TestCase):
 
 class Test_FamilyIndex(TestCase):
     """Tests the family_index view"""
-    fixtures = ['testdata.json']
+    fixtures = ['test_core.json']
     def setUp(self):
         self.client = Client()
     
@@ -120,7 +120,7 @@ class Test_FamilyIndex(TestCase):
         
 class Test_FamilyDetail(TestCase):
     """Tests the family_detail view"""
-    fixtures = ['testdata.json']
+    fixtures = ['test_core.json']
     def setUp(self):
         self.client = Client()
     
