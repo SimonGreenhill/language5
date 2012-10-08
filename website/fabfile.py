@@ -1,10 +1,14 @@
 
 from fabric.api import local
 
-def test():
+def test(app=None):
     """Runs tests"""
-    local("python manage.py test")
-
+    if app is not None:
+        local("python manage.py test website.apps.%s" % app)
+    else:
+        local("python manage.py test")
+        
+        
 def lint():
     """Runs pyflakes"""
     local("pyflakes .")
