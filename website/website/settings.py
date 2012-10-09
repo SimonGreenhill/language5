@@ -4,7 +4,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.split(BASE_DIR)[0]
 
-DEBUG = TEMPLATE_DEBUG = False
+DEBUG = TEMPLATE_DEBUG = True
 
 ADMINS = (
     ('Simon J. Greenhill', 'simon@simon.net.nz'),
@@ -115,6 +115,7 @@ TEMPLATE_DIRS = (
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.request",
     "django.contrib.auth.context_processors.auth",
     "website.apps.core.context_processors.InjectSettings",
 )
@@ -139,7 +140,8 @@ INSTALLED_APPS = [
     'reversion',            # reversion: object version control.
     'robots',               # django-robots: robots.txt handling
     'djangosecure',         # django-secure: Security helper
-
+    'django_tables2',       # django-tables2: tables helper
+    
     # website
     'website.apps.core',                 # core functionality
     'website.apps.lexicon',              # Lexicon

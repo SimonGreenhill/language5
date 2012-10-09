@@ -1,21 +1,58 @@
 from django.db.models import Count
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404, redirect
+from django.core.urlresolvers import reverse
+from django.views.generic import DetailView
 
-from website.apps.core.models import Family, Language, AlternateName
+from website.apps.core.models import Family, Language, AlternateName, Source
 
-def language_index(request):
-    "Language Index"
+from django_tables2 import SingleTableView
+from website.apps.core.tables import LanguageIndexTable, SourceIndexTable, FamilyIndexTable
+
+
+class LanguageIndex(SingleTableView):
+    """Language Index"""
+    model = Language
+    template_name = 'core/language_index.html'
+    table_class = LanguageIndexTable
+    table_pagination = {"per_page": 50}
+
+
+class SourceIndex(SingleTableView):
+    """Source Index"""
+    model = Source
+    template_name = 'core/source_index.html'
+    table_class = SourceIndexTable
+    table_pagination = {"per_page": 50}
+
+
+class FamilyIndex(SingleTableView):
+    """Family Index"""
+    model = Family
+    template_name = 'core/family_index.html'
+    table_class = FamilyIndexTable
+    table_pagination = {"per_page": 50}
     
-    # handle table sorting.
-    order = request.GET.get('order', 'language')
-    if order not in ['language', 'isocode', 'family']:
-        order = 'language'
+    def get_queryset(self):
+        return Family.objects.annotate(count=Count('language'))
+
+
+class SourceDetail(DetailView):
+    """Source Detail"""
+    model = Source
+    template_name = 'core/source_detail.html'
     
-    languages = Language.objects.all().select_related('family__family', 'family__slug')
-    languages = languages.defer('information', 'classification')
-    languages = languages.order_by(order)
-    return render(request, 'core/language_index.html', {'languages': languages})
+
+class FamilyDetail(DetailView):
+    """Family Detail"""
+    model = Family
+    template_name = 'core/family_detail.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super(FamilyDetail, self).get_context_data(**kwargs)
+        context['languages'] = LanguageIndexTable(kwargs['object'].language_set.all())
+        return context
+
 
 def language_detail(request, language):
     """
@@ -64,25 +101,4 @@ def iso_lookup(request, iso):
     else:
         raise Http404
         
-
-def family_index(request):
-    """Family Index"""
-    # sort out ordering
-    order = request.GET.get('order', 'family')
-    if order not in ['family', 'count']:
-        order = 'family'
-    families = Family.objects.annotate(count=Count('language')).order_by(order)
-    return render(request, 'core/family_index.html', {'families': families})
-
-
-def family_detail(request, family):
-    """Show Family Details"""
-    # sort out ordering
-    order = request.GET.get('order', 'name')
-    if order not in ['language', 'count', 'isocode']:
-        order = 'language'
-    
-    f = get_object_or_404(Family, slug=family)
-    l = f.language_set.all().order_by(order)
-    return render(request, 'core/family_detail.html', {'family': f, 'languages':l})
 
