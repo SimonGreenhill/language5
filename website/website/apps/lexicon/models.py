@@ -27,9 +27,8 @@ class Word(TrackedModel):
     def __unicode__(self):
         return self.slug
         
-    # def get_absolute_url(self):
-    #     return reverse('website.apps.core.views.source_detail', args=[self.slug])
-    # 
+    def get_absolute_url(self):
+        return reverse('website.apps.lexicon.views.word_detail', args=[self.slug])
     
     class Meta:
         db_table = 'words'
@@ -48,9 +47,9 @@ class WordSubset(TrackedModel):
     def __unicode__(self):
         return self.slug
 
-    # def get_absolute_url(self):
-    #     return reverse('website.apps.core.views.source_detail', args=[self.slug])
-    # 
+    def get_absolute_url(self):
+        return reverse('website.apps.lexicon.views.subset_detail', args=[self.slug])
+    
 
     class Meta:
         db_table = 'wordsubset'
@@ -81,9 +80,9 @@ class Cognate(TrackedModel):
     quality = models.CharField(default=0, max_length=1, choices=COGNATE_QUALITY,
             help_text="The quality of this cognate set.")
     
-    # def get_absolute_url(self):
-    #     return reverse('website.apps.core.views.source_detail', args=[self.slug])
-    # 
+    def get_absolute_url(self):
+        return reverse('website.apps.lexicon.views.cognate_detail', args=[self.id])
+    
     
     def __unicode__(self):
         return self.id
