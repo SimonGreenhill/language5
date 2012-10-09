@@ -12,7 +12,7 @@ from website.apps.core.views import FamilyIndex, FamilyDetail
 # from website.apps.lexicon.views import CognateIndex, CognateDetail
 # from website.apps.lexicon.views import SubsetIndex, SubsetDetail
 
-from sitemap import FamilySitemap, LanguageSitemap
+from sitemap import FamilySitemap, LanguageSitemap, SourceSitemap, WordSitemap
 
 urlpatterns = patterns('',
     # Main Page / Home
@@ -81,11 +81,17 @@ urlpatterns = patterns('',
     # search page
     #    (r'^search/', ''), #
     
-    # plumbing (sitemap, robots.txt)
+    # Sitemap
     (r'^sitemap\.xml$', 
            'django.contrib.sitemaps.views.sitemap', 
-           {'sitemaps': {'families': FamilySitemap, 'languages': LanguageSitemap}}
+           {'sitemaps': {
+                'families': FamilySitemap, 
+                'languages': LanguageSitemap,
+                'sources': SourceSitemap,
+                'words': WordSitemap,
+           }}
        ),
+    # Robots.txt
     (r'^robots\.txt$', include('robots.urls')),
     
     # OAI:

@@ -12,3 +12,4 @@ class WordIndex(SingleTableView):
     template_name = 'lexicon/word_index.html'
     table_class = WordIndexTable
     table_pagination = {"per_page": 50}
+

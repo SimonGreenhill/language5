@@ -23,7 +23,7 @@ class FamilySitemap(Sitemap):
     def lastmod(self, obj):
         return obj.added
 
-class FamilySitemap(Sitemap):
+class SourceSitemap(Sitemap):
     changefreq = "weekly"
     priority = 0.5
 
