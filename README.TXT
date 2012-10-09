@@ -5,10 +5,9 @@ Todo:
 -----
 
 core/ 
-    tng.website:  [core] refactor list views
-    tng.website:  [core] refactor views
-    tng.website:  [core] implement source_detail view
-    
+    tng.website:  [core] update language-detail view to include lexicon
+    tng.website:  [core] tests for source-list, source-detail
+
 lexicon/
     tng.website:  [lexicon] Implement lexicon app
     tng.website:  [lexicon] add counts of lexicon to core/views/LanguageIndexTable
