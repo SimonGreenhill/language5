@@ -10,7 +10,9 @@
     </div>
     
     {% if message %}
-        <p class="text-warning">{{ message }}</p>
+        <div class="alert">
+            <p>{{ message }}</p>
+        </div>
     {% endif %}
     
     {% if table %}
