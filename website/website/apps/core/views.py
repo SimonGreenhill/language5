@@ -53,7 +53,6 @@ class FamilyDetail(DetailView):
         context['languages'] = LanguageIndexTable(kwargs['object'].language_set.all())
         return context
 
-
 def language_detail(request, language):
     """
     Show Language Details
@@ -97,7 +96,10 @@ def iso_lookup(request, iso):
     if len(languages) == 1:
         return redirect(languages[0], permanent=True)
     elif len(languages) > 1:
-        return render(request, 'core/language_index.html', {'languages': languages})
+        return render(request, 'core/language_index.html', 
+                                    {'table': LanguageIndexTable(languages),
+                                     'message': "Multiple Languages found for ISO code %s" % iso, 
+                                    })
     else:
         raise Http404
         
