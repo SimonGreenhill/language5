@@ -8,6 +8,10 @@ from website.apps.core.views import LanguageIndex
 from website.apps.core.views import SourceIndex, SourceDetail
 from website.apps.core.views import FamilyIndex, FamilyDetail
 
+# from website.apps.lexicon.views import WordIndex, WordDetail
+# from website.apps.lexicon.views import CognateIndex, CognateDetail
+# from website.apps.lexicon.views import SubsetIndex, SubsetDetail
+
 from sitemap import FamilySitemap, LanguageSitemap
 
 urlpatterns = patterns('',
@@ -16,6 +20,10 @@ urlpatterns = patterns('',
     
     # About
     url(r'^about', TemplateView.as_view(template_name="about.html"), name="about"),
+    
+    # ------------------------------------------------------------------------ #
+    # Core
+    # ------------------------------------------------------------------------ #
     
     # Language-Index: Show all languages
     url(r'^language/$', LanguageIndex.as_view(), name="language-index"),
@@ -26,46 +34,52 @@ urlpatterns = patterns('',
     # Family-Index: Show all families
     url(r'^family/$', FamilyIndex.as_view(), name="family-index"),
     
-    # Show the given language
+    # Language-Detail: Show the given language
     url(r'^language/(?P<language>.+)$', 
         'website.apps.core.views.language_detail', 
         name="language-detail"
     ),
     
-    # Show the given family
+    # Source-Detail: Show the given source
+    url(r'^source/(?P<slug>.+)$', SourceDetail.as_view(), name="source-detail"),
+
+    # Family-Detail: Show the given family
     url(r'^family/(?P<slug>.+)$', FamilyDetail.as_view(), name="family-detail"),
-    
-    # ISO Lookup: redirects to the language page ^
+
+    # ISO Lookup: redirects to the language page
     url(r'^iso/(?P<iso>\w{3})$', 
         'website.apps.core.views.iso_lookup', 
         name="iso-lookup"
     ),
     
-    # Show the given source
-    url(r'^source/(?P<slug>.+)$', SourceDetail.as_view(), name="source-detail"),
-
+    # ------------------------------------------------------------------------ #
+    # Lexicon
+    # ------------------------------------------------------------------------ #
     
-    #   (r'^family/(?P<family>\w+)/word/(?P<word>\w+)', ''), # 
+    # Word-Index: Show all words
+    #url(r'^word/$', WordIndex.as_view(), name="word-index"),
     
-    # words
-    #    (r'^word/(?P<word>\w+)', ''), # 
-    #    (r'^word/(?P<word>\w+)/(?P<cognate\w+)', '')
+    # Word-Detail: Show the given word
+    #url(r'^word/(?P<slug>.+)$', WordDetail.as_view(), name="word-detail"),
     
+    # Cognate-Index: Show all cognates
+    #url(r'^cognate/$', CognateIndex.as_view(), name="cognate-index"),
+    
+    # Cognate-Detail: Show the given cognate set
+    #url(r'^cognate/(?P<id>\d+)$', CognateDetail.as_view(), name="cognate-detail"),
+    
+    # Subset-Index: Show all word subsets
+    #url(r'^cognate/$', SubsetIndex.as_view(), name="subset-index"),
+    
+    # Subset-Detail: Show the given word subset
+    #url(r'^cognate/(?P<id>\d+)$', SubsetDetail.as_view(), name="subset-detail"),
+    
+    
+    # ------------------------------------------------------------------------ #
+    # Misc
+    # ------------------------------------------------------------------------ #
     # search page
     #    (r'^search/', ''), #
-    
-    # classification pages
-    #    (r'^classification/', ''), # 
-    #    (r'^classification/(?P<node>.*)', ''), # 
-    
-    # files
-    #    (r'^files/(?P<filename>.*)', ''), # download file.
-    
-    # feeds
-    #    (r'^feeds/', ''), 
-    #    (r'^feeds/wordaday', ''),
-    #    (r'^feeds/changes', ''),
-    #    (r'^feeds/changes/(?P<language>\w+)', ''),
     
     # plumbing (sitemap, robots.txt)
     (r'^sitemap\.xml$', 
