@@ -68,7 +68,7 @@ class Family(TrackedModel):
     
     class Meta:
         db_table = 'families'
-    
+        verbose_name_plural = 'families'
     
 
 class Language(TrackedModel):
