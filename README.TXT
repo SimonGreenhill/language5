@@ -23,8 +23,6 @@ lexicon/
     
 misc:
     tng.website:   [misc] test reversion works
-    tng.website:   [misc] add title, sitename, description, subject to website meta
     tng.website:   [misc] sitemaps: https://docs.djangoproject.com/en/dev/ref/contrib/sitemaps/
-    tng.website:   [misc] add keywords
     tng.website:   [misc] add some content to about.html
     tng.website:   [misc] implement search (https://github.com/etianen/django-watson)

@@ -10,6 +10,8 @@ ADMINS = (
     ('Simon J. Greenhill', 'simon@simon.net.nz'),
 )
 
+SITE_DESCRIPTION = "New Guinea Language Database"
+
 MANAGERS = ADMINS
 
 DATABASES = {
