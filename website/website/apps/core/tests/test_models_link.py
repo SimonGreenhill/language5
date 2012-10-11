@@ -20,11 +20,11 @@ class Test_Link(TestCase):
         self.assertEquals(Link.objects.get(pk=1).language, self.lang1)
         self.assertEquals(Link.objects.get(pk=2).language, self.lang2)
         
-    def test_set_link(self):
+    def test_set_link1(self):
         self.assertEquals(Link.objects.get(pk=1).link, 'http://simon.net.nz')
         self.assertEquals(Link.objects.get(pk=2).link, 'http://transnewguinea.org')
     
-    def test_set_link(self):
+    def test_set_link2(self):
         self.assertEquals(Link.objects.get(pk=1).description, 'My Website')
         self.assertEquals(Link.objects.get(pk=2).description, 'TNG.org')
         

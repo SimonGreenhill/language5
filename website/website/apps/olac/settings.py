@@ -1,5 +1,4 @@
 import re
-from django.contrib.sites.models import Site
 from django.conf import settings
 # DEFAULT OLAC Settings
 OLAC_SETTINGS = {

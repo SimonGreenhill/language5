@@ -1,7 +1,6 @@
 from django.db.models import Count
 from django.http import Http404
-from django.shortcuts import render, get_object_or_404, redirect
-from django.core.urlresolvers import reverse
+from django.shortcuts import render, redirect
 from django.views.generic import DetailView
 
 from website.apps.core.models import Family, Language, AlternateName, Source
