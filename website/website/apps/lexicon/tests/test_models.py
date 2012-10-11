@@ -5,8 +5,9 @@ from django.db import IntegrityError
 
 from website.apps.core.models import Language, Source
 
-from website.apps.lexicon.models import Word, WordSubset, Lexicon, Cognate
-from website.apps.lexicon.models import Correspondence, Rule
+from website.apps.lexicon.models import Word, WordSubset, Lexicon
+from website.apps.lexicon.models import CognateSet, Cognate
+from website.apps.lexicon.models import CorrespondenceSet, Correspondence
 
 class TestSetup(object):
     """Mixin for test data"""
@@ -216,12 +217,94 @@ class Test_Lexicon(TestSetup, TestCase):
         o = Lexicon.objects.get(entry=entry)
 
 
-class Test_Cognate(TestCase):
-    def test(self):
-        raise NotImplementedError("Not yet implemented.")
+class Test_CognateSet(TestSetup, TestCase):
+    
+    def test_create(self):
+        CognateSet.objects.create(label="PPN *foo", source=self.source1, 
+            comment="", quality=0, editor=self.editor)
+    
+    def test_label_can_be_empty(self):
+        CognateSet.objects.create(label=None, source=self.source1, 
+            comment="", quality=0, editor=self.editor)
+        
+    def test_source_can_be_empty(self):
+        CognateSet.objects.create(label="PPN *foo", source=None, 
+            comment="", quality=0, editor=self.editor)
+        
+    def test_comment_can_be_empty(self):
+        CognateSet.objects.create(label="PPN *foo", source=self.source1, 
+            comment=None, quality=0, editor=self.editor)
+    
+    def test_get_all_cognates_for_cognateset(self):
+        cog = CognateSet.objects.create(label="PPN *foo", source=self.source1, 
+            comment="", quality=0, editor=self.editor)
+        c1 = Cognate.objects.create(lexicon=self.lexicon1, cognateset=cog, 
+            source=self.source1, editor=self.editor)
+        c2 = Cognate.objects.create(lexicon=self.lexicon2, cognateset=cog, 
+            source=self.source1, editor=self.editor)
+        
+        assert c1 in cog.cognate_set.all()
+        assert c2 in cog.cognate_set.all()
+        assert len(cog.cognate_set.all()) == 2
+        
+    
+class Test_Cognate(TestSetup, TestCase):
+    
+    def test_create(self):
+        cog = CognateSet.objects.create(label="PPN *foo", source=self.source1, 
+            comment="", quality=0, editor=self.editor)
+        c1 = Cognate.objects.create(lexicon=self.lexicon1, cognateset=cog, 
+            source=self.source1, editor=self.editor)
+        c2 = Cognate.objects.create(lexicon=self.lexicon2, cognateset=cog, 
+            source=self.source1, editor=self.editor)
+        
+    def test_source_can_be_empty(self):
+        cog = CognateSet.objects.create(label="PPN *foo", source=self.source1, 
+            comment="", quality=0, editor=self.editor)
+        c1 = Cognate.objects.create(lexicon=self.lexicon1, cognateset=cog, 
+            source=None, editor=self.editor)
+        
+    def test_comment_can_be_empty(self):
+        cog = CognateSet.objects.create(label="PPN *foo", source=self.source1, 
+            comment="", quality=0, editor=self.editor)
+        c1 = Cognate.objects.create(lexicon=self.lexicon1, cognateset=cog, 
+            source=self.source1, comment=None, editor=self.editor)
+    
 
-
-class Test_Correspondence(TestCase):
-    # and Rules!
-    def test(self):
-        raise NotImplementedError("Not yet implemented.")
+class Test_CorrespondenceSet(TestSetup, TestCase):
+    def test_create(self):
+        CorrespondenceSet.objects.create(source=self.source1, comment="", 
+            editor=self.editor)
+    
+    def test_source_can_be_empty(self):
+        CorrespondenceSet.objects.create(source=None, comment="", 
+            editor=self.editor)
+        
+    def test_comment_can_be_empty(self):
+        CorrespondenceSet.objects.create(source=self.source1, comment=None, 
+            editor=self.editor)
+    
+    def test_get_all_correspondences_for_correspondenceset(self):
+        corr = CorrespondenceSet.objects.create(source=self.source1, comment="", 
+            editor=self.editor)
+        
+        # Wherever language 1 has a p, language 2 has an f (L1 p > L2 f)
+        c1 = Correspondence.objects.create(language=self.lang1, corrset=corr, rule="p",
+            editor=self.editor)
+        c2 = Correspondence.objects.create(language=self.lang2, corrset=corr, rule="f",
+            editor=self.editor)
+            
+        assert c1 in corr.correspondence_set.all()
+        assert c2 in corr.correspondence_set.all()
+        assert len(corr.correspondence_set.all()) == 2
+        
+    
+class Test_Correspondence(TestSetup, TestCase):
+    def test_create(self):
+        corr = CorrespondenceSet.objects.create(source=self.source1, comment="", 
+            editor=self.editor)
+        Correspondence.objects.create(language=self.lang1, corrset=corr, rule="p",
+            editor=self.editor)
+    
+    
+    

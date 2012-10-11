@@ -5,7 +5,7 @@ from website.apps.core.models import TrackedModel
 
 
 
-COGNATE_QUALITY = (
+COGNATESET_QUALITY = (
     (0, 'Unassessed'),
     (1, 'Published'),
     (2, 'Accepted'),
@@ -13,6 +13,13 @@ COGNATE_QUALITY = (
     (9, 'Problematic'),
 )
 
+COGNATE_QUALITY = (
+    (0, 'Unassessed'),
+    (1, 'Published'),
+    (2, 'Accepted'),
+    # space for more..
+    (9, 'Problematic'),
+)
 
 
 class Word(TrackedModel):
@@ -83,44 +90,60 @@ class Lexicon(TrackedModel):
         db_table = 'lexicon'
 
 
-
-class Cognate(TrackedModel):
-    """Cognacy Judgements"""
-    lexeme = models.ManyToManyField('Lexicon')
+class CognateSet(TrackedModel):
+    """Cognate Sets"""
+    label = models.CharField(max_length=32, blank=True, null=True)
     source = models.ForeignKey('core.Source', 
         null=True, blank=True)
     comment = models.TextField(blank=True, null=True,
-        help_text="Comment about this Cognate set")
-    quality = models.CharField(default=0, max_length=1, choices=COGNATE_QUALITY,
+        help_text="Comment about this cognate set")
+    quality = models.CharField(default=0, max_length=1, choices=COGNATESET_QUALITY,
             help_text="The quality of this cognate set.")
+    lexicon = models.ManyToManyField('Lexicon', through='Cognate')
     
     def get_absolute_url(self):
         return reverse('website.apps.lexicon.views.cognate_detail', args=[self.id])
     
+    def __unicode__(self):
+        return "%d. %s" % (self.id, self.label)
+    
+    class Meta:
+        db_table = 'cognatesets'
+    
+
+class Cognate(TrackedModel):
+    """Cognacy Judgements"""
+    lexicon = models.ForeignKey('Lexicon')
+    cognateset = models.ForeignKey('CognateSet')
+    source = models.ForeignKey('core.Source', 
+        null=True, blank=True)
+    comment = models.TextField(blank=True, null=True,
+        help_text="Comment about this Cognate set")
+    flag = models.CharField(default=0, max_length=1, choices=COGNATE_QUALITY,
+            help_text="The quality of this cognate.")
     
     def __unicode__(self):
-        return self.id
+        return u"%d.%d" % (self.cognateset_id, self.id)
     
     class Meta:
         db_table = 'cognates'
 
 
-
-class Correspondence(TrackedModel):
+class CorrespondenceSet(TrackedModel):
     """Sound Correspondence Sets"""
-    language = models.ManyToManyField('core.Language', through='Rule')
+    language = models.ManyToManyField('core.Language', through='Correspondence')
     source = models.ForeignKey('core.Source', blank=True, null=True)
     comment = models.TextField(blank=True, null=True, help_text="Notes")
     
     class Meta:
-        db_table = 'correspondences'
+        db_table = 'corrsets'
 
 
-class Rule(TrackedModel):
+class Correspondence(TrackedModel):
     """Sound Correspondence Rules"""
     language = models.ForeignKey('core.Language')
-    group = models.ForeignKey(Correspondence)
+    corrset = models.ForeignKey('CorrespondenceSet')
     rule = models.CharField(max_length=5)
     
     class Meta:
-        db_table = 'corrrules'
+        db_table = 'correspondences'

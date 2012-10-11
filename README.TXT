@@ -9,7 +9,6 @@ core/
     tng.website:  [core] tests for source-list, source-detail views
 
 lexicon/
-    tng.website:  [lexicon] Implement lexicon app
     tng.website:  [lexicon] add counts of lexicon to core/views/LanguageIndexTable
     tng.website:  [lexicon] implement word view (word_index)
     tng.website:  [lexicon] implement word view (word_detail)
@@ -17,8 +16,6 @@ lexicon/
     tng.website:  [lexicon] implement word subset list (subset_index)
     tng.website:  [lexicon] implement cognate view (cognate_detail)
     tng.website:  [lexicon] implement cognate list (cognate_index)
-    tng.website:  [lexicon] tests for lexicon models: cognate
-    tng.website:  [lexicon] tests for lexicon models: lexeme
     tng.website:  [lexicon] core/source_detail lists all resources provided.
     
 misc:
