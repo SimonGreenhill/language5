@@ -26,6 +26,7 @@ DATABASES = {
 
 # Site details
 SITE_ID = 1
+SITE_NAME = SITE_DOMAIN = 'transnewguinea.org'
 SITE_DESCRIPTION = "New Guinea Language Database"
 
 # Local time zone for this installation. Choices can be found here:
