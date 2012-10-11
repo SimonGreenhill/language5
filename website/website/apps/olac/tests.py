@@ -5,25 +5,26 @@ from unittest import expectedFailure
 from django.test import TestCase
 from django.test.client import Client
 from django.test.utils import override_settings
-from django.conf import settings
-from django.contrib.sites.models import Site
 
 from website.apps.core.models import Language
 
-from views import parse_time
+from views import parse_time, check_ident
 
-site = Site.objects.get_current()
-TEST_DOMAIN = site.domain
-
+TEST_DOMAIN = 'myolacsite.com'
+TEST_SITENAME = 'My Olac Site'
+TEST_ADMINS = [('Bob. G. Admin', 'bob@example.com')]
 
 OLAC_SETTINGS = {
+    'sitename': TEST_SITENAME,
+    'repositoryName': TEST_SITENAME,
+    'sitedomain': TEST_DOMAIN,
     'oai_url': TEST_DOMAIN,
-    'repositoryName': site.name,
-    'description': 'Generic OLAC repository',
     'repositoryIdentifier': TEST_DOMAIN,
     'baseURL': 'http://%s/oai' % TEST_DOMAIN,
+    'description': 'Generic OLAC repository',
     'adminEmail': ['bob@example.com'],
-    'admins': [('Bob. G. Admin', 'bob@example.com')],
+    'admins': TEST_ADMINS,
+    'depositor': TEST_ADMINS,
     'deletedRecord': 'no', # deletedRecord policy
     'protocolVersion': '2.0', # the version of the OAI-PMH supported by the repository;
     '_identifier': re.compile(r"""oai:%s:(\w{3})\.(\d+)""" % TEST_DOMAIN.replace(".", "\.")),
@@ -31,7 +32,6 @@ OLAC_SETTINGS = {
     'institutionURL': 'http://example.com',
     'shortLocation': 'Auckland, New Zealand',
 }
-OLAC_SETTINGS['depositor'] = OLAC_SETTINGS['admins']
 
 def url(token):
     return 'http://%s/language/%s' % (TEST_DOMAIN, token)
@@ -46,6 +46,21 @@ class TestDateTimeParsing(TestCase):
         assert t.month == 01
         assert t.day == 01
         
+
+@override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
+class TestSiteNameSetProperly(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.response = self.client.get('/oai/?verb=Identify')
+        
+    def test_sitename(self):
+        self.assertEquals(TEST_SITENAME, self.response.context['OLAC']['sitename'])
+        self.assertEquals(OLAC_SETTINGS['sitename'], self.response.context['OLAC']['sitename'])
+        
+    def test_sitedomain(self):
+        self.assertEquals(TEST_DOMAIN, self.response.context['OLAC']['sitedomain'])
+        self.assertEquals(OLAC_SETTINGS['sitedomain'], self.response.context['OLAC']['sitedomain'])
+
 
 @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
 class TestValidIdentifiers(TestCase):
@@ -66,6 +81,12 @@ class TestValidIdentifiers(TestCase):
         assert self.pattern.match('oai:%s:mri.75' % TEST_DOMAIN)
         assert self.pattern.match('oai:%s:mri.75' % TEST_DOMAIN).groups()[0] == 'mri'
         assert self.pattern.match('oai:%s:mri.75' % TEST_DOMAIN).groups()[1] == '75'
+        
+    def test_check_ident(self):
+        assert check_ident('oai:%s:aaa.1' % TEST_DOMAIN)
+        assert check_ident('oai:%s:aaa.1' % TEST_DOMAIN).groups()[0] == 'aaa'
+        assert check_ident('oai:%s:aaa.1' % TEST_DOMAIN).groups()[1] == '1'
+
 
 
 @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
@@ -480,7 +501,7 @@ class Test_GetRecord_metadataPrefix_oai_dc(TestCase):
     
     def setUp(self):
         self.client = Client()
-        id = 'oai:xxx:aaa.1'
+        id = 'oai:%s:aaa.1' % TEST_DOMAIN
         self.response = self.client.get('/oai/?verb=GetRecord&metadataPrefix=oai_dc&identifier=%s' % id)
     
     def test_oai_dc(self):
@@ -522,7 +543,7 @@ class Test_GetRecord_metadataPrefix_olac(TestCase):
 
     def setUp(self):
         self.client = Client()
-        id = 'oai:%s:bbb.2'
+        id = 'oai:%s:bbb.2' % TEST_DOMAIN
         self.response = self.client.get('/oai/?verb=GetRecord&metadataPrefix=olac&identifier=%s' % id)
     
     def test_olac(self):

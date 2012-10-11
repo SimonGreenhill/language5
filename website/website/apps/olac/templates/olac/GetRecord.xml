@@ -17,14 +17,14 @@
             {% ifequal metadataPrefix 'oai_dc' %}
                 <metadata>
                     <oai_dc:dc xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dc="http://purl.org/dc/elements/1.1/">
-                        <dc:title>{{ site.name }} Resources for {{ object.language }}</dc:title>
+                        <dc:title>{{ OLAC.sitename }} Resources for {{ object.language }}</dc:title>
                         {% for d in OLAC.depositor %}
                             <dc:contributor>{{ d.0 }}</dc:contributor>
                         {% endfor %}
-                        <dc:description>Vocabulary for {{ object.language }} in {{ site.name }}</dc:description>
-                        <dc:publisher>{{ site.name }} ({{ site.domain }})</dc:publisher>
+                        <dc:description>Vocabulary for {{ object.language }} in {{ OLAC.sitename }}</dc:description>
+                        <dc:publisher>{{ OLAC.sitename }} ({{ OLAC.sitedomain }})</dc:publisher>
                         <dc:date xsi:type="dcterms:W3CDTF">{{ last_update|date:"Y-m-d" }}</dc:date>
-                        <dc:identifier xsi:type="dcterms:URI">http://{{ site.domain }}{{ object.get_absolute_url }}</dc:identifier>
+                        <dc:identifier xsi:type="dcterms:URI">http://{{ OLAC.sitedomain }}{{ object.get_absolute_url }}</dc:identifier>
                         <dc:type xsi:type="dcterms:DCMIType">Text</dc:type>
                     </oai_dc:dc>
                 </metadata>
@@ -34,16 +34,16 @@
             {% ifequal metadataPrefix 'olac' %}
                 <metadata>
                     <olac:olac xsi:schemaLocation="http://www.language-archives.org/OLAC/1.1/ http://www.language-archives.org/OLAC/1.1/olac.xsd" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:olac="http://www.language-archives.org/OLAC/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dc="http://purl.org/dc/elements/1.1/">
-                        <dc:title>{{ site.name }} Resources for {{ object.language }}</dc:title>
+                        <dc:title>{{ OLAC.sitename }} Resources for {{ object.language }}</dc:title>
                         {% for d in OLAC.depositor %}
                             <dc:contributor xsi:type="olac:role" olac:code="editor">{{ d.0 }}</dc:contributor>
                         {% endfor %}
-                        <dc:description>Vocabulary for {{ object.language }} in {{ site.name }}</dc:description>
-                        <dc:publisher>{{ site.name }} ({{ site.domain }})</dc:publisher>
+                        <dc:description>Vocabulary for {{ object.language }} in {{ OLAC.sitename }}</dc:description>
+                        <dc:publisher>{{ OLAC.sitename }} ({{ OLAC.sitedomain }})</dc:publisher>
                         <dc:language xsi:type="olac:language" olac:code="eng" />
                         <dc:subject xsi:type="olac:language" olac:code="{{ object.isocode }}">{{ object.language }}</dc:subject>
                         <dc:date xsi:type="dcterms:W3CDTF">{{ last_update|date:"Y-m-d" }}</dc:date>
-                        <dc:identifier xsi:type="dcterms:URI">http://{{ site.domain }}{{ object.get_absolute_url }}</dc:identifier>
+                        <dc:identifier xsi:type="dcterms:URI">http://{{ OLAC.sitedomain }}{{ object.get_absolute_url }}</dc:identifier>
                         <dc:type xsi:type="dcterms:DCMIType">Text</dc:type>
                         <dc:type xsi:type="olac:linguistic-type" olac:code="lexicon"/>
                         <dcterms:extent>{{ object.entry_set.count }} entries</dcterms:extent>

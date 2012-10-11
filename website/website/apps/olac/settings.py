@@ -1,13 +1,10 @@
 import re
 from django.contrib.sites.models import Site
 from django.conf import settings
-
-# handle defaults gracefully.
-# settings.ADMIN is always set in default settings.py
-# We want to look for DOMAIN and NAME in a Site object.
-
 # DEFAULT OLAC Settings
 OLAC_SETTINGS = {
+    'sitename': '',
+    'sitedomain': '',
     'description': '',
     'adminEmail': settings.ADMINS, 
     'admins': settings.ADMINS,

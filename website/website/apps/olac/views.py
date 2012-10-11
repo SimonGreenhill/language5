@@ -5,11 +5,9 @@ from datetime import datetime
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.utils.timezone import utc
+from django.conf import settings
 
 from reversion.models import Revision
-
-from django.conf import settings
-OLAC = settings.OLAC_SETTINGS
 
 from website.apps.core.models import Language as Model
 
@@ -25,6 +23,9 @@ ERRORS = {
     'noMetadataFormats': 'There are no metadata formats available for the specified item.',
     'noSetHierarchy': 'The repository does not support sets.'
 }
+
+def check_ident(ident):
+    return settings.OLAC_SETTINGS['_identifier'].match(ident)
 
 def parse_time(timestamp):
     if hasattr(datetime, "strptime"):
@@ -72,7 +73,7 @@ def Error(request, error_list, extra_kwargs={}):
     }
     out.update(extra_kwargs)
     return render_to_response('olac/Error.xml', out, 
-        context_instance=RequestContext(request, {'OLAC': OLAC}), 
+        context_instance=RequestContext(request), 
         mimetype="application/xhtml+xml")
 
 
@@ -122,7 +123,7 @@ def Identify(request):
         return Error(request, ['badArgument'], out)
     
     return render_to_response('olac/Identify.xml', out, 
-        context_instance=RequestContext(request, {'OLAC': OLAC}), 
+        context_instance=RequestContext(request), 
             mimetype="application/xhtml+xml")
     
 
@@ -217,7 +218,7 @@ def ListIdentifiers(request):
         
     out['object_list'] = objects
     return render_to_response('olac/ListIdentifiers.xml', out, 
-        context_instance=RequestContext(request, {'OLAC': OLAC}), 
+        context_instance=RequestContext(request), 
                             mimetype="application/xhtml+xml")
     
 
@@ -264,7 +265,7 @@ def ListMetadataFormats(request):
     if 'identifier' in request.REQUEST:
         # Check identifier:
         out['identifier'] = request.REQUEST['identifier']
-        ident = OLAC['_identifier'].match(request.REQUEST['identifier'])
+        ident = check_ident(request.REQUEST['identifier'])
         if ident is None:
             return Error(request, ['idDoesNotExist'], out)
             
@@ -274,11 +275,11 @@ def ListMetadataFormats(request):
         except Model.DoesNotExist:
             return Error(request, ['idDoesNotExist'], out)
         return render_to_response('olac/ListMetadataFormats.xml', out, 
-                    context_instance=RequestContext(request, {'OLAC': OLAC}), 
+                    context_instance=RequestContext(request), 
                                         mimetype="application/xhtml+xml")
         
     return render_to_response('olac/ListMetadataFormats.xml', out, 
-                    context_instance=RequestContext(request, {'OLAC': OLAC}), 
+                    context_instance=RequestContext(request), 
                                         mimetype="application/xhtml+xml")
     
 
@@ -372,7 +373,7 @@ def ListRecords(request):
 
     out['object_list'] = objects
     return render_to_response('olac/ListRecords.xml', out, 
-        context_instance=RequestContext(request, {'OLAC': OLAC}), 
+        context_instance=RequestContext(request), 
                             mimetype="application/xhtml+xml")
     
 
@@ -428,7 +429,7 @@ def GetRecord(request):
         
     out['identifier'] = request.REQUEST['identifier'],
     # Check identifier:
-    ident = OLAC['_identifier'].match(request.REQUEST['identifier'])
+    ident = check_ident(request.REQUEST['identifier'])
     if ident is None:
         return Error(request, ['idDoesNotExist'], out)
         
@@ -440,5 +441,5 @@ def GetRecord(request):
     
     out['object'] = L
     return render_to_response('olac/GetRecord.xml', out, 
-        context_instance=RequestContext(request, {'OLAC': OLAC}), 
+        context_instance=RequestContext(request), 
                             mimetype="application/xhtml+xml")
