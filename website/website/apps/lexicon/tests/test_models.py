@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.test import TestCase
 
-from website.apps.lexicon.models import Word, WordSubset, Lexeme, Cognate
+from website.apps.lexicon.models import Word, WordSubset, Lexicon, Cognate
 
 class TestSetup(object):
     """Mixin for test data"""
@@ -81,7 +81,7 @@ class Test_WordSubset(TestSetup, TestCase):
         s = WordSubset.objects.get(slug="numbers")
         self.assertEquals(len(s.words.all()), 2)
         
-    def test_subset_numbers(self):
+    def test_subset_nothing(self):
         """Test that the set `nothing` is ok"""
         s = WordSubset.objects.get(slug="nothing")
         self.assertEquals(len(s.words.all()), 0)

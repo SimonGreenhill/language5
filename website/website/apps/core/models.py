@@ -17,7 +17,7 @@ class Source(TrackedModel):
         help_text="Year published")
     author = models.CharField(max_length=255,
         help_text="Short Author list e.g. (Smith et al.)")
-    slug = models.SlugField(max_length=64, unique=True, db_index=True,
+    slug = models.SlugField(max_length=64, unique=True,
         help_text="`Slug` for author i.e. author-year (for use in URLS)")
     reference = models.TextField(blank=True, null=True,
         help_text="Reference for Source")
@@ -76,7 +76,7 @@ class Language(TrackedModel):
     family = models.ManyToManyField(Family, blank=True)
     language = models.CharField(max_length=64, unique=True, db_index=True,
         help_text="Language Name")
-    slug = models.SlugField(max_length=64, unique=True, db_index=True,
+    slug = models.SlugField(max_length=64, unique=True,
         help_text="`Slug` for language (for use in URLS)")
     isocode = models.CharField(max_length=3, blank=True, null=True, db_index=True,
         help_text="3 character ISO-639-3 Code.")
@@ -101,7 +101,7 @@ class AlternateName(TrackedModel):
     language = models.ForeignKey('Language')
     name = models.CharField(max_length=64, unique=True, db_index=True,
         help_text="Alternate Name for this language")
-    slug = models.SlugField(max_length=64, unique=True, db_index=True,
+    slug = models.SlugField(max_length=64, unique=True,
         help_text="`Slug` for language (for use in URLS)")
     
     def __unicode__(self):

@@ -10,8 +10,6 @@ ADMINS = (
     ('Simon J. Greenhill', 'simon@simon.net.nz'),
 )
 
-SITE_DESCRIPTION = "New Guinea Language Database"
-
 MANAGERS = ADMINS
 
 DATABASES = {
@@ -26,6 +24,10 @@ DATABASES = {
     }
 }
 
+# Site details
+SITE_ID = 1
+SITE_DESCRIPTION = "New Guinea Language Database"
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -39,7 +41,6 @@ TIME_ZONE = 'America/Chicago'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
 
-SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -120,6 +121,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.request",
     "django.contrib.auth.context_processors.auth",
     "website.apps.core.context_processors.InjectSettings",
+    "website.apps.olac.context_processors.InjectOLACSettings",
 )
 
 
@@ -201,7 +203,8 @@ from website.apps.olac.settings import OLAC_SETTINGS
 OLAC_SETTINGS['institution'] = 'Australian National University'
 OLAC_SETTINGS['institutionURL'] = 'http://anu.edu.au'
 OLAC_SETTINGS['shortLocation'] = 'Canberra, Australia'
-OLAC_SETTINGS['description'] = ''
+OLAC_SETTINGS['description'] = SITE_DESCRIPTION
+
 
 
 # cache the ``robots.txt`` for 24 hours (86400 seconds).

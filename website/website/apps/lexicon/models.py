@@ -1,8 +1,9 @@
 from django.db import models
 from django.core.urlresolvers import reverse
-from django.contrib.auth.models import User
 
-from website.apps.core.models import TrackedModel, Source, Language
+from website.apps.core.models import TrackedModel
+
+
 
 COGNATE_QUALITY = (
     (0, 'Unassessed'),
@@ -14,12 +15,11 @@ COGNATE_QUALITY = (
 
 
 
-
 class Word(TrackedModel):
     """Word Details"""
-    word = models.CharField(max_length=64,
+    word = models.CharField(max_length=64, db_index=True,
         help_text="Word in English")
-    slug = models.SlugField(max_length=64, unique=True, db_index=True,
+    slug = models.SlugField(max_length=64, unique=True,
         help_text="`Slug` for word i.e. author-year (for use in URLS)")
     full = models.TextField(blank=True, null=True,
         help_text="Full word details/gloss.")
@@ -36,9 +36,9 @@ class Word(TrackedModel):
 
 class WordSubset(TrackedModel):
     """Word Subset Details"""
-    subset = models.CharField(max_length=64,
+    subset = models.CharField(max_length=64, db_index=True,
         help_text="Subset Label")
-    slug = models.SlugField(max_length=64, unique=True, db_index=True,
+    slug = models.SlugField(max_length=64, unique=True,
         help_text="`Slug` for subset i.e. author-year (for use in URLS)")
     description = models.TextField(blank=True, null=True,
         help_text="Details of subset.")
@@ -52,29 +52,43 @@ class WordSubset(TrackedModel):
     
 
     class Meta:
-        db_table = 'wordsubset'
+        db_table = 'wordsubsets'
 
 
-class Lexeme(TrackedModel):
+class Lexicon(TrackedModel):
     """Lexicon Details"""
-    language = models.ForeignKey(Language)
+    language = models.ForeignKey('core.Language')
+    source = models.ForeignKey('core.Source')
     word = models.ForeignKey('Word')
-    source = models.ForeignKey(Source)
-    ### ENTRY
+    
+    entry = models.CharField(max_length=32, 
+        help_text="Entry from source")
+    phon_entry = models.CharField(max_length=32, null=True, blank=True,
+        help_text="Entry in Phonological format (in known)")
+    
     annotation = models.TextField(blank=True, null=True,
         help_text="Annotation for this item")
-
+    
+    loan = models.BooleanField(default=False, db_index=True,
+        help_text="Is a loan word?")
+    loan_source = models.ForeignKey('core.Language', blank=True, null=True, 
+        related_name = 'loan_source_set',
+        help_text="Loanword Source (if known)"
+    )
+    
     def __unicode__(self):
         return self.slug
 
     class Meta:
-        db_table = 'lexeme'
+        db_table = 'lexicon'
+
 
 
 class Cognate(TrackedModel):
     """Cognacy Judgements"""
-    lexeme = models.ManyToManyField('Lexeme')
-    source = models.ForeignKey(Source, null=True, blank=True)
+    lexeme = models.ManyToManyField('Lexicon')
+    source = models.ForeignKey('core.Source', 
+        null=True, blank=True)
     comment = models.TextField(blank=True, null=True,
         help_text="Comment about this Cognate set")
     quality = models.CharField(default=0, max_length=1, choices=COGNATE_QUALITY,
@@ -88,5 +102,5 @@ class Cognate(TrackedModel):
         return self.id
     
     class Meta:
-        db_table = 'cognate'
+        db_table = 'cognates'
     
