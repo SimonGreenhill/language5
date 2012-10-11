@@ -77,7 +77,7 @@ class Lexicon(TrackedModel):
     )
     
     def __unicode__(self):
-        return self.slug
+        return u"%d-%s" % (self.id, self.entry)
 
     class Meta:
         db_table = 'lexicon'
@@ -103,4 +103,24 @@ class Cognate(TrackedModel):
     
     class Meta:
         db_table = 'cognates'
+
+
+
+class Correspondence(TrackedModel):
+    """Sound Correspondence Sets"""
+    language = models.ManyToManyField('core.Language', through='Rule')
+    source = models.ForeignKey('core.Source', blank=True, null=True)
+    comment = models.TextField(blank=True, null=True, help_text="Notes")
     
+    class Meta:
+        db_table = 'correspondences'
+
+
+class Rule(TrackedModel):
+    """Sound Correspondence Rules"""
+    language = models.ForeignKey('core.Language')
+    group = models.ForeignKey(Correspondence)
+    rule = models.CharField(max_length=5)
+    
+    class Meta:
+        db_table = 'corrrules'
