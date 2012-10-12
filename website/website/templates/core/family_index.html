@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load render_table from django_tables2 %}
+
+{% block title %} Language Families: {% endblock %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>Language Families:</h1>
+    </div>
+    
+    {% if table %}
+        {% render_table table %}
+    {% else %}
+        <p class="error">No results found!</p>
+    {% endif %}
+
+{% endblock %}

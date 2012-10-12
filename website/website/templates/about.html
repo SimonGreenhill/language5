@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %} 
+    About {{ SITE_NAME }} 
+{% endblock %}
+
+{% block content %}
+    <h1>About {{ SITE_NAME }}</h1>
+    
+    <p>TODO</p>
+    
+    <h2>Colophon / Technologies</h2>
+    
+    {{ SITE_NAME }} has made great use of the wonderful open-source
+    web-development ecosystem. Key technologies that have enabled this website
+    are:
+    
+    <table>
+        <tr>
+            <td class="row">
+                <a href="http://www.unicode.org/">
+                    <img src="{% static "img/unicode.png" %}" border="0" alt="Unicode®." title="Unicode®." />
+                </a>
+            </td>
+            <td>All data are encoded according to the Unicode® Standard.
+            </td>
+        </tr>
+        <tr>
+            <td class="row">
+                <a href="http://www.djangoproject.com/">
+                    <img src="{% static "img/django.gif" %}" border="0" alt="Powered by Django." title="Powered by Django." />
+                </a>
+            </td>
+            <td>Django is a high-level Python Web framework that encourages rapid
+                development and clean, pragmatic design.
+            </td>
+        </tr>
+        
+        <tr>
+            <td style="text-align: center;">
+                <a href="http://twitter.github.com/bootstrap/">
+                    <img src="{% static "img/bootstrap.png" %}" border="0" alt="Bootstrap, from Twitter." title="Bootstrap, from Twitter." />
+                </a>
+            </td>
+            <td>Bootstrap, from Twitter. Simple and flexible HTML, CSS, and Javascript for popular user 
+            interface components and interactions.
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <a href="http://jquery.com/">
+                    <img src="{% static "img/jquery.png" %}" border="0" alt="jQuery." title="jQuery." />
+                </a>
+            </td>
+            <td>The jQuery Javascript library.</td>
+        </tr>
+        <tr>
+            <td>
+                <a href="http://www.postgresql.org/">
+                    <img src="{% static "img/postgresql.gif" %}" border="0" alt="PostgreSQL." title="PostgreSQL." />
+                </a>
+            </td>
+            <td>The PostgreSQL open-source relational database engine.</td>
+        </tr>
+        <tr>
+            <td>
+                <a href="http://www.sqlite.org/">
+                    <img src="{% static "img/sqlite.gif" %}" border="0" alt="SQLite." title="SQLite." />
+                </a>
+            </td>
+            <td>The SQLite open-source relational database engine.</td>
+        </tr>
+    </table>
+    
+
+{% endblock %}

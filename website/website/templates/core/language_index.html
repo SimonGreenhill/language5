@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load render_table from django_tables2 %}
+
+{% block title %} Languages: {% endblock %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h1>Languages:</h1>
+    </div>
+    
+    {% if message %}
+        <div class="alert">
+            <p>{{ message }}</p>
+        </div>
+    {% endif %}
+    
+    {% if table %}
+        {% render_table table %}
+    {% else %}
+        <p class="error">No results found!</p>
+    {% endif %}
+
+{% endblock %}
