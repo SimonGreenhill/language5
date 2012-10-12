@@ -118,12 +118,12 @@ TEMPLATE_DIRS = (
     os.path.join(ROOT_DIR, 'templates'),
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = (
+TEMPLATE_CONTEXT_PROCESSORS = [
     "django.core.context_processors.request",
     "django.contrib.auth.context_processors.auth",
     "website.apps.core.context_processors.InjectSettings",
     "website.apps.olac.context_processors.InjectOLACSettings",
-)
+]
 
 
 INSTALLED_APPS = [
@@ -163,9 +163,15 @@ SESSION_COOKIE_HTTPONLY = True
 
 if DEBUG:
     INSTALLED_APPS.append("debug_toolbar")
+    INSTALLED_APPS.append("debug_toolbar_htmltidy")
     INSTALLED_APPS.append("django_extensions") # pretty schema generation
     MIDDLEWARE_CLASSES.append('debug_toolbar.middleware.DebugToolbarMiddleware')
-
+    
+    DEBUG_TOOLBAR_PANELS.append(
+        'debug_toolbar_htmltidy.panels.HTMLTidyDebugPanel',
+    )
+    
+    
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
