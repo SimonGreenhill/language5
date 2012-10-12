@@ -2,7 +2,7 @@
 import os
 SITE_ROOT = os.path.split(os.path.dirname(os.path.abspath(__file__)))[0]
 
-DEBUG = TEMPLATE_DEBUG = True
+DEBUG = TEMPLATE_DEBUG = False
 
 ADMINS = (
     ('Simon J. Greenhill', 'simon@simon.net.nz'),
@@ -139,11 +139,11 @@ INSTALLED_APPS = [
     'django.contrib.admindocs',
     
     # third-party
-    'south',                # south: database migrations
-    'reversion',            # reversion: object version control.
-    'robots',               # django-robots: robots.txt handling
-    'djangosecure',         # django-secure: Security helper
-    'django_tables2',       # django-tables2: tables helper
+    'south',                             # south: database migrations
+    'reversion',                         # reversion: object version control.
+    'robots',                            # django-robots: robots.txt handling
+    'djangosecure',                      # django-secure: Security helper
+    'django_tables2',                    # django-tables2: tables helper
     
     # website
     'website.apps.core',                 # core functionality
@@ -157,19 +157,6 @@ SECURE_BROWSER_XSS_FILTER = True # enable XSS protection
 SESSION_COOKIE_SECURE = True
 SESSION_COOKIE_HTTPONLY = True
 
-
-
-if DEBUG:
-    INSTALLED_APPS.append("debug_toolbar")
-    INSTALLED_APPS.append("debug_toolbar_htmltidy")
-    INSTALLED_APPS.append("django_extensions") # pretty schema generation
-    MIDDLEWARE_CLASSES.append('debug_toolbar.middleware.DebugToolbarMiddleware')
-    
-    # DEBUG_TOOLBAR_PANELS.append(
-    #     'debug_toolbar_htmltidy.panels.HTMLTidyDebugPanel',
-    # )
-    
-    
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -210,19 +197,6 @@ OLAC_SETTINGS['institutionURL'] = 'http://anu.edu.au'
 OLAC_SETTINGS['shortLocation'] = 'Canberra, Australia'
 OLAC_SETTINGS['description'] = SITE_DESCRIPTION
 
-
-
 # cache the ``robots.txt`` for 24 hours (86400 seconds).
 ROBOTS_CACHE_TIMEOUT = 60*60*24
 
-# try:
-#     from local_settings import *
-# except ImportError:
-#     pass
-#     
-import warnings
-warnings.filterwarnings(
-        'error', r"DateTimeField received a naive datetime",
-        RuntimeWarning, r'django\.db\.models\.fields')
-    
-    
