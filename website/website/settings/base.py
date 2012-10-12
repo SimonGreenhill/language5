@@ -1,8 +1,6 @@
 # Django settings for website project.
 import os
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-ROOT_DIR = os.path.split(BASE_DIR)[0]
+SITE_ROOT = os.path.split(os.path.dirname(os.path.abspath(__file__)))[0]
 
 DEBUG = TEMPLATE_DEBUG = True
 
@@ -15,7 +13,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.path.join(BASE_DIR, 'database.db'),
+        'NAME': os.path.join(SITE_ROOT, 'database.db'),
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -75,7 +73,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    os.path.join(ROOT_DIR, 'static'),
+    os.path.join(SITE_ROOT, 'static'),
 )
 # List of finder classes that know how to find static files in
 # various locations.
@@ -115,7 +113,7 @@ ROOT_URLCONF = 'website.urls'
 WSGI_APPLICATION = 'website.wsgi.application'
 
 TEMPLATE_DIRS = (
-    os.path.join(ROOT_DIR, 'templates'),
+    os.path.join(SITE_ROOT, 'templates'),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = [
@@ -167,9 +165,9 @@ if DEBUG:
     INSTALLED_APPS.append("django_extensions") # pretty schema generation
     MIDDLEWARE_CLASSES.append('debug_toolbar.middleware.DebugToolbarMiddleware')
     
-    DEBUG_TOOLBAR_PANELS.append(
-        'debug_toolbar_htmltidy.panels.HTMLTidyDebugPanel',
-    )
+    # DEBUG_TOOLBAR_PANELS.append(
+    #     'debug_toolbar_htmltidy.panels.HTMLTidyDebugPanel',
+    # )
     
     
 LOGGING = {

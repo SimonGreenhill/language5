@@ -5,4 +5,4 @@ syntax: glob
 syntax: regexp
 ^doc/_build
 ^website/website/database.db
-
+^website/website/settings/local.py
