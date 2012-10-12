@@ -21,6 +21,8 @@ class Source(TrackedModel):
         help_text="`Slug` for author i.e. author-year (for use in URLS)")
     reference = models.TextField(blank=True, null=True,
         help_text="Reference for Source")
+    bibtex = models.TextField(blank=True, null=True,
+        help_text="BibTeX entry")
     comment = models.TextField(blank=True, null=True,
         help_text="Private comment on source")
     
