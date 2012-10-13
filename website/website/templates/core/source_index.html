@@ -9,7 +9,7 @@
     </div>
     
     {% if table %}
-        {% render_table table %}
+        {% render_table table "table.html" %}
     {% else %}
         <p class="error">No results found!</p>
     {% endif %}

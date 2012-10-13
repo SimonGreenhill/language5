@@ -1,5 +1,4 @@
 {% load staticfiles %}
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,11 +15,11 @@
   <![endif]-->
   
   {% if debug %}
-    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}" />
-    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap-responsive.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap-responsive.css" %}" />
   {% else %}
-    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.min.css" %}" />
-    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap-responsive.min.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap.min.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap-responsive.min.css" %}" />
   {% endif %}
   
   <style type="text/css">
@@ -38,16 +37,9 @@
   
 </head>
 <body>
-    
-    
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
           <a class="brand" href="{% url index %}">{{ SITE_NAME }} - {{ SITE_DESCRIPTION }}</a>
           {% comment %}
           <div class="btn-group pull-right">
@@ -109,8 +101,8 @@
     </div><!--/.fluid-container-->
     
     <!-- javascript -->
-    <script src="{% static "js/jquery.js" %}"></script>
-    <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
+    <script type="text/javascript" src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
     
 </body>
 </html>

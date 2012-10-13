@@ -16,7 +16,7 @@
     
     <h2> Provided: </h2>
     {% if languages %}
-        {% render_table languages %}
+        {% render_table languages "table.html" %}
     {% else %}
         <p class="error">No results found!</p>
     {% endif %}
