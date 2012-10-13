@@ -8,6 +8,8 @@ ADMINS = (
     ('Simon J. Greenhill', 'simon@simon.net.nz'),
 )
 
+INTERNAL_IPS = ('127.0.0.1',)
+
 MANAGERS = ADMINS
 
 DATABASES = {
@@ -73,8 +75,9 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    os.path.join(SITE_ROOT, 'static'),
+    os.path.join(os.path.split(SITE_ROOT)[0], 'static'),
 )
+
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
