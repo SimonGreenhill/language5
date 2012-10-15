@@ -3,34 +3,66 @@ from reversion.admin import VersionAdmin
 from website.apps.core.models import Language, AlternateName, Family
 from website.apps.core.models import Link, Location, Source, Note
 
-class LanguageAdmin(VersionAdmin):
+class TrackedModelAdmin(admin.ModelAdmin):
+    """Mixin to automatically set editor field"""
+    def add_view(self, request, form_url="", extra_context=None):
+        data = request.GET.copy()
+        data['editor'] = request.user.id
+        request.GET = data
+        return super(TrackedModelAdmin, self).add_view(request, form_url="", extra_context=extra_context)
+
+
+class LanguageAdmin(TrackedModelAdmin, VersionAdmin):
     ##form = LanguageAdminForm
-    list_display = ('language', 'isocode', 'added')
-    inlines = []
-    list_filter = ['added',] # ADD FAMILY?
     date_hierarchy = 'added'
-    search_fields = ['language', 'isocode']
+    inlines = []
+    list_display = ('language', 'isocode', 'added')
+    list_filter = ('editor', 'family')
+    ordering = ('language',)
     prepopulated_fields = {'slug': ('language', )}
-    ordering = ['language']
+    search_fields = ('language', 'isocode')
 
-class SourceAdmin(VersionAdmin):
+
+class SourceAdmin(TrackedModelAdmin, VersionAdmin):
+    date_hierarchy = 'added'
+    list_filter = ('editor', 'author', 'year')
+    ordering = ('author', 'year')
     prepopulated_fields = {'slug': ('author', 'year')}
-    list_filter = ['author', 'year']
+    search_fields = ('author', 'year')
 
-class NoteAdmin(VersionAdmin):
-    list_filter = ['language', 'source']
+    
+class NoteAdmin(TrackedModelAdmin, VersionAdmin):
+    date_hierarchy = 'added'
+    list_filter = ('editor', 'language', 'source')
+    ordering = ('id',)
+    search_fields = ('language', 'source', 'note')
 
-class FamilyAdmin(VersionAdmin):
-    pass
 
-class AlternateNameAdmin(VersionAdmin):
-    pass
+class FamilyAdmin(TrackedModelAdmin, VersionAdmin):
+    date_hierarchy = 'added'
+    list_filter = ('editor',)
+    ordering = ('family',)
+    prepopulated_fields = {'slug': ('family', )}
+    search_fields = ('family', )
 
-class LinkAdmin(VersionAdmin):
-    pass
 
-class LocationAdmin(VersionAdmin):
-    pass
+class AlternateNameAdmin(TrackedModelAdmin, VersionAdmin):
+    date_hierarchy = 'added'
+    list_filter = ('editor', 'language')
+    search_fields = ('language', 'name')
+
+
+class LinkAdmin(TrackedModelAdmin, VersionAdmin):
+    date_hierarchy = 'added'
+    list_display = ('language', 'link', 'description')
+    list_filter = ('editor', 'language', 'link')
+    search_fields = ('language', 'link', 'description')
+
+
+class LocationAdmin(TrackedModelAdmin, VersionAdmin):
+    date_hierarchy = 'added'
+    list_display = ('language', 'latitude', 'longitude')
+    list_filter = ('editor', 'language', )
 
 
 admin.site.register(Language, LanguageAdmin)

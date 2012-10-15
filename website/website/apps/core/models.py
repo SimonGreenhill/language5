@@ -49,7 +49,7 @@ class Note(TrackedModel):
         help_text="Location (e.g. p12)")
     
     def __unicode__(self):
-        return self.id
+        return u'#%d. %s on %s' % (self.id, self.source, self.language)
     
     class Meta:
         db_table = 'notes'

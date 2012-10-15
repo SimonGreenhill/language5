@@ -6,19 +6,19 @@ from website.apps.core.models import TrackedModel
 
 
 COGNATESET_QUALITY = (
-    (0, 'Unassessed'),
-    (1, 'Published'),
-    (2, 'Accepted'),
+    ('0', 'Unassessed'),
+    ('1', 'Published'),
+    ('2', 'Accepted'),
     # space for more..
-    (9, 'Problematic'),
+    ('9', 'Problematic'),
 )
 
 COGNATE_QUALITY = (
-    (0, 'Unassessed'),
-    (1, 'Published'),
-    (2, 'Accepted'),
+    ('0', 'Unassessed'),
+    ('1', 'Published'),
+    ('2', 'Accepted'),
     # space for more..
-    (9, 'Problematic'),
+    ('9', 'Problematic'),
 )
 
 
@@ -60,7 +60,7 @@ class WordSubset(TrackedModel):
 
     class Meta:
         db_table = 'wordsubsets'
-
+        verbose_name_plural = 'Word Subsets'
 
 class Lexicon(TrackedModel):
     """Lexicon Details"""
@@ -88,7 +88,7 @@ class Lexicon(TrackedModel):
 
     class Meta:
         db_table = 'lexicon'
-
+        verbose_name_plural = 'Lexicon'
 
 class CognateSet(TrackedModel):
     """Cognate Sets"""
@@ -109,6 +109,7 @@ class CognateSet(TrackedModel):
     
     class Meta:
         db_table = 'cognatesets'
+        verbose_name_plural = 'Cognate Sets'
     
 
 class Cognate(TrackedModel):
@@ -137,7 +138,8 @@ class CorrespondenceSet(TrackedModel):
     
     class Meta:
         db_table = 'corrsets'
-
+        verbose_name_plural = 'Correspondence Sets'
+        
 
 class Correspondence(TrackedModel):
     """Sound Correspondence Rules"""

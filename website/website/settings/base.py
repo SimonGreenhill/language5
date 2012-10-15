@@ -122,6 +122,7 @@ TEMPLATE_DIRS = (
 TEMPLATE_CONTEXT_PROCESSORS = [
     "django.core.context_processors.request",
     "django.contrib.auth.context_processors.auth",
+    "django.contrib.messages.context_processors.messages",
     "website.apps.core.context_processors.InjectSettings",
     "website.apps.olac.context_processors.InjectOLACSettings",
 ]
@@ -155,9 +156,9 @@ INSTALLED_APPS = [
 ]
 
 # Django-Security settings
-SECURE_FRAME_DENY = True    # prevent framing of pages.
+SECURE_FRAME_DENY = True         # prevent framing of pages.
 SECURE_BROWSER_XSS_FILTER = True # enable XSS protection
-SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = False
 SESSION_COOKIE_HTTPONLY = True
 
 LOGGING = {
