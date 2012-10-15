@@ -8,7 +8,7 @@ class Test_LanguageIndex(TestCase):
     def setUp(self):
         self.client = Client()
     
-    def missing_trailing_slash(self):
+    def test_missing_trailing_slash(self):
         """index pages should redirect to trailing slash"""
         response = self.client.get('/language')
         self.assertRedirects(response, '/language/', status_code=301, target_status_code=200)
