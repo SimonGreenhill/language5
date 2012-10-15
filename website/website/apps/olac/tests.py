@@ -457,12 +457,6 @@ class Test_ListRecords_metadataPrefix_olac(TestCase):
     def test_dc_type_lexicon(self):
         self.assertContains(self.response, '<dc:type xsi:type="olac:linguistic-type" olac:code="lexicon"/>', count=3)
     
-    @expectedFailure # NEED TO IMPLEMENT DATA MODEL
-    def test_dcterms_extent(self):
-        # 3 for L1, 4 for L2
-        self.assertContains(self.response, '<dcterms:extent>3 entries</dcterms:extent>', count=1)
-        self.assertContains(self.response, '<dcterms:extent>4 entries</dcterms:extent>', count=1)
-    
     
 @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
 class Test_GetRecord(TestCase):
@@ -580,11 +574,6 @@ class Test_GetRecord_metadataPrefix_olac(TestCase):
     def test_dc_description_full(self):
         self.assertContains(self.response, '<dc:description>Vocabulary for Language2', count=1)
     
-    @expectedFailure # NEED TO IMPLEMENT DATA MODEL
-    def test_dcterms_extent(self):
-        # 3 for L1, 4 for L2
-        self.assertContains(self.response, '<dcterms:extent>4 entries</dcterms:extent>', count=1)
-
 
 @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
 class TestNoHTML(TestCase):
@@ -606,3 +595,4 @@ class TestNoHTML(TestCase):
         l.save()
         response = self.client.get('/oai/?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:%s:aaa.%d' % (TEST_DOMAIN, l.id))
         self.assertNotContains(response, '&amp;')
+
