@@ -79,7 +79,7 @@ urlpatterns = patterns('',
     # Misc
     # ------------------------------------------------------------------------ #
     # search page
-    #    (r'^search/', ''), #
+    url(r"^search/", include('watson.urls', namespace='watson')),
     
     # Sitemap
     (r'^sitemap\.xml$', 

@@ -14,12 +14,8 @@ lexicon/
     tng.website:  [lexicon] implement word view (word_detail)
     tng.website:  [lexicon] implement word subset view (subset_detail)
     tng.website:  [lexicon] implement word subset list (subset_index)
-    tng.website:  [lexicon] implement cognate view (cognate_detail)
-    tng.website:  [lexicon] implement cognate list (cognate_index)
     tng.website:  [lexicon] core/source_detail lists all resources provided.
     
 misc:
     tng.website:   [misc] test reversion works
-    tng.website:   [misc] sitemaps: https://docs.djangoproject.com/en/dev/ref/contrib/sitemaps/
     tng.website:   [misc] add some content to about.html
-    tng.website:   [misc] implement search (https://github.com/etianen/django-watson)

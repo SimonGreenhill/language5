@@ -33,9 +33,10 @@ class Word(TrackedModel):
     
     def __unicode__(self):
         return self.slug
-        
+    
+    @models.permalink
     def get_absolute_url(self):
-        return reverse('website.apps.lexicon.views.word_detail', args=[self.slug])
+        return ('word_detail', [self.slug])
     
     class Meta:
         db_table = 'words'
@@ -53,14 +54,15 @@ class WordSubset(TrackedModel):
     
     def __unicode__(self):
         return self.slug
-
+        
+    @models.permalink
     def get_absolute_url(self):
-        return reverse('website.apps.lexicon.views.subset_detail', args=[self.slug])
-    
-
+        return ('subset_detail', [self.slug])
+        
     class Meta:
         db_table = 'wordsubsets'
         verbose_name_plural = 'Word Subsets'
+
 
 class Lexicon(TrackedModel):
     """Lexicon Details"""
@@ -100,9 +102,6 @@ class CognateSet(TrackedModel):
     quality = models.CharField(default=0, max_length=1, choices=COGNATESET_QUALITY,
             help_text="The quality of this cognate set.")
     lexicon = models.ManyToManyField('Lexicon', through='Cognate')
-    
-    def get_absolute_url(self):
-        return reverse('website.apps.lexicon.views.cognate_detail', args=[self.id])
     
     def __unicode__(self):
         return "%d. %s" % (self.id, self.label)

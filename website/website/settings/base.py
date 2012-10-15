@@ -148,6 +148,7 @@ INSTALLED_APPS = [
     'robots',                            # django-robots: robots.txt handling
     'djangosecure',                      # django-secure: Security helper
     'django_tables2',                    # django-tables2: tables helper
+    'watson',                            # search
     
     # website
     'website.apps.core',                 # core functionality

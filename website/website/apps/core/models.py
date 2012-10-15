@@ -2,6 +2,8 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 
+import watson
+
 class TrackedModel(models.Model):
     """Abstract base class containing editorial information"""
     editor = models.ForeignKey(User)
@@ -31,15 +33,17 @@ class Source(TrackedModel):
             return "%s (%d)" % (self.author, self.year)
         else:
             return self.author
-        
+    
+    @models.permalink
     def get_absolute_url(self):
-        return reverse('website.apps.core.views.source_detail', args=[self.slug])
+        return ('source-detail', [self.slug])
     
     class Meta:
         db_table = 'sources'
-    
 
-    
+watson.register(Source, fields=('author', 'year', 'reference'))
+
+
 class Note(TrackedModel):
     """Notes/Information about a language"""
     language = models.ForeignKey('Language')
@@ -54,6 +58,8 @@ class Note(TrackedModel):
     class Meta:
         db_table = 'notes'
 
+watson.register(Note, fields=('language', 'source', 'note'))
+
 
 class Family(TrackedModel):
     """Language families/Subsets"""
@@ -64,14 +70,17 @@ class Family(TrackedModel):
     
     def __unicode__(self):
         return self.family
-    
+        
+    @models.permalink
     def get_absolute_url(self):
-        return reverse('website.apps.core.views.family_detail', args=[self.slug])
+        return ('family-detail', [self.slug])
     
     class Meta:
         db_table = 'families'
         verbose_name_plural = 'families'
     
+watson.register(Family, fields=('family',))
+
 
 class Language(TrackedModel):
     """Stores language information"""
@@ -90,12 +99,15 @@ class Language(TrackedModel):
     def __unicode__(self):
         return self.language
     
+    @models.permalink
     def get_absolute_url(self):
-        return reverse('website.apps.core.views.language_detail', args=[self.slug])
-        
+        return ('language-detail', [self.slug])
+    
     class Meta:
         unique_together = ("isocode", "language")
         db_table = 'languages'
+
+watson.register(Language, fields=('family', 'language', 'isocode', 'classification', 'information'))
 
 
 class AlternateName(TrackedModel):
@@ -113,6 +125,8 @@ class AlternateName(TrackedModel):
         verbose_name_plural = 'Alternate Language Names'
         db_table = 'altnames'
 
+watson.register(AlternateName, fields=('language', 'name'))
+
 
 class Link(TrackedModel):
     """Stores links to language appropriate resources"""
@@ -126,6 +140,8 @@ class Link(TrackedModel):
     class Meta:
         verbose_name_plural = "Resource Links"
         db_table = 'links'
+
+watson.register(Link, fields=('language', 'link', 'description'))
 
 
 class Location(TrackedModel):
