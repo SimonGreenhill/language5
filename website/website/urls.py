@@ -8,9 +8,7 @@ from website.apps.core.views import LanguageIndex
 from website.apps.core.views import SourceIndex, SourceDetail
 from website.apps.core.views import FamilyIndex, FamilyDetail
 
-# from website.apps.lexicon.views import WordIndex, WordDetail
-# from website.apps.lexicon.views import CognateIndex, CognateDetail
-# from website.apps.lexicon.views import SubsetIndex, SubsetDetail
+from website.apps.lexicon.views import WordIndex, WordDetail
 
 from sitemap import FamilySitemap, LanguageSitemap, SourceSitemap, WordSitemap
 
@@ -57,22 +55,13 @@ urlpatterns = patterns('',
     # ------------------------------------------------------------------------ #
     
     # Word-Index: Show all words
-    #url(r'^word/$', WordIndex.as_view(), name="word-index"),
+    url(r'^word/$', WordIndex.as_view(), name="word-index"),
     
     # Word-Detail: Show the given word
-    #url(r'^word/(?P<slug>.+)$', WordDetail.as_view(), name="word-detail"),
-    
-    # Cognate-Index: Show all cognates
-    #url(r'^cognate/$', CognateIndex.as_view(), name="cognate-index"),
-    
-    # Cognate-Detail: Show the given cognate set
-    #url(r'^cognate/(?P<id>\d+)$', CognateDetail.as_view(), name="cognate-detail"),
-    
-    # Subset-Index: Show all word subsets
-    #url(r'^cognate/$', SubsetIndex.as_view(), name="subset-index"),
+    url(r'^word/(?P<slug>.+)$', WordDetail.as_view(), name="word-detail"),
     
     # Subset-Detail: Show the given word subset
-    #url(r'^cognate/(?P<id>\d+)$', SubsetDetail.as_view(), name="subset-detail"),
+    url(r'^word/\?subset=(?P<slug>.+)$', WordDetail.as_view(), name="subset-detail"),
     
     
     # ------------------------------------------------------------------------ #

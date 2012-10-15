@@ -24,6 +24,7 @@ class DataTable(tables.Table):
     """Parent class for Datatables"""
     class Meta:
         sortable = True
+        default = u''
         attrs = {
             'class': "table table-striped table-bordered table-condensed",
             'summary': '',
@@ -41,7 +42,7 @@ class SourceIndexTable(DataTable):
         model = Source
         order_by_field = 'author' # default sorting
         sequence = ('id', 'author', 'year', 'reference')
-        exclude = ('editor', 'added', 'slug', 'comment')
+        exclude = ('editor', 'added', 'slug', 'comment', 'bibtex')
     Meta.attrs['summary'] = 'Table of Sources'
     
 
@@ -57,6 +58,7 @@ class LanguageIndexTable(DataTable):
         sequence = ('id', 'isocode', 'language')
         exclude = ('editor', 'added', 'slug', 'classification', 'information')
     Meta.attrs['summary'] = 'Table of Languages'
+
 
 class FamilyIndexTable(DataTable):
     """Family Listing"""

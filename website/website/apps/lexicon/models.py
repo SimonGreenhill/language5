@@ -27,7 +27,7 @@ class Word(TrackedModel):
     word = models.CharField(max_length=64, db_index=True,
         help_text="Word in English")
     slug = models.SlugField(max_length=64, unique=True,
-        help_text="`Slug` for word i.e. author-year (for use in URLS)")
+        help_text="`Slug` for word (for use in URLS)")
     full = models.TextField(blank=True, null=True,
         help_text="Full word details/gloss.")
     
@@ -36,7 +36,7 @@ class Word(TrackedModel):
     
     @models.permalink
     def get_absolute_url(self):
-        return ('word_detail', [self.slug])
+        return ('word-detail', [self.slug])
     
     class Meta:
         db_table = 'words'
@@ -47,7 +47,7 @@ class WordSubset(TrackedModel):
     subset = models.CharField(max_length=64, db_index=True,
         help_text="Subset Label")
     slug = models.SlugField(max_length=64, unique=True,
-        help_text="`Slug` for subset i.e. author-year (for use in URLS)")
+        help_text="`Slug` for subset (for use in URLS)")
     description = models.TextField(blank=True, null=True,
         help_text="Details of subset.")
     words = models.ManyToManyField('Word', blank=True, null=True)
@@ -57,7 +57,7 @@ class WordSubset(TrackedModel):
         
     @models.permalink
     def get_absolute_url(self):
-        return ('subset_detail', [self.slug])
+        return ('subset-detail', [self.slug])
         
     class Meta:
         db_table = 'wordsubsets'

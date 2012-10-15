@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load render_table from django_tables2 %}
+
+{% block title %} Words: {% endblock %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>Words:</h1>
+    </div>
+    
+    {% if subsets %}
+        <h2>Word Subsets:</h2>
+
+        <ul class="nav nav-pills">
+            <li {% if not subset %} class="active" {% endif %}>
+                <a href="{% url word-index %}"><i class="icon-tags"></i> All words </a>
+            </li>
+            {% for w in subsets %}
+                <li{% ifequal subset w %} class="active" {% endifequal %}>
+                    <a href="{% url subset-detail w %}"><i class="icon-tags"></i> {{ w }} </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+    {% if subset %}
+        <h2> Words in subset {{ subset|title }}</h2>
+    {% else %}
+        <h2> All Words: </h2>
+    {% endif %}
+    
+    {% if table %}
+        {% render_table table "table.html" %}
+    {% else %}
+        <p class="error">No results found!</p>
+    {% endif %}
+
+{% endblock %}

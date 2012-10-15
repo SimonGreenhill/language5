@@ -70,9 +70,10 @@
                   </li>
                   <li>
                       <a href="{% url about %}">About</a>
-                  </li>                  
+                  </li>
+                  <li class="nav-header">Data</li>
                   <li>
-                      <a href="{% url family-index %}">Families</a>
+                      <a href="{% url family-index %}">Language Families</a>
                   </li>
                   <li>
                       <a href="{% url language-index %}">Languages</a>
@@ -80,18 +81,14 @@
                   <li>
                       <a href="{% url source-index %}">Sources</a>
                   </li>
-                  <li class="nav-header">Lexicon</li>
                   <li>
                       <a href="{% url word-index %}">Words</a>
                   </li>
-                  <li>
-                      <a href="{% url subset-index %}">Word Subsets</a>
-                  </li>
                   <li class="nav-header">Search</li>
                   <li>
-                      <form action="{% url watson:search %}">
-                          <input name="q" value="{{ request.GET.q }}" size="10">
-                          <input type="submit" value="Go">
+                      <form class="form-search" action="{% url watson:search %}">
+                          <input name="q" class="input-small search-query" value="{{ request.GET.q }}" size="10">
+                          <button type="submit" class="btn">go</button>
                       </form>
                   </li>
                   <li class="nav-header">Admin</li>
