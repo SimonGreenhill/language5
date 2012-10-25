@@ -24,5 +24,4 @@ class LoginRequiredMiddleware:
             # and not trying to load an admin URL...
             if not url.namespace == 'admin':
                 # go to login view.
-                #return HttpResponseRedirect(reverse("django.contrib.auth.views.login"))
-                return HttpResponseRedirect('/admin')
+                return HttpResponseRedirect(reverse("admin:index"))
