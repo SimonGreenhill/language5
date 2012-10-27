@@ -107,11 +107,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
-    # Remove this once live
-    'website.apps.core.middleware.LoginRequiredMiddleware',
-]
-
+]    
 
 ROOT_URLCONF = 'website.urls'
 
