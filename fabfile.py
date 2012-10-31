@@ -1,31 +1,38 @@
+from fabric.api import env, run, local, require
 
-from fabric.api import local, require, run
 
 def prod():
     """Set the target to production."""
-    set(fab_hosts=['sjg.webfactional.com'])
-    #set(fab_key_filename='/Users/sjl/.ssh/stevelosh')
-    set(remote_root_dir='/home/sjg/webapps/transnewguinea')
+    env.hosts=['sjg@sjg.webfactional.com',]
+    env.remote_root_dir='/home/sjg/webapps/transnewguinea'
     
     # where apache lives.
-    set(remote_apache_dir='/home/sjg/webapps/transnewguinea/apache2')
+    env.remote_apache_dir='/home/sjg/webapps/transnewguinea/apache2'
     
     # top of the hg repository.
-    set(remote_repository_dir='/home/sjg/webapps/transnewguinea/transnewguinea')
+    env.remote_repository_dir='/home/sjg/webapps/transnewguinea/transnewguinea'
 
     # the dir with manage.py.
-    set(remote_app_dir='/home/sjg/webapps/transnewguinea/transnewguinea/website')
- 
+    env.remote_app_dir='/home/sjg/webapps/transnewguinea/transnewguinea/website'
+    
+    # virtualenv
+    env.venv = 'transnewguinea'
 
 def deploy():
     """Deploy the site."""
-    require('fab_hosts', provided_by = [prod,])
-    local("hg push")
-    run("cd $(remote_repository_dir); hg pull; hg update")
-    run("cd $(remote_app_dir); python2.7 manage.py syncdb")
-    run("cd $(remote_app_dir); python2.7 manage.py migrate")
-    run("cd $(remote_app_dir); pip install --upgrade -t ./lib -f ../transnewguinea/requirements.txt")
-    run("$(remote_apache_dir)/bin/stop; sleep 1; $(remote_apache_dir)/bin/start")
+    require('hosts', provided_by = [prod,])
+    run("cd %s; hg pull; hg update" % env.remote_repository_dir)
+    # update site-packaged
+    run("workon %s; cd %s; pip install --upgrade -t ./lib/ -r ./transnewguinea/requirements.txt" \
+        % (env.venv, env.remote_root_dir))
+    run("workon %s; cd %s; python2.7 manage.py syncdb" \
+            % (env.venv, env.remote_app_dir))
+    run("workon %s; cd %s; python2.7 manage.py migrate" % (env.venv,
+                                                           env.remote_app_dir))
+    # restart
+    run("%s/bin/stop; sleep 1; %s/bin/start" % (env.remote_apache_dir,
+                                                env.remote_apache_dir))
+
 
 def test(app=None):
     """Runs tests"""

@@ -10,6 +10,8 @@ from website.apps.core.views import FamilyIndex, FamilyDetail
 
 from website.apps.lexicon.views import WordIndex, WordDetail
 
+from website.apps.entry.views import LanguageEntry
+
 from sitemap import FamilySitemap, LanguageSitemap, SourceSitemap, WordSitemap
 
 urlpatterns = patterns('',
@@ -62,6 +64,12 @@ urlpatterns = patterns('',
     
     # Subset-Detail: Show the given word subset
     url(r'^word/\?subset=(?P<slug>.+)$', WordDetail.as_view(), name="subset-detail"),
+    
+    # ------------------------------------------------------------------------ #
+    # Data entry
+    # ------------------------------------------------------------------------ #    
+    #url(r'^entry/language$', GenericEntry.as_view(), name="entry-generic"),
+    
     
     
     # ------------------------------------------------------------------------ #
