@@ -42,7 +42,7 @@ def update_assets():
 
 def update_bootstrap():
     BSDIR = "thirdparty/bootstrap"
-    local("cd %s; make bootstrap" % BSDIR)
+    local("cd %s; make clean; make bootstrap" % BSDIR)
     local("cp %s/bootstrap/css/bootstrap.min.css %s/css/bootstrap.min.css" %
           (BSDIR, STATICDIR))
     local("cp %s/bootstrap/css/bootstrap-responsive.min.css %s/css/bootstrap-responsive.min.css" %
