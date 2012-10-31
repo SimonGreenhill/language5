@@ -1,5 +1,7 @@
 from fabric.api import env, run, local, require
 
+STATICDIR = "website/static"
+
 
 def prod():
     """Set the target to production."""
@@ -32,6 +34,28 @@ def deploy():
     # restart
     run("%s/bin/stop; sleep 1; %s/bin/start" % (env.remote_apache_dir,
                                                 env.remote_apache_dir))
+
+def update_assets():
+    update_bootstrap()
+    update_jquery()
+    update_bootstrap_min_js()
+
+def update_bootstrap():
+    BSDIR = "thirdparty/bootstrap"
+    local("cd %s; make bootstrap" % BSDIR)
+    local("cp %s/bootstrap/css/bootstrap.min.css %s/css/bootstrap.min.css" %
+          (BSDIR, STATICDIR))
+    local("cp %s/bootstrap/css/bootstrap-responsive.min.css %s/css/bootstrap-responsive.min.css" %
+          (BSDIR, STATICDIR))
+    local("cp %s/bootstrap/img/* %s/img/" % (BSDIR, STATICDIR))
+
+def update_jquery():
+    url = "http://code.jquery.com/jquery-1.8.2.min.js"
+    local("curl %s -o %s/js/jquery.js" % (url, STATICDIR))
+
+def update_bootstrap_min_js():
+    url = "https://raw.github.com/twitter/bootstrap/gh-pages/assets/js/bootstrap.min.js"
+    local("curl %s -o %s/js/bootstrap.min.js" % (url, STATICDIR))
 
 
 def test(app=None):
