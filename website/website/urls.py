@@ -10,8 +10,6 @@ from website.apps.core.views import FamilyIndex, FamilyDetail
 
 from website.apps.lexicon.views import WordIndex, WordDetail
 
-from website.apps.entry.views import LanguageEntry
-
 from sitemap import FamilySitemap, LanguageSitemap, SourceSitemap, WordSitemap
 
 urlpatterns = patterns('',

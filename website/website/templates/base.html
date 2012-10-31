@@ -14,22 +14,8 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   
-  <link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap.min.css" %}" />
-  <link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap-responsive.min.css" %}" />
-  
-  <style type="text/css">
-      html, body { 
-          height: 100%; 
-      }
-    body {
-      padding-top: 60px;
-      padding-bottom: 40px;
-    }
-    .sidebar-nav {
-      padding: 9px 0;
-    }
-  </style>
-  
+  <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-responsive.min.css" %}" />
 </head>
 <body>
     <div class="navbar navbar-fixed-top">
@@ -58,6 +44,7 @@
       <div class="row-fluid">
         <div class="span2">
           <div class="well sidebar-nav">
+              <img src="{% static "img/logo-100.png" %}" />
               {% comment %} TODO: Work out how to add 'active' <li class="active"> {% endcomment %}
               <ul class="nav nav-list">
                   <li>
@@ -108,7 +95,7 @@
     
     <!-- javascript -->
     <!--<script type="text/javascript" src="{% static "js/jquery.js" %}"></script>-->
-    <script type="text/javascript" src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
     
 </body>
 </html>
