@@ -45,7 +45,9 @@
       <div class="row-fluid">
         <div class="span2">
           <div class="well sidebar-nav">
-              <img src="{% static "img/map-150.png" %}" width="150px" />
+              <p>
+                  <img src="{% static "img/map-150.png" %}" width="150px" />
+              </p>
               <ul class="nav nav-list">
                   <li class="nav-header"> {{ SITE_NAME }} </li>
                   <li{% active 'index' %}>
@@ -54,7 +56,6 @@
                   <li{% active 'about' %}>
                       <a href="{% url about %}">About</a>
                   </li>
-                  <li class="nav-header">Data</li>
                   <li{% active 'family-index' %}>
                       <a href="{% url family-index %}">Language Families</a>
                   </li>
@@ -70,27 +71,37 @@
                   <li class="nav-header">Search</li>
                   <li{% active 'watson:search' %}>
                       <form class="form-search" action="{% url watson:search %}">
-                          <input name="q" class="input-small search-query" value="{{ request.GET.q }}" size="10">
-                          <button type="submit" class="btn">go</button>
+                          <input name="q" class="input-small search-query" value="{{ request.GET.q }}" size="8">
+                          <button type="submit" class="btn">&raquo;</button>
                       </form>
                   </li>
-                  <li class="nav-header">Admin</li>
                   <li>
-                      <a href="{% url admin:index %}">Log-in</a>
+                      <a href="{% url admin:index %}">Admins</a>
                   </li>
               </ul>
-          </div><!--/.well -->
+          </div><!--/.well, sidebar-nav-->
+          <div class="well anulogo">
+              <a href="http://chl.anu.edu.au">
+                  <img src="{% static "img/anu.png" %}" width="150px" />
+              </a>
+          </div>
+          <div class="well arclogo">
+              <a href="http://www.arc.gov.au/">
+                  <img src="{% static "img/arc.png" %}" width="150px" />
+              </a>
+          </div>
         </div><!--/span-->
         <div class="span10">
-          <div class="row-fluid">
+          <div class="row-fluid content">
               {% block content %}{% endblock %}
           </div><!--/row-->
         </div><!--/span-->
       </div><!--/row-->
       
-      <footer>
-        <p>&copy; {% now "Y" %}. Simon J. Greenhill. </p>
-      </footer>
+    <footer class="footer">
+      <p>&copy; {% now "Y" %}. <a href="http://simon.net.nz">Simon J. Greenhill</a>.</p>
+    </footer>
+    
     </div><!--/.fluid-container-->
     
     <!-- javascript -->
