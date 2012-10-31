@@ -26,7 +26,7 @@ class DataTable(tables.Table):
         sortable = True
         default = u''
         attrs = {
-            'class': "table table-striped table-bordered table-condensed",
+            'class': "table table-bordered table-condensed",
             'summary': '',
         }
     

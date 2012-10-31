@@ -7,11 +7,19 @@
 {% block content %}
     
 
-    <div class="hero-unit">
-        <h1>{{ SITE_NAME }}</h1>
-      <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-      <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+    <div class="page-header">
+        <h1>Welcome to {{ SITE_NAME }}</h1> 
     </div>
-
+    
+    <p>
+        Welcome to {{ SITE_NAME }}, a {{ SITE_DESCRIPTION }}.
+        
+        -- <a href="http://simon.net.nz/Simon Greenhill
+    </p>
+    
+    <div class="map">
+        <img src="{% static "img/map-600.png" %}" width="600px" class="img-rounded" />
+        <p class="caption">
+    </div>
 
 {% endblock %}
