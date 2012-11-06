@@ -19,21 +19,21 @@ env.venv = 'transnewguinea'
 
 def deploy():
     """Deploy the site."""
-    print 'DEPLOY >> Updating remote mercurial repository...'
+    print '\nDEPLOY >> Updating remote mercurial repository...'
     update()
-    print 'DEPLOY >> Updating mercurial repository on deployment machine...'
+    print '\nDEPLOY >> Updating mercurial repository on deployment machine...'
     run("cd %s; hg pull; hg update" % env.remote_repository_dir)
-    print 'DEPLOY >> Syncing databases and migrating...'
+    print '\nDEPLOY >> Syncing databases and migrating...'
     run("workon %s; cd %s; python2.7 manage.py syncdb" \
             % (env.venv, env.remote_app_dir))
     run("workon %s; cd %s; python2.7 manage.py migrate" % (env.venv,
                                                            env.remote_app_dir))
-    print 'DEPLOY >> Cleaning up...'
+    print '\nDEPLOY >> Cleaning up...'
     run("cd %s; find . -name \*.pyc | xargs rm" % env.remote_repository_dir)
     run("workon %s; cd %s; python2.7 manage.py cleanup" % (env.venv,
                                                            env.remote_app_dir))
-    print 'DEPLOY >> Restarting Apache...'
-    run("%s/bin/restart" % env.remote_apache_dir)
+    print '\nDEPLOY >> Restarting Apache...'
+    run("workon %s; %s/bin/restart" % (env.venv, env.remote_apache_dir))
 
 
 def deploy_update_requirements():
