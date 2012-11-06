@@ -1,12 +1,10 @@
 {% extends "base.html" %}
-{% load cache %}
 {% load staticfiles %}
 
 {% block title %} {{ site.name }} {% endblock %}
 
 {% block content %}
     
-
     <div class="page-header">
         <h1>Welcome to {{ SITE_NAME }}</h1> 
     </div>
@@ -14,7 +12,7 @@
     <p>
         Welcome to {{ SITE_NAME }}, a {{ SITE_DESCRIPTION }}.
         
-        -- <a href="http://simon.net.nz/Simon Greenhill
+        -- <a href="http://simon.net.nz/contact/">Simon Greenhill</a>
     </p>
     
     <div class="map">
