@@ -8,6 +8,17 @@
         <h1>Words:</h1>
     </div>
     
+    <ul class="breadcrumb">
+      <li>
+          <a href="{% url index %}">Home</a> 
+          <span class="divider">/</span>
+      </li>
+      <li class="active">
+          <a href="{% url word-index %}">Words</a>
+      </li>
+    </ul>
+    
+    
     {% if subsets %}
         <h2>Word Subsets:</h2>
 

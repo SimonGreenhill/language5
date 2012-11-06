@@ -15,6 +15,21 @@
         </h1>
     </div>
     
+    <ul class="breadcrumb">
+      <li>
+          <a href="{% url index %}">Home</a> 
+          <span class="divider">/</span>
+      </li>
+      <li class="active">
+          <a href="{% url word-index %}">Words</a>
+          <span class="divider">/</span>
+      </li>
+      <li>
+          <a href="{% url word-detail object.slug %}">{{ object }}</a>
+      </li>
+    </ul>
+    
+    
     <h2> Words: </h2>
     
     {% if lexicon %}
