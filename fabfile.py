@@ -19,22 +19,27 @@ env.venv = 'transnewguinea'
 
 def deploy():
     """Deploy the site."""
+    update()
     run("cd %s; hg pull; hg update" % env.remote_repository_dir)
-    # update site-packages
-    run("workon %s; cd %s; pip install --upgrade -r ./transnewguinea/requirements.txt" \
-        % (env.venv, env.remote_root_dir))
     run("workon %s; cd %s; python2.7 manage.py syncdb" \
             % (env.venv, env.remote_app_dir))
     run("workon %s; cd %s; python2.7 manage.py migrate" % (env.venv,
                                                            env.remote_app_dir))
     # restart
-    run("%s/bin/stop; sleep 1; %s/bin/start" % (env.remote_apache_dir,
-                                                env.remote_apache_dir))
+    run("%s/bin/restart" % env.remote_apache_dir)
+
+
+def deploy_update_requirements():
+    # update site-packages
+    run("workon %s; cd %s; pip install --upgrade -r ./transnewguinea/requirements.txt" \
+        % (env.venv, env.remote_root_dir))
+
 
 def update_assets():
     update_bootstrap()
     update_jquery()
     update_bootstrap_min_js()
+
 
 def update_bootstrap():
     BSDIR = "thirdparty/bootstrap"
@@ -45,9 +50,11 @@ def update_bootstrap():
           (BSDIR, STATICDIR))
     local("cp %s/bootstrap/img/* %s/img/" % (BSDIR, STATICDIR))
 
+
 def update_jquery():
     url = "http://code.jquery.com/jquery-1.8.2.min.js"
     local("curl %s -o %s/js/jquery.js" % (url, STATICDIR))
+
 
 def update_bootstrap_min_js():
     url = "https://raw.github.com/twitter/bootstrap/gh-pages/assets/js/bootstrap.min.js"
@@ -66,9 +73,11 @@ def lint():
     """Runs pyflakes"""
     local("cd website; pyflakes .")
     
+
 def py2to3():
     """Runs 2to3"""
     local("cd website; 2to3 .")
+
 
 def update():
     """Updates official bitbucket repo"""
