@@ -11,28 +11,55 @@
         <h1>About {{ SITE_NAME }}</h1>
     </div>
     
-    <p>TODO</p>
+    <p>
+        {{ SITE_NAME }} is a database of the Trans-New Guinea language family and
+        friends. The Trans-New Guinea language family currently occupies most of 
+        the interior of New Guinea. This family is possibly the third largest in 
+        the world with 400 languages and is tentatively thought to have originated 
+        with root-crop agriculture around 10,000 years ago. However, vanishingly little 
+        is known about this family’s history. 
+    </p>
+    <p>
+        This project aims to reveal the prehistory of New Guinea using the
+        linguistic comparative method combined with novel
+        computational phylogenetic methods. 
+    </p>
+    <p>
+        This website is run by Simon Greenhill in the
+        <a href="http://chl.anu.edu.au/">School of Culture, History and Language</a> and 
+        <a href="http://asiapacific.anu.edu.au/">College of Asia and the Pacific</a> at the 
+        <a href="http://anu.edu.au">Australian National University</a>.
+    </p>
     
-    <h2>Colophon / Technologies</h2>
+    <p>
+        Funding for this project was provided by an <a href="http://www.arc.gov.au/">Australian 
+        Research Council</a> &laquo;DECRA&raquo; Discovery Grant 
+        <em>Discovering Trans-New Guinea: Revealing the prehistory of New Guinea</em>
+        (#DE120101954) to Simon Greenhill.
+    </p>
     
-    {{ SITE_NAME }} has made great use of the wonderful open-source
+    
+    <h2>Colophon &para;</h2>
+    
+    <p>{{ SITE_NAME }} has made great use of the wonderful open-source
     web-development ecosystem. Key technologies that have enabled this website
     are:
+    </p>
     
     <table>
         <tr>
             <td class="row">
                 <a href="http://www.unicode.org/">
-                    <img src="{% static "img/unicode.png" %}" border="0" alt="Unicode®." title="Unicode®." />
+                    <img src="{% static "img/unicode.png" %}" width="100px" height="100px" alt="Unicode&reg;." title="Unicode&reg;." />
                 </a>
             </td>
-            <td>All data are encoded according to the Unicode® Standard.
+            <td>All data are encoded according to the Unicode&reg; Standard.
             </td>
         </tr>
         <tr>
             <td class="row">
                 <a href="http://www.djangoproject.com/">
-                    <img src="{% static "img/django.gif" %}" border="0" alt="Powered by Django." title="Powered by Django." />
+                    <img src="{% static "img/django.gif" %}" width="100px" alt="Powered by Django." title="Powered by Django." />
                 </a>
             </td>
             <td>Django is a high-level Python Web framework that encourages rapid
@@ -43,7 +70,7 @@
         <tr>
             <td style="text-align: center;">
                 <a href="http://twitter.github.com/bootstrap/">
-                    <img src="{% static "img/bootstrap.png" %}" border="0" alt="Bootstrap, from Twitter." title="Bootstrap, from Twitter." />
+                    <img src="{% static "img/bootstrap.png" %}" width="100px" alt="Bootstrap, from Twitter." title="Bootstrap, from Twitter." />
                 </a>
             </td>
             <td>Bootstrap, from Twitter. Simple and flexible HTML, CSS, and Javascript for popular user 
@@ -54,7 +81,7 @@
         <tr>
             <td>
                 <a href="http://jquery.com/">
-                    <img src="{% static "img/jquery.png" %}" border="0" alt="jQuery." title="jQuery." />
+                    <img src="{% static "img/jquery.png" %}" width="100px" alt="jQuery." title="jQuery." />
                 </a>
             </td>
             <td>The jQuery Javascript library.</td>
@@ -62,7 +89,7 @@
         <tr>
             <td>
                 <a href="http://www.postgresql.org/">
-                    <img src="{% static "img/postgresql.gif" %}" border="0" alt="PostgreSQL." title="PostgreSQL." />
+                    <img src="{% static "img/postgresql.gif" %}" width="100px" alt="PostgreSQL." title="PostgreSQL." />
                 </a>
             </td>
             <td>The PostgreSQL open-source relational database engine.</td>
@@ -70,7 +97,7 @@
         <tr>
             <td>
                 <a href="http://www.sqlite.org/">
-                    <img src="{% static "img/sqlite.gif" %}" border="0" alt="SQLite." title="SQLite." />
+                    <img src="{% static "img/sqlite.gif" %}" width="100px" alt="SQLite." title="SQLite." />
                 </a>
             </td>
             <td>The SQLite open-source relational database engine.</td>

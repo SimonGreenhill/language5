@@ -8,6 +8,18 @@
         <h1>Sources:</h1>
     </div>
     
+    <ul class="breadcrumb">
+      <li>
+          <a href="{% url index %}">Home</a> 
+          <span class="divider">/</span>
+      </li>
+      <li>
+          <a href="{% url source-index %}">Sources</a>
+      </li>
+    </ul>
+    
+    
+    
     {% if table %}
         {% render_table table "table.html" %}
     {% else %}

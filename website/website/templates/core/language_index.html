@@ -5,9 +5,22 @@
 
 {% block content %}
 
+
     <div class="page-header">
         <h1>Languages:</h1>
     </div>
+
+    <ul class="breadcrumb">
+      <li>
+          <a href="{% url index %}">Home</a> 
+          <span class="divider">/</span>
+      </li>
+      <li class="active">
+          <a href="{% url language-index %}">Languages</a>
+      </li>
+    </ul>
+
+
     
     {% if message %}
         <div class="alert">

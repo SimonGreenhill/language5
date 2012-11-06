@@ -8,6 +8,19 @@
         <h1>Language Family: {{ object.family }}:</h1>
     </div>
     
+    <ul class="breadcrumb">
+      <li>
+          <a href="#">Home</a> 
+          <span class="divider">/</span>
+      </li>
+      <li>
+          <a href="{% url family-index %}">Families</a>
+      </li>
+      <li class="active">
+          <a href="{% url family-detail object.slug %}">{{ object.family }}</a>
+      </li>
+    </ul>
+    
     {% if languages %}
         {% render_table languages "table.html" %}
     {% else %}

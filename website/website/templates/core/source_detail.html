@@ -10,6 +10,21 @@
         <h1>Source: {{ object }}</h1>
     </div>
     
+    <ul class="breadcrumb">
+      <li>
+          <a href="{% url index %}">Home</a> 
+          <span class="divider">/</span>
+      </li>
+      <li>
+          <a href="{% url source-index %}">Sources</a>
+          <span class="divider">/</span>
+      </li>
+      <li>
+          <a href="{% url source-detail object.slug %}">{{ object }}</a>
+      </li>
+    </ul>
+    
+    
     <p class="reference">
         {{ object.reference }}
     <p>

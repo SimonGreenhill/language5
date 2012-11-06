@@ -10,6 +10,21 @@
         <h1>Language: {{ language.language }}</h1>
     </div>
     
+    <ul class="breadcrumb">
+      <li>
+          <a href="{% url index %}">Home</a> 
+          <span class="divider">/</span>
+      </li>
+      <li>
+          <a href="{% url language-index %}">Languages</a>
+          <span class="divider">/</span>
+      </li>
+      <li class="active">
+          <a href="{% url language-detail language.slug %}"> {{ language.language }}</a>
+      </li>
+    </ul>
+    
+    
     {% if alternatenames %}
         <p>
             <strong>Also Known As: </strong>
