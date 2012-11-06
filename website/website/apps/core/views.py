@@ -15,6 +15,7 @@ class LanguageIndex(SingleTableView):
     template_name = 'core/language_index.html'
     table_class = LanguageIndexTable
     table_pagination = {"per_page": 50}
+    order_by_field = 'language'
 
 
 class SourceIndex(SingleTableView):
@@ -23,6 +24,7 @@ class SourceIndex(SingleTableView):
     template_name = 'core/source_index.html'
     table_class = SourceIndexTable
     table_pagination = {"per_page": 50}
+    order_by_field = 'slug'
 
 
 class FamilyIndex(SingleTableView):
@@ -31,6 +33,7 @@ class FamilyIndex(SingleTableView):
     template_name = 'core/family_index.html'
     table_class = FamilyIndexTable
     table_pagination = {"per_page": 50}
+    order_by_field = 'family'
     
     def get_queryset(self):
         return Family.objects.annotate(count=Count('language'))
