@@ -1,5 +1,6 @@
-django>=1.4.1                                               # django framework
-django-reversion>=1.6.0                                     # versioning
+django>=1.4.2                                               # django framework
+psycopg2                                                    # database adaptor
+django-reversion>=1.6.4                                     # versioning
 South>=0.7.5                                                # database migrations
 django-robots                                               # robots.txt
 pytz                                                        # timezone support

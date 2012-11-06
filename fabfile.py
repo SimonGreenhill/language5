@@ -2,30 +2,26 @@ from fabric.api import env, run, local, require
 
 STATICDIR = "website/static"
 
+env.hosts=['sjg@sjg.webfactional.com',]
+env.remote_root_dir='/home/sjg/webapps/transnewguinea'
+    
+# where apache lives.
+env.remote_apache_dir='/home/sjg/webapps/transnewguinea/apache2'
+    
+# top of the hg repository.
+env.remote_repository_dir='/home/sjg/webapps/transnewguinea/transnewguinea'
 
-def prod():
-    """Set the target to production."""
-    env.hosts=['sjg@sjg.webfactional.com',]
-    env.remote_root_dir='/home/sjg/webapps/transnewguinea'
+# the dir with manage.py.
+env.remote_app_dir='/home/sjg/webapps/transnewguinea/transnewguinea/website'
     
-    # where apache lives.
-    env.remote_apache_dir='/home/sjg/webapps/transnewguinea/apache2'
-    
-    # top of the hg repository.
-    env.remote_repository_dir='/home/sjg/webapps/transnewguinea/transnewguinea'
-
-    # the dir with manage.py.
-    env.remote_app_dir='/home/sjg/webapps/transnewguinea/transnewguinea/website'
-    
-    # virtualenv
-    env.venv = 'transnewguinea'
+# virtualenv
+env.venv = 'transnewguinea'
 
 def deploy():
     """Deploy the site."""
-    require('hosts', provided_by = [prod,])
     run("cd %s; hg pull; hg update" % env.remote_repository_dir)
-    # update site-packaged
-    run("workon %s; cd %s; pip install --upgrade -t ./lib/ -r ./transnewguinea/requirements.txt" \
+    # update site-packages
+    run("workon %s; cd %s; pip install --upgrade -r ./transnewguinea/requirements.txt" \
         % (env.venv, env.remote_root_dir))
     run("workon %s; cd %s; python2.7 manage.py syncdb" \
             % (env.venv, env.remote_app_dir))
