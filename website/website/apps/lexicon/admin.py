@@ -41,11 +41,11 @@ class CorrespondenceInline(admin.TabularInline):
 # Admin Classes
 class WordAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
-    list_display = ('id', 'word', 'full')
-    list_filter = ('editor',)
+    list_display = ('id', 'word', 'full', 'quality', 'comment')
+    list_filter = ('editor', 'quality')
     ordering = ('word',)
     prepopulated_fields = {'slug': ('word', )}
-    search_fields = ('editor', 'word', 'full')
+    search_fields = ('editor', 'word', 'full', 'comment')
     
 
 class WordSubsetAdmin(TrackedModelAdmin, VersionAdmin):

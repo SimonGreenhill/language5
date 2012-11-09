@@ -21,6 +21,12 @@ COGNATE_QUALITY = (
     ('9', 'Problematic'),
 )
 
+WORD_QUALITY = (
+    ('0', 'Unassessed'),
+    ('1', 'Extremely stable or reliable'),
+    ('8', 'Open to serious objections as a test item'),
+    ('9', 'Highly unsuitable'),
+)
 
 class Word(TrackedModel):
     """Word Details"""
@@ -32,7 +38,9 @@ class Word(TrackedModel):
         help_text="Full word details/gloss.")
     comment = models.TextField(blank=True, null=True,
         help_text="PUBLIC comment on this word")
-        
+    quality = models.CharField(default=0, max_length=1, choices=WORD_QUALITY,
+            help_text="The quality of this word.")
+    
     def __unicode__(self):
         return self.slug
     
