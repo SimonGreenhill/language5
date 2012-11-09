@@ -30,7 +30,9 @@ class Word(TrackedModel):
         help_text="`Slug` for word (for use in URLS)")
     full = models.TextField(blank=True, null=True,
         help_text="Full word details/gloss.")
-    
+    comment = models.TextField(blank=True, null=True,
+        help_text="PUBLIC comment on this word")
+        
     def __unicode__(self):
         return self.slug
     
