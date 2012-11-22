@@ -4,7 +4,11 @@ from django.core.urlresolvers import resolve
 register = template.Library()
 
 def active(context, view):
-    resolved = resolve(context['request'].path_info)
+    try:
+        resolved = resolve(context['request'].path_info)
+    except KeyError:
+        return ''
+        
     if resolved.view_name == view:
         return ' class="active" '
     else:
