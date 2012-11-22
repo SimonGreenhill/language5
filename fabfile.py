@@ -37,18 +37,18 @@ def deploy():
 
 
 def deploy_update_requirements():
-    # update site-packages
+    """Update site-packages using requirements file on deploy"""
     run("workon %s; cd %s; pip install --upgrade -r ./transnewguinea/requirements.txt" \
         % (env.venv, env.remote_root_dir))
 
 
-def update_assets():
-    update_bootstrap()
-    update_jquery()
-    update_bootstrap_min_js()
+def download_new_assets():
+    """Update all assets"""
+    _update_jquery()
+    _update_bootstrap_min_js()
 
-
-def update_bootstrap():
+def make_bootstrap():
+    """Makes bootstrap"""
     BSDIR = "thirdparty/bootstrap"
     local("cd %s; make clean; make bootstrap" % BSDIR)
     local("cp %s/bootstrap/css/bootstrap.min.css %s/css/bootstrap.min.css" %
@@ -58,12 +58,12 @@ def update_bootstrap():
     local("cp %s/bootstrap/img/* %s/img/" % (BSDIR, STATICDIR))
 
 
-def update_jquery():
+def _update_jquery():
     url = "http://code.jquery.com/jquery-1.8.2.min.js"
     local("curl %s -o %s/js/jquery.js" % (url, STATICDIR))
 
 
-def update_bootstrap_min_js():
+def _update_bootstrap_min_js():
     url = "https://raw.github.com/twitter/bootstrap/gh-pages/assets/js/bootstrap.min.js"
     local("curl %s -o %s/js/bootstrap.min.js" % (url, STATICDIR))
 
