@@ -38,7 +38,7 @@ class Word(TrackedModel):
         help_text="Full word details/gloss.")
     comment = models.TextField(blank=True, null=True,
         help_text="PUBLIC comment on this word")
-    quality = models.CharField(default=0, max_length=1, choices=WORD_QUALITY,
+    quality = models.CharField(default=u'0', max_length=1, choices=WORD_QUALITY,
             help_text="The quality of this word.")
     
     def __unicode__(self):
@@ -109,7 +109,7 @@ class CognateSet(TrackedModel):
         null=True, blank=True)
     comment = models.TextField(blank=True, null=True,
         help_text="Comment about this cognate set")
-    quality = models.CharField(default=0, max_length=1, choices=COGNATESET_QUALITY,
+    quality = models.CharField(default=u'0', max_length=1, choices=COGNATESET_QUALITY,
             help_text="The quality of this cognate set.")
     lexicon = models.ManyToManyField('Lexicon', through='Cognate')
     

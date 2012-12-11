@@ -75,7 +75,8 @@ class TestSetup(object):
     def _compare_objects(self, original, saved):
         """Compares an `original` django model object to a `saved` version"""
         for field in original._meta.fields:
-            self.assertEquals(getattr(original, field.name), getattr(saved, field.name))
+            if getattr(original, field.name) != getattr(saved, field.name):
+                raise AssertionError("Expected %r for field %s got %r" % (getattr(original, field.name), field.name, getattr(saved, field.name)))
         return True
     
 
