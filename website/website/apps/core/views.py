@@ -8,7 +8,6 @@ from website.apps.core.models import Family, Language, AlternateName, Source
 from django_tables2 import SingleTableView
 from website.apps.core.tables import LanguageIndexTable, SourceIndexTable, FamilyIndexTable
 
-
 class LanguageIndex(SingleTableView):
     """Language Index"""
     model = Language
