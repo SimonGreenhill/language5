@@ -22,12 +22,15 @@ class ContentIndexTable(DataTable):
     """Content items Listing for a given task"""
     id = tables.LinkColumn('task-entry', args=[A('id')])
     description = tables.LinkColumn('task-entry', args=[A('id')])
+    comment = tables.LinkColumn('task-entry', args=[A('id')])
+    done = tables.LinkColumn('task-entry', args=[A('id')])
     image = tables.LinkColumn('task-entry', args=[A('id')])
+    
     
     class Meta(DataTable.Meta):
         model = Content
         order_by_field = 'description' # default sorting
-        sequence = ('id', 'description', 'image')
+        sequence = ('id', 'description', 'comment', 'done', 'image')
         exclude = ('editor', 'added')
     Meta.attrs['summary'] = 'Table of Pages for this Task'
 

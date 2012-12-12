@@ -26,10 +26,13 @@ class Task(TrackedModel):
 class Content(TrackedModel):
     """Task Content"""
     task = models.ForeignKey('Task')
+    comment = models.TextField(help_text="Comments")
     description = models.CharField(max_length=64,
         help_text="Short description (e.g. page numbers)")
     image = models.ImageField(upload_to='data/%Y-%m/',
         help_text="The Page Image")
+    done = models.BooleanField(default=False, db_index=True,
+        help_text="Data has been entered")
     
     def __unicode__(self):
         return u'#%d. %s' % (self.task_id, self.description)
@@ -46,8 +49,7 @@ class Result(TrackedModel):
     content = models.ForeignKey('Content')
     result = models.TextField(
         help_text="Raw JSON content")
-    comment = models.TextField(
-        help_text="Comments")
+    comment = models.TextField(help_text="Comments")
     imported = models.BooleanField(default=False, db_index=True,
         help_text="Imported into main database or not")
         
