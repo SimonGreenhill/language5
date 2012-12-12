@@ -10,7 +10,10 @@ from website.apps.core.views import FamilyIndex, FamilyDetail
 
 from website.apps.lexicon.views import WordIndex, WordDetail
 
+from website.apps.entry.views import TaskIndex, TaskDetail, TaskEntry
+
 from sitemap import FamilySitemap, LanguageSitemap, SourceSitemap, WordSitemap
+
 
 urlpatterns = patterns('',
     # Main Page / Home
@@ -66,7 +69,9 @@ urlpatterns = patterns('',
     # ------------------------------------------------------------------------ #
     # Data entry
     # ------------------------------------------------------------------------ #    
-    #url(r'^entry/language$', GenericEntry.as_view(), name="entry-generic"),
+    url(r'^entry/$', TaskIndex.as_view(), name="task-index"),
+    url(r'^entry/(?P<task_id>.+)$', TaskDetail.as_view(), name="task-detail"),
+    url(r'^entry/(?P<task_id>.+)/(?P<content_id>.+)$', TaskEntry.as_view(), name="task-entry"),
     
     
     

@@ -1,4 +1,5 @@
 django>=1.4.2                                               # django framework
+pil                                                         # Python Imaging Library
 psycopg2                                                    # database adaptor
 django-reversion>=1.6.4                                     # versioning
 South>=0.7.5                                                # database migrations
@@ -8,3 +9,4 @@ django-secure                                               # security
 django-discover-runner                                      # better test runner
 django-tables2                                              # better table handling
 django-watson                                               # searching
+

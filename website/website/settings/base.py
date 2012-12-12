@@ -153,6 +153,7 @@ INSTALLED_APPS = [
     'website.apps.core',                 # core functionality
     'website.apps.lexicon',              # Lexicon
     'website.apps.olac',                 # OLAC utils
+    'website.apps.entry',                # Data Entry
 ]
 
 # Django-Security settings
