@@ -75,9 +75,20 @@
                           <button type="submit" class="btn">&raquo;</button>
                       </form>
                   </li>
-                  <li>
-                      <a href="{% url admin:index %}">Admins</a>
-                  </li>
+                  
+                  {% if user.is_staff %}
+                      <li>
+                          <a href="{% url admin:index %}">Admins</a>
+                      </li>
+                      <li>
+                          <a href="{% url task-index %}">Data Entry</a>
+                      </li>
+                  {% else %}
+                      <li>
+                          <a href="{% url django.contrib.auth.views.login %}">Log-in</a>
+                      </li>
+                  {% endif %}
+                  
               </ul>
           </div><!--/.well, sidebar-nav-->
           <div class="well anulogo">
