@@ -80,7 +80,7 @@
                       <li>
                           <a href="{% url admin:index %}">Admins</a>
                       </li>
-                      <li>
+                      <li{% active 'task-index' %}>
                           <a href="{% url task-index %}">Data Entry</a>
                       </li>
                   {% else %}
