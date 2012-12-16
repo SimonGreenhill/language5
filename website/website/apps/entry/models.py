@@ -11,6 +11,7 @@ class Task(TrackedModel):
         help_text="Name of Task")
     formname = models.CharField(max_length=255,
         help_text="Name of Form")
+    source = models.ForeignKey('core.Source', default=None, blank=True, null=True)
     
     def __unicode__(self):
         return self.name
