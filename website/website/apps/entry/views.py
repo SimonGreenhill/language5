@@ -5,7 +5,7 @@ from django.views.generic import DetailView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
-from website.apps.entry.models import Task, Content, Result
+from website.apps.entry.models import Task, Content
 
 from django_tables2 import SingleTableView
 
