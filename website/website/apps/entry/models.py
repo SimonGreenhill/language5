@@ -39,13 +39,8 @@ class Content(TrackedModel):
         help_text="Short description (e.g. page numbers)")
     image = models.ImageField(upload_to='data/%Y-%m/',
         help_text="The Page Image")
-    # raw result data
-    result = models.TextField(default=None, blank=True, null=True,
-        help_text="Raw JSON content")
     done = models.BooleanField(default=False, db_index=True,
         help_text="Data has been entered")
-    imported = models.BooleanField(default=False, db_index=True,
-        help_text="Imported into main database or not")
     
     def __unicode__(self):
         return u'#%d. %s' % (self.task_id, self.description)

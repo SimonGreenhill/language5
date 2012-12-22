@@ -9,7 +9,7 @@ from website.apps.entry.models import Task, Content
 
 from django_tables2 import SingleTableView
 
-from website.apps.entry.tables import TaskIndexTable
+from website.apps.entry.tables import TaskIndexTable, ContentIndexTable
 
 class TaskIndex(SingleTableView):
     """Task Index"""
@@ -19,36 +19,49 @@ class TaskIndex(SingleTableView):
     table_pagination = {"per_page": 50}
     order_by_field = 'name'
     
+    queryset = Task.objects.all().filter(content__done=False).annotate(task_count=Count('content'))
+    
     # ensure logged in
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(TaskIndex, self).dispatch(*args, **kwargs)
     
-
-class TaskDetail(DetailView):
-    """Task Detail"""
+class ContentIndex(DetailView):
+    """Task Content Index"""
     model = Task
     template_name = 'entry/detail.html'
+    table_class = ContentIndexTable
+    table_pagination = {"per_page": 50}
+    order_by_field = 'id'
     
     # ensure logged in
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
-        return super(TaskDetail, self).dispatch(*args, **kwargs)
+        return super(ContentIndex, self).dispatch(*args, **kwargs)
     
     def get_context_data(self, **kwargs):
-        context = super(TaskDetail, self).get_context_data(**kwargs)
-        context['contents'] = ContentIndexTable(kwargs['object'].content_set.all())
+        context = super(ContentIndex, self).get_context_data(**kwargs)
+        context['table'] = ContentIndexTable(kwargs['object'].content_set.all())
         return context
     
     
-class TaskEntry(DetailView):
-    """Task Detail"""
-    model = Task
-    template_name = 'entry/detail.html'
+
+class DataEntry(DetailView):
+    """Data Entry"""
+    model = Content
+    template_name = 'entry/entry.html'
     
     # ensure logged in
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
-        return super(TaskEntry, self).dispatch(*args, **kwargs)
+        return super(DataEntry, self).dispatch(*args, **kwargs)
     
+    def get_context_data(self, **kwargs):
+        context = super(DataEntry, self).get_context_data(**kwargs)
+        context['task'] = Task.objects.get(pk=kwargs['object'].task_id)
+        # get form...
+        _temp = __import__("website.apps.entry.forms", globals(), locals(), [str(context['task'].form)])
+        context['form'] = getattr(_temp, context['task'].form)()
+        # load data...?
+        return context
     
