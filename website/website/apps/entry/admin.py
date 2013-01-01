@@ -13,10 +13,10 @@ class TaskAdmin(TrackedModelAdmin, VersionAdmin):
 
 class ContentAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
-    list_filter = ('task', 'done', 'imported')
-    list_display = ('task', 'description', 'taskcomment', 'comment', 'done', 'imported')
+    list_filter = ('task', 'done')
+    list_display = ('task', 'description', 'taskcomment', 'comment', 'done')
     ordering = ('added', 'task')
-    search_fields = ('task', 'description', 'taskcomment', 'comment', 'done', 'imported')
+    search_fields = ('task', 'description', 'taskcomment', 'comment', 'done')
 
 
 admin.site.register(Task, TaskAdmin)
