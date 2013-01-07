@@ -103,6 +103,7 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = [
     'djangosecure.middleware.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.gzip.GZipMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
