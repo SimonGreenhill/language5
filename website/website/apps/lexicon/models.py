@@ -102,6 +102,7 @@ class Lexicon(TrackedModel):
         db_table = 'lexicon'
         verbose_name_plural = 'Lexicon'
 
+
 class CognateSet(TrackedModel):
     """Cognate Sets"""
     label = models.CharField(max_length=32, blank=True, null=True)
