@@ -23,19 +23,13 @@
       <div class="navbar-inner">
         <div class="container-fluid">
           <a class="brand" href="{% url index %}">{{ SITE_NAME }} - {{ SITE_DESCRIPTION }}</a>
-          {% comment %}
-          <div class="btn-group pull-right">
-            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-              <i class="icon-user"></i> Username
-              <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Profile</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Sign Out</a></li>
-            </ul>
-          </div>
-          {% endcomment %}
+          {% if user.is_staff %}
+              <div class="btn-group pull-right">
+                <a class="btn" href="{% url admin:index %}">
+                  <i class="icon-user"></i> {{ user }}
+                </a>
+              </div>
+          {% endif %}
         </div>
       </div>
     </div>
