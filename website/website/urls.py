@@ -10,7 +10,7 @@ from website.apps.core.views import FamilyIndex, FamilyDetail
 
 from website.apps.lexicon.views import WordIndex, WordDetail
 
-from website.apps.entry.views import TaskIndex, TaskDetail
+from website.apps.entry.views import TaskIndex
 
 from sitemap import FamilySitemap, LanguageSitemap, SourceSitemap, WordSitemap
 
@@ -70,7 +70,8 @@ urlpatterns = patterns('',
     # Data entry
     # ------------------------------------------------------------------------ #    
     url(r'^entry/$', TaskIndex.as_view(), name="task-index"),
-    url(r'^entry/(?P<pk>\d+)$', TaskDetail.as_view(), name="task-detail"),
+    url(r'^entry/(?P<task_id>\d+)$', 
+        'website.apps.entry.views.task_detail', name="task-detail"),
     
     # ------------------------------------------------------------------------ #
     # Misc
@@ -98,9 +99,9 @@ urlpatterns = patterns('',
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
     
-    url(r'^accounts/login$', 'django.contrib.auth.views.login', 
+    url(r'^accounts/login/$', 'django.contrib.auth.views.login', 
         {'template_name': 'login.html'}, 
         name="login"),
-    url(r'^accounts/logout$', 'django.contrib.auth.views.logout', name="logout"),
+    url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', name="logout"),
     
 )
