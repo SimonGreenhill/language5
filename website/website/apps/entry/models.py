@@ -11,11 +11,15 @@ class Task(TrackedModel):
     """Data Entry Tasks"""
     name = models.CharField(max_length=255, db_index=True,
         help_text="Name of Task")
-    comment = models.TextField(help_text="Comment")
+    description = models.TextField(help_text="Task Description")
     source = models.ForeignKey('core.Source', default=None, blank=True, null=True)
     form = models.CharField(default=entry_forms[0], max_length=256, 
             choices=entry_forms,
             help_text="Entry Forms")
+    image = models.ImageField(upload_to='data/%Y-%m/',
+        help_text="The Page Image")
+    done = models.BooleanField(default=False, db_index=True,
+        help_text="Data has been entered")
     
     def __unicode__(self):
         return self.name
@@ -25,29 +29,5 @@ class Task(TrackedModel):
         return ('task-detail', [self.id])
     
     class Meta:
-        db_table = 'entry_tasks'
-
-
-class Content(TrackedModel):
-    """Task Content"""
-    task = models.ForeignKey('Task')
-    taskcomment = models.TextField(blank=True, null=True,
-        help_text="Task Comment for Data Entry Person")
-    comment = models.TextField(blank=True, null=True, 
-        help_text="Comments from Data Entry Person")
-    description = models.CharField(max_length=64,
-        help_text="Short description (e.g. page numbers)")
-    image = models.ImageField(upload_to='data/%Y-%m/',
-        help_text="The Page Image")
-    done = models.BooleanField(default=False, db_index=True,
-        help_text="Data has been entered")
-    
-    def __unicode__(self):
-        return u'#%d. %s' % (self.task_id, self.description)
-        
-    def get_absolute_url(self):
-        return ('task-entry', [self.id])
-    
-    class Meta:
-        db_table = 'entry_contents'
+        db_table = 'tasks'
 

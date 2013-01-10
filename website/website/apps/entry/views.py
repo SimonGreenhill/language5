@@ -5,11 +5,11 @@ from django.views.generic import DetailView, FormView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
-from website.apps.entry.models import Task, Content
+from website.apps.entry.models import Task
 
 from django_tables2 import SingleTableView
 
-from website.apps.entry.tables import TaskIndexTable, ContentIndexTable
+from website.apps.entry.tables import TaskIndexTable
 
 class TaskIndex(SingleTableView):
     """Task Index"""
@@ -25,31 +25,13 @@ class TaskIndex(SingleTableView):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(TaskIndex, self).dispatch(*args, **kwargs)
-    
-class ContentIndex(DetailView):
-    """Task Content Index"""
-    model = Task
-    template_name = 'entry/detail.html'
-    table_class = ContentIndexTable
-    table_pagination = {"per_page": 50}
-    order_by_field = 'id'
-    
-    # ensure logged in
-    @method_decorator(login_required)
-    def dispatch(self, *args, **kwargs):
-        return super(ContentIndex, self).dispatch(*args, **kwargs)
-    
-    def get_context_data(self, **kwargs):
-        context = super(ContentIndex, self).get_context_data(**kwargs)
-        context['table'] = ContentIndexTable(kwargs['object'].content_set.all())
-        return context
-    
+
     
 # Data Entry View
-class DataEntry(DetailView):
+class TaskDetail(DetailView):
     """Data Entry"""
-    model = Content
-    template_name = 'entry/entry.html'
+    model = Task
+    template_name = 'entry/detail.html'
     #form_class = 
     
     # ensure logged in
