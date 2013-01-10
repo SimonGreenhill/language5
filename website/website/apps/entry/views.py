@@ -46,7 +46,7 @@ class ContentIndex(DetailView):
     
     
 # Data Entry View
-class DataEntry(FormView):
+class DataEntry(DetailView):
     """Data Entry"""
     model = Content
     template_name = 'entry/entry.html'

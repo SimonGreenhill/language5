@@ -45,14 +45,8 @@
             
             
             <img class="img-polaroid" src="{{ content.image.url }}" alt="{{ content.image }}" />
-            
-            <hr />
-            
-            <p>
-            <span id="picker"></span>&nbsp;
-            <button type="button" id="inlineDisable">Disable</button>
-            </p>
-            
+                        
+            <p class="well well-small"><span id="picker"></span></p>
             
             {% if form.subject.errors %}
                 <ol>
@@ -73,7 +67,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="{% cycle 'even' 'odd' %}">>
+                        <tr class="{% cycle 'even' 'odd' %}">
                             {% for field in form %}
                                 <td>{{ field }}</td>
                             {% endfor %}
