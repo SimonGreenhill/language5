@@ -1,7 +1,7 @@
 from django.db.models import Count
 from django.http import Http404
-from django.shortcuts import render, redirect
-from django.views.generic import DetailView, FormView
+from django.shortcuts import redirect, render_to_response, get_object_or_404
+from django.views.generic import DetailView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
@@ -17,35 +17,37 @@ class TaskIndex(SingleTableView):
     template_name = 'entry/index.html'
     table_class = TaskIndexTable
     table_pagination = {"per_page": 50}
-    order_by_field = 'name'
+    order_by_field = 'added'
     
-    queryset = Task.objects.all().filter(content__done=False).annotate(task_count=Count('content'))
+    queryset = Task.objects.all().filter(done=False)
     
     # ensure logged in
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(TaskIndex, self).dispatch(*args, **kwargs)
 
+
+
+@login_required()
+def task_detail(request, task_id):
+    """
+    Show Task Detail
+    """
+    # 1. check if task is valid
+    t = get_object_or_404(Task, pk=task_id)
+        
+    # 2. check if task is complete
+    if t.done:
+        return redirect('task-index')
     
-# Data Entry View
-class TaskDetail(DetailView):
-    """Data Entry"""
-    model = Task
-    template_name = 'entry/detail.html'
-    #form_class = 
+    form = None
+    # # get form...
+    # _temp = __import__("website.apps.entry.forms", globals(), locals(), [str(t.form)])
+    # #context['form'] = getattr(_temp, context['task'].form)(initial={'editor': self.request.user})
+    # form = getattr(_temp, t.form)()
     
-    # ensure logged in
-    @method_decorator(login_required)
-    def dispatch(self, *args, **kwargs):
-        return super(DataEntry, self).dispatch(*args, **kwargs)
-    
-    def get_context_data(self, **kwargs):
-        context = super(DataEntry, self).get_context_data(**kwargs)
-        context['task'] = Task.objects.get(pk=kwargs['object'].task_id)
-        # get form...
-        _temp = __import__("website.apps.entry.forms", globals(), locals(), [str(context['task'].form)])
-        #context['form'] = getattr(_temp, context['task'].form)(initial={'editor': self.request.user})
-        context['form'] = getattr(_temp, context['task'].form)()
-        # load data...?
-        return context
+    return render_to_response('entry/detail.html', {
+        'task': t,
+        'form': form,
+    })
     

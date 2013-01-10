@@ -6,15 +6,15 @@ from website.apps.entry.models import Task
 
 class TaskIndexTable(DataTable):
     """Task Listing"""
-    id = tables.LinkColumn('content-list', args=[A('id')])
-    name = tables.LinkColumn('content-list', args=[A('id')])
-    task_count = tables.LinkColumn('content-list', args=[A('id')])
+    id = tables.LinkColumn('task-detail', args=[A('id')])
+    name = tables.LinkColumn('task-detail', args=[A('id')])
+    description = tables.LinkColumn('task-detail', args=[A('id')])
     
     class Meta(DataTable.Meta):
         model = Task
         order_by_field = 'name' # default sorting
         sequence = ('id', 'name', 'description', 'added', 'source')
-        exclude = ('editor', 'form')
+        exclude = ('editor', 'form', 'image', 'done')
     Meta.attrs['summary'] = 'Table of Tasks'
     
 

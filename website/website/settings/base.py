@@ -1,5 +1,6 @@
 # Django settings for website project.
 import os
+
 SITE_ROOT = os.path.split(os.path.dirname(os.path.abspath(__file__)))[0]
 
 DEBUG = TEMPLATE_DEBUG = False
@@ -42,6 +43,7 @@ TIME_ZONE = 'America/Chicago'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
 
+LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = "/"
 
 # If you set this to False, Django will make some optimizations so as not
