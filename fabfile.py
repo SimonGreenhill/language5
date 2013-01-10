@@ -44,8 +44,8 @@ def deploy_update_requirements():
 
 def download_new_assets():
     """Update all assets"""
-    _update_jquery()
-    _update_bootstrap_min_js()
+    update_jquery()
+    update_bootstrap_min_js()
 
 def make_bootstrap():
     """Makes bootstrap"""
@@ -58,12 +58,12 @@ def make_bootstrap():
     local("cp %s/bootstrap/img/* %s/img/" % (BSDIR, STATICDIR))
 
 
-def _update_jquery():
+def update_jquery():
     url = "http://code.jquery.com/jquery-1.8.2.min.js"
     local("curl %s -o %s/js/jquery.js" % (url, STATICDIR))
 
 
-def _update_bootstrap_min_js():
+def update_bootstrap_min_js():
     url = "https://raw.github.com/twitter/bootstrap/gh-pages/assets/js/bootstrap.min.js"
     local("curl %s -o %s/js/bootstrap.min.js" % (url, STATICDIR))
 
