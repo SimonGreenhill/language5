@@ -1,7 +1,7 @@
 from django.db.models import Count
 from django.http import Http404
 from django.shortcuts import render, redirect
-from django.views.generic import DetailView
+from django.views.generic import DetailView, FormView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
@@ -45,11 +45,12 @@ class ContentIndex(DetailView):
         return context
     
     
-
-class DataEntry(DetailView):
+# Data Entry View
+class DataEntry(FormView):
     """Data Entry"""
     model = Content
     template_name = 'entry/entry.html'
+    #form_class = 
     
     # ensure logged in
     @method_decorator(login_required)
@@ -61,6 +62,7 @@ class DataEntry(DetailView):
         context['task'] = Task.objects.get(pk=kwargs['object'].task_id)
         # get form...
         _temp = __import__("website.apps.entry.forms", globals(), locals(), [str(context['task'].form)])
+        #context['form'] = getattr(_temp, context['task'].form)(initial={'editor': self.request.user})
         context['form'] = getattr(_temp, context['task'].form)()
         # load data...?
         return context
