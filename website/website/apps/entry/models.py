@@ -13,6 +13,7 @@ class Task(TrackedModel):
         help_text="Name of Task")
     description = models.TextField(help_text="Task Description")
     source = models.ForeignKey('core.Source', default=None, blank=True, null=True)
+    language = models.ForeignKey('core.Language', default=None, blank=True, null=True)
     form = models.CharField(default=entry_forms[0], max_length=256, 
             choices=entry_forms,
             help_text="Entry Forms")

@@ -15,3 +15,7 @@ class SimpleForm(forms.ModelForm):
     # make sure to set editor, added, and loan if loan_source is specified
     
 #SimpleFormSet = formset_factory(SimpleForm, extra=20)
+
+
+# class CognateForm(forms.ModelForm):
+#     pass

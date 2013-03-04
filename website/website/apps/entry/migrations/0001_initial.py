@@ -16,6 +16,7 @@ class Migration(SchemaMigration):
             ('name', self.gf('django.db.models.fields.CharField')(max_length=255, db_index=True)),
             ('description', self.gf('django.db.models.fields.TextField')()),
             ('source', self.gf('django.db.models.fields.related.ForeignKey')(default=None, to=orm['core.Source'], null=True, blank=True)),
+            ('language', self.gf('django.db.models.fields.related.ForeignKey')(default=None, to=orm['core.Language'], null=True, blank=True)),
             ('form', self.gf('django.db.models.fields.CharField')(default=('SimpleForm', u'Single Lexical Entry'), max_length=256)),
             ('image', self.gf('django.db.models.fields.files.ImageField')(max_length=100)),
             ('done', self.gf('django.db.models.fields.BooleanField')(default=False, db_index=True)),
@@ -65,6 +66,26 @@ class Migration(SchemaMigration):
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
+        'core.family': {
+            'Meta': {'object_name': 'Family', 'db_table': "'families'"},
+            'added': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'editor': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"}),
+            'family': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '64'}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '64'})
+        },
+        'core.language': {
+            'Meta': {'unique_together': "(('isocode', 'language'),)", 'object_name': 'Language', 'db_table': "'languages'"},
+            'added': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'classification': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            'editor': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"}),
+            'family': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['core.Family']", 'symmetrical': 'False', 'blank': 'True'}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'information': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            'isocode': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '3', 'null': 'True', 'blank': 'True'}),
+            'language': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '64', 'db_index': 'True'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '64'})
+        },
         'core.source': {
             'Meta': {'object_name': 'Source', 'db_table': "'sources'"},
             'added': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
@@ -86,6 +107,7 @@ class Migration(SchemaMigration):
             'form': ('django.db.models.fields.CharField', [], {'default': "('SimpleForm', u'Single Lexical Entry')", 'max_length': '256'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'image': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'}),
+            'language': ('django.db.models.fields.related.ForeignKey', [], {'default': 'None', 'to': "orm['core.Language']", 'null': 'True', 'blank': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '255', 'db_index': 'True'}),
             'source': ('django.db.models.fields.related.ForeignKey', [], {'default': 'None', 'to': "orm['core.Source']", 'null': 'True', 'blank': 'True'})
         }
