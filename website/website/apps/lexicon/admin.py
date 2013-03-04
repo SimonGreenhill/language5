@@ -95,11 +95,10 @@ class CorrespondenceAdmin(TrackedModelAdmin, VersionAdmin):
 
 
 
-
 admin.site.register(Word, WordAdmin)
 admin.site.register(WordSubset, WordSubsetAdmin)
 admin.site.register(Lexicon, LexiconAdmin)
 admin.site.register(CognateSet, CognateSetAdmin)
 admin.site.register(CorrespondenceSet, CorrespondenceSetAdmin)
-#admin.site.register(Cognate, CognateAdmin)
-#admin.site.register(Correspondence, CorrespondenceAdmin)
+admin.site.register(Cognate, CognateAdmin)
+admin.site.register(Correspondence, CorrespondenceAdmin)
