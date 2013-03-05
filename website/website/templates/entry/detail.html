@@ -59,6 +59,11 @@
             
             <p class="well well-small"><span id="picker"></span></p>
             
+            {% include template %}
+            
+            
+            {% comment %}
+            
             {% if form.subject.errors %}
                 <ol>
                 {% for error in form.subject.errors %}
@@ -88,6 +93,7 @@
                 <button type="submit" class="btn btn-block btn-primary"><i class="icon-ok"></i> Save </button>
             </form>
             
+            {% endcomment %}
                 
         <div>
       </div><!--/row-->

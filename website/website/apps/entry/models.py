@@ -5,16 +5,12 @@ from django.core.files.storage import FileSystemStorage
 
 from website.apps.core.models import TrackedModel
 
-from website.apps.entry.forms import entry_forms
-
 class Task(TrackedModel):
     """Data Entry Tasks"""
     name = models.CharField(max_length=255, db_index=True,
         help_text="Name of Task")
     description = models.TextField(help_text="Task Description")
-    source = models.ForeignKey('core.Source', default=None, blank=True, null=True)
-    language = models.ForeignKey('core.Language', default=None, blank=True, null=True)
-    form = models.CharField(default=entry_forms[0], max_length=256, 
+    view = models.CharField(default=entry_forms[0], max_length=256, 
             choices=entry_forms,
             help_text="Entry Forms")
     image = models.ImageField(upload_to='data/%Y-%m/',
