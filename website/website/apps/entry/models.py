@@ -7,6 +7,7 @@ class Task(TrackedModel):
     name = models.CharField(max_length=255, db_index=True,
         help_text="Name of Task")
     description = models.TextField(help_text="Task Description")
+    source = models.ForeignKey('core.Source')
     view = models.CharField(default=available_views[0], max_length=256,
             choices=available_views,
             help_text="Data entry view to Use")
