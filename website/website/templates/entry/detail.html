@@ -19,11 +19,17 @@
   <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}" />
   <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-responsive.min.css" %}" />
   
-  <!-- for javascript charpicker -->
+  <!-- for javascript charpicker and image zoomer -->
   <link rel="stylesheet" type="text/css" href="{% static "css/jquery.keypad.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/jquery.fs.zoomer.css" %}" />
   <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
   <script type="text/javascript" src="{% static "js/jquery.keypad.min.js" %}"></script>
   <script type="text/javascript" src="{% static "js/charpicker.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/jquery.fs.zoomer.min.js" %}"></script>
+
+  <style>
+  .zoomer_wrapper { border: 1px solid #ddd; border-radius: 3px; height: 500px; margin: 10px 0; overflow: hidden; width: 100%; }
+  </style>
 
 </head>
 <body>
@@ -43,9 +49,14 @@
                 <h1>Data Entry Task: {{ task }} {{ content }}</h1>
             </div>
             
+            <div class="row clearfix">
+              <div class="zoomer_wrapper zoomer">
+                {% comment %}
+                    <img class="img-polaroid" src="{{ task.image.url }}" alt="{{ task.image }}" />
+                {% endcomment %}
+              </div>
+            </div>
             
-            <img class="img-polaroid" src="{{ content.image.url }}" alt="{{ content.image }}" />
-                        
             <p class="well well-small"><span id="picker"></span></p>
             
             {% if form.subject.errors %}
@@ -56,7 +67,7 @@
                 </ol>
             {% endif %}
             
-            <form action="." method="post">
+            <form action="." method="post" class="form-inline">
                 {% csrf_token %}
                 <table class="table table-bordered table-condensed">
                     <thead>
@@ -74,7 +85,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <button type="submit" class="btn btn-primary"><i class="icon-ok"></i> Save </button>
+                <button type="submit" class="btn btn-block btn-primary"><i class="icon-ok"></i> Save </button>
             </form>
             
                 
@@ -86,5 +97,18 @@
     </footer>
     
     </div><!--/.fluid-container-->
+
+    <script>
+        $(document).ready(function() {
+          $(".zoomer").zoomer({
+            source: "{{ task.image.url }}",
+            customClass: "img-polaroid",
+            increment: 0.1
+          });
+          $(window).on("rubberband.enter", function() {
+            $(".zoomer-element").zoomer("resize");
+          });
+        });
+    </script>
 </body>
 </html>

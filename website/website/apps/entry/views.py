@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render_to_response, get_object_or_404
 from django.views.generic import DetailView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.template import RequestContext
 
 from website.apps.entry.models import Task
 
@@ -40,14 +41,15 @@ def task_detail(request, task_id):
     if t.done:
         return redirect('task-index')
     
-    form = None
-    # # get form...
-    # _temp = __import__("website.apps.entry.forms", globals(), locals(), [str(t.form)])
-    # #context['form'] = getattr(_temp, context['task'].form)(initial={'editor': self.request.user})
-    # form = getattr(_temp, t.form)()
+    # get form...
+    try:
+        _temp = __import__("website.apps.entry.forms", globals(), locals(), [str(t.form)])
+        form = getattr(_temp, t.form)(initial={'editor': request.user})
+    except:
+        raise
     
     return render_to_response('entry/detail.html', {
         'task': t,
         'form': form,
-    })
+    }, context_instance=RequestContext(request))
     

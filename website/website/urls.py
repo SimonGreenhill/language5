@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.conf.urls import *
 from django.views.generic import TemplateView
 
@@ -104,4 +105,10 @@ urlpatterns = patterns('',
         name="login"),
     url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', name="logout"),
     
+    
 )
+
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+    )

@@ -9,12 +9,39 @@ class SimpleForm(forms.ModelForm):
     class Meta:
         model = Lexicon
         exclude = ('editor', 'phon_entry', 'loan', 'loan_source') 
-        # over-ride Textarea for annotation
-        widgets = {'annotation': forms.widgets.TextInput(),}
-        #attrs={'max_length': 100}
+        widgets = {
+            # over-ride Textarea for annotation
+            'annotation': forms.widgets.TextInput(attrs={'class': 'input-small'}),
+            
+            # and set input-small
+            'entry': forms.widgets.TextInput(attrs={'class': 'input-small'}),
+            'language': forms.widgets.Select(attrs={'class': 'input-small'}),
+            'source': forms.widgets.Select(attrs={'class': 'input-small'}),
+            'word': forms.widgets.Select(attrs={'class': 'input-small'}),
+        }
     # make sure to set editor, added, and loan if loan_source is specified
+
+
+class SimpleFormForLanguage(forms.ModelForm):
+    description = u'Single Lexical Entry for a given language'
+
+    class Meta:
+        model = Lexicon
+        exclude = ('editor', 'phon_entry', 'loan', 'loan_source', 'language') 
+        widgets = {
+            # over-ride Textarea for annotation
+            'annotation': forms.widgets.TextInput(attrs={'class': 'input-small'}),
+
+            # and set input-small
+            'entry': forms.widgets.TextInput(attrs={'class': 'input-small'}),
+            'language': forms.widgets.Select(attrs={'class': 'input-small'}),
+            'source': forms.widgets.Select(attrs={'class': 'input-small'}),
+            'word': forms.widgets.Select(attrs={'class': 'input-small'}),
+        }
+    # make sure to set editor, added, and loan if loan_source is specified
+
     
-#SimpleFormSet = formset_factory(SimpleForm, extra=20)
+SimpleFormSet = formset_factory(SimpleForm, extra=40)
 
 
 # class CognateForm(forms.ModelForm):
