@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render_to_response, get_object_or_404
+from django.shortcuts import render_to_response
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 
@@ -11,10 +11,11 @@ from website.apps.lexicon.models import Lexicon
 class GenericForm(forms.ModelForm):
     class Meta:
         model = Lexicon
-        exclude = ('editor', 'phon_entry', 'loan', 'loan_source') 
+        exclude = ('editor', 'phon_entry', 'loan', 'loan_source')
         widgets = {
             # over-ride Textarea for annotation
-            'annotation': forms.widgets.TextInput(attrs={'class': 'input-small'}),
+            'annotation': forms.widgets.TextInput(
+                    attrs={'class': 'input-small'}),
             
             # and set input-small
             'entry': forms.widgets.TextInput(attrs={'class': 'input-small'}),
@@ -31,12 +32,21 @@ GenericFormSet = formset_factory(GenericForm, extra=40)
 def GenericView(request, task):
     """Generic Data Entry Task"""
     template_name = "entry/formtemplates/generic.html"
-    form = GenericForm(initial={'editor': request.user})
+    
+    if request.method == 'POST':
+        form = GenericForm(request.POST)
+        if form.is_valid():
+            obj = form.save()
+            return render_to_response('entry/done.html', {
+                'task': task,
+                'objects': [obj],
+            }, context_instance=RequestContext(request))
+    else:
+        form = GenericForm(initial={'editor': request.user})
+    
     return render_to_response('entry/detail.html', {
         'task': task,
         'form': form,
         'template': template_name,
     }, context_instance=RequestContext(request))
-    
-
 
