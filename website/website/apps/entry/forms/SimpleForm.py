@@ -3,7 +3,7 @@ from django.forms.formsets import formset_factory
 
 from website.apps.lexicon.models import Lexicon
 
-class SimpleForm(forms.ModelForm):
+class GenericForm(forms.ModelForm):
     class Meta:
         model = Lexicon
         exclude = ('editor', 'phon_entry', 'loan', 'loan_source') 
@@ -19,4 +19,4 @@ class SimpleForm(forms.ModelForm):
         }
     # make sure to set editor, added, and loan if loan_source is specified
 
-SimpleFormSet = formset_factory(SimpleForm, extra=40)
+GenericFormSet = formset_factory(GenericForm, extra=40)

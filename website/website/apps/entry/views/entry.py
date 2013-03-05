@@ -15,25 +15,14 @@ from website.apps.forms import *
 @login_required()
 def generic(request, task_id):
     """Generic Data Entry Task"""
-    # 3. set template for form
     template_name = "entry/formtemplates/generic.html"
-    
-    # 4. get form
-    form = SimpleForm(initial={'editor': request.user})
-
+    form = GenericForm(initial={'editor': request.user})
     return render_to_response('entry/detail.html', {
         'task': t,
         'form': form,
         'template': template_name,
     }, context_instance=RequestContext(request))
     
-
-
-
-
-
-
-
 
 
 
