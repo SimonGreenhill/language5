@@ -14,7 +14,7 @@ class TaskIndexTable(DataTable):
         model = Task
         order_by_field = 'name' # default sorting
         sequence = ('id', 'name', 'description', 'added', 'source')
-        exclude = ('editor', 'form', 'image', 'done')
+        exclude = ('editor', 'view', 'image', 'done')
     Meta.attrs['summary'] = 'Table of Tasks'
     
 

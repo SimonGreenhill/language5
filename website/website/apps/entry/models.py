@@ -1,18 +1,15 @@
 from django.db import models
-from django.core.urlresolvers import reverse
-from django.contrib.auth.models import User
-from django.core.files.storage import FileSystemStorage
-
 from website.apps.core.models import TrackedModel
+from website.apps.entry.dataentry import available_views
 
 class Task(TrackedModel):
     """Data Entry Tasks"""
     name = models.CharField(max_length=255, db_index=True,
         help_text="Name of Task")
     description = models.TextField(help_text="Task Description")
-    view = models.CharField(default=entry_forms[0], max_length=256, 
-            choices=entry_forms,
-            help_text="Entry Forms")
+    view = models.CharField(default=available_views[0], max_length=256,
+            choices=available_views,
+            help_text="Data entry view to Use")
     image = models.ImageField(upload_to='data/%Y-%m/',
         help_text="The Page Image")
     done = models.BooleanField(default=False, db_index=True,
@@ -27,4 +24,3 @@ class Task(TrackedModel):
     
     class Meta:
         db_table = 'tasks'
-

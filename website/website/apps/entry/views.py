@@ -1,14 +1,15 @@
 from django.shortcuts import redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.template import RequestContext
 
 from django_tables2 import SingleTableView
 
 from website.apps.entry.models import Task
 from website.apps.entry.tables import TaskIndexTable
 
-from website.apps.entry.views.entry import EntryViews
+from website.apps.entry.dataentry import available_views
+
+
 
 # task index
 class TaskIndex(SingleTableView):
@@ -38,5 +39,7 @@ def task_detail(request, task_id):
         return redirect('task-index')
 
     # get t.task
-    for viewname, viewdesc in EntryViews:
+    for viewname, viewdesc in available_views:
         print viewname, viewdesc
+        #return viewname(request, task)
+    # else fail.

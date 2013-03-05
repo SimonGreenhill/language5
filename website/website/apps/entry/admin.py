@@ -6,8 +6,8 @@ from website.apps.core.admin import TrackedModelAdmin
 
 class TaskAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
-    list_display = ('name', 'source', 'form', 'added')
-    list_filter = ('editor', 'source', 'form')
+    list_display = ('name', 'source', 'view', 'added')
+    list_filter = ('editor', 'source', 'view')
     ordering = ('name',)
 
 admin.site.register(Task, TaskAdmin)

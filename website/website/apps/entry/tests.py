@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-import re
-
 from django.test import TestCase
 from django.test.client import Client
 
@@ -20,18 +18,19 @@ class Test_Detail(TestCase):
         self.client = Client()
         # some data
         self.file_testimage = "data/2013-01/test.png"
-        self.editor = User.objects.create_user('admin', 'admin@example.com', "test")
+        self.editor = User.objects.create_user('admin',
+                                               'admin@example.com', "test")
         self.source = Source.objects.create(
-                year=1991, 
-                author='Smith', 
-                slug='Smith1991', 
+                year=1991,
+                author='Smith',
+                slug='Smith1991',
                 reference='S2',
-                comment='c1', 
+                comment='c1',
                 editor=self.editor
         )
         self.task = Task.objects.create(
             editor=self.editor,
-            name="Test Task", 
+            name="Test Task",
             description="A Test of Data Entry",
             source=self.source,
             form=entry_forms[0],
@@ -40,16 +39,23 @@ class Test_Detail(TestCase):
         )
     
     def test_testimage_is_present(self):
-        """This test makes sure that the test image is present on the file-system"""
+        """
+        This test makes sure that the test image 
+        is present on the file-system
+        """
         from os.path import join, isfile
         from django.conf import settings
         test_file = join(settings.MEDIA_ROOT, self.file_testimage)
-        assert isfile(test_file), "Missing Test Image File on File-System at %s! Other tests will fail!" % test_file
+        assert isfile(test_file), \
+                """Missing Test Image File on File-System at %s! 
+                   Other tests will fail!""" % test_file
         
     def test_error_when_not_logged_in(self):
         response = self.client.get(self.task.get_absolute_url())
         self.failUnlessEqual(response.status_code, 302) 
-        self.assertRedirects(response, "/accounts/login/?next=%s" % self.task.get_absolute_url(), status_code=302, target_status_code=200)
+        self.assertRedirects(response, 
+                             "/accounts/login/?next=%s" % self.task.get_absolute_url(), 
+                             status_code=302, target_status_code=200)
         
     def test_ok_when_logged_in(self):
         self.client.login(username="admin", password="test")
