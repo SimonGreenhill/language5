@@ -33,7 +33,7 @@ def GenericView(request, task):
     template_name = "entry/formtemplates/generic.html"
     form = GenericForm(initial={'editor': request.user})
     return render_to_response('entry/detail.html', {
-        'task': t,
+        'task': task,
         'form': form,
         'template': template_name,
     }, context_instance=RequestContext(request))

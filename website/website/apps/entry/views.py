@@ -1,13 +1,14 @@
 from django.shortcuts import redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.http import HttpResponseServerError
 
 from django_tables2 import SingleTableView
 
 from website.apps.entry.models import Task
 from website.apps.entry.tables import TaskIndexTable
 
-from website.apps.entry.dataentry import available_views
+from website.apps.entry import dataentry
 
 
 
@@ -33,13 +34,17 @@ def task_detail(request, task_id):
     "Handles routing of tasks"
     # 1. check if task is valid
     t = get_object_or_404(Task, pk=task_id)
-
+    
     # 2. check if task is complete
     if t.done:
         return redirect('task-index')
-
-    # get t.task
-    for viewname, viewdesc in available_views:
-        print viewname, viewdesc
-        #return viewname(request, task)
-    # else fail.
+    
+    # pass to desired view
+    for viewname, viewdesc in dataentry.available_views:
+        if viewname == t.view:
+            viewfunc = getattr(dataentry, t.view)
+            return viewfunc(request, t)
+    # ...but if we don't know which view, then we die.
+    return HttpResponseServerError("Can't find view %s" % t.view)
+    
+    

@@ -61,40 +61,6 @@
             
             {% include template %}
             
-            
-            {% comment %}
-            
-            {% if form.subject.errors %}
-                <ol>
-                {% for error in form.subject.errors %}
-                    <li><strong>{{ error|escape }}</strong></li>
-                {% endfor %}
-                </ol>
-            {% endif %}
-            
-            <form action="." method="post" class="form-inline">
-                {% csrf_token %}
-                <table class="table table-bordered table-condensed">
-                    <thead>
-                        <tr>
-                            {% for field in form %}
-                                <th>{{ field.label_tag }}</th>
-                            {% endfor %}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="{% cycle 'even' 'odd' %}">
-                            {% for field in form %}
-                                <td>{{ field }}</td>
-                            {% endfor %}
-                        </tr>
-                    </tbody>
-                </table>
-                <button type="submit" class="btn btn-block btn-primary"><i class="icon-ok"></i> Save </button>
-            </form>
-            
-            {% endcomment %}
-                
         <div>
       </div><!--/row-->
       
