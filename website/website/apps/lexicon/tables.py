@@ -27,7 +27,7 @@ class WordLexiconTable(DataTable):
     source = tables.LinkColumn('source-detail', args=[A('source.slug')])
     entry = tables.Column()
     annotation = tables.Column()
-    loan = tables.BooleanColumn(null=False, yesno=('', 'x'))
+    loan = tables.BooleanColumn(null=False, yesno=('x', ''))
     
     class Meta(DataTable.Meta):
         model = Lexicon
