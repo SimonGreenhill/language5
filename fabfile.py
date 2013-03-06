@@ -56,6 +56,7 @@ def make_bootstrap():
     local("cp %s/bootstrap/css/bootstrap-responsive.min.css %s/css/bootstrap-responsive.min.css" %
           (BSDIR, STATICDIR))
     local("cp %s/bootstrap/img/* %s/img/" % (BSDIR, STATICDIR))
+    local("cp %s/bootstrap/js/bootstrap.min.js %s/js/bootstrap.min.js" % (BSDIR, STATICDIR))
 
 
 def update_jquery():
