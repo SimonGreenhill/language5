@@ -73,7 +73,6 @@ urlpatterns = patterns('',
     url(r'^entry/$', TaskIndex.as_view(), name="task-index"),
     url(r'^entry/(?P<task_id>\d+)$', 
         'website.apps.entry.views.task_detail', name="task-detail"),
-    
     # ------------------------------------------------------------------------ #
     # Misc
     # ------------------------------------------------------------------------ #

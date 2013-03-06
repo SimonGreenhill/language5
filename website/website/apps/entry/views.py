@@ -11,7 +11,6 @@ from website.apps.entry.tables import TaskIndexTable
 from website.apps.entry import dataentry
 
 
-
 # task index
 class TaskIndex(SingleTableView):
     """Task Index"""
@@ -34,7 +33,6 @@ def task_detail(request, task_id):
     "Handles routing of tasks"
     # 1. check if task is valid
     t = get_object_or_404(Task, pk=task_id)
-    
     # 2. check if task is complete
     if t.done:
         return redirect('task-index')

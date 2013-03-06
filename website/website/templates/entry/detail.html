@@ -23,6 +23,7 @@
   <link rel="stylesheet" type="text/css" href="{% static "css/jquery.keypad.css" %}" />
   <link rel="stylesheet" type="text/css" href="{% static "css/jquery.fs.zoomer.css" %}" />
   <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
   <script type="text/javascript" src="{% static "js/jquery.keypad.min.js" %}"></script>
   <script type="text/javascript" src="{% static "js/charpicker.js" %}"></script>
   <script type="text/javascript" src="{% static "js/jquery.fs.zoomer.min.js" %}"></script>
@@ -50,28 +51,35 @@
             </div>
             
             <div class="row clearfix">
-              <div class="zoomer_wrapper zoomer">
+              <div class="span8 offset2 zoomer_wrapper zoomer">
                 {% comment %}
                     <img class="img-polaroid" src="{{ task.image.url }}" alt="{{ task.image }}" />
                 {% endcomment %}
               </div>
             </div>
             
-            <p class="well well-small"><span id="picker"></span></p>
+            <div class="row clearfix">
+                <p class="well well-small span8 offset2">
+                    <span id="picker"></span>
+                </p>
+            </div>
+            
+            {% if form.non_field_errors %}
+                <div class="alert alert-error">
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
             
             {% include template %}
             
+            <div class="row"></div>
         <div>
       </div><!--/row-->
-      
-    <footer class="footer">
-      <p>&copy; {% now "Y" %}. <a href="http://simon.net.nz">Simon J. Greenhill</a>.</p>
-    </footer>
-    
     </div><!--/.fluid-container-->
 
     <script>
         $(document).ready(function() {
+          $('.tip').tooltip();
           $(".zoomer").zoomer({
             source: "{{ task.image.url }}",
             customClass: "img-polaroid",

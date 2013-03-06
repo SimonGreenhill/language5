@@ -235,3 +235,19 @@ table th[class*="span"],
     background-color: darken(@infoBackground, 5%);
   }
 }
+
+// SJG: Make states work on td cells
+.table tbody tr td {
+  &.success {
+    background-color: @successBackground;
+  }
+  &.error {
+    background-color: @errorBackground;
+  }
+  &.warning {
+    background-color: @warningBackground;
+  }
+  &.info {
+    background-color: @infoBackground;
+  }
+}
