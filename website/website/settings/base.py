@@ -1,5 +1,6 @@
 # Django settings for website project.
 import os
+import re
 
 SITE_ROOT = os.path.split(os.path.dirname(os.path.abspath(__file__)))[0]
 
@@ -202,11 +203,21 @@ CACHES = {
 }
 
 # Setup OLAC
-from website.apps.olac.settings import OLAC_SETTINGS
-OLAC_SETTINGS['institution'] = 'Australian National University'
-OLAC_SETTINGS['institutionURL'] = 'http://anu.edu.au'
-OLAC_SETTINGS['shortLocation'] = 'Canberra, Australia'
-OLAC_SETTINGS['description'] = SITE_DESCRIPTION
+OLAC_SETTINGS = {
+    'sitename': SITE_NAME,
+    'sitedomain': SITE_DOMAIN,
+    'description': SITE_DESCRIPTION,
+    'adminEmail': ADMINS, 
+    'admins': ADMINS,
+    'deletedRecord': 'no', # deletedRecord policy
+    'protocolVersion': '2.0', # the version of the OAI-PMH supported by the repository;
+    '_identifier': re.compile(r"""oai:.*?:(\w{3})\.(\d+)"""),
+    'depositor': ADMINS,
+    'institution': 'Australian National University',
+    'institutionURL': 'http://anu.edu.au',
+    'shortLocation': 'Canberra, Australia',
+}
+
 
 # cache the ``robots.txt`` for 24 hours (86400 seconds).
 ROBOTS_CACHE_TIMEOUT = 60*60*24
