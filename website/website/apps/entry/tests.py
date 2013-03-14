@@ -8,9 +8,6 @@ from django.contrib.auth.models import User
 from website.apps.core.models import Source
 from website.apps.entry.models import Task
 
-from website.apps.entry.forms import entry_forms
-
-
 class Test_Detail(TestCase):
     """Tests the Detail Page"""
     

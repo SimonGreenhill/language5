@@ -14,10 +14,10 @@
           <span class="divider">/</span>
       </li>
       <li>
-          <a href="{% url family-index %}">Families</a>
+          <a href="{% url "family-index" %}">Families</a>
       </li>
       <li class="active">
-          <a href="{% url family-detail object.slug %}">{{ object.family }}</a>
+          <a href="{% url "family-detail" object.slug %}">{{ object.family }}</a>
       </li>
     </ul>
     

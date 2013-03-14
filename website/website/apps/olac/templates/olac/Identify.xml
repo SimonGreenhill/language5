@@ -9,7 +9,7 @@
     <request verb="Identify">{{ url }}</request>
     <Identify>
         <repositoryName>{{ OLAC.sitename }}</repositoryName>
-        <baseURL>{% url baseurl %}</baseURL>
+        <baseURL>{% url 'baseurl' %}</baseURL>
         <protocolVersion>2.0</protocolVersion>
         {% for admin in OLAC.adminEmail %}
             <adminEmail>{{ admin.1 }}</adminEmail>

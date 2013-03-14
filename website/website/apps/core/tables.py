@@ -23,7 +23,7 @@ from website.apps.core.models import Source, Language, Family
 class DataTable(tables.Table):
     """Parent class for Datatables"""
     class Meta:
-        sortable = True
+        orderable = True
         default = u''
         attrs = {
             'class': "table table-bordered table-condensed",

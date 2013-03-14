@@ -17,15 +17,15 @@
     
     <ul class="breadcrumb">
       <li>
-          <a href="{% url index %}">Home</a> 
+          <a href="{% url "index" %}">Home</a> 
           <span class="divider">/</span>
       </li>
       <li class="active">
-          <a href="{% url word-index %}">Words</a>
+          <a href="{% url "word-index" %}">Words</a>
           <span class="divider">/</span>
       </li>
       <li>
-          <a href="{% url word-detail object.slug %}">{{ object }}</a>
+          <a href="{% url "word-detail" object.slug %}">{{ object }}</a>
       </li>
     </ul>
     

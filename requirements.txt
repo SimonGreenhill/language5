@@ -1,7 +1,7 @@
-django>=1.4.2                                               # django framework
+django>=1.5                                                 # django framework
 pil                                                         # Python Imaging Library
 psycopg2                                                    # database adaptor
-django-reversion>=1.6.4                                     # versioning
+django-reversion>=1.7                                       # versioning
 South>=0.7.5                                                # database migrations
 django-robots                                               # robots.txt
 pytz                                                        # timezone support

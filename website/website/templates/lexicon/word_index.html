@@ -10,11 +10,11 @@
     
     <ul class="breadcrumb">
       <li>
-          <a href="{% url index %}">Home</a> 
+          <a href="{% url "index" %}">Home</a> 
           <span class="divider">/</span>
       </li>
       <li class="active">
-          <a href="{% url word-index %}">Words</a>
+          <a href="{% url "word-index" %}">Words</a>
       </li>
     </ul>
     
@@ -24,11 +24,11 @@
 
         <ul class="nav nav-pills">
             <li {% if not subset %} class="active" {% endif %}>
-                <a href="{% url word-index %}"><i class="icon-tags"></i> All words </a>
+                <a href="{% url "word-index" %}"><i class="icon-tags"></i> All words </a>
             </li>
             {% for w in subsets %}
                 <li{% ifequal subset w %} class="active" {% endifequal %}>
-                    <a href="{% url subset-detail w %}"><i class="icon-tags"></i> {{ w }} </a>
+                    <a href="{% url "subset-detail" w %}"><i class="icon-tags"></i> {{ w }} </a>
                 </li>
             {% endfor %}
         </ul>
