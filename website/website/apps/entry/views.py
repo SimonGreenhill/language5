@@ -36,13 +36,13 @@ def task_detail(request, task_id):
     # 2. check if task is complete
     if t.done:
         return redirect('task-index')
-    
-    # pass to desired view
-    for viewname, viewdesc in dataentry.available_views:
-        if viewname == t.view:
-            viewfunc = getattr(dataentry, t.view)
-            return viewfunc(request, t)
-    # ...but if we don't know which view, then we die.
-    return HttpResponseServerError("Can't find view %s" % t.view)
+    # 3. send to correct view
+    views = dict(dataentry.available_views)
+    if t.view in views:
+        viewfunc = getattr(dataentry, t.view)
+        return viewfunc(request, t)
+    else:
+        # ...but if we don't know which view, then we die.
+        return HttpResponseServerError("Can't find view %s" % t.view)
     
     

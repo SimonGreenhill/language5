@@ -7,6 +7,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from website.apps.core.models import Source
 from website.apps.entry.models import Task
+from website.apps.entry.dataentry import available_views
 
 class Test_Detail(TestCase):
     """Tests the Detail Page"""
@@ -30,11 +31,11 @@ class Test_Detail(TestCase):
             name="Test Task",
             description="A Test of Data Entry",
             source=self.source,
-            form=entry_forms[0],
             image=self.file_testimage,
             done=False
         )
-    
+        
+        
     def test_testimage_is_present(self):
         """
         This test makes sure that the test image 
