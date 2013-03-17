@@ -50,13 +50,15 @@
                 <h1>Data Entry Task: {{ task }} {{ content }}</h1>
             </div>
             
-            <div class="row clearfix">
-              <div class="span8 offset2 zoomer_wrapper zoomer">
-                {% comment %}
-                    <img class="img-polaroid" src="{{ task.image.url }}" alt="{{ task.image }}" />
-                {% endcomment %}
-              </div>
-            </div>
+            {% if task.image %}
+                <div class="row clearfix">
+                  <div class="span8 offset2 zoomer_wrapper zoomer">
+                    {% comment %}
+                        <img class="img-polaroid" src="{{ task.image.url }}" alt="{{ task.image }}" />
+                    {% endcomment %}
+                  </div>
+                </div>
+            {% endif %}
             
             <div class="row clearfix">
                 <p class="well well-small span8 offset2">
@@ -80,14 +82,16 @@
     <script>
         $(document).ready(function() {
           $('.tip').tooltip();
-          $(".zoomer").zoomer({
-            source: "{{ task.image.url }}",
-            customClass: "img-polaroid",
-            increment: 0.1
-          });
-          $(window).on("rubberband.enter", function() {
-            $(".zoomer-element").zoomer("resize");
-          });
+          {% if task.image %}
+              $(".zoomer").zoomer({
+                source: "{{ task.image.url }}",
+                customClass: "img-polaroid",
+                increment: 0.1
+              });
+              $(window).on("rubberband.enter", function() {
+                $(".zoomer-element").zoomer("resize");
+              });
+          {% endif %}
         });
     </script>
 </body>
