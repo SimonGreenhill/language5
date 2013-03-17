@@ -12,9 +12,12 @@ class Task(TrackedModel):
             choices=available_views,
             help_text="Data entry view to Use")
     image = models.ImageField(upload_to='data/%Y-%m/',
-        help_text="The Page Image")
+        help_text="The Page Image", null=True, blank=True)
+    completable = models.BooleanField(default=True, db_index=True,
+        help_text="Is task completable or not?")
     done = models.BooleanField(default=False, db_index=True,
         help_text="Data has been entered")
+    
     
     def __unicode__(self):
         return self.name
