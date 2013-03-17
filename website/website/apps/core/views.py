@@ -7,6 +7,7 @@ from website.apps.core.models import Family, Language, AlternateName, Source
 
 from django_tables2 import SingleTableView
 from website.apps.core.tables import LanguageIndexTable, SourceIndexTable, FamilyIndexTable
+from website.apps.lexicon.tables import LanguageLexiconTable
 
 class LanguageIndex(SingleTableView):
     """Language Index"""
@@ -54,6 +55,7 @@ class FamilyDetail(DetailView):
         context['languages'] = LanguageIndexTable(kwargs['object'].language_set.all())
         return context
 
+
 def language_detail(request, language):
     """
     Show Language Details
@@ -70,6 +72,7 @@ def language_detail(request, language):
             'language': my_lang,
             'alternatenames': my_lang.alternatename_set.all(),
             'links': my_lang.link_set.all(),
+            'table': LanguageLexiconTable(my_lang.lexicon_set.all()),
         }
         return render(request, 'core/language_detail.html', out)
     except Language.DoesNotExist:
