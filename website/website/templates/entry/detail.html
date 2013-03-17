@@ -27,7 +27,7 @@
   <script type="text/javascript" src="{% static "js/jquery.keypad.min.js" %}"></script>
   <script type="text/javascript" src="{% static "js/charpicker.js" %}"></script>
   <script type="text/javascript" src="{% static "js/jquery.fs.zoomer.min.js" %}"></script>
-
+  <script type="text/javascript" src="{% static "js/jquery-scrolltofixed-min.js" %}"></script>
   <style>
   .zoomer_wrapper { border: 1px solid #ddd; border-radius: 3px; height: 500px; margin: 10px 0; overflow: hidden; width: 100%; }
   </style>
@@ -50,20 +50,23 @@
                 <h1>Data Entry Task: {{ task }} {{ content }}</h1>
             </div>
             
-            {% if task.image %}
+            <div id="scroller">
+                {% if task.image %}
+                    <div class="row clearfix">
+                      <div class="span8 offset2 zoomer_wrapper zoomer" style="height: 300px;">
+                        {% comment %}
+                            <img class="img-polaroid" src="{{ task.image.url }}" alt="{{ task.image }}" />
+                        {% endcomment %}
+                      </div>
+                    </div>
+                {% endif %}
+                
                 <div class="row clearfix">
-                  <div class="span8 offset2 zoomer_wrapper zoomer">
-                    {% comment %}
-                        <img class="img-polaroid" src="{{ task.image.url }}" alt="{{ task.image }}" />
-                    {% endcomment %}
-                  </div>
+                    <p class="well well-small span8 offset2">
+                        <span id="picker"></span>
+                    </p>
                 </div>
-            {% endif %}
-            
-            <div class="row clearfix">
-                <p class="well well-small span8 offset2">
-                    <span id="picker"></span>
-                </p>
+                
             </div>
             
             {% if form.non_field_errors %}
@@ -82,6 +85,7 @@
     <script>
         $(document).ready(function() {
           $('.tip').tooltip();
+          $('#scroller').scrollToFixed();
           {% if task.image %}
               $(".zoomer").zoomer({
                 source: "{{ task.image.url }}",
