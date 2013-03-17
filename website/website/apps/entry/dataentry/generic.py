@@ -25,7 +25,7 @@ class GenericForm(forms.ModelForm):
         }
     # make sure to set editor, added, and loan if loan_source is specified
 
-GenericFormSet = formset_factory(GenericForm, extra=40)
+GenericFormSet = formset_factory(GenericForm, extra=20)
 
 
 @login_required()
@@ -35,26 +35,32 @@ def GenericView(request, task):
     
     # process form
     if request.method == 'POST':
-        form = GenericForm(request.POST)
-        if form.is_valid():
-            # two stages here to set default fields
-            obj = form.save(commit=False)
-            obj.editor = request.user
-            obj.save()
+        formset = GenericFormSet(request.POST)
+        if formset.is_valid():
+            completed = []
+            for form in formset:
+                if form.is_valid() and len(form.changed_data):
+                    # if form is valid and some fields have changed
+                    # two stages here to set default fields
+                    obj = form.save(commit=False)
+                    obj.editor = request.user
+                    obj.save()
+                    completed.append(obj)
+                    
             # update task
             task.done = True
             task.save()
             
             return render_to_response('entry/done.html', {
                 'task': task,
-                'objects': [obj],
+                'objects': completed,
             }, context_instance=RequestContext(request))
     else:
-        form = GenericForm()
+        formset = GenericFormSet()
     
     return render_to_response('entry/detail.html', {
         'task': task,
-        'form': form,
+        'formset': formset,
         'template': template_name,
     }, context_instance=RequestContext(request))
 

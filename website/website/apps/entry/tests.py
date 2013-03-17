@@ -15,6 +15,12 @@ class Test_Detail(TestCase):
     
     def setUp(self):
         self.client = Client()
+        # for formset validation
+        self.management_data = {
+            'form-TOTAL_FORMS': u'20',
+            'form-INITIAL_FORMS': u'0',
+            'form-MAX_NUM_FORMS': u'1000',
+        }
         # some data
         self.file_testimage = "data/2013-01/test.png"
         self.editor = User.objects.create_user('admin',
@@ -82,74 +88,39 @@ class Test_Detail(TestCase):
     def test_post_sets_done(self):
         self.client.login(username="admin", password="test")
         response = self.client.get(self.task.get_absolute_url())
-        response = self.client.post(self.task.get_absolute_url(), {
-            'language': self.lang.id,
-            'source': self.source.id,
-            'word': self.word.id,
-            'entry': 'simon',
-            'annotation': 'is awesome'
-        })
+        
+        vars = self.management_data.copy()
+        vars['form-1-language'] = self.lang.id
+        vars['form-1-source'] = self.source.id
+        vars['form-1-word'] = self.word.id
+        vars['form-1-entry'] = 'simon'
+        vars['form-1-annotation'] = 'is awesome'
+        
+        response = self.client.post(self.task.get_absolute_url(), vars)
         self.failUnlessEqual(response.status_code, 200)
         assert Task.objects.get(pk=self.task.id).done
     
     def test_post_saves(self):
         self.client.login(username="admin", password="test")
         response = self.client.get(self.task.get_absolute_url())
-        response = self.client.post(self.task.get_absolute_url(), {
-            'language': self.lang.id,
-            'source': self.source.id,
-            'word': self.word.id,
-            'entry': 'simon',
-            'annotation': 'is awesome'
-        })
+        
+        vars = self.management_data.copy()
+        vars['form-1-language'] = self.lang.id
+        vars['form-1-source'] = self.source.id
+        vars['form-1-word'] = self.word.id
+        vars['form-1-entry'] = 'simon'
+        vars['form-1-annotation'] = 'is awesome'
+        
+        response = self.client.post(self.task.get_absolute_url(), vars)
+        
         self.failUnlessEqual(response.status_code, 200)
         from website.apps.lexicon.models import Lexicon
+        
+        print [Lexicon.objects.all()]
         l = Lexicon.objects.get(pk=1)
         assert l.language == self.lang
         assert l.source == self.source
         assert l.word == self.word
         assert l.entry == 'simon'
         assert l.annotation == 'is awesome'
-        
-    def test_post_fails_on_bad_language_input(self):
-        # not comprehensive, just checks that we need a valid language
-        self.client.login(username="admin", password="test")
-        response = self.client.get(self.task.get_absolute_url())
-        response = self.client.post(self.task.get_absolute_url(), {
-            'language': 10, # FAIL
-            'source': self.source.id,
-            'word': self.word.id,
-            'entry': 'simon',
-            'annotation': 'is awesome'
-        })
-        self.failUnlessEqual(response.status_code, 200)
-        assert not response.context['form'].is_valid()
-        
-    def test_post_fails_on_bad_word_input(self):
-        # not comprehensive, just checks that we need a valid word
-        self.client.login(username="admin", password="test")
-        response = self.client.get(self.task.get_absolute_url())
-        response = self.client.post(self.task.get_absolute_url(), {
-            'language': self.lang,
-            'source': self.source.id,
-            'word': 99, # word
-            'entry': 'simon',
-            'annotation': 'is awesome'
-        })
-        self.failUnlessEqual(response.status_code, 200)
-        assert not response.context['form'].is_valid()
-        
-    def test_post_fails_on_bad_source_input(self):
-        # not comprehensive, just checks that we need a valid source
-        self.client.login(username="admin", password="test")
-        response = self.client.get(self.task.get_absolute_url())
-        response = self.client.post(self.task.get_absolute_url(), {
-            'language': self.lang,
-            'source': None, # fail!
-            'word': self.word.id,
-            'entry': 'simon',
-            'annotation': 'is awesome'
-        })
-        self.failUnlessEqual(response.status_code, 200)
-        assert not response.context['form'].is_valid()
 

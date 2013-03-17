@@ -1,32 +1,37 @@
 <form action="/entry/{{ task.id }}" method="post" class="form-inline">
     {% csrf_token %}
-    
+    {{ formset.management_form }}
     <table class="table table-bordered table-condensed">
-        <thead>
-            <tr>
-                <th>
-                    {{ form.language.label_tag }}
-                </th>
-                <th>
-                    {{ form.source.label_tag }}
-                </th>
-                <th>
-                    {{ form.word.label_tag }}
-                </th>
-                <th>
-                    {{ form.entry.label_tag }}
-                </th>
-                <th>
-                    {{ form.annotation.label_tag }}
-                </th>
-            </tr>
-        </thead>
+        <!-- header -->
+        {% for form in formset %}
+            {% if forloop.first %}
+                <thead>
+                    <tr>
+                        <th>
+                            {{ form.language.label_tag }}
+                        </th>
+                        <th>
+                            {{ form.source.label_tag }}
+                        </th>
+                        <th>
+                            {{ form.word.label_tag }}
+                        </th>
+                        <th>
+                            {{ form.entry.label_tag }}
+                        </th>
+                        <th>
+                            {{ form.annotation.label_tag }}
+                        </th>
+                    </tr>
+                </thead>
+            {% endif %}
+        {% endfor %}
         <tbody>
+            {% for form in formset %}
             <tr>
                 {% for field in form %}
                     <td {% if field.errors %}class="error"{% endif %}>
                         {{ field }}
-                            
                         {% if field.errors %}
                             <i class="tip icon-exclamation-sign" 
                                 data-toggle="tooltip" 
@@ -38,11 +43,10 @@
                                 {% endfor %}">
                             </i>
                         {% endif %}
-
-                        
                     </td>
                 {% endfor %}
             </tr>
+            {% endfor %}
         </tbody>
     </table>
     <button type="submit" class="btn btn-block btn-primary"><i class="icon-ok"></i> Save </button>
