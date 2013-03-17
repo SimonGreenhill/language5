@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load website_tags %}
 {% load render_table from django_tables2 %}
 
 {% block title %} {{ language.language }} {% endblock %}
@@ -35,20 +36,28 @@
         </p>
     {% endif %}
     
+    <h2>Information:</h2>
+    
+    <p>
+        <strong>ISO 639:</strong>
+        {{ language.isocode }}
+    </p>
+    
     <p> 
         <strong>Classification:</strong> 
         {{ language.classification }}
     </p>
     
-    <h2> Links to Resources: </h2>
+    <h2> Resources: </h2>
     
     <ul>
+        <li><a href="{{ language|link_ethnologue }}">Ethnologue page for {{ language.language }}</a></li>
+        <li><a href="{{ language|link_olac }}">Open Language Archives search for {{ language.language }}</a></li>
+        
         {% if links %}
             {% for link in links %}
                 <li><a href="{{ link.link }}">{{ link.description }}</a></li>
             {% endfor %}
-        {% else %}
-            <li>No resources found.</li>
         {% endif %}
     </ul>
     
