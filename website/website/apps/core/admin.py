@@ -11,7 +11,22 @@ class TrackedModelAdmin(admin.ModelAdmin):
         request.GET = data
         return super(TrackedModelAdmin, self).add_view(request, form_url="", extra_context=extra_context)
 
+# Inlines
+class AltNameInline(admin.TabularInline):
+    model = AlternateName
+    extra = 1
+    prepopulated_fields = {'slug': ('name', )}
+    
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == 'editor':
+            kwargs['initial'] = request.user
+            return db_field.formfield(**kwargs)
+        return super(AltNameInline, self).formfield_for_foreignkey(
+            db_field, request, **kwargs
+        )
 
+
+# Admin
 class LanguageAdmin(TrackedModelAdmin, VersionAdmin):
     ##form = LanguageAdminForm
     date_hierarchy = 'added'
@@ -21,7 +36,9 @@ class LanguageAdmin(TrackedModelAdmin, VersionAdmin):
     ordering = ('language',)
     prepopulated_fields = {'slug': ('language', )}
     search_fields = ('language', 'isocode')
-
+    
+    inlines = [AltNameInline,]
+    
 
 class SourceAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
@@ -30,7 +47,7 @@ class SourceAdmin(TrackedModelAdmin, VersionAdmin):
     prepopulated_fields = {'slug': ('author', 'year')}
     search_fields = ('author', 'year')
 
-    
+
 class NoteAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_filter = ('editor', 'language', 'source')
@@ -50,6 +67,7 @@ class AlternateNameAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_filter = ('editor', 'language')
     search_fields = ('language', 'name')
+    prepopulated_fields = {'slug': ('name', )}
 
 
 class LinkAdmin(TrackedModelAdmin, VersionAdmin):
