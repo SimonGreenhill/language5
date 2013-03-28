@@ -7,6 +7,8 @@ from django.forms.formsets import formset_factory
 
 from website.apps.lexicon.models import Lexicon
 
+MAX_ROWS = 5
+
 
 class GenericForm(forms.ModelForm):
     class Meta:
@@ -25,7 +27,7 @@ class GenericForm(forms.ModelForm):
         }
     # make sure to set editor, added, and loan if loan_source is specified
 
-GenericFormSet = formset_factory(GenericForm, extra=20)
+GenericFormSet = formset_factory(GenericForm, extra=0)
 
 
 @login_required()
@@ -36,6 +38,7 @@ def GenericView(request, task):
     # process form
     if request.method == 'POST':
         formset = GenericFormSet(request.POST)
+        
         if formset.is_valid():
             completed = []
             for form in formset:
@@ -57,7 +60,14 @@ def GenericView(request, task):
                 'objects': completed,
             }, context_instance=RequestContext(request))
     else:
-        formset = GenericFormSet()
+        # set up initial data
+        initial = {}
+        if task.language:
+            initial['language'] = task.language
+        if task.source:
+            initial['source'] = task.source
+            
+        formset = GenericFormSet(initial=[initial for i in range(MAX_ROWS)])
     
     return render_to_response('entry/detail.html', {
         'task': task,

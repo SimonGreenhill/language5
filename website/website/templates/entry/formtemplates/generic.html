@@ -1,7 +1,7 @@
 <form action="/entry/{{ task.id }}" method="post" class="form-inline">
     {% csrf_token %}
     {{ formset.management_form }}
-    <table class="table table-bordered table-condensed">
+    <table id="entryform" class="table table-bordered table-condensed">
         <!-- header -->
         {% for form in formset %}
             {% if forloop.first %}
