@@ -7,7 +7,7 @@ from website.apps.core.models import Family, Language, AlternateName, Source
 
 from django_tables2 import SingleTableView
 from website.apps.core.tables import LanguageIndexTable, SourceIndexTable, FamilyIndexTable
-from website.apps.lexicon.tables import LanguageLexiconTable
+from website.apps.lexicon.tables import LanguageLexiconTable, SourceLexiconTable
 
 class LanguageIndex(SingleTableView):
     """Language Index"""
@@ -43,6 +43,11 @@ class SourceDetail(DetailView):
     """Source Detail"""
     model = Source
     template_name = 'core/source_detail.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super(SourceDetail, self).get_context_data(**kwargs)
+        context['records'] = SourceLexiconTable(kwargs['object'].lexicon_set.all())
+        return context
     
 
 class FamilyDetail(DetailView):

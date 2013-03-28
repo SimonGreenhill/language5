@@ -30,8 +30,9 @@
     <p>
     
     <h2> Provided: </h2>
-    {% if languages %}
-        {% render_table languages "table.html" %}
+    
+    {% if records %}
+        {% render_table records "table.html" %}
     {% else %}
         <p class="error">No results found!</p>
     {% endif %}

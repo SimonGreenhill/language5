@@ -42,7 +42,7 @@ class LanguageLexiconTable(DataTable):
     word = tables.LinkColumn('word-detail', args=[A('word.slug')])
     entry = tables.Column()
     annotation = tables.Column()
-    loan = tables.BooleanColumn(null=False, yesno=('', 'x'))
+    loan = tables.BooleanColumn(null=False, yesno=('x', ''))
 
     class Meta(DataTable.Meta):
         model = Lexicon
@@ -58,7 +58,7 @@ class SourceLexiconTable(DataTable):
     word = tables.LinkColumn('word-detail', args=[A('word.slug')])
     entry = tables.Column()
     annotation = tables.Column()
-    loan = tables.BooleanColumn(null=False, yesno=('', 'x'))
+    loan = tables.BooleanColumn(null=False, yesno=('x', ''))
 
     class Meta(DataTable.Meta):
         model = Lexicon
