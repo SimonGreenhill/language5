@@ -14,7 +14,7 @@ class TrackedModelAdmin(admin.ModelAdmin):
 # Inlines
 class AltNameInline(admin.TabularInline):
     model = AlternateName
-    extra = 1
+    extra = 0
     prepopulated_fields = {'slug': ('name', )}
     
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
