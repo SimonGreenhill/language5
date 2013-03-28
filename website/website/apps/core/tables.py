@@ -33,7 +33,6 @@ class DataTable(tables.Table):
 
 class SourceIndexTable(DataTable):
     """Source Listing"""
-    id = tables.LinkColumn('source-detail', args=[A('slug')])
     author = tables.LinkColumn('source-detail', args=[A('slug')])
     year = tables.LinkColumn('source-detail', args=[A('slug')])
     reference = tables.LinkColumn('source-detail', args=[A('slug')])
@@ -41,35 +40,33 @@ class SourceIndexTable(DataTable):
     class Meta(DataTable.Meta):
         model = Source
         order_by_field = 'author' # default sorting
-        sequence = ('id', 'author', 'year', 'reference')
-        exclude = ('editor', 'added', 'slug', 'comment', 'bibtex')
+        sequence = ('author', 'year', 'reference')
+        exclude = ('id', 'editor', 'added', 'slug', 'comment', 'bibtex')
     Meta.attrs['summary'] = 'Table of Sources'
     
 
 class LanguageIndexTable(DataTable):
     """Language Listing"""
-    id = tables.LinkColumn('language-detail', args=[A('slug')])
     language = tables.LinkColumn('language-detail', args=[A('slug')])
     isocode = tables.LinkColumn('language-detail', args=[A('slug')])
     
     class Meta(DataTable.Meta):
         model = Language
         order_by_field = 'language' # default sorting
-        sequence = ('id', 'isocode', 'language')
-        exclude = ('editor', 'added', 'slug', 'classification', 'information')
+        sequence = ('isocode', 'language', 'classification')
+        exclude = ('id', 'editor', 'added', 'slug', 'information')
     Meta.attrs['summary'] = 'Table of Languages'
 
 
 class FamilyIndexTable(DataTable):
     """Family Listing"""
-    id = tables.LinkColumn('family-detail', args=[A('slug')])
     family = tables.LinkColumn('family-detail', args=[A('slug')])
     count = tables.LinkColumn('family-detail', args=[A('slug')])
-
+    
     class Meta(DataTable.Meta):
         model = Family
         order_by_field = 'family' # default sorting
-        sequence = ('id', 'family', 'count')
-        exclude = ('editor', 'added', 'slug')
+        sequence = ('family', 'count')
+        exclude = ('id', 'editor', 'added', 'slug')
     Meta.attrs['summary'] = 'Table of Language Families'
     
