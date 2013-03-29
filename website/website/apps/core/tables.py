@@ -39,7 +39,7 @@ class SourceIndexTable(DataTable):
     
     class Meta(DataTable.Meta):
         model = Source
-        order_by_field = 'author' # default sorting
+        order_by = 'author' # default sorting
         sequence = ('author', 'year', 'reference')
         exclude = ('id', 'editor', 'added', 'slug', 'comment', 'bibtex')
     Meta.attrs['summary'] = 'Table of Sources'
@@ -52,7 +52,7 @@ class LanguageIndexTable(DataTable):
     
     class Meta(DataTable.Meta):
         model = Language
-        order_by_field = 'language' # default sorting
+        order_by = 'language' # default sorting
         sequence = ('isocode', 'language', 'classification')
         exclude = ('id', 'editor', 'added', 'slug', 'information')
     Meta.attrs['summary'] = 'Table of Languages'
@@ -65,7 +65,7 @@ class FamilyIndexTable(DataTable):
     
     class Meta(DataTable.Meta):
         model = Family
-        order_by_field = 'family' # default sorting
+        order_by = 'family' # default sorting
         sequence = ('family', 'count')
         exclude = ('id', 'editor', 'added', 'slug')
     Meta.attrs['summary'] = 'Table of Language Families'

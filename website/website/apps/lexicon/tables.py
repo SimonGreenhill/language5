@@ -13,9 +13,9 @@ class WordIndexTable(DataTable):
     
     class Meta(DataTable.Meta):
         model = Word
-        order_by_field = 'word' # default sorting
-        sequence = ('word', 'count')
-        exclude = ('id', 'editor', 'added', 'slug', 'full')
+        order_by = 'word' # default sorting
+        sequence = ('word', 'full', 'count')
+        exclude = ('id', 'editor', 'added', 'slug', 'quality', 'comment')
     Meta.attrs['summary'] = 'Table of Words'
 
 
