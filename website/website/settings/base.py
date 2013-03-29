@@ -201,6 +201,7 @@ CACHES = {
         'LOCATION': 'cache',
     }
 }
+CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
 
 # Setup OLAC
 OLAC_SETTINGS = {
