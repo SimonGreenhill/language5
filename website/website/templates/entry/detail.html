@@ -29,6 +29,7 @@
   <script type="text/javascript" src="{% static "js/jquery.fs.zoomer.min.js" %}"></script>
   <script type="text/javascript" src="{% static "js/jquery-scrolltofixed-min.js" %}"></script>
   <script type="text/javascript" src="{% static "js/jquery.formset.min.js" %}"></script>
+  <script type="text/javascript" src="{% static "admin/js/admin/RelatedObjectLookups.js" %}"></script>
   <style>
   .zoomer_wrapper { border: 1px solid #ddd; border-radius: 3px; height: 500px; margin: 10px 0; overflow: hidden; width: 100%; }
   .add-row{ padding: 1em; }
@@ -76,6 +77,15 @@
                     {{ form.non_field_errors }}
                 </div>
             {% endif %}
+            
+            {% comment %}
+            <!-- admin tools -->
+            <div class="span4 well">
+                <a href="{% url "admin:core_language_add" %}" class="add-another" id="add_id_language" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon_addlink.gif" %}" alt="Add New Language"/>Add New Language</a>
+                <a href="{% url "admin:core_source_add" %}" class="add-another" id="add_id_source" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon_addlink.gif" %}" alt="Add New Source"/>Add New Source</a>
+                <a href="{% url "admin:lexicon_word_add" %}" class="add-another" id="add_id_word" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon_addlink.gif" %}" alt="Add New Word"/>Add New Word</a>
+            </div>
+            {% endcomment %}
             
             {% include template %}
             
