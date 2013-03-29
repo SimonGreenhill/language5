@@ -47,38 +47,39 @@
     {% with table.page.paginator.count as total %}
         {% with table.page.object_list|length as count %}
             {% block pagination %}
-            <ul class="pagination">
-                {% if table.page.has_previous %}
-                    {% block pagination.previous %}
-                        <li class="previous">
-                            <a href="{% querystring table.prefixed_page_field=table.page.previous_page_number %}">{% trans "Previous" %}</a>
+            <div class="pagination pagination-large pagination-centered">
+                <ul>
+                    {% if table.page.has_previous %}
+                        {% block pagination.previous %}
+                            <li class="previous">
+                                <a href="{% querystring table.prefixed_page_field=table.page.previous_page_number %}">&laquo;</a>
+                            </li>
+                        {% endblock pagination.previous %}
+                    {% endif %}
+                    {% for p in table.page.paginator.page_range %}
+                        <li{% ifequal p table.page.number %} class="active"{% endifequal %}>
+                            <a href="{% querystring table.prefixed_page_field=p %}">{{ p }}</a>
                         </li>
-                    {% endblock pagination.previous %}
-                {% endif %}
-
-                {% if table.page.has_previous or table.page.has_next %}
-                    {% block pagination.current %}
-                        <li class="current">
-                            {% blocktrans with table.page.number as current and table.paginator.num_pages as total %}Page {{ current }} of {{ total }}{% endblocktrans %}
-                        </li>
-                    {% endblock pagination.current %}
-                {% endif %}
-
-                {% if table.page.has_next %}
-                    {% block pagination.next %}
-                        <li class="next">
-                            <a href="{% querystring table.prefixed_page_field=table.page.next_page_number %}">{% trans "Next" %}</a>
-                        </li>
-                    {% endblock pagination.next %}
-                {% endif %}
+                    {% endfor %}
+                    
+                    {% if table.page.has_next %}
+                        {% block pagination.next %}
+                            <li class="next">
+                                <a href="{% querystring table.prefixed_page_field=table.page.next_page_number %}">&raquo;</a>
+                            </li>
+                        {% endblock pagination.next %}
+                    {% endif %}
                 
+                </ul>
                 {% block pagination.cardinality %}
-                    <li class="cardinality">
-                        {% if total != count %}{% blocktrans %}{{ count }} of {{ total }}{% endblocktrans %}{% else %}{{ total }}{% endif %} 
+                    <p class="cardinality">
+                        {% if total != count %}{% blocktrans %}Showing {{ count }} of {{ total }}{% endblocktrans %}{% else %}{{ total }}{% endif %} 
                         {% if total == 1 %}{{ table.data.verbose_name }}{% else %}{{ table.data.verbose_name_plural }}{% endif %}
-                    </li>
+                    </p>
                 {% endblock pagination.cardinality %}
-            </ul>
+            </div>
+            
+            
             {% endblock pagination %}
         {% endwith %}
     {% endwith %}
