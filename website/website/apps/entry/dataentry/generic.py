@@ -5,12 +5,14 @@ from django.template import RequestContext
 from django import forms
 from django.forms.formsets import formset_factory
 
-from website.apps.lexicon.models import Lexicon
-
-MAX_ROWS = 5
-
+from website.apps.core.models import Language, Source
+from website.apps.lexicon.models import Lexicon, Word
 
 class GenericForm(forms.ModelForm):
+    language = forms.ModelChoiceField(queryset=Language.objects.order_by('slug'))
+    word = forms.ModelChoiceField(queryset=Word.objects.order_by('word'))
+    source = forms.ModelChoiceField(queryset=Source.objects.order_by('slug'))
+    
     class Meta:
         model = Lexicon
         exclude = ('editor', 'phon_entry', 'loan', 'loan_source')
@@ -67,7 +69,8 @@ def GenericView(request, task):
         if task.source:
             initial['source'] = task.source
             
-        formset = GenericFormSet(initial=[initial for i in range(MAX_ROWS)])
+        formset = GenericFormSet(initial=[initial for i in range(task.records)])
+    import IPython; IPython.embed()
     
     return render_to_response('entry/detail.html', {
         'task': task,
