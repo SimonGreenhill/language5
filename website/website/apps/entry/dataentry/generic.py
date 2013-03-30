@@ -70,7 +70,6 @@ def GenericView(request, task):
             initial['source'] = task.source
             
         formset = GenericFormSet(initial=[initial for i in range(task.records)])
-    import IPython; IPython.embed()
     
     return render_to_response('entry/detail.html', {
         'task': task,
