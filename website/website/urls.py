@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.conf.urls import *
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, RedirectView
 
 from django.contrib import admin
 admin.autodiscover()
@@ -104,7 +104,7 @@ urlpatterns = patterns('',
         name="login"),
     url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', name="logout"),
     
-    url(r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url': '%s/favicon.ico' % settings.STATIC_URL}),
+    url(r'^favicon\.ico$', RedirectView.as_view(url='%s/favicon.ico' % settings.STATIC_URL))
 )
 
 if settings.DEBUG:
