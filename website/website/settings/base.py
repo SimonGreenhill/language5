@@ -145,7 +145,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'django.contrib.humanize',
-
+    'django.contrib.redirects',
     # Admin site
     'django.contrib.admin',
     'django.contrib.admindocs',
