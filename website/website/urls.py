@@ -104,7 +104,7 @@ urlpatterns = patterns('',
         name="login"),
     url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', name="logout"),
     
-    
+    url(r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {'url': '%s/favicon.ico' % settings.STATIC_URL}),
 )
 
 if settings.DEBUG:
