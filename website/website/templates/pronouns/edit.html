@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load render_table from django_tables2 %}
+
+{% block title %} Pronoun Paradigms: Editing {{ paradigm.id }} {% endblock %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>Pronoun Paradigms: Editing {{ language.language }}</h1>
+    </div>
+    
+    <h2> Paradigm: </h2>
+    
+    {% if lexicon %}
+        {% render_table lexicon "table.html" %}
+    {% else %}
+        <p class="error">No results found!</p>
+    {% endif %}
+    
+    <h2> Relationships: </h2>
+    
+    ...
+    
+{% endblock %}
