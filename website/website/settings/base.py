@@ -12,7 +12,9 @@ ADMINS = (
 
 INTERNAL_IPS = ('127.0.0.1',)
 
-ALLOWED_HOSTS = ['.transnewguinea.org', 'www.transnewguinea.org']
+# Set in local.py
+# ALLOWED_HOSTS = ['.transnewguinea.org', 'www.transnewguinea.org']
+
 
 MANAGERS = ADMINS
 
