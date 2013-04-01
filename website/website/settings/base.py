@@ -162,9 +162,10 @@ INSTALLED_APPS = [
     
     # website
     'website.apps.core',                 # core functionality
-    'website.apps.lexicon',              # Lexicon
-    'website.apps.olac',                 # OLAC utils
-    'website.apps.entry',                # Data Entry
+    # NOTE: all other apps should be added to local.py
+    # INSTALLED_APPS.append('website.apps.lexicon')   # Lexicon
+    # INSTALLED_APPS.append('website.apps.olac')      # OLAC utils
+    # INSTALLED_APPS.append('website.apps.entry')     # Data Entry
 ]
 
 # Django-Security settings
