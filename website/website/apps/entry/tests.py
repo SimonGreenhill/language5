@@ -83,7 +83,7 @@ class Test_Detail(TestCase):
         self.task.done = True
         self.task.save()
         response = self.client.get(self.task.get_absolute_url())
-        self.assertRedirects(response, reverse('task-index'), status_code=302, target_status_code=200)
+        self.assertRedirects(response, reverse('entry:index'), status_code=302, target_status_code=200)
         
     def test_post_sets_done(self):
         self.client.login(username="admin", password="test")

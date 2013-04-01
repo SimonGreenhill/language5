@@ -26,7 +26,7 @@ class Task(TrackedModel):
     
     @models.permalink
     def get_absolute_url(self):
-        return ('task-detail', [self.id])
+        return ('entry:detail', [self.id])
     
     class Meta:
         db_table = 'tasks'
