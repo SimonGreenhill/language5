@@ -1,6 +1,8 @@
 from django import template
 from django.core.urlresolvers import resolve
 
+from ifinstalled import do_ifinstalled
+
 register = template.Library()
 
 def link_ethnologue(language):
@@ -9,8 +11,6 @@ def link_ethnologue(language):
         return "http://www.ethnologue.com/language/%s" % language.isocode
     else:
         return ""
-        
-register.filter('link_ethnologue', link_ethnologue)
 
 
 def link_olac(language):
@@ -19,9 +19,6 @@ def link_olac(language):
         return "http://search.language-archives.org/search.html?q=%s" % language.isocode
     else:
         return ""
-
-register.filter('link_olac', link_olac)
-
 
 
 def active(context, view):
@@ -35,5 +32,9 @@ def active(context, view):
     else:
         return ''
 
+
 register.simple_tag(takes_context=True)(active)
+register.filter('link_olac', link_olac)
+register.filter('link_ethnologue', link_ethnologue)
+register.tag('ifinstalled', do_ifinstalled)
 

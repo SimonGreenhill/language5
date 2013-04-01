@@ -57,9 +57,11 @@
                   <li{% active 'source-index' %}>
                       <a href="{% url "source-index" %}">Sources</a>
                   </li>
+                  {% ifinstalled "website.apps.lexicon" %}
                   <li{% active 'word-index' %}>
                       <a href="{% url "word-index" %}">Words</a>
                   </li>
+                  {% endifinstalled %}
                   <li class="nav-header">Search</li>
                   <li{% active 'watson:search' %}>
                       <form class="form-search" action="{% url "watson:search" %}">
@@ -72,9 +74,11 @@
                       <li>
                           <a href="{% url "admin:index" %}">Admins</a>
                       </li>
+                      {% ifinstalled "website.apps.entry" %}
                       <li{% active 'task-index' %}>
                           <a href="{% url "task-index" %}">Data Entry</a>
                       </li>
+                      {% endifinstalled %}
                   {% else %}
                       <li>
                           <a href="{% url "django.contrib.auth.views.login" %}">Log-in</a>
