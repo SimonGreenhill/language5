@@ -116,7 +116,6 @@ class Test_Detail(TestCase):
         self.failUnlessEqual(response.status_code, 200)
         from website.apps.lexicon.models import Lexicon
         
-        print [Lexicon.objects.all()]
         l = Lexicon.objects.get(pk=1)
         assert l.language == self.lang
         assert l.source == self.source
