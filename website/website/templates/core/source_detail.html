@@ -29,13 +29,16 @@
         {{ object.reference }}
     <p>
     
-    <h2> Provided: </h2>
+    <h2> Provided Lexicon: </h2>
     
-    {% if records %}
-        {% render_table records "table.html" %}
-    {% else %}
-        <p class="error">No results found!</p>
-    {% endif %}
+    {% ifinstalled "website.apps.lexicon" %}
     
+        {% if lexicon_table %}
+            {% render_table lexicon_table "table.html" %}
+        {% else %}
+            <p class="error">No results found!</p>
+        {% endif %}
+    
+    {% endifinstalled %}
     
 {% endblock %}

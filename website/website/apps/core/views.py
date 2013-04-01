@@ -1,4 +1,5 @@
 from django.db.models import Count
+from django.conf import settings
 from django.http import Http404
 from django.shortcuts import render, redirect
 from django.views.generic import DetailView
@@ -46,7 +47,8 @@ class SourceDetail(DetailView):
     
     def get_context_data(self, **kwargs):
         context = super(SourceDetail, self).get_context_data(**kwargs)
-        context['records'] = SourceLexiconTable(kwargs['object'].lexicon_set.all())
+        if 'website.apps.lexicon' in settings.INSTALLED_APPS:
+            context['lexicon_table'] = SourceLexiconTable(kwargs['object'].lexicon_set.all())
         return context
     
 
@@ -77,8 +79,12 @@ def language_detail(request, language):
             'language': my_lang,
             'alternatenames': my_lang.alternatename_set.all(),
             'links': my_lang.link_set.all(),
-            'table': LanguageLexiconTable(my_lang.lexicon_set.all()),
         }
+        
+        # load lexicon if installed.
+        if 'website.apps.lexicon' in settings.INSTALLED_APPS:
+            out['lexicon_table'] = LanguageLexiconTable(my_lang.lexicon_set.all())
+            
         return render(request, 'core/language_detail.html', out)
     except Language.DoesNotExist:
         pass

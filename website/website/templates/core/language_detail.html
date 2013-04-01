@@ -61,14 +61,17 @@
         {% endif %}
     </ul>
     
-    <h2> Lexicon: </h2>
+    {% ifinstalled "website.apps.lexicon" %}
+        
+        <h2> Lexicon: </h2>
+        
+        {% if lexicon_table %}
+            {% render_table lexicon_table "table.html" %}
+        {% else %}
+            <p class="error">No results found!</p>
+        {% endif %}
     
-    {% if table %}
-        {% render_table table "table.html" %}
-    {% else %}
-        <p class="error">No results found!</p>
-    {% endif %}
-    
+    {% endifinstalled %}
     
     
 {% endblock %}
