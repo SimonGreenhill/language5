@@ -82,27 +82,39 @@
         <table id="pronoun_formset" class="table table-bordered table-condensed">
             {{ pronoun_formset.management_form }}
             
-            {% for form in pronoun_formset %}
-                {% if forloop.first %}
-                    <thead>
-                        <tr>
-                        {% for field in form %}
-                            <th> {{ field.label_tag }} </th>
-                        {% endfor %}
-                        </tr>
-                    </thead>
-                {% endif %}
-                <tbody>
+            <thead>
+                <tr>
+                    <th> Person </th>
+                    <th> Number </th>
+                    <th> Agent </th>
+                    <th> Subject </th>
+                    <th> Object </th>
+                    <th> Poss. </th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pronoun_formset in pronoun_formsets %}
                     <tr>
-                    {% for field in form %}
-                        <td {% if field.errors %}class="error"{% endif %}>
-                            {{ field }}
-                            {{ field|form_fielderror_hint }}
-                        </td>
-                    {% endfor %}
+                        {% for form in pronoun_formset %}
+                            {% if forloop.first %}
+                                {% comment %} First two fields are just labels {% endcomment %}
+                                <th> {{ form.person.value }} </th>
+                                <th> {{ form.number.value }} </th>
+                            {% endif %}
+                            <td>
+                                {% for hidden in form.hidden_fields %}
+                                    {{ hidden }}
+                                {% endfor %}
+                                {% for field in form.visible_fields %}
+                                    <p>{{ field }}</p>
+                                {% endfor %}
+                            </td>
+                        {% endfor %}
+                        <td></td>
                     </tr>
-                </tbody>
-            {% endfor %}
+                {% endfor %}
+            </tbody>
         </table>
         
         
@@ -117,7 +129,7 @@
                     <thead>
                         <tr>
                             {% for field in form %}
-                                <th> {{ field.label_tag }} </th>
+                                <th> {{ field.label_tag }}
                             {% endfor %}
                         </tr>
                     </thead>
@@ -125,14 +137,14 @@
             {% endfor %}
             <tbody>
                 {% for form in relationship_formset %}
-                    <tr>
-                        {% for field in form %}
-                            <td {% if field.errors %}class="error"{% endif %}>
-                                {{ field }}
-                                {{ field|form_fielderror_hint }}
-                            </td>
-                        {% endfor %}
-                    </tr>
+                <tr>
+                    {% for field in form %}
+                        <td {% if field.errors %}class="error"{% endif %}>
+                            {{ field }}
+                            {{ field|form_fielderror_hint }}
+                        </td>
+                    {% endfor %}
+                </tr>
                 {% endfor %}
             </tbody>
         </table>
@@ -156,16 +168,11 @@
               addCssClass: 'btn btn-success',
               addText: '<i class="icon-plus"></i> Add entry',
               deleteText: '<i class="icon-remove"></i>',
-              prefix: '{{ relationship_formset.prefix }}',
-              formCssClass: 'dynamic-formset-rel'
-              
           });
           $('#pronoun_formset tbody tr').formset({
               addCssClass: 'btn btn-success',
               addText: '<i class="icon-plus"></i> Add entry',
               deleteText: '<i class="icon-remove"></i>',
-              prefix: '{{ pronoun_formset.prefix }}',
-              formCssClass: 'dynamic-formset-pron'
           });
         });
     </script>

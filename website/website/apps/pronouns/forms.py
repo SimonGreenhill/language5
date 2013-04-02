@@ -5,41 +5,16 @@ from django.template import RequestContext
 from website.apps.core.models import Language, Family, Source
 from website.apps.pronouns.models import Paradigm, Pronoun, Relationship
 
-class LanguageForm(forms.ModelForm):
-    class Meta:
-        model = Language
-        exclude = ('editor', 'added', 'slug', 'classification', 'information')
-        widgets = {
-            'information': forms.widgets.TextInput(attrs={'class': 'input-medium'}),
-            'classification': forms.widgets.TextInput(attrs={'class': 'input-medium'}),
-            'language': forms.widgets.TextInput(attrs={'class': 'input-medium'}),
-            'family': forms.widgets.Select(attrs={'class': 'input-medium'}),
-            'isocode': forms.widgets.TextInput(attrs={'class': 'input-medium'}),
-        }
-
-
-class SourceForm(forms.ModelForm):
-    class Meta:
-        model = Source
-        exclude = ('editor', 'added', 'slug', 'bibtex')
-        widgets = {
-            'reference': forms.widgets.TextInput(attrs={'class': 'input-medium'}),
-            'comment': forms.widgets.TextInput(attrs={'class': 'input-medium'}),
-        }
-        
-
 class ParadigmForm(forms.ModelForm):
     class Meta:
         model = Paradigm
-        exclude = ('editor', 'added', 'language', 'source')
+        exclude = ('editor', 'added')
         widgets = {
-            'comment': forms.widgets.Textarea(attrs={'cols': 72, 'rows': 3}),
+            'comment': forms.widgets.TextInput(attrs={'class': 'input-large'}),
         }
-    # make sure to set editor, added
     
 
 class RelationshipForm(forms.ModelForm):
-    
     class Meta:
         model = Relationship
         exclude = ('editor', 'added', 'paradigm')
@@ -47,6 +22,41 @@ class RelationshipForm(forms.ModelForm):
         widgets = {
             'comment': forms.widgets.TextInput(attrs={'class': 'input-medium'}),
         }
-        
-        
+                
 RelationshipFormSet = formset_factory(RelationshipForm, extra=1)
+
+
+
+class SimplePronounForm(forms.ModelForm):
+    class Meta:
+        model = Pronoun
+        fields = ('person', 'number', 'alignment', 'gloss', 'comment')
+        exclude = ('editor', 'added', 'gender', 'paradigm')
+        widgets = {
+            'comment': forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'comment'}),
+            'gloss': forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'gloss'}),
+        }
+
+
+class AdvancedPronounForm(forms.ModelForm):
+    paradigm = forms.CharField(widget=forms.HiddenInput())
+    alignment = forms.CharField(widget=forms.HiddenInput())
+    person = forms.CharField(widget=forms.HiddenInput())
+    number = forms.CharField(widget=forms.HiddenInput())
+    
+    class Meta:
+        model = Pronoun
+        fields = ('gloss', 'comment')
+        exclude = ('editor', 'added', 'paradigm', 'alignment', 'person', 'number')
+        widgets = {
+            'comment': forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'comment'}),
+            'gloss': forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'gloss'}),
+        }
+        
+AdvancedPronounFormSet = formset_factory(AdvancedPronounForm, extra=0)
+
+
+
+
+
+
