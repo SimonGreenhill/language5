@@ -1,11 +1,29 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% load render_table from django_tables2 %}
+{% load pronoun_tags %}
 
 {% block title %} Pronoun Paradigms: Editing {{ paradigm.id }} {% endblock %}
 
+{% block head %}
+    <!-- for javascript charpicker, and formset adder -->
+    <link rel="stylesheet" type="text/css" href="{% static "css/jquery.keypad.css" %}" />
+    <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/jquery.keypad.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/charpicker.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/jquery-scrolltofixed-min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/jquery.formset.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "admin/js/admin/RelatedObjectLookups.js" %}"></script>
+    <style>
+    .add-row{ padding: 1em; }
+    </style>
+{% endblock %}
+
+
 {% block content %}
     <div class="page-header">
-        <h1>Pronoun Paradigms: Editing {{ language.language }}</h1>
+        <h1>Pronoun Paradigms:</h1>
     </div>
     
     <ul class="breadcrumb">
@@ -16,21 +34,150 @@
       <li class="active">
           <a href="{% url "pronouns:index" %}">Pronoun Paradigms</a>
       </li>
-      <li class="active">
-          <a href="{% url "pronouns:detail" paradigm.id %}">{{ language.language }}</a>
-      </li>
+      {% if paradigm.id %}
+          <li class="active">
+              <a href="{% url "pronouns:detail" paradigm.id %}">{{ language.language }}</a>
+          </li>
+      {% endif %}
     </ul>
     
-    <h2> Paradigm: </h2>
+    <h2> Add Pronoun Paradigm: </h2>
     
-    {% if lexicon %}
-        {% render_table lexicon "table.html" %}
-    {% else %}
-        <p class="error">No results found!</p>
-    {% endif %}
+    <div id="scroller">
+        <div class="row clearfix">
+            <p class="well well-small span8 offset2">
+                <span id="picker"></span>
+            </p>
+        </div>
+    </div>
     
-    <h2> Relationships: </h2>
     
-    ...
+    <form action="{% url "pronouns:add" %}" method="post" class="form-inline">
     
+    {% csrf_token %}
+    
+        {% if language_form %}
+            <h3> Language Details: </h3>
+            
+            <table id="language_form" class="table table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        {% for field in language_form %}
+                            <th> {{ field.label_tag }}
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {% for field in language_form %}
+                            <td {% if field.errors %}class="error"{% endif %}>
+                                {{ field }}
+                                {{ field|form_fielderror_hint }}
+                            </td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3> Source Details: </h3>
+            
+            <table id="source_form" class="table table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        {% for field in source_form %}
+                            <th> {{ field.label_tag }}
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    {% for field in source_form %}
+                        <td {% if field.errors %}class="error"{% endif %}>
+                            {{ field }}
+                            {{ field|form_fielderror_hint }}
+                        </td>
+                    {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3> Paradigm Notes: </h3>
+            
+            <table id="paradigm_form" class="table table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        {% for field in paradigm_form %}
+                            <th> {{ field.label_tag }}
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    {% for field in paradigm_form %}
+                        <td {% if field.errors %}class="error"{% endif %}>
+                            {{ field }}
+                            {{ field|form_fielderror_hint }}
+                        </td>
+                    {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+        {% endif %}
+        
+        
+        <h3> Paradigm: </h3>
+        
+            TODO...
+        
+        <h3> Relationships: </h3>
+        
+        <table id="relationship_formset" class="table table-bordered table-condensed">
+            <!-- header -->
+            {% for form in relationship_formset %}
+                {% if forloop.first %}
+                    <thead>
+                        <tr>
+                            {% for field in form %}
+                                <th> {{ field.label_tag }}
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                {% endif %}
+            {% endfor %}
+            <tbody>
+                {% for form in relationship_formset %}
+                <tr>
+                    {% for field in form %}
+                        <td {% if field.errors %}class="error"{% endif %}>
+                            {{ field }}
+                            {{ field|form_fielderror_hint }}
+                        </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <button type="submit" class="btn btn-block btn-primary"><i class="icon-ok"></i> Save Paradigm </button>
+    </form>
+    
+    
+    
+    
+{% endblock %}
+
+
+
+{% block end %}
+    <script>
+        $(document).ready(function() {
+          $('.tip').tooltip();
+          $('#scroller').scrollToFixed();
+          $('#relationship_formset tbody tr').formset({
+              addCssClass: 'btn btn-success',
+              addText: '<i class="icon-plus"></i> Add entry',
+              deleteText: '<i class="icon-remove"></i>',
+          });
+        });
+    </script>
 {% endblock %}
