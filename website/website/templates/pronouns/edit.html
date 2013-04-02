@@ -56,73 +56,73 @@
     
     {% csrf_token %}
     
-        {% if language_form %}
-            <h3> Language Details: </h3>
-            
-            <table id="language_form" class="table table-bordered table-condensed">
-                <thead>
-                    <tr>
-                        {% for field in language_form %}
-                            <th> {{ field.label_tag }}
-                        {% endfor %}
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        {% for field in language_form %}
-                            <td {% if field.errors %}class="error"{% endif %}>
-                                {{ field }}
-                                {{ field|form_fielderror_hint }}
-                            </td>
-                        {% endfor %}
-                    </tr>
-                </tbody>
-            </table>
-            
-            <h3> Source Details: </h3>
-            
-            <table id="source_form" class="table table-bordered table-condensed">
-                <thead>
-                    <tr>
-                        {% for field in source_form %}
-                            <th> {{ field.label_tag }}
-                        {% endfor %}
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
+    {% comment %}
+        <h3> Language Details: </h3>
+        
+        <table id="language_form" class="table table-bordered table-condensed">
+            <thead>
+                <tr>
+                    {% for field in language_form %}
+                        <th> {{ field.label_tag }}
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% for field in language_form %}
+                        <td {% if field.errors %}class="error"{% endif %}>
+                            {{ field }}
+                            {{ field|form_fielderror_hint }}
+                        </td>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+
+        <h3> Source Details: </h3>
+        
+        <table id="source_form" class="table table-bordered table-condensed">
+            <thead>
+                <tr>
                     {% for field in source_form %}
-                        <td {% if field.errors %}class="error"{% endif %}>
-                            {{ field }}
-                            {{ field|form_fielderror_hint }}
-                        </td>
+                        <th> {{ field.label_tag }}
                     {% endfor %}
-                    </tr>
-                </tbody>
-            </table>
-            
-            <h3> Paradigm Notes: </h3>
-            
-            <table id="paradigm_form" class="table table-bordered table-condensed">
-                <thead>
-                    <tr>
-                        {% for field in paradigm_form %}
-                            <th> {{ field.label_tag }}
-                        {% endfor %}
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                {% for field in source_form %}
+                    <td {% if field.errors %}class="error"{% endif %}>
+                        {{ field }}
+                        {{ field|form_fielderror_hint }}
+                    </td>
+                {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    {% endcomment %}
+    
+        <h3> Paradigm Notes: </h3>
+        
+        <table id="paradigm_form" class="table table-bordered table-condensed">
+            <thead>
+                <tr>
                     {% for field in paradigm_form %}
-                        <td {% if field.errors %}class="error"{% endif %}>
-                            {{ field }}
-                            {{ field|form_fielderror_hint }}
-                        </td>
+                        <th> {{ field.label_tag }}
                     {% endfor %}
-                    </tr>
-                </tbody>
-            </table>
-        {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                {% for field in paradigm_form %}
+                    <td {% if field.errors %}class="error"{% endif %}>
+                        {{ field }}
+                        {{ field|form_fielderror_hint }}
+                    </td>
+                {% endfor %}
+                </tr>
+            </tbody>
+        </table>
         
         
         <h3> Paradigm: </h3>
@@ -133,6 +133,8 @@
         
         <table id="relationship_formset" class="table table-bordered table-condensed">
             <!-- header -->
+            {{ relationship_formset.management_form }}
+            
             {% for form in relationship_formset %}
                 {% if forloop.first %}
                     <thead>

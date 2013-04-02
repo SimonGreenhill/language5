@@ -2,6 +2,7 @@ from django.http import Http404
 from django.shortcuts import render, redirect, render_to_response
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
+from django.template.defaultfilters import slugify
 
 from website.apps.core.models import Family, Language, Source
 from website.apps.pronouns.models import Paradigm
@@ -40,12 +41,45 @@ def detail(request, paradigm_id):
 def add(request):
     # process form
     if request.method == 'POST':
-        pass
-        # formset = GenericFormSet(request.POST)
+        
+        paradigm_form = ParadigmForm(request.POST)
+        language_form = LanguageForm(request.POST)
+        source_form = SourceForm(request.POST)
+        relationship_formset = RelationshipFormSet(request.POST)
+        
+        lng, src, pdm = None, None, None
+        
+        # go through each form and validate...
+        # LANGUAGE
+        if language_form.is_valid():
+            lng = language_form.save(commit=False)
+            lng.editor = request.user
+            lng.slug = slugify(lng.language)
+            lng.save()
+            language_form = LanguageForm(lng)
+        
+        # SOURCE
+        if source_form.is_valid():
+            src = source_form.save(commit=False)
+            src.editor = request.user
+            src.slug = slugify(" ".join(src.author, src.year))
+            src.save()
+            source_form = SourceForm(src)
+            
+        # PARADIGM
+        # if paradigm_form.is_valid() and lng is not None and src is not None:
+        #     pdm = paradigm_form.save(commit=False)
+        #     pdm.language = lng
+        #     pdm.source = src
+        #     pdm.editor = request.user
+        #     pdm.save()
         # 
-        # if formset.is_valid():
+        # PRONOUNS>>>>>
+        
+        # RELATIONSHIPS
+        # if relationship_formset.is_valid():
         #     completed = []
-        #     for form in formset:
+        #     for form in relationship_formset:
         #         if form.is_valid() and len(form.changed_data):
         #             # if form is valid and some fields have changed
         #             # two stages here to set default fields
@@ -53,24 +87,30 @@ def add(request):
         #             obj.editor = request.user
         #             obj.save()
         #             completed.append(obj)
-        #             
-        #     # update task if needed.
-        #     if task.completable == True:
-        #         task.done = True
-        #         task.save()
-        #     
-        #     return render_to_response('entry/done.html', {
-        #         'task': task,
-        #         'objects': completed,
-        #     }, context_instance=RequestContext(request))
+                    
+        # ONLY redirect if forms are ok...
+        # the initial view and the error view
+        # return render_to_response('pronouns/edit.html', {
+        #     'paradigm_form': paradigm_form,
+        #     'language_form': language_form,
+        #     'source_form': source_form,
+        #     'relationship_formset': relationship_formset,
+        # }, context_instance=RequestContext(request))
     else:
-        return render_to_response('pronouns/edit.html', {
-            'paradigm_form': ParadigmForm(),
-            'language_form': LanguageForm(),
-            'source_form': SourceForm(),
-            'relationship_formset': RelationshipFormSet()
-            
-        }, context_instance=RequestContext(request))
+        # initialise to empty
+        paradigm_form = ParadigmForm()
+        language_form = LanguageForm()
+        source_form = SourceForm()
+        relationship_formset = RelationshipFormSet()
+        
+
+    # the initial view and the error view
+    return render_to_response('pronouns/edit.html', {
+        'paradigm_form': paradigm_form,
+        'language_form': language_form,
+        'source_form': source_form,
+        'relationship_formset': relationship_formset,
+    }, context_instance=RequestContext(request))
     
 
     

@@ -8,7 +8,7 @@ from website.apps.pronouns.models import Paradigm, Pronoun, Relationship
 class LanguageForm(forms.ModelForm):
     class Meta:
         model = Language
-        exclude = ('editor', 'added', 'isocode', 'classification', 'information')
+        exclude = ('editor', 'added', 'slug', 'classification', 'information')
         widgets = {
             'information': forms.widgets.TextInput(attrs={'class': 'input-medium'}),
             'classification': forms.widgets.TextInput(attrs={'class': 'input-medium'}),
