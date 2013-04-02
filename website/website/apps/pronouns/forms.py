@@ -1,6 +1,6 @@
 from django import forms
 from django.forms.formsets import formset_factory
-from django.template import RequestContext
+from django.forms.models import modelformset_factory
 
 from website.apps.core.models import Language, Family, Source
 from website.apps.pronouns.models import Paradigm, Pronoun, Relationship
@@ -15,16 +15,21 @@ class ParadigmForm(forms.ModelForm):
     
 
 class RelationshipForm(forms.ModelForm):
+    
+    # def __init__(self, *args, **kwargs):
+    #     paradigm = kwargs.pop('paradigm', None)
+    #     super(RelationshipForm, self).__init__(*args, **kwargs)
+    #     if paradigm is not None:
+    #         q = Pronoun.objects.filter(paradigm=paradigm)
+    #         self.fields["pronoun1"].queryset = q
+    #         self.fields["pronoun2"].queryset = q
+
     class Meta:
         model = Relationship
         exclude = ('editor', 'added', 'paradigm')
-        
         widgets = {
             'comment': forms.widgets.TextInput(attrs={'class': 'input-medium'}),
         }
-                
-RelationshipFormSet = formset_factory(RelationshipForm, extra=1)
-
 
 
 class SimplePronounForm(forms.ModelForm):
@@ -53,6 +58,12 @@ class AdvancedPronounForm(forms.ModelForm):
             'gloss': forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'gloss'}),
         }
         
+
+SimplePronounFormSet = modelformset_factory(Pronoun, form=SimplePronounForm)
+RelationshipFormSet = modelformset_factory(Relationship, form=RelationshipForm)
+# from django.utils.functional import curry
+# RelationshipFormSet.form = staticmethod(curry(RelationshipFormSet, paradigm=paradigm))
+
 AdvancedPronounFormSet = formset_factory(AdvancedPronounForm, extra=0)
 
 

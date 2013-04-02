@@ -12,7 +12,7 @@ class Paradigm(TrackedModel):
         help_text="Comment on this paradigm")
     
     def __unicode__(self):
-        return self.language.slug
+        return "Paradigm: %s" % self.language.slug
     
     @models.permalink
     def get_absolute_url(self):
@@ -58,7 +58,7 @@ class Pronoun(TrackedModel):
         help_text="Gloss")
         
     def __unicode__(self):
-        return '<Pronoun: %d>' % self.id
+        return '%s %s%s %s: %s' % (self.paradigm, self.person, self.number, self.alignment, self.gloss)
         
     class Meta:
         db_table = 'pronouns'

@@ -3,14 +3,14 @@ from django.shortcuts import render, redirect, render_to_response, get_object_or
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 from django.template.defaultfilters import slugify
-from django.forms.formsets import modelformset_factory
+from django.utils.functional import curry
 
 from website.apps.core.models import Family, Language, Source
-from website.apps.pronouns.models import Paradigm
-from website.apps.pronouns.tables import ParadigmIndexTable, PronounTable
+from website.apps.pronouns.models import Paradigm, Pronoun, Relationship
+from website.apps.pronouns.tables import ParadigmIndexTable, PronounTable, PronounRelationshipTable
 
 from website.apps.pronouns.forms import ParadigmForm, RelationshipFormSet
-from website.apps.pronouns.forms import SimplePronounForm, AdvancedPronounFormSet
+from website.apps.pronouns.forms import SimplePronounFormSet, AdvancedPronounFormSet
 
 from django_tables2 import SingleTableView
 
@@ -33,7 +33,7 @@ def detail(request, paradigm_id):
             'language': p.language,
             'source': p.source,
             'pronoun_table': PronounTable(p.pronoun_set.all()),
-            #'relationships': p.relationship_set.all(),
+            'relationship_table': PronounRelationshipTable(p.relationship_set.all())
         }
         return render(request, 'pronouns/view.html', out)
     except Paradigm.DoesNotExist:
@@ -43,11 +43,13 @@ def detail(request, paradigm_id):
 @login_required()
 def edit(request, paradigm_id):
     p = get_object_or_404(Paradigm, pk=paradigm_id)
+    # filter choices in RelationshipFormSet - 
+    # http://stackoverflow.com/questions/2581049/filter-queryset-in-django-inlineformset-factory?rq=1
+    #RelationshipFormSet.form = staticmethod(curry(RelationshipFormSet, paradigm=p))
     
     # process form
     if request.method == 'POST':
         paradigm_form = ParadigmForm(request.POST, instance=p)
-        SimplePronounFormSet = modelformset_factory(SimplePronounForm, extra=0)
         pronoun_formset = SimplePronounFormSet(request.POST, prefix="pron")
         relationship_formset = RelationshipFormSet(request.POST, prefix="rel")
         
@@ -61,32 +63,33 @@ def edit(request, paradigm_id):
             p = paradigm_form.save(commit=True)
             
             # PRONOUNS
-            for form in pronoun_formset:
-                if form.is_valid() and len(form.changed_data):
-                    obj = form.save(commit=False)
-                    obj.editor = request.user
-                    obj.paradigm = p
-                    obj.save()
+            instances = pronoun_formset.save(commit=False)
+            for obj in instances:
+                obj.editor = request.user
+                obj.paradigm = p
+                obj.save()
             
             # RELATIONSHIPS
             for form in relationship_formset:
                 if form.is_valid() and len(form.changed_data):
                     obj = form.save(commit=False)
                     obj.editor = request.user
+                    obj.paradigm = p
                     obj.save()
             
             return redirect('pronouns:detail', p.id)
     else:
         paradigm_form = ParadigmForm(instance=p)
-        pronoun_set = p.pronoun_set.all()
-        if len(pronoun_set) > 0:
-            SimplePronounFormSet = modelformset_factory(SimplePronounForm, extra=0)
-            pronoun_formset = SimplePronounFormSet(initial=[i for i in p.pronoun_set.all()], prefix="pron")
-        else:
-            SimplePronounFormSet = modelformset_factory(SimplePronounForm, extra=1)
-            pronoun_formset = SimplePronounFormSet(prefix="pron")
-            
-        relationship_formset = RelationshipFormSet(initial=p.relationship_set.all(), prefix="rel")
+        pronoun_formset = SimplePronounFormSet(
+            queryset=Pronoun.objects.filter(paradigm=p), 
+            prefix="pron",
+            initial=[{'paradigm':p},]
+        )
+        relationship_formset = RelationshipFormSet(
+            queryset=Relationship.objects.filter(paradigm=p), 
+            prefix="rel",
+            initial=[{'paradigm':p},],
+        )
         
     # the initial view and the error view
     return render_to_response('pronouns/edit.html', {

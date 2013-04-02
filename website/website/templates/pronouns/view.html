@@ -18,6 +18,7 @@
       </li>
       <li class="active">
           <a href="{% url "pronouns:index" %}">Pronoun Paradigms</a>
+          <span class="divider">/</span>
       </li>
       <li class="active">
           <a href="{% url "pronouns:detail" paradigm.id %}">{{ paradigm.language }}</a>
@@ -54,7 +55,11 @@
         
     <h3> Relationships: </h3>
     
-        TODO
+        {% if relationship_table %}
+            {% render_table relationship_table "table.html" %}
+        {% else %}
+            <p class="error">No results found!</p>
+        {% endif %}
     
 {% endblock %}
 
