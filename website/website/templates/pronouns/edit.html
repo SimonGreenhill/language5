@@ -8,6 +8,19 @@
         <h1>Pronoun Paradigms: Editing {{ language.language }}</h1>
     </div>
     
+    <ul class="breadcrumb">
+      <li>
+          <a href="{% url "index" %}">Home</a> 
+          <span class="divider">/</span>
+      </li>
+      <li class="active">
+          <a href="{% url "pronouns:index" %}">Pronoun Paradigms</a>
+      </li>
+      <li class="active">
+          <a href="{% url "pronouns:detail" paradigm.id %}">{{ language.language }}</a>
+      </li>
+    </ul>
+    
     <h2> Paradigm: </h2>
     
     {% if lexicon %}

@@ -14,9 +14,18 @@
           <span class="divider">/</span>
       </li>
       <li class="active">
-          <a href="{% url "pronouns:index" %}">Paradigms</a>
+          <a href="{% url "pronouns:index" %}">Pronoun Paradigms</a>
       </li>
     </ul>
+    
+    {% if user.is_staff %}
+        <p>
+            <a href="{% url "pronouns:add" %}" class="btn btn-success">
+                <i class="icon-white icon-plus"></i> 
+                Add New Pronoun Paradigm.
+            </a>
+        </p>
+    {% endif %}
     
     {% if table %}
         {% render_table table "table.html" %}

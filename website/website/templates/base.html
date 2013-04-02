@@ -57,12 +57,21 @@
                   <li{% active 'source-index' %}>
                       <a href="{% url "source-index" %}">Sources</a>
                   </li>
+                  
                   {% ifinstalled "website.apps.lexicon" %}
                   <li{% active 'word-index' %}>
                       <a href="{% url "word-index" %}">Words</a>
                   </li>
                   {% endifinstalled %}
+                  
+                  {% ifinstalled "website.apps.pronouns" %}
+                  <li{% active 'pronouns:index' %}>
+                      <a href="{% url "pronouns:index" %}">Pronouns</a>
+                  </li>
+                  {% endifinstalled %}
+                  
                   <li class="nav-header">Search</li>
+                  
                   <li{% active 'watson:search' %}>
                       <form class="form-search" action="{% url "watson:search" %}">
                           <input name="q" class="input-small search-query" value="{{ request.GET.q }}" size="8">
