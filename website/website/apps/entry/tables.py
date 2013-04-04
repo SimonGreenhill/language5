@@ -6,9 +6,9 @@ from website.apps.entry.models import Task
 
 class TaskIndexTable(DataTable):
     """Task Listing"""
-    id = tables.LinkColumn('task-detail', args=[A('id')])
-    name = tables.LinkColumn('task-detail', args=[A('id')])
-    description = tables.LinkColumn('task-detail', args=[A('id')])
+    id = tables.LinkColumn('entry:detail', args=[A('id')])
+    name = tables.LinkColumn('entry:detail', args=[A('id')])
+    description = tables.LinkColumn('entry:detail', args=[A('id')])
     
     class Meta(DataTable.Meta):
         model = Task

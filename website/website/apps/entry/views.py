@@ -35,7 +35,7 @@ def task_detail(request, task_id):
     t = get_object_or_404(Task, pk=task_id)
     # 2. check if task is complete
     if t.done:
-        return redirect('task-index')
+        return redirect('entry:index')
     # 3. send to correct view
     views = dict(dataentry.available_views)
     if t.view in views:

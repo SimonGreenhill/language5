@@ -75,8 +75,8 @@
                           <a href="{% url "admin:index" %}">Admins</a>
                       </li>
                       {% ifinstalled "website.apps.entry" %}
-                      <li{% active 'task-index' %}>
-                          <a href="{% url "task-index" %}">Data Entry</a>
+                      <li{% active 'entry:index' %}>
+                          <a href="{% url "entry:index" %}">Data Entry</a>
                       </li>
                       {% endifinstalled %}
                   {% else %}
