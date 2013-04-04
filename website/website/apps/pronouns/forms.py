@@ -35,11 +35,11 @@ class RelationshipForm(forms.ModelForm):
 class SimplePronounForm(forms.ModelForm):
     class Meta:
         model = Pronoun
-        fields = ('person', 'number', 'alignment', 'gloss', 'comment')
+        fields = ('person', 'number', 'alignment', 'form', 'comment')
         exclude = ('editor', 'added', 'gender', 'paradigm')
         widgets = {
             'comment': forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'comment'}),
-            'gloss': forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'gloss'}),
+            'form': forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'form'}),
         }
 
 
@@ -51,11 +51,11 @@ class AdvancedPronounForm(forms.ModelForm):
     
     class Meta:
         model = Pronoun
-        fields = ('gloss', 'comment')
+        fields = ('form', 'comment')
         exclude = ('editor', 'added', 'paradigm', 'alignment', 'person', 'number')
         widgets = {
             'comment': forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'comment'}),
-            'gloss': forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'gloss'}),
+            'form': forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'gloss'}),
         }
         
 

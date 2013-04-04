@@ -28,21 +28,21 @@ class Pronoun(TrackedModel):
         ('A', 'A'),
         ('S', 'S'),
         ('O', 'O'),
-        ('P', 'P'),
+        ('P', 'Possessive'),
     )
     
     PERSON_CHOICES = (
-        ('1', '1st Person'),
+        ('1', '1st (excl) Person'),
+        ('12', '1st (incl) Person'),
         ('2', '2nd Person'),
         ('3', '3rd Person'),
-        ('12', '12 Person'),
     )
     
     NUMBER_CHOICES = (
         ('sg', 'Singular'),
         ('du', 'Dual'),
         ('pl', 'Plural'),
-        ('tr', 'Trial'),
+       # ('tr', 'Trial'),
     )
     
     paradigm = models.ForeignKey('Paradigm')
@@ -54,8 +54,8 @@ class Pronoun(TrackedModel):
         help_text="Person")
     number = models.CharField(max_length=2, choices=NUMBER_CHOICES,
         help_text="Number")
-    gloss = models.TextField(blank=True, null=True,
-        help_text="Gloss")
+    form = models.TextField(blank=True, null=True,
+        help_text="Form")
         
     def __unicode__(self):
         return '%s %s%s %s: %s' % (self.paradigm, self.person, self.number, self.alignment, self.gloss)
