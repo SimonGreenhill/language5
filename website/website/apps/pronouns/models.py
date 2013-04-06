@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
 
 from website.apps.core.models import TrackedModel, Language, Source
 
@@ -25,8 +26,17 @@ class Paradigm(TrackedModel):
             self._prefill_pronouns() # Prefill Pronouns
     
     def _prefill_pronouns(self):
+        ed = User.objects.get(pk=1)
         for p, n, g, a in Pronoun._generate_all_combinations():
-            print p, n, g, a
+            obj = Pronoun.objects.create(
+                paradigm=self,
+                alignment=a,
+                gender=g,
+                number=n,
+                form="",
+                editor=ed
+            )
+            obj.save()
     
     @models.permalink
     def get_absolute_url(self):

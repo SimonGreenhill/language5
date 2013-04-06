@@ -37,7 +37,7 @@ class Test_AddParadigmView(TestCase):
     def test_paradigm_save(self):
         count = Paradigm.objects.count()
         response = self.client.post(self.url, {
-            'language': self.lang, 'source': self.source, 'comment': 'foo'
+            'language': self.lang.id, 'source': self.source.id, 'comment': 'foo'
         }, follow=True)
         self.assertEqual(Paradigm.objects.count(), count+1)
         self.assertContains(response, 'foo')
@@ -45,9 +45,9 @@ class Test_AddParadigmView(TestCase):
     def test_paradigm_creates_pronouns(self):
         count = Pronoun.objects.count()
         response = self.client.post(self.url, {
-            'language': self.lang,
-            'source': self.source,
+            'language': self.lang.id,
+            'source': self.source.id,
             'comment': 'foo'
         }, follow=True)
-        self.assertEqual(Paradigm.objects.count(), count+len(Pronoun._generate_all_combinations()))
+        self.assertEqual(Pronoun.objects.count(), count+len(Pronoun._generate_all_combinations()))
         

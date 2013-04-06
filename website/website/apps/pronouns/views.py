@@ -57,31 +57,59 @@ def add(request):
 @login_required()
 def edit(request, paradigm_id):
     p = get_object_or_404(Paradigm, pk=paradigm_id)
+    pronoun_formset = SimplePronounFormSet(request.POST or None)
+    
+    if pronoun_formset.is_valid():
+        instances = pronoun_formset.save(commit=False)
+        for obj in instances:
+            obj.editor = request.user
+            obj.paradigm = p
+            obj.save()
+            
+        return redirect('pronouns:detail', p.id)
+    
+    # the initial view and the error view
+    return render_to_response('pronouns/edit.html', {
+        'paradigm': p,
+        'pronoun_formset': pronoun_formset,
+    }, context_instance=RequestContext(request))
+
+
+
+
+
+
+
+
+
+@login_required()
+def edit_OLD_DELETE_ME(request, paradigm_id):
+    p = get_object_or_404(Paradigm, pk=paradigm_id)
     # filter choices in RelationshipFormSet - 
     # http://stackoverflow.com/questions/2581049/filter-queryset-in-django-inlineformset-factory?rq=1
     #RelationshipFormSet.form = staticmethod(curry(RelationshipFormSet, paradigm=p))
-    
+
     # process form
     if request.method == 'POST':
         pronoun_formset = SimplePronounFormSet(request.POST, prefix="pron")
         relationship_formset = RelationshipFormSet(request.POST, prefix="rel")
-        
+
         #print 'PARADIGM_FORM:', paradigm_form.is_valid()
         #print 'PRONOUN_FORMSET:', pronoun_formset.is_valid()
         #print 'RELATIONSHIP_FORMSET:', relationship_formset.is_valid()
-        
+
         if paradigm_form.is_valid() and pronoun_formset.is_valid() and relationship_formset.is_valid():
-            
+
             # PARADIGM FORM
             p = paradigm_form.save(commit=True)
-            
+
             # PRONOUNS
             instances = pronoun_formset.save(commit=False)
             for obj in instances:
                 obj.editor = request.user
                 obj.paradigm = p
                 obj.save()
-            
+
             # RELATIONSHIPS
             for form in relationship_formset:
                 if form.is_valid() and len(form.changed_data):
@@ -89,7 +117,7 @@ def edit(request, paradigm_id):
                     obj.editor = request.user
                     obj.paradigm = p
                     obj.save()
-            
+
             return redirect('pronouns:detail', p.id)
     else:
         pronoun_formset = SimplePronounFormSet(
@@ -102,14 +130,13 @@ def edit(request, paradigm_id):
             prefix="rel",
             initial=[{'paradigm':p},],
         )
-        
+
     # the initial view and the error view
     return render_to_response('pronouns/edit.html', {
         'paradigm': p,
         'pronoun_formset': pronoun_formset,
         'relationship_formset': relationship_formset,
     }, context_instance=RequestContext(request))
-
 
 
 
