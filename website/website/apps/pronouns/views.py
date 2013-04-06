@@ -41,6 +41,19 @@ def detail(request, paradigm_id):
         
 
 @login_required()
+def add(request):
+    if request.method == 'POST':
+        paradigm_form = ParadigmForm(request.POST)
+        if paradigm_form.is_valid():
+            p = paradigm_form.save(commit=True)
+            return redirect('pronouns:edit', p.id)
+    else:
+        return render_to_response('pronouns/add.html', {
+            'paradigm_form': ParadigmForm(),
+        }, context_instance=RequestContext(request))
+
+
+@login_required()
 def edit(request, paradigm_id):
     p = get_object_or_404(Paradigm, pk=paradigm_id)
     # filter choices in RelationshipFormSet - 

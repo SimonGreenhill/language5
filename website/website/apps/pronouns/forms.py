@@ -55,7 +55,7 @@ class AdvancedPronounForm(forms.ModelForm):
         exclude = ('editor', 'added', 'paradigm', 'alignment', 'person', 'number')
         widgets = {
             'comment': forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'comment'}),
-            'form': forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'gloss'}),
+            'form': forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'form'}),
         }
         
 
