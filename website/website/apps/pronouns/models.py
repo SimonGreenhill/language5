@@ -14,7 +14,7 @@ class Paradigm(TrackedModel):
     def __unicode__(self):
         return "Paradigm: %s" % self.language.slug
     
-    def save(self):
+    def save(self, *args, **kwargs):
         if not self.pk:
             do_prefill = True
         else:

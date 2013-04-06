@@ -42,15 +42,16 @@ def detail(request, paradigm_id):
 
 @login_required()
 def add(request):
-    if request.method == 'POST':
-        paradigm_form = ParadigmForm(request.POST)
-        if paradigm_form.is_valid():
-            p = paradigm_form.save(commit=True)
-            return redirect('pronouns:edit', p.id)
-    else:
-        return render_to_response('pronouns/add.html', {
-            'paradigm_form': ParadigmForm(),
-        }, context_instance=RequestContext(request))
+    paradigm_form = ParadigmForm(request.POST or None)
+    if paradigm_form.is_valid():
+        p = paradigm_form.save(commit=False)
+        p.editor = request.user
+        p.save()
+        return redirect('pronouns:edit', p.id)
+    
+    return render_to_response('pronouns/add.html', {
+        'paradigm_form': paradigm_form,
+    }, context_instance=RequestContext(request))
 
 
 @login_required()
@@ -62,7 +63,6 @@ def edit(request, paradigm_id):
     
     # process form
     if request.method == 'POST':
-        paradigm_form = ParadigmForm(request.POST, instance=p)
         pronoun_formset = SimplePronounFormSet(request.POST, prefix="pron")
         relationship_formset = RelationshipFormSet(request.POST, prefix="rel")
         
@@ -92,7 +92,6 @@ def edit(request, paradigm_id):
             
             return redirect('pronouns:detail', p.id)
     else:
-        paradigm_form = ParadigmForm(instance=p)
         pronoun_formset = SimplePronounFormSet(
             queryset=Pronoun.objects.filter(paradigm=p), 
             prefix="pron",
@@ -107,7 +106,6 @@ def edit(request, paradigm_id):
     # the initial view and the error view
     return render_to_response('pronouns/edit.html', {
         'paradigm': p,
-        'paradigm_form': paradigm_form,
         'pronoun_formset': pronoun_formset,
         'relationship_formset': relationship_formset,
     }, context_instance=RequestContext(request))

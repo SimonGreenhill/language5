@@ -9,9 +9,6 @@ class ParadigmForm(forms.ModelForm):
     class Meta:
         model = Paradigm
         exclude = ('editor', 'added')
-        widgets = {
-            'comment': forms.widgets.TextInput(attrs={'class': 'input-large'}),
-        }
     
 
 class RelationshipForm(forms.ModelForm):

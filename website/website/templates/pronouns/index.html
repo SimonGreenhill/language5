@@ -32,31 +32,9 @@
     {% if user.is_staff %}
         <p>
             <a class="btn"
-                href="{% url "admin:core_family_add" %}" id="add_id_family" 
-                onclick="return showAddAnotherPopup(this);"> 
+                href="{% url "pronouns:add" %}"> 
                 <i class="icon-plus"></i>
-                Add Language Family.
-            </a>
-            &mdash;
-            <a class="btn" 
-                href="{% url "admin:core_language_add" %}" id="add_id_language" 
-                onclick="return showAddAnotherPopup(this);"> 
-                <i class="icon-plus"></i>
-                Add Language.
-            </a>
-            &mdash;
-            <a class="btn" 
-                href="{% url "admin:core_source_add" %}" id="add_id_source" 
-                onclick="return showAddAnotherPopup(this);"> 
-                <i class="icon-plus"></i>
-                Add Source.
-            </a>
-            &mdash;
-            <a class="btn" 
-                href="{% url "admin:pronouns_paradigm_add" %}" id="add_id_paradigm" 
-                onclick="return showAddAnotherPopup(this);"> 
-                <i class="icon-plus"></i>
-                Add Pronoun Paradigm
+                Add Pronoun Paradigm.
             </a>
         </p>
     {% endif %}
