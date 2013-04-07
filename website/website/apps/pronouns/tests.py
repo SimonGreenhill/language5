@@ -6,6 +6,21 @@ from django.core.urlresolvers import reverse
 from website.apps.core.models import Language, Source
 from website.apps.pronouns.models import Paradigm, Pronoun
 
+class Test_PronounParadigmView(TestCase):
+    def setUp(self):
+        # generate a paradigm.
+        # generate a set of pronouns with form set to repr
+        pass
+        
+    def test(self):
+        pass
+    
+    def test_post(self):
+        pass
+
+
+
+
 class Test_AddParadigmView(TestCase):
     
     def setUp(self):

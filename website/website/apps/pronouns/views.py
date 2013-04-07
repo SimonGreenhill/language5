@@ -9,12 +9,11 @@ from website.apps.core.models import Family, Language, Source
 from website.apps.pronouns.models import Paradigm, Pronoun, Relationship
 from website.apps.pronouns.tables import ParadigmIndexTable, PronounTable, PronounRelationshipTable
 
-from website.apps.pronouns.forms import ParadigmForm, RelationshipFormSet
-from website.apps.pronouns.forms import SimplePronounFormSet, AdvancedPronounFormSet
+from website.apps.pronouns.forms import ParadigmForm#, RelationshipFormSet
+from website.apps.pronouns.forms import PronounFormSet
+from website.apps.pronouns.forms import PronounParadigmForm
 
 from django_tables2 import SingleTableView
-
-from website.apps.pronouns.tools import generate_pronoun_formsets
 
 class Index(SingleTableView):
     """Index"""
@@ -57,129 +56,115 @@ def add(request):
 @login_required()
 def edit(request, paradigm_id):
     p = get_object_or_404(Paradigm, pk=paradigm_id)
-    pronoun_formset = SimplePronounFormSet(request.POST or None)
     
-    if pronoun_formset.is_valid():
-        instances = pronoun_formset.save(commit=False)
+    pronoun_form = PronounFormSet(request.POST or None, instance=p)
+    
+    if pronoun_form.is_valid():
+        instances = pronoun_form.save(commit=False)
         for obj in instances:
             obj.editor = request.user
             obj.paradigm = p
             obj.save()
-            
         return redirect('pronouns:detail', p.id)
+        
+        
+    # ADD ROWS::: --> REFACTOR
+    def repr_row_instance(p):
+        return "%s %s %s" % (p.get_person_display(), p.get_number_display(), p.get_gender_display())
+
+    rows = {}
+    for form in pronoun_form:
+        row = repr_row_instance(form.instance)
+        rows[row] = rows.get(row, 
+            dict(zip([x[0] for x in Pronoun.ALIGNMENT_CHOICES], [None for x in Pronoun.ALIGNMENT_CHOICES]))
+        )
+        rows[row][form.instance.alignment] = form
+
+    pronoun_form.pronoun_rows = []
+    # Sort
+    for row in Pronoun._generate_all_combinations():
+        wanted_label = "%s %s %s" % (row['person'][1], row['number'][1], row['gender'][1]) 
+        found_row = False
+        for label in rows:
+            if wanted_label == label:
+                pronoun_form.pronoun_rows.append((label, rows[label]))
+                found_row = True
+        assert found_row, "Unable to find expected row for Paradigm: %s" % label
+    # ::: <<- REFACTOR
+
+
     
     # the initial view and the error view
     return render_to_response('pronouns/edit.html', {
         'paradigm': p,
-        'pronoun_formset': pronoun_formset,
+        'pronouns': pronoun_form,
     }, context_instance=RequestContext(request))
 
 
 
+# ----------------------------------------------------------- #
+# @login_required()
+# def edit(request, paradigm_id):
+#     p = get_object_or_404(Paradigm, pk=paradigm_id)
+#     pronoun_formset = AdvancedPronounFormSet(request.POST or None)
+#     if pronoun_formset.is_valid():
+#         instances = pronoun_formset.save(commit=False)
+#         for obj in instances:
+#             obj.editor = request.user
+#             obj.paradigm = p
+#             obj.save()
+#         return redirect('pronouns:detail', p.id)
+#     
+#     # the initial view and the error view
+#     return render_to_response('pronouns/edit.html', {
+#         'paradigm': p,
+#         'pronouns': pronoun_formset,
+#     }, context_instance=RequestContext(request))
 
-
-
-
-
-
-@login_required()
-def edit_OLD_DELETE_ME(request, paradigm_id):
-    p = get_object_or_404(Paradigm, pk=paradigm_id)
-    # filter choices in RelationshipFormSet - 
-    # http://stackoverflow.com/questions/2581049/filter-queryset-in-django-inlineformset-factory?rq=1
-    #RelationshipFormSet.form = staticmethod(curry(RelationshipFormSet, paradigm=p))
-
-    # process form
-    if request.method == 'POST':
-        pronoun_formset = SimplePronounFormSet(request.POST, prefix="pron")
-        relationship_formset = RelationshipFormSet(request.POST, prefix="rel")
-
-        #print 'PARADIGM_FORM:', paradigm_form.is_valid()
-        #print 'PRONOUN_FORMSET:', pronoun_formset.is_valid()
-        #print 'RELATIONSHIP_FORMSET:', relationship_formset.is_valid()
-
-        if paradigm_form.is_valid() and pronoun_formset.is_valid() and relationship_formset.is_valid():
-
-            # PARADIGM FORM
-            p = paradigm_form.save(commit=True)
-
-            # PRONOUNS
-            instances = pronoun_formset.save(commit=False)
-            for obj in instances:
-                obj.editor = request.user
-                obj.paradigm = p
-                obj.save()
-
-            # RELATIONSHIPS
-            for form in relationship_formset:
-                if form.is_valid() and len(form.changed_data):
-                    obj = form.save(commit=False)
-                    obj.editor = request.user
-                    obj.paradigm = p
-                    obj.save()
-
-            return redirect('pronouns:detail', p.id)
-    else:
-        pronoun_formset = SimplePronounFormSet(
-            queryset=Pronoun.objects.filter(paradigm=p), 
-            prefix="pron",
-            initial=[{'paradigm':p},]
-        )
-        relationship_formset = RelationshipFormSet(
-            queryset=Relationship.objects.filter(paradigm=p), 
-            prefix="rel",
-            initial=[{'paradigm':p},],
-        )
-
-    # the initial view and the error view
-    return render_to_response('pronouns/edit.html', {
-        'paradigm': p,
-        'pronoun_formset': pronoun_formset,
-        'relationship_formset': relationship_formset,
-    }, context_instance=RequestContext(request))
 
 
 
 
 @login_required()
 def edit_advanced(request, paradigm_id):
-    p = get_object_or_404(Paradigm, pk=paradigm_id)
-
-    # process form
-    if request.method == 'POST':
-        pronoun_formsets = AdvancedPronounFormSet(request.POST)
-        relationship_formset = RelationshipFormSet(request.POST)
-        
-        raise NotImplementedError("Not yet implemented.")
-        # RELATIONSHIPS
-        # if relationship_formset.is_valid():
-        #     completed = []
-        #     for form in relationship_formset:
-        #         if form.is_valid() and len(form.changed_data):
-        #             # if form is valid and some fields have changed
-        #             # two stages here to set default fields
-        #             obj = form.save(commit=False)
-        #             obj.editor = request.user
-        #             obj.save()
-        #             completed.append(obj)
-
-        # ONLY redirect if forms are ok...
-        # the initial view and the error view
-        # return render_to_response('pronouns/edit.html', {
-        #     'paradigm_form': paradigm_form,
-        #     'language_form': language_form,
-        #     'source_form': source_form,
-        #     'relationship_formset': relationship_formset,
-        # }, context_instance=RequestContext(request))
-    else:
-        paradigm_form = ParadigmForm(instance=p)
-        pronoun_formsets = generate_pronoun_formsets(p)
-        relationship_formset = RelationshipFormSet(initial=p.relationship_set.all())
-
-    # the initial view and the error view
-    return render_to_response('pronouns/edit_advanced.html', {
-        'relationship_formset': relationship_formset,
-        'paradigm_form': paradigm_form,
-        'pronoun_formsets': pronoun_formsets,
-        'paradigm': p,
-    }, context_instance=RequestContext(request))
+    pass
+#     p = get_object_or_404(Paradigm, pk=paradigm_id)
+# 
+#     # process form
+#     if request.method == 'POST':
+#         pronoun_formsets = AdvancedPronounFormSet(request.POST)
+#         relationship_formset = RelationshipFormSet(request.POST)
+#         
+#         raise NotImplementedError("Not yet implemented.")
+#         # RELATIONSHIPS
+#         # if relationship_formset.is_valid():
+#         #     completed = []
+#         #     for form in relationship_formset:
+#         #         if form.is_valid() and len(form.changed_data):
+#         #             # if form is valid and some fields have changed
+#         #             # two stages here to set default fields
+#         #             obj = form.save(commit=False)
+#         #             obj.editor = request.user
+#         #             obj.save()
+#         #             completed.append(obj)
+# 
+#         # ONLY redirect if forms are ok...
+#         # the initial view and the error view
+#         # return render_to_response('pronouns/edit.html', {
+#         #     'paradigm_form': paradigm_form,
+#         #     'language_form': language_form,
+#         #     'source_form': source_form,
+#         #     'relationship_formset': relationship_formset,
+#         # }, context_instance=RequestContext(request))
+#     else:
+#         paradigm_form = ParadigmForm(instance=p)
+#         pronoun_formsets = generate_pronoun_formsets(p)
+#         relationship_formset = RelationshipFormSet(initial=p.relationship_set.all())
+# 
+#     # the initial view and the error view
+#     return render_to_response('pronouns/edit_advanced.html', {
+#         'relationship_formset': relationship_formset,
+#         'paradigm_form': paradigm_form,
+#         'pronoun_formsets': pronoun_formsets,
+#         'paradigm': p,
+#     }, context_instance=RequestContext(request))

@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 
 from website.apps.core.models import TrackedModel, Language, Source
 
-
 class Paradigm(TrackedModel):
     """Paradigm Details"""
     language = models.ForeignKey(Language)
@@ -27,13 +26,15 @@ class Paradigm(TrackedModel):
     
     def _prefill_pronouns(self):
         ed = User.objects.get(pk=1)
-        for p, n, g, a in Pronoun._generate_all_combinations():
+        for comb in Pronoun._generate_all_combinations():
             obj = Pronoun.objects.create(
                 paradigm=self,
-                alignment=a,
-                gender=g,
-                number=n,
-                form="",
+                person=comb['person'][0],
+                number=comb['number'][0],
+                gender=comb['gender'][0],
+                alignment=comb['alignment'][0],
+        ###        form="",
+                form="%s - %s - %s - %s" % (comb['person'][0], comb['number'][0], comb['gender'][0], comb['alignment'][0]) ,
                 editor=ed
             )
             obj.save()
@@ -102,22 +103,13 @@ class Pronoun(TrackedModel):
                     for a in Pronoun.ALIGNMENT_CHOICES:
                         if p[0] == '12' and n[0] == 'sg':
                             continue
-                        out.append((p[0], n[0], g[0], a[0]))
+                        out.append({"person": p, "number": n, "gender": g, "alignment": a})
         return out
     
     @staticmethod
-    def _generate_all_combinations_in_rows():
-        out = {}
-        for p in Pronoun.PERSON_CHOICES:
-            out[p] = out.get(p, [])
-            for n in Pronoun.NUMBER_CHOICES:
-                for g in Pronoun.GENDER_CHOICES:
-                    for a in Pronoun.ALIGNMENT_CHOICES:
-                        if p[0] == '12' and n[0] == 'sg':
-                            continue
-                        out[p].append((p[0], n[0], g[0], a[0]))
-        return out
-        
+    def _get_row_size():
+        return len(Pronoun.ALIGNMENT_CHOICES)
+    
     class Meta:
         db_table = 'pronouns'
         

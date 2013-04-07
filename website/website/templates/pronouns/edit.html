@@ -14,8 +14,6 @@
     <script type="text/javascript" src="{% static "js/jquery.keypad.min.js" %}"></script>
     <script type="text/javascript" src="{% static "js/charpicker.js" %}"></script>
     <script type="text/javascript" src="{% static "js/jquery-scrolltofixed-min.js" %}"></script>
-    <script type="text/javascript" src="{% static "js/jquery.formset.min.js" %}"></script>
-    <script type="text/javascript" src="{% static "admin/js/admin/RelatedObjectLookups.js" %}"></script>
     <style>
     .add-row{ padding: 1em; }
     </style>
@@ -27,9 +25,8 @@
         <h1>Pronoun Paradigm: {{ paradigm.id }}</h1>
     </div>
 
-    
     <h2>
-        <strong>Language: </strong> {{ paradigm.language }}hg 
+        <strong>Language: </strong> {{ paradigm.language }}
     </h2>
     <p>
         <strong>Comment: </strong>
@@ -44,76 +41,53 @@
         </div>
     </div>
     
-    <form action="{% url "pronouns:edit" paradigm.id %}" method="post" class="form-inline">
+    <h3> Pronouns: </h3>
     
+    <form action="{% url "pronouns:edit" paradigm.id %}" method="post" class="form-inline">
         {% csrf_token %}
-        
-        <h3> Pronouns: </h3>
-        
-        <table id="pronoun_formset" class="table table-bordered table-condensed">
-            {{ pronoun_formset.management_form }}
-            
-            {% for form in pronoun_formset %}
-                {% if forloop.first %}
-                    <thead>
-                        <tr>
-                        {% for field in form %}
-                            <th> {{ field.label_tag }} </th>
-                        {% endfor %}
-                        </tr>
-                    </thead>
-                {% endif %}
-                <tbody>
-                    <tr>
-                    {% for field in form %}
-                        <td {% if field.errors %}class="error"{% endif %}>
-                            {{ field }}
-                            {{ field|form_fielderror_hint }}
-                        </td>
-                    {% endfor %}
-                    </tr>
-                </tbody>
-            {% endfor %}
-        </table>
-        
-        
-        <h3> Relationships: </h3>
-        
-        <table id="relationship_formset" class="table table-bordered table-condensed">
-            <!-- header -->
-            {{ relationship_formset.management_form }}
-            
-            {% for form in relationship_formset %}
-                {% if forloop.first %}
-                    <thead>
-                        <tr>
-                            {% for field in form %}
-                                <th> {{ field.label_tag }} </th>
-                            {% endfor %}
-                        </tr>
-                    </thead>
-                {% endif %}
-            {% endfor %}
+        <table id="pronouns" class="table table-bordered table-condensed">
+            {{ pronouns.management_form }}
+            <thead>
+                <tr>
+                    <td>&nbsp;</td>
+                    <th>A</th>
+                    <th>S</th>
+                    <th>O</th>
+                    <th>Poss.</th>
+                </tr>
+            </thead>
             <tbody>
-                {% for form in relationship_formset %}
+                {% for row, forms in pronouns.pronoun_rows %}
+                <!-- ROW -->
                     <tr>
-                        {% for field in form %}
-                            <td {% if field.errors %}class="error"{% endif %}>
+                        <th>{{ row }}</th>
+                        <td class="alignment_a">
+                            {% for field in forms.A %}
                                 {{ field }}
-                                {{ field|form_fielderror_hint }}
-                            </td>
-                        {% endfor %}
+                            {% endfor %}
+                        </td>
+                        <td class="alignment_s">
+                            {% for field in forms.S %}
+                                {{ field }}
+                            {% endfor %}
+                        </td>
+                        <td class="alignment_o">
+                            {% for field in forms.O %}
+                                {{ field }}
+                            {% endfor %}
+                        </td>
+                        <td class="alignment_p">
+                            {% for field in forms.P %}
+                                {{ field }}
+                            {% endfor %}
+                        </td>
                     </tr>
+                    <!-- ENDROW -->
                 {% endfor %}
             </tbody>
         </table>
-        
         <button type="submit" class="btn btn-block btn-primary"><i class="icon-ok"></i> Save Paradigm </button>
     </form>
-    
-    
-    
-    
 {% endblock %}
 
 
@@ -123,21 +97,6 @@
         $(document).ready(function() {
           $('.tip').tooltip();
           $('#scroller').scrollToFixed();
-          $('#relationship_formset tbody tr').formset({
-              addCssClass: 'btn btn-success',
-              addText: '<i class="icon-plus"></i> Add entry',
-              deleteText: '<i class="icon-remove"></i>',
-              prefix: '{{ relationship_formset.prefix }}',
-              formCssClass: 'dynamic-formset-rel'
-              
-          });
-          $('#pronoun_formset tbody tr').formset({
-              addCssClass: 'btn btn-success',
-              addText: '<i class="icon-plus"></i> Add entry',
-              deleteText: '<i class="icon-remove"></i>',
-              prefix: '{{ pronoun_formset.prefix }}',
-              formCssClass: 'dynamic-formset-pron'
-          });
         });
     </script>
 {% endblock %}
