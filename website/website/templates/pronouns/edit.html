@@ -42,7 +42,7 @@
     </div>
     
     <h3> Pronouns: </h3>
-    
+
     <form action="{% url "pronouns:edit" paradigm.id %}" method="post" class="form-inline">
         {% csrf_token %}
         <table id="pronouns" class="table table-bordered table-condensed">

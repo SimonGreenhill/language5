@@ -44,6 +44,24 @@
         {{ paradigm.comment }}
     </p>
     
+    
+    {% if user.is_staff %}
+        <p>
+            <a class="btn"
+                href="{% url "pronouns:edit" paradigm.id %}"> 
+                <i class="icon-edit"></i>
+                Edit Pronoun Paradigm.
+            </a>
+            <a class="btn"
+                href="{% url "pronouns:edit_relationships" paradigm.id %}"> 
+                <i class="icon-edit"></i>
+                Edit Pronoun Paradigm Relationships.
+            </a>
+        </p>
+    {% endif %}
+    
+    
+    
     <h3> Pronoun Paradigm: </h3>
         
         {% if pronoun_table %}

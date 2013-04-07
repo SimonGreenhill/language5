@@ -9,6 +9,6 @@ urlpatterns = patterns('',
         'website.apps.pronouns.views.detail', name="detail"),
     url(r'^(?P<paradigm_id>\d+)/edit$', 
         'website.apps.pronouns.views.edit', name="edit"),
-    url(r'^(?P<paradigm_id>\d+)/edit2$', 
-        'website.apps.pronouns.views.edit_advanced', name="edit2"),
+    url(r'^(?P<paradigm_id>\d+)/relations$', 
+        'website.apps.pronouns.views.edit_relationships', name="edit_relationships"),
 )

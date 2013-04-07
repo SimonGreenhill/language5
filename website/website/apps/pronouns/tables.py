@@ -24,8 +24,8 @@ class PronounTable(DataTable):
     class Meta(DataTable.Meta):
         model = Pronoun
         order_by = 'id' # default sorting
-        sequence = ('id', 'person', 'number', 'alignment', 'gender', 'form', 'comment')
-        exclude = ('editor', 'added', 'paradigm')
+        sequence = ('person', 'number', 'alignment', 'gender', 'form', 'comment')
+        exclude = ('id', 'editor', 'added', 'paradigm')
     Meta.attrs['summary'] = 'Table of Pronouns'
 
 

@@ -105,6 +105,18 @@ class Pronoun(TrackedModel):
                             continue
                         out.append({"person": p, "number": n, "gender": g, "alignment": a})
         return out
+        
+    @staticmethod
+    def _generate_all_rows():
+        out = []
+        for p in Pronoun.PERSON_CHOICES:
+            for n in Pronoun.NUMBER_CHOICES:
+                for g in Pronoun.GENDER_CHOICES:
+                    if p[0] == '12' and n[0] == 'sg':
+                        continue
+                    out.append({"person": p, "number": n, "gender": g,})
+        return out
+
     
     @staticmethod
     def _get_row_size():
