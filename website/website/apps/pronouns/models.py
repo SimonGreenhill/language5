@@ -33,8 +33,8 @@ class Paradigm(TrackedModel):
                 number=comb['number'][0],
                 gender=comb['gender'][0],
                 alignment=comb['alignment'][0],
-        ###        form="",
-                form="%s - %s - %s - %s" % (comb['person'][0], comb['number'][0], comb['gender'][0], comb['alignment'][0]) ,
+                form="",
+                #form="%s - %s - %s - %s" % (comb['person'][0], comb['number'][0], comb['gender'][0], comb['alignment'][0]) ,
                 editor=ed
             )
             obj.save()
@@ -73,7 +73,7 @@ class Pronoun(TrackedModel):
     GENDER_CHOICES = (
         ("M", 'Masculine'),
         ("F", 'Feminine'),
-      #  ("N", "Neuter"),
+        ("N", "Neuter"),
     )
     
     paradigm = models.ForeignKey('Paradigm')

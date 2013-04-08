@@ -52,7 +52,7 @@ class SimplePronounForm(forms.ModelForm):
         hidden = ('paradigm', 'alignment', 'person', 'number', 'comment',)
         widgets = {
             'comment': forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'comment'}),
-            'form': forms.widgets.TextInput(attrs={'class': 'input-medium', 'placeholder': 'form'}),
+            'form': forms.widgets.TextInput(attrs={'class': 'input-medium',}),
         }
         
 PronounFormSet = inlineformset_factory(Paradigm, Pronoun,
