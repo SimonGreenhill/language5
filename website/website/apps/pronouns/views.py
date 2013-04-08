@@ -13,7 +13,7 @@ from website.apps.pronouns.forms import ParadigmForm#, RelationshipFormSet
 from website.apps.pronouns.forms import PronounFormSet
 from website.apps.pronouns.forms import PronounParadigmForm
 
-from website.apps.pronouns.tools import add_pronoun_ordering
+from website.apps.pronouns.tools import add_pronoun_ordering, add_pronoun_table
 
 from django_tables2 import SingleTableView
 
@@ -33,7 +33,7 @@ def detail(request, paradigm_id):
             'paradigm': p,
             'language': p.language,
             'source': p.source,
-            'pronoun_table': PronounTable(p.pronoun_set.all()),
+            'pronoun_rows': add_pronoun_table(p.pronoun_set.all()),
             'relationship_table': PronounRelationshipTable(p.relationship_set.all())
         }
         return render(request, 'pronouns/view.html', out)

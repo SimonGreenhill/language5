@@ -64,11 +64,38 @@
     
     <h3> Pronoun Paradigm: </h3>
         
-        {% if pronoun_table %}
-            {% render_table pronoun_table "table.html" %}
-        {% else %}
-            <p class="error">No results found!</p>
-        {% endif %}
+        <table id="pronouns" class="table table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <td>&nbsp;</td>
+                    <th>A</th>
+                    <th>S</th>
+                    <th>O</th>
+                    <th>Poss.</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row, cells in pronoun_rows %}
+                <!-- ROW -->
+                    <tr>
+                        <th>{{ row }}</th>
+                        <td class="alignment_a">
+                            {{ cells.A.form }}
+                        </td>
+                        <td class="alignment_s">
+                            {{ cells.S.form }}
+                        </td>
+                        <td class="alignment_o">
+                            {{ cells.O.form }}
+                        </td>
+                        <td class="alignment_p">
+                            {{ cells.P.form }}
+                        </td>
+                    </tr>
+                    <!-- ENDROW -->
+                {% endfor %}
+            </tbody>
+        </table>
         
         
     <h3> Relationships: </h3>
