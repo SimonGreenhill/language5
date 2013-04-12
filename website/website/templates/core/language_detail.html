@@ -60,6 +60,16 @@
             {% endfor %}
         {% endif %}
     </ul>
+
+    {% ifinstalled "website.apps.pronouns" %}
+        
+        <h2> Pronouns: </h2>
+        
+        {% include "pronouns/template_pronouns_detail.html" %}
+    
+    {% endifinstalled %}
+    
+
     
     {% ifinstalled "website.apps.lexicon" %}
         

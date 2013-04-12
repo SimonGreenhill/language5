@@ -84,7 +84,17 @@ def language_detail(request, language):
         # load lexicon if installed.
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
             out['lexicon_table'] = LanguageLexiconTable(my_lang.lexicon_set.all())
-            
+        
+        # load pronouns
+        if 'website.apps.pronouns' in settings.INSTALLED_APPS:
+            from website.apps.pronouns.models import Paradigm, Pronoun
+            from website.apps.pronouns.tools import add_pronoun_ordering, add_pronoun_table
+            try: 
+                p = Paradigm.objects.filter(language=my_lang)[0]
+                out['pronoun_rows'] =  add_pronoun_table(p.pronoun_set.all())
+            except IndexError: # no paradigm
+                pass
+                
         return render(request, 'core/language_detail.html', out)
     except Language.DoesNotExist:
         pass
