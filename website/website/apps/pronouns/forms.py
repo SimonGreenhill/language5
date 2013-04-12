@@ -9,7 +9,27 @@ class ParadigmForm(forms.ModelForm):
     class Meta:
         model = Paradigm
         exclude = ('editor', 'added')
-    
+
+
+class SimplePronounForm(forms.ModelForm):
+    class Meta:
+        model = Pronoun
+        fields = ('form', 'comment',)
+        exclude = ('editor', 'added',)
+        hidden = ('paradigm', 'alignment', 'person', 'number',)
+        widgets = {
+            'comment': forms.widgets.TextInput(attrs={'class': 'input-medium hide', 'placeholder': 'comment'}),
+            'form': forms.widgets.TextInput(attrs={'class': 'input-medium',}),
+        }
+
+PronounFormSet = inlineformset_factory(Paradigm, Pronoun,
+        can_delete=False, extra=0, form=SimplePronounForm)
+
+
+
+
+
+
 
 class RelationshipForm(forms.ModelForm):
     
@@ -38,26 +58,6 @@ class FullPronounForm(forms.ModelForm):
             'comment': forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'comment'}),
             'form': forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'form'}),
         }
-
-
-class SimplePronounForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super(SimplePronounForm, self).__init__(*args, **kwargs)
-        #self.PARADIGM = repr()
-    
-    class Meta:
-        model = Pronoun
-        fields = ('form',)
-        exclude = ('editor', 'added',)
-        hidden = ('paradigm', 'alignment', 'person', 'number', 'comment',)
-        widgets = {
-            'comment': forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'comment'}),
-            'form': forms.widgets.TextInput(attrs={'class': 'input-medium',}),
-        }
-        
-PronounFormSet = inlineformset_factory(Paradigm, Pronoun,
-        can_delete=False, extra=0, form=SimplePronounForm)
-        
 
 
 # from django.forms.forms.models import BaseModeFormSet

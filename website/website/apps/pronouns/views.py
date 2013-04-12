@@ -70,8 +70,12 @@ def edit(request, paradigm_id):
         
     pronoun_form = add_pronoun_ordering(pronoun_form)
     
+    template = 'pronouns/edit.html'
+    if 'raw' in request.GET:
+        template = 'pronouns/edit_raw.html'
+    
     # the initial view and the error view
-    return render_to_response('pronouns/edit.html', {
+    return render_to_response(template, {
         'paradigm': p,
         'pronouns': pronoun_form,
     }, context_instance=RequestContext(request))

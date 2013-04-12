@@ -15,7 +15,8 @@ class ParadigmAdmin(TrackedModelAdmin, VersionAdmin):
 
 class PronounAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
-    list_filter = ('paradigm', 'alignment', 'person', 'number', 'form')
+    list_display = ('paradigm', 'alignment', 'person', 'number', 'form', 'comment')
+    list_filter = ('paradigm', 'alignment', 'person', 'number')
     ordering = ('alignment', 'person')
     search_fields = ('paradigm', 'alignment', 'person', 'number', 'form')
 
