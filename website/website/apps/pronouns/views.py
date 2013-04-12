@@ -36,7 +36,7 @@ def detail(request, paradigm_id):
             'pronoun_rows': add_pronoun_table(p.pronoun_set.all()),
             'relationship_table': PronounRelationshipTable(p.relationship_set.all())
         }
-        return render(request, 'pronouns/pronoun_detail.html', out)
+        return render(request, 'pronouns/detail.html', out)
     except Paradigm.DoesNotExist:
         raise Http404 # fail. Doesn't exist so pop out a 404
         
