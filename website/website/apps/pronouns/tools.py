@@ -40,33 +40,42 @@ def add_pronoun_ordering(pronoun_form):
 
 
 def add_pronoun_table(pronoun_set, filter_empty_rows=True):
-    rows = {}
+    # loop over the pronouns we've been given and fill a table of the cells.
+    cells = {}
     for p in pronoun_set:
-        row = repr_row_instance(p)
-        rows[row] = rows.get(row, 
-            dict(zip([x[0] for x in Pronoun.ALIGNMENT_CHOICES], [None for x in Pronoun.ALIGNMENT_CHOICES]))
+        label = repr_row(p)
+        # get row or set it to (A, None), (S, None), (O, None), (P, None)
+        # i.e. empty placeholders for each different ALIGNMENT
+        cells[label] = cells.get(label, 
+            dict(zip([_[0] for _ in Pronoun.ALIGNMENT_CHOICES], 
+                     [None for _ in Pronoun.ALIGNMENT_CHOICES]))
         )
-        rows[row][p.alignment] = p
+        # Save the pronoun into the right row/alignment cell.
+        cells[label][p.alignment] = p
     
+    # Now do the sorting of the table *rows*
     pronoun_rows = []
     # Sort
     for row in Pronoun._generate_all_rows():
-        wanted_label = "%s %s %s" % (row['person'][1], row['number'][1], row['gender'][1]) 
+        wanted_label = repr_row(row)
         found_row = False
-        for label in rows:
+        # go through each label in the cells e.g. (1st person singular...etc)
+        for label in cells:
             if wanted_label == label:
-                if filter_empty_rows:
+                found_row = True
+                # Ignore empty rows?
+                # only add this row if at LEAST one cell has something in it.
+                if filter_empty_rows: 
                     non_zero = 0
-                    for cell, value in rows[label].items():
+                    for cell, value in cells[label].items():
                         if value is not None and len(value.form) > 0:
                             non_zero += 1
-                    if non_zero:
-                        pronoun_rows.append((label, rows[label]))
+                    if non_zero: # at least one cell is not empty
+                        pronoun_rows.append((label, cells[label]))
                 else:
-                    pronoun_rows.append((label, rows[label]))
-                found_row = True
-        assert found_row, "Unable to find expected row for Paradigm: %s" % label
-    
+                    pronoun_rows.append((label, cells[label]))
+        assert found_row, "Unable to find expected row for Paradigm: %s - probably need to run _prefill_pronouns()" % wanted_label
+            
     if not filter_empty_rows: 
         assert len(pronoun_rows) == len(Pronoun._generate_all_rows())
     return pronoun_rows

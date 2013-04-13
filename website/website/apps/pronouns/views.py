@@ -9,9 +9,9 @@ from website.apps.core.models import Family, Language, Source
 from website.apps.pronouns.models import Paradigm, Pronoun, Relationship
 from website.apps.pronouns.tables import ParadigmIndexTable, PronounTable, PronounRelationshipTable
 
-from website.apps.pronouns.forms import ParadigmForm#, RelationshipFormSet
+from website.apps.pronouns.forms import ParadigmForm, RelationshipFormSet
 from website.apps.pronouns.forms import PronounFormSet
-from website.apps.pronouns.forms import PronounParadigmForm
+
 
 from website.apps.pronouns.tools import add_pronoun_ordering, add_pronoun_table
 
@@ -85,4 +85,28 @@ def edit(request, paradigm_id):
 @login_required()
 def edit_relationships(request, paradigm_id):
     p = get_object_or_404(Paradigm, pk=paradigm_id)
-    raise NotImplementedError("Not yet implemented.")
+    relationship_form = RelationshipFormSet(request.POST or None, instance=p)
+    
+    # Yuck - filter querysets -> must be a better way to do this!
+    q = Pronoun.objects.all().filter(paradigm=p).exclude(form="")
+    for f in relationship_form.forms:
+        f.fields['pronoun1'].queryset = q
+        f.fields['pronoun2'].queryset = q
+    
+    import IPython; IPython.embed()
+    
+    if relationship_form.is_valid():
+        instances = relationship_form.save(commit=False)
+        for obj in instances:
+            obj.editor = request.user
+            obj.save()
+        return redirect('pronouns:detail', p.id)
+    
+    return render_to_response('pronouns/edit_relationships.html', {
+        'paradigm': p,
+        'language': p.language,
+        'source': p.source,
+        'pronoun_rows': add_pronoun_table(p.pronoun_set.all()),
+        'relationships': relationship_form,
+    }, context_instance=RequestContext(request))
+

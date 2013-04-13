@@ -26,29 +26,6 @@ PronounFormSet = inlineformset_factory(Paradigm, Pronoun,
         can_delete=False, extra=0, form=SimplePronounForm)
 
 
-
-
-
-
-
-class RelationshipForm(forms.ModelForm):
-    
-    # def __init__(self, *args, **kwargs):
-    #     paradigm = kwargs.pop('paradigm', None)
-    #     super(RelationshipForm, self).__init__(*args, **kwargs)
-    #     if paradigm is not None:
-    #         q = Pronoun.objects.filter(paradigm=paradigm)
-    #         self.fields["pronoun1"].queryset = q
-    #         self.fields["pronoun2"].queryset = q
-
-    class Meta:
-        model = Relationship
-        exclude = ('editor', 'added', 'paradigm')
-        widgets = {
-            'comment': forms.widgets.TextInput(attrs={'class': 'input-medium'}),
-        }
-
-
 class FullPronounForm(forms.ModelForm):
     class Meta:
         model = Pronoun
@@ -60,60 +37,22 @@ class FullPronounForm(forms.ModelForm):
         }
 
 
-# from django.forms.forms.models import BaseModeFormSet
-# 
-# PRONOUN_SEQUENCE = Pronoun._generate_all_combinations()
-# 
-# class TabledPronounFormSet(BaseModelFormSet):
-#     model = Pronoun
-#     def __init__(self, *args, **kwargs):
-#         paradigm = kwargs.pop('paradigm')
-#         super(TabledPronounFormSet, self).__init__(*args, **kwargs)
-#         self.queryset = Pronoun.objects.filter(name__startswith='O')
-# 
-# f = TabledPronounFormSet(form=SimplePronounForm)
-# #pfs = modelformset_factory(Pronoun, form=AdvancedPronounForm, formset=TabledPronounFormSet)
-# 
-# 
-# 
-
-
-# DELETE ME -----------------------------------------------#
-class PronounParadigmForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        paradigm = kwargs.pop('paradigm')
-        pronouns = paradigm.pronoun_set.all()
-        super(PronounParadigmForm, self).__init__(*args, **kwargs)
-        self.pronoun_fieldsets = {}
-        self.pronoun_ids = []
-        for comb in Pronoun._generate_all_combinations():
-            pronoun_id = None
-            pronoun_value = ""
-            for p in pronouns:
-                this_comb = (p.person, p.number, p.gender, p.alignment)
-                if comb == this_comb:
-                    pronoun_value = p.form
-                    pronoun_id = p.id
-            
-            field_id = "%s_id" % "_".join(comb)
-            field_name = "_".join(comb)
-            self.fields[field_name] = forms.CharField(label=field_name, initial=pronoun_value, required=False)
-            self.fields[field_id] = forms.IntegerField(widget=forms.HiddenInput(), initial=pronoun_id)
-
-            # make fieldset
-            row = " ".join(comb[0:3])
-            self.pronoun_fieldsets[row] = self.pronoun_fieldsets.get(row, {})
-            self.pronoun_fieldsets[row][comb[3]] = self.fields[field_name]
-            self.pronoun_ids.append(self.fields[field_id])
+class RelationshipForm(forms.ModelForm):
+    def __init__(self, *args,**kwargs):
+        super(RelationshipForm, self).__init__(*args, **kwargs)
+        # print self.instance
+        # print type(self.instance)
+        # self.fields['pronoun1'].queryset = Pronoun.objects.filter(paradigm=self.instance)
+        #self.fields['client'].queryset = Client.objects.filter(company=company)
     
     class Meta:
-        model = Paradigm
+        model = Relationship
+        exclude = ('editor', 'added', 'paradigm')
+        hidden = ('id', 'paradigm')
+        widgets = {
+            'comment': forms.widgets.TextInput(attrs={'class': 'input-medium'}),
+        }
 
 
-
-
-#SimplePronounFormSet = modelformset_factory(Pronoun, form=SimplePronounForm)
-#RelationshipFormSet = modelformset_factory(Relationship, form=RelationshipForm)
-#AdvancedPronounFormSet = modelformset_factory(Pronoun, form=AdvancedPronounForm, extra=0)
-
-# 
+RelationshipFormSet = inlineformset_factory(Paradigm, Relationship,
+                            can_delete=True, extra=1, form=RelationshipForm)

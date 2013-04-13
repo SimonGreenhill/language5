@@ -527,7 +527,7 @@ class Pronoun(TrackedModel):
         help_text="Form")
         
     def __unicode__(self):
-        return '%s %s%s %s: %s' % (self.paradigm, self.person, self.number, self.alignment, self.form)
+        return '%s%s %s: %s' % (self.person, self.number, self.alignment, self.form)
     
     @staticmethod
     def _generate_all_combinations():
