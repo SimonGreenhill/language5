@@ -56,7 +56,10 @@
             {% if task.file %}
                 <div class="row clearfix">
                   <div class="span8 offset2 well">
-                      <a href="{{ task.file.url }}">Download Data File: {{ task.file }}</a>
+                     <p>
+                         Download Data File: 
+                          <a class="btn" href="{{ task.file.url }}"><i class="icon-file"></i>{{ task.file }}</a>
+                     </p>
                   </div>
                 </div>
             {% endif %}
