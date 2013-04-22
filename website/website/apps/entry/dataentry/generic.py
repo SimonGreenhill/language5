@@ -36,31 +36,33 @@ GenericFormSet = formset_factory(GenericForm, extra=0)
 def GenericView(request, task):
     """Generic Data Entry Task"""
     template_name = "entry/formtemplates/generic.html"
-    
     # process form
     if request.method == 'POST':
         formset = GenericFormSet(request.POST)
         
-        if formset.is_valid():
-            completed = []
-            for form in formset:
-                if form.is_valid() and len(form.changed_data):
-                    # if form is valid and some fields have changed
-                    # two stages here to set default fields
-                    obj = form.save(commit=False)
-                    obj.editor = request.user
-                    obj.save()
-                    completed.append(obj)
+        if 'refresh' in request.POST:
+            pass # Fall through
+        elif 'submit' in request.POST:
+            if formset.is_valid():
+                completed = []
+                for form in formset:
+                    if form.is_valid() and len(form.changed_data):
+                        # if form is valid and some fields have changed
+                        # two stages here to set default fields
+                        obj = form.save(commit=False)
+                        obj.editor = request.user
+                        obj.save()
+                        completed.append(obj)
                     
-            # update task if needed.
-            if task.completable == True:
-                task.done = True
-                task.save()
+                # update task if needed.
+                if task.completable == True:
+                    task.done = True
+                    task.save()
             
-            return render_to_response('entry/done.html', {
-                'task': task,
-                'objects': completed,
-            }, context_instance=RequestContext(request))
+                return render_to_response('entry/done.html', {
+                    'task': task,
+                    'objects': completed,
+                }, context_instance=RequestContext(request))
     else:
         # set up initial data
         initial = {}
