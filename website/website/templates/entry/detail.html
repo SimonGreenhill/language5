@@ -53,15 +53,15 @@
                 <h1>Data Entry Task: {{ task }} {{ content }}</h1>
             </div>
             
+            {% if task.file %}
+                <div class="row clearfix">
+                  <div class="span8 offset2 well">
+                      <a href="{{ task.file.url }}">Download Data File: {{ task.file }}</a>
+                  </div>
+                </div>
+            {% endif %}
+            
             <div id="scroller">
-                {% if task.file %}
-                    <div class="row clearfix">
-                      <div class="span8 offset2 well">
-                          <a href="{{ task.image.file }}">Download Data File</a>
-                      </div>
-                    </div>
-                {% endif %}
-
                 {% if task.image %}
                     <div class="row clearfix">
                       <div class="span8 offset2 zoomer_wrapper zoomer" style="height: 300px;">
