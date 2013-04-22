@@ -15,6 +15,8 @@ class Task(TrackedModel):
             help_text="Data entry view to Use")
     image = models.ImageField(upload_to='data/%Y-%m/',
         help_text="The Page Image", null=True, blank=True)
+    file = models.FileField(upload_to='data/%Y-%m/',
+        help_text="The Resource File (PDF)", null=True, blank=True)
     completable = models.BooleanField(default=True, db_index=True,
         help_text="Is task completable or not?")
     done = models.BooleanField(default=False, db_index=True,

@@ -54,6 +54,14 @@
             </div>
             
             <div id="scroller">
+                {% if task.file %}
+                    <div class="row clearfix">
+                      <div class="span8 offset2 well">
+                          <a href="{{ task.image.file }}">Download Data File</a>
+                      </div>
+                    </div>
+                {% endif %}
+
                 {% if task.image %}
                     <div class="row clearfix">
                       <div class="span8 offset2 zoomer_wrapper zoomer" style="height: 300px;">
