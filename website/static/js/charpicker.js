@@ -1,7 +1,7 @@
 $(function () {
     $('#picker').keypad({target: $(':input:first'), 
     // layout: ['àáâãäåæçèéêë', 'ìííîïñòóôõöø', 'ðþùúûüýÿ' + $.keypad.ENTER + $.keypad.SHIFT]});
-    layout: ['àáâãäåɐæçèéêëɛəìííîïɨñŋòóôõöøðþùúûüʔřɬɤ' + $.keypad.ENTER + $.keypad.SHIFT]});
+    layout: ['àáâãäåɐæçèéêëɛəìííîïɨñŋòóôõöøðþùúûüųʔřɬɤ' + $.keypad.ENTER + $.keypad.SHIFT]});
     var keypadTarget = null; 
     $(':input').focus(function() { 
     if (keypadTarget != this) { 
