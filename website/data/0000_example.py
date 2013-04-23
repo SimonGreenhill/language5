@@ -11,4 +11,4 @@ s = Source.objects.create(year=1111, author="Simon", slug="simon",
                           reference="simon 1111", bibtex="", comment="",
                           editor=ed)
 
-
+# NOTE: if you get UnicodeDecodeErrors make sure you're using u"var" instead of "var"
