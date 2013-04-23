@@ -45,7 +45,7 @@ class WordAdmin(TrackedModelAdmin, VersionAdmin):
     list_filter = ('editor', 'quality')
     ordering = ('word',)
     prepopulated_fields = {'slug': ('word', )}
-    search_fields = ('editor', 'word', 'full', 'comment')
+    search_fields = ('word', 'full', 'comment')
     
 
 class WordSubsetAdmin(TrackedModelAdmin, VersionAdmin):
@@ -53,7 +53,7 @@ class WordSubsetAdmin(TrackedModelAdmin, VersionAdmin):
     list_display = ('id', 'subset', 'description')
     list_filter = ('editor',)
     ordering = ('subset',)
-    search_fields = ('editor', 'subset', 'description')
+    search_fields = ('subset', 'description')
     filter_horizontal = ('words',)
 
 
