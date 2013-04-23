@@ -2,9 +2,6 @@ from django.shortcuts import render_to_response
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 
-from django import forms
-from django.forms.formsets import formset_factory
-
 from website.apps.core.models import Language, Source
 from website.apps.lexicon.models import Lexicon, Word
 
@@ -128,10 +125,18 @@ def FranklinView(request, task):
         100: Word.objects.get(slug="to-die")
     }
     
+    # set up initial data
+    initial = []
+    for i in range(1, 101):
+        initial.append({
+            'language': task.language,
+            'source': task.source,
+            'word': WORDS[i],
+        })
+    
     # process form
     if request.method == 'POST':
-        formset = GenericFormSet(request.POST)
-        
+        formset = GenericFormSet(request.POST, initial=initial)
         if 'refresh' in request.POST:
             pass # Fall through
         elif 'submit' in request.POST:
@@ -156,14 +161,6 @@ def FranklinView(request, task):
                     'objects': completed,
                 }, context_instance=RequestContext(request))
     else:
-        # set up initial data
-        initial = []
-        for i in range(1, 101):
-            initial.append({
-                'language': task.language,
-                'source': task.source,
-                'word': WORDS[i],
-            })
         formset = GenericFormSet(initial=initial)
     
     return render_to_response('entry/detail.html', {
