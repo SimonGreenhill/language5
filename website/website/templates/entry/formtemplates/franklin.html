@@ -38,6 +38,8 @@
                         </i>
                     {% endif %}
                     
+                    {{ form.language.as_hidden }}
+                    {{ form.source.as_hidden }}
                 </td>
                 <td {% if field.errors %}class="error"{% endif %}>
                     {{ form.entry }}
