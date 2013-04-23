@@ -20,7 +20,7 @@ class TaskIndex(SingleTableView):
     table_pagination = {"per_page": 50}
     order_by_field = 'added'
     
-    queryset = Task.objects.all().filter(done=False)
+    queryset = Task.objects.all().select_related().filter(done=False)
     
     # ensure logged in
     @method_decorator(login_required)
@@ -36,7 +36,15 @@ def task_detail(request, task_id):
     # 2. check if task is complete
     if t.done:
         return redirect('entry:index')
-    # 3. send to correct view
+    
+    # # 3. save checkpoint
+    # if request.POST:
+    #     t.checkpoint = request.POST
+    # # load checkpoint if needed
+    # if not request.POST and t.checkpoint:
+    #     request.POST = t.checkpoint
+    #     
+    # 4. send to correct view
     views = dict(dataentry.available_views)
     if t.view in views:
         viewfunc = getattr(dataentry, t.view)
