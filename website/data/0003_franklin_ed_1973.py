@@ -748,13 +748,8 @@ l.save()
 l.family.add(Family.objects.get(slug="transnewguinea"))
 
 
-
-l = Language.objects.create(editor=ed, 
-    language = "Pawaia",
-    slug = "pawaia",
-    isocode = "pwa",
-    classification = "Trans-New Guinea, Pawaian"
-)
+# already in database
+l = Language.objects.get(slug="pawaia")
 l.save()
 l.family.add(Family.objects.get(slug="transnewguinea"))
 
