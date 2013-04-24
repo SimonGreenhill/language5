@@ -235,4 +235,5 @@ DBBACKUP_STORAGE = 'dbbackup.storage.s3_storage'
 DBBACKUP_S3_BUCKET = 'sjg-transnewguinea.org'
 DBBACKUP_S3_ACCESS_KEY = 'AKIAI5L4FEQGKHXLZIEQ'
 DBBACKUP_S3_SECRET_KEY = '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'
-DBBACKUP_POSTGRES_BACKUP_COMMANDS = "--data-only --inserts" # no schema and use extended insert format
+# no schema and use extended insert format
+DBBACKUP_POSTGRES_BACKUP_COMMANDS = "pg_dump --username={adminuser} --host={host} --port={port} --data-only --inserts {databasename}" 
