@@ -8,6 +8,7 @@ pytz                                                        # timezone support
 django-secure                                               # security
 django-discover-runner                                      # better test runner
 django-tables2                                              # better table handling
+django-dbbackup                                             # database & media backup
 # searching:
 -e git://github.com/etianen/django-watson.git#egg=django-watson
 
