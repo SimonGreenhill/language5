@@ -161,7 +161,7 @@ INSTALLED_APPS = [
     'djangosecure',                      # django-secure: Security helper
     'django_tables2',                    # django-tables2: tables helper
     'watson',                            # search
-    
+    'dbbackup',                          # backup
     # website
     'website.apps.core',                 # core functionality
     # NOTE: all other apps should be added to local.py
@@ -230,3 +230,8 @@ OLAC_SETTINGS = {
 # cache the ``robots.txt`` for 24 hours (86400 seconds).
 ROBOTS_CACHE_TIMEOUT = 60*60*24
 
+
+DBBACKUP_STORAGE = 'dbbackup.storage.s3_storage'
+DBBACKUP_S3_BUCKET = 'sjg-transnewguinea.org'
+DBBACKUP_S3_ACCESS_KEY = 'AKIAI5L4FEQGKHXLZIEQ'
+DBBACKUP_S3_SECRET_KEY = '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'
