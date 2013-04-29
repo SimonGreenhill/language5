@@ -1,6 +1,18 @@
 from django.db import models
+from django.contrib.auth.models import User
 from website.apps.core.models import TrackedModel
 from website.apps.entry.dataentry import available_views
+
+class TaskLog(models.Model):
+    """Task Log"""
+    person = models.ForeignKey(User)
+    page = models.CharField(max_length=64)
+    message = models.CharField(max_length=255)
+    time = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        db_table = 'tasklog'
+        
 
 class Task(TrackedModel):
     """Data Entry Tasks"""
@@ -21,7 +33,6 @@ class Task(TrackedModel):
         help_text="Is task completable or not?")
     done = models.BooleanField(default=False, db_index=True,
         help_text="Data has been entered")
-    
     
     def __unicode__(self):
         return self.name
