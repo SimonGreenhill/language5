@@ -90,7 +90,6 @@ class Test_ISOLookup(TestCase):
         self.assertContains(response, 'Language3')
         self.assertNotContains(response, 'Language1')
         self.assertNotContains(response, 'Language2')
-        self.assertTemplateUsed(response, 'core/language_detail.html')
     
     def test_iso_notfound(self):
         "Test that a non-existant ISO code returns 404 Not Found"
