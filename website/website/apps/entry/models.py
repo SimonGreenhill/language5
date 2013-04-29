@@ -33,6 +33,7 @@ class Task(TrackedModel):
         help_text="Is task completable or not?")
     done = models.BooleanField(default=False, db_index=True,
         help_text="Data has been entered")
+    checkpoint = models.TextField(help_text="Saved Checkpoint Data", blank=True, null=True)
     
     def __unicode__(self):
         return self.name

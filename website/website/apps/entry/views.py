@@ -38,12 +38,14 @@ def task_detail(request, task_id):
         return redirect('entry:index')
     
     # # 3. save checkpoint
-    # if request.POST:
-    #     t.checkpoint = request.POST
-    # # load checkpoint if needed
-    # if not request.POST and t.checkpoint:
-    #     request.POST = t.checkpoint
-    #     
+    if request.POST:
+        t.checkpoint = request.POST
+        t.save()
+        
+    # load checkpoint if needed
+    if not request.POST and t.checkpoint:
+        request.POST = t.checkpoint
+    
     # 4. send to correct view
     views = dict(dataentry.available_views)
     if t.view in views:
