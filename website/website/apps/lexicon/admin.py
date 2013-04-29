@@ -9,6 +9,7 @@ from website.apps.lexicon.models import CorrespondenceSet, Correspondence
 
 from website.apps.core.admin import TrackedModelAdmin
 
+
 # Inlines
 class CognatesInline(admin.TabularInline):
     model = Cognate
