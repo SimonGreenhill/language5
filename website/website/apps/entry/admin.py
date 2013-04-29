@@ -1,8 +1,7 @@
 from django.contrib import admin
 from reversion.admin import VersionAdmin
-from website.apps.entry.models import Task
+from website.apps.entry.models import Task, TaskLog
 from website.apps.core.admin import TrackedModelAdmin
-
 
 class TaskAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
@@ -10,4 +9,15 @@ class TaskAdmin(TrackedModelAdmin, VersionAdmin):
     list_filter = ('editor', 'source', 'language', 'view', 'done')
     ordering = ('name',)
 
+
+class TaskLogAdmin(admin.modelAdmin):
+    date_hierarchy = 'time'
+    list_display = ('person', 'page', 'message')
+    list_filter = ('person', 'page',)
+    ordering = ('time',)
+
+
 admin.site.register(Task, TaskAdmin)
+admin.site.register(TaskLog, TaskLogAdming)
+
+
