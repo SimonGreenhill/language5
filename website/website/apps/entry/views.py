@@ -46,23 +46,23 @@ def task_detail(request, task_id):
         return redirect('entry:index')
     
     # 3. save checkpoint
-    # if len(request.POST) > 0:
-    #     t.checkpoint = json.dumps(request.POST)
-    #     t.save()
-    # elif len(request.POST) == 0 and t.checkpoint not in (None, u""):
-    #     # load checkpoint if needed
-    #     try:
-    #         qdict = QueryDict('checkpoint=1')
-    #         q = qdict.copy() # have to do this to avoid "QueryDict instance is immutable"
-    #         q.update(json.loads(t.checkpoint))
-    #         request.POST = q
-    #     except ValueError:
-    #         pass # ignore failures...
-    #     
-    #     TaskLog.objects.create(person=request.user, 
-    #                            page="website.apps.entry.task_detail", 
-    #                            message="Loaded Checkpoint: %s" % task_id)
-    # 
+    if len(request.POST) > 0:
+        t.checkpoint = json.dumps(request.POST)
+        t.save()
+    elif len(request.POST) == 0 and t.checkpoint not in (None, u""):
+        # load checkpoint if needed
+        try:
+            qdict = QueryDict('checkpoint=1')
+            q = qdict.copy() # have to do this to avoid "QueryDict instance is immutable"
+            q.update(json.loads(t.checkpoint))
+            request.POST = q
+        except ValueError:
+            pass # ignore failures...
+        
+        TaskLog.objects.create(person=request.user, 
+                               page="website.apps.entry.task_detail", 
+                               message="Loaded Checkpoint: %s" % task_id)
+    
     
     # 4. send to correct view
     views = dict(dataentry.available_views)

@@ -37,9 +37,8 @@ def GenericView(request, task):
     """Generic Data Entry Task"""
     template_name = "entry/formtemplates/generic.html"
     # process form
-    if request.method == 'POST':
+    if request.POST:
         formset = GenericFormSet(request.POST)
-        
         if 'refresh' in request.POST:
             pass # Fall through
         elif 'submit' in request.POST:

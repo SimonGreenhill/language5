@@ -135,7 +135,7 @@ def FranklinView(request, task):
         })
     
     # process form
-    if request.method == 'POST':
+    if request.POST:
         formset = GenericFormSet(request.POST, initial=initial)
         if 'refresh' in request.POST:
             pass # Fall through
