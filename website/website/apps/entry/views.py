@@ -1,11 +1,11 @@
-from django.core import serializers
-
 from django.shortcuts import redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.http import HttpResponseServerError
+from django.http import HttpResponseServerError, QueryDict
 
 from django_tables2 import SingleTableView
+
+import json
 
 from website.apps.entry.models import Task, TaskLog
 from website.apps.entry.tables import TaskIndexTable
@@ -45,23 +45,25 @@ def task_detail(request, task_id):
                                message="Completed Task: %s" % task_id)
         return redirect('entry:index')
     
-    # # 3. save checkpoint
-    # if request.POST:
-    #     t.checkpoint = serializers.serialize("json", request.POST)
-    #     print 'SAVING ==========================================='
-    #     print request.POST
-    #     print "=================================================="
+    # 3. save checkpoint
+    # if len(request.POST) > 0:
+    #     t.checkpoint = json.dumps(request.POST)
     #     t.save()
-    # elif t.checkpoint:
+    # elif len(request.POST) == 0 and t.checkpoint not in (None, u""):
     #     # load checkpoint if needed
-    #     request.POST = serializers.deserialize("json", t.checkpoint)
-    #     print 'LOADING ==========================================='
-    #     print request.POST
-    #     print "=================================================="
+    #     try:
+    #         qdict = QueryDict('checkpoint=1')
+    #         q = qdict.copy() # have to do this to avoid "QueryDict instance is immutable"
+    #         q.update(json.loads(t.checkpoint))
+    #         request.POST = q
+    #     except ValueError:
+    #         pass # ignore failures...
+    #     
     #     TaskLog.objects.create(person=request.user, 
     #                            page="website.apps.entry.task_detail", 
     #                            message="Loaded Checkpoint: %s" % task_id)
     # 
+    
     # 4. send to correct view
     views = dict(dataentry.available_views)
     if t.view in views:
