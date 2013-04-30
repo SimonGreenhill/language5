@@ -30,7 +30,7 @@ WORD_QUALITY = (
 
 class Word(TrackedModel):
     """Word Details"""
-    word = models.CharField(max_length=64, db_index=True,
+    word = models.CharField(max_length=64, db_index=True, unique=True,
         help_text="Word in English")
     slug = models.SlugField(max_length=64, unique=True,
         help_text="`Slug` for word (for use in URLS)")
@@ -54,7 +54,7 @@ class Word(TrackedModel):
 
 class WordSubset(TrackedModel):
     """Word Subset Details"""
-    subset = models.CharField(max_length=64, db_index=True,
+    subset = models.CharField(max_length=64, db_index=True, unique=True, 
         help_text="Subset Label")
     slug = models.SlugField(max_length=64, unique=True,
         help_text="`Slug` for subset (for use in URLS)")
