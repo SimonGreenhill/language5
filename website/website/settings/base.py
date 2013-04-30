@@ -173,8 +173,9 @@ INSTALLED_APPS = [
 # Django-Security settings
 SECURE_FRAME_DENY = True         # prevent framing of pages.
 SECURE_BROWSER_XSS_FILTER = True # enable XSS protection
-SESSION_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = True
 SESSION_COOKIE_HTTPONLY = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
 
 LOGGING = {
     'version': 1,
