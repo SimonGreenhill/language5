@@ -42,7 +42,10 @@ class Word(TrackedModel):
             help_text="The quality of this word.")
     
     def __unicode__(self):
-        return self.slug
+        if self.full is not None:
+            return u"%s (%s)" % (self.word, self.full)
+        else:
+            return self.word
     
     @models.permalink
     def get_absolute_url(self):
