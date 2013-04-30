@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import json
 from django.test import TestCase
 from django.test.client import Client
 
@@ -6,7 +7,7 @@ from django.core.urlresolvers import reverse
 
 from django.contrib.auth.models import User
 from website.apps.core.models import Source, Language
-from website.apps.lexicon.models import Word
+from website.apps.lexicon.models import Word, Lexicon
 from website.apps.entry.models import Task
 from website.apps.entry.dataentry import available_views
 
@@ -15,12 +16,6 @@ class Test_Detail(TestCase):
     
     def setUp(self):
         self.client = Client()
-        # for formset validation
-        self.management_data = {
-            'form-TOTAL_FORMS': u'20',
-            'form-INITIAL_FORMS': u'0',
-            'form-MAX_NUM_FORMS': u'1000',
-        }
         # some data
         self.file_testimage = "data/2013-01/test.png"
         self.editor = User.objects.create_user('admin',
@@ -39,20 +34,34 @@ class Test_Detail(TestCase):
             description="A Test of Data Entry",
             source=self.source,
             image=self.file_testimage,
-            done=False
+            done=False,
+            view="GenericView",
+            records=1, # needed so we don't have too many empty forms to validate
         )
         
         self.lang = Language.objects.create(language='A', slug='langa', 
             information='i.1', classification='a, b',
             isocode='aaa', editor=self.editor)
-        
+            
         self.word = Word.objects.create(word='Hand', slug='hand', 
             full='a hand', editor=self.editor)
+            
+        # for formset validation
+        self.form_data = {
+            'form-TOTAL_FORMS': u'1',
+            'form-INITIAL_FORMS': u'0',
+            'form-MAX_NUM_FORMS': u'1000',
+            'form-1-language': self.lang.id,
+            'form-1-source': self.source.id,
+            'form-1-word': self.word.id,
+            'form-1-entry': 'simon',
+            'form-1-annotation': 'comment',
+        }
+        
         
     def test_testimage_is_present(self):
         """
-        This test makes sure that the test image 
-        is present on the file-system
+        This test makes sure that the test image is present on the file-system
         """
         from os.path import join, isfile
         from django.conf import settings
@@ -84,42 +93,36 @@ class Test_Detail(TestCase):
         self.task.save()
         response = self.client.get(self.task.get_absolute_url())
         self.assertRedirects(response, reverse('entry:index'), status_code=302, target_status_code=200)
-        
-    def test_post_sets_done(self):
+    
+    def test_number_of_records(self):
         self.client.login(username="admin", password="test")
         response = self.client.get(self.task.get_absolute_url())
+        assert len(response.context['formset'].forms) == 1
         
-        vars = self.management_data.copy()
-        vars['form-1-language'] = self.lang.id
-        vars['form-1-source'] = self.source.id
-        vars['form-1-word'] = self.word.id
-        vars['form-1-entry'] = 'simon'
-        vars['form-1-annotation'] = 'is awesome'
+        self.task.records = 2
+        self.task.save()
         
-        response = self.client.post(self.task.get_absolute_url(), vars)
+        response = self.client.get(self.task.get_absolute_url())
+        assert len(response.context['formset'].forms) == 2
+        
+    def test_post_does_not_set_done_if_not_completable(self):
+        self.client.login(username="admin", password="test")
+        self.task.completable = False
+        self.task.save()
+        response = self.client.get(self.task.get_absolute_url())
+        response = self.client.post(self.task.get_absolute_url(), self.form_data)
+        
         self.failUnlessEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'entry/done.html')
+        assert not Task.objects.get(pk=self.task.id).done
+
+    def test_post_sets_done_if_completable(self):
+        self.client.login(username="admin", password="test")
+        self.task.completable = True
+        self.task.save()
+        response = self.client.post(self.task.get_absolute_url(), self.form_data)
+        self.failUnlessEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'entry/done.html')
         assert Task.objects.get(pk=self.task.id).done
     
-    def test_post_saves(self):
-        self.client.login(username="admin", password="test")
-        response = self.client.get(self.task.get_absolute_url())
         
-        vars = self.management_data.copy()
-        vars['form-1-language'] = self.lang.id
-        vars['form-1-source'] = self.source.id
-        vars['form-1-word'] = self.word.id
-        vars['form-1-entry'] = 'simon'
-        vars['form-1-annotation'] = 'is awesome'
-        
-        response = self.client.post(self.task.get_absolute_url(), vars)
-        
-        self.failUnlessEqual(response.status_code, 200)
-        from website.apps.lexicon.models import Lexicon
-        
-        l = Lexicon.objects.get(pk=1)
-        assert l.language == self.lang
-        assert l.source == self.source
-        assert l.word == self.word
-        assert l.entry == 'simon'
-        assert l.annotation == 'is awesome'
-
