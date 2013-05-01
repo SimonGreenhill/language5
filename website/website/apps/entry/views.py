@@ -47,6 +47,7 @@ def task_detail(request, task_id):
     
     # 3. save checkpoint
     if len(request.POST) > 0:
+        # make sure we're using protocol 2: http://bugs.python.org/issue2980
         t.checkpoint = pickle.dumps(request.POST, protocol=2)
         t.save()
     elif len(request.POST) == 0 and t.checkpoint not in (None, u""):
