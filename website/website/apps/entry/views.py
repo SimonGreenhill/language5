@@ -5,6 +5,7 @@ from django.http import HttpResponseServerError, QueryDict
 
 from django_tables2 import SingleTableView
 
+import base64
 import pickle
 
 from website.apps.entry.models import Task, TaskLog
@@ -48,14 +49,14 @@ def task_detail(request, task_id):
     # 3. save checkpoint
     if len(request.POST) > 0:
         # make sure we're using protocol 2: http://bugs.python.org/issue2980
-        t.checkpoint = pickle.dumps(request.POST, protocol=2)
+        t.checkpoint = base64.b64encode(pickle.dumps(request.POST, protocol=2))
         t.save()
     elif len(request.POST) == 0 and t.checkpoint not in (None, u""):
         # load checkpoint if needed
         try:
             qdict = QueryDict('checkpoint=1')
             q = qdict.copy() # have to do this to avoid "QueryDict instance is immutable"
-            q.update(pickle.loads(t.checkpoint))
+            q.update(base64.b64decode(pickle.loads(t.checkpoint)))
             request.POST = q
         except ValueError:
             pass # ignore failures...
