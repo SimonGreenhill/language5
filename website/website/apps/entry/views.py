@@ -69,7 +69,7 @@ def task_detail(request, task_id):
         viewfunc = getattr(dataentry, t.view)
         TaskLog.objects.create(person=request.user, 
                                page="website.apps.entry.task_detail", 
-                               message="Called View Func: %s" % t.view)
+                               message="Called View Func: %s on %d" % (t.view, task_id))
         return viewfunc(request, t)
     else:
         TaskLog.objects.create(person=request.user, 
