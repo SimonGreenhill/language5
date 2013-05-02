@@ -177,6 +177,8 @@ SESSION_COOKIE_SECURE = True
 SESSION_COOKIE_HTTPONLY = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 
+SOUTH_TESTS_MIGRATE = False # just use syncdb
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
