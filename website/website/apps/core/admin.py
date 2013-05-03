@@ -66,6 +66,7 @@ class FamilyAdmin(TrackedModelAdmin, VersionAdmin):
 class AlternateNameAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_filter = ('editor', 'language')
+    ordering = ('name',)
     search_fields = ('language', 'name')
     prepopulated_fields = {'slug': ('name', )}
 
