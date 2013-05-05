@@ -28,9 +28,7 @@ class AltNameInline(admin.TabularInline):
 
 # Admin
 class LanguageAdmin(TrackedModelAdmin, VersionAdmin):
-    ##form = LanguageAdminForm
     date_hierarchy = 'added'
-    inlines = []
     list_display = ('language', 'isocode', 'added')
     list_filter = ('editor', 'family')
     ordering = ('language',)
