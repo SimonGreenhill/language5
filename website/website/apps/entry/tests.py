@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import json
 from django.test import TestCase
 from django.test.client import Client
 
@@ -49,13 +48,13 @@ class Test_Detail(TestCase):
         # for formset validation
         self.form_data = {
             'form-TOTAL_FORMS': u'1',
-            'form-INITIAL_FORMS': u'0',
+            'form-INITIAL_FORMS': u'1',
             'form-MAX_NUM_FORMS': u'1000',
-            'form-1-language': self.lang.id,
-            'form-1-source': self.source.id,
-            'form-1-word': self.word.id,
-            'form-1-entry': 'simon',
-            'form-1-annotation': 'comment',
+            'form-0-language': self.lang.id,
+            'form-0-source': self.source.id,
+            'form-0-word': self.word.id,
+            'form-0-entry': 'simon',
+            'form-0-annotation': 'comment',
         }
         
         
@@ -109,20 +108,17 @@ class Test_Detail(TestCase):
         self.client.login(username="admin", password="test")
         self.task.completable = False
         self.task.save()
-        response = self.client.get(self.task.get_absolute_url())
         response = self.client.post(self.task.get_absolute_url(), self.form_data)
-        
         self.failUnlessEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'entry/done.html')
         assert not Task.objects.get(pk=self.task.id).done
-
+    
     def test_post_sets_done_if_completable(self):
         self.client.login(username="admin", password="test")
         self.task.completable = True
         self.task.save()
+        response = self.client.get(self.task.get_absolute_url())
         response = self.client.post(self.task.get_absolute_url(), self.form_data)
         self.failUnlessEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'entry/done.html')
         assert Task.objects.get(pk=self.task.id).done
-    
-        

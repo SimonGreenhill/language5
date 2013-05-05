@@ -57,7 +57,7 @@ def GenericView(request, task):
                 if task.completable == True:
                     task.done = True
                     task.save()
-            
+                    
                 return render_to_response('entry/done.html', {
                     'task': task,
                     'objects': completed,
