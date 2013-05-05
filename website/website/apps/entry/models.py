@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from website.apps.core.models import TrackedModel
 from website.apps.entry.dataentry import available_views
+from website.apps.statistics import statistic
+
 
 class TaskLog(models.Model):
     """Task Log"""
@@ -45,3 +47,6 @@ class Task(TrackedModel):
     
     class Meta:
         db_table = 'tasks'
+
+
+statistic.register("Number of Data Entry Tasks", Task)
