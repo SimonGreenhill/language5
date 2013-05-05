@@ -164,6 +164,7 @@ INSTALLED_APPS = [
     'dbbackup',                          # backup
     # website
     'website.apps.core',                 # core functionality
+    'website.apps.statistics',           # statistics
     # NOTE: all other apps should be added to local.py
     # INSTALLED_APPS.append('website.apps.lexicon')   # Lexicon
     # INSTALLED_APPS.append('website.apps.olac')      # OLAC utils
