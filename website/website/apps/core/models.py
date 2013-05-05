@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 
 import watson
 
+from website.apps.statistics import statistic
+
+
 class TrackedModel(models.Model):
     """Abstract base class containing editorial information"""
     editor = models.ForeignKey(User)
@@ -156,3 +159,11 @@ class Location(TrackedModel):
         verbose_name_plural = "Geographical Locations"
         db_table = 'locations'
 
+
+statistic.register("Number of Families", Family)
+statistic.register("Number of Languages", Language)
+statistic.register("Number of Sources", Source)
+statistic.register("Number of Notes", Note)
+statistic.register("Number of Alternate Names", AlternateName)
+statistic.register("Number of Locations", Location)
+statistic.register("Number of Links", Link)
