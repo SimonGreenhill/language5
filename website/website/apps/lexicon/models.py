@@ -2,6 +2,7 @@ from django.db import models
 from django.core.urlresolvers import reverse
 
 from website.apps.core.models import TrackedModel
+from website.apps.statistics import statistic
 
 
 
@@ -162,3 +163,13 @@ class Correspondence(TrackedModel):
     
     class Meta:
         db_table = 'correspondences'
+
+
+
+statistic.register("Number of Words", Word)
+statistic.register("Number of Word Sets", WordSubset)
+statistic.register("Number of Lexical Items", Lexicon)
+statistic.register("Number of Cognates", Cognate)
+statistic.register("Number of Cognate Sets", CognateSet)
+statistic.register("Number of Correspondences", Correspondence)
+statistic.register("Number of Correspondence Sets", CorrespondenceSet)
