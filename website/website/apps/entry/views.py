@@ -68,10 +68,12 @@ def task_detail(request, task_id):
     if request.POST:
         t.checkpoint = encode_checkpoint(request.POST)
         t.save()
+        TaskLog.objects.create(person=request.user, 
+                               page="website.apps.entry.task_detail", 
+                               message="Saved Checkpoint: %s" % task_id)
     # if there's no post data and a checkpoint, then try to load it...
     elif t.checkpoint not in (None, u""):
         request.POST = make_querydict(decode_checkpoint(t.checkpoint))
-        
         TaskLog.objects.create(person=request.user, 
                                page="website.apps.entry.task_detail", 
                                message="Loaded Checkpoint: %s" % task_id)
