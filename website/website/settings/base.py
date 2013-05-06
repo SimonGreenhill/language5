@@ -174,8 +174,8 @@ INSTALLED_APPS = [
 # Django-Security settings
 SECURE_FRAME_DENY = True         # prevent framing of pages.
 SECURE_BROWSER_XSS_FILTER = True # enable XSS protection
-SESSION_COOKIE_SECURE = True
-SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SECURE = False    # can't login with True? 
+SESSION_COOKIE_HTTPONLY = False  # can't login with True?
 SECURE_CONTENT_TYPE_NOSNIFF = True
 
 SOUTH_TESTS_MIGRATE = False # just use syncdb
