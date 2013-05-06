@@ -1,3 +1,5 @@
+import base64
+import pickle
 from django.shortcuts import redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -5,13 +7,29 @@ from django.http import HttpResponseServerError, QueryDict
 
 from django_tables2 import SingleTableView
 
-import base64
-import pickle
-
 from website.apps.entry.models import Task, TaskLog
 from website.apps.entry.tables import TaskIndexTable
 
 from website.apps.entry import dataentry
+
+def encode_checkpoint(content):
+    """Encodes a checkpoint (request.POST QueryDict) as database storable"""
+    # make sure we're using protocol 2: http://bugs.python.org/issue2980
+    # pickle it, then base64 it.
+    return base64.b64encode(pickle.dumps(content, protocol=2))
+    
+def decode_checkpoint(content):
+    """Restores the encoded checkpoint (request.POST QueryDict)"""
+    try:
+        return pickle.loads(base64.b64decode(content))
+    except TypeError:
+        return None
+        
+def make_querydict(content):
+    qdict = QueryDict('checkpoint=1')
+    q = qdict.copy() # have to do this to avoid "QueryDict instance is immutable"
+    q.update(content)
+    return q
 
 
 # task index
@@ -47,19 +65,12 @@ def task_detail(request, task_id):
         return redirect('entry:index')
     
     # 3. save checkpoint
-    if len(request.POST) > 0:
-        # make sure we're using protocol 2: http://bugs.python.org/issue2980
-        t.checkpoint = base64.b64encode(pickle.dumps(request.POST, protocol=2))
+    if request.POST:
+        t.checkpoint = encode_checkpoint(request.POST)
         t.save()
-    elif len(request.POST) == 0 and t.checkpoint not in (None, u""):
-        # load checkpoint if needed
-        try:
-            qdict = QueryDict('checkpoint=1')
-            q = qdict.copy() # have to do this to avoid "QueryDict instance is immutable"
-            q.update(base64.b64decode(pickle.loads(t.checkpoint)))
-            request.POST = q
-        except ValueError:
-            pass # ignore failures...
+    # if there's no post data and a checkpoint, then try to load it...
+    elif t.checkpoint not in (None, u""):
+        request.POST = make_querydict(decode_checkpoint(t.checkpoint))
         
         TaskLog.objects.create(person=request.user, 
                                page="website.apps.entry.task_detail", 
