@@ -4,6 +4,7 @@ from django.template import RequestContext
 
 from website.apps.core.models import Language, Source
 from website.apps.lexicon.models import Lexicon, Word
+from website.apps.entry.dataentry.generic import process_post_and_save
 
 from generic import GenericFormSet
 
@@ -137,29 +138,7 @@ def FranklinView(request, task):
     # process form
     if request.POST:
         formset = GenericFormSet(request.POST, initial=initial)
-        if 'refresh' in request.POST:
-            pass # Fall through
-        elif 'submit' in request.POST:
-            if formset.is_valid():
-                completed = []
-                for form in formset:
-                    if form.is_valid() and len(form.changed_data):
-                        # if form is valid and some fields have changed
-                        # two stages here to set default fields
-                        obj = form.save(commit=False)
-                        obj.editor = request.user
-                        obj.save()
-                        completed.append(obj)
-                    
-                # update task if needed.
-                if task.completable == True:
-                    task.done = True
-                    task.save()
-            
-                return render_to_response('entry/done.html', {
-                    'task': task,
-                    'objects': completed,
-                }, context_instance=RequestContext(request))
+        process_post_and_save(request, task, formset)
     else:
         formset = GenericFormSet(initial=initial)
     

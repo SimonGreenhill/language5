@@ -7,7 +7,7 @@ from django.forms.formsets import formset_factory
 
 from website.apps.core.models import Language, Source
 from website.apps.lexicon.models import Lexicon, Word
-#from website.apps.entry.models import TaskLog
+
 
 class GenericForm(forms.ModelForm):
     language = forms.ModelChoiceField(queryset=Language.objects.order_by('slug'))
@@ -33,6 +33,46 @@ class GenericForm(forms.ModelForm):
 GenericFormSet = formset_factory(GenericForm, extra=0)
 
 
+def process_post_and_save(request, task, formset):
+    """Extracted common code to process a form."""
+    from website.apps.entry.models import TaskLog # has to be here or we get a circular import
+    if 'refresh' in request.POST:
+        TaskLog.objects.create(person=request.user, 
+                               page="website.apps.entry.GenericView", 
+                               message="Refreshed Task: %s" % task.id)
+    elif 'submit' in request.POST:
+        TaskLog.objects.create(person=request.user, 
+                               page="website.apps.entry.GenericView", 
+                               message="Submitted Task: %s" % task.id)
+        if formset.is_valid():
+            completed = []
+            for form in formset:
+                if form.is_valid() and len(form.changed_data):
+                    # if form is valid and some fields have changed
+                    # two stages here to set default fields
+                    obj = form.save(commit=False)
+                    obj.editor = request.user
+                    obj.save()
+                    completed.append(obj)
+                    
+            TaskLog.objects.create(person=request.user, 
+                                   page="website.apps.entry.GenericView", 
+                                   message="Submitted VALID Task: %s" % task.id)
+                                   
+            # update task if needed.
+            if task.completable == True:
+                task.done = True
+                task.save()
+                TaskLog.objects.create(person=request.user, 
+                                       page="website.apps.entry.GenericView", 
+                                       message="Completed Task: %s" % task.id)
+                                       
+            return render_to_response('entry/done.html', {
+                'task': task,
+                'objects': completed,
+            }, context_instance=RequestContext(request))
+
+
 @login_required()
 def GenericView(request, task):
     """Generic Data Entry Task"""
@@ -40,42 +80,7 @@ def GenericView(request, task):
     # process form
     if request.POST:
         formset = GenericFormSet(request.POST)
-        if 'refresh' in request.POST:
-            # TaskLog.objects.create(person=request.user, 
-            #                        page="website.apps.entry.GenericView", 
-            #                        message="Refreshed Task: %s" % task_id)
-            pass
-        elif 'submit' in request.POST:
-            # TaskLog.objects.create(person=request.user, 
-            #                        page="website.apps.entry.GenericView", 
-            #                        message="Submitted Task: %s" % task_id)
-            if formset.is_valid():
-                completed = []
-                for form in formset:
-                    if form.is_valid() and len(form.changed_data):
-                        # if form is valid and some fields have changed
-                        # two stages here to set default fields
-                        obj = form.save(commit=False)
-                        obj.editor = request.user
-                        obj.save()
-                        completed.append(obj)
-                
-                # TaskLog.objects.create(person=request.user, 
-                #                        page="website.apps.entry.GenericView", 
-                #                        message="Submitted VALID Task: %s" % task_id)
-                    
-                # update task if needed.
-                if task.completable == True:
-                    task.done = True
-                    task.save()
-                    # TaskLog.objects.create(person=request.user, 
-                    #                        page="website.apps.entry.GenericView", 
-                    #                        message="Completed Task: %s" % task_id)
-                    
-                return render_to_response('entry/done.html', {
-                    'task': task,
-                    'objects': completed,
-                }, context_instance=RequestContext(request))
+        process_post_and_save(request, task, formset)
     else:
         # set up initial data
         initial = {}
@@ -83,7 +88,7 @@ def GenericView(request, task):
             initial['language'] = task.language
         if task.source:
             initial['source'] = task.source
-            
+
         formset = GenericFormSet(initial=[initial for i in range(task.records)])
     
     return render_to_response('entry/detail.html', {
