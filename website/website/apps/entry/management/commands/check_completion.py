@@ -73,7 +73,6 @@ class Command(BaseCommand):
         cp = self.display_checkpoint(task)
         if cp is None:
             return
-            
         if 'submit' in cp:
             print 'Form:'.ljust(15), '<SUBMIT>'
         elif 'refresh' in cp:
