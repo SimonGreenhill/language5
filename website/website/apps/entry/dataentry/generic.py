@@ -7,7 +7,7 @@ from django.forms.formsets import formset_factory
 
 from website.apps.core.models import Language, Source
 from website.apps.lexicon.models import Lexicon, Word
-from website.apps.entry.models import TaskLog
+#from website.apps.entry.models import TaskLog
 
 class GenericForm(forms.ModelForm):
     language = forms.ModelChoiceField(queryset=Language.objects.order_by('slug'))
@@ -41,13 +41,14 @@ def GenericView(request, task):
     if request.POST:
         formset = GenericFormSet(request.POST)
         if 'refresh' in request.POST:
-            TaskLog.objects.create(person=request.user, 
-                                   page="website.apps.entry.GenericView", 
-                                   message="Refreshed Task: %s" % task_id)
+            # TaskLog.objects.create(person=request.user, 
+            #                        page="website.apps.entry.GenericView", 
+            #                        message="Refreshed Task: %s" % task_id)
+            pass
         elif 'submit' in request.POST:
-            TaskLog.objects.create(person=request.user, 
-                                   page="website.apps.entry.GenericView", 
-                                   message="Submitted Task: %s" % task_id)
+            # TaskLog.objects.create(person=request.user, 
+            #                        page="website.apps.entry.GenericView", 
+            #                        message="Submitted Task: %s" % task_id)
             if formset.is_valid():
                 completed = []
                 for form in formset:
@@ -59,17 +60,17 @@ def GenericView(request, task):
                         obj.save()
                         completed.append(obj)
                 
-                TaskLog.objects.create(person=request.user, 
-                                       page="website.apps.entry.GenericView", 
-                                       message="Submitted VALID Task: %s" % task_id)
+                # TaskLog.objects.create(person=request.user, 
+                #                        page="website.apps.entry.GenericView", 
+                #                        message="Submitted VALID Task: %s" % task_id)
                     
                 # update task if needed.
                 if task.completable == True:
                     task.done = True
                     task.save()
-                    TaskLog.objects.create(person=request.user, 
-                                           page="website.apps.entry.GenericView", 
-                                           message="Completed Task: %s" % task_id)
+                    # TaskLog.objects.create(person=request.user, 
+                    #                        page="website.apps.entry.GenericView", 
+                    #                        message="Completed Task: %s" % task_id)
                     
                 return render_to_response('entry/done.html', {
                     'task': task,
