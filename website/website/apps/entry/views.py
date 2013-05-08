@@ -59,9 +59,6 @@ def task_detail(request, task_id):
     t = get_object_or_404(Task, pk=task_id)
     # 2. check if task is complete
     if t.done:
-        TaskLog.objects.create(person=request.user, 
-                               page="website.apps.entry.task_detail", 
-                               message="Completed Task: %s" % task_id)
         return redirect('entry:index')
     
     # 3. save checkpoint
