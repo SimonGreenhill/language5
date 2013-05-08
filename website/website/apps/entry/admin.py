@@ -33,6 +33,7 @@ class CheckpointListFilter(admin.SimpleListFilter):
         if self.value() == 'no':
             return queryset.filter(checkpoint__isnull=True).filter(checkpoint__exact='')
 
+
 class TaskAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_display = ('name', 'source', 'language', 'records', 'view', 'added', 'completable', 'done')
