@@ -11,8 +11,8 @@ from website.apps.entry.models import Task
 from website.apps.entry.dataentry import available_views
 from website.apps.entry.views import encode_checkpoint, decode_checkpoint
 
-class Test_Detail(TestCase):
-    """Tests the Detail Page"""
+class Test_GenericView(TestCase):
+    """Tests the GenericView Detail Page"""
     
     def setUp(self):
         self.client = Client()
@@ -125,7 +125,7 @@ class Test_Detail(TestCase):
         assert Task.objects.get(pk=self.task.id).done
 
 
-class Test_Detail_Checkpointing(TestCase):
+class Test_Checkpointing(TestCase):
     """Tests the Detail Page's Checkpointing"""
     def setUp(self):
         self.client = Client()
@@ -244,3 +244,8 @@ class Test_Detail_Checkpointing(TestCase):
         self.failUnlessEqual(response.status_code, 200)
         t = Task.objects.get(pk=self.task.id)
         assert t.checkpoint is not None
+
+
+
+
+
