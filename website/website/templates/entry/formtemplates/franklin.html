@@ -37,9 +37,9 @@
                             {% endfor %}">
                         </i>
                     {% endif %}
-                    
-                    {{ form.language.as_hidden }}
-                    {{ form.source.as_hidden }}
+                    {% for hidden in form.hidden_fields %}
+                        {{ hidden }}
+                    {% endfor %}
                 </td>
                 <td {% if field.errors %}class="error"{% endif %}>
                     {{ form.entry }}

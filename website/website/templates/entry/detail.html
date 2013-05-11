@@ -121,6 +121,7 @@
           {% endif %}
           $('#entryform tbody tr').formset({
               addCssClass: 'btn btn-success',
+              keepFieldValues: ':hidden',
               addText: '<i class="icon-plus"></i> Add entry',
               deleteText: '<i class="icon-remove"></i>',
           });
