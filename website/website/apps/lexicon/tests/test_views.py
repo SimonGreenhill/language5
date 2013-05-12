@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.test.client import Client
 
-from .test_models import TestSetup
+from test_models import TestSetup
 from website.apps.lexicon.models import Word, WordSubset
 
 class Test_WordIndex(TestSetup, TestCase):

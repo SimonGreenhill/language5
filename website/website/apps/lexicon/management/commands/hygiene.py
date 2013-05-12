@@ -6,7 +6,7 @@ from website.apps.lexicon.models import Lexicon
 
 
 class Command(BaseCommand):
-    args = 'hygiene --delete'
+    args = 'hygiene [empty]--delete'
     help = 'Cleans Data from Database'
     output_transaction = True
     option_list = BaseCommand.option_list + (
@@ -16,20 +16,35 @@ class Command(BaseCommand):
             default=False,
             help='Delete dirty data rather than listing it'),
         )
+        
+    def _print(self, message):
+        """
+        Wrapper to print to stdout, if it exists
+        
+        (it won't exist if we're running tests)
+        """
+        if hasattr(self, 'stdout'):
+            self.stdout.write(message)
     
+    def find_empty(self):
+        """Find Empty Records"""
+        empty = []
+        empty.extend(Lexicon.objects.filter(entry=""))
+        empty.extend(Lexicon.objects.filter(entry="-"))
+        empty.extend(Lexicon.objects.filter(entry="--"))
+        empty.extend(Lexicon.objects.filter(entry="---"))
+        return empty
+    
+    def delete(self, items):
+        """Delete a list of records"""
+        for obj in items:
+            self._print('Deleting: %d - %s' % (obj.id, obj.entry))
+            obj.delete()
+            
     def handle(self, *args, **options):
-        self.dirty = []
-        self.dirty.extend(Lexicon.objects.filter(entry=""))
-        self.dirty.extend(Lexicon.objects.filter(entry="-"))
-        self.dirty.extend(Lexicon.objects.filter(entry="--"))
-        self.dirty.extend(Lexicon.objects.filter(entry="---"))
+        empties = self.find_empty()
+        for obj in empties:
+            self._print('Empty: %d - %s' % (obj.id, obj.entry))
         
         if 'delete' in options and options['delete']:
-            for d in self.dirty:
-                if hasattr(self, 'stdout'):
-                    self.stdout.write('Deleting: %d - %s' % (d.id, d.entry))
-                d.delete()
-        else:
-            for d in self.dirty:
-                if hasattr(self, 'stdout'):
-                    self.stdout.write('Dirty: %d - %s' % (d.id, d.entry))
+            self.delete(empties)

@@ -7,9 +7,8 @@ from website.apps.lexicon.models import Word, Lexicon
 
 from website.apps.lexicon.management.commands import hygiene
 
-class Test_Hygiene(TestCase):
-    """Tests the hygiene management command"""
-    
+
+class HygieneDataMixin(TestCase):
     def setUp(self):
         self.editor = User.objects.create(username='admin')
         self.word = Word.objects.create(word='Hand', slug='hand', 
@@ -36,8 +35,15 @@ class Test_Hygiene(TestCase):
             editor=self.editor,
             entry="a word"
         )
+    
+    
+class Test_Empty(HygieneDataMixin):
+    """Tests the hygiene management command - find-empty"""
+    
+    def setUp(self):
+        super(Test_Empty, self).setUp()
         
-        self.dirty = {
+        self.empty = {
             'dash': Lexicon.objects.create(
                 language=self.lang, 
                 word=self.word,
@@ -71,28 +77,28 @@ class Test_Hygiene(TestCase):
     def test_find_missing(self):
         cmd = hygiene.Command()
         cmd.handle([], {})
-        assert self.dirty['empty'] in cmd.dirty
+        assert self.empty['empty'] in cmd.find_empty()
     
     def test_find_dash(self):
         cmd = hygiene.Command()
         cmd.handle([], {})
-        assert self.dirty['dash'] in cmd.dirty
+        assert self.empty['dash'] in cmd.find_empty()
     
     def test_find_dashdash(self):
         cmd = hygiene.Command()
         cmd.handle([], {})
-        assert self.dirty['dashdash'] in cmd.dirty
+        assert self.empty['dashdash'] in cmd.find_empty()
     
     def test_find_dashdashdash(self):
         cmd = hygiene.Command()
         cmd.handle([], {})
-        assert self.dirty['dashdashdash'] in cmd.dirty
+        assert self.empty['dashdashdash'] in cmd.find_empty()
         
     def test_find_all(self):
         cmd = hygiene.Command()
         cmd.handle([], {})
-        for d in self.dirty:
-            assert self.dirty[d] in cmd.dirty
+        for d in self.empty:
+            assert self.empty[d] in cmd.find_empty()
         
     def test_delete(self):
         assert len(Lexicon.objects.all()) == 6
