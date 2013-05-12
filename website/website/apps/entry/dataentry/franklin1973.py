@@ -2,11 +2,34 @@ from django.shortcuts import render_to_response
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 
+from django import forms
+from django.forms.formsets import formset_factory
+
 from website.apps.core.models import Language, Source
 from website.apps.lexicon.models import Lexicon, Word
 from website.apps.entry.dataentry.generic import process_post_and_save
 
-from generic import GenericFormSet
+class FranklinForm(forms.ModelForm):
+    language = forms.ModelChoiceField(queryset=Language.objects.order_by('slug'),
+                                    widget=forms.HiddenInput())
+    source = forms.ModelChoiceField(queryset=Source.objects.order_by('slug'),
+                                    widget=forms.HiddenInput())
+    word = forms.ModelChoiceField(queryset=Word.objects.order_by('word'))
+    
+    class Meta:
+        model = Lexicon
+        exclude = ('editor', 'phon_entry', 'loan', 'loan_source')
+        widgets = {
+            # over-ride Textarea for annotation
+            'annotation': forms.widgets.TextInput(attrs={'class': 'input-medium'}),
+            
+            # and set input-small
+            'entry': forms.widgets.TextInput(attrs={'class': 'input-medium'}),
+            'word': forms.widgets.Select(attrs={'class': 'input-medium'}),
+        }
+
+FranklinFormSet = formset_factory(FranklinForm, extra=0)
+
 
 @login_required()
 def FranklinView(request, task):
@@ -128,7 +151,7 @@ def FranklinView(request, task):
     
     # set up initial data
     initial = []
-    for i in range(1, 101):
+    for i in range(1, 100+1):
         initial.append({
             'language': task.language,
             'source': task.source,
@@ -137,10 +160,10 @@ def FranklinView(request, task):
     
     # process form
     if request.POST:
-        formset = GenericFormSet(request.POST, initial=initial)
+        formset = FranklinFormSet(request.POST, initial=initial)
         process_post_and_save(request, task, formset)
     else:
-        formset = GenericFormSet(initial=initial)
+        formset = FranklinFormSet(initial=initial)
     
     return render_to_response('entry/detail.html', {
         'task': task,
