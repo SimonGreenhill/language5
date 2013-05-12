@@ -30,18 +30,25 @@ class Command(BaseCommand):
         for i in range(0, total_forms):
             for word in ('source', 'word', 'language', 'entry'):
                 token = self._get(i, word)
-                if token not in cp and word in ('entry', 'word'):
-                    print "Error - missing: %s - I can't fix this" % token
-                elif token not in cp and word == 'language':
+                if word == 'language':
                     assert task.language, 'Task does not have a set language - failing'
-                    newcp[token] = u'%d' % task.language.id
-                    print "Adding missing language: %s " % token
-                    changes += 1
-                elif token not in cp and word == 'source':
+                    value = cp.get(token, None)
+                    expected = u'%d' % task.language.id
+                    if value != expected:
+                        newcp[token] = expected
+                        print "Fixing language: %s - %r -> %r " % (token, value, expected)
+                        changes += 1
+                elif word == 'source':
                     assert task.source, 'Task does not have a set source - failing'
-                    newcp[token] = u'%d' % task.source.id
-                    print "Adding missing source: %s " % token
-                    changes += 1
+                    value = cp.get(token, None)
+                    expected = u'%d' % task.source.id
+                    if value != expected:
+                        newcp[token] = expected
+                        print "Fixing source: %s - %r -> %r " % (token, value, expected)
+                        changes += 1
+                    
+                elif token not in cp and word in ('entry', 'word'):
+                    print "Error - missing: %s - I can't fix this" % token
         
         if changes == 0:
             quit("No changes to make")
