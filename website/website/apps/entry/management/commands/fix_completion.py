@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import os
 import json
 import codecs
 from django.db import transaction
@@ -27,6 +26,7 @@ class Command(BaseCommand):
         print
         # TRY TO FIX:
         newcp = cp.copy()
+        changes = 0
         for i in range(0, total_forms):
             for word in ('source', 'word', 'language', 'entry'):
                 token = self._get(i, word)
@@ -35,22 +35,29 @@ class Command(BaseCommand):
                 elif token not in cp and word == 'language':
                     assert task.language, 'Task does not have a set language - failing'
                     newcp[token] = [u'%d' % task.language.id,]
+                    print "Adding missing language: %s " % token
+                    changes += 1
                 elif token not in cp and word == 'source':
                     assert task.source, 'Task does not have a set source - failing'
                     newcp[token] = [u'%d' % task.source.id,]
+                    print "Adding missing source: %s " % token
+                    changes += 1
         
-        print
-        print 'NEW CHECKPOINT:'
-        print json.dumps(newcp, indent=4)
-        
-        # save as file
-        filename = 'task_%d_checkpoint.json' % task.id
-        print 'Writing old checkpoint to %s' % filename
-        with open(filename, 'w') as handle:
-            handle.write(encode_checkpoint(cp))
-        
-        print 'Writing old checkpoint to task.checkpoint'
-        task.checkpoint = encode_checkpoint(newcp)
-        task.save()
+        if changes == 0:
+            quit("No changes to make")
+        else:
+            print
+            print 'NEW CHECKPOINT:'
+            print json.dumps(newcp, indent=4)
+            
+            # save as file
+            filename = 'task_%d_checkpoint.json' % task.id
+            print 'Writing old checkpoint to %s' % filename
+            with open(filename, 'w') as handle:
+                handle.write(encode_checkpoint(cp))
+            
+            print 'Writing old checkpoint to task.checkpoint'
+            task.checkpoint = encode_checkpoint(newcp)
+            task.save()
         
         
