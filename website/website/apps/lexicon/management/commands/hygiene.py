@@ -26,9 +26,9 @@ class Command(BaseCommand):
         
         if 'delete' in options and options['delete']:
             for d in self.dirty:
-                d.delete()
                 if hasattr(self, 'stdout'):
-                    self.stdout.write('Deleted: %d - %s' % (d.id, d.entry))
+                    self.stdout.write('Deleting: %d - %s' % (d.id, d.entry))
+                d.delete()
         else:
             for d in self.dirty:
                 if hasattr(self, 'stdout'):
