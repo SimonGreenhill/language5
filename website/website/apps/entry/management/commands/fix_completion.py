@@ -6,7 +6,6 @@ from django.core.management.base import BaseCommand
 
 from website.apps.entry.models import Task
 from website.apps.entry.views import decode_checkpoint, encode_checkpoint, make_querydict
-from website.apps.entry.dataentry.generic import process_post_and_save
 
 class Command(BaseCommand):
     args = '<task_id>'
