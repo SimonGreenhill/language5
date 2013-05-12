@@ -214,6 +214,7 @@ class Test_FranklinView(DataMixin):
     def setUp(self):
         super(Test_FranklinView, self).setUp()
         self.task.language = self.lang
+        self.task.view = "FranklinView"
         self.task.records = 100
         self.task.save()
         self.word.word = 'man'
@@ -390,47 +391,4 @@ class Test_FranklinView(DataMixin):
             assert len(L) == 1, "Expected 1 record"
             assert L[0].entry == entry, "Expected entry to be %s not %s" % (entry, L[0].entry)
         
-    def test_completion_with_extras(self):
-        # don't have a checkpoint already...
-        assert self.task.checkpoint is None
-        
-        # don't have any stored lexical items
-        assert len(Lexicon.objects.all()) == 0
-        
-        # add an extra entry
-        extra_word = Word.objects.create(id=101, word="banana", slug="banana", editor=self.editor)
-        
-        self.form_data['form-100-entry'] = 'EXTRA'
-        self.form_data['form-100-word'] = extra_word
-        # NOTE: No language or source.
-        
-        # POST form data
-        self.client.login(username="admin", password="test")
-        response = self.client.post(self.task.get_absolute_url(), self.form_data)
-        self.failUnlessEqual(response.status_code, 200)
-        
-        # do we have a checkpoint?
-        t = Task.objects.get(pk=self.task.id)
-        assert t.checkpoint is not None, "Expecting a checkpoint"
-        
-        # test view has redirected..
-        self.failUnlessEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'entry/done.html')
-        
-        # test view has completed the task
-        assert Task.objects.get(pk=self.task.id).done
-        
-        # test that we have 100 lexical items saved.
-        assert len(Lexicon.objects.all()) == 101, "Should have 101 items stored. Not %d" % len(Lexicon.objects.all())
-        
-        for word_id in self.expected:
-            word, entry = self.expected[word_id]
-            L = Lexicon.objects.filter(word=word)
-            assert len(L) == 1, "Expected 1 record"
-            assert L[0].entry == entry, "Expected entry to be %s not %s" % (entry, L[0].entry)
-        
-        # TEST 101 is saved.
-        L = Lexicon.objects.filter(word=extra_word)
-        assert len(L) == 1, "Expected 1 record"
-        assert L[0].entry == 'banana', "Expected entry to be %s not %s" % ('banana', L[0].entry)
         
