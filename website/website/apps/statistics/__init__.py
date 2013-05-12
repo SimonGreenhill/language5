@@ -31,17 +31,21 @@ class Statistic(object):
         model, field, method = self._registry[label]
         return self._statistics[method](model, field)
     
-    def update(self):
+    def update(self, save=True):
+        out = {}
         for label in self._registry:
             value = self.get_statistic(label)
-            StatisticalValue.objects.create(
-                label = label,
-                model = self._registry[label][0].__module__,
-                field = self._registry[label][1],
-                method = self._registry[label][2],
-                value = value
-            )
-        
+            out[label] = value
+            if save:
+                StatisticalValue.objects.create(
+                    label = label,
+                    model = self._registry[label][0].__module__,
+                    field = self._registry[label][1],
+                    method = self._registry[label][2],
+                    value = value
+                )
+        return out
+            
     def register(self, label, model, field='id', method="count"):
         """
         Registers the given model(s) with the given admin class.
