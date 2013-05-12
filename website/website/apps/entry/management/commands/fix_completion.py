@@ -27,6 +27,7 @@ class Command(BaseCommand):
         # TRY TO FIX:
         newcp = cp.copy()
         changes = 0
+        
         for i in range(0, total_forms):
             for word in ('source', 'word', 'language', 'entry'):
                 token = self._get(i, word)
@@ -34,12 +35,12 @@ class Command(BaseCommand):
                     print "Error - missing: %s - I can't fix this" % token
                 elif token not in cp and word == 'language':
                     assert task.language, 'Task does not have a set language - failing'
-                    newcp[token] = [u'%d' % task.language.id,]
+                    newcp[token] = u'%d' % task.language.id
                     print "Adding missing language: %s " % token
                     changes += 1
                 elif token not in cp and word == 'source':
                     assert task.source, 'Task does not have a set source - failing'
-                    newcp[token] = [u'%d' % task.source.id,]
+                    newcp[token] = u'%d' % task.source.id
                     print "Adding missing source: %s " % token
                     changes += 1
         
@@ -57,7 +58,7 @@ class Command(BaseCommand):
                 handle.write(encode_checkpoint(cp))
             
             print 'Writing old checkpoint to task.checkpoint'
-            task.checkpoint = encode_checkpoint(newcp)
+            task.checkpoint = encode_checkpoint(make_querydict(newcp))
             task.save()
         
         
