@@ -28,8 +28,8 @@ class Command(BaseCommand):
             for d in self.dirty:
                 d.delete()
                 if hasattr(self, 'stdout'):
-                    self.stdout.write('Deleted: %s' % d)
+                    self.stdout.write('Deleted: %d - %s' % (d.id, d.entry))
         else:
             for d in self.dirty:
                 if hasattr(self, 'stdout'):
-                    self.stdout.write('Dirty: %s' % d)
+                    self.stdout.write('Dirty: %d - %s' % (d.id, d.entry))
