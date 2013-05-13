@@ -7,7 +7,7 @@ from website.apps.lexicon.models import Lexicon
 
 
 class Command(BaseCommand):
-    args = 'hygiene [empty,duplicates,] --delete'
+    args = 'hygiene --delete'
     help = 'Cleans Data from Database'
     output_transaction = True
     option_list = BaseCommand.option_list + (
