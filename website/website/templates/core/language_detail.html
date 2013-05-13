@@ -27,6 +27,13 @@
     </ul>
     
     
+    <h2>Information:</h2>
+    
+    <p>
+        <strong>ISO 639:</strong>
+        {{ language.isocode }}
+    </p>
+    
     {% if alternatenames %}
         <p>
             <strong>Also Known As: </strong>
@@ -35,13 +42,6 @@
             {% endfor %}
         </p>
     {% endif %}
-    
-    <h2>Information:</h2>
-    
-    <p>
-        <strong>ISO 639:</strong>
-        {{ language.isocode }}
-    </p>
     
     <p> 
         <strong>Classification:</strong> 
