@@ -2,6 +2,7 @@ from django.db import models
 from django.core.urlresolvers import reverse
 
 from website.apps.core.models import TrackedModel
+from website.apps.statistics import statistic
 
 
 
@@ -30,7 +31,7 @@ WORD_QUALITY = (
 
 class Word(TrackedModel):
     """Word Details"""
-    word = models.CharField(max_length=64, db_index=True,
+    word = models.CharField(max_length=64, db_index=True, unique=True,
         help_text="Word in English")
     slug = models.SlugField(max_length=64, unique=True,
         help_text="`Slug` for word (for use in URLS)")
@@ -42,7 +43,10 @@ class Word(TrackedModel):
             help_text="The quality of this word.")
     
     def __unicode__(self):
-        return self.slug
+        if self.full:
+            return u"%s (%s)" % (self.word, self.full)
+        else:
+            return self.word
     
     @models.permalink
     def get_absolute_url(self):
@@ -54,7 +58,7 @@ class Word(TrackedModel):
 
 class WordSubset(TrackedModel):
     """Word Subset Details"""
-    subset = models.CharField(max_length=64, db_index=True,
+    subset = models.CharField(max_length=64, db_index=True, unique=True, 
         help_text="Subset Label")
     slug = models.SlugField(max_length=64, unique=True,
         help_text="`Slug` for subset (for use in URLS)")
@@ -159,3 +163,13 @@ class Correspondence(TrackedModel):
     
     class Meta:
         db_table = 'correspondences'
+
+
+
+statistic.register("Number of Words", Word)
+statistic.register("Number of Word Sets", WordSubset)
+statistic.register("Number of Lexical Items", Lexicon)
+statistic.register("Number of Cognates", Cognate)
+statistic.register("Number of Cognate Sets", CognateSet)
+statistic.register("Number of Correspondences", Correspondence)
+statistic.register("Number of Correspondence Sets", CorrespondenceSet)

@@ -161,9 +161,10 @@ INSTALLED_APPS = [
     'djangosecure',                      # django-secure: Security helper
     'django_tables2',                    # django-tables2: tables helper
     'watson',                            # search
-    
+    'dbbackup',                          # backup
     # website
     'website.apps.core',                 # core functionality
+    'website.apps.statistics',           # statistics
     # NOTE: all other apps should be added to local.py
     # INSTALLED_APPS.append('website.apps.lexicon')   # Lexicon
     # INSTALLED_APPS.append('website.apps.olac')      # OLAC utils
@@ -173,8 +174,11 @@ INSTALLED_APPS = [
 # Django-Security settings
 SECURE_FRAME_DENY = True         # prevent framing of pages.
 SECURE_BROWSER_XSS_FILTER = True # enable XSS protection
-SESSION_COOKIE_SECURE = False
-SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SECURE = False    # can't login with True? 
+SESSION_COOKIE_HTTPONLY = False  # can't login with True?
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+SOUTH_TESTS_MIGRATE = False # just use syncdb
 
 LOGGING = {
     'version': 1,
@@ -230,3 +234,11 @@ OLAC_SETTINGS = {
 # cache the ``robots.txt`` for 24 hours (86400 seconds).
 ROBOTS_CACHE_TIMEOUT = 60*60*24
 
+
+DBBACKUP_STORAGE = 'dbbackup.storage.s3_storage'
+DBBACKUP_S3_BUCKET = 'sjg-transnewguinea.org'
+DBBACKUP_S3_ACCESS_KEY = 'AKIAI5L4FEQGKHXLZIEQ'
+DBBACKUP_S3_SECRET_KEY = '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'
+# no schema and use extended insert format
+DBBACKUP_POSTGRES_BACKUP_COMMANDS = "pg_dump --username={adminuser} --host={host} --port={port} --data-only --inserts {databasename}" 
+DBBACKUP_MEDIA_PATH = MEDIA_ROOT # see https://bitbucket.org/mjs7231/django-dbbackup/pull-request/13/multiple-big-fixes/

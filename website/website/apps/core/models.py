@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 
 import watson
 
+from website.apps.statistics import statistic
+
+
 class TrackedModel(models.Model):
     """Abstract base class containing editorial information"""
     editor = models.ForeignKey(User)
@@ -119,7 +122,11 @@ class AlternateName(TrackedModel):
         help_text="`Slug` for language (for use in URLS)")
     
     def __unicode__(self):
-        return "%d AKA %s" % (self.language.id, self.slug)
+        return "%s AKA %s" % (self.language, self.slug)
+        
+    @models.permalink
+    def get_absolute_url(self):
+        return ('language-detail', [self.language.slug])
         
     class Meta:
         verbose_name_plural = 'Alternate Language Names'
@@ -136,7 +143,7 @@ class Link(TrackedModel):
     
     def __unicode__(self):
         return "%d %s" % (self.language.id, self.link)
-
+    
     class Meta:
         verbose_name_plural = "Resource Links"
         db_table = 'links'
@@ -156,3 +163,11 @@ class Location(TrackedModel):
         verbose_name_plural = "Geographical Locations"
         db_table = 'locations'
 
+
+statistic.register("Number of Families", Family)
+statistic.register("Number of Languages", Language)
+statistic.register("Number of Sources", Source)
+statistic.register("Number of Notes", Note)
+statistic.register("Number of Alternate Names", AlternateName)
+statistic.register("Number of Locations", Location)
+statistic.register("Number of Links", Link)

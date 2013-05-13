@@ -8,3 +8,4 @@ syntax: regexp
 ^website/website/settings/local.py
 ^thirdparty/bootstrap/bootstrap/
 ^thirdparty/bootstrap/docs/assets/
+website/website/templates/revision.txt

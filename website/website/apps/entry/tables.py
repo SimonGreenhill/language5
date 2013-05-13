@@ -12,9 +12,9 @@ class TaskIndexTable(DataTable):
     
     class Meta(DataTable.Meta):
         model = Task
-        order_by_field = 'name' # default sorting
-        sequence = ('id', 'name', 'description', 'added', 'source')
-        exclude = ('editor', 'view', 'image', 'done')
+        order_by_field = 'id' # default sorting
+        sequence = ('id', 'name', 'source', 'language', 'description', 'records')
+        exclude = ('editor', 'view', 'image', 'done', 'checkpoint', 'added', 'file', 'completable')
     Meta.attrs['summary'] = 'Table of Tasks'
     
 

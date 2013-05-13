@@ -53,6 +53,17 @@
                 <h1>Data Entry Task: {{ task }} {{ content }}</h1>
             </div>
             
+            {% if task.file %}
+                <div class="row clearfix">
+                  <div class="span8 offset2 well">
+                     <p>
+                         Download Data File: 
+                          <a class="btn" href="{{ task.file.url }}"><i class="icon-file"></i>{{ task.file }}</a>
+                     </p>
+                  </div>
+                </div>
+            {% endif %}
+            
             <div id="scroller">
                 {% if task.image %}
                     <div class="row clearfix">
@@ -110,6 +121,7 @@
           {% endif %}
           $('#entryform tbody tr').formset({
               addCssClass: 'btn btn-success',
+              keepFieldValues: ':hidden',
               addText: '<i class="icon-plus"></i> Add entry',
               deleteText: '<i class="icon-remove"></i>',
           });

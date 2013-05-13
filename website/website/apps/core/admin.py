@@ -28,9 +28,7 @@ class AltNameInline(admin.TabularInline):
 
 # Admin
 class LanguageAdmin(TrackedModelAdmin, VersionAdmin):
-    ##form = LanguageAdminForm
     date_hierarchy = 'added'
-    inlines = []
     list_display = ('language', 'isocode', 'added')
     list_filter = ('editor', 'family')
     ordering = ('language',)
@@ -66,6 +64,7 @@ class FamilyAdmin(TrackedModelAdmin, VersionAdmin):
 class AlternateNameAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_filter = ('editor', 'language')
+    ordering = ('name',)
     search_fields = ('language', 'name')
     prepopulated_fields = {'slug': ('name', )}
 

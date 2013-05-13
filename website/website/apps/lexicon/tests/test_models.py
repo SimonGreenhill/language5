@@ -94,6 +94,19 @@ class Test_Words(TestSetup, TestCase):
         """Simple test for object setting/retrieval"""
         self._compare_objects(self.word3, Word.objects.get(pk=3))
     
+    def test_repr(self):
+        assert unicode(self.word1) == u"Hand (a hand)"
+        self.word1.full = ""
+        assert unicode(self.word1) == u"Hand"
+        
+        w = Word.objects.create(word='Test', slug='test', editor=self.editor)
+        w.save()
+        assert unicode(w) == u"Test", "Got %s not u'Test'" % unicode(w)
+        
+        # test we're ok with None
+        w = Word.objects.create(word='Test2', slug='test2', full=None, editor=self.editor)
+        w.save()
+        assert unicode(w) == u"Test2", "Got %s not u'Test2'" % unicode(w)
     
 class Test_WordSubset(TestSetup, TestCase):
     """Tests for word subsets"""

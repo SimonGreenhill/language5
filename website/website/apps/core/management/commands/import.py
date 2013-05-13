@@ -1,4 +1,6 @@
+# -*- coding: utf-8 -*-
 import os
+import codecs
 from django.db import transaction
 from django.core.management.base import BaseCommand
 
@@ -19,7 +21,7 @@ class Command(BaseCommand):
                 raise IOError('Unable to import a %s file' % fileext)
             
             self.stdout.write('Beginning transaction...\n')
-            
+            self.stdout.flush()
             try:
                 self.stdout.write('Importing "%s"\n' % filename)
                 execfile(filename)
@@ -30,5 +32,6 @@ class Command(BaseCommand):
                 transaction.commit()
             
             self.stdout.write('Ending transaction...\n')
+            self.stdout.flush()
 
-
+            

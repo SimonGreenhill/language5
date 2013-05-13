@@ -113,7 +113,10 @@
       </div><!--/row-->
       
     <footer class="footer">
-      <p>&copy; {% now "Y" %}. <a href="http://simon.net.nz">Simon J. Greenhill</a>.</p>
+      <p>
+          &copy; {% now "Y" %}. <a href="http://simon.net.nz">Simon J. Greenhill</a>.
+          {% include "revision.txt" %}
+      </p>
     </footer>
     
     </div><!--/.fluid-container-->
@@ -136,6 +139,4 @@
     <!-- End Piwik Tracking Code -->
 </body>
 </html>
-
-
 

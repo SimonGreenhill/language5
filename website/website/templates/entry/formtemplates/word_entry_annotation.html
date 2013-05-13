@@ -1,0 +1,84 @@
+{% load staticfiles %}
+<form action="/entry/{{ task.id }}" method="post" class="form-inline">
+    {% csrf_token %}
+    {{ formset.management_form }}
+    <table id="entryform" class="table table-bordered table-condensed">
+        <!-- header -->
+        {% for form in formset %}
+            {% if forloop.first %}
+                <thead>
+                    <tr>
+                        <th>
+                            {{ form.word.label_tag }}
+                        </th>
+                        <th>
+                            {{ form.entry.label_tag }}
+                        </th>
+                        <th>
+                            {{ form.annotation.label_tag }}
+                        </th>
+                    </tr>
+                </thead>
+            {% endif %}
+        {% endfor %}
+        <tbody>
+            {% for form in formset %}
+            <tr>
+                <td {% if field.errors %}class="error"{% endif %}>
+                    {{ forloop.counter }}. {{ form.word }}
+                    {% if form.word.errors %}
+                        <i class="tip icon-exclamation-sign" 
+                            data-toggle="tooltip" 
+                            data-placement="top" 
+                            data-container="td"
+                            title="
+                            {% for error in field.errors %}
+                                {{ error|escape }} 
+                            {% endfor %}">
+                        </i>
+                    {% endif %}
+                    {% for hidden in form.hidden_fields %}
+                        {{ hidden }}
+                    {% endfor %}
+                </td>
+                <td {% if field.errors %}class="error"{% endif %}>
+                    {{ form.entry }}
+                    {% if form.entry.errors %}
+                        <i class="tip icon-exclamation-sign" 
+                            data-toggle="tooltip" 
+                            data-placement="top" 
+                            data-container="td"
+                            title="
+                            {% for error in field.errors %}
+                                {{ error|escape }} 
+                            {% endfor %}">
+                        </i>
+                    {% endif %}
+                    
+                </td>
+                <td {% if field.errors %}class="error"{% endif %}>
+                    {{ form.annotation }}
+                    {% if form.annotation.errors %}
+                        <i class="tip icon-exclamation-sign" 
+                            data-toggle="tooltip" 
+                            data-placement="top" 
+                            data-container="td"
+                            title="
+                            {% for error in field.errors %}
+                                {{ error|escape }} 
+                            {% endfor %}">
+                        </i>
+                    {% endif %}
+                    
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p class="well">
+        <button type="submit" name="refresh" class="btn btn-success"><i class="icon-refresh"></i> Store/Refresh </button>
+        <button type="submit" name="submit" class="btn btn-primary"><i class="icon-ok"></i> Save </button>
+    </p>
+</form>
+
+

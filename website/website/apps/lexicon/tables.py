@@ -30,7 +30,7 @@ class WordLexiconTable(DataTable):
     
     class Meta(DataTable.Meta):
         model = Lexicon
-        order_by_field = 'language' # default sorting
+        order_by_field = 'word' # default sorting
         sequence = ('id', 'language', 'entry', 'annotation', 'loan',  'source')
         exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'word')
     Meta.attrs['summary'] = 'Table of Lexicon'
@@ -59,7 +59,7 @@ class SourceLexiconTable(DataTable):
     entry = tables.Column()
     annotation = tables.Column()
     loan = tables.BooleanColumn(null=False, yesno=('x', ''))
-
+    
     class Meta(DataTable.Meta):
         model = Lexicon
         order_by_field = 'language' # default sorting
