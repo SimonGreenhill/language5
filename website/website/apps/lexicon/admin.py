@@ -62,7 +62,8 @@ class LexiconAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_display = ('id', 'language', 'source', 'word', 'entry', 'annotation', 'loan')
     list_editable = ('language', 'source', 'word', 'entry', 'annotation', 'loan')
-    list_filter = ('editor', 'language', 'source', 'word', 'loan')
+    list_filter = ('editor', 'language', 'source', 'loan')
+    search_fields = ('entry', 'annotation')
     ordering = ('id',)
     
     formfield_overrides = {
