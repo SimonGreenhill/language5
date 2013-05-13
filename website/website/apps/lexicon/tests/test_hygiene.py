@@ -76,27 +76,22 @@ class Test_Empty(HygieneDataMixin):
         
     def test_find_missing(self):
         cmd = hygiene.Command()
-        cmd.handle([], {})
         assert self.empty['empty'] in cmd.find_empty()
     
     def test_find_dash(self):
         cmd = hygiene.Command()
-        cmd.handle([], {})
         assert self.empty['dash'] in cmd.find_empty()
     
     def test_find_dashdash(self):
         cmd = hygiene.Command()
-        cmd.handle([], {})
         assert self.empty['dashdash'] in cmd.find_empty()
     
     def test_find_dashdashdash(self):
         cmd = hygiene.Command()
-        cmd.handle([], {})
         assert self.empty['dashdashdash'] in cmd.find_empty()
         
     def test_find_all(self):
         cmd = hygiene.Command()
-        cmd.handle([], {})
         for d in self.empty:
             assert self.empty[d] in cmd.find_empty()
         
