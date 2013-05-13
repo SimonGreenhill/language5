@@ -137,11 +137,49 @@ class Test_Duplicates(HygieneDataMixin):
         assert Lexicon.objects.get(pk=self.good2.pk)
       
     def test_not_duplicate_if_different_word(self):
-        pass
+        newword = Word.objects.create(word='Banana', slug='banana', 
+                                        full='Yum', editor=self.editor)
+        o = Lexicon.objects.create(
+                language=self.good1.language, 
+                word=newword,
+                source=self.good1.source,
+                editor=self.good1.editor,
+                entry=self.good1.entry
+        )
+        
+        cmd = hygiene.Command()
+        dupes = cmd.find_duplicates()
+        assert len(dupes) == 0
     
     def test_not_duplicate_if_different_source(self):
-        pass
+        newsource = Source.objects.create(year=2013, author='Greenhill', 
+                                 slug='Greenhill2013', reference='...',
+                                 comment='', editor=self.editor)
+        o = Lexicon.objects.create(
+                language=self.good1.language, 
+                word=self.good1.word,
+                source=newsource,
+                editor=self.good1.editor,
+                entry=self.good1.entry
+        )
+        
+        cmd = hygiene.Command()
+        dupes = cmd.find_duplicates()
+        assert len(dupes) == 0
+        
         
     def test_not_duplicate_if_different_language(self):
-        pass
+        newlang = Language.objects.create(language='B', slug='langb', 
+                                             information='', classification='',
+                                             isocode='bbb', editor=self.editor)
+        o = Lexicon.objects.create(
+                language=newlang, 
+                word=self.good1.word,
+                source=self.good1.source,
+                editor=self.good1.editor,
+                entry=self.good1.entry
+        )
         
+        cmd = hygiene.Command()
+        dupes = cmd.find_duplicates()
+        assert len(dupes) == 0
