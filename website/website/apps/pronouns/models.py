@@ -581,8 +581,9 @@ class Relationship(TrackedModel):
 class Rule(TrackedModel):
     """Pronoun Relationship Rules"""
     paradigm = models.ForeignKey('Paradigm')
+    relationship = models.ForeignKey('Relationship')
     rule = models.CharField(max_length=64)
-
+    
     def __unicode__(self):
         return '<Rule: %d-%s>' % (self.paradigm, self.rule)
 
