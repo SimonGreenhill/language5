@@ -79,3 +79,23 @@ def add_pronoun_table(pronoun_set, filter_empty_rows=True):
     if not filter_empty_rows: 
         assert len(pronoun_rows) == len(Pronoun._generate_all_rows())
     return pronoun_rows
+
+
+def find_identicals(pronouns):
+    identical = set()
+    for p1 in pronouns:
+        if p1.form == '':
+            # ignore empties.
+            continue
+            
+        for p2 in pronouns:
+            if p2.form == '':
+                # ignore empties
+                continue
+            elif p1 == p2:
+                # ignore self
+                continue
+            elif p1.form == p2.form:
+                identical.add(tuple(sorted([p1,p2])))
+    return identical
+    
