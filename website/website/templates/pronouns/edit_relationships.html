@@ -14,6 +14,7 @@
     <script type="text/javascript" src="{% static "admin/js/admin/RelatedObjectLookups.js" %}"></script>
     <style>
     .add-row{ padding: 1em; }
+    .hide {display: none;}
     </style>
 {% endblock %}
 
@@ -42,10 +43,13 @@
     
         {% include "pronouns/template_pronoun_detail.html" %}
         
-    <h3> Relationships: </h3>
+    <a href="#" class="btn" onclick="$('#rule_table').toggle('100')" ><i class="icon-wrench"></i> Rules </a>
     
     <!-- RULE TABLE -->
-    <div>
+    <div id="rule_table" class="hide">
+        
+        <h3> Set Rules: </h3>
+
         <form action="{% url "pronouns:process_rule" paradigm.id %}" method="post" class="form-inline">
             {% csrf_token %}
             <table id="rule" class="table table-bordered table-condensed">
@@ -77,7 +81,14 @@
                     </tr>
                     <tr>
                         <td colspan="5">
-                            <button type="submit" class="btn "><i class="icon-ok"></i> Process Rule </button>
+                            <button type="submit" class="btn btn-primary" name="process_rule">
+                                <i class="icon-ok"></i>
+                                Process Rule.
+                            </button>
+                            <button type="submit" class="btn btn-primary" name="process_identicals">
+                                <i class="icon-wrench"></i>
+                                Automatically Group Identical Entries.
+                            </button>
                         </td>
                     </tr>
                 </tbody>
@@ -86,6 +97,7 @@
     </div>
     
     <!-- RELATIONSHIP TABLE -->
+    <h3> Relationships: </h3>
     
     <form action="{% url "pronouns:edit_relationships" paradigm.id %}" method="post" class="form-inline">
         {% csrf_token %}

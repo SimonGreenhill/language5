@@ -109,4 +109,24 @@ def edit_relationships(request, paradigm_id):
 
 @login_required()
 def process_rule(request, paradigm_id):
-    pass
+    p = get_object_or_404(Paradigm, pk=paradigm_id)
+    rule_form = RuleForm(request.POST or None)
+    print request.POST
+    # do we have do_identicals? 
+    if 'process_identicals' in request.POST:
+        # identify identical things
+        pass
+        
+    elif 'process_rule' in request.POST:
+        pass
+
+    # 1. process form
+    
+    # 2. implement rule
+    
+    # 3. save rule to rule table.
+    
+    import IPython; IPython.embed()
+    
+    return redirect('pronouns:edit_relationships', p.id)
+    

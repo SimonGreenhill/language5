@@ -92,4 +92,3 @@ class RuleForm(forms.Form):
             'number_two': forms.widgets.Select(attrs={'class': 'input-small'}),
             'gender_two': forms.widgets.Select(attrs={'class': 'input-small'}),
         }
-
