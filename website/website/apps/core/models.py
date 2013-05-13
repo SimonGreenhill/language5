@@ -122,7 +122,11 @@ class AlternateName(TrackedModel):
         help_text="`Slug` for language (for use in URLS)")
     
     def __unicode__(self):
-        return "%d AKA %s" % (self.language.id, self.slug)
+        return "%s AKA %s" % (self.language, self.slug)
+        
+    @models.permalink
+    def get_absolute_url(self):
+        return ('language-detail', [self.language.slug])
         
     class Meta:
         verbose_name_plural = 'Alternate Language Names'
@@ -139,7 +143,7 @@ class Link(TrackedModel):
     
     def __unicode__(self):
         return "%d %s" % (self.language.id, self.link)
-
+    
     class Meta:
         verbose_name_plural = "Resource Links"
         db_table = 'links'
