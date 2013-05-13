@@ -2,9 +2,10 @@ from django.http import Http404
 from django.shortcuts import render, redirect, render_to_response, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
+from django.db.models import Q
 
 from website.apps.core.models import Family, Language, Source
-from website.apps.pronouns.models import Paradigm, Pronoun, Relationship
+from website.apps.pronouns.models import Paradigm, Pronoun, Relationship, Rule
 from website.apps.pronouns.tables import ParadigmIndexTable, PronounTable, PronounRelationshipTable
 
 from website.apps.pronouns.forms import ParadigmForm, RelationshipFormSet
@@ -121,15 +122,21 @@ def process_rule(request, paradigm_id):
             # 3. save rule to rule table.
             rule = Rule.objects.create(
                 paradigm = p,
-                rule="Setting Identicals to show Total Syncretism"
+                rule="Setting Identicals to show Total Syncretism",
                 editor=request.user
             )
             for i,j in idents:
+                # # Ignore anything we've already set
+                # if Relationship.objects.filter(Q(pronoun1=i) | Q(pronoun2=j)).count() > 0:
+                #     pass
+                # elif Relationship.objects.filter(Q(pronoun1=j) | Q(pronoun2=i)).count() > 0:
+                #     pass
+                # else:
                 rel = Relationship.objects.create(
                     paradigm = p, pronoun1=i, pronoun2=j, relationship='TS',
                     editor=request.user
                 )
-                rule.relationship_set.add(rel)
+                rule.relationships.add(rel)
         
         return redirect('pronouns:edit_relationships', p.id)
         

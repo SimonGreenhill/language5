@@ -572,7 +572,7 @@ class Relationship(TrackedModel):
         help_text="Comment on this paradigm")
     
     def __unicode__(self):
-        return '<Relationship: %d-%d>' % (self.pronoun1, self.pronoun2)
+        return '<Relationship: %s-%s>' % (self.pronoun1.form, self.pronoun2.form)
 
     class Meta:
         db_table = 'pronoun_relationships'
@@ -581,8 +581,8 @@ class Relationship(TrackedModel):
 class Rule(TrackedModel):
     """Pronoun Relationship Rules"""
     paradigm = models.ForeignKey('Paradigm')
-    relationship = models.ForeignKey('Relationship')
     rule = models.CharField(max_length=64)
+    relationships = models.ManyToManyField('Relationship', blank=True, null=True)
     
     def __unicode__(self):
         return '<Rule: %d-%s>' % (self.paradigm, self.rule)
