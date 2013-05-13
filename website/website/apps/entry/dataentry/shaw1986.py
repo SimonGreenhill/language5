@@ -7,34 +7,12 @@ from django.forms.formsets import formset_factory
 
 from website.apps.core.models import Language, Source
 from website.apps.lexicon.models import Lexicon, Word
-from website.apps.entry.dataentry.generic import process_post_and_save
-
-class ShawForm(forms.ModelForm):
-    language = forms.ModelChoiceField(queryset=Language.objects.order_by('slug'),
-                                    widget=forms.HiddenInput())
-    source = forms.ModelChoiceField(queryset=Source.objects.order_by('slug'),
-                                    widget=forms.HiddenInput())
-    word = forms.ModelChoiceField(queryset=Word.objects.order_by('word'))
-    
-    class Meta:
-        model = Lexicon
-        exclude = ('editor', 'phon_entry', 'loan', 'loan_source')
-        widgets = {
-            # over-ride Textarea for annotation
-            'annotation': forms.widgets.TextInput(attrs={'class': 'input-medium'}),
-            
-            # and set input-small
-            'entry': forms.widgets.TextInput(attrs={'class': 'input-medium'}),
-            'word': forms.widgets.Select(attrs={'class': 'input-medium'}),
-        }
-
-ShawFormSet = formset_factory(ShawForm, extra=0)
-
+from website.apps.entry.dataentry.generic import process_post_and_save, GenericFormSet
 
 @login_required()
 def ShawView(request, task):
     """Data Entry Task for Shaw 1986"""
-    template_name = "entry/formtemplates/word_entry_annotation.html"
+    template_name = "entry/formtemplates/generic.html"
     
     # Note - put this here, it'll only get instantiated once this view is called.
     WORDS = {
@@ -160,10 +138,10 @@ def ShawView(request, task):
     
     # process form
     if request.POST:
-        formset = ShawFormSet(request.POST, initial=initial)
+        formset = GenericFormSet(request.POST, initial=initial)
         process_post_and_save(request, task, formset)
     else:
-        formset = ShawFormSet(initial=initial)
+        formset = GenericFormSet(initial=initial)
     
     return render_to_response('entry/detail.html', {
         'task': task,
