@@ -13,13 +13,13 @@ from website.apps.entry.views import decode_checkpoint
 
 from website.apps.entry.tests import DataMixin
 
-class Test_FranklinView(DataMixin):
+class Test_ShawView(DataMixin):
     """Tests the Detail Page's Checkpointing"""
 
     def setUp(self):
-        super(Test_FranklinView, self).setUp()
+        super(Test_ShawView, self).setUp()
         self.task.language = self.lang
-        self.task.view = "FranklinView"
+        self.task.view = "ShawView"
         self.task.records = 100
         self.task.save()
         self.word.word = 'man'
@@ -46,22 +46,24 @@ class Test_FranklinView(DataMixin):
         Word.objects.create(id=18, word="belly", slug="belly", editor=self.editor)
         Word.objects.create(id=19, word="leg", slug="leg", editor=self.editor)
         Word.objects.create(id=20, word="knee", slug="knee", editor=self.editor)
+
         Word.objects.create(id=21, word="skin", slug="skin", editor=self.editor)
         Word.objects.create(id=22, word="blood", slug="blood", editor=self.editor)
         Word.objects.create(id=23, word="fat", slug="fat", editor=self.editor)
         Word.objects.create(id=24, word="bone", slug="bone", editor=self.editor)
-        Word.objects.create(id=25, word="heart", slug="heart", editor=self.editor)
-        Word.objects.create(id=26, word="liver", slug="liver", editor=self.editor)
+        Word.objects.create(id=25, word="back", slug="back", editor=self.editor)
+        Word.objects.create(id=26, word="shoulder", slug="shoulder", editor=self.editor)
         Word.objects.create(id=27, word="sun", slug="sun", editor=self.editor)
         Word.objects.create(id=28, word="moon", slug="moon", editor=self.editor)
         Word.objects.create(id=29, word="star", slug="star", editor=self.editor)
         Word.objects.create(id=30, word="cloud", slug="cloud", editor=self.editor)
+
         Word.objects.create(id=31, word="rain", slug="rain", editor=self.editor)
         Word.objects.create(id=32, word="night", slug="night", editor=self.editor)
         Word.objects.create(id=33, word="water", slug="water", editor=self.editor)
         Word.objects.create(id=34, word="ground", slug="ground", editor=self.editor)
         Word.objects.create(id=35, word="stone", slug="stone", editor=self.editor)
-        Word.objects.create(id=36, word="sand", slug="sand", editor=self.editor)
+        Word.objects.create(id=36, word="pig", slug="pig", editor=self.editor)
         Word.objects.create(id=37, word="mountain", slug="mountain", editor=self.editor)
         Word.objects.create(id=38, word="fire", slug="fire", editor=self.editor)
         Word.objects.create(id=39, word="smoke", slug="smoke", editor=self.editor)
@@ -75,6 +77,7 @@ class Test_FranklinView(DataMixin):
         Word.objects.create(id=47, word="bird", slug="bird", editor=self.editor)
         Word.objects.create(id=48, word="feather", slug="feather", editor=self.editor)
         Word.objects.create(id=49, word="egg", slug="egg", editor=self.editor)
+
         Word.objects.create(id=50, word="fish", slug="fish", editor=self.editor)
         Word.objects.create(id=51, word="big", slug="big", editor=self.editor)
         Word.objects.create(id=52, word="small", slug="small", editor=self.editor)
@@ -90,7 +93,7 @@ class Test_FranklinView(DataMixin):
         Word.objects.create(id=62, word="full", slug="full", editor=self.editor)
         Word.objects.create(id=63, word="new", slug="new", editor=self.editor)
         Word.objects.create(id=64, word="to-eat", slug="to-eat", editor=self.editor)
-        Word.objects.create(id=65, word="to-drink", slug="to-drink", editor=self.editor)
+        Word.objects.create(id=65, word="cassowary", slug="cassowary", editor=self.editor)
         Word.objects.create(id=66, word="to-stand", slug="to-stand", editor=self.editor)
         Word.objects.create(id=67, word="to-sit", slug="to-sit", editor=self.editor)
         Word.objects.create(id=68, word="to-speak", slug="to-speak", editor=self.editor)
@@ -105,7 +108,7 @@ class Test_FranklinView(DataMixin):
         Word.objects.create(id=77, word="to-fly", slug="to-fly", editor=self.editor)
         Word.objects.create(id=78, word="to-bite", slug="to-bite", editor=self.editor)
         Word.objects.create(id=79, word="name", slug="name", editor=self.editor)
-        Word.objects.create(id=80, word="dry", slug="dry", editor=self.editor)
+        Word.objects.create(id=80, word="wing", slug="wing", editor=self.editor)
         Word.objects.create(id=81, word="who", slug="who", editor=self.editor)
         Word.objects.create(id=82, word="what", slug="what", editor=self.editor)
         Word.objects.create(id=83, word="to-burn", slug="to-burn", editor=self.editor)
@@ -120,12 +123,12 @@ class Test_FranklinView(DataMixin):
         Word.objects.create(id=92, word="not", slug="not", editor=self.editor)
         Word.objects.create(id=93, word="leaf", slug="leaf", editor=self.editor)
         Word.objects.create(id=94, word="meat", slug="meat", editor=self.editor)
-        Word.objects.create(id=95, word="horn", slug="horn", editor=self.editor)
+        Word.objects.create(id=95, word="banana", slug="banana", editor=self.editor)
         Word.objects.create(id=96, word="claw", slug="claw", editor=self.editor)
-        Word.objects.create(id=97, word="person", slug="person", editor=self.editor)
+        Word.objects.create(id=97, word="father", slug="father", editor=self.editor)
         Word.objects.create(id=98, word="seed", slug="seed", editor=self.editor)
-        Word.objects.create(id=99, word="round", slug="round", editor=self.editor)
-        Word.objects.create(id=100, word="to-die", slug="to-die", editor=self.editor)
+        Word.objects.create(id=99, word="mother", slug="mother", editor=self.editor)
+        Word.objects.create(id=100, word="string bag", slug="string bag", editor=self.editor)
         
         #go through and set to slug + something
         self.form_data = {
