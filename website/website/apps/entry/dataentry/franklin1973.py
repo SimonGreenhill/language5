@@ -34,7 +34,7 @@ FranklinFormSet = formset_factory(FranklinForm, extra=0)
 @login_required()
 def FranklinView(request, task):
     """Data Entry Task for Franklin 1973"""
-    template_name = "entry/formtemplates/franklin.html"
+    template_name = "entry/formtemplates/word_entry_annotation.html"
     
     # Note - put this here, it'll only get instantiated once this view is called.
     WORDS = {
