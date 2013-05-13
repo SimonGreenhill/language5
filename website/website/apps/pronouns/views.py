@@ -93,8 +93,6 @@ def edit_relationships(request, paradigm_id):
         f.fields['pronoun1'].queryset = q
         f.fields['pronoun2'].queryset = q
     
-    import IPython; IPython.embed()
-    
     if relationship_form.is_valid():
         instances = relationship_form.save(commit=False)
         for obj in instances:
