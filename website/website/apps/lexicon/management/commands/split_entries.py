@@ -38,6 +38,7 @@ class Command(BaseCommand):
         elif ',' in obj.entry:
             components = obj.entry.split(",")
         for c in components:
+            c = c.strip()
             assert len(c) > 0, "Unable to split properly - zero length component"
             self._print("Splitting: %s -> %s" % (obj.entry, c))
             Lexicon.objects.create(

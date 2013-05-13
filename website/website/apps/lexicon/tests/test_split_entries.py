@@ -132,3 +132,25 @@ class Test_Split_Entries(HygieneDataMixin):
         with self.assertRaises(Lexicon.DoesNotExist):
             assert Lexicon.objects.get(pk=self.combined['comma'].pk)
         
+    
+    def test_split_and_replace_with_space(self):
+        cmd = split_entries.Command()
+        o = Lexicon.objects.create(
+            language=self.lang, 
+            word=self.word,
+            source=self.source,
+            editor=self.editor,
+            entry="i have/ a space"
+        ) 
+        cmd.split_and_replace(o)
+        one = Lexicon.objects.filter(entry="i have")
+        two = Lexicon.objects.filter(entry="a space")
+        
+        assert len(one) == len(two) == 1
+        one, two = one[0], two[0]
+
+        assert one.language == two.language == o.language
+        assert one.editor == two.editor == o.editor
+        assert one.source == two.source == o.source
+        assert one.word == two.word == o.word
+    
