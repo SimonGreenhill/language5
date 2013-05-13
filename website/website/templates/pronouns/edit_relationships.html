@@ -44,6 +44,49 @@
         
     <h3> Relationships: </h3>
     
+    <!-- RULE TABLE -->
+    <div>
+        <form action="{% url "pronouns:process_rule" paradigm.id %}" method="post" class="form-inline">
+            {% csrf_token %}
+            <table id="rule" class="table table-bordered table-condensed">
+                <thead>
+                    <th> </th>
+                    <th> Person </th>
+                    <th> Number </th>
+                    <th> Gender </th>
+                    <th> Alignment </th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th> Set These: </th>
+                        <td> {{ rule_form.person_one }} </td>
+                        <td> {{ rule_form.number_one }} </td>
+                        <td> {{ rule_form.gender_one }} </td>
+                        <td> {{ rule_form.alignment_one }} </td>
+                    </tr>
+                    <tr>
+                        <th> To Be: </th>
+                        <td colspan="4"> {{ rule_form.relationship }} </td>
+                    </tr>
+                    <tr>
+                        <th> To These: </th>
+                        <td> {{ rule_form.person_two }} </td>
+                        <td> {{ rule_form.number_two }} </td>
+                        <td> {{ rule_form.gender_two }} </td>
+                        <td> {{ rule_form.alignment_two }} </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            <button type="submit" class="btn "><i class="icon-ok"></i> Process Rule </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    
+    <!-- RELATIONSHIP TABLE -->
+    
     <form action="{% url "pronouns:edit_relationships" paradigm.id %}" method="post" class="form-inline">
         {% csrf_token %}
         {{ relationships.management_form }}
@@ -55,7 +98,7 @@
                     <thead>
                         <tr>
                             {% for field in form.visible_fields %}
-                                <th> {{ field.label_tag }}
+                                <th> {{ field.label_tag }} </th>
                             {% endfor %}
                         </tr>
                     </thead>

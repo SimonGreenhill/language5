@@ -577,4 +577,16 @@ class Relationship(TrackedModel):
     class Meta:
         db_table = 'pronoun_relationships'
         
+
+class Rule(TrackedModel):
+    """Pronoun Relationship Rules"""
+    paradigm = models.ForeignKey('Paradigm')
+    rule = models.CharField(max_length=64)
+
+    def __unicode__(self):
+        return '<Rule: %d-%s>' % (self.paradigm, self.rule)
+
+    class Meta:
+        db_table = 'pronoun_rules'
+
         

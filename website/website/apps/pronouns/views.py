@@ -2,16 +2,13 @@ from django.http import Http404
 from django.shortcuts import render, redirect, render_to_response, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
-from django.template.defaultfilters import slugify
-from django.utils.functional import curry
 
 from website.apps.core.models import Family, Language, Source
 from website.apps.pronouns.models import Paradigm, Pronoun, Relationship
 from website.apps.pronouns.tables import ParadigmIndexTable, PronounTable, PronounRelationshipTable
 
 from website.apps.pronouns.forms import ParadigmForm, RelationshipFormSet
-from website.apps.pronouns.forms import PronounFormSet
-
+from website.apps.pronouns.forms import PronounFormSet, RuleForm
 
 from website.apps.pronouns.tools import add_pronoun_ordering, add_pronoun_table
 
@@ -106,5 +103,10 @@ def edit_relationships(request, paradigm_id):
         'source': p.source,
         'pronoun_rows': add_pronoun_table(p.pronoun_set.all()),
         'relationships': relationship_form,
+        'rule_form': RuleForm(),
     }, context_instance=RequestContext(request))
 
+
+@login_required()
+def process_rule(request, paradigm_id):
+    pass

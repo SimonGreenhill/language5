@@ -56,3 +56,40 @@ class RelationshipForm(forms.ModelForm):
 
 RelationshipFormSet = inlineformset_factory(Paradigm, Relationship,
                             can_delete=True, extra=1, form=RelationshipForm)
+
+
+# Prepend --- to these choice fields for the RuleForm.
+alignment_choices = [("---", "-")]
+alignment_choices.extend(Pronoun.ALIGNMENT_CHOICES)
+person_choices = [("---", "-")]
+person_choices.extend(Pronoun.PERSON_CHOICES)
+number_choices = [("---", "-")]
+number_choices.extend(Pronoun.NUMBER_CHOICES)
+gender_choices = [("---", "-")]
+gender_choices.extend(Pronoun.GENDER_CHOICES)
+relationship_choices = [("---", "-")]
+relationship_choices.extend(Relationship.RELATIONSHIP_CHOICES)
+
+class RuleForm(forms.Form):
+    alignment_one = forms.ChoiceField(alignment_choices)
+    person_one = forms.ChoiceField(person_choices)
+    number_one = forms.ChoiceField(number_choices)
+    gender_one = forms.ChoiceField(gender_choices)
+    relationship = forms.ChoiceField(relationship_choices)
+    alignment_two = forms.ChoiceField(alignment_choices)
+    person_two = forms.ChoiceField(person_choices)
+    number_two = forms.ChoiceField(number_choices)
+    gender_two = forms.ChoiceField(gender_choices)
+    
+    class Meta:
+        widgets = {
+            'alignment_one': forms.widgets.Select(attrs={'class': 'input-tiny'}),
+            'person_one': forms.widgets.Select(attrs={'class': 'input-small'}),
+            'number_one': forms.widgets.Select(attrs={'class': 'input-small'}),
+            'gender_one': forms.widgets.Select(attrs={'class': 'input-small'}),
+            'alignment_two': forms.widgets.Select(attrs={'class': 'input-small'}),
+            'person_two': forms.widgets.Select(attrs={'class': 'input-small'}),
+            'number_two': forms.widgets.Select(attrs={'class': 'input-small'}),
+            'gender_two': forms.widgets.Select(attrs={'class': 'input-small'}),
+        }
+
