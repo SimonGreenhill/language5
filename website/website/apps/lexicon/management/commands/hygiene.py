@@ -64,7 +64,7 @@ class Command(BaseCommand):
         for obj in empties:
             self._print('Empty: %d - %s' % (obj.id, obj.entry))
         for obj in duplicates:
-            self._print('Duplicate: %d - %s' % (obj.id, obj.entry))
+            self._print('Duplicate: %d - %s, %s = %s' % (obj.id, obj.language, obj.word, obj.entry))
         
         if 'delete' in options and options['delete']:
             self.delete(empties)
