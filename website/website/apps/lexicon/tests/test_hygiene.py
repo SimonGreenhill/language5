@@ -108,3 +108,30 @@ class Test_Empty(HygieneDataMixin):
         assert Lexicon.objects.get(pk=self.good1.pk)
         assert Lexicon.objects.get(pk=self.good2.pk)
         
+
+class Test_Duplicates(HygieneDataMixin):
+    """Tests the hygiene management command - find-duplicates"""
+    
+    def test_find_duplicates(self):
+        dupe1 = Lexicon.objects.create(
+                language=self.good1.language, 
+                word=self.good1.word,
+                source=self.good1.source,
+                editor=self.good1.editor,
+                entry=self.good1.entry
+        )
+        
+        cmd = hygiene.Command()
+        dupes = cmd.find_duplicates()
+        assert len(dupes) == 1
+        assert dupes[0].id == dupe1.id
+       
+    def test_not_duplicate_if_different_word(self):
+        pass
+    
+    def test_not_duplicate_if_different_source(self):
+        pass
+        
+    def test_not_duplicate_if_different_language(self):
+        pass
+        
