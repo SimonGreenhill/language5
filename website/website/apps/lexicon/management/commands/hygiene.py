@@ -59,8 +59,13 @@ class Command(BaseCommand):
             
     def handle(self, *args, **options):
         empties = self.find_empty()
+        duplicates = self.find_duplicates()
+        
         for obj in empties:
             self._print('Empty: %d - %s' % (obj.id, obj.entry))
+        for obj in duplicates:
+            self._print('Duplicate: %d - %s' % (obj.id, obj.entry))
         
         if 'delete' in options and options['delete']:
             self.delete(empties)
+            self.delete(duplicates)

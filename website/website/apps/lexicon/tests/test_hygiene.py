@@ -120,7 +120,22 @@ class Test_Duplicates(HygieneDataMixin):
         dupes = cmd.find_duplicates()
         assert len(dupes) == 1
         assert dupes[0].id == dupe1.id
-       
+    
+    def test_delete_duplicates(self):
+        dupe1 = Lexicon.objects.create(
+                language=self.good1.language, 
+                word=self.good1.word,
+                source=self.good1.source,
+                editor=self.good1.editor,
+                entry=self.good1.entry
+        )
+        
+        cmd = hygiene.Command()
+        cmd.handle([], delete=True)
+        assert len(Lexicon.objects.all()) == 2, "Expected 2 got: %d" % len(Lexicon.objects.all())
+        assert Lexicon.objects.get(pk=self.good1.pk)
+        assert Lexicon.objects.get(pk=self.good2.pk)
+      
     def test_not_duplicate_if_different_word(self):
         pass
     
