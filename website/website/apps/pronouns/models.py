@@ -553,7 +553,22 @@ class Pronoun(TrackedModel):
     class Meta:
         db_table = 'pronouns'
         
-        
+
+class PronounRelationshipManager(models.Manager):
+    def get_relationships_for_pronoun(self, pronoun):
+        return self.filter(models.Q(pronoun1=pronoun) | models.Q(pronoun2=pronoun))
+    
+    def has_relationship_between(self, pronoun1, pronoun2): 
+        qset = self.filter(
+            models.Q(pronoun1=pronoun1) & models.Q(pronoun2=pronoun2) | 
+            models.Q(pronoun1=pronoun2) & models.Q(pronoun2=pronoun1)
+        )
+        if len(qset) == 0:
+            return False
+        else:
+            return qset
+
+
 class Relationship(TrackedModel):
     """Relationships Data"""
     RELATIONSHIP_CHOICES = (
@@ -570,6 +585,8 @@ class Relationship(TrackedModel):
         default=None, blank=True, null=True, help_text="Relationship")
     comment = models.TextField(blank=True, null=True,
         help_text="Comment on this paradigm")
+    
+    objects = PronounRelationshipManager()
     
     def __unicode__(self):
         return '<Relationship: %s-%s>' % (self.pronoun1.form, self.pronoun2.form)

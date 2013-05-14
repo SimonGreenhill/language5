@@ -125,18 +125,15 @@ def process_rule(request, paradigm_id):
                 rule="Setting Identicals to show Total Syncretism",
                 editor=request.user
             )
-            for i,j in idents:
+            for p1, p2 in idents:
+                
                 # # Ignore anything we've already set
-                # if Relationship.objects.filter(Q(pronoun1=i) | Q(pronoun2=j)).count() > 0:
-                #     pass
-                # elif Relationship.objects.filter(Q(pronoun1=j) | Q(pronoun2=i)).count() > 0:
-                #     pass
-                # else:
-                rel = Relationship.objects.create(
-                    paradigm = p, pronoun1=i, pronoun2=j, relationship='TS',
-                    editor=request.user
-                )
-                rule.relationships.add(rel)
+                if Relationship.objects.has_relationship_between(p1, p2) == False:
+                    rel = Relationship.objects.create(
+                        paradigm = p, pronoun1=p1, pronoun2=p2, relationship='TS',
+                        editor=request.user
+                    )
+                    rule.relationships.add(rel)
         
         return redirect('pronouns:edit_relationships', p.id)
         
