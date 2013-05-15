@@ -43,6 +43,18 @@
         </p>
     {% endif %}
     
+    {% if sources_used %}
+        <p>
+            <strong>Sources: </strong>
+            {% for source in sources_used %}
+                {% if not forloop.first %}
+                  {% if forloop.last %} &amp; {% else %}, {% endif %}
+                {% endif %}
+                <a href="{% url "source-detail" source.slug %}">{{ source }}</a>
+            {% endfor %}
+        </p>
+    {% endif %}
+    
     <p> 
         <strong>Classification:</strong> 
         {{ language.classification }}

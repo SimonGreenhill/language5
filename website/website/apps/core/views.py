@@ -96,6 +96,9 @@ def language_detail(request, language):
         # load lexicon if installed.
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
             out['lexicon_table'] = LanguageLexiconTable(my_lang.lexicon_set.all())
+            # sources used 
+            source_ids = [_['source_id'] for _ in my_lang.lexicon_set.values('source_id').distinct().all()]
+            out['sources_used'] = Source.objects.filter(pk__in=source_ids)
             
         return render(request, 'core/language_detail.html', out)
     except Language.DoesNotExist:
