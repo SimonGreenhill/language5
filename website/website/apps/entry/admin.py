@@ -45,7 +45,7 @@ class TaskLogAdmin(admin.ModelAdmin):
     date_hierarchy = 'time'
     list_display = ('person', 'time', 'page', 'message')
     list_filter = ('person', 'page',)
-    ordering = ('time',)
+    ordering = ('-time',)
 
 
 admin.site.register(Task, TaskAdmin)
