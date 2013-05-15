@@ -48,6 +48,10 @@ class Word(TrackedModel):
         else:
             return self.word
     
+    @property
+    def fullword(self): 
+        return self.__unicode__()
+    
     @models.permalink
     def get_absolute_url(self):
         return ('word-detail', [self.slug])
