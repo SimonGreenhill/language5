@@ -99,3 +99,12 @@ def find_identicals(pronouns):
                 identical.add(tuple(sorted([p1,p2])))
     return identical
     
+
+def extract_rule(ruleform):
+    rules = {'1': {}, '2': {}}
+    
+    
+    return rules
+    
+    
+    

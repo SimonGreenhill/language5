@@ -12,7 +12,7 @@ from website.apps.pronouns.forms import ParadigmForm, RelationshipFormSet
 from website.apps.pronouns.forms import PronounFormSet, RuleForm
 
 from website.apps.pronouns.tools import add_pronoun_ordering, add_pronoun_table
-from website.apps.pronouns.tools import find_identicals
+from website.apps.pronouns.tools import find_identicals, extract_rule
 
 from django_tables2 import SingleTableView
 
@@ -112,21 +112,19 @@ def edit_relationships(request, paradigm_id):
 @login_required()
 def process_rule(request, paradigm_id):
     p = get_object_or_404(Paradigm, pk=paradigm_id)
-    rule_form = RuleForm(request.POST or None)
     # do we have do_identicals? 
     if 'process_identicals' in request.POST:
         # 1. process form
-        idents = find_identicals(p.pronoun_set.all())
+        members = find_identicals(p.pronoun_set.all())
         # 2. implement rule
-        if len(idents) > 0:
+        if len(members) > 0:
             # 3. save rule to rule table.
             rule = Rule.objects.create(
                 paradigm = p,
                 rule="Setting Identicals to show Total Syncretism",
                 editor=request.user
             )
-            for p1, p2 in idents:
-                
+            for p1, p2 in members:
                 # # Ignore anything we've already set
                 if Relationship.objects.has_relationship_between(p1, p2) == False:
                     rel = Relationship.objects.create(
@@ -139,7 +137,11 @@ def process_rule(request, paradigm_id):
         
     elif 'process_rule' in request.POST:
         # 1. process form
+        rule_form = RuleForm(request.POST or None)
         # 2. implement rule
+        ruleset = extract_rule(rule_form)
+        #members = process_rule(rule_form, p.pronoun_set.all())
+        
         # 3. save rule to rule table.
         # import IPython; IPython.embed()
         pass

@@ -5,8 +5,8 @@ from django.core.urlresolvers import reverse
 
 from website.apps.core.models import Language, Source
 from website.apps.pronouns.models import Paradigm, Pronoun
-from website.apps.pronouns.tools import repr_row, find_identicals
-
+from website.apps.pronouns.tools import repr_row, find_identicals, extract_rule
+from website.apps.pronouns.forms import RuleForm
 from website.apps.pronouns.tests.test_views import DefaultSettingsMixin
 
 class Test_Tools_repr_row(DefaultSettingsMixin, TestCase):
@@ -94,3 +94,12 @@ class Test_Tools_find_identicals(DefaultSettingsMixin, TestCase):
         assert len(seen_pks) == 3
         for seen_pk in seen_pks:
             assert seen_pk in expected_pks
+            
+
+
+class Test_Tools_extract_rules(TestCase):
+    def test_one(self):
+        f = RuleForm()
+        rules = extract_rules()
+    
+        
