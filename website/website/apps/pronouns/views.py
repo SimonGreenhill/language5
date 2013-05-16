@@ -106,6 +106,7 @@ def edit_relationships(request, paradigm_id):
         'pronoun_rows': add_pronoun_table(p.pronoun_set.all()),
         'relationships': relationship_form,
         'rule_form': RuleForm(),
+        'applied_rules': p.rule_set.all(),
     }, context_instance=RequestContext(request))
 
 
@@ -121,7 +122,7 @@ def process_rule(request, paradigm_id):
             # 3. save rule to rule table.
             rule = Rule.objects.create(
                 paradigm = p,
-                rule="Setting Identicals to show Total Syncretism",
+                rule="Identical Entries set to Total Syncretism",
                 editor=request.user
             )
             for p1, p2 in members:

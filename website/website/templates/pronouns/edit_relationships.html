@@ -94,6 +94,18 @@
                 </tbody>
             </table>
         </form>
+        
+        <h4>Applied Rules:</h4>
+        
+        {% if applied_rules %}
+            <ul>
+                {% for rule in applied_rules %}
+                    <li>{{ rule.rule }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Nothing yet.</p>
+        {% endif %}
     </div>
     
     <!-- RELATIONSHIP TABLE -->
