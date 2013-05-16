@@ -8,7 +8,7 @@ from website.apps.lexicon.models import Word, WordSubset, Lexicon
 
 class WordIndexTable(DataTable):
     """Word Listing"""
-    fullword = tables.LinkColumn('word-detail', args=[A('slug')])
+    fullword = tables.LinkColumn('word-detail', args=[A('slug')], order_by=("word", "full"))
     count = tables.Column()
     
     class Meta(DataTable.Meta):

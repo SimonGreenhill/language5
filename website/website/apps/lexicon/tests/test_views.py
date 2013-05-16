@@ -53,7 +53,20 @@ class Test_WordIndex(TestSetup, TestCase):
     def test_invalid_subset_raises_404(self):
         response = self.client.get(self.url, {'subset': 'fudge'})
         self.assertEquals(response.status_code, 404)
-        
+    
+    def test_ordering_on_count(self):
+        response = self.client.get(self.url, {'sort': 'count'})
+        self.assertEquals(response.status_code, 200)
+        assert 'table' in response.context
+        self.assertEquals(len(response.context['table'].rows), 3)
+    
+    def test_ordering_on_fullword(self):
+        # just getting the words index should get all words.
+        response = self.client.get(self.url, {'sort': 'fullword'})
+        self.assertEquals(response.status_code, 200)
+        assert 'table' in response.context
+        self.assertEquals(len(response.context['table'].rows), 3)
+    
 
 class Test_WordDetail(TestSetup, TestCase):
     def test_get_all_words(self):
