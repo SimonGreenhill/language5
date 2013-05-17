@@ -43,12 +43,11 @@
     
         {% include "pronouns/template_pronoun_detail.html" %}
         
-    <!-- RELATIONSHIPS -->
-    <h3> Relationships: </h3>
-    
-    <a href="#" class="btn" onclick="$('#rule_table').toggle('100')" ><i class="icon-wrench"></i> Rules </a>
-    
+    <!-- APPLIED RULES LIST -->
+    <h3>Applied Rules:</h3>
+
     <!-- RULE SECTION -->
+    <a href="#" class="btn" onclick="$('#rule_table').toggle('100')" ><i class="icon-wrench"></i> Rules </a>
     <div id="rule_table" class="hide">
         
         <h3> Set Rules: </h3>
@@ -99,22 +98,21 @@
             </table>
         </form>
         <!-- END RULE TABLE -->
-        
-        <!-- APPLIED RULES LIST -->
-        <h4>Applied Rules:</h4>
-        
-        {% if applied_rules %}
-            <ul>
-                {% for rule in applied_rules %}
-                    <li>{{ rule.rule }}</li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>Nothing yet.</p>
-        {% endif %}
-        <!-- END APPLIED RULES LIST -->
-    </div>
-    <!-- END RULE TABLE -->
+    </div> 
+    
+    <ul>
+    {% if applied_rules %}
+            {% for rule in applied_rules %}
+                <li>{{ rule.rule }}</li>
+            {% endfor %}
+    {% else %}
+        <li>Nothing yet.</li>
+    {% endif %}
+    </ul>
+    
+    <!-- END APPLIED RULES LIST -->
+
+    <h3> Relationships: </h3>
     
     <!-- RELATIONSHIPS TABLE -->
     <form action="{% url "pronouns:edit_relationships" paradigm.id %}" method="post" class="form-inline">
