@@ -14,17 +14,6 @@ class Test_Paradigm(DefaultSettingsMixin, TestCase):
     def setUp(self):
         self.add_fixtures()
         
-    def test_create(self):
-        p = Paradigm.objects.create(language=self.lang, 
-                                    source=self.source, 
-                                    editor=self.editor,
-                                    comment="test").save()
-        del(p)
-        p = Paradigm.objects.get(pk=1)
-        assert p.language == self.lang
-        assert p.source == self.source
-        assert p.comment == 'test'
-    
     def test_prefill(self):
         p = Paradigm.objects.create(language=self.lang, 
                                     source=self.source, 

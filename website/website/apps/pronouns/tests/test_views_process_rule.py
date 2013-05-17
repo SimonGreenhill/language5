@@ -12,11 +12,6 @@ from website.apps.pronouns.tests.test_views import DefaultSettingsMixin
 class ProcessRuleMixin(DefaultSettingsMixin):
     def setUp(self):
         self.add_fixtures()
-        self.pdm = Paradigm.objects.create(language=self.lang, 
-                                    source=self.source, 
-                                    editor=self.editor,
-                                    comment="test")
-        
         self.url = reverse('pronouns:process_rule', kwargs={'paradigm_id': 1})
         self.client = Client()
         self.client.login(username='admin', password='test')

@@ -10,10 +10,6 @@ class TestFindIdenticals(DefaultSettingsMixin, TestCase):
 
     def setUp(self):
         self.add_fixtures()
-        self.pdm = Paradigm.objects.create(language=self.lang, 
-                                    source=self.source, 
-                                    editor=self.editor,
-                                    comment="test")
         
     def test_ignore_empties(self):
         ident = find_identicals(self.pdm.pronoun_set.all())

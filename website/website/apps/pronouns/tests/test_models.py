@@ -8,10 +8,6 @@ class Test_RelationshipManager_get_relationships_for_pronoun(DefaultSettingsMixi
     """Test the function get_relationships_for_pronoun on the RelationshipManager for Relationship"""
     def setUp(self):
         self.add_fixtures()
-        self.pdm = Paradigm.objects.create(language=self.lang, 
-                                    source=self.source, 
-                                    editor=self.editor,
-                                    comment="test")
     
     def test_doesnt_find_anything_if_no_relationships(self):
         for p in self.pdm.pronoun_set.all():
@@ -44,16 +40,6 @@ class Test_RelationshipManager_has_relationship_between(DefaultSettingsMixin, Te
     """Test the function has_relationship_between on the RelationshipManager for Relationship"""
     def setUp(self):
         self.add_fixtures()
-        self.pdm = Paradigm.objects.create(language=self.lang, 
-                                    source=self.source, 
-                                    editor=self.editor,
-                                    comment="test")
-
-    # def test_doesnt_find_anything_if_no_relationships(self):
-    #     for p1 in self.pdm.pronoun_set.all():
-    #         for p2 in self.pdm.pronoun_set.all():
-    #             assert len(Relationship.objects.has_relationship_between(p1, p2)) == 0
-    #             assert len(Relationship.objects.has_relationship_between(p2, p1)) == 0
     
     def test_has_relationship_for_arg1(self):
         p1, p2 = self.pdm.pronoun_set.all()[0:2]

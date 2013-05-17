@@ -10,8 +10,15 @@ class TestCopyParadigm(DefaultSettingsMixin, TestCase):
 
     def setUp(self):
         self.add_fixtures()
-        self.pdm = Paradigm.objects.create(language=self.lang, 
-                                    source=self.source, 
-                                    editor=self.editor,
-                                    comment="test")
-
+                                    
+    def test_adds_paradigm(self):
+        pass
+    
+    def test_adds_rules(self):
+        pass
+        
+    def test_adds_relationships(self):
+        pass
+    
+    def test_adds_pronouns(self):
+        pass

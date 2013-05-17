@@ -8,10 +8,6 @@ class TestReprRow(DefaultSettingsMixin, TestCase):
     
     def setUp(self):
         self.add_fixtures()
-        self.pdm = Paradigm.objects.create(language=self.lang, 
-                                    source=self.source, 
-                                    editor=self.editor,
-                                    comment="test")
     
     def test_obj(self):
         p = Pronoun.objects.create(paradigm=self.pdm, editor=self.editor,

@@ -18,9 +18,12 @@ class DefaultSettingsMixin(object):
         self.source = Source.objects.create(year=1991, author='Smith', 
                                  slug='Smith1991', reference='S2',
                                  comment='c1', editor=self.editor)
-        
+        self.pdm = Paradigm.objects.create(language=self.lang, 
+                                 source=self.source, 
+                                 editor=self.editor,
+                                 comment="test")
 
-    
+
 # Test View: Add paradigm
 class Test_AddParadigmView(DefaultSettingsMixin, TestCase):
     
