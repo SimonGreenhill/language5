@@ -1,4 +1,4 @@
-from website.apps.pronouns.models import Pronoun
+from website.apps.pronouns.models import Paradigm, Pronoun
 
 def repr_row(p):
     """Build a string representation of the given pronoun `p`"""
@@ -127,8 +127,6 @@ def extract_rule(values):
     if len(rule['two']) == 0:
         raise ValueError("No operands set for side two")
         
-    
-
     # all good, return rule.
     return rule
     
@@ -139,16 +137,43 @@ def extract_rule(values):
 def copy_paradigm(pdm, language):
     """Copies the paradigm `pdm` to a new paradigm for `language`"""
     # 1. create new paradigm
+    old = Paradigm._prefill_pronouns
+    Paradigm._prefill_pronouns = lambda x: x # Unhook prefill_pronouns!
     newpdm = Paradigm.objects.create(language=language, 
                                      source=pdm.source, 
                                      editor=pdm.editor,
                                      comment="")
     
-    # 2. loop over pronouns in pdm and COPY to newpdm
-    #for p in pronouns
+    Paradigm._prefill_pronouns = old # Reattach prefill_pronouns (YUCK)
+    
+    # 2. RULES: loop over rules in pdm and copy to newpdm
+    for obj in pdm.rule_set.all():
+        obj.pk = None # will now create new entry
+        obj.paradigm = newpdm
+        obj.save()
+    
+    # 3. PRONOUNS: loop over pronouns in pdm and COPY to newpdm
+    mapping = {} # dictionary of old pronouns -> new pronouns
+    for obj in pdm.pronoun_set.all():
+        old_pk = obj.pk
+        obj.pk = None # will now create new entry
+        obj.paradigm = newpdm
+        obj.save()
+        assert obj.pk != old_pk != None
+        mapping[old_pk] = obj
+    
+    assert pdm.pronoun_set.count() == newpdm.pronoun_set.count(), \
+        "Something went wrong - should have the same number of pronouns in both old and new paradigms"
     
     
-    # 3. loop over rules in pdm and copy to newpdm
+    # 4. RELATIONSHIPS: loop over relationships in pdm and copy to newpdm
+    for obj in pdm.relationship_set.all():
+        obj.pk = None # will now create new entry
+        obj.paradigm = newpdm
+        
+        # update pronouns
+        obj.pronoun1 = mapping[obj.pronoun1.pk]
+        obj.pronoun2 = mapping[obj.pronoun2.pk]
+        obj.save()
     
-    # 4. loop over relationships in pdm and copy to newpdm
-    
+    return newpdm
