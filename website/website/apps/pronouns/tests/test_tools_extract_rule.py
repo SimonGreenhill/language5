@@ -5,7 +5,7 @@ from website.apps.pronouns.tools import extract_rule
 from website.apps.pronouns.tests.test_views import DefaultSettingsMixin
 
 
-class Test_Tools_extract_rule(TestCase):
+class TestExtractRule(TestCase):
     
     def test_empty_fields_get_ignored(self):
         "Empty fields don't get processed"

@@ -6,7 +6,7 @@ from website.apps.pronouns.tools import find_identicals
 from website.apps.pronouns.tests.test_views import DefaultSettingsMixin
 
 
-class Test_Tools_find_identicals(DefaultSettingsMixin, TestCase):
+class TestFindIdenticals(DefaultSettingsMixin, TestCase):
 
     def setUp(self):
         self.add_fixtures()

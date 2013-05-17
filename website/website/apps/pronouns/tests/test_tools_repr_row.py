@@ -4,7 +4,7 @@ from website.apps.pronouns.models import Paradigm, Pronoun
 from website.apps.pronouns.tools import repr_row
 from website.apps.pronouns.tests.test_views import DefaultSettingsMixin
 
-class Test_Tools_repr_row(DefaultSettingsMixin, TestCase):
+class TestReprRow(DefaultSettingsMixin, TestCase):
     
     def setUp(self):
         self.add_fixtures()

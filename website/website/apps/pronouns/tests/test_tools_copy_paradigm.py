@@ -6,7 +6,7 @@ from website.apps.pronouns.tools import copy_paradigm
 from website.apps.pronouns.tests.test_views import DefaultSettingsMixin
 
 
-class Test_Tools_copy_paradigm(DefaultSettingsMixin, TestCase):
+class TestCopyParadigm(DefaultSettingsMixin, TestCase):
 
     def setUp(self):
         self.add_fixtures()
