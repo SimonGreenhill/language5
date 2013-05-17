@@ -43,13 +43,17 @@
     
         {% include "pronouns/template_pronoun_detail.html" %}
         
+    <!-- RELATIONSHIPS -->
+    <h3> Relationships: </h3>
+    
     <a href="#" class="btn" onclick="$('#rule_table').toggle('100')" ><i class="icon-wrench"></i> Rules </a>
     
-    <!-- RULE TABLE -->
+    <!-- RULE SECTION -->
     <div id="rule_table" class="hide">
         
         <h3> Set Rules: </h3>
-
+        
+        <!-- RULE TABLE -->
         <form action="{% url "pronouns:process_rule" paradigm.id %}" method="post" class="form-inline">
             {% csrf_token %}
             <table id="rule" class="table table-bordered table-condensed">
@@ -94,7 +98,9 @@
                 </tbody>
             </table>
         </form>
+        <!-- END RULE TABLE -->
         
+        <!-- APPLIED RULES LIST -->
         <h4>Applied Rules:</h4>
         
         {% if applied_rules %}
@@ -106,11 +112,11 @@
         {% else %}
             <p>Nothing yet.</p>
         {% endif %}
+        <!-- END APPLIED RULES LIST -->
     </div>
+    <!-- END RULE TABLE -->
     
-    <!-- RELATIONSHIP TABLE -->
-    <h3> Relationships: </h3>
-    
+    <!-- RELATIONSHIPS TABLE -->
     <form action="{% url "pronouns:edit_relationships" paradigm.id %}" method="post" class="form-inline">
         {% csrf_token %}
         {{ relationships.management_form }}
