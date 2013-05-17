@@ -1,6 +1,7 @@
 from website.apps.pronouns.models import Pronoun
 
 def repr_row(p):
+    """Build a string representation of the given pronoun `p`"""
     # handle objects
     if isinstance(p, Pronoun):
         if p.gender is None:
@@ -40,6 +41,10 @@ def add_pronoun_ordering(pronoun_form):
 
 
 def add_pronoun_table(pronoun_set, filter_empty_rows=True):
+    """Construct a table for the given pronoun set
+    
+    `filter_empty_rows` - leave out the rows that are empty.
+    """
     # loop over the pronouns we've been given and fill a table of the cells.
     cells = {}
     for p in pronoun_set:
@@ -82,6 +87,7 @@ def add_pronoun_table(pronoun_set, filter_empty_rows=True):
 
 
 def find_identicals(pronouns):
+    """Find identical forms in the given list of `pronouns`"""
     identical = set()
     for p1 in pronouns:
         if p1.form == '':
@@ -112,14 +118,18 @@ def extract_rule(values):
             param, subset = key.split("_")
             if param in ('gender', 'person', 'alignment', 'number'):
                 rule[subset][param] = value
-            
+    
+    # check some things
     if rule['relationship'] is None:
         raise ValueError("Must have a relationship value")
-    
     if len(rule['one']) == 0:
         raise ValueError("No operands set for side 1")
     if len(rule['two']) == 0:
         raise ValueError("No operands set for side two")
+        
+    
+
+    # all good, return rule.
     return rule
     
     

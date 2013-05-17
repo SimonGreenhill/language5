@@ -133,3 +133,17 @@ class Test_ProcessRuleView_process_rules(ProcessRuleMixin, TestCase):
             reverse('pronouns:edit_relationships', kwargs={'paradigm_id': 1}))
         # no rule should be saved
         assert len(Rule.objects.all()) == 0
+
+    def test_fails_on_invalid_rules_form_two(self):
+        response = self.client.post(self.url, {
+            'process_rule': 'true',
+            'person_one': u'999', # invalid
+            'person_two': u'12',
+            'relationship': u'FO'
+        })
+        # redirect to the edit_relationships view
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, 
+            reverse('pronouns:edit_relationships', kwargs={'paradigm_id': 1}))
+        # no rule should be saved
+        assert len(Rule.objects.all()) == 0

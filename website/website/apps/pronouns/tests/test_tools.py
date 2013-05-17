@@ -151,25 +151,5 @@ class Test_Tools_extract_rule(TestCase):
         assert rules['one'].keys() == ['person']
         assert rules['two'].keys() == ['person']
         
-    def test_bad_data(self):
-        "Empty fields don't get processed"
-        rules = extract_rule({
-            'person_one': u'9',
-            'person_two': u'12',
-            'relationship': u'FO'
-        })
-        assert rules['one'].keys() == ['person']
-        assert rules['two'].keys() == ['person']
-        assert rules['one']['person'] != u'9'
-        
-    def test_bad_relationship(self):
-        "Empty fields don't get processed"
-        rules = extract_rule({
-            'person_one': u'9',
-            'person_two': u'12',
-            'relationship': u'XX'
-        })
-        assert rules['one'].keys() == ['person']
-        assert rules['two'].keys() == ['person']
-        assert rules['relationship'] != u'XX'
+
         

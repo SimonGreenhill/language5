@@ -148,7 +148,7 @@ def process_rule(request, paradigm_id):
                 return redirect('pronouns:edit_relationships', p.id)
                 
             # members = process_rule(rule, p.pronoun_set.all())
-        
+            
             # 3. save rule to rule table.
             # rule = Rule.objects.create(
             #     paradigm = p,
