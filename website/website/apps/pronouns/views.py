@@ -126,7 +126,7 @@ def process_rule(request, paradigm_id):
                 editor=request.user
             )
             for p1, p2 in members:
-                # # Ignore anything we've already set
+                # Ignore anything we've already set
                 if Relationship.objects.has_relationship_between(p1, p2) == False:
                     rel = Relationship.objects.create(
                         paradigm = p, pronoun1=p1, pronoun2=p2, relationship='TS',
@@ -139,13 +139,32 @@ def process_rule(request, paradigm_id):
     elif 'process_rule' in request.POST:
         # 1. process form
         rule_form = RuleForm(request.POST or None)
-        # 2. implement rule
-        ruleset = extract_rule(rule_form)
-        #members = process_rule(rule_form, p.pronoun_set.all())
+        if rule_form.is_valid():
+            # 2. implement rule
+            try:
+                rule = extract_rule(ruleform.clean())
+            except ValueError:
+                # form is broken - go away.
+                return redirect('pronouns:edit_relationships', p.id)
+                
+            # members = process_rule(rule, p.pronoun_set.all())
         
-        # 3. save rule to rule table.
-        # import IPython; IPython.embed()
-        pass
+            # 3. save rule to rule table.
+            # rule = Rule.objects.create(
+            #     paradigm = p,
+            #     rule="Identical Entries set to Total Syncretism",
+            #     editor=request.user
+            # )
+            # for p1, p2 in members:
+            #     # Ignore anything we've already set
+            #     if Relationship.objects.has_relationship_between(p1, p2) == False:
+            #         rel = Relationship.objects.create(
+            #             paradigm = p, pronoun1=p1, pronoun2=p2, relationship='TS',
+            #             editor=request.user
+            #         )
+            #         rule.relationships.add(rel)
+        
+        # Note: Invalid forms are IGNORED
         return redirect('pronouns:edit_relationships', p.id)
     else:
         return redirect('pronouns:detail', p.id)

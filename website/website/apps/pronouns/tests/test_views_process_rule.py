@@ -9,7 +9,7 @@ from website.apps.pronouns.models import Paradigm, Pronoun, Rule, Relationship
 
 from website.apps.pronouns.tests.test_views import DefaultSettingsMixin
 
-class ExtraSettingsMixin(DefaultSettingsMixin):
+class ProcessRuleMixin(DefaultSettingsMixin):
     def setUp(self):
         self.add_fixtures()
         self.pdm = Paradigm.objects.create(language=self.lang, 
@@ -48,7 +48,7 @@ class ExtraSettingsMixin(DefaultSettingsMixin):
 
 
     
-class Test_ProcessRuleView_process_identicals(ExtraSettingsMixin, TestCase):
+class Test_ProcessRuleView_process_identicals(ProcessRuleMixin, TestCase):
     """Tests for first major action - processing identical items"""
     
     form_data = {
@@ -108,18 +108,28 @@ class Test_ProcessRuleView_process_identicals(ExtraSettingsMixin, TestCase):
         assert n == 3, "Expecting a total of 3 relationships, not %d" % n
 
 
-class Test_ProcessRuleView_process_rules(ExtraSettingsMixin, TestCase):
+class Test_ProcessRuleView_process_rules(ProcessRuleMixin, TestCase):
     """Tests for second major action - processing a ruleset"""
     
-    form_data = {
-        'form-TOTAL_FORMS': u'10',
-        'form-INITIAL_FORMS': u'10',
-        'form-MAX_NUM_FORMS': u'1000',
-        # 'form-0-language': self.lang.id,
-        # 'form-0-source': self.source.id,
-        # 'form-0-word': self.word.id,
-        'form-0-entry': 'simon',
-        'form-0-annotation': 'comment',
-        'process_rules': 'true',
-    }
-    
+    def test_fails_on_bad_form(self):
+        response = self.client.post(self.url, {'process_rule': 'true',})
+        # redirect to the edit_relationships view
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, 
+            reverse('pronouns:edit_relationships', kwargs={'paradigm_id': 1}))
+        # no rule should be saved
+        assert len(Rule.objects.all()) == 0
+        
+    def test_fails_on_invalid_rules_form(self):
+        response = self.client.post(self.url, {
+            'process_rule': 'true',
+            ###'person_one': u'1', # No operand in set 1
+            'person_two': u'12',
+            'relationship': u'FO'
+        })
+        # redirect to the edit_relationships view
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, 
+            reverse('pronouns:edit_relationships', kwargs={'paradigm_id': 1}))
+        # no rule should be saved
+        assert len(Rule.objects.all()) == 0

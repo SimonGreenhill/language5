@@ -97,9 +97,79 @@ class Test_Tools_find_identicals(DefaultSettingsMixin, TestCase):
             
 
 
-class Test_Tools_extract_rules(TestCase):
-    def test_one(self):
-        f = RuleForm()
-        rules = extract_rules()
+class Test_Tools_extract_rule(TestCase):
     
+    def test_empty_fields_get_ignored(self):
+        "Empty fields don't get processed"
+        rules = extract_rule({
+            'alignment_one': u'---',
+            'alignment_two': u'---',
+            'gender_one': u'---',
+            'gender_two': u'---',
+            'number_one': u'---',
+            'number_two': u'---',
+            'person_one': u'1',
+            'person_two': u'12',
+            'relationship': u'FO'
+        })
+        assert rules['one'].keys() == ['person']
+        assert rules['two'].keys() == ['person']
+
+    def test_error_on_no_relationship_value(self):
+        "ValueError on no relationship value"
+        with self.assertRaises(ValueError):
+            rules = extract_rule({
+                'person_one': u'1',
+                'person_two': u'12',
+            })
+        
+    def test_error_on_no_operand_one(self):
+        "ValueError on no operand (i.e. nothing in rule[1] or rule[2])"
+        with self.assertRaises(ValueError):
+            rules = extract_rule({
+                'person_two': u'12',
+                'relationship': u'---'
+            })
+        
+    def test_error_on_no_operand_two(self):
+        "ValueError on no operand (i.e. nothing in rule[1] or rule[2])"
+        with self.assertRaises(ValueError):
+            rules = extract_rule({
+                'person_one': u'12',
+                'relationship': u'---'
+            })
+    
+    def test_ignore_extra_fields(self):
+        "Empty Ignore Irrelevant Fields"
+        rules = extract_rule({
+            'fudge_one': u'1',
+            'fudge_two': u'2',
+            'person_one': u'1',
+            'person_two': u'12',
+            'relationship': u'FO'
+        })
+        assert rules['one'].keys() == ['person']
+        assert rules['two'].keys() == ['person']
+        
+    def test_bad_data(self):
+        "Empty fields don't get processed"
+        rules = extract_rule({
+            'person_one': u'9',
+            'person_two': u'12',
+            'relationship': u'FO'
+        })
+        assert rules['one'].keys() == ['person']
+        assert rules['two'].keys() == ['person']
+        assert rules['one']['person'] != u'9'
+        
+    def test_bad_relationship(self):
+        "Empty fields don't get processed"
+        rules = extract_rule({
+            'person_one': u'9',
+            'person_two': u'12',
+            'relationship': u'XX'
+        })
+        assert rules['one'].keys() == ['person']
+        assert rules['two'].keys() == ['person']
+        assert rules['relationship'] != u'XX'
         

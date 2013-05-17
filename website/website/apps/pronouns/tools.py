@@ -100,11 +100,27 @@ def find_identicals(pronouns):
     return identical
     
 
-def extract_rule(ruleform):
-    rules = {'1': {}, '2': {}}
+def extract_rule(values):
+    rule = {'one': {}, 'two': {}, 'relationship': None}
+    for key, value in values.items():
+        if value == '---':
+            # ignore empty
+            continue
+        elif key == 'relationship':
+            rule['relationship'] = value
+        else:
+            param, subset = key.split("_")
+            if param in ('gender', 'person', 'alignment', 'number'):
+                rule[subset][param] = value
+            
+    if rule['relationship'] is None:
+        raise ValueError("Must have a relationship value")
     
-    
-    return rules
+    if len(rule['one']) == 0:
+        raise ValueError("No operands set for side 1")
+    if len(rule['two']) == 0:
+        raise ValueError("No operands set for side two")
+    return rule
     
     
     
