@@ -133,4 +133,22 @@ def extract_rule(values):
     return rule
     
     
+
+
+
+def copy_paradigm(pdm, language):
+    """Copies the paradigm `pdm` to a new paradigm for `language`"""
+    # 1. create new paradigm
+    newpdm = Paradigm.objects.create(language=language, 
+                                     source=pdm.source, 
+                                     editor=pdm.editor,
+                                     comment="")
+    
+    # 2. loop over pronouns in pdm and COPY to newpdm
+    #for p in pronouns
+    
+    
+    # 3. loop over rules in pdm and copy to newpdm
+    
+    # 4. loop over relationships in pdm and copy to newpdm
     
