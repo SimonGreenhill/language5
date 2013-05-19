@@ -1,5 +1,11 @@
 from django.db import models
 
+class StatisticManager(models.Manager):
+    def get_all(self, label):
+        return self.filter(label=label).values_list('value', flat=True).order_by('date')
+
+
+
 class StatisticalValue(models.Model):
     """Stores Statistical information"""
     date = models.DateTimeField(auto_now_add=True, db_index=True)
@@ -9,9 +15,10 @@ class StatisticalValue(models.Model):
     field = models.CharField(max_length=32)
     value = models.FloatField()
     
+    objects = StatisticManager()
+    
     def __unicode__(self):
         return "%s = %s" % (self.label, self.value)
     
     class Meta:
         db_table = 'statistics'
-

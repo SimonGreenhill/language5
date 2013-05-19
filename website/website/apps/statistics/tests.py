@@ -52,4 +52,27 @@ class StatisticTest(TestCase):
         assert StatisticalValue.objects.filter(label="NLang")[0].value == 2
         assert StatisticalValue.objects.filter(label="NFam")[0].value == 1
         assert StatisticalValue.objects.filter(label="NSource")[0].value == 0
-        
+    
+    def test_get_all(self):
+        """Tests the manager method .get_all"""
+        self.statistic.update()
+        # note the list comprehension is because .values_list returns a 
+        # django.db.models.query.ValuesListQuerySet which is not a normal list
+        assert [_ for _ in StatisticalValue.objects.get_all("NFam")] == [1.0]
+        assert [_ for _ in StatisticalValue.objects.get_all("NLang")] == [2.0]
+    
+    def test_get_all_ordering(self):
+        """Tests the manager method .get_all ordering"""
+        # create some
+        self.statistic.update()
+        for i in range(1,3):
+            StatisticalValue.objects.create(
+                label="NLang",
+                model="what.ever",
+                method="count",
+                field="id",
+                value = (2 + i)
+            )
+        # note the list comprehension is because .values_list returns a 
+        # django.db.models.query.ValuesListQuerySet which is not a normal list
+        assert [_ for _ in StatisticalValue.objects.get_all("NLang")] == [2.0, 3.0, 4.0]
