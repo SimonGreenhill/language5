@@ -164,6 +164,26 @@ class Location(TrackedModel):
         db_table = 'locations'
 
 
+class Attachment(TrackedModel):
+    """Attachments Details"""
+    language = models.ForeignKey('Language')
+    source = models.ForeignKey('Source')
+    details = models.CharField(max_length="32", null=True, blank=True,
+        help_text="Extra details e.g. page number")
+    file = models.FileField(upload_to='data/%Y-%m/',
+        help_text="The Resource File (PDF)", null=True, blank=True)
+        
+    def __unicode__(self):
+        return self.file.name
+    
+    @models.permalink
+    def get_absolute_url(self):
+        return self.file.url
+        
+    class Meta:
+        db_table = 'attachments'
+
+
 statistic.register("Number of Families", Family)
 statistic.register("Number of Languages", Language)
 statistic.register("Number of Sources", Source)
@@ -171,3 +191,4 @@ statistic.register("Number of Notes", Note)
 statistic.register("Number of Alternate Names", AlternateName)
 statistic.register("Number of Locations", Location)
 statistic.register("Number of Links", Link)
+statistic.register("Number of Files", Attachment)

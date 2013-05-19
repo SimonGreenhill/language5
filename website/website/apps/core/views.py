@@ -59,6 +59,7 @@ class SourceDetail(DetailView):
     
     def get_context_data(self, **kwargs):
         context = super(SourceDetail, self).get_context_data(**kwargs)
+        context['attachments'] = kwargs['object'].attachment_set.all()
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
             context['lexicon_table'] = SourceLexiconTable(kwargs['object'].lexicon_set.all())
         return context
@@ -91,8 +92,8 @@ def language_detail(request, language):
             'language': my_lang,
             'alternatenames': my_lang.alternatename_set.all(),
             'links': my_lang.link_set.all(),
+            'attachments': my_lang.attachment_set.all(),
         }
-        
         # load lexicon if installed.
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
             out['lexicon_table'] = LanguageLexiconTable(my_lang.lexicon_set.select_related().all())
