@@ -9,7 +9,8 @@ django-secure                                               # security
 django-discover-runner                                      # better test runner
 django-tables2                                              # better table handling
 django-dbbackup                                             # database & media backup
-simples3                                                    # Amazon S3
+simples3                                                    # Amazon S3 for backup
+django-nvd3                                                 # for graphing statistics
 # searching:
 -e git://github.com/etianen/django-watson.git#egg=django-watson
 

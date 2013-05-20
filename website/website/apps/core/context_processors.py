@@ -10,4 +10,5 @@ def InjectSettings(context):
         'SITE_NAME': site.name,
         'SITE_DOMAIN': site.domain,
         'SITE_DESCRIPTION': getattr(settings, 'SITE_DESCRIPTION', ""),
+        'PIWIK_ID': getattr(settings, 'PIWIK_ID', ""),
     }
