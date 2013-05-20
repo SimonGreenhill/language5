@@ -75,6 +75,7 @@ urlpatterns = patterns('',
     # ------------------------------------------------------------------------ #
     # search page
     url(r"^search/", include('watson.urls', namespace='watson')),
+    url(r"^statistics/", include('website.apps.statistics.urls', namespace='statistics')),
     
     # Sitemap
     (r'^sitemap\.xml$', 
