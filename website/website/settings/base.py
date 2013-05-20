@@ -165,6 +165,7 @@ INSTALLED_APPS = [
     # website
     'website.apps.core',                 # core functionality
     'website.apps.statistics',           # statistics
+    'django_nvd3',                       # for graphing statistics
     # NOTE: all other apps should be added to local.py
     # INSTALLED_APPS.append('website.apps.lexicon')   # Lexicon
     # INSTALLED_APPS.append('website.apps.olac')      # OLAC utils
@@ -234,6 +235,8 @@ OLAC_SETTINGS = {
 # cache the ``robots.txt`` for 24 hours (86400 seconds).
 ROBOTS_CACHE_TIMEOUT = 60*60*24
 
+# Set PIWIK ID
+PIWIK_ID = 1
 
 DBBACKUP_STORAGE = 'dbbackup.storage.s3_storage'
 DBBACKUP_S3_BUCKET = 'sjg-transnewguinea.org'
