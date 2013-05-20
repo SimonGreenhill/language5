@@ -61,7 +61,7 @@ class SourceDetail(DetailView):
         context = super(SourceDetail, self).get_context_data(**kwargs)
         context['attachments'] = kwargs['object'].attachment_set.all()
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
-            context['lexicon_table'] = SourceLexiconTable(kwargs['object'].lexicon_set.all())
+            context['lexicon_table'] = SourceLexiconTable(kwargs['object'].lexicon_set.select_related().all())
         return context
     
 
