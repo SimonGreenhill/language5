@@ -26,19 +26,30 @@
       </li>
     </ul>
     
-    
     <h2>Information:</h2>
     
-    <p>
-        <strong>ISO 639:</strong>
-        {{ language.isocode }}
-    </p>
+    <p><strong>ISO 639:</strong>{{ language.isocode }}</p>
     
     {% if alternatenames %}
         <p>
             <strong>Also Known As: </strong>
             {% for name in alternatenames %}
+                {% if not forloop.first %}
+                  {% if forloop.last %} &amp; {% else %}, {% endif %}
+                {% endif %}
                 {{ name.name }}
+            {% endfor %}
+        </p>
+    {% endif %}
+    
+    {% if sources_used %}
+        <p>
+            <strong>Sources: </strong>
+            {% for source in sources_used %}
+                {% if not forloop.first %}
+                  {% if forloop.last %} &amp; {% else %}, {% endif %}
+                {% endif %}
+                <a href="{% url "source-detail" source.slug %}">{{ source }}</a>
             {% endfor %}
         </p>
     {% endif %}
@@ -71,8 +82,17 @@
     
 
     
-    {% ifinstalled "website.apps.lexicon" %}
+    {% if attachments %}
+        <h2> Files: </h2>
         
+        <ul>
+        {% for f in attachments %}
+            <li> <a href="{{ f.file.url }}" alt="{{ f.file.name }}">{{ f.source }} {{ f.details }}</a> </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    
+    {% ifinstalled "website.apps.lexicon" %}
         <h2> Lexicon: </h2>
         
         {% if lexicon_table %}
@@ -80,8 +100,6 @@
         {% else %}
             <p class="error">No results found!</p>
         {% endif %}
-    
     {% endifinstalled %}
-    
     
 {% endblock %}

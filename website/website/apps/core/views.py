@@ -17,8 +17,14 @@ class LanguageIndex(SingleTableView):
     table_class = LanguageIndexTable
     table_pagination = {"per_page": 50}
     order_by_field = 'language'
-
-
+    
+    def get_queryset(self):
+        if 'website.apps.lexicon' in settings.INSTALLED_APPS:
+            return Language.objects.annotate(count=Count('lexicon')).all()
+        else:
+            return Language.objects.all()
+    
+    
 class SourceIndex(SingleTableView):
     """Source Index"""
     model = Source
@@ -26,6 +32,12 @@ class SourceIndex(SingleTableView):
     table_class = SourceIndexTable
     table_pagination = {"per_page": 50}
     order_by_field = 'slug'
+    
+    def get_queryset(self):
+        if 'website.apps.lexicon' in settings.INSTALLED_APPS:
+            return Source.objects.annotate(count=Count('lexicon')).all()
+        else:
+            return Source.objects.all()
 
 
 class FamilyIndex(SingleTableView):
@@ -47,6 +59,7 @@ class SourceDetail(DetailView):
     
     def get_context_data(self, **kwargs):
         context = super(SourceDetail, self).get_context_data(**kwargs)
+        context['attachments'] = kwargs['object'].attachment_set.all()
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
             context['lexicon_table'] = SourceLexiconTable(kwargs['object'].lexicon_set.all())
         return context
@@ -79,11 +92,11 @@ def language_detail(request, language):
             'language': my_lang,
             'alternatenames': my_lang.alternatename_set.all(),
             'links': my_lang.link_set.all(),
+            'attachments': my_lang.attachment_set.all(),
         }
-        
         # load lexicon if installed.
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
-            out['lexicon_table'] = LanguageLexiconTable(my_lang.lexicon_set.all())
+            out['lexicon_table'] = LanguageLexiconTable(my_lang.lexicon_set.select_related().all())
         
         # load pronouns
         if 'website.apps.pronouns' in settings.INSTALLED_APPS:
@@ -95,6 +108,10 @@ def language_detail(request, language):
             except IndexError: # no paradigm
                 pass
                 
+            # sources used 
+            source_ids = [_['source_id'] for _ in my_lang.lexicon_set.values('source_id').distinct().all()]
+            out['sources_used'] = Source.objects.filter(pk__in=source_ids)
+            
         return render(request, 'core/language_detail.html', out)
     except Language.DoesNotExist:
         pass

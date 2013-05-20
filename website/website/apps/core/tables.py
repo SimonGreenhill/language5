@@ -36,11 +36,12 @@ class SourceIndexTable(DataTable):
     author = tables.LinkColumn('source-detail', args=[A('slug')])
     year = tables.LinkColumn('source-detail', args=[A('slug')])
     reference = tables.LinkColumn('source-detail', args=[A('slug')])
+    count = tables.LinkColumn('source-detail', args=[A('slug')])
     
     class Meta(DataTable.Meta):
         model = Source
         order_by = 'author' # default sorting
-        sequence = ('author', 'year', 'reference')
+        sequence = ('author', 'year', 'reference', 'count')
         exclude = ('id', 'editor', 'added', 'slug', 'comment', 'bibtex')
     Meta.attrs['summary'] = 'Table of Sources'
     
@@ -49,11 +50,12 @@ class LanguageIndexTable(DataTable):
     """Language Listing"""
     language = tables.LinkColumn('language-detail', args=[A('slug')])
     isocode = tables.LinkColumn('language-detail', args=[A('slug')])
+    count = tables.LinkColumn('source-detail', args=[A('slug')])
     
     class Meta(DataTable.Meta):
         model = Language
         order_by = 'language' # default sorting
-        sequence = ('isocode', 'language', 'classification')
+        sequence = ('language', 'isocode', 'count', 'classification')
         exclude = ('id', 'editor', 'added', 'slug', 'information')
     Meta.attrs['summary'] = 'Table of Languages'
 

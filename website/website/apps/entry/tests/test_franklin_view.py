@@ -2,8 +2,6 @@
 from django.test import TestCase
 from django.test.client import Client
 
-from django.core.urlresolvers import reverse
-
 from django.contrib.auth.models import User
 from website.apps.core.models import Source, Language
 from website.apps.lexicon.models import Word, Lexicon
