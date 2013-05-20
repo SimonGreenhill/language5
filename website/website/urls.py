@@ -51,28 +51,6 @@ urlpatterns = patterns('',
         'website.apps.core.views.iso_lookup', 
         name="iso-lookup"
     ),
-    
-    # ------------------------------------------------------------------------ #
-    # Lexicon
-    # ------------------------------------------------------------------------ #
-    
-    # Word-Index: Show all words
-    url(r'^word/$', WordIndex.as_view(), name="word-index"),
-    
-    # Word-Detail: Show the given word
-    url(r'^word/(?P<slug>.+)$', WordDetail.as_view(), name="word-detail"),
-    
-    # Subset-Detail: Show the given word subset
-    url(r'^word/\?subset=(?P<slug>.+)$', WordDetail.as_view(), name="subset-detail"),
-    
-    # ------------------------------------------------------------------------ #
-    # Data entry
-    # ------------------------------------------------------------------------ #    
-    url(r"^entry/", include('website.apps.entry.urls', namespace='entry')),
-
-    # ------------------------------------------------------------------------ #
-    # Misc
-    # ------------------------------------------------------------------------ #
     # search page
     url(r"^search/", include('watson.urls', namespace='watson')),
     url(r"^statistics/", include('website.apps.statistics.urls', namespace='statistics')),
@@ -105,6 +83,48 @@ urlpatterns = patterns('',
     url(r'^favicon\.ico$', RedirectView.as_view(url='%s/favicon.ico' % settings.STATIC_URL))
 )
 
+
+
+# ------------------------------------------------------------------------ #
+# Lexicon
+# ------------------------------------------------------------------------ #
+if 'website.apps.lexicon' in settings.INSTALLED_APPS:
+    urlpatterns += patterns("",
+        # Word-Index: Show all words
+        url(r'^word/$', WordIndex.as_view(), name="word-index"),
+    
+        # Word-Detail: Show the given word
+        url(r'^word/(?P<slug>.+)$', WordDetail.as_view(), name="word-detail"),
+    
+        # Subset-Detail: Show the given word subset
+        url(r'^word/\?subset=(?P<slug>.+)$', WordDetail.as_view(), name="subset-detail"),
+    
+    )
+
+# ------------------------------------------------------------------------ #
+# Pronouns
+# ------------------------------------------------------------------------ #
+if 'website.apps.pronouns' in settings.INSTALLED_APPS:
+    urlpatterns += patterns("",
+        url(r"^pronouns/", include('website.apps.pronouns.urls', namespace='pronouns')),
+    )
+
+# ------------------------------------------------------------------------ #
+# Data Entry
+# ------------------------------------------------------------------------ #
+if 'website.apps.entry' in settings.INSTALLED_APPS:
+    urlpatterns += patterns("",
+        url(r"^entry/", include('website.apps.entry.urls', namespace='entry')),
+    )
+
+
+    
+
+
+
+# ------------------------------------------------------------------------ #
+# Debug Media...
+# ------------------------------------------------------------------------ #
 if settings.DEBUG:
     urlpatterns += patterns('',
         (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
