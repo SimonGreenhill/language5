@@ -50,7 +50,7 @@ class LanguageIndexTable(DataTable):
     """Language Listing"""
     language = tables.LinkColumn('language-detail', args=[A('slug')])
     isocode = tables.LinkColumn('language-detail', args=[A('slug')])
-    count = tables.LinkColumn('source-detail', args=[A('slug')])
+    count = tables.LinkColumn('language-detail', args=[A('slug')])
     
     class Meta(DataTable.Meta):
         model = Language
