@@ -1,7 +1,7 @@
 from django.test import TestCase
 
 from website.apps.pronouns.models import Paradigm, Pronoun
-from website.apps.pronouns.tools import repr_row
+from website.apps.pronouns.tools import full_repr_row
 from website.apps.pronouns.tests.test_views import DefaultSettingsMixin
 
 class TestReprRow(DefaultSettingsMixin, TestCase):
@@ -12,7 +12,7 @@ class TestReprRow(DefaultSettingsMixin, TestCase):
     def test_obj(self):
         p = Pronoun.objects.create(paradigm=self.pdm, editor=self.editor,
                             number='sg', alignment="A", person="1", gender=None)
-        assert repr_row(p) == "1st (excl) Person Singular"
+        assert full_repr_row(p) == "1st (excl) Person Singular"
     
     def test_dict(self):
         d = {
@@ -21,12 +21,12 @@ class TestReprRow(DefaultSettingsMixin, TestCase):
              'person': ('1', '1st (excl) Person'),
              'gender': None,
         }
-        assert repr_row(d) == "1st (excl) Person Singular"
+        assert full_repr_row(d) == "1st (excl) Person Singular"
         
     def test_obj_no_gender(self):
         p = Pronoun.objects.create(paradigm=self.pdm, editor=self.editor,
                             number='sg', alignment="A", person="1", gender="M")
-        assert repr_row(p) == "1st (excl) Person Singular Masculine"
+        assert full_repr_row(p) == "1st (excl) Person Singular Masculine"
         
     def test_dict_no_gender(self):
         d = {
@@ -35,9 +35,9 @@ class TestReprRow(DefaultSettingsMixin, TestCase):
              'person': ('1', '1st (excl) Person'),
              'gender': ('M', 'Masculine'),
         }
-        assert repr_row(d) == "1st (excl) Person Singular Masculine"
+        assert full_repr_row(d) == "1st (excl) Person Singular Masculine"
         
     def test_no_errors(self):
         for row in Pronoun._generate_all_combinations():
-            repr_row(row)
+            full_repr_row(row)
 

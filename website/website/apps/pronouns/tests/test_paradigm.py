@@ -5,7 +5,7 @@ from django.core.urlresolvers import reverse
 
 from website.apps.core.models import Language, Source
 from website.apps.pronouns.models import Paradigm, Pronoun
-from website.apps.pronouns.tools import repr_row
+from website.apps.pronouns.tools import full_repr_row
 
 from website.apps.pronouns.tests.test_views import DefaultSettingsMixin
 

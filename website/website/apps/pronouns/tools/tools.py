@@ -1,6 +1,6 @@
 from website.apps.pronouns.models import Paradigm, Pronoun
 
-def repr_row(p):
+def full_repr_row(p):
     """Build a string representation of the given pronoun `p`"""
     # handle objects
     if isinstance(p, Pronoun):
@@ -15,11 +15,38 @@ def repr_row(p):
         else:
             return " ".join([p['person'][1], p['number'][1], p['gender'][1]])
 
+def short_repr_row(p):
+    """Builds a short string representation of the given pronoun `p`"""
+    if isinstance(p, Pronoun):
+        newp = {
+            'person': p.person,
+            'number': p.number,
+            'alignment': p.alignment,
+            'gender': p.gender,
+            'form': p.form
+        }
+    else:
+        newp = {
+            'person': p['person'][0],
+            'number': p['number'][0],
+            'alignment': p['alignment'][0],
+        }
+        if p['gender'] is not None:
+            newp['gender'] = p['gender'][0]
+        else:
+            newp['gender'] = None
+
+    if newp['gender'] is None:
+        return "%(person)s%(number)s %(alignment)s" % newp
+    else:
+        return "%(person)s%(number)s %(gender)s %(alignment)s" % newp
+
+
     
 def add_pronoun_ordering(pronoun_form):
     rows = {}
     for form in pronoun_form:
-        row = repr_row(form.instance)
+        row = full_repr_row(form.instance)
         rows[row] = rows.get(row, 
             dict(zip([x[0] for x in Pronoun.ALIGNMENT_CHOICES], [None for x in Pronoun.ALIGNMENT_CHOICES]))
         )
@@ -28,7 +55,7 @@ def add_pronoun_ordering(pronoun_form):
     pronoun_form.pronoun_rows = []
     # Sort
     for row in Pronoun._generate_all_rows():
-        wanted_label = repr_row(row)
+        wanted_label = full_repr_row(row)
         found_row = False
         for label in rows:
             if wanted_label == label:
@@ -48,7 +75,7 @@ def add_pronoun_table(pronoun_set, filter_empty_rows=True):
     # loop over the pronouns we've been given and fill a table of the cells.
     cells = {}
     for p in pronoun_set:
-        label = repr_row(p)
+        label = full_repr_row(p)
         # get row or set it to (A, None), (S, None), (O, None), (P, None)
         # i.e. empty placeholders for each different ALIGNMENT
         cells[label] = cells.get(label, 
@@ -62,7 +89,7 @@ def add_pronoun_table(pronoun_set, filter_empty_rows=True):
     pronoun_rows = []
     # Sort
     for row in Pronoun._generate_all_rows():
-        wanted_label = repr_row(row)
+        wanted_label = full_repr_row(row)
         found_row = False
         # go through each label in the cells e.g. (1st person singular...etc)
         for label in cells:
