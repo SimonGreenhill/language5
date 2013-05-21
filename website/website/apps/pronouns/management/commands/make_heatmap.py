@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 from django.core.management.base import BaseCommand
-from website.apps.pronouns.models import Paradigm, Pronoun, Distance
+from website.apps.pronouns.models import Paradigm, Pronoun
 from website.apps.pronouns.tools import short_repr_row, PronounFinder
 
 
