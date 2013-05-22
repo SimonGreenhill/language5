@@ -52,7 +52,7 @@ class Task(TrackedModel):
 
 class Wordlist(TrackedModel):
     """Wordlist for data entry tasks"""
-    name = models.CharField(max_length=255, db_index=True,
+    name = models.CharField(max_length=255, db_index=True, unique=True,
         help_text="Name of Wordlist")
     words = models.ManyToManyField('lexicon.Word', through="WordlistMember")
     
