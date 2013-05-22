@@ -12,7 +12,7 @@ WANTED_STATISTICS = [
 def get_xy(label):
     x, y = [], []
     for row in StatisticalValue.objects.get_all_with_dates(label):
-        x.append(int(mktime(row[1].timetuple())))
+        x.append(int(mktime(row[1].timetuple())) * 1000) # I have no idea why * 1000 is needed
         y.append(row[0])
     return {'x': x, 'y': y, 'name': label}
 
