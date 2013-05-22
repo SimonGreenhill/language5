@@ -24,7 +24,7 @@ name
 night
 one
 pig
-see
+to-see
 to-sit
 skin
 to-slepp
