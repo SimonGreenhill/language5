@@ -75,7 +75,7 @@ def process_post_and_save(request, task, formset):
 
 @login_required()
 def GenericView(request, task):
-    """Generic Data Entry Task"""
+    """Generic data entry task"""
     template_name = "entry/formtemplates/generic.html"
     # process form
     if request.POST:

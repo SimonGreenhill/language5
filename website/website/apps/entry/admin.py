@@ -1,6 +1,7 @@
 from django.contrib import admin
+from django.db.models import Count
 from reversion.admin import VersionAdmin
-from website.apps.entry.models import Task, TaskLog
+from website.apps.entry.models import Task, TaskLog, Wordlist
 from website.apps.core.admin import TrackedModelAdmin
 
 class CheckpointListFilter(admin.SimpleListFilter):
@@ -48,7 +49,22 @@ class TaskLogAdmin(admin.ModelAdmin):
     ordering = ('-time',)
 
 
+class TaskWordlistAdmin(TrackedModelAdmin, VersionAdmin):
+    date_hierarchy = 'added'
+    list_display = ('id', 'name', 'words_count')
+    ordering = ('name',)
+    filter_horizontal = ('words',)
+    
+    def queryset(self, request):
+        return Wordlist.objects.annotate(words_count=Count("words"))
+        
+    def words_count(self, inst):
+        return inst.words_count
+    words_count.admin_order_field = 'words_count'
+
+
 admin.site.register(Task, TaskAdmin)
 admin.site.register(TaskLog, TaskLogAdmin)
+admin.site.register(Wordlist, TaskWordlistAdmin)
 
 

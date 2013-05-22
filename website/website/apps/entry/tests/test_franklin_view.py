@@ -12,7 +12,7 @@ from website.apps.entry.views import decode_checkpoint
 from website.apps.entry.tests import DataMixin
 
 class Test_FranklinView(DataMixin):
-    """Tests the Detail Page's Checkpointing"""
+    """Tests the Franklin View"""
 
     def setUp(self):
         super(Test_FranklinView, self).setUp()

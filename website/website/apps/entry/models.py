@@ -22,6 +22,7 @@ class Task(TrackedModel):
         help_text="Name of Task")
     description = models.TextField(help_text="Task Description")
     source = models.ForeignKey('core.Source')
+    wordlist = models.ForeignKey('Wordlist', blank=True, null=True)
     language = models.ForeignKey('core.Language', blank=True, null=True)
     records = models.IntegerField(blank=True, null=True, default=20)
     view = models.CharField(default=available_views[0][0], max_length=256,
@@ -48,5 +49,18 @@ class Task(TrackedModel):
     class Meta:
         db_table = 'tasks'
 
+
+class Wordlist(TrackedModel):
+    """Wordlist for data entry tasks"""
+    name = models.CharField(max_length=255, db_index=True,
+        help_text="Name of Wordlist")
+    words = models.ManyToManyField('lexicon.Word', blank=True, null=True)
+    
+    def __unicode__(self):
+        return self.name
+    
+    class Meta:
+        db_table = 'task_wordlists'
+    
 
 statistic.register("Number of Data Entry Tasks", Task)
