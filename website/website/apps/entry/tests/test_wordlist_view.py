@@ -7,7 +7,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from website.apps.core.models import Source, Language
 from website.apps.lexicon.models import Word, Lexicon
-from website.apps.entry.models import Task, Wordlist, WordlistMembers
+from website.apps.entry.models import Task, Wordlist, WordlistMember
 from website.apps.entry.dataentry import available_views
 from website.apps.entry.views import decode_checkpoint
 

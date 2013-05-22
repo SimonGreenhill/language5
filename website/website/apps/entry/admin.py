@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.db.models import Count
 from reversion.admin import VersionAdmin
-from website.apps.entry.models import Task, TaskLog, Wordlist, WordlistMembers
+from website.apps.entry.models import Task, TaskLog, Wordlist, WordlistMember
 from website.apps.core.admin import TrackedModelAdmin
 
 class CheckpointListFilter(admin.SimpleListFilter):
