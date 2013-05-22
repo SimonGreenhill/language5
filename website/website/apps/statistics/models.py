@@ -3,7 +3,9 @@ from django.db import models
 class StatisticManager(models.Manager):
     def get_all(self, label):
         return self.filter(label=label).values_list('value', flat=True).order_by('date')
-
+    
+    def get_all_with_dates(self, label):
+        return self.filter(label=label).values_list('value', 'date').order_by('date')
 
 
 class StatisticalValue(models.Model):
