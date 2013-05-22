@@ -63,6 +63,13 @@
                       <a href="{% url "word-index" %}">Words</a>
                   </li>
                   {% endifinstalled %}
+                  
+                  {% ifinstalled "website.apps.statistics" %}
+                  <li{% active 'statistics:statistics' %}>
+                      <a href="{% url "statistics:statistics" %}">Project Statistics</a>
+                  </li>
+                  {% endifinstalled %}
+                  
                   <li class="nav-header">Search</li>
                   <li{% active 'watson:search' %}>
                       <form class="form-search" action="{% url "watson:search" %}">
