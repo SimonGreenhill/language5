@@ -16,7 +16,7 @@ def WordlistView(request, task):
     
     # Load wordlist.
     assert task.wordlist
-    words = task.wordlist.words.all()
+    words = task.wordlist.words.order_by('wordlistmember__order').all()
     
     # Set up initial data.
     initial = []
