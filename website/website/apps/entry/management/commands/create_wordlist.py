@@ -35,7 +35,7 @@ class Command(BaseCommand):
                     try:
                         w = Word.objects.get(slug=line)
                     except Word.DoesNotExist:
-                        raise Word.DoesNotExist("'%s' does not exist - create it!" % w)
+                        raise Word.DoesNotExist("'%r' does not exist - create it!" % line)
                     
                     words[order_id] = w
                     order_id += 1

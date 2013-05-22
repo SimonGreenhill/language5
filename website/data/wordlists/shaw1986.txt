@@ -1,6 +1,6 @@
 man
 woman
-I
+i
 you
 we
 all
@@ -38,7 +38,7 @@ mountain
 fire
 smoke
 ashes
-path
+road
 tree
 root
 bark
@@ -57,7 +57,7 @@ white
 black
 yellow
 green
-hot
+warm
 cold
 full
 new
@@ -69,18 +69,18 @@ to-speak
 to-walk
 to-give
 to-sleep
-to-lie-down
+to-lie
 to-see
 to-hear
 to-swim
 to-come
-flies
+to-fly
 to-bite
 name
 wing
 who
 what
-burn
+to-burn
 louse
 many
 this
@@ -97,4 +97,4 @@ claw
 father
 seed
 mother
-string bag
+string-bag
