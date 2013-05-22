@@ -40,7 +40,7 @@ class WordlistMixin(TestCase):
             self.words.append(w)
             # BUT only add the first 3 words to wordlist
             if i < 3:
-                m = WordlistMembers(wordlist=self.wordlist, word=w, order=i)
+                m = WordlistMember(wordlist=self.wordlist, word=w, order=i)
                 m.save()
                 self.words_in_wordlist.append(w)
                 

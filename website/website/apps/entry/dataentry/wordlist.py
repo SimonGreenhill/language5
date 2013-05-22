@@ -20,11 +20,13 @@ def WordlistView(request, task):
     
     # Set up initial data.
     initial = []
-    for w in words:
+    for i, w in enumerate(words, 1):
         initial.append({
             'language': task.language,
             'source': task.source,
-            'word': w
+            'word': w,
+            'order_id': i, # not used by form processing but just to show the number
+                          # of the item in HTML
         })
     
     # process form
