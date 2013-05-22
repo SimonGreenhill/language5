@@ -6,7 +6,7 @@ blood
 bone
 to-come
 dog
-eat
+to-eat
 egg
 eye
 fingernail
