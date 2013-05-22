@@ -17,13 +17,14 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'entry', ['Wordlist'])
 
-        # Adding M2M table for field words on 'Wordlist'
-        db.create_table('task_wordlists_words', (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('wordlist', models.ForeignKey(orm[u'entry.wordlist'], null=False)),
-            ('word', models.ForeignKey(orm[u'lexicon.word'], null=False))
+        # Adding model 'WordlistMembers'
+        db.create_table('task_wordlists_members', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('wordlist', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['entry.Wordlist'])),
+            ('word', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['lexicon.Word'])),
+            ('order', self.gf('django.db.models.fields.IntegerField')()),
         ))
-        db.create_unique('task_wordlists_words', ['wordlist_id', 'word_id'])
+        db.send_create_signal(u'entry', ['WordlistMembers'])
 
         # Adding field 'Task.wordlist'
         db.add_column('tasks', 'wordlist',
@@ -35,8 +36,8 @@ class Migration(SchemaMigration):
         # Deleting model 'Wordlist'
         db.delete_table('task_wordlists')
 
-        # Removing M2M table for field words on 'Wordlist'
-        db.delete_table('task_wordlists_words')
+        # Deleting model 'WordlistMembers'
+        db.delete_table('task_wordlists_members')
 
         # Deleting field 'Task.wordlist'
         db.delete_column('tasks', 'wordlist_id')
@@ -143,7 +144,14 @@ class Migration(SchemaMigration):
             'editor': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '255', 'db_index': 'True'}),
-            'words': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'to': u"orm['lexicon.Word']", 'null': 'True', 'blank': 'True'})
+            'words': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['lexicon.Word']", 'through': u"orm['entry.WordlistMembers']", 'symmetrical': 'False'})
+        },
+        u'entry.wordlistmembers': {
+            'Meta': {'ordering': "['order']", 'object_name': 'WordlistMembers', 'db_table': "'task_wordlists_members'"},
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'order': ('django.db.models.fields.IntegerField', [], {}),
+            'word': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['lexicon.Word']"}),
+            'wordlist': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['entry.Wordlist']"})
         },
         u'lexicon.word': {
             'Meta': {'object_name': 'Word', 'db_table': "'words'"},

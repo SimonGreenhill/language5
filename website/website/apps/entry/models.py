@@ -54,7 +54,7 @@ class Wordlist(TrackedModel):
     """Wordlist for data entry tasks"""
     name = models.CharField(max_length=255, db_index=True,
         help_text="Name of Wordlist")
-    words = models.ManyToManyField('lexicon.Word', blank=True, null=True)
+    words = models.ManyToManyField('lexicon.Word', through="WordlistMembers")
     
     def __unicode__(self):
         return self.name
@@ -62,5 +62,15 @@ class Wordlist(TrackedModel):
     class Meta:
         db_table = 'task_wordlists'
     
+
+class WordlistMembers(models.Model):
+    wordlist = models.ForeignKey("entry.Wordlist")
+    word = models.ForeignKey("lexicon.Word")
+    order = models.IntegerField()
+    
+    class Meta:
+        ordering = ["order",]
+        db_table = 'task_wordlists_members'
+
 
 statistic.register("Number of Data Entry Tasks", Task)

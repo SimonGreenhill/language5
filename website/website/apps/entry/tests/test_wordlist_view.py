@@ -7,7 +7,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from website.apps.core.models import Source, Language
 from website.apps.lexicon.models import Word, Lexicon
-from website.apps.entry.models import Task, Wordlist
+from website.apps.entry.models import Task, Wordlist, WordlistMembers
 from website.apps.entry.dataentry import available_views
 from website.apps.entry.views import decode_checkpoint
 
@@ -40,7 +40,8 @@ class WordlistMixin(TestCase):
             self.words.append(w)
             # BUT only add the first 3 words to wordlist
             if i < 3:
-                self.wordlist.words.add(w)
+                m = WordlistMembers(wordlist=self.wordlist, word=w, order=i)
+                m.save()
                 self.words_in_wordlist.append(w)
                 
         self.task = Task.objects.create(
