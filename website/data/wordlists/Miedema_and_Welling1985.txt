@@ -27,7 +27,7 @@ pig
 to-see
 to-sit
 skin
-to-slepp
+to-sleep
 stone
 sun
 tail
