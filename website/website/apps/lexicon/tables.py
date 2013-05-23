@@ -28,6 +28,9 @@ class WordLexiconTable(DataTable):
     annotation = tables.Column()
     loan = tables.BooleanColumn(null=False, yesno=('x', ''))
     
+    def render_language(self, record):
+        return unicode(record)
+    
     class Meta(DataTable.Meta):
         model = Lexicon
         order_by_field = 'word' # default sorting
@@ -59,6 +62,9 @@ class SourceLexiconTable(DataTable):
     entry = tables.Column()
     annotation = tables.Column()
     loan = tables.BooleanColumn(null=False, yesno=('x', ''))
+    
+    def render_language(self, record):
+        return unicode(record)
     
     class Meta(DataTable.Meta):
         model = Lexicon
