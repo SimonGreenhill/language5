@@ -112,7 +112,7 @@ class Language(TrackedModel):
         return ('language-detail', [self.slug])
     
     class Meta:
-        unique_together = ("isocode", "language")
+        unique_together = ("isocode", "language", "dialect")
         db_table = 'languages'
 
 watson.register(Language, fields=('family', 'language', 'isocode', 'classification', 'information'))
