@@ -48,15 +48,18 @@ class SourceIndexTable(DataTable):
 
 class LanguageIndexTable(DataTable):
     """Language Listing"""
-    language = tables.LinkColumn('language-detail', args=[A('slug')])
     isocode = tables.LinkColumn('language-detail', args=[A('slug')])
+    language = tables.LinkColumn('language-detail', args=[A('slug')])
     count = tables.LinkColumn('language-detail', args=[A('slug')])
     
+    def render_language(self, record):
+        return unicode(record)
+        
     class Meta(DataTable.Meta):
         model = Language
         order_by = 'language' # default sorting
-        sequence = ('language', 'isocode', 'count', 'classification')
-        exclude = ('id', 'editor', 'added', 'slug', 'information')
+        sequence = ('isocode', 'language', 'count', 'classification')
+        exclude = ('id', 'editor', 'added', 'slug', 'information', 'dialect')
     Meta.attrs['summary'] = 'Table of Languages'
 
 
