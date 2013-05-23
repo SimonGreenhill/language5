@@ -258,3 +258,40 @@ class Test_WordlistView(WordlistMixin):
             else:
                 expected_word = self.words_in_wordlist[i]
             assert lex[0].word == expected_word
+            
+    def test_wordlist_orders_not_by_id(self):
+        WL = Wordlist.objects.create(name="test2", editor=self.editor)
+        WL.save()
+        
+        words = self.words[:]
+        words.reverse()
+        assert words != self.words
+        
+        for i, w in enumerate(words, 1):
+            m = WordlistMember(wordlist=WL, word=w, order=i)
+            m.save()
+        
+        t = Task.objects.create(
+            editor=self.editor,
+            name="Test Task 2",
+            description=" ",
+            source=self.source,
+            wordlist=WL,
+            done=False,
+            view="WordlistView",
+            records=1, 
+        )
+        t.save()
+        
+        self.client.login(username="admin", password="test")
+        response = self.client.get(t.get_absolute_url())
+        self.failUnlessEqual(response.status_code, 200)
+        formdata = [f.initial for f in response.context['formset'].forms]
+                
+        # and is it correct?
+        for i in range(len(words)):
+            assert formdata[i]['order_id'] == i + 1 # ordering starts at 1 not 0
+            assert formdata[i]['word'] == words[i]
+        
+        
+        
