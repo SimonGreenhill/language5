@@ -88,7 +88,7 @@ watson.register(Family, fields=('family',))
 class Language(TrackedModel):
     """Stores language information"""
     family = models.ManyToManyField(Family, blank=True)
-    language = models.CharField(max_length=64, unique=True, db_index=True,
+    language = models.CharField(max_length=64, db_index=True,
         help_text="Language Name")
     dialect = models.CharField(max_length=64, db_index=True, null=True, blank=True,
         help_text="Dialect")
