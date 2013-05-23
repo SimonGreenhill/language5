@@ -51,4 +51,7 @@ class TestFinder(TestCase):
         # and then subtracted from 1
         # before multiplying by 0.6
         assert self.pf.compare(u'ba', u'bá') == ((1 - (1.0 / 2.0)) * SCORE_SIMILARITY_THRESHOLD)
-        
+    
+    def test_conjoint_form(self):
+        assert self.pf.compare('lima, rima', 'rima') == SCORE_IDENTITY
+    
