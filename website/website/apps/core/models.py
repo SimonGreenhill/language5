@@ -90,6 +90,8 @@ class Language(TrackedModel):
     family = models.ManyToManyField(Family, blank=True)
     language = models.CharField(max_length=64, unique=True, db_index=True,
         help_text="Language Name")
+    dialect = models.CharField(max_length=64, db_index=True, null=True, blank=True,
+        help_text="Dialect")
     slug = models.SlugField(max_length=64, unique=True,
         help_text="`Slug` for language (for use in URLS)")
     isocode = models.CharField(max_length=3, blank=True, null=True, db_index=True,
@@ -100,7 +102,10 @@ class Language(TrackedModel):
         help_text="Information about language")
     
     def __unicode__(self):
-        return self.language
+        if self.dialect:
+            return u"%s (%s Dialect)" % (self.language, self.dialect)
+        else:
+            return self.language
     
     @models.permalink
     def get_absolute_url(self):
