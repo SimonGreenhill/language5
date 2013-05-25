@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import codecs
+from django.conf import settings
 from django.db import transaction
 from django.core.management.base import BaseCommand
 
@@ -10,7 +11,11 @@ class Command(BaseCommand):
     
     @transaction.commit_manually
     def handle(self, *args, **options):
+        # set some environment variables;
+        os.environ['IMPORTER_SITEROOT'] = settings.SITE_ROOT
         for filename in args:
+            # set some environment variables;
+            os.environ['IMPORTER_FILENAME'] = filename
             filename = filename.strip()
             if not os.path.isfile(filename):
                 raise IOError('Invalid Filename %s' % filename)
