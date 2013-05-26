@@ -10,11 +10,12 @@
     
     <ul class="breadcrumb">
       <li>
-          <a href="#">Home</a> 
+          <a href="{% url "index" %}">Home</a> 
           <span class="divider">/</span>
       </li>
       <li>
           <a href="{% url "family-index" %}">Families</a>
+          <span class="divider">/</span>
       </li>
       <li class="active">
           <a href="{% url "family-detail" object.slug %}">{{ object.family }}</a>
