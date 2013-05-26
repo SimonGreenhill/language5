@@ -112,7 +112,7 @@ for langobj in LANGUAGES.values():
 
 
 # create languages
-FILEDIR = os.path.join(os.environ["IMPORTER_DATAROOT"], 'Foley1986')
+FILEDIR = os.path.join(os.environ["IMPORTER_DATAROOT"], '0005_foley1986')
 
 for filename in os.listdir(FILEDIR):
     if filename.endswith('.txt'):
