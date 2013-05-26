@@ -191,17 +191,32 @@ LOGGING = {
         }
     },
     'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        }
+        'file_logging': {
+            'level' : 'DEBUG',
+            'class' : 'logging.handlers.RotatingFileHandler',
+            'backupCount' : 5,
+            'maxBytes': 5000000,
+            'filename': 'django.log'
+            },
+        'db_logging': {
+            'level' : 'DEBUG',
+            'class' : 'logging.handlers.RotatingFileHandler',
+            'backupCount' : 5,
+            'maxBytes': 5000000,
+            'filename': 'django-db.log'
+        },
     },
+        
     'loggers': {
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': True,
+        'django' : {
+            'handlers': ['file_logging'],
+            'level' : 'DEBUG',
+            'propagate' : False,
+            },
+        'django.db' : {
+            'handlers' : ['db_logging'],
+            'level' : 'DEBUG',
+            'propagate': False,
         },
     }
 }
