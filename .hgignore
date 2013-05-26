@@ -9,3 +9,5 @@ syntax: regexp
 ^thirdparty/bootstrap/bootstrap/
 ^thirdparty/bootstrap/docs/assets/
 website/website/templates/revision.txt
+^website/django.log
+^website/django-db.log
