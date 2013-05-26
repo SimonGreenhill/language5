@@ -29,7 +29,8 @@ class WordLexiconTable(DataTable):
     loan = tables.BooleanColumn(null=False, yesno=('x', ''))
     
     def render_language(self, record):
-        return unicode(record.language)
+        col = tables.LinkColumn('language-detail', args=[record.language.slug])
+        return col.render(value=record.language, record=unicode(record.language), bound_column=None)
     
     class Meta(DataTable.Meta):
         model = Lexicon
@@ -64,7 +65,8 @@ class SourceLexiconTable(DataTable):
     loan = tables.BooleanColumn(null=False, yesno=('x', ''))
     
     def render_language(self, record):
-        return unicode(record.language)
+        col = tables.LinkColumn('language-detail', args=[record.language.slug])
+        return col.render(value=record.language, record=unicode(record.language), bound_column=None)
     
     class Meta(DataTable.Meta):
         model = Lexicon

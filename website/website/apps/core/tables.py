@@ -53,7 +53,9 @@ class LanguageIndexTable(DataTable):
     count = tables.LinkColumn('language-detail', args=[A('slug')])
     
     def render_language(self, record):
-        return unicode(record)
+        col = tables.LinkColumn('language-detail', args=[record.slug])
+        return col.render(value=record.language, record=unicode(record), bound_column=None)
+        
         
     class Meta(DataTable.Meta):
         model = Language
