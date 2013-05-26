@@ -72,7 +72,11 @@ class FamilyDetail(DetailView):
     
     def get_context_data(self, **kwargs):
         context = super(FamilyDetail, self).get_context_data(**kwargs)
-        context['languages'] = LanguageIndexTable(kwargs['object'].language_set.all())
+        context['languages'] = LanguageIndexTable(
+                kwargs['object'].language_set.all(
+                    ).annotate(count=Count('lexicon'))
+        
+        )
         return context
 
 
