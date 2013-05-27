@@ -40,8 +40,12 @@ class Command(BaseCommand):
             self.stdout.flush()
             try:
                 self.stdout.write('Importing "%s"\n' % filename)
-                execfile(filename)
-            except:
+                directory, module_name = os.path.split(filename)
+                module_name = os.path.splitext(module_name)[0]
+                sys.path.insert(0, directory)
+                module = __import__(module_name)
+                #execfile(filename)
+            except ImportError:
                 transaction.rollback()
                 raise
             finally:
