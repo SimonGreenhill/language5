@@ -204,14 +204,16 @@ LOGGING = {
             'class' : 'logging.handlers.RotatingFileHandler',
             'backupCount' : 0,
             'maxBytes': 5000000,
-            'filename': 'django.log'
-            },
+            'filename': 'django.log',
+            'filters': ['require_debug_false'],
+        },
         'db_logging': {
             'level' : 'DEBUG',
             'class' : 'logging.handlers.RotatingFileHandler',
             'backupCount' : 0,
             'maxBytes': 5000000,
-            'filename': 'django-db.log'
+            'filename': 'django-db.log',
+            'filters': ['require_debug_false'],
         },
         'mail_admins': {
             'level': 'ERROR',
