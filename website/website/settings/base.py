@@ -231,6 +231,9 @@ CACHES = {
 }
 CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
 
+# maximum age of persistent database connection
+CONN_MAX_AGE = 64 
+
 # Setup OLAC
 OLAC_SETTINGS = {
     'sitename': SITE_NAME,
