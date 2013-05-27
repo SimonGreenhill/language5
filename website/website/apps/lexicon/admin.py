@@ -22,7 +22,7 @@ class CognatesInline(admin.TabularInline):
         if db_field.name == 'editor':
             kwargs['initial'] = request.user
             return db_field.formfield(**kwargs)
-        return super(CorrespondenceInline, self).formfield_for_foreignkey(
+        return super(CognatesInline, self).formfield_for_foreignkey(
             db_field, request, **kwargs
         )
 
@@ -85,8 +85,9 @@ class CorrespondenceSetAdmin(TrackedModelAdmin, VersionAdmin):
     
 
 class CognateAdmin(TrackedModelAdmin, VersionAdmin):
-    pass
-
+    list_display = ('cognateset', 'lexicon', 'source', 'comment', 'flag')
+    list_filter = ('editor', 'cognateset', 'source', 'lexicon')
+    ordering = ('id',)
 
 class CorrespondenceAdmin(TrackedModelAdmin, VersionAdmin):
     pass
