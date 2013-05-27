@@ -24,3 +24,5 @@ class StatisticalValue(models.Model):
     
     class Meta:
         db_table = 'statistics'
+        ordering = ['date', ]
+        get_latest_by = 'date'

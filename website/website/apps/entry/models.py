@@ -14,6 +14,8 @@ class TaskLog(models.Model):
     
     class Meta:
         db_table = 'tasklog'
+        ordering = ['time', ]
+        get_latest_by = 'time'
         
 
 class Task(TrackedModel):
@@ -48,7 +50,8 @@ class Task(TrackedModel):
         
     class Meta:
         db_table = 'tasks'
-
+        ordering = ['name', ]
+        get_latest_by = 'date'
 
 class Wordlist(TrackedModel):
     """Wordlist for data entry tasks"""
@@ -61,6 +64,7 @@ class Wordlist(TrackedModel):
     
     class Meta:
         db_table = 'task_wordlists'
+        ordering = ['name', ]
     
 
 class WordlistMember(models.Model):
@@ -69,7 +73,7 @@ class WordlistMember(models.Model):
     order = models.IntegerField()
     
     class Meta:
-        ordering = ["order",]
+        ordering = ["order", ]
         db_table = 'task_wordlists_members'
 
 

@@ -58,6 +58,7 @@ class Word(TrackedModel):
     
     class Meta:
         db_table = 'words'
+        ordering = ['slug', ]
 
 
 class WordSubset(TrackedModel):
@@ -80,6 +81,7 @@ class WordSubset(TrackedModel):
     class Meta:
         db_table = 'wordsubsets'
         verbose_name_plural = 'Word Subsets'
+        ordering = ['slug', ]
 
 
 class Lexicon(TrackedModel):
@@ -108,7 +110,8 @@ class Lexicon(TrackedModel):
 
     class Meta:
         db_table = 'lexicon'
-        verbose_name_plural = 'Lexicon'
+        verbose_name_plural = 'Lexical Items'
+        ordering = ['entry', ]
 
 
 class CognateSet(TrackedModel):

@@ -14,6 +14,7 @@ class TrackedModel(models.Model):
     
     class Meta:
         abstract = True
+        get_latest_by = 'added'
 
 
 class Source(TrackedModel):
@@ -43,6 +44,8 @@ class Source(TrackedModel):
     
     class Meta:
         db_table = 'sources'
+        ordering = ['slug', ]
+        
 
 watson.register(Source, fields=('author', 'year', 'reference'))
 
@@ -81,6 +84,7 @@ class Family(TrackedModel):
     class Meta:
         db_table = 'families'
         verbose_name_plural = 'families'
+        ordering = ['slug', ]
     
 watson.register(Family, fields=('family',))
 
@@ -114,6 +118,7 @@ class Language(TrackedModel):
     class Meta:
         unique_together = ("isocode", "language", "dialect")
         db_table = 'languages'
+        ordering = ['slug', ]
 
 watson.register(Language, fields=('family', 'language', 'isocode', 'classification', 'information'))
 
@@ -136,6 +141,7 @@ class AlternateName(TrackedModel):
     class Meta:
         verbose_name_plural = 'Alternate Language Names'
         db_table = 'altnames'
+        ordering = ['slug', ]
 
 watson.register(AlternateName, fields=('language', 'name'))
 
