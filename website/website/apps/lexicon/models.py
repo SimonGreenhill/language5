@@ -58,7 +58,7 @@ class Word(TrackedModel):
     
     class Meta:
         db_table = 'words'
-        ordering = ['slug', ]
+        ordering = ['word', ]
 
 
 class WordSubset(TrackedModel):
@@ -90,7 +90,7 @@ class Lexicon(TrackedModel):
     source = models.ForeignKey('core.Source')
     word = models.ForeignKey('Word')
     
-    entry = models.CharField(max_length=32, 
+    entry = models.CharField(max_length=32,
         help_text="Entry from source")
     phon_entry = models.CharField(max_length=32, null=True, blank=True,
         help_text="Entry in Phonological format (in known)")
@@ -116,7 +116,7 @@ class Lexicon(TrackedModel):
 
 class CognateSet(TrackedModel):
     """Cognate Sets"""
-    protoform = models.CharField(max_length=128, blank=True, null=True)
+    protoform = models.CharField(max_length=128, blank=True, null=True, db_index=True)
     gloss = models.CharField(max_length=128, blank=True, null=True)
     comment = models.TextField(blank=True, null=True,
         help_text="Comment about this cognate set")

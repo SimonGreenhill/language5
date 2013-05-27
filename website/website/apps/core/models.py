@@ -19,9 +19,9 @@ class TrackedModel(models.Model):
 
 class Source(TrackedModel):
     """Source Details"""
-    year = models.IntegerField(blank=True, null=True,
+    year = models.IntegerField(blank=True, null=True, db_index=True,
         help_text="Year published")
-    author = models.CharField(max_length=255,
+    author = models.CharField(max_length=255, db_index=True, 
         help_text="Short Author list e.g. (Smith et al.)")
     slug = models.SlugField(max_length=64, unique=True,
         help_text="`Slug` for author i.e. author-year (for use in URLS)")
@@ -44,8 +44,10 @@ class Source(TrackedModel):
     
     class Meta:
         db_table = 'sources'
-        ordering = ['slug', ]
-        
+        ordering = ['author', 'year', ]
+        index_together = [
+            ["author", "year"],
+        ]
 
 watson.register(Source, fields=('author', 'year', 'reference'))
 
@@ -64,12 +66,12 @@ class Note(TrackedModel):
     class Meta:
         db_table = 'notes'
 
-watson.register(Note, fields=('language', 'source', 'note'))
+#watson.register(Note, fields=('language', 'source', 'note'))
 
 
 class Family(TrackedModel):
     """Language families/Subsets"""
-    family = models.CharField(max_length=64, unique=True,
+    family = models.CharField(max_length=64, unique=True, db_index=True, 
         help_text="Language Family")
     slug = models.SlugField(max_length=64, unique=True,
         help_text="`Slug` for language family (for use in URLS)")
@@ -84,7 +86,7 @@ class Family(TrackedModel):
     class Meta:
         db_table = 'families'
         verbose_name_plural = 'families'
-        ordering = ['slug', ]
+        ordering = ['family', ]
     
 watson.register(Family, fields=('family',))
 
@@ -117,8 +119,11 @@ class Language(TrackedModel):
     
     class Meta:
         unique_together = ("isocode", "language", "dialect")
+        index_together = [
+            ["language", "dialect"],
+        ]
         db_table = 'languages'
-        ordering = ['slug', ]
+        ordering = ['language', 'dialect']
 
 watson.register(Language, fields=('family', 'language', 'isocode', 'classification', 'information'))
 
@@ -141,7 +146,7 @@ class AlternateName(TrackedModel):
     class Meta:
         verbose_name_plural = 'Alternate Language Names'
         db_table = 'altnames'
-        ordering = ['slug', ]
+        ordering = ['name', ]
 
 watson.register(AlternateName, fields=('language', 'name'))
 
@@ -158,7 +163,8 @@ class Link(TrackedModel):
     class Meta:
         verbose_name_plural = "Resource Links"
         db_table = 'links'
-
+        unique_together = ['language', 'link']
+        
 watson.register(Link, fields=('language', 'link', 'description'))
 
 
