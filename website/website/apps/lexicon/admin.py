@@ -73,7 +73,7 @@ class LexiconAdmin(TrackedModelAdmin, VersionAdmin):
 
 class CognateSetAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
-    list_display = ('id', 'label', 'source', 'comment', 'quality')
+    list_display = ('id', 'protoform', 'gloss', 'source', 'comment', 'quality')
     list_filter = ('editor', 'source', 'quality')
     ordering = ('id',)
     
