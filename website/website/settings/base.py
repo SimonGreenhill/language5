@@ -185,11 +185,14 @@ SOUTH_TESTS_MIGRATE = False # just use syncdb
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
-    },
+    'formatters': {
+            'verbose': {
+                'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+            },
+            'simple': {
+                'format': '%(levelname)s %(message)s'
+            },
+        },
     'handlers': {
         'file_logging': {
             'level' : 'DEBUG',
@@ -205,6 +208,14 @@ LOGGING = {
             'maxBytes': 5000000,
             'filename': 'django-db.log'
         },
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+        },
+        'null': {
+            'level': 'DEBUG',
+            'class': 'django.utils.log.NullHandler',
+        },
     },
         
     'loggers': {
@@ -212,7 +223,12 @@ LOGGING = {
             'handlers': ['file_logging'],
             'level' : 'DEBUG',
             'propagate' : False,
-            },
+        },
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
         'django.db' : {
             'handlers' : ['db_logging'],
             'level' : 'DEBUG',
