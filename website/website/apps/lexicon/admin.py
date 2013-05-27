@@ -66,10 +66,6 @@ class LexiconAdmin(TrackedModelAdmin, VersionAdmin):
     search_fields = ('entry', 'word', 'annotation')
     ordering = ('id',)
     
-    formfield_overrides = {
-        models.TextField: {'widget': Textarea(attrs={'rows':1}) },
-    }
-    
 
 class CognateSetAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
