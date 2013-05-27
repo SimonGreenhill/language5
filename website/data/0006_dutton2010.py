@@ -392,7 +392,7 @@ for filename, p in PROTOLANGUAGE.items():
     entries = read(os.path.join(os.environ["IMPORTER_DATAROOT"], '0006_dutton2010', filename))
     for e in sorted(entries):
         e = Entry(e)
-        #e.dump()
+        ###e.dump()
         if e.gloss in WORD_OVERRIDES:
             wslug = WORD_OVERRIDES[e.gloss]
         else:
@@ -445,12 +445,6 @@ for filename, p in PROTOLANGUAGE.items():
             else:
                 for entry in rec.entry.split(","):
                     entry = entry.strip()
-                    if rec.comment is None:
-                        ecomment = pcomment = u''
-                    elif 'expect' in rec.comment or 'assume' in rec.comment or '>' in rec.comment:
-                        ecomment, pcomment = "", rec.comment
-                    else:
-                        ecomment, pcomment = rec.comment, ""
                         
                     lex = Lexicon.objects.create(
                         editor=ed,
@@ -458,18 +452,18 @@ for filename, p in PROTOLANGUAGE.items():
                         source=source,
                         word=word,
                         entry=entry,
-                        annotation=ecomment
+                        annotation=rec.gloss
                     )
                     lex.save()
                     counter_lex += 1
-                    print 'Created Lexicon: ', counter_lex, lex
+                    print 'Created Lexicon: ', counter_lex, lex, repr(lex.annotation)
                     # cognate
                     cog = Cognate.objects.create(
                         editor=ed,
                         cognateset=pform,
                         source=source,
                         lexicon=lex,
-                        comment=pcomment,
+                        comment=rec.comment,
                         flag='1' # published
                     )
                     cog.save()
