@@ -36,7 +36,9 @@
                 {% for field in form %}
                     <td {% if field.errors %}class="error"{% endif %}>
                         {% ifequal field.name "word" %}
-                            {{ form.initial.order_id }}.
+                            {% if form.initial.order_id %}
+                                {{ form.initial.order_id }}.
+                            {% endif %}
                         {% endifequal %}
                         
                         {{ field }}
