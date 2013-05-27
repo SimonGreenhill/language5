@@ -9,7 +9,7 @@ from django_tables2 import SingleTableView
 
 from website.apps.entry.models import Task, TaskLog
 from website.apps.entry.tables import TaskIndexTable
-
+from website.apps.entry.forms import QuickEntryViewForm
 from website.apps.entry import dataentry
 
 def encode_checkpoint(content):
@@ -43,6 +43,11 @@ class TaskIndex(SingleTableView):
     
     queryset = Task.objects.all().select_related().filter(done=False)
     
+    def get_context_data(self, **kwargs):
+        context = super(TaskIndex, self).get_context_data(**kwargs)
+        context['quickform'] = QuickEntryViewForm()
+        return context
+        
     # ensure logged in
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
@@ -91,3 +96,32 @@ def task_detail(request, task_id):
         return HttpResponseServerError("Can't find view %s for task %s" % (t.view, task_id))
     
     
+
+@login_required()
+def quick_entry(request):
+    """Quick data entry"""
+    form = QuickEntryViewForm(request.POST)
+    
+    if not form.is_valid():
+        return redirect('entry:index')
+    
+    # fake a task.
+    descr = u"Source: %s\nLanguage: %s\nWordlist: %s" % (
+           form.cleaned_data['source'], 
+           form.cleaned_data['language'],
+           form.cleaned_data['wordlist']
+    )
+        
+    t = Task.objects.create(
+        name=u"Quick", 
+        description=descr,
+        editor=request.user,
+        source=form.cleaned_data['source'],
+        wordlist=form.cleaned_data['wordlist'],
+        language=form.cleaned_data['language'],
+        records=form.cleaned_data['records'],
+        view='GenericView',
+        completable=True
+    )
+    t.save()
+    return redirect('entry:detail', task_id=t.id)
