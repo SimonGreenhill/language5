@@ -124,7 +124,7 @@ class CognateSet(TrackedModel):
             help_text="The quality of this cognate set.")
     
     def __unicode__(self):
-        return "%d. %s" % (self.id, self.label)
+        return "%d. %s '%s'" % (self.id, self.protoform, self.gloss)
     
     class Meta:
         db_table = 'cognatesets'
