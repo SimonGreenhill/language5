@@ -194,14 +194,14 @@ LOGGING = {
         'file_logging': {
             'level' : 'DEBUG',
             'class' : 'logging.handlers.RotatingFileHandler',
-            'backupCount' : 5,
+            'backupCount' : 0,
             'maxBytes': 5000000,
             'filename': 'django.log'
             },
         'db_logging': {
             'level' : 'DEBUG',
             'class' : 'logging.handlers.RotatingFileHandler',
-            'backupCount' : 5,
+            'backupCount' : 0,
             'maxBytes': 5000000,
             'filename': 'django-db.log'
         },
