@@ -1,0 +1,931 @@
+----------------------------------------------------------------------------
+PROTOFORM:           1. *aba
+PROTOFORM GLOSS:     hole (in ground)
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : aba                  : 'hole (in ground)'  
+RECORD:              koi     : aba                  : 'hole (in ground)'  
+RECORD:              mtn     : aba                  : 'hole (in ground)'  
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           2. *abu(t)i
+PROTOFORM GLOSS:     two
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : ab                   : 'two'               
+RECORD:              koi     : abuti                : 'two'               
+RECORD:              mtn     : abui                 : 'two'               
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           3. *amufa-
+PROTOFORM GLOSS:     cook (in ground on hot stones), mumu
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : amuha-               : 'cook in ground, mumu'
+RECORD:              koi     : amuha-               : 'cook in ground, mumu'
+RECORD:              mtn     : amuva-               : 'make a mumu'       
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           4. *arafa-
+PROTOFORM GLOSS:     to open
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : araha-               : 'open (stg)'        
+RECORD:              koi     : araha-               : 'open (stg)'        
+RECORD:              mtn     : alavo                : 'open (door, window)'
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           5. *-are
+PROTOFORM GLOSS:     who
+PROTOFORM COMMENT:   Rel.
+
+RECORD:              kta     : -are                 : 'who, which' : (rel)  
+RECORD:              koi     : -are                 : 'who, which' : (rel)  
+RECORD:              mtn     : -ale                 : 'who' : (nominal, past)
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           6. *ata
+PROTOFORM GLOSS:     man
+PROTOFORM COMMENT:   Lane: *ata 'man'
+
+RECORD:              kta     : ata                  : 'man'               
+RECORD:              koi     : ata                  : 'man'               
+RECORD:              mtn     : ata                  : 'person, people'    
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           7. *-ata
+PROTOFORM GLOSS:     Medial Verb Suffix 
+PROTOFORM COMMENT:   having done X then VP
+
+RECORD:              kta     : atege                : 'until' : (< ata + -ge with morphophonemic changes)
+RECORD:              koi     : -yata                : medial verb suffix : 'having done X then VP' (y morpho-phonemically determined)
+RECORD:              mtn     : -ata                 : medial verb suffix : 'for a time'
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           8. *avako
+PROTOFORM GLOSS:     butterfly
+PROTOFORM COMMENT:   Lane: *(a,o)(ɣ,v,o)ako 'butterfly'
+
+RECORD:              kta     :                      :                     
+RECORD:              koi     : avako                : 'butterfly'         
+RECORD:              mtn     : uako                 : 'butterfly' : (assume loss of initial vowel )
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           9. *bag(u,i,o)
+PROTOFORM GLOSS:     shoulder
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : bagu|ni              : 'shoulder'          
+RECORD:              koi     : bagi|na              : 'shoulder'          
+RECORD:              mtn     : bego                 : 'shoulder' : (medial e unexpected; a expected)
+
+COMMENT:             Final vowel correspondences in this item are highly irregular so that it is not clear whether they reflect PKC *u, *i or *o.
+
+----------------------------------------------------------------------------
+PROTOFORM:           10. *barug(e,a)
+PROTOFORM GLOSS:     big
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : bauge                : 'big'               
+RECORD:              koi     :                      :                     
+RECORD:              mtn     : baluga               : 'big'               
+
+COMMENT:             There is not sufficient evidence here to indicate whether the final vowels reflect PKN *e or *a.
+
+----------------------------------------------------------------------------
+PROTOFORM:           11. *bata
+PROTOFORM GLOSS:     moon
+PROTOFORM COMMENT:   Lane: *bata 'moon'
+
+RECORD:              kta     : bata                 : 'moon'              
+RECORD:              koi     : bata                 : 'moon'              
+RECORD:              mtn     : bata                 : 'moon'              
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           12. *bitu-ɣa-
+PROTOFORM GLOSS:     to joke
+PROTOFORM COMMENT:   
+
+RECORD:              kta     :                      :                     
+RECORD:              koi     : bitu-va-             : 'joke'              
+RECORD:              mtn     : bitu-ha|vo           : 'mock, make fun of' 
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           13. *boko-ɣa-
+PROTOFORM GLOSS:     to break
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : boko-ɣa-             : 'break (stick, pot)'
+RECORD:              koi     : boko-va-             : 'break (stick)'     
+RECORD:              mtn     : boko-a               : 'break, fold'       
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           14. *butu-ɣa-
+PROTOFORM GLOSS:     pull
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : butu-ɣa-             : 'pull'              
+RECORD:              koi     : but-va-              : 'pull'              
+RECORD:              mtn     : butu-ha-             : 'pull'              
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           15. *da
+PROTOFORM GLOSS:     I
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : da                   : 'I'                 
+RECORD:              koi     : da                   : 'I'                 
+RECORD:              mtn     : da                   : 'I'                     
+RECORD:              mtn     : di                   : 'I'                     
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           16. *da
+PROTOFORM GLOSS:     with (by means of)
+PROTOFORM COMMENT:   instr
+
+RECORD:              kta     :                      :                     
+RECORD:              koi     : da                   : 'on, on top of, by (car or truck)'
+RECORD:              mtn     : da                   : 'with' : (instr)      
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           17. *demodo
+PROTOFORM GLOSS:     navel
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : demodo|ne            : 'navel'             
+RECORD:              kta     : demona               : 'navel'             
+RECORD:              koi     : demodi|nika          : 'navel' : (syllable di unexpected; do expected)
+RECORD:              mtn     : demodo               : 'navel'             
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           18. *dob(i,a)-
+PROTOFORM GLOSS:     fall down
+PROTOFORM COMMENT:   
+
+RECORD:              kta     :                      :                     
+RECORD:              koi     : dobi-va-             : 'fall down'         
+RECORD:              mtn     : doba-                : 'fall down (people or things)'
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           19. *duna
+PROTOFORM GLOSS:     hawk
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : duna                 : 'hawk'              
+RECORD:              koi     : duna                 : 'hawk'              
+RECORD:              mtn     : duna                 : 'hawk'              
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           20. *edo[ɣo]-ɣa-
+PROTOFORM GLOSS:     vomit
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : edoɣo-ho-            : 'vomit' : (final o unexpected; a expected)
+RECORD:              koi     : edo-va-              : 'vomit'             
+RECORD:              mtn     : edo-a                : 'vomit'             
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           21. *eke
+PROTOFORM GLOSS:     that
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : eke|ro               : 'that'              
+RECORD:              kta     : e                    : 'that'              
+RECORD:              koi     : eke                  : 'that'              
+RECORD:              mtn     : ke                   : 'that'              
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           22. *eno-
+PROTOFORM GLOSS:     to cough
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : eno|to-              : 'cough'             
+RECORD:              koi     : eno|toto-va-         : 'cough'             
+RECORD:              mtn     : eno-a                : 'cough'             
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           23. *ere-ɣa-
+PROTOFORM GLOSS:     see
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : era-ɣa-              : 'see' : (ra unexpected; re expected)
+RECORD:              koi     : ere-va-              : 'see'               
+RECORD:              mtn     : ele-ha-              : 'see, look'         
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           24. *faki
+PROTOFORM GLOSS:     side
+PROTOFORM COMMENT:   Lane: *faki 'side'
+
+RECORD:              kta     :                      :                     
+RECORD:              koi     : haki                 : 'side'              
+RECORD:              mtn     : vaki                 : 'side'              
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           25. *foto
+PROTOFORM GLOSS:     back (of hand), top (of foot)
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : (ada) hoto-ka        : 'back (of hand)'    
+RECORD:              koi     : (ada) hoto-ka        : 'back of hand)      
+RECORD:              koi     : (vahi) hoto-ka       : 'top (of foot)'     
+RECORD:              mtn     : (ada) voto           : 'palm (of hand)'    
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           26. *fufune-
+PROTOFORM GLOSS:     hot
+PROTOFORM COMMENT:   
+
+RECORD:              kta     :                      :                     
+RECORD:              koi     : huhuneva-            : 'be hot, perspire'  
+RECORD:              mtn     : vuvuneve             : 'hot (water)'       
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           27. *-geve
+PROTOFORM GLOSS:     OR PL in some verbs
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : boko-geve-           : 'break them'        
+RECORD:              kta     : era-geve-            : 'see them'          
+RECORD:              koi     : boko-gei|yahei-      : 'break them'        
+RECORD:              koi     : ere-gei|yahei-       : 'see them'          
+RECORD:              mtn     : ua-geve-             : 'bite them'         
+RECORD:              mtn     : ele-geve-            : 'see them'          
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           28. *-ɣa
+PROTOFORM GLOSS:     OR SG in some verbs
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : era-ɣa-              : 'see it'            
+RECORD:              kta     : boko-ɣa              : 'break it'          
+RECORD:              koi     : ere-va-              : 'see it'            
+RECORD:              koi     : boko-va-             : 'break it'          
+RECORD:              mtn     : ele-ha-              : 'see it'            
+RECORD:              mtn     : ua-ha-               : 'bite it'           
+
+COMMENT:             
+
+
+----------------------------------------------------------------------------
+PROTOFORM:           29. *ɣadi-
+PROTOFORM GLOSS:     to ascend
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : ɣadi-va-             : 'ascend, go up'     
+RECORD:              koi     : vadi-ma              : 'ascend, go up'     
+RECORD:              mtn     : vati-                : 'ascend, go up'     
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           30. *-ɣaf(a,o)
+PROTOFORM GLOSS:     transitive verb forming suffix, causative
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : -ɣaha                : transitive verb forming suffix, causative
+RECORD:              koi     : -vaha                : transitive verb forming suffix, causative
+RECORD:              mtn     : -havo                : transitive verb forming suffix, causative
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           31. *ɣama-
+PROTOFORM GLOSS:     hit
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : ɣama-                : 'hit'               
+RECORD:              koi     : vama-                : 'hit'               
+RECORD:              mtn     : hama-                : 'hit'               
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           32. *ɣoira-ɣa-
+PROTOFORM GLOSS:     to return
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : ɣoira-ɣi (oroɣonu)   : 'return (lit. turn around [and come])'
+RECORD:              koi     : voira-vi (orovonu)   : 'return (lit. turn around [and come])'
+RECORD:              mtn     : hoila-ha-            : 'return'            
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           33. *ɣote
+PROTOFORM GLOSS:     vine, string, rope
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : ɣote                 : 'string, rope'      
+RECORD:              koi     : vote                 : 'vine, string, rope'
+RECORD:              mtn     : hote                 : 'vine, rope'        
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           34. *ɣuma
+PROTOFORM GLOSS:     path, road
+PROTOFORM COMMENT:   Lane: *ɣuma 'road, path'
+
+RECORD:              kta     : ɣuma                 : 'path, road'        
+RECORD:              koi     : uma                  : 'path, road'        
+RECORD:              mtn     : huma|ha              : 'path, road'        
+
+COMMENT:             Perhaps KOI lost v (<*ɣ) to avoid confusion with vuma 'axe'.
+
+----------------------------------------------------------------------------
+PROTOFORM:           35. *isa
+PROTOFORM GLOSS:     new, uncooked, raw, young
+PROTOFORM COMMENT:   Lane: *isa- 'new'
+
+RECORD:              kta     : isage                : 'new'               
+RECORD:              kta     : isaɣe                : 'uncooked, raw, young'
+RECORD:              koi     : isasa                : 'uncooked, raw, new' : (final a unexpected; e expected)
+RECORD:              mtn     : isate                : 'uncooked'           
+RECORD:              mtn     : isahete              : 'green wood, young person'
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           35. *(k,t)ae
+PROTOFORM GLOSS:     white
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : kae                  : 'white'             
+RECORD:              koi     : kae|kae              : 'white'             
+RECORD:              mtn     : tae|te               : 'white'             
+
+COMMENT:            
+
+----------------------------------------------------------------------------
+PROTOFORM:           37. *kina
+PROTOFORM GLOSS:     head
+PROTOFORM COMMENT:   Lane: *kina 'head'
+
+RECORD:              kta     :                      :                     
+RECORD:              koi     : kina                 : 'head'              
+RECORD:              mtn     : kina                 : 'head, hair'        
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           38. *-ma
+PROTOFORM GLOSS:     verb suffix, present continuous, SG
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : -ma                  : verb suffix, present continuous, SG
+RECORD:              koi     : -ma                  : verb suffix, present continuous, SG
+RECORD:              mtn     : -ma                  : verb suffix, present continuous, SG
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           39. *mabata
+PROTOFORM GLOSS:     old woman
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : (maɣi) mabata        : 'old woman (inactive)'
+RECORD:              koi     : mabata               : 'old woman'         
+RECORD:              mtn     : mabata               : 'old woman'         
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           40. *maɣo[i]-
+PROTOFORM GLOSS:     burn, cook (by burning)
+PROTOFORM COMMENT:   
+
+RECORD:              kta     :                      :                     
+RECORD:              koi     : mavoi-               : 'burn, set alight, cook (by burning)'
+RECORD:              mtn     : maho-                : 'cook'              
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           41. *matama
+PROTOFORM GLOSS:     land, ground, place
+PROTOFORM COMMENT:   Lane: *mata(m) 'land, place'
+
+RECORD:              kta     : (da) mata-me         : '(my) land, ground, place'
+RECORD:              koi     : (da) mata-me         : '(my) land, ground, place'
+RECORD:              mtn     : matama               : 'place'             
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           42. *mina[ma]
+PROTOFORM GLOSS:     eel
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : mina                 : 'eel'               
+RECORD:              koi     : mina                 : 'eel'               
+RECORD:              mtn     : minama               : 'eel'               
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           43. *mo
+PROTOFORM GLOSS:     boy, male child
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : moe                  : 'male child, son'   
+RECORD:              kta     : moika                : 'baby boy'          
+RECORD:              koi     : moe                  : 'male child, son'   
+RECORD:              koi     : mo                   : 'male, boy'         
+RECORD:              mtn     : mo                   : 'male child, boy, male'
+RECORD:              mtn     : moia                 : 'young boy'         
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           44. *(n,m)itani
+PROTOFORM GLOSS:     pawpaw
+PROTOFORM COMMENT:   
+
+RECORD:              koi     : nitani               : 'pawpaw'            
+RECORD:              mtn     : mitani               : 'pawpaw'            
+
+COMMENT:             
+
+
+----------------------------------------------------------------------------
+PROTOFORM:           45. *naɣate
+PROTOFORM GLOSS:     like, similar
+PROTOFORM COMMENT:   Lane: *naɣate 'be like'
+
+RECORD:              kta     : naɣate               : 'be like, resemble' 
+RECORD:              koi     : navate               : 'like, resemble, similar'
+RECORD:              mtn     : nahate               : 'like, similar'     
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           46. *neina
+PROTOFORM GLOSS:     mother
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : neina                : 'mother'            
+RECORD:              koi     : (da) neine           : '(my) mother'       
+RECORD:              koi     : neina-ka             : 'mother'            
+RECORD:              mtn     : neina                : 'mother'            
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           48. *nigi
+PROTOFORM GLOSS:     woman
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : nigi                 : 'skirt, woman's dress'
+RECORD:              koi     : nigi                 : 'skirt, woman's dress'
+RECORD:              mtn     : nigi                 : 'grass skirt'       
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           49. *-nu
+PROTOFORM GLOSS:     verb suffix, past tense SG
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : -nu                  : verb suffix, past tense sg
+RECORD:              koi     : -nu                  : verb suffix, past tense sg
+RECORD:              mtn     : -nu                  : verb suffix, past tense sg
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           50. *ofo
+PROTOFORM GLOSS:     pig
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : oho                  : 'pig'               
+RECORD:              koi     : oho                  : 'pig'               
+RECORD:              mtn     : ovo                  : 'pig'               
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           51. *oko
+PROTOFORM GLOSS:     this
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : o                    : 'this'              
+RECORD:              koi     : oko                  : 'this'              
+RECORD:              mtn     : ko                   : 'this'              
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           52. *ono
+PROTOFORM GLOSS:     what?
+PROTOFORM COMMENT:   
+
+RECORD:              kta     :                      :                     
+RECORD:              koi     : ono                  : 'what (is it)? (self questioning)'
+RECORD:              mtn     : ono                  : 'what'              
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           53. *rofo-
+PROTOFORM GLOSS:     dig (hole)
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : roho-                : 'dig (hole)'        
+RECORD:              koi     : roho-                : 'dig (hole)         
+RECORD:              mtn     : lovo-                : 'dig'               
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           54. *-ru
+PROTOFORM GLOSS:     because
+PROTOFORM COMMENT:   
+
+RECORD:              kta     :                      :                     
+RECORD:              koi     : V-are-ru             : 'because V'         
+RECORD:              mtn     : V-ale-rua            : 'because V'         
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           55. *soreka
+PROTOFORM GLOSS:     quickly
+PROTOFORM COMMENT:   Lane: *soreka 'quick(ly)'
+
+RECORD:              kta     :                      :                     
+RECORD:              koi     : soreka               : 'quickly'           
+RECORD:              mtn     : soleka               : 'quick(ly), fast'   
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           56. *subuta
+PROTOFORM GLOSS:     long ago, before, old
+PROTOFORM COMMENT:   Lane: *subuta'old, long ago, before'
+
+RECORD:              kta     : subuta               : 'long ago, before, old'
+RECORD:              koi     : subuta               : 'long ago, before, old'
+RECORD:              mtn     : subuta               : 'before'            
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           57. *(t,d)ete
+PROTOFORM GLOSS:     tail
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : (to) tete-ka         : '(dog's) tail'      
+RECORD:              koi     : (to) tete-ka         : '(dog's) tail'      
+RECORD:              mtn     : dete                 : 'tail'              
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           58. *-ta...-ta
+PROTOFORM GLOSS:     and (joining NPs)
+PROTOFORM COMMENT:   
+
+RECORD:              kta     :                      :                     
+RECORD:              koi     : NP-ta...NP-ta          : 'NP and NP'         
+RECORD:              mtn     : NP-ta...NP-ta          : 'NP and NP'         
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           59. *-taɣe
+PROTOFORM GLOSS:     also
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : (NP)-taɣe            : 'also'              
+RECORD:              koi     : (NP)-tae             : 'also'              
+RECORD:              mtn     : (NP)-ta              : 'also'              
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           60. *tana
+PROTOFORM GLOSS:     raised land, ridge
+PROTOFORM COMMENT:   Lane: *tana 'ridge, mountain'
+
+RECORD:              kta     : tana                 : 'raised land, ridge'
+RECORD:              koi     : tana                 : 'ridge of land'     
+RECORD:              mtn     : tana                 : 'mountain'          
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           61. *tata
+PROTOFORM GLOSS:     sibling, opposite sex, older
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : tata                 : 'elder sister'      
+RECORD:              koi     : tata                 : 'sibling, opposite sex, older, elder sister'
+RECORD:              mtn     : tata                 : 'sibling, opposite sex, older, elder sister'
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           62. *ti-
+PROTOFORM GLOSS:     go
+PROTOFORM COMMENT:   Lane: *ti- 'go'
+
+RECORD:              kta     : (o)ti-               : 'go'                
+RECORD:              koi     : (o)ti-               : 'go'                
+RECORD:              mtn     : ti-                  : 'go'                
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           63. *to
+PROTOFORM GLOSS:     dog
+PROTOFORM COMMENT:   Lane: *to 'dog'
+
+RECORD:              kta     : to                   : 'dog'               
+RECORD:              kta     : totoka               : 'dog'               
+RECORD:              koi     : to                   : 'dog'               
+RECORD:              mtn     : to                   : 'dog'               
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           64. *tobo
+PROTOFORM GLOSS:     full
+PROTOFORM COMMENT:   Lane: *tob[o,a] 'full'
+
+RECORD:              kta     : tobo|ke              : 'full (of water)'   
+RECORD:              koi     : tobo|ka              : 'full (of water)'   
+RECORD:              mtn     : toba|loho            : 'to be full (of water)' : (medial a unexpected; o expected)
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           65. *tu
+PROTOFORM GLOSS:     nape of neck
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : tuɣuka               : 'nape of neck'      
+RECORD:              koi     :                      :                     
+RECORD:              mtn     : tu                   : 'nape of neck'      
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           66. *u-
+PROTOFORM GLOSS:     stay, be in a place, live
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : u-                   : 'stay, be in a place, live, remain'
+RECORD:              koi     : u-                   : 'stay, be in a place, live, remain'
+RECORD:              mtn     : u-                   : 'stay, be (in a place)'
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           67. *[u]gurama-
+PROTOFORM GLOSS:     sit down
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : gura-ma-             : 'sit down'          
+RECORD:              koi     : gura-ma-             : 'sit down'          
+RECORD:              mtn     : ugu-ma-              : 'sit down'          
+RECORD:              mtn     : ugula-mo             : 'sit down'          
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           68. *ua-ɣa-
+PROTOFORM GLOSS:     bite
+PROTOFORM COMMENT:   
+
+RECORD:              kta     :                      :                     
+RECORD:              koi     : ua-va-               : 'bite'              
+RECORD:              mtn     : ua-ha-               : 'bite, gnaw'        
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           69. *umu-ka
+PROTOFORM GLOSS:     root
+PROTOFORM COMMENT:   Lane: *umuka 'root'
+
+RECORD:              kta     : umu-ka               : 'root, base' : (-ka partitive possessive suffix)
+RECORD:              koi     : umu-ka               : 'root, base' : (-ka partitive possessive suffix)
+RECORD:              mtn     : umu-ka               : 'root, base (of tree)' : (-ka partitive possessive suffix)
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           70. *un(a,u)
+PROTOFORM GLOSS:     mosquito, gnat
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : una                  : 'mosquito'          
+RECORD:              koi     :                      :                     
+RECORD:              mtn     : unu|ku               : 'gnat'              
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           71. *unaɣe
+PROTOFORM GLOSS:     only
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : unaɣe                : 'only'              
+RECORD:              koi     : unae                 : 'only'              
+RECORD:              mtn     : unaha                : 'only' : (final a unexpected; e expected)
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           72. *utuɣu
+PROTOFORM GLOSS:     ashes
+PROTOFORM COMMENT:   Lane: *ut(u,i)(ɣo) 'ashes (black)'
+
+RECORD:              kta     : utuɣo                : 'ashes'             
+RECORD:              koi     : utuvu                : 'ashes'             
+RECORD:              mtn     : uti                  : 'ashes, fireplace' : (form unexpected; utuhu expected)
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           73. *va[e]futi
+PROTOFORM GLOSS:     how much
+PROTOFORM COMMENT:   
+
+RECORD:              kta     :                      :                     
+RECORD:              koi     : vahuti               : 'how much'          
+RECORD:              mtn     : vaesuti              : 'how much'          
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           74. *vabe
+PROTOFORM GLOSS:     Cordyline sp.
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : vabe                 : 'tangget, Cordyline'
+RECORD:              koi     : vabe                 : 'tangget, Cordyline'
+RECORD:              mtn     : vabe|re              : 'tangget, Cordyline'
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           75. *vaɣoto-
+PROTOFORM GLOSS:     to perspire, sweat
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : vaɣoto-ɣoi-          : 'perspire, sweat'   
+RECORD:              koi     :                      :                     
+RECORD:              mtn     : vahoto-a             : 'perspire'          
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           76. *vani
+PROTOFORM GLOSS:     sun, day
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : vani                 : 'sun'               
+RECORD:              koi     : vani                 : 'sun, day, time'    
+RECORD:              mtn     : vani                 : 'sun, day'          
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           77. *vata
+PROTOFORM GLOSS:     ground, earth
+PROTOFORM COMMENT:   Lane: *vata 'ground, earth'
+
+RECORD:              kta     : vata                 : 'ground'            
+RECORD:              koi     : vata                 : 'ground, earth'     
+RECORD:              mtn     : vata                 : 'ground, country, earth'
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           78. *vati-
+PROTOFORM GLOSS:     die
+PROTOFORM COMMENT:   
+
+RECORD:              kta     :                      :                     
+RECORD:              koi     : vati-                : 'die'               
+RECORD:              mtn     : hati-                : 'die'               
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           79. *vefite
+PROTOFORM GLOSS:     no, not
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : (maɣe) veite|ra      : 'not (good)'        
+RECORD:              koi     : vehite               : 'not, none'         
+RECORD:              mtn     : (moaga) vesite       : 'not (much)'        
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           80. *veu-ɣa-
+PROTOFORM GLOSS:     urinate
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : veu-ɣa-              : 'urinate'           
+RECORD:              koi     : veu-va-              : 'urinate'           
+RECORD:              mtn     : veu-a                : 'urinate'           
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           81. *viriviri-
+PROTOFORM GLOSS:     to spin, twirl
+PROTOFORM COMMENT:   
+
+RECORD:              kta     :                      :                     
+RECORD:              koi     : to|viri|viri         : 'car, truck' : (< to 'dog' + viriviri 'go around')
+RECORD:              mtn     : vili|vili-a          : 'spin, twirl, go around in circles'
+
+COMMENT:             When first encountered in koi this looked like a borrowing from English 'wheel' via Papuan Pidgin English; cf. Tok Pisin wilwil 'bicycle, meat or food grinder, coffee mill' and wilwilim 'grind, crush, pulverise stg' but I now believe this formal similarity to be a coincidence.
+
+----------------------------------------------------------------------------
+PROTOFORM:           82. *ya-ɣa-
+PROTOFORM GLOSS:     sleep, lie down
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : ya-ɣa-               : 'sleep, lie on ground'
+RECORD:              koi     : ya-va-               : 'sleep, lie down'   
+RECORD:              mtn     : la-ha-               : 'sleep'             
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           83. *yaɣa
+PROTOFORM GLOSS:     string bag
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : yaɣa                 : 'string bag'        
+RECORD:              koi     : yago                 : 'string bag'        
+RECORD:              mtn     : laha                 : 'string bag'        
+
+COMMENT:             
+
+----------------------------------------------------------------------------
+PROTOFORM:           84. *-ye
+PROTOFORM GLOSS:     Predictive possessive suffix
+PROTOFORM COMMENT:   
+
+RECORD:              kta     : -ye                 : Predictive possessive suffix        
+RECORD:              koi     : -ye                 : Predictive possessive suffix        
+RECORD:              mtn     : -le                 : Predictive possessive suffix        
+
+COMMENT:             
