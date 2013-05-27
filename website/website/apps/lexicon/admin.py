@@ -39,6 +39,7 @@ class CorrespondenceInline(admin.TabularInline):
             db_field, request, **kwargs
         )
 
+
 # Admin Classes
 class WordAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
@@ -62,8 +63,8 @@ class LexiconAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_display = ('id', 'language', 'source', 'word', 'entry', 'annotation', 'loan')
     list_editable = ('language', 'source', 'word', 'entry', 'annotation', 'loan')
-    list_filter = ('editor', 'language', 'source', 'loan')
-    search_fields = ('entry', 'annotation')
+    list_filter = ('editor', 'language', 'word', 'source', 'loan')
+    search_fields = ('entry', 'word', 'annotation')
     ordering = ('id',)
     
     formfield_overrides = {
