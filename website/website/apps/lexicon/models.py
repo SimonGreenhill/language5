@@ -113,14 +113,15 @@ class Lexicon(TrackedModel):
 
 class CognateSet(TrackedModel):
     """Cognate Sets"""
-    label = models.CharField(max_length=32, blank=True, null=True)
-    source = models.ForeignKey('core.Source', 
-        null=True, blank=True)
+    protoform = models.CharField(max_length=128, blank=True, null=True)
+    gloss = models.CharField(max_length=128, blank=True, null=True)
     comment = models.TextField(blank=True, null=True,
         help_text="Comment about this cognate set")
+    source = models.ForeignKey('core.Source', 
+        null=True, blank=True)
+    lexicon = models.ManyToManyField('Lexicon', through='Cognate')
     quality = models.CharField(default=u'0', max_length=1, choices=COGNATESET_QUALITY,
             help_text="The quality of this cognate set.")
-    lexicon = models.ManyToManyField('Lexicon', through='Cognate')
     
     def __unicode__(self):
         return "%d. %s" % (self.id, self.label)
