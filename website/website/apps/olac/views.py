@@ -74,7 +74,7 @@ def Error(request, error_list, extra_kwargs={}):
     out.update(extra_kwargs)
     return render_to_response('olac/Error.xml', out,
         context_instance=RequestContext(request),
-        mimetype="application/xhtml+xml")
+        content_type="application/xhtml+xml")
 
 
 def Identify(request):
@@ -124,7 +124,7 @@ def Identify(request):
 
     return render_to_response('olac/Identify.xml', out,
         context_instance=RequestContext(request),
-            mimetype="application/xhtml+xml")
+            content_type="application/xhtml+xml")
 
 
 def ListIdentifiers(request):
@@ -219,7 +219,7 @@ def ListIdentifiers(request):
     out['object_list'] = objects
     return render_to_response('olac/ListIdentifiers.xml', out,
         context_instance=RequestContext(request),
-                            mimetype="application/xhtml+xml")
+                            content_type="application/xhtml+xml")
 
 
 def ListSets(request):
@@ -276,11 +276,11 @@ def ListMetadataFormats(request):
             return Error(request, ['idDoesNotExist'], out)
         return render_to_response('olac/ListMetadataFormats.xml', out,
                     context_instance=RequestContext(request),
-                                        mimetype="application/xhtml+xml")
+                                        content_type="application/xhtml+xml")
 
     return render_to_response('olac/ListMetadataFormats.xml', out,
                     context_instance=RequestContext(request),
-                                        mimetype="application/xhtml+xml")
+                                        content_type="application/xhtml+xml")
 
 
 def ListRecords(request):
@@ -374,7 +374,7 @@ def ListRecords(request):
     out['object_list'] = objects
     return render_to_response('olac/ListRecords.xml', out,
         context_instance=RequestContext(request),
-                            mimetype="application/xhtml+xml")
+                            content_type="application/xhtml+xml")
 
 
 def GetRecord(request):
@@ -442,4 +442,4 @@ def GetRecord(request):
     out['object'] = L
     return render_to_response('olac/GetRecord.xml', out,
         context_instance=RequestContext(request),
-                            mimetype="application/xhtml+xml")
+                            content_type="application/xhtml+xml")
