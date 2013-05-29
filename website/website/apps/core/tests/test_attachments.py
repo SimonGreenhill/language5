@@ -20,7 +20,7 @@ class Test_Attachment(TestCase):
     def test_no_attachments_on_language_details(self):
         response = self.client.get(self.language.get_absolute_url())
         assert len(Attachment.objects.all()) == 0
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         assert 'Files:' not in response.content
         
     def test_show_attachments_on_language_details(self):
@@ -35,7 +35,7 @@ class Test_Attachment(TestCase):
         
         assert len(Attachment.objects.all()) == 1
         assert len(self.language.attachment_set.all()) == 1
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         
         assert 'Files:' in response.content
         assert 'simon.jpg' in response.content
@@ -44,7 +44,7 @@ class Test_Attachment(TestCase):
     def test_no_attachments_on_source_details(self):
         response = self.client.get(self.source.get_absolute_url())
         assert len(Attachment.objects.all()) == 0
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         assert 'Files:' not in response.content
 
     def test_show_attachments_on_source_details(self):
@@ -59,7 +59,7 @@ class Test_Attachment(TestCase):
 
         assert len(Attachment.objects.all()) == 1
         assert len(self.language.attachment_set.all()) == 1
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
 
         assert 'Files:' in response.content
         assert 'simon.jpg' in response.content

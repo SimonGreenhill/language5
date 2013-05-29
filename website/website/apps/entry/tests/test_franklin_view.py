@@ -153,7 +153,7 @@ class Test_FranklinView(DataMixin):
         
         self.client.login(username="admin", password="test")
         response = self.client.post(self.task.get_absolute_url(), self.form_data)
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         t = Task.objects.get(pk=self.task.id)
         assert t.checkpoint is not None, "Expecting a checkpoint"
         
@@ -172,14 +172,14 @@ class Test_FranklinView(DataMixin):
         # POST form data
         self.client.login(username="admin", password="test")
         response = self.client.post(self.task.get_absolute_url(), self.form_data)
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         
         # do we have a checkpoint?
         t = Task.objects.get(pk=self.task.id)
         assert t.checkpoint is not None, "Expecting a checkpoint"
         
         # test view has redirected..
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'entry/done.html')
         
         # test view has completed the task

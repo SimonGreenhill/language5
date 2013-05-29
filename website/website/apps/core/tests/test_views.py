@@ -16,7 +16,7 @@ class Test_LanguageIndex(TestCase):
     def test_index(self):
         "Test languages.index"
         response = self.client.get('/language/')
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Language1')
         self.assertContains(response, 'Language2')
         self.assertContains(response, 'Language3')
@@ -32,13 +32,13 @@ class Test_LanguageDetails(TestCase):
     def test_details(self):
         "Test the default details view"
         response = self.client.get('/language/language1')
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
 
     def test_redirect_on_alternate_names(self):
         "Test redirection to canonical URL when given an alternate name"
         # Check that response to an existing language is 200 OK.
         response = self.client.get('/language/language1')
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         
         # Check that response to ./fudge/ is 302 and redirected
         response = self.client.get('/language/fudge')
@@ -48,12 +48,12 @@ class Test_LanguageDetails(TestCase):
         "Test that a non-existent language raises a 404"
         # Check that response to ./nonexistentlanguage/ is 404 NotFound
         response = self.client.get('/language/nonexistentlanguage')
-        self.failUnlessEqual(response.status_code, 404)
+        self.assertEqual(response.status_code, 404)
         
     def test_alternate_names_shown_in_details(self):
         "Test that the details view shows alternate names too"
         response = self.client.get('/language/language1')
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Also Known As:')
         self.assertContains(response, 'fudge')
 
@@ -75,7 +75,7 @@ class Test_ISOLookup(TestCase):
         "Test that ISO codes with multiple languages returns a list"
         # check that /iso/aaa/ is sent to a list of pages.
         response = self.client.get('/iso/aaa')
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'core/language_index.html')
         self.assertContains(response, 'Language1')
         self.assertContains(response, 'Language2')
@@ -94,7 +94,7 @@ class Test_ISOLookup(TestCase):
     def test_iso_notfound(self):
         "Test that a non-existant ISO code returns 404 Not Found"
         response = self.client.get('/iso/zzz')
-        self.failUnlessEqual(response.status_code, 404)
+        self.assertEqual(response.status_code, 404)
 
 
 
@@ -125,7 +125,7 @@ class Test_FamilyDetail(TestCase):
     
     def test_404_on_missing_family(self):
         response = self.client.get('/family/basque')
-        self.failUnlessEqual(response.status_code, 404)
+        self.assertEqual(response.status_code, 404)
         
     def test_family_detail_1(self):
         response = self.client.get('/family/austronesian')

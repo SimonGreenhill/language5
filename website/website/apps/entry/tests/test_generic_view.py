@@ -27,7 +27,7 @@ class Test_GenericView(DataMixin):
         
     def test_error_when_not_logged_in(self):
         response = self.client.get(self.task.get_absolute_url())
-        self.failUnlessEqual(response.status_code, 302) 
+        self.assertEqual(response.status_code, 302) 
         self.assertRedirects(response, 
                              "/accounts/login/?next=%s" % self.task.get_absolute_url(), 
                              status_code=302, target_status_code=200)
@@ -35,12 +35,12 @@ class Test_GenericView(DataMixin):
     def test_ok_when_logged_in(self):
         self.client.login(username="admin", password="test")
         response = self.client.get(self.task.get_absolute_url())
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         
     def test_active_task(self):
         self.client.login(username="admin", password="test")
         response = self.client.get(self.task.get_absolute_url())
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         
     def test_completed_task(self):
         self.client.login(username="admin", password="test")
@@ -65,7 +65,7 @@ class Test_GenericView(DataMixin):
         self.task.completable = False
         self.task.save()
         response = self.client.post(self.task.get_absolute_url(), self.form_data)
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'entry/done.html')
         assert not Task.objects.get(pk=self.task.id).done
     
@@ -74,6 +74,6 @@ class Test_GenericView(DataMixin):
         self.task.completable = True
         self.task.save()
         response = self.client.post(self.task.get_absolute_url(), self.form_data)
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'entry/done.html')
         assert Task.objects.get(pk=self.task.id).done
