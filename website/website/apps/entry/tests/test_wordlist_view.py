@@ -97,8 +97,17 @@ class Test_WordlistView(WordlistMixin):
         """
         self.client.login(username="admin", password="test")
         response = self.client.get(self.task.get_absolute_url())
-        assert self.task.records == 1, "Task records should be set to one"
         assert len(response.context['formset'].forms) == 3, "Should get 3 forms in formset"
+        
+    def test_wordlist_overrides_records_in_model(self):
+        """
+        Tests that the number of records is set to the number of items
+        """
+        assert self.task.records == self.wordlist.words.count()
+        m = WordlistMember(wordlist=self.wordlist, word=self.words[0], order=5) # add another
+        m.save()
+        assert self.task.records == len(self.wordlist.words.all())
+        
         
     def test_wordlist_only_shows_words_in_list(self):
         """Tests WordlistView only shows words in wordlist"""
@@ -120,7 +129,7 @@ class Test_WordlistView(WordlistMixin):
         """Test WordlistView checkpoints correctly"""
         self.client.login(username="admin", password="test")
         response = self.client.post(self.task.get_absolute_url(), self.bad_form_data)
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         
         # does task have a checkpoint?
         assert Task.objects.get(pk=self.task.pk).checkpoint
@@ -138,7 +147,7 @@ class Test_WordlistView(WordlistMixin):
         """Test WordlistView saves correctly"""
         self.client.login(username="admin", password="test")
         response = self.client.post(self.task.get_absolute_url(), self.form_data)
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'entry/done.html')
         # is task completed
         assert Task.objects.get(pk=self.task.pk).done
@@ -164,7 +173,7 @@ class Test_WordlistView(WordlistMixin):
         
         # post...
         response = self.client.post(self.task.get_absolute_url(), self.bad_form_data)
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         
         # does task have a checkpoint?
         assert Task.objects.get(pk=self.task.pk).checkpoint
@@ -234,7 +243,7 @@ class Test_WordlistView(WordlistMixin):
         
         # post...
         response = self.client.post(self.task.get_absolute_url(), self.form_data)
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
 
 
         self.assertTemplateUsed(response, 'entry/done.html')
@@ -285,7 +294,7 @@ class Test_WordlistView(WordlistMixin):
         
         self.client.login(username="admin", password="test")
         response = self.client.get(t.get_absolute_url())
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         formdata = [f.initial for f in response.context['formset'].forms]
                 
         # and is it correct?
