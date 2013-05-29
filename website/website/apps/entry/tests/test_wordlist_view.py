@@ -84,11 +84,25 @@ class WordlistMixin(TestCase):
         self.bad_form_data = self.form_data.copy()
         del(self.bad_form_data['form-2-language'])
     
-        
-class Test_WordlistView(WordlistMixin):
-    """Tests the WordlistView Detail Page"""
+
+class TestWordlist(WordlistMixin):
     def test_create_wordlist(self):
         assert len(self.wordlist.words.all()) == 3
+    
+    def test_wordlist_overrides_records_in_model(self):
+        """
+        Tests that the number of records is set to the number of items
+        """
+        assert self.task.records == self.wordlist.words.count()
+        m = WordlistMember(wordlist=self.wordlist, word=self.words[0], order=5) # add another
+        m.save()
+        self.task.save() # need to save to update.
+        assert self.task.records == len(self.wordlist.words.all())
+
+
+
+class Test_WordlistView(WordlistMixin):
+    """Tests the WordlistView Detail Page"""
     
     def test_wordlist_overrides_records(self):
         """
@@ -98,16 +112,6 @@ class Test_WordlistView(WordlistMixin):
         self.client.login(username="admin", password="test")
         response = self.client.get(self.task.get_absolute_url())
         assert len(response.context['formset'].forms) == 3, "Should get 3 forms in formset"
-        
-    def test_wordlist_overrides_records_in_model(self):
-        """
-        Tests that the number of records is set to the number of items
-        """
-        assert self.task.records == self.wordlist.words.count()
-        m = WordlistMember(wordlist=self.wordlist, word=self.words[0], order=5) # add another
-        m.save()
-        assert self.task.records == len(self.wordlist.words.all())
-        
         
     def test_wordlist_only_shows_words_in_list(self):
         """Tests WordlistView only shows words in wordlist"""
