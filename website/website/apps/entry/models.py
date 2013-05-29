@@ -47,11 +47,18 @@ class Task(TrackedModel):
     @models.permalink
     def get_absolute_url(self):
         return ('entry:detail', [self.id])
-        
+    
+    def save(self, *args, **kwargs):
+        # over-ride records with length of wordlist.
+        if self.wordlist:
+            self.records = self.wordlist.words.count()
+        super(Task, self).save(*args, **kwargs)
+
     class Meta:
         db_table = 'tasks'
         ordering = ['name', ]
         get_latest_by = 'date'
+
 
 class Wordlist(TrackedModel):
     """Wordlist for data entry tasks"""
