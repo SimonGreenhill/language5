@@ -8,14 +8,15 @@ from website.apps.lexicon.models import Word, WordSubset, Lexicon
 
 class WordIndexTable(DataTable):
     """Word Listing"""
+    id = tables.LinkColumn('word-detail', args=[A('slug')], order_by=("id",))
     fullword = tables.LinkColumn('word-detail', args=[A('slug')], order_by=("word", "full"))
     count = tables.Column()
     
     class Meta(DataTable.Meta):
         model = Word
-        order_by = 'word' # default sorting
-        sequence = ('fullword', 'count')
-        exclude = ('id', 'editor', 'word', 'full', 'added', 'slug', 'quality', 'comment')
+        order_by = 'fullword' # default sorting
+        sequence = ('id', 'fullword', 'count')
+        exclude = ('editor', 'word', 'full', 'added', 'slug', 'quality', 'comment')
     Meta.attrs['summary'] = 'Table of Words'
 
 
