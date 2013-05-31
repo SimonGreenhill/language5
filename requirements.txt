@@ -12,6 +12,7 @@ django-tables2                                              # better table handl
 django-dbbackup                                             # database & media backup
 simples3                                                    # Amazon S3 for backup
 django-nvd3                                                 # for graphing statistics
+IPython                                                     # for local work.
 # searching:
 -e git://github.com/etianen/django-watson.git#egg=django-watson
 
