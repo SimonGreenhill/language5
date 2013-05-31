@@ -49,8 +49,6 @@ class Source(TrackedModel):
             ["author", "year"],
         ]
 
-watson.register(Source, fields=('author', 'year', 'reference'))
-
 
 class Note(TrackedModel):
     """Notes/Information about a language"""
@@ -65,8 +63,6 @@ class Note(TrackedModel):
     
     class Meta:
         db_table = 'notes'
-
-#watson.register(Note, fields=('language', 'source', 'note'))
 
 
 class Family(TrackedModel):
@@ -88,8 +84,6 @@ class Family(TrackedModel):
         verbose_name_plural = 'families'
         ordering = ['family', ]
     
-watson.register(Family, fields=('family',))
-
 
 class Language(TrackedModel):
     """Stores language information"""
@@ -125,8 +119,6 @@ class Language(TrackedModel):
         db_table = 'languages'
         ordering = ['language', 'dialect']
 
-watson.register(Language, fields=('family', 'language', 'isocode', 'classification', 'information'))
-
 
 class AlternateName(TrackedModel):
     """Handles languages with multiple names"""
@@ -148,8 +140,6 @@ class AlternateName(TrackedModel):
         db_table = 'altnames'
         ordering = ['name', ]
 
-watson.register(AlternateName, fields=('language', 'name'))
-
 
 class Link(TrackedModel):
     """Stores links to language appropriate resources"""
@@ -165,8 +155,6 @@ class Link(TrackedModel):
         db_table = 'links'
         unique_together = ['language', 'link']
         
-watson.register(Link, fields=('language', 'link', 'description'))
-
 
 class Location(TrackedModel):
     language = models.ForeignKey('Language')
@@ -200,6 +188,13 @@ class Attachment(TrackedModel):
     class Meta:
         db_table = 'attachments'
 
+
+watson.register(Language, fields=('family', 'language', 'dialect', 'isocode', 'classification', 'information'))
+watson.register(Family, fields=('family',))
+watson.register(Source, fields=('author', 'year', 'reference'))
+watson.register(AlternateName, fields=('language', 'name'))
+watson.register(Link, fields=('language', 'link', 'description'))
+#watson.register(Note, fields=('language', 'source', 'note'))
 
 statistic.register("Number of Families", Family)
 statistic.register("Number of Languages", Language)

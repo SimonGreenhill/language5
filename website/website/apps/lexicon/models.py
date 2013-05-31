@@ -1,6 +1,8 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 
+import watson
+
 from website.apps.core.models import TrackedModel
 from website.apps.statistics import statistic
 
@@ -59,6 +61,8 @@ class Word(TrackedModel):
     class Meta:
         db_table = 'words'
         ordering = ['word', ]
+
+
 
 
 class WordSubset(TrackedModel):
@@ -172,6 +176,11 @@ class Correspondence(TrackedModel):
     class Meta:
         db_table = 'correspondences'
 
+
+
+watson.register(Word, fields=('word', 'full'))
+watson.register(WordSubset, fields=('subset', 'description'))
+watson.register(Lexicon, fields=('entry', 'annotation'))
 
 
 statistic.register("Number of Words", Word)
