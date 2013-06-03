@@ -1,9 +1,10 @@
 django>=1.5                                                 # django framework
+django-extensions>=1.1.1                                    # useful tools
 fabric                                                      # deployment etc
 pil                                                         # Python Imaging Library
 psycopg2                                                    # database adaptor
 django-reversion>=1.7                                       # versioning
-South>=0.7.6                                                # database migrations
+South>=0.8.1                                                # database migrations
 django-robots                                               # robots.txt
 pytz                                                        # timezone support
 django-secure                                               # security
