@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-import json
-import codecs
+import sys
+from optparse import make_option
 from django.db import transaction
 from django.core.management.base import BaseCommand
 from django.contrib.auth.models import User
@@ -11,6 +11,13 @@ from website.apps.entry.models import Wordlist, WordlistMember
 class Command(BaseCommand):
     args = 'wordlist_name filename.txt'
     help = 'Creates a wordlist in `wordlist_name` from space delimited `filename.txt`'
+    option_list = BaseCommand.option_list + (
+        make_option('--run',
+            action='store_true',
+            dest='run',
+            default=False,
+            help='Run'),
+        )
     
     def parse(self, handle):
         """Reads a filename. Ordering is set to order in file
@@ -63,20 +70,29 @@ class Command(BaseCommand):
         
         with open(args[1], 'rU') as handle:
             words = self.parse(handle)
+        sys.stdout.write("%d words loaded from %s" % (len(words), args[1]))
         
-        ed = User.objects.get(pk=1)
         
-        # create wordlist.
-        wl = Wordlist.objects.create(
-            editor=ed, 
-            name=args[0]
-        )
-        wl.save()
+        if 'run' in options and options['run']:
+            ed = User.objects.get(pk=1)
+            # create wordlist.
+            wl = Wordlist.objects.create(
+                editor=ed, 
+                name=args[0]
+            )
+            wl.save()
+            
+            # go through words and add them to wordlist
+            for order in sorted(words):
+                m = WordlistMember(wordlist=wl, word=words[order], order=order)
+                m.save()
+            
+            if wl.words.count() != len(words):
+                raise AssertionError(
+                    "Number of words in wordlist doesn't match expected (%d != %d)" % \
+                    (wl.words.count(), len(words))
+                )
+            sys.stdout.write("Wordlist %s created with %d entries" % (wl, order))
+        else:
+            sys.stdout.write("Dry-run complete. Use --run to save changes. Rolling back.")
         
-        # go through words and add them to wordlist
-        for order in sorted(words):
-            m = WordlistMember(wordlist=wl, word=words[order], order=order)
-            m.save()
-        
-        assert wl.words.count() == order
-        print("Wordlist %s created with %d entries" % (wl, order))
