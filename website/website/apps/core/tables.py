@@ -54,7 +54,7 @@ class LanguageIndexTable(DataTable):
     
     def render_language(self, record):
         col = tables.LinkColumn('language-detail', args=[record.slug])
-        return col.render(value=record.language, record=unicode(record), bound_column=None)
+        return col.render(value=unicode(record), record=unicode(record), bound_column=None)
         
         
     class Meta(DataTable.Meta):

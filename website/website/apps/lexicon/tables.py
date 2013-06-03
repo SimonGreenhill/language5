@@ -31,7 +31,7 @@ class WordLexiconTable(DataTable):
     
     def render_language(self, record):
         col = tables.LinkColumn('language-detail', args=[record.language.slug])
-        return col.render(value=record.language, record=unicode(record.language), bound_column=None)
+        return col.render(value=unicode(record.language), record=unicode(record.language), bound_column=None)
     
     class Meta(DataTable.Meta):
         model = Lexicon
@@ -67,7 +67,7 @@ class SourceLexiconTable(DataTable):
     
     def render_language(self, record):
         col = tables.LinkColumn('language-detail', args=[record.language.slug])
-        return col.render(value=record.language, record=unicode(record.language), bound_column=None)
+        return col.render(value=unicode(record.language), record=unicode(record.language), bound_column=None)
     
     class Meta(DataTable.Meta):
         model = Lexicon
