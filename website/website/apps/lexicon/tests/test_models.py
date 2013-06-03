@@ -224,7 +224,7 @@ class Test_Lexicon(TestSetup, TestCase):
         self.assertEquals(len(objs), 2)
         
     def test_unicode(self):
-        entry = u"Iñtërnâtiônàlizætiøn".encode('utf-8')
+        entry = u"Iñtërnâtiônàlizætiøn"
         Lexicon.objects.create(language=self.lang1, 
             source=self.source1, word=self.word2, entry=entry, phon_entry=None, 
             annotation="", loan=False, loan_source=None, editor=self.editor)
