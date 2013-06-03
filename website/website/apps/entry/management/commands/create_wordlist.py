@@ -39,6 +39,7 @@ class Command(BaseCommand):
             ...
         """
         words = {}
+        errors = []
         order_id = 1
         for line in handle.readlines():
             line = line.strip()
@@ -51,16 +52,25 @@ class Command(BaseCommand):
                     order_id, line = [x.strip() for x in line.split(" ", 1)]
                     try:
                         order_id = int(order_id) 
-                    except ValueError:
+                    except ValueError as e:
                         raise ValueError("%s is not an integer, and there is an invalid order id" % order_id)
                 
                 try:
                     w = Word.objects.get(slug=line)
                 except Word.DoesNotExist:
-                    raise Word.DoesNotExist("'%r' does not exist - create it!" % line)
+                    # we're going to crash anyway later. Just put a placeholder for now
+                    w = None
+                    errors.append(line)
                 
                 words[order_id] = w
                 order_id += 1
+        
+        if len(errors):
+            raise Word.DoesNotExist(
+                "%d words don't exist: %s" % (len(errors), ", ".join(errors))
+            )
+            
+        
         return words
         
     def handle(self, *args, **options):
