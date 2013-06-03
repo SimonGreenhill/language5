@@ -54,6 +54,17 @@ class TestWordlistParser(TestCase):
         content.reset() # rewind
         with self.assertRaises(Word.DoesNotExist):
             wl = self.cmd.parse(content)
+            
+    def test_multiple_missing(self):
+        content = cStringIO.StringIO()
+        content.write('one\n')
+        content.write('two\n')
+        content.write('three\n')
+        content.write('four\n')
+        content.write('five\n')
+        content.reset() # rewind
+        with self.assertRaises(Word.DoesNotExist):
+            wl = self.cmd.parse(content)
 
     def test_duplicate_word(self):
         content = cStringIO.StringIO()
