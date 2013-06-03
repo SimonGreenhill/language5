@@ -83,7 +83,7 @@ class WordlistMixin(TestCase):
         # and for partial validation...
         self.bad_form_data = self.form_data.copy()
         del(self.bad_form_data['form-2-language'])
-    
+
 
 class TestWordlist(WordlistMixin):
     def test_create_wordlist(self):
@@ -307,4 +307,4 @@ class Test_WordlistView(WordlistMixin):
             assert formdata[i]['word'] == words[i]
         
         
-        
+
