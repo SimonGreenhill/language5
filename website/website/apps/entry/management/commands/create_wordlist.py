@@ -102,7 +102,7 @@ class Command(BaseCommand):
                     "Number of words in wordlist doesn't match expected (%d != %d)" % \
                     (wl.words.count(), len(words))
                 )
-            sys.stdout.write("Wordlist %s created with %d entries" % (wl, order))
+            sys.stdout.write("Wordlist %s created with %d entries" % (wl, wl.words.count()))
         else:
             sys.stdout.write("Dry-run complete. Use --run to save changes. Rolling back.")
         
