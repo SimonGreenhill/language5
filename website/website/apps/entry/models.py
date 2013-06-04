@@ -40,6 +40,8 @@ class Task(TrackedModel):
         help_text="Data has been entered")
     checkpoint = models.TextField(help_text="Saved Checkpoint Data", 
         blank=True, null=True)
+    lexicon = models.ManyToManyField('lexicon.Lexicon',
+        help_text="Saved Lexical Items", blank=True, null=True)
     
     def __unicode__(self):
         return self.name
@@ -58,6 +60,7 @@ class Task(TrackedModel):
         db_table = 'tasks'
         ordering = ['name', ]
         get_latest_by = 'date'
+
 
 
 class Wordlist(TrackedModel):

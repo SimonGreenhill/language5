@@ -8,7 +8,6 @@ from django.forms.formsets import formset_factory
 from website.apps.core.models import Language, Source
 from website.apps.lexicon.models import Lexicon, Word
 
-
 class GenericForm(forms.ModelForm):
     language = forms.ModelChoiceField(queryset=Language.objects.order_by('slug'))
     word = forms.ModelChoiceField(queryset=Word.objects.order_by('word'))
@@ -53,6 +52,7 @@ def process_post_and_save(request, task, formset):
                     obj = form.save(commit=False)
                     obj.editor = request.user
                     obj.save()
+                    task.lexicon.add(obj)
                     completed.append(obj)
                     
             TaskLog.objects.create(person=request.user, 
