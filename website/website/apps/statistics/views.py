@@ -4,7 +4,7 @@ from django.shortcuts import render
 from website.apps.statistics.models import StatisticalValue
 from website.apps.statistics import statistic
 
-GRAPH_START_TIME = datetime.strptime("01 Jan 2013 00:00:00", "%d %b %Y %H:%M:%S")
+GRAPH_START_TIME = datetime.strptime("01 Apr 2013 00:00:00", "%d %b %Y %H:%M:%S")
 
 WANTED_STATISTICS = [
     "Number of Languages", 
