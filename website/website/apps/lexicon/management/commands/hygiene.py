@@ -54,7 +54,6 @@ class Command(BaseCommand):
     def delete(self, items):
         """Delete a list of records"""
         for obj in items:
-            self._print('Deleting: %d - %r' % (obj.id, obj.entry))
             obj.delete()
             
     def handle(self, *args, **options):
@@ -69,3 +68,5 @@ class Command(BaseCommand):
         if 'delete' in options and options['delete']:
             self.delete(empties)
             self.delete(duplicates)
+            
+        
