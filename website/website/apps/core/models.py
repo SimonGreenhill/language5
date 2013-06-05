@@ -105,7 +105,7 @@ class Language(TrackedModel):
         if self.dialect:
             return u"%s (%s Dialect)" % (self.language, self.dialect)
         else:
-            return self.language
+            return unicode(self.language)
     
     @models.permalink
     def get_absolute_url(self):
