@@ -5,6 +5,8 @@ from django.template import RequestContext
 from django import forms
 from django.forms.formsets import formset_factory
 
+import reversion
+
 from website.apps.core.models import Language, Source
 from website.apps.lexicon.models import Lexicon, Word
 
@@ -51,8 +53,12 @@ def process_post_and_save(request, task, formset):
                     # two stages here to set default fields
                     obj = form.save(commit=False)
                     obj.editor = request.user
-                    obj.save()
-                    task.lexicon.add(obj)
+                    with reversion.create_revision():
+                        obj.save()
+                        
+                    with reversion.create_revision():
+                        task.lexicon.add(obj)
+                    
                     completed.append(obj)
                     
             TaskLog.objects.create(person=request.user, 
@@ -61,8 +67,10 @@ def process_post_and_save(request, task, formset):
                                    
             # update task if needed.
             if task.completable == True:
-                task.done = True
-                task.save()
+                with reversion.create_revision():
+                    task.done = True
+                    task.save()
+                
                 TaskLog.objects.create(person=request.user, 
                                        page="website.apps.entry.GenericView", 
                                        message="Completed Task: %s" % task.id)

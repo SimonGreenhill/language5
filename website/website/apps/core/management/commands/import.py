@@ -2,6 +2,7 @@
 import os
 import sys
 import codecs
+import reversion
 from optparse import make_option
 from django.conf import settings
 from django.db import transaction
@@ -43,7 +44,8 @@ class Command(BaseCommand):
                 directory, module_name = os.path.split(filename)
                 module_name = os.path.splitext(module_name)[0]
                 sys.path.insert(0, directory)
-                module = __import__(module_name)
+                with reversion.create_revision():
+                    module = __import__(module_name)
                 #execfile(filename)
             except ImportError:
                 transaction.rollback()

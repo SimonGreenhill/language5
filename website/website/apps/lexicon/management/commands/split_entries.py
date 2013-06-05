@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import reversion
 from optparse import make_option
 from django.core.management.base import BaseCommand
 
@@ -69,19 +70,27 @@ class Command(BaseCommand):
             components = obj.entry.split("/")
         elif ',' in obj.entry:
             components = obj.entry.split(",")
+        pks = []
         for c in components:
             c = c.strip()
             assert len(c) > 0, "Unable to split properly - zero length component"
             self._print("Splitting: %s -> %s" % (obj.entry, c))
-            Lexicon.objects.create(
-                language=obj.language, 
-                word=obj.word,
-                source=obj.source,
-                editor=obj.editor,
-                entry=c
-            )
+            with reversion.create_revision():
+                o = Lexicon.objects.create(
+                    language=obj.language, 
+                    word=obj.word,
+                    source=obj.source,
+                    editor=obj.editor,
+                    entry=c
+                )
+                reversion.set_comment("Automatic split_entries has created this from: %d" % obj.id)
+                pks.append(o.id)
+        
         # now delete old entry
-        obj.delete()
+        with reversion.create_revision():
+            obj.delete()
+            reversion.set_comment("Automatic split_entries has moved this item to: %s" % ",".join([str(p) for p in pks]))
+            
         
     def handle(self, *args, **options):
         

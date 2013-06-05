@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys
+import reversion
 from optparse import make_option
 from django.db import transaction
 from django.core.management.base import BaseCommand
@@ -86,16 +87,18 @@ class Command(BaseCommand):
         if 'run' in options and options['run']:
             ed = User.objects.get(pk=1)
             # create wordlist.
-            wl = Wordlist.objects.create(
-                editor=ed, 
-                name=args[0]
-            )
-            wl.save()
+            with reversion.create_revision():
+                wl = Wordlist.objects.create(
+                    editor=ed, 
+                    name=args[0]
+                )
+                wl.save()
             
             # go through words and add them to wordlist
             for order in sorted(words):
-                m = WordlistMember(wordlist=wl, word=words[order], order=order)
-                m.save()
+                with reversion.create_revision():
+                    m = WordlistMember(wordlist=wl, word=words[order], order=order)
+                    m.save()
             
             if wl.words.count() != len(words):
                 raise AssertionError(

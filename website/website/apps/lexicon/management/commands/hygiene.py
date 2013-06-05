@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import reversion
 from django.db.models import Count
 from optparse import make_option
 from django.core.management.base import BaseCommand
@@ -54,7 +55,8 @@ class Command(BaseCommand):
     def delete(self, items):
         """Delete a list of records"""
         for obj in items:
-            obj.delete()
+            with reversion.create_revision():
+                obj.delete()
             
     def handle(self, *args, **options):
         empties = self.find_empty()
