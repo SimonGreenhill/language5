@@ -110,7 +110,7 @@ class Lexicon(TrackedModel):
     )
     
     def __unicode__(self):
-        return u"%d-%s" % (self.id, self.entry)
+        return u"%d-%d-%d-%d-%s" % (self.id, self.language.id, self.word.id, self.source.id, self.entry)
 
     class Meta:
         db_table = 'lexicon'
