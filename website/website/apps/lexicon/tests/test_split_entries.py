@@ -153,4 +153,95 @@ class Test_Split_Entries(HygieneDataMixin):
         assert one.editor == two.editor == o.editor
         assert one.source == two.source == o.source
         assert one.word == two.word == o.word
+        
+
+class Test_Filter(TestCase):
+    """Tests the split_entries management command filtering"""
+
+    def setUp(self):
+        self.editor = User.objects.create(username='admin')
+        self.languages = [
+            Language.objects.create(
+                language='A', slug='a', isocode='aaa', editor=self.editor),
+            Language.objects.create(
+                language='B', slug='b', isocode='bbb', editor=self.editor)
+        ]
+        self.words = [
+            Word.objects.create(word='hand', slug='hand', editor=self.editor),
+            Word.objects.create(word='leg', slug='leg', editor=self.editor),
+        ]
+        self.sources = [
+            Source.objects.create(
+                year=1992, author='Smith', slug='smith', editor=self.editor),
+            Source.objects.create(
+                year=1992, author='Jones', slug='jones', editor=self.editor),
+        ]
+        
+        # make some items - each combination gets one combined entry
+        # the _entry_ field is set to contain the language_id, word_id and source_id
+        for lang in self.languages:
+            for word in self.words:
+                for source in self.sources:
+                    Lexicon.objects.create(
+                        language=lang, 
+                        word=word,
+                        source=source,
+                        editor=self.editor,
+                        entry="%d/%d/%d" % (lang.id, word.id, source.id)
+                    )
+    
+    def _getvalues(self, obj):
+        """
+        Returns a dictionary of expected language_id, word_id, and source_id 
+        for this Lexical item.
+        """
+        return dict(zip(
+            ['language', 'word', 'source'], 
+            [int(i) for i in obj.entry.split("/")]
+        ))
+        
+    def test_find_all(self):
+        """Tests whether we find all the combined entries."""
+        assert len(split_entries.Command().find_combined()) == 8
+        
+    def test_filter_on_language(self):
+        found = split_entries.Command().find_combined(language=self.languages[0])
+        assert len(found) == 4
+        for f in found:
+            values = self._getvalues(f)
+            assert values['language'] == self.languages[0].id
+            
+            
+    def test_filter_on_word(self):
+        found = split_entries.Command().find_combined(word=self.words[0])
+        assert len(found) == 4
+        for f in found:
+            values = self._getvalues(f)
+            assert values['word'] == self.words[0].id
+        
+    def test_filter_on_source(self):
+        found = split_entries.Command().find_combined(source=self.sources[0])
+        assert len(found) == 4
+        for f in found:
+            values = self._getvalues(f)
+            assert values['source'] == self.sources[0].id
+        
+    def test_filter_on_language_and_word(self):
+        found = split_entries.Command().find_combined(language=self.languages[0], 
+                                                      word=self.words[0])
+        assert len(found) == 2
+        for f in found:
+            values = self._getvalues(f)
+            assert values['language'] == self.languages[0].id
+            assert values['word'] == self.words[0].id
+    
+    def test_filter_on_language_and_word_and_source(self):
+        found = split_entries.Command().find_combined(language=self.languages[0], 
+                                                      word=self.words[0],
+                                                      source=self.sources[0])
+        assert len(found) == 1
+        values = self._getvalues(found[0])
+        assert values['language'] == self.languages[0].id
+        assert values['word'] == self.words[0].id
+        assert values['source'] == self.sources[0].id
     
