@@ -189,6 +189,18 @@ class Attachment(TrackedModel):
         db_table = 'attachments'
 
 
+class PopulationSize(TrackedModel):
+    """Population Size Details"""
+    language = models.ForeignKey('Language')
+    source = models.ForeignKey('Source')
+    populationsize = models.IntegerField()
+
+    def __unicode__(self):
+        return u"%s %d: %d" % (self.language.slug, self.source.year, self.populationsize)
+
+    class Meta:
+        db_table = 'popsize'
+
 
 
 
