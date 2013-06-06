@@ -3,11 +3,11 @@ from website.apps.core.models import Language, Family, Source
 from website.apps.lexicon.models import Word
 
 class LanguageSitemap(Sitemap):
-    changefreq = "website"
+    changefreq = "weekly"
     priority = 0.5
 
     def items(self):
-        return Language.objects.filter()
+        return Language.objects.all()
 
     def lastmod(self, obj):
         return obj.added
@@ -18,7 +18,7 @@ class FamilySitemap(Sitemap):
     priority = 0.5
 
     def items(self):
-        return Family.objects.filter()
+        return Family.objects.all()
 
     def lastmod(self, obj):
         return obj.added
@@ -28,7 +28,7 @@ class SourceSitemap(Sitemap):
     priority = 0.5
 
     def items(self):
-        return Source.objects.filter()
+        return Source.objects.all()
 
     def lastmod(self, obj):
         return obj.added
@@ -39,7 +39,7 @@ class WordSitemap(Sitemap):
     priority = 0.5
 
     def items(self):
-        return Word.objects.filter()
+        return Word.objects.all()
 
     def lastmod(self, obj):
         return obj.added
