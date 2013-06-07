@@ -75,6 +75,24 @@ def process_post_and_save(request, task, formset):
                                        page="website.apps.entry.GenericView", 
                                        message="Completed Task: %s" % task.id)
                                        
+            # if we have a file saved and a language then add it to the attachments...
+            if task.language and task.source and (task.image or task.file):
+                from website.apps.core.models import Attachment
+                if task.image:
+                    a = Attachment.objects.create(
+                        editor = request.user,
+                        language = task.language,
+                        source = task.source,
+                        file = task.image
+                    )
+                if task.file:
+                    a = Attachment.objects.create(
+                        editor = request.user,
+                        language = task.language,
+                        source = task.source,
+                        file = task.file
+                    )
+            
             return render_to_response('entry/done.html', {
                 'task': task,
                 'objects': completed,
