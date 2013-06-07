@@ -261,6 +261,7 @@ CONN_MAX_AGE = 64
 # Setup OLAC
 OLAC_SETTINGS = {
     'sitename': SITE_NAME,
+    'repositoryName': SITE_NAME,
     'sitedomain': SITE_DOMAIN,
     'description': SITE_DESCRIPTION,
     'adminEmail': ADMINS, 
