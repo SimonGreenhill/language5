@@ -7,7 +7,7 @@ class LanguageSitemap(Sitemap):
     priority = 0.5
 
     def items(self):
-        return Language.objects.all()
+        return Language.objects.all().order_by("-added")
 
     def lastmod(self, obj):
         return obj.added
@@ -18,7 +18,7 @@ class FamilySitemap(Sitemap):
     priority = 0.5
 
     def items(self):
-        return Family.objects.all()
+        return Family.objects.all().order_by("-added")
 
     def lastmod(self, obj):
         return obj.added
@@ -28,7 +28,7 @@ class SourceSitemap(Sitemap):
     priority = 0.5
 
     def items(self):
-        return Source.objects.all()
+        return Source.objects.all().order_by("-added")
 
     def lastmod(self, obj):
         return obj.added
@@ -39,7 +39,7 @@ class WordSitemap(Sitemap):
     priority = 0.5
 
     def items(self):
-        return Word.objects.all()
+        return Word.objects.all().order_by("-added")
 
     def lastmod(self, obj):
         return obj.added
