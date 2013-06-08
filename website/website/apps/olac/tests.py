@@ -120,6 +120,10 @@ class Test_Identify(TestCase):
     def test_has_baseURL(self):
         # `baseURL`:          the base URL of the repository;
         assert re.search(r"<baseURL>(.*)</baseURL>", self.response.content)
+    
+    def test_baseURL_is_complete(self):
+        found = re.search(r"<baseURL>(.*)</baseURL>", self.response.content)
+        assert found.groups()[0] == 'http://%s/oai/' % TEST_DOMAIN
         
     def test_has_protocolVersion(self):
         # `protocolVersion`:  the version of the OAI-PMH supported by the repository;

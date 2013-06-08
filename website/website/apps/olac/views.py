@@ -31,8 +31,14 @@ def check_ident(ident):
     return _IDENTIFIER.match(ident)
 
 def get_sample_identifier():
-    obj = Model.objects.all()[0]
-    return 'oai:%s:%s.%d' % (settings.OLAC_SETTINGS['repositoryName'], obj.isocode, obj.id)
+    template = 'oai:%s:%s.%d'
+    try:
+        obj = Model.objects.all()[0]
+        return template % (settings.OLAC_SETTINGS['repositoryName'], obj.isocode, obj.id)
+    except:
+        # no entries stored. Return a dummy
+        return template % (settings.OLAC_SETTINGS['repositoryName'], 'aaa', 1)
+        
     
 def parse_time(timestamp):
     if hasattr(datetime, "strptime"):
