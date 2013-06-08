@@ -37,10 +37,11 @@ class CheckpointListFilter(admin.SimpleListFilter):
 
 class TaskAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
-    list_display = ('id', 'name', 'source', 'language', 'records', 'view', 'added', 'completable', 'done')
+    list_display = ('id', 'name', 'records', 'view', 'added', 'completable', 'done')
     list_filter = ('editor', 'done', 'completable', CheckpointListFilter, 'source', 'language', 'view')
     ordering = ('name',)
-
+    list_select_related = True
+    #exclude = ('lexicon')
 
 class TaskLogAdmin(admin.ModelAdmin):
     date_hierarchy = 'time'

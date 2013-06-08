@@ -67,6 +67,7 @@ class AlternateNameAdmin(TrackedModelAdmin, VersionAdmin):
     ordering = ('name',)
     search_fields = ('language', 'name')
     prepopulated_fields = {'slug': ('name', )}
+    list_select_related = True
 
 
 class LinkAdmin(TrackedModelAdmin, VersionAdmin):

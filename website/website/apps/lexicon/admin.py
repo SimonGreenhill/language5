@@ -72,22 +72,34 @@ class CognateSetAdmin(TrackedModelAdmin, VersionAdmin):
     list_display = ('id', 'protoform', 'gloss', 'source', 'comment', 'quality')
     list_filter = ('editor', 'source', 'quality')
     ordering = ('id',)
+    list_select_related = True
     
     inlines = [CognatesInline]
+    
+    def queryset(self, request):
+        return super(CognateSetAdmin, self).queryset(request).select_related('source')
 
 
 class CorrespondenceSetAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
-    list_display = ('id', 'editor', 'source', 'comment')
+    list_display = ('id', 'source', 'comment')
     list_filter = ('editor', 'source', 'language')
     ordering = ('id',)
     inlines = [CorrespondenceInline]
     
+    def queryset(self, request):
+        return super(CorrespondenceSetAdmin, self).queryset(request).select_related('source', 'language')
+
 
 class CognateAdmin(TrackedModelAdmin, VersionAdmin):
     list_display = ('cognateset', 'lexicon', 'source', 'comment', 'flag')
     list_filter = ('editor', 'cognateset', 'source', 'lexicon')
     ordering = ('id',)
+    list_select_related = True
+    
+    def queryset(self, request):
+        return super(CognateAdmin, self).queryset(request).select_related('lexicon', 'source', 'cognateset')
+
 
 class CorrespondenceAdmin(TrackedModelAdmin, VersionAdmin):
     pass
