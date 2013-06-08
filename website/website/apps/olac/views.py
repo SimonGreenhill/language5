@@ -3,6 +3,7 @@ import re
 import time
 from datetime import datetime
 
+from django.conf import settings
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.utils.timezone import utc
@@ -14,7 +15,6 @@ from website.apps.core.models import Language as Model
 KNOWN_METADATA_PREFIXES = ('olac', 'oai_dc')
 
 _IDENTIFIER = re.compile(r"""oai:.*?:(\w{3})\.(\d+)""")
-
 
 ERRORS = {
     'badArgument': 'The request includes illegal arguments, is missing required arguments, includes a repeated argument, or values for arguments have an illegal syntax.',
@@ -30,6 +30,10 @@ ERRORS = {
 def check_ident(ident):
     return _IDENTIFIER.match(ident)
 
+def get_sample_identifier():
+    obj = Model.objects.all()[0]
+    return 'oai:%s:%s.%d' % (settings.OLAC_SETTINGS['repositoryName'], obj.isocode, obj.id)
+    
 def parse_time(timestamp):
     if hasattr(datetime, "strptime"):
         d = datetime.strptime('%s UTC' % timestamp, "%Y-%m-%d %Z")
@@ -120,8 +124,11 @@ def Identify(request):
         Each description container must be accompanied by the URL of an XML schema
         describing the structure of the description container.
     """
-    out = {'url': request.build_absolute_uri()}
-
+    out = {
+        'url': request.build_absolute_uri(),
+        'sampleIdentifier': get_sample_identifier(),
+    }
+    
     if len(request.REQUEST.keys()) > 1: # should take NO other arguments.
         return Error(request, ['badArgument'], out)
 

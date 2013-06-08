@@ -25,7 +25,7 @@
                 <scheme>oai</scheme>
                 <repositoryIdentifier>{{ OLAC.sitedomain }}</repositoryIdentifier>
                 <delimiter>:</delimiter>
-                <sampleIdentifier>oai:pollex.org.nz:mri.75</sampleIdentifier>
+                <sampleIdentifier>{{ sampleIdentifier }}</sampleIdentifier>
             </oai-identifier>
         </description>
         <description>
