@@ -250,6 +250,7 @@ CACHES = {
         # 'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
         'LOCATION': 'cache',
+        'KEY_PREFIX': SITE_NAME,
     }
 }
 CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
