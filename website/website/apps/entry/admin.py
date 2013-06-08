@@ -54,6 +54,7 @@ class WordlistMembersInline(admin.TabularInline):
     model = Wordlist.words.through
     extra = 0 # don't add anything new unless explicitly told to.
 
+
 class TaskWordlistAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_display = ('id', 'name', 'words_count')
