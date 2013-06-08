@@ -94,7 +94,7 @@ class Lexicon(TrackedModel):
     source = models.ForeignKey('core.Source')
     word = models.ForeignKey('Word')
     
-    entry = models.CharField(max_length=32,
+    entry = models.CharField(max_length=32, 
         help_text="Entry from source")
     phon_entry = models.CharField(max_length=32, null=True, blank=True,
         help_text="Entry in Phonological format (in known)")
@@ -110,7 +110,7 @@ class Lexicon(TrackedModel):
     )
     
     def __unicode__(self):
-        return u"%d-%d-%d-%d-%s" % (self.id, self.language.id, self.word.id, self.source.id, self.entry)
+        return u"%d-%s" % (self.id, self.entry)
 
     class Meta:
         db_table = 'lexicon'
