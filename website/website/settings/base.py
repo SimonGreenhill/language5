@@ -1,6 +1,5 @@
 # Django settings for website project.
 import os
-import re
 
 SITE_ROOT = os.path.split(os.path.dirname(os.path.abspath(__file__)))[0]
 
@@ -268,7 +267,6 @@ OLAC_SETTINGS = {
     'admins': ADMINS,
     'deletedRecord': 'no', # deletedRecord policy
     'protocolVersion': '2.0', # the version of the OAI-PMH supported by the repository;
-    '_identifier': re.compile(r"""oai:.*?:(\w{3})\.(\d+)"""),
     'depositor': ADMINS,
     'institution': 'Australian National University',
     'institutionURL': 'http://anu.edu.au',
