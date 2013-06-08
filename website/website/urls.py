@@ -13,6 +13,13 @@ from website.apps.lexicon.views import WordIndex, WordDetail
 
 from sitemap import FamilySitemap, LanguageSitemap, SourceSitemap, WordSitemap
 
+SITEMAPS = {
+    'families': FamilySitemap, 
+    'languages': LanguageSitemap,
+    'sources': SourceSitemap,
+    'words': WordSitemap,
+}
+
 
 urlpatterns = patterns('',
     # Main Page / Home
@@ -55,15 +62,10 @@ urlpatterns = patterns('',
     url(r"^search/", include('watson.urls', namespace='watson')),
     
     # Sitemap
-    (r'^sitemap\.xml$', 
-           'django.contrib.sitemaps.views.sitemap', 
-           {'sitemaps': {
-                'families': FamilySitemap, 
-                'languages': LanguageSitemap,
-                'sources': SourceSitemap,
-                'words': WordSitemap,
-           }}
-       ),
+    (r'^sitemap\.xml$', 'django.contrib.sitemaps.views.index', {'sitemaps': SITEMAPS}),
+    (r'^sitemap-(?P<section>.+)\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': SITEMAPS}),
+      
+       
     # Robots.txt
     (r'^robots\.txt$', include('robots.urls')),
     
