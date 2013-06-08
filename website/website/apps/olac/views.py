@@ -1,17 +1,20 @@
 #http://www.openarchives.org/OAI/openarchivesprotocol.html
+import re
 import time
 from datetime import datetime
 
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.utils.timezone import utc
-from django.conf import settings
 
 from reversion.models import Revision
 
 from website.apps.core.models import Language as Model
 
 KNOWN_METADATA_PREFIXES = ('olac', 'oai_dc')
+
+_IDENTIFIER = re.compile(r"""oai:.*?:(\w{3})\.(\d+)""")
+
 
 ERRORS = {
     'badArgument': 'The request includes illegal arguments, is missing required arguments, includes a repeated argument, or values for arguments have an illegal syntax.',
@@ -25,7 +28,7 @@ ERRORS = {
 }
 
 def check_ident(ident):
-    return settings.OLAC_SETTINGS['_identifier'].match(ident)
+    return _IDENTIFIER.match(ident)
 
 def parse_time(timestamp):
     if hasattr(datetime, "strptime"):

@@ -6,7 +6,7 @@
          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/
          http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
   <responseDate>{% now "c" %}</responseDate>
-  <request>{{ url }}</request>
+  <request>{{ url|escape }}</request>
   {% for e in errors %}
     <error code="{{ e.0 }}">{{ e.1 }}</error>
   {% endfor %}

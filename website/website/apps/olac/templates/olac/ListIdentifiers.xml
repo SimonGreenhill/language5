@@ -7,8 +7,7 @@
          http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
     <responseDate>{% now "c" %}</responseDate>
     <request verb="ListIdentifiers"
-            metadataPrefix="{{ metadataPrefix }}"
-            >{{ url }}</request>
+            metadataPrefix="{{ metadataPrefix }}">{{ url|escape }}</request>
     <ListIdentifiers>
     {% for obj in object_list %}
         <header>

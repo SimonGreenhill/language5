@@ -1,5 +1,5 @@
 import re
-
+from xml.dom import minidom
 from unittest import expectedFailure
 
 from django.test import TestCase
@@ -97,6 +97,13 @@ class Test_Identify(TestCase):
     def setUp(self):
         self.client = Client()
         self.response = self.client.get('/oai/?verb=Identify')
+    
+    def test_valid_xml(self):
+        try:
+            xmldoc = minidom.parseString(self.response.content)
+        except:
+            print self.response.content
+            raise
         
     def test_identify(self):
         assert "<Identify>" in self.response.content
@@ -163,7 +170,17 @@ class Test_ListIdentifiers(TestCase):
     
     def setUp(self):
         self.client = Client()
-        
+    
+    def test_valid_xml(self):
+        response = self.client.get('/oai/?verb=ListIdentifiers&metadataPrefix=olac')
+        try:
+            xmldoc = minidom.parseString(response.content)
+        except:
+            print response.content
+            import IPython; IPython.embed()
+            
+            raise
+            
     def test_listidentifiers(self):
         # Identify should also be generated if no verb is given
         response = self.client.get('/oai/?verb=ListIdentifiers&metadataPrefix=olac')
@@ -303,6 +320,13 @@ class Test_ListSets(TestCase):
         self.assertTemplateUsed(response, 'olac/Error.xml')
         assert '<error code="noSetHierarchy">' in response.content
     
+    def test_valid_xml(self):
+        response = Client().get('/oai/?verb=ListSets')
+        try:
+            xmldoc = minidom.parseString(response.content)
+        except:
+            print response.content
+            raise
 
 
 @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
@@ -313,6 +337,14 @@ class Test_ListRecords(TestCase):
     def setUp(self):
         self.client = Client()
         
+    def test_valid_xml(self):
+        response = self.client.get('/oai/?verb=ListRecords')
+        try:
+            xmldoc = minidom.parseString(response.content)
+        except:
+            print response.content
+            raise
+            
     def test_error_on_no_metadataPrefix(self):
         response = self.client.get('/oai/?verb=ListRecords')
         self.assertTemplateUsed(response, 'olac/Error.xml')
@@ -380,6 +412,13 @@ class Test_ListRecords_metadataPrefix_oai_dc(TestCase):
         self.client = Client()
         self.response = self.client.get('/oai/?verb=ListRecords&metadataPrefix=oai_dc')
     
+    def test_valid_xml(self):
+        try:
+            xmldoc = minidom.parseString(self.response.content)
+        except:
+            print self.response.content
+            raise
+            
     def test_oai_dc(self):
         self.assertContains(self.response, '<oai_dc:dc', count=3)
     
@@ -424,7 +463,14 @@ class Test_ListRecords_metadataPrefix_olac(TestCase):
     def setUp(self):
         self.client = Client()
         self.response = self.client.get('/oai/?verb=ListRecords&metadataPrefix=olac')
-        
+    
+    def test_valid_xml(self):
+        try:
+            xmldoc = minidom.parseString(self.response.content)
+        except:
+            print self.response.content
+            raise
+    
     def test_olac(self):
         self.assertContains(self.response, '<olac:olac', count=3)
 
@@ -466,6 +512,14 @@ class Test_GetRecord(TestCase):
     def setUp(self):
         self.client = Client()
 
+    def test_valid_xml(self):
+        response = self.client.get('/oai/?verb=GetRecord')
+        try:
+            xmldoc = minidom.parseString(response.content)
+        except:
+            print response.content
+            raise
+            
     def test_error_on_no_metadataPrefix(self):
         response = self.client.get('/oai/?verb=GetRecord')
         self.assertTemplateUsed(response, 'olac/Error.xml')
@@ -497,6 +551,13 @@ class Test_GetRecord_metadataPrefix_oai_dc(TestCase):
         self.client = Client()
         id = 'oai:%s:aaa.1' % TEST_DOMAIN
         self.response = self.client.get('/oai/?verb=GetRecord&metadataPrefix=oai_dc&identifier=%s' % id)
+    
+    def test_valid_xml(self):
+        try:
+            xmldoc = minidom.parseString(self.response.content)
+        except:
+            print self.response.content
+            raise
     
     def test_oai_dc(self):
         self.assertContains(self.response, '<oai_dc:dc', count=1)
@@ -540,6 +601,13 @@ class Test_GetRecord_metadataPrefix_olac(TestCase):
         id = 'oai:%s:bbb.2' % TEST_DOMAIN
         self.response = self.client.get('/oai/?verb=GetRecord&metadataPrefix=olac&identifier=%s' % id)
     
+    def test_valid_xml(self):
+        try:
+            xmldoc = minidom.parseString(self.response.content)
+        except:
+            print self.response.content
+            raise
+    
     def test_olac(self):
         self.assertContains(self.response, '<olac:olac', count=1)
 
@@ -578,6 +646,7 @@ class Test_GetRecord_metadataPrefix_olac(TestCase):
 @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
 class TestNoHTML(TestCase):
     """Test that the XML output does not contain html entities."""
+    # but it *should* in URLS.
     
     fixtures = ['test_core.json']
     
@@ -589,10 +658,3 @@ class TestNoHTML(TestCase):
         self.assertNotContains(response, '&lt;')
         self.assertNotContains(response, '&gt;')
         
-    def test_two(self):
-        l = Language.objects.get(pk=2)
-        l.language = 'lang&uage2'
-        l.save()
-        response = self.client.get('/oai/?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:%s:aaa.%d' % (TEST_DOMAIN, l.id))
-        self.assertNotContains(response, '&amp;')
-

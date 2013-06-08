@@ -6,7 +6,7 @@
          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/
          http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
     <responseDate>{% now "c" %}</responseDate>
-    <request verb="ListRecords" metadataPrefix="{{ metadataPrefix }}">{{ url }}</request>
+    <request verb="ListRecords" metadataPrefix="{{ metadataPrefix }}">{{ url|escape }}</request>
     
     <GetRecord>
         <record>

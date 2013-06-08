@@ -6,7 +6,7 @@
          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/
          http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
     <responseDate>{% now "c" %}</responseDate>
-    <request verb="Identify">{{ url }}</request>
+    <request verb="Identify">{{ url|escape }}</request>
     <Identify>
         <repositoryName>{{ OLAC.sitename }}</repositoryName>
         <baseURL>{% url 'baseurl' %}</baseURL>
