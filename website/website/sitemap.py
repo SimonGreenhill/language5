@@ -2,10 +2,11 @@ from django.contrib.sitemaps import Sitemap
 from website.apps.core.models import Language, Family, Source
 from website.apps.lexicon.models import Word
 
+
 class LanguageSitemap(Sitemap):
     changefreq = "weekly"
     priority = 0.5
-
+    
     def items(self):
         return Language.objects.all().order_by("-added")
 
@@ -22,6 +23,7 @@ class FamilySitemap(Sitemap):
 
     def lastmod(self, obj):
         return obj.added
+
 
 class SourceSitemap(Sitemap):
     changefreq = "weekly"
