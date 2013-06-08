@@ -45,3 +45,14 @@ class WordSitemap(Sitemap):
 
     def lastmod(self, obj):
         return obj.added
+
+
+
+sitemaps = {
+    'families': FamilySitemap, 
+    'languages': LanguageSitemap,
+    'sources': SourceSitemap,
+    'words': WordSitemap,
+}
+
+

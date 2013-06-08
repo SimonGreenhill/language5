@@ -161,6 +161,8 @@ INSTALLED_APPS = [
     'django_tables2',                    # django-tables2: tables helper
     'watson',                            # search
     'dbbackup',                          # backup
+    'static_sitemaps',                   # static sitemaps.
+    
     # website
     'website.apps.core',                 # core functionality
     'website.apps.statistics',           # statistics
@@ -171,15 +173,6 @@ INSTALLED_APPS = [
     # INSTALLED_APPS.append('website.apps.olac')      # OLAC utils
     # INSTALLED_APPS.append('website.apps.entry')     # Data Entry
 ]
-
-# Django-Security settings
-SECURE_FRAME_DENY = True         # prevent framing of pages.
-SECURE_BROWSER_XSS_FILTER = True # enable XSS protection
-SESSION_COOKIE_SECURE = False    # can't login with True? 
-SESSION_COOKIE_HTTPONLY = False  # can't login with True?
-SECURE_CONTENT_TYPE_NOSNIFF = True
-
-SOUTH_TESTS_MIGRATE = False # just use syncdb
 
 LOGGING = {
     'version': 1,
@@ -258,7 +251,23 @@ CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
 # maximum age of persistent database connection
 CONN_MAX_AGE = 64 
 
-# Setup OLAC
+# THIRD-PARTY SETTINGS ==========================================
+
+# Django-Security settings
+SECURE_FRAME_DENY = True         # prevent framing of pages.
+SECURE_BROWSER_XSS_FILTER = True # enable XSS protection
+SESSION_COOKIE_SECURE = False    # can't login with True? 
+SESSION_COOKIE_HTTPONLY = False  # can't login with True?
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# South
+SOUTH_TESTS_MIGRATE = False # just use syncdb
+
+# Static Sitemaps
+STATICSITEMAPS_ROOT_SITEMAP = 'website.sitemap.sitemaps'
+
+
+# OLAC
 OLAC_SETTINGS = {
     'sitename': SITE_NAME,
     'repositoryName': SITE_NAME,
@@ -281,6 +290,7 @@ ROBOTS_CACHE_TIMEOUT = 60*60*24
 # Set PIWIK ID
 PIWIK_ID = 1
 
+# Backup 
 DBBACKUP_STORAGE = 'dbbackup.storage.s3_storage'
 DBBACKUP_S3_BUCKET = 'sjg-transnewguinea.org'
 DBBACKUP_S3_ACCESS_KEY = 'AKIAI5L4FEQGKHXLZIEQ'
