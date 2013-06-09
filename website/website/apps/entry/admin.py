@@ -41,7 +41,8 @@ class TaskAdmin(TrackedModelAdmin, VersionAdmin):
     list_filter = ('editor', 'done', 'completable', CheckpointListFilter, 'source', 'language', 'view')
     ordering = ('name',)
     list_select_related = True
-    #exclude = ('lexicon')
+    filter_horizontal = ('lexicon', )
+
 
 class TaskLogAdmin(admin.ModelAdmin):
     date_hierarchy = 'time'
