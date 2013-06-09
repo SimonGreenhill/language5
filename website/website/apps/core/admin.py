@@ -34,7 +34,7 @@ class LanguageAdmin(TrackedModelAdmin, VersionAdmin):
     ordering = ('language', 'dialect',)
     prepopulated_fields = {'slug': ('language', 'dialect',)}
     search_fields = ('language', 'dialect', 'isocode',)
-    
+    filter_horizontal = ('family', )
     inlines = [AltNameInline,]
     
 
