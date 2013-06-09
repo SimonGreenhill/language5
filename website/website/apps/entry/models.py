@@ -22,7 +22,7 @@ class Task(TrackedModel):
     """Data Entry Tasks"""
     name = models.CharField(max_length=255, db_index=True,
         help_text="Name of Task")
-    description = models.TextField(help_text="Task Description")
+    description = models.TextField(help_text="Task Description", blank=True, null=True)
     source = models.ForeignKey('core.Source')
     wordlist = models.ForeignKey('Wordlist', blank=True, null=True)
     language = models.ForeignKey('core.Language', blank=True, null=True)
