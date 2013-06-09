@@ -80,7 +80,7 @@ class Wordlist(TrackedModel):
 class WordlistMember(models.Model):
     wordlist = models.ForeignKey("entry.Wordlist")
     word = models.ForeignKey("lexicon.Word")
-    order = models.IntegerField()
+    order = models.IntegerField(db_index=True)
     
     class Meta:
         ordering = ["order", ]
