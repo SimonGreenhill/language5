@@ -10,6 +10,8 @@ import reversion
 from website.apps.core.models import Language, Source
 from website.apps.lexicon.models import Lexicon, Word
 
+from website.apps.entry.utils import task_log
+
 class GenericForm(forms.ModelForm):
     language = forms.ModelChoiceField(queryset=Language.objects.order_by('slug'))
     word = forms.ModelChoiceField(queryset=Word.objects.order_by('word'))
@@ -36,24 +38,18 @@ GenericFormSet = formset_factory(GenericForm, extra=0)
 
 def process_post_and_save(request, task, formset):
     """Extracted common code to process a form."""
-    from website.apps.entry.models import TaskLog # has to be here or we get a circular import
     if 'refresh' in request.POST:
-        TaskLog.objects.create(person=request.user, 
-                               page="website.apps.entry.GenericView", 
-                               message="Refreshed Task: %s" % task.id)
+        task_log(request, task=task, message="Refreshed Task")
     elif 'submit' in request.POST:
-        TaskLog.objects.create(person=request.user, 
-                               page="website.apps.entry.GenericView", 
-                               message="Submitted Task: %s" % task.id)
         if formset.is_valid():
             completed = []
             for form in formset:
                 if form.is_valid() and len(form.changed_data):
                     # if form is valid and some fields have changed
                     # two stages here to set default fields
-                    obj = form.save(commit=False)
-                    obj.editor = request.user
                     with reversion.create_revision():
+                        obj = form.save(commit=False)
+                        obj.editor = request.user
                         obj.save()
                         
                     with reversion.create_revision():
@@ -61,19 +57,15 @@ def process_post_and_save(request, task, formset):
                     
                     completed.append(obj)
                     
-            TaskLog.objects.create(person=request.user, 
-                                   page="website.apps.entry.GenericView", 
-                                   message="Submitted VALID Task: %s" % task.id)
-                                   
+            task_log(request, task=task, message="Submitted valid Task")
+            
             # update task if needed.
             if task.completable == True:
                 with reversion.create_revision():
                     task.done = True
                     task.save()
                 
-                TaskLog.objects.create(person=request.user, 
-                                       page="website.apps.entry.GenericView", 
-                                       message="Completed Task: %s" % task.id)
+                task_log(request, task=task, message="Completed Task")
                                        
             # if we have a file saved and a language then add it to the attachments...
             if task.language and task.source and (task.image or task.file):
@@ -97,7 +89,10 @@ def process_post_and_save(request, task, formset):
                 'task': task,
                 'objects': completed,
             }, context_instance=RequestContext(request))
-
+        else:
+            task_log(request, task=task, message="Submitted incomplete")
+            
+        
 
 @login_required()
 def GenericView(request, task):
