@@ -4,20 +4,6 @@ from website.apps.core.models import TrackedModel
 from website.apps.entry.dataentry import available_views
 from website.apps.statistics import statistic
 
-
-class TaskLog(models.Model):
-    """Task Log"""
-    person = models.ForeignKey(User)
-    page = models.CharField(max_length=64)
-    message = models.CharField(max_length=255)
-    time = models.DateTimeField(auto_now_add=True)
-    
-    class Meta:
-        db_table = 'tasklog'
-        ordering = ['time', ]
-        get_latest_by = 'time'
-        
-
 class Task(TrackedModel):
     """Data Entry Tasks"""
     name = models.CharField(max_length=255, db_index=True,
@@ -61,6 +47,19 @@ class Task(TrackedModel):
         ordering = ['name', ]
         get_latest_by = 'date'
 
+
+class TaskLog(models.Model):
+    """Task Log"""
+    person = models.ForeignKey(User)
+    task = models.ForeignKey(Task, blank=True, null=True, db_index=True)
+    page = models.CharField(max_length=64)
+    message = models.CharField(max_length=255)
+    time = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        db_table = 'tasklog'
+        ordering = ['time', ]
+        get_latest_by = 'time'
 
 
 class Wordlist(TrackedModel):

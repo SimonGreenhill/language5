@@ -46,7 +46,7 @@ class TaskAdmin(TrackedModelAdmin, VersionAdmin):
 
 class TaskLogAdmin(admin.ModelAdmin):
     date_hierarchy = 'time'
-    list_display = ('person', 'time', 'page', 'message')
+    list_display = ('person', 'task', 'time', 'page', 'message')
     list_filter = ('person', 'page',)
     ordering = ('-time',)
 
