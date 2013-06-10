@@ -46,12 +46,15 @@ class TaskAdmin(TrackedModelAdmin, VersionAdmin):
 
 class TaskLogAdmin(admin.ModelAdmin):
     date_hierarchy = 'time'
-    list_display = ('person', 'task', 'time', 'page', 'message')
-    list_filter = ('person', 'page',)
+    list_display = ('person', 'task_id', 'time', 'page', 'message')
+    list_filter = ('person', 'page', )
     ordering = ('-time',)
-
-
-
+    list_select_related = True
+    
+    def task_id(self, instance):
+        return instance.task_id
+            
+            
 class WordlistMembersInline(admin.TabularInline):
     model = Wordlist.words.through
     extra = 0 # don't add anything new unless explicitly told to.
