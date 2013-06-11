@@ -9,6 +9,12 @@ class Migration(DataMigration):
     def _process(self, message, token=":"):
         message, task_id = message.split(token)
         return (message, int(task_id))
+    
+    def _get(self, task_id):
+        try:
+            return self._get(task_id)
+        except:
+            return None
         
     def forwards(self, orm):
         "Write your forwards methods here."
@@ -18,30 +24,30 @@ class Migration(DataMigration):
             
             if t.message.startswith("Saved Checkpoint:"):
                 t.message, task_id = self._process(t.message)
-                t.task = orm['entry.Task'].objects.get(pk=task_id)
+                t.task = self._get(task_id)
             elif t.message.startswith("Completed Task:"):
                 t.message, task_id = self._process(t.message)
-                t.task = orm['entry.Task'].objects.get(pk=task_id)
+                t.task = self._get(task_id)
             elif t.message.startswith("Loaded Checkpoint:"):
                 t.message, task_id = self._process(t.message)
-                t.task = orm['entry.Task'].objects.get(pk=task_id)
+                t.task = self._get(task_id)
             elif t.message.startswith("Submitted Task:"):
                 t.message, task_id = self._process(t.message)
-                t.task = orm['entry.Task'].objects.get(pk=task_id)
+                t.task = self._get(task_id)
             elif t.message.startswith("Submitted Task:"):
                 t.message, task_id = self._process(t.message)
-                t.task = orm['entry.Task'].objects.get(pk=task_id)
+                t.task = self._get(task_id)
             elif t.message.startswith("Refreshed Task:"):
                 t.message, task_id = self._process(t.message)
-                t.task = orm['entry.Task'].objects.get(pk=task_id)
+                t.task = self._get(task_id)
             elif t.message.startswith("Submitted VALID Task:"):
                 t.message, task_id = self._process(t.message)
-                t.task = orm['entry.Task'].objects.get(pk=task_id)
+                t.task = self._get(task_id)
                 t.message = 'Submitted valid Task'
             elif t.message.startswith("Called View Func:"):
                 try:
                     t.message, task_id = self._process(t.message, " on ")
-                    t.task = orm['entry.Task'].objects.get(pk=task_id)
+                    t.task = self._get(task_id)
                 except ValueError:
                     pass
                     
