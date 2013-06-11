@@ -6,7 +6,7 @@ from django.db import models
 
 class Migration(DataMigration):
     
-    def _process(message, token=":"):
+    def _process(self, message, token=":"):
         message, task_id = message.split(token)
         return (message, int(task_id))
         
