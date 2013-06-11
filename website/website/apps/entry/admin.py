@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.db.models import Count
 from reversion.admin import VersionAdmin
+from website.apps.lexicon.models import Lexicon
 from website.apps.entry.models import Task, TaskLog, Wordlist, WordlistMember
 from website.apps.core.admin import TrackedModelAdmin
 
@@ -40,9 +41,9 @@ class TaskAdmin(TrackedModelAdmin, VersionAdmin):
     list_display = ('id', 'name', 'records', 'view', 'added', 'completable', 'done')
     list_filter = ('editor', 'done', 'completable', CheckpointListFilter, 'source', 'language', 'view')
     ordering = ('name',)
+    exclude = ('lexicon',)
     list_select_related = True
-    filter_horizontal = ('lexicon', )
-
+    
 
 class TaskLogAdmin(admin.ModelAdmin):
     date_hierarchy = 'time'
