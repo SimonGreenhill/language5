@@ -105,6 +105,17 @@ def language_detail(request, language):
             table = LanguageLexiconTable(my_lang.lexicon_set.select_related().all())
             table.paginate(page=request.GET.get('page', 1), per_page=50)
             out['lexicon_table'] = table
+        
+        # load pronouns
+        if 'website.apps.pronouns' in settings.INSTALLED_APPS:
+            from website.apps.pronouns.models import Paradigm, Pronoun
+            from website.apps.pronouns.tools import add_pronoun_ordering, add_pronoun_table
+            try: 
+                p = Paradigm.objects.filter(language=my_lang)[0]
+                out['pronoun_rows'] =  add_pronoun_table(p.pronoun_set.all())
+            except IndexError: # no paradigm
+                pass
+            
             # sources used 
             source_ids = [_['source_id'] for _ in my_lang.lexicon_set.values('source_id').distinct().all()]
             out['sources_used'] = Source.objects.filter(pk__in=source_ids)

@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load render_table from django_tables2 %}
+{% load pronoun_tags %}
+
+{% block title %} Pronoun Paradigms: Editing {{ paradigm.id }} {% endblock %}
+
+{% block head %}
+    <!-- for javascript charpicker, and formset adder -->
+    <link rel="stylesheet" type="text/css" href="{% static "css/jquery.keypad.css" %}" />
+    <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/jquery.keypad.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/charpicker.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/jquery-scrolltofixed-min.js" %}"></script>
+    <script type="text/javascript" src="{% static "admin/js/admin/RelatedObjectLookups.js" %}"></script>
+    <style>
+    .add-row{ padding: 1em; }
+    </style>
+{% endblock %}
+
+
+{% block content %}
+    <div class="page-header">
+        <h1>Pronoun Paradigms:</h1>
+    </div>
+    
+    <ul class="breadcrumb">
+      <li>
+          <a href="{% url "index" %}">Home</a> 
+          <span class="divider">/</span>
+      </li>
+      <li class="active">
+          <a href="{% url "pronouns:index" %}">Pronoun Paradigms</a>
+      </li>
+      {% if paradigm.id %}
+          <li class="active">
+              <a href="{% url "pronouns:detail" paradigm.id %}">{{ language.language }}</a>
+          </li>
+      {% endif %}
+    </ul>
+    
+    <h2> Edit Pronoun Paradigm: </h2>
+    
+    <div id="scroller">
+        <div class="row clearfix">
+            <p class="well well-small span8 offset2">
+                <span id="picker"></span>
+            </p>
+        </div>
+    </div>
+    
+    <form action="{% url "pronouns:add" %}" method="post" class="form-inline">
+    
+        {% csrf_token %}
+        
+        <h3> Paradigm Details: </h3>
+        
+        <table id="paradigm_form" class="table table-bordered table-condensed">
+            <tbody>
+                <tr>
+                    <th>
+                        Language
+                    </th>
+                    <td {% if paradigm_form.language.errors %}class="error"{% endif %}>
+                        {{ paradigm_form.language }}
+                        <a class="btn" 
+                            href="{% url "admin:core_language_add" %}" id="add_id_language" 
+                            onclick="return showAddAnotherPopup(this);"> 
+                            <i class="icon-plus"></i>
+                            Add Language.
+                        </a>
+                        {{ paradigm_form.language|form_fielderror_hint }}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Source
+                    </th>
+                    <td {% if paradigm_form.source.errors %}class="error"{% endif %}>
+                        {{ paradigm_form.source }}
+                        <a class="btn" 
+                            href="{% url "admin:core_source_add" %}" id="add_id_source" 
+                            onclick="return showAddAnotherPopup(this);"> 
+                            <i class="icon-plus"></i>
+                            Add Source.
+                        </a>
+                        {{ paradigm_form.source|form_fielderror_hint }}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Comment
+                    </th>
+                    <td {% if paradigm_form.comment.errors %}class="error"{% endif %}>
+                        {{ paradigm_form.comment }}
+                        
+                        {{ paradigm_form.comment|form_fielderror_hint }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <button type="submit" class="btn btn-block btn-primary"><i class="icon-ok"></i> Save Paradigm </button>
+    </form>
+    
+{% endblock %}
+
+
+
+{% block end %}
+    <script>
+        $(document).ready(function() {
+          $('.tip').tooltip();
+          $('#scroller').scrollToFixed();
+        });
+    </script>
+{% endblock %}

@@ -75,6 +75,16 @@
             {% endfor %}
         {% endif %}
     </ul>
+
+    {% ifinstalled "website.apps.pronouns" %}
+        
+        <h2> Pronouns: </h2>
+        
+        {% include "pronouns/template_pronoun_detail.html" %}
+    
+    {% endifinstalled %}
+    
+
     
     {% if language.isocode %}
         <h2> Map: </h2>

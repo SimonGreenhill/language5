@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load render_table from django_tables2 %}
+
+{% block title %} Pronoun Paradigms: {% endblock %}
+
+{% block head %}
+    {% if user.is_staff %}
+        <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "admin/js/admin/RelatedObjectLookups.js" %}"></script>
+    {% endif %}
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="page-header">
+        <h1>Pronoun Paradigms:</h1>
+    </div>
+    
+    <ul class="breadcrumb">
+      <li>
+          <a href="{% url "index" %}">Home</a> 
+          <span class="divider">/</span>
+      </li>
+      <li class="active">
+          <a href="{% url "pronouns:index" %}">Pronoun Paradigms</a>
+      </li>
+    </ul>
+    
+    {% if user.is_staff %}
+        <p>
+            <a class="btn"
+                href="{% url "pronouns:add" %}"> 
+                <i class="icon-plus"></i>
+                Add Pronoun Paradigm.
+            </a>
+        </p>
+    {% endif %}
+    
+    {% if table %}
+        {% render_table table "table.html" %}
+    {% else %}
+        <p class="error">No results found!</p>
+    {% endif %}
+
+{% endblock %}

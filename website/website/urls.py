@@ -50,6 +50,7 @@ urlpatterns = patterns('',
         'website.apps.core.views.iso_lookup', 
         name="iso-lookup"
     ),
+
     # search page
     url(r"^search/", include('watson.urls', namespace='watson')),
     

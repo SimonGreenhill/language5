@@ -13,6 +13,7 @@ django-tables2                                              # better table handl
 django-dbbackup                                             # database & media backup
 simples3                                                    # Amazon S3 for backup
 django-nvd3                                                 # for graphing statistics
+python-Levenshtein                                          # for string similarity metrics
 IPython                                                     # for local work.
 django-static-sitemaps                                      # static sitemaps
 python-Levenshtein                                          # for string similarity metrics

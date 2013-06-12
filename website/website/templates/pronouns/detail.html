@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load render_table from django_tables2 %}
+{% load website_tags %}
+{% load pronoun_tags %}
+
+{% block title %} Pronoun Paradigms: {{ paradigm.language }} {% endblock %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>Pronoun Paradigm: {{ paradigm.language }}</h1>
+    </div>
+    
+    <ul class="breadcrumb">
+      <li>
+          <a href="{% url "index" %}">Home</a> 
+          <span class="divider">/</span>
+      </li>
+      <li class="active">
+          <a href="{% url "pronouns:index" %}">Pronoun Paradigms</a>
+          <span class="divider">/</span>
+      </li>
+      <li class="active">
+          <a href="{% url "pronouns:detail" paradigm.id %}">{{ paradigm.language }}</a>
+      </li>
+    </ul>
+    
+    <h2> Paradigm Details: </h2>
+    
+    <p>
+        <strong>Language: </strong> 
+            (<a href="{{ paradigm.language|link_ethnologue }}">{{ paradigm.language.isocode }}</a>) 
+            <a href="{% url "language-detail" paradigm.language.slug %}">{{ paradigm.language }}</a>.
+    </p>
+    <p>
+        <strong>Family: </strong> 
+        {% for family in paradigm.language.family_set.all %}
+            <a href="{% url "family-detail" family.slug %}">{{ family }}</a>.
+        {% endfor %}
+    </p>
+    
+    <p>
+        <strong>Comment: </strong>
+        {{ paradigm.comment }}
+    </p>
+    
+    
+    {% if user.is_staff %}
+        <p>
+            <a class="btn"
+                href="{% url "pronouns:edit" paradigm.id %}"> 
+                <i class="icon-edit"></i>
+                Edit Pronoun Paradigm.
+            </a>
+            <a class="btn"
+                href="{% url "pronouns:edit_relationships" paradigm.id %}"> 
+                <i class="icon-edit"></i>
+                Edit Pronoun Paradigm Relationships.
+            </a>
+        </p>
+    {% endif %}
+    
+    
+    <h3> Pronoun Paradigm: </h3>
+        
+        {% include "pronouns/template_pronoun_detail.html" %}
+        
+    <h3> Relationships: </h3>
+    
+        {% if relationship_table %}
+            {% render_table relationship_table "table.html" %}
+        {% else %}
+            <p class="error">No results found!</p>
+        {% endif %}
+    
+{% endblock %}
+
