@@ -22,7 +22,7 @@ class CognatesInline(admin.TabularInline):
         if db_field.name == 'editor':
             kwargs['initial'] = request.user
             return db_field.formfield(**kwargs)
-        return super(CorrespondenceInline, self).formfield_for_foreignkey(
+        return super(CognatesInline, self).formfield_for_foreignkey(
             db_field, request, **kwargs
         )
 
@@ -39,10 +39,11 @@ class CorrespondenceInline(admin.TabularInline):
             db_field, request, **kwargs
         )
 
+
 # Admin Classes
 class WordAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
-    list_display = ('id', 'word', 'full', 'quality', 'comment')
+    list_display = ('id', 'word', 'slug', 'full', 'quality', 'comment')
     list_filter = ('editor', 'quality')
     ordering = ('word',)
     prepopulated_fields = {'slug': ('word', )}
@@ -61,35 +62,43 @@ class WordSubsetAdmin(TrackedModelAdmin, VersionAdmin):
 class LexiconAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_display = ('id', 'language', 'source', 'word', 'entry', 'annotation', 'loan')
-    list_editable = ('language', 'source', 'word', 'entry', 'annotation', 'loan')
-    list_filter = ('editor', 'language', 'source', 'loan')
-    search_fields = ('entry', 'annotation')
+    list_filter = ('editor', 'language', 'word', 'source', 'loan')
+    search_fields = ('entry', 'word__word', 'annotation')
     ordering = ('id',)
-    
-    formfield_overrides = {
-        models.TextField: {'widget': Textarea(attrs={'rows':1}) },
-    }
     
 
 class CognateSetAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
-    list_display = ('id', 'label', 'source', 'comment', 'quality')
+    list_display = ('id', 'protoform', 'gloss', 'source', 'comment', 'quality')
     list_filter = ('editor', 'source', 'quality')
     ordering = ('id',)
+    list_select_related = True
     
     inlines = [CognatesInline]
+    
+    def queryset(self, request):
+        return super(CognateSetAdmin, self).queryset(request).select_related('source')
 
 
 class CorrespondenceSetAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
-    list_display = ('id', 'editor', 'source', 'comment')
+    list_display = ('id', 'source', 'comment')
     list_filter = ('editor', 'source', 'language')
     ordering = ('id',)
     inlines = [CorrespondenceInline]
     
+    def queryset(self, request):
+        return super(CorrespondenceSetAdmin, self).queryset(request).select_related('source', 'language')
+
 
 class CognateAdmin(TrackedModelAdmin, VersionAdmin):
-    pass
+    list_display = ('cognateset', 'lexicon', 'source', 'comment', 'flag')
+    list_filter = ('editor', 'cognateset', 'source', 'lexicon')
+    ordering = ('id',)
+    list_select_related = True
+    
+    def queryset(self, request):
+        return super(CognateAdmin, self).queryset(request).select_related('lexicon', 'source', 'cognateset')
 
 
 class CorrespondenceAdmin(TrackedModelAdmin, VersionAdmin):

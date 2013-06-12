@@ -1,6 +1,8 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 
+import watson
+
 from website.apps.core.models import TrackedModel
 from website.apps.statistics import statistic
 
@@ -58,6 +60,9 @@ class Word(TrackedModel):
     
     class Meta:
         db_table = 'words'
+        ordering = ['word', ]
+
+
 
 
 class WordSubset(TrackedModel):
@@ -80,6 +85,7 @@ class WordSubset(TrackedModel):
     class Meta:
         db_table = 'wordsubsets'
         verbose_name_plural = 'Word Subsets'
+        ordering = ['slug', ]
 
 
 class Lexicon(TrackedModel):
@@ -88,7 +94,7 @@ class Lexicon(TrackedModel):
     source = models.ForeignKey('core.Source')
     word = models.ForeignKey('Word')
     
-    entry = models.CharField(max_length=32, 
+    entry = models.CharField(max_length=32, db_index=True, 
         help_text="Entry from source")
     phon_entry = models.CharField(max_length=32, null=True, blank=True,
         help_text="Entry in Phonological format (in known)")
@@ -108,22 +114,24 @@ class Lexicon(TrackedModel):
 
     class Meta:
         db_table = 'lexicon'
-        verbose_name_plural = 'Lexicon'
+        verbose_name_plural = 'Lexical Items'
+        ordering = ['entry', ]
 
 
 class CognateSet(TrackedModel):
     """Cognate Sets"""
-    label = models.CharField(max_length=32, blank=True, null=True)
-    source = models.ForeignKey('core.Source', 
-        null=True, blank=True)
+    protoform = models.CharField(max_length=128, blank=True, null=True, db_index=True)
+    gloss = models.CharField(max_length=128, blank=True, null=True)
     comment = models.TextField(blank=True, null=True,
         help_text="Comment about this cognate set")
+    source = models.ForeignKey('core.Source', 
+        null=True, blank=True)
+    lexicon = models.ManyToManyField('Lexicon', through='Cognate')
     quality = models.CharField(default=u'0', max_length=1, choices=COGNATESET_QUALITY,
             help_text="The quality of this cognate set.")
-    lexicon = models.ManyToManyField('Lexicon', through='Cognate')
     
     def __unicode__(self):
-        return "%d. %s" % (self.id, self.label)
+        return "%d. %s '%s'" % (self.id, self.protoform, self.gloss)
     
     class Meta:
         db_table = 'cognatesets'
@@ -168,6 +176,11 @@ class Correspondence(TrackedModel):
     class Meta:
         db_table = 'correspondences'
 
+
+
+watson.register(Word, fields=('word', 'full'))
+watson.register(WordSubset, fields=('subset', 'description'))
+watson.register(Lexicon, fields=('entry', 'annotation'))
 
 
 statistic.register("Number of Words", Word)

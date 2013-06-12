@@ -31,20 +31,34 @@ class Test_Checkpointing(DataMixin):
         for k, v in self.form_data.items():
             assert k in restored, "Missing %s from checkpoint" % k
             assert restored[k] == v, "Expected %s to be %s" % (k, v)
+    
+    def test_checkpoint_in_view(self):
+        """Test checkpoint data goes through to view"""
+        self.client.login(username="admin", password="test")
+        assert self.task.checkpoint is None
+        
+        del(self.form_data['form-0-language']) # make form invalid
+        self.form_data['form-0-entry'] = 'banana'
+        response = self.client.post(self.task.get_absolute_url(), self.form_data)
+        
+        # now check formdata in response
+        formdata = [f.clean() for f in response.context['formset'].forms]
+        assert 'entry' in formdata[0]
+        assert formdata[0]['entry'] == 'banana'
         
     def test_no_checkpoint_on_GET(self):
         """GET shouldn't set checkpoint"""
         self.client.login(username="admin", password="test")
         assert self.task.checkpoint is None
         response = self.client.get(self.task.get_absolute_url())
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         assert self.task.checkpoint is None
         
     def test_checkpoint_on_POST(self):
         self.client.login(username="admin", password="test")
         assert self.task.checkpoint is None
         response = self.client.post(self.task.get_absolute_url(), self.form_data)
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         t = Task.objects.get(pk=self.task.id)
         assert t.checkpoint is not None
         
@@ -88,7 +102,7 @@ class Test_Checkpointing(DataMixin):
         self.client.login(username="admin", password="test")
         assert self.task.checkpoint is None
         response = self.client.post(self.task.get_absolute_url(), self.form_data)
-        self.failUnlessEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         t = Task.objects.get(pk=self.task.id)
         assert t.checkpoint is not None
 

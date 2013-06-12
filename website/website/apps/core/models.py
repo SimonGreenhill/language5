@@ -14,13 +14,14 @@ class TrackedModel(models.Model):
     
     class Meta:
         abstract = True
+        get_latest_by = 'added'
 
 
 class Source(TrackedModel):
     """Source Details"""
-    year = models.IntegerField(blank=True, null=True,
+    year = models.IntegerField(blank=True, null=True, db_index=True,
         help_text="Year published")
-    author = models.CharField(max_length=255,
+    author = models.CharField(max_length=255, db_index=True, 
         help_text="Short Author list e.g. (Smith et al.)")
     slug = models.SlugField(max_length=64, unique=True,
         help_text="`Slug` for author i.e. author-year (for use in URLS)")
@@ -43,8 +44,10 @@ class Source(TrackedModel):
     
     class Meta:
         db_table = 'sources'
-
-watson.register(Source, fields=('author', 'year', 'reference'))
+        ordering = ['author', 'year', ]
+        index_together = [
+            ["author", "year"],
+        ]
 
 
 class Note(TrackedModel):
@@ -61,12 +64,10 @@ class Note(TrackedModel):
     class Meta:
         db_table = 'notes'
 
-watson.register(Note, fields=('language', 'source', 'note'))
-
 
 class Family(TrackedModel):
     """Language families/Subsets"""
-    family = models.CharField(max_length=64, unique=True,
+    family = models.CharField(max_length=64, unique=True, db_index=True, 
         help_text="Language Family")
     slug = models.SlugField(max_length=64, unique=True,
         help_text="`Slug` for language family (for use in URLS)")
@@ -81,15 +82,16 @@ class Family(TrackedModel):
     class Meta:
         db_table = 'families'
         verbose_name_plural = 'families'
+        ordering = ['family', ]
     
-watson.register(Family, fields=('family',))
-
 
 class Language(TrackedModel):
     """Stores language information"""
     family = models.ManyToManyField(Family, blank=True)
-    language = models.CharField(max_length=64, unique=True, db_index=True,
+    language = models.CharField(max_length=64, db_index=True,
         help_text="Language Name")
+    dialect = models.CharField(max_length=64, db_index=True, null=True, blank=True,
+        help_text="Dialect")
     slug = models.SlugField(max_length=64, unique=True,
         help_text="`Slug` for language (for use in URLS)")
     isocode = models.CharField(max_length=3, blank=True, null=True, db_index=True,
@@ -100,17 +102,22 @@ class Language(TrackedModel):
         help_text="Information about language")
     
     def __unicode__(self):
-        return self.language
+        if self.dialect:
+            return u"%s (%s Dialect)" % (self.language, self.dialect)
+        else:
+            return unicode(self.language)
     
     @models.permalink
     def get_absolute_url(self):
         return ('language-detail', [self.slug])
     
     class Meta:
-        unique_together = ("isocode", "language")
+        unique_together = ("isocode", "language", "dialect")
+        index_together = [
+            ["language", "dialect"],
+        ]
         db_table = 'languages'
-
-watson.register(Language, fields=('family', 'language', 'isocode', 'classification', 'information'))
+        ordering = ['language', 'dialect']
 
 
 class AlternateName(TrackedModel):
@@ -131,8 +138,7 @@ class AlternateName(TrackedModel):
     class Meta:
         verbose_name_plural = 'Alternate Language Names'
         db_table = 'altnames'
-
-watson.register(AlternateName, fields=('language', 'name'))
+        ordering = ['name', ]
 
 
 class Link(TrackedModel):
@@ -147,9 +153,8 @@ class Link(TrackedModel):
     class Meta:
         verbose_name_plural = "Resource Links"
         db_table = 'links'
-
-watson.register(Link, fields=('language', 'link', 'description'))
-
+        unique_together = ['language', 'link']
+        
 
 class Location(TrackedModel):
     language = models.ForeignKey('Language')
@@ -183,6 +188,28 @@ class Attachment(TrackedModel):
     class Meta:
         db_table = 'attachments'
 
+
+class PopulationSize(TrackedModel):
+    """Population Size Details"""
+    language = models.ForeignKey('Language')
+    source = models.ForeignKey('Source')
+    populationsize = models.IntegerField()
+
+    def __unicode__(self):
+        return u"%s %d: %d" % (self.language.slug, self.source.year, self.populationsize)
+
+    class Meta:
+        db_table = 'popsize'
+
+
+
+
+watson.register(Language, fields=('family', 'language', 'dialect', 'isocode', 'classification', 'information'))
+watson.register(Family, fields=('family',))
+watson.register(Source, fields=('author', 'year', 'reference'))
+watson.register(AlternateName, fields=('language', 'name'))
+watson.register(Link, fields=('language', 'link', 'description'))
+#watson.register(Note, fields=('language', 'source', 'note'))
 
 statistic.register("Number of Families", Family)
 statistic.register("Number of Languages", Language)

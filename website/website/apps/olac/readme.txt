@@ -15,6 +15,7 @@ OLAC
     # Setup OLAC
     from website.apps.olac.settings import OLAC_SETTINGS
     OLAC_SETTINGS['institution'] = 'My Institution'
+    OLAC_SETTINGS['repositoryName'] = 'MySite'
     OLAC_SETTINGS['institutionURL'] = 'http://example.com'
     OLAC_SETTINGS['shortLocation'] = 'Some, Where'
     OLAC_SETTINGS['description'] = 'A great site'

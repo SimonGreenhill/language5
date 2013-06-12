@@ -1,6 +1,8 @@
 from django.contrib import admin
+from django.db.models import Count
 from reversion.admin import VersionAdmin
-from website.apps.entry.models import Task, TaskLog
+from website.apps.lexicon.models import Lexicon
+from website.apps.entry.models import Task, TaskLog, Wordlist, WordlistMember
 from website.apps.core.admin import TrackedModelAdmin
 
 class CheckpointListFilter(admin.SimpleListFilter):
@@ -36,19 +38,46 @@ class CheckpointListFilter(admin.SimpleListFilter):
 
 class TaskAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
-    list_display = ('id', 'name', 'source', 'language', 'records', 'view', 'added', 'completable', 'done')
+    list_display = ('id', 'name', 'records', 'view', 'added', 'completable', 'done')
     list_filter = ('editor', 'done', 'completable', CheckpointListFilter, 'source', 'language', 'view')
     ordering = ('name',)
-
+    exclude = ('lexicon',)
+    list_select_related = True
+    
 
 class TaskLogAdmin(admin.ModelAdmin):
     date_hierarchy = 'time'
-    list_display = ('person', 'time', 'page', 'message')
-    list_filter = ('person', 'page',)
+    list_display = ('person', 'task_id', 'time', 'page', 'message')
+    list_filter = ('person', 'page', )
     ordering = ('-time',)
+    list_select_related = True
+    
+    def task_id(self, instance):
+        return instance.task_id
+            
+            
+class WordlistMembersInline(admin.TabularInline):
+    model = Wordlist.words.through
+    extra = 0 # don't add anything new unless explicitly told to.
+
+
+class TaskWordlistAdmin(TrackedModelAdmin, VersionAdmin):
+    date_hierarchy = 'added'
+    list_display = ('id', 'name', 'words_count')
+    ordering = ('name',)
+    filter_horizontal = ('words',)
+    inlines = [WordlistMembersInline,]
+    
+    def queryset(self, request):
+        return Wordlist.objects.annotate(words_count=Count("words"))
+        
+    def words_count(self, inst):
+        return inst.words_count
+    words_count.admin_order_field = 'words_count'
 
 
 admin.site.register(Task, TaskAdmin)
 admin.site.register(TaskLog, TaskLogAdmin)
+admin.site.register(Wordlist, TaskWordlistAdmin)
 
 

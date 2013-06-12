@@ -1,6 +1,5 @@
 # Django settings for website project.
 import os
-import re
 
 SITE_ROOT = os.path.split(os.path.dirname(os.path.abspath(__file__)))[0]
 
@@ -162,45 +161,78 @@ INSTALLED_APPS = [
     'django_tables2',                    # django-tables2: tables helper
     'watson',                            # search
     'dbbackup',                          # backup
+    'static_sitemaps',                   # static sitemaps.
+    
     # website
     'website.apps.core',                 # core functionality
     'website.apps.statistics',           # statistics
-    #'django_nvd3',                       # for graphing statistics
+    'django_nvd3',                       # for graphing statistics
+    
     # NOTE: all other apps should be added to local.py
     # INSTALLED_APPS.append('website.apps.lexicon')   # Lexicon
     # INSTALLED_APPS.append('website.apps.olac')      # OLAC utils
     # INSTALLED_APPS.append('website.apps.entry')     # Data Entry
 ]
 
-# Django-Security settings
-SECURE_FRAME_DENY = True         # prevent framing of pages.
-SECURE_BROWSER_XSS_FILTER = True # enable XSS protection
-SESSION_COOKIE_SECURE = False    # can't login with True? 
-SESSION_COOKIE_HTTPONLY = False  # can't login with True?
-SECURE_CONTENT_TYPE_NOSNIFF = True
-
-SOUTH_TESTS_MIGRATE = False # just use syncdb
-
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'formatters': {
+            'verbose': {
+                'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+            },
+            'simple': {
+                'format': '%(levelname)s %(message)s'
+            },
+        },
     'filters': {
         'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
+            '()': 'django.utils.log.RequireDebugFalse',
         }
     },
     'handlers': {
+        'file_logging': {
+            'level' : 'DEBUG',
+            'class' : 'logging.handlers.RotatingFileHandler',
+            'backupCount' : 0,
+            'maxBytes': 5000000,
+            'filename': 'django.log',
+            'filters': ['require_debug_false'],
+        },
+        'db_logging': {
+            'level' : 'DEBUG',
+            'class' : 'logging.handlers.RotatingFileHandler',
+            'backupCount' : 0,
+            'maxBytes': 5000000,
+            'filename': 'django-db.log',
+            'filters': ['require_debug_false'],
+        },
         'mail_admins': {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        }
+            'class': 'django.utils.log.AdminEmailHandler',
+        },
+        'null': {
+            'level': 'DEBUG',
+            'class': 'django.utils.log.NullHandler',
+        },
     },
+        
     'loggers': {
+        'django' : {
+            'handlers': ['file_logging'],
+            'level' : 'DEBUG',
+            'propagate' : False,
+        },
         'django.request': {
             'handlers': ['mail_admins'],
             'level': 'ERROR',
-            'propagate': True,
+            'propagate': False,
+        },
+        'django.db' : {
+            'handlers' : ['db_logging'],
+            'level' : 'DEBUG',
+            'propagate': False,
         },
     }
 }
@@ -211,20 +243,40 @@ CACHES = {
         # 'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
         'LOCATION': 'cache',
+        'KEY_PREFIX': SITE_NAME,
     }
 }
 CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
 
-# Setup OLAC
+# maximum age of persistent database connection
+CONN_MAX_AGE = 64 
+
+# THIRD-PARTY SETTINGS ==========================================
+
+# Django-Security settings
+SECURE_FRAME_DENY = True         # prevent framing of pages.
+SECURE_BROWSER_XSS_FILTER = True # enable XSS protection
+SESSION_COOKIE_SECURE = False    # can't login with True? 
+SESSION_COOKIE_HTTPONLY = False  # can't login with True?
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# South
+SOUTH_TESTS_MIGRATE = False # just use syncdb
+
+# Static Sitemaps
+STATICSITEMAPS_ROOT_SITEMAP = 'website.sitemap.sitemaps'
+
+
+# OLAC
 OLAC_SETTINGS = {
     'sitename': SITE_NAME,
+    'repositoryName': SITE_NAME,
     'sitedomain': SITE_DOMAIN,
     'description': SITE_DESCRIPTION,
     'adminEmail': ADMINS, 
     'admins': ADMINS,
     'deletedRecord': 'no', # deletedRecord policy
     'protocolVersion': '2.0', # the version of the OAI-PMH supported by the repository;
-    '_identifier': re.compile(r"""oai:.*?:(\w{3})\.(\d+)"""),
     'depositor': ADMINS,
     'institution': 'Australian National University',
     'institutionURL': 'http://anu.edu.au',
@@ -238,6 +290,7 @@ ROBOTS_CACHE_TIMEOUT = 60*60*24
 # Set PIWIK ID
 PIWIK_ID = 1
 
+# Backup 
 DBBACKUP_STORAGE = 'dbbackup.storage.s3_storage'
 DBBACKUP_S3_BUCKET = 'sjg-transnewguinea.org'
 DBBACKUP_S3_ACCESS_KEY = 'AKIAI5L4FEQGKHXLZIEQ'

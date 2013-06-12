@@ -31,13 +31,7 @@
     <p>
     
     {% if attachments %}
-        <h2> Files: </h2>
-        
-        <ul>
-        {% for f in attachments %}
-            <li> <a href="{{ f.file.url }}" alt="{{ f.file.name }}">{{ f.source }} {{ f.details }}</a> </li>
-        {% endfor %}
-        </ul>
+        {% include "includes/filelist.html" %}
     {% endif %}
     
     {% ifinstalled "website.apps.lexicon" %}

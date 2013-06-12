@@ -224,7 +224,7 @@ class Test_Lexicon(TestSetup, TestCase):
         self.assertEquals(len(objs), 2)
         
     def test_unicode(self):
-        entry = u"Iñtërnâtiônàlizætiøn".encode('utf-8')
+        entry = u"Iñtërnâtiônàlizætiøn"
         Lexicon.objects.create(language=self.lang1, 
             source=self.source1, word=self.word2, entry=entry, phon_entry=None, 
             annotation="", loan=False, loan_source=None, editor=self.editor)
@@ -234,24 +234,28 @@ class Test_Lexicon(TestSetup, TestCase):
 class Test_CognateSet(TestSetup, TestCase):
     
     def test_create(self):
-        CognateSet.objects.create(label="PPN *foo", source=self.source1, 
-            comment="", quality=0, editor=self.editor)
+        CognateSet.objects.create(protoform="*foo", gloss="foo", 
+            source=self.source1, comment="", quality=0, editor=self.editor)
     
-    def test_label_can_be_empty(self):
-        CognateSet.objects.create(label=None, source=self.source1, 
-            comment="", quality=0, editor=self.editor)
+    def test_protoform_can_be_empty(self):
+        CognateSet.objects.create(protoform=None, gloss='foo', 
+            source=self.source1, comment="", quality=0, editor=self.editor)
+            
+    def test_gloss_can_be_empty(self):
+        CognateSet.objects.create(protoform="*foo", gloss=None, 
+            source=self.source1, comment="", quality=0, editor=self.editor)
         
     def test_source_can_be_empty(self):
-        CognateSet.objects.create(label="PPN *foo", source=None, 
-            comment="", quality=0, editor=self.editor)
+        CognateSet.objects.create(protoform="*foo", gloss="foo", 
+            source=None, comment="", quality=0, editor=self.editor)
         
     def test_comment_can_be_empty(self):
-        CognateSet.objects.create(label="PPN *foo", source=self.source1, 
-            comment=None, quality=0, editor=self.editor)
+        CognateSet.objects.create(protoform="*foo", gloss="foo", 
+            source=self.source1, comment=None, quality=0, editor=self.editor)
     
     def test_get_all_cognates_for_cognateset(self):
-        cog = CognateSet.objects.create(label="PPN *foo", source=self.source1, 
-            comment="", quality=0, editor=self.editor)
+        cog = CognateSet.objects.create(protoform="*foo", gloss="foo", 
+            source=self.source1, comment="", quality=0, editor=self.editor)
         c1 = Cognate.objects.create(lexicon=self.lexicon1, cognateset=cog, 
             source=self.source1, editor=self.editor)
         c2 = Cognate.objects.create(lexicon=self.lexicon2, cognateset=cog, 
@@ -265,22 +269,22 @@ class Test_CognateSet(TestSetup, TestCase):
 class Test_Cognate(TestSetup, TestCase):
     
     def test_create(self):
-        cog = CognateSet.objects.create(label="PPN *foo", source=self.source1, 
-            comment="", quality=0, editor=self.editor)
+        cog = CognateSet.objects.create(protoform="*foo", gloss="foo", 
+            source=self.source1, comment="", quality=0, editor=self.editor)
         c1 = Cognate.objects.create(lexicon=self.lexicon1, cognateset=cog, 
             source=self.source1, editor=self.editor)
         c2 = Cognate.objects.create(lexicon=self.lexicon2, cognateset=cog, 
             source=self.source1, editor=self.editor)
         
     def test_source_can_be_empty(self):
-        cog = CognateSet.objects.create(label="PPN *foo", source=self.source1, 
-            comment="", quality=0, editor=self.editor)
+        cog = CognateSet.objects.create(protoform="*foo", gloss="foo",
+            source=self.source1, comment="", quality=0, editor=self.editor)
         c1 = Cognate.objects.create(lexicon=self.lexicon1, cognateset=cog, 
             source=None, editor=self.editor)
         
     def test_comment_can_be_empty(self):
-        cog = CognateSet.objects.create(label="PPN *foo", source=self.source1, 
-            comment="", quality=0, editor=self.editor)
+        cog = CognateSet.objects.create(protoform="*foo", gloss="foo",
+            source=self.source1, comment="", quality=0, editor=self.editor)
         c1 = Cognate.objects.create(lexicon=self.lexicon1, cognateset=cog, 
             source=self.source1, comment=None, editor=self.editor)
     

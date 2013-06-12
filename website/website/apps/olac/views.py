@@ -1,17 +1,20 @@
 #http://www.openarchives.org/OAI/openarchivesprotocol.html
+import re
 import time
 from datetime import datetime
 
+from django.conf import settings
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.utils.timezone import utc
-from django.conf import settings
 
 from reversion.models import Revision
 
 from website.apps.core.models import Language as Model
 
 KNOWN_METADATA_PREFIXES = ('olac', 'oai_dc')
+
+_IDENTIFIER = re.compile(r"""oai:.*?:(\w{3})\.(\d+)""")
 
 ERRORS = {
     'badArgument': 'The request includes illegal arguments, is missing required arguments, includes a repeated argument, or values for arguments have an illegal syntax.',
@@ -25,8 +28,18 @@ ERRORS = {
 }
 
 def check_ident(ident):
-    return settings.OLAC_SETTINGS['_identifier'].match(ident)
+    return _IDENTIFIER.match(ident)
 
+def get_sample_identifier():
+    template = 'oai:%s:%s.%d'
+    try:
+        obj = Model.objects.all()[0]
+        return template % (settings.OLAC_SETTINGS['repositoryName'], obj.isocode, obj.id)
+    except:
+        # no entries stored. Return a dummy
+        return template % (settings.OLAC_SETTINGS['repositoryName'], 'aaa', 1)
+        
+    
 def parse_time(timestamp):
     if hasattr(datetime, "strptime"):
         d = datetime.strptime('%s UTC' % timestamp, "%Y-%m-%d %Z")
@@ -74,7 +87,7 @@ def Error(request, error_list, extra_kwargs={}):
     out.update(extra_kwargs)
     return render_to_response('olac/Error.xml', out,
         context_instance=RequestContext(request),
-        mimetype="application/xhtml+xml")
+        content_type="application/xhtml+xml")
 
 
 def Identify(request):
@@ -117,14 +130,17 @@ def Identify(request):
         Each description container must be accompanied by the URL of an XML schema
         describing the structure of the description container.
     """
-    out = {'url': request.build_absolute_uri()}
-
+    out = {
+        'url': request.build_absolute_uri(),
+        'sampleIdentifier': get_sample_identifier(),
+    }
+    
     if len(request.REQUEST.keys()) > 1: # should take NO other arguments.
         return Error(request, ['badArgument'], out)
 
     return render_to_response('olac/Identify.xml', out,
         context_instance=RequestContext(request),
-            mimetype="application/xhtml+xml")
+            content_type="application/xhtml+xml")
 
 
 def ListIdentifiers(request):
@@ -219,7 +235,7 @@ def ListIdentifiers(request):
     out['object_list'] = objects
     return render_to_response('olac/ListIdentifiers.xml', out,
         context_instance=RequestContext(request),
-                            mimetype="application/xhtml+xml")
+                            content_type="application/xhtml+xml")
 
 
 def ListSets(request):
@@ -276,11 +292,11 @@ def ListMetadataFormats(request):
             return Error(request, ['idDoesNotExist'], out)
         return render_to_response('olac/ListMetadataFormats.xml', out,
                     context_instance=RequestContext(request),
-                                        mimetype="application/xhtml+xml")
+                                        content_type="application/xhtml+xml")
 
     return render_to_response('olac/ListMetadataFormats.xml', out,
                     context_instance=RequestContext(request),
-                                        mimetype="application/xhtml+xml")
+                                        content_type="application/xhtml+xml")
 
 
 def ListRecords(request):
@@ -374,7 +390,7 @@ def ListRecords(request):
     out['object_list'] = objects
     return render_to_response('olac/ListRecords.xml', out,
         context_instance=RequestContext(request),
-                            mimetype="application/xhtml+xml")
+                            content_type="application/xhtml+xml")
 
 
 def GetRecord(request):
@@ -442,4 +458,4 @@ def GetRecord(request):
     out['object'] = L
     return render_to_response('olac/GetRecord.xml', out,
         context_instance=RequestContext(request),
-                            mimetype="application/xhtml+xml")
+                            content_type="application/xhtml+xml")

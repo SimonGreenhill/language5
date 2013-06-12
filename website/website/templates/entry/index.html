@@ -13,5 +13,14 @@
     {% else %}
         <p class="error">No results found!</p>
     {% endif %}
-
+    
+    <div class="well">
+        <p>Quick Entry</p>
+        <form action="{% url "entry:quick" %}" method="post" class="form-inline">
+            {% csrf_token %}
+            {{ quickform }}
+            <button type="submit" name="submit" class="btn"><i class="icon-ok"></i> Go </button>
+        </form>
+    </div>
+    
 {% endblock %}

@@ -39,5 +39,7 @@ class WordDetail(DetailView):
     
     def get_context_data(self, **kwargs):
         context = super(WordDetail, self).get_context_data(**kwargs)
-        context['lexicon'] = WordLexiconTable(kwargs['object'].lexicon_set.select_related().all())
+        table = WordLexiconTable(kwargs['object'].lexicon_set.select_related().all())
+        table.paginate(page=self.request.GET.get('page', 1), per_page=50)
+        context['lexicon'] = table
         return context

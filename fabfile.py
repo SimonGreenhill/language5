@@ -1,8 +1,8 @@
-from fabric.api import env, run, local, require
+from fabric.api import env, run, local, require, get
 
 STATICDIR = "website/static"
 
-env.hosts=['sjg@sjg.webfactional.com',]
+env.hosts=['sjg@simon.net.nz',]
 env.remote_root_dir='/home/sjg/webapps/transnewguinea'
     
 # where apache lives.
@@ -41,7 +41,6 @@ def deploy_update_requirements():
     run("workon %s; cd %s; pip install --upgrade -r ./transnewguinea/requirements.txt" \
         % (env.venv, env.remote_root_dir))
 
-
 def download_new_assets():
     """Update all assets"""
     update_jquery()
@@ -58,16 +57,13 @@ def make_bootstrap():
     local("cp %s/bootstrap/img/* %s/img/" % (BSDIR, STATICDIR))
     local("cp %s/bootstrap/js/bootstrap.min.js %s/js/bootstrap.min.js" % (BSDIR, STATICDIR))
 
-
 def update_jquery():
     url = "http://code.jquery.com/jquery-1.8.2.min.js"
     local("curl %s -o %s/js/jquery.js" % (url, STATICDIR))
 
-
 def update_bootstrap_min_js():
     url = "https://raw.github.com/twitter/bootstrap/gh-pages/assets/js/bootstrap.min.js"
     local("curl %s -o %s/js/bootstrap.min.js" % (url, STATICDIR))
-
 
 def test(app=None):
     """Runs tests"""
@@ -76,18 +72,32 @@ def test(app=None):
     else:
         local("cd website; python manage.py test")
         
-        
 def lint():
     """Runs pyflakes"""
     local("cd website; pyflakes .")
     
-
 def py2to3():
     """Runs 2to3"""
     local("cd website; 2to3 .")
-
 
 def update():
     """Updates official bitbucket repo"""
     local("hg push")
 
+def snapshot():
+    """Takes a snapshot"""
+    run("workon %s; cd %s; python manage.py dumpdata -e contenttypes > %s/dump.json" \
+        % (env.venv, env.remote_app_dir, env.remote_root_dir))
+    run("cd %s; gzip -9 dump.json" % env.remote_root_dir)
+    get("%s/dump.json.gz" % env.remote_root_dir, "dump.json.gz")
+
+def clone():
+    """Clones the production database"""
+    snapshot()
+    local("gunzip dump.json.gz")
+    print("moving database.db to database.db-old")
+    local("mv website/website/database.db website/website/database.db-old")
+    local("cd website; python manage.py syncdb --noinput")
+    local("cd website; python manage.py migrate --noinput")
+    local("cd website; python manage.py loaddata ../dump.json")
+    local("rm dump.json")

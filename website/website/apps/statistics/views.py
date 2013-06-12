@@ -1,6 +1,10 @@
+from time import mktime
+from datetime import datetime
 from django.shortcuts import render
 from website.apps.statistics.models import StatisticalValue
-from time import mktime
+from website.apps.statistics import statistic
+
+GRAPH_START_TIME = datetime.strptime("01 Apr 2013 00:00:00", "%d %b %Y %H:%M:%S")
 
 WANTED_STATISTICS = [
     "Number of Languages", 
@@ -9,46 +13,35 @@ WANTED_STATISTICS = [
     "Number of Lexical Items",
 ]
 
-def get_dates():
-    out = [] 
-    for t in StatisticalValue.objects.filter(label="Number of Languages").order_by('date').values_list('date', flat=True):
-        out.append(int(mktime(t.timetuple())))
-    return out
+def format_time_struct(date):
+    return int(mktime(date)) * 1000 # I have no idea why * 1000 is needed
     
+    
+def get_xy(label, get_latest=False):
+    x = [format_time_struct(GRAPH_START_TIME.timetuple()),]
+    y = [0,]
+    
+    for row in StatisticalValue.objects.get_all_with_dates(label):
+        x.append(format_time_struct(row[1].timetuple()))
+        y.append(row[0])
+    
+    # get_latest
+    if get_latest:
+        x.append(format_time_struct(datetime.now().timetuple()))
+        y.append(float(statistic.get_statistic(label)))
+    return {'x': x, 'y': y, 'name': label}
+
 def statistics(request):
     """Shows statistics"""
-    extra = {
-        "tooltip": {"y_start": "", "y_end": " cal"},
-        "date_format": "%d %b %Y %H:%M:%S %p"
-    }
-    chartdata = {
-        'x': get_dates(),
-    }
-    for i, label in enumerate(WANTED_STATISTICS, 1):
-        chartdata["y%d" % i] = StatisticalValue.objects.get_all(label)
-        chartdata["name%d" % i] = label
-        chartdata["extra%d" % i] = extra
-        
-    import datetime
-    start_time = int(time.mktime(datetime.datetime(2012, 6, 1).timetuple()) * 1000)
-    nb_element = 100
-    xdata = range(nb_element)
-    xdata = map(lambda x: start_time + x * 1000000000, xdata)
-    ydata = [i + random.randint(1, 10) for i in range(nb_element)]
-    ydata2 = map(lambda x: x * 2, ydata)
-    tooltip_date = "%d %b %Y %H:%M:%S %p"
-    extra_serie = {"tooltip": {"y_start": "", "y_end": " cal"},
-                   "date_format": tooltip_date}
-    chartdata = {'x': xdata,
-                 'name1': 'series 1', 'y1': ydata, 'extra1': extra_serie,
-                 'name2': 'series 2', 'y2': ydata2, 'extra2': extra_serie}
-    charttype = "lineChart"
-    data = {
-        'charttype': charttype,
-        'chartdata': chartdata
-    }
-
-    return render(request, 'statistics/details.html', data)
+    out = {}
+    out['charttype'] = "lineChart"
+    out['charts'] = []
     
-    #return render(request, 'statistics/details.html', {'chartdata': chartdata,})
-
+    for i, label in enumerate(WANTED_STATISTICS, 1):
+        out['charts'].append({
+            'label': label,
+            'id': 'chart_id_%d' % i,
+            'data': get_xy(label, get_latest=True)
+        })
+        
+    return render(request, 'statistics/details.html', out)

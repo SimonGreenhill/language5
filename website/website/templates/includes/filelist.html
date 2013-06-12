@@ -1,0 +1,9 @@
+{% if user.is_authenticated %}
+    <h2> Files: </h2>
+
+    <ul>
+    {% for f in attachments %}
+        <li> <a href="{{ f.file.url }}" alt="{{ f.file.name }}"><i class="icon-book"></i> {{ f.source }}</a> </li>
+    {% endfor %}
+    </ul>
+{% endif %}

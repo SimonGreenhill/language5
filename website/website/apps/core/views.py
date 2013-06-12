@@ -61,7 +61,9 @@ class SourceDetail(DetailView):
         context = super(SourceDetail, self).get_context_data(**kwargs)
         context['attachments'] = kwargs['object'].attachment_set.all()
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
-            context['lexicon_table'] = SourceLexiconTable(kwargs['object'].lexicon_set.select_related().all())
+            table = SourceLexiconTable(kwargs['object'].lexicon_set.select_related().all())
+            table.paginate(page=self.request.GET.get('page', 1), per_page=50)
+            context['lexicon_table'] = table
         return context
     
 
@@ -72,7 +74,11 @@ class FamilyDetail(DetailView):
     
     def get_context_data(self, **kwargs):
         context = super(FamilyDetail, self).get_context_data(**kwargs)
-        context['languages'] = LanguageIndexTable(kwargs['object'].language_set.all())
+        context['languages'] = LanguageIndexTable(
+                kwargs['object'].language_set.all(
+                    ).annotate(count=Count('lexicon'))
+        
+        )
         return context
 
 
@@ -96,7 +102,9 @@ def language_detail(request, language):
         }
         # load lexicon if installed.
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
-            out['lexicon_table'] = LanguageLexiconTable(my_lang.lexicon_set.select_related().all())
+            table = LanguageLexiconTable(my_lang.lexicon_set.select_related().all())
+            table.paginate(page=request.GET.get('page', 1), per_page=50)
+            out['lexicon_table'] = table
         
         # load pronouns
         if 'website.apps.pronouns' in settings.INSTALLED_APPS:
@@ -107,7 +115,7 @@ def language_detail(request, language):
                 out['pronoun_rows'] =  add_pronoun_table(p.pronoun_set.all())
             except IndexError: # no paradigm
                 pass
-                
+            
             # sources used 
             source_ids = [_['source_id'] for _ in my_lang.lexicon_set.values('source_id').distinct().all()]
             out['sources_used'] = Source.objects.filter(pk__in=source_ids)

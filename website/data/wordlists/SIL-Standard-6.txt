@@ -1,0 +1,20 @@
+89 banana
+90 sweet-potato
+91 bean
+92 axe
+93 knife
+94 spear-n
+95 string-bag
+96 house
+97 earth
+98 sand
+99 mountain
+100 wind
+101 vine
+102 stick
+103 bark
+104 seed
+105 tobacco
+106 morning
+107 afternoon
+

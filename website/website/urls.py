@@ -11,8 +11,7 @@ from website.apps.core.views import FamilyIndex, FamilyDetail
 
 from website.apps.lexicon.views import WordIndex, WordDetail
 
-from sitemap import FamilySitemap, LanguageSitemap, SourceSitemap, WordSitemap
-
+from sitemap import sitemaps
 
 urlpatterns = patterns('',
     # Main Page / Home
@@ -54,18 +53,10 @@ urlpatterns = patterns('',
 
     # search page
     url(r"^search/", include('watson.urls', namespace='watson')),
-    url(r"^statistics/", include('website.apps.statistics.urls', namespace='statistics')),
     
     # Sitemap
-    (r'^sitemap\.xml$', 
-           'django.contrib.sitemaps.views.sitemap', 
-           {'sitemaps': {
-                'families': FamilySitemap, 
-                'languages': LanguageSitemap,
-                'sources': SourceSitemap,
-                'words': WordSitemap,
-           }}
-       ),
+    url(r'^sitemap.xml', include('static_sitemaps.urls')),
+       
     # Robots.txt
     (r'^robots\.txt$', include('robots.urls')),
     
@@ -116,6 +107,14 @@ if 'website.apps.pronouns' in settings.INSTALLED_APPS:
 if 'website.apps.entry' in settings.INSTALLED_APPS:
     urlpatterns += patterns("",
         url(r"^entry/", include('website.apps.entry.urls', namespace='entry')),
+    )
+
+# ------------------------------------------------------------------------ #
+# Statistics                                                               #
+# ------------------------------------------------------------------------ #
+if 'website.apps.statistics' in settings.INSTALLED_APPS:
+    urlpatterns += patterns("",
+        url(r"^statistics/", include('website.apps.statistics.urls', namespace='statistics')),
     )
 
 

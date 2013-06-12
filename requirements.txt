@@ -1,8 +1,10 @@
 django>=1.5                                                 # django framework
+django-extensions>=1.1.1                                    # useful tools
+fabric                                                      # deployment etc
 pil                                                         # Python Imaging Library
 psycopg2                                                    # database adaptor
 django-reversion>=1.7                                       # versioning
-South>=0.7.6                                                # database migrations
+South>=0.8.1                                                # database migrations
 django-robots                                               # robots.txt
 pytz                                                        # timezone support
 django-secure                                               # security
@@ -12,6 +14,8 @@ django-dbbackup                                             # database & media b
 simples3                                                    # Amazon S3 for backup
 django-nvd3                                                 # for graphing statistics
 python-Levenshtein                                          # for string similarity metrics
+IPython                                                     # for local work.
+django-static-sitemaps                                      # static sitemaps
 # searching:
 -e git://github.com/etianen/django-watson.git#egg=django-watson
 

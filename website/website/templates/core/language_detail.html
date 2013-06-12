@@ -9,7 +9,7 @@
 
 {% block content %}
     <div class="page-header">
-        <h1>Language: {{ language.language }}</h1>
+        <h1>Language: {{ language }}</h1>
     </div>
     
     <ul class="breadcrumb">
@@ -22,13 +22,13 @@
           <span class="divider">/</span>
       </li>
       <li class="active">
-          <a href="{% url "language-detail" language.slug %}"> {{ language.language }}</a>
+          <a href="{% url "language-detail" language.slug %}"> {{ language }}</a>
       </li>
     </ul>
     
     <h2>Information:</h2>
     
-    <p><strong>ISO 639:</strong>{{ language.isocode }}</p>
+    <p><strong>ISO 639: </strong>{{ language.isocode }}</p>
     
     {% if alternatenames %}
         <p>
@@ -55,15 +55,19 @@
     {% endif %}
     
     <p> 
-        <strong>Classification:</strong> 
+        <strong>Classification: </strong> 
         {{ language.classification }}
     </p>
     
     <h2> Resources: </h2>
     
     <ul>
-        <li><a href="{{ language|link_ethnologue }}">Ethnologue page for {{ language.language }}</a></li>
-        <li><a href="{{ language|link_olac }}">Open Language Archives search for {{ language.language }}</a></li>
+        {% if language.isocode %}
+            <li><a href="{{ language|link_ethnologue }}">Ethnologue page for {{ language.language }}</a></li>
+            <li><a href="{{ language|link_olac }}">Open Language Archives search for {{ language.language }}</a></li>
+            <li><a href="{{ language|link_llmap }}">Linguist-List Map Project for {{ language.language }}</a></li>
+            <li><a href="{{ language|link_multitree }}">Multitree language relationships for {{ language.language }}</a></li>
+        {% endif %}
         
         {% if links %}
             {% for link in links %}
@@ -82,14 +86,15 @@
     
 
     
-    {% if attachments %}
-        <h2> Files: </h2>
+    {% if language.isocode %}
+        <h2> Map: </h2>
         
-        <ul>
-        {% for f in attachments %}
-            <li> <a href="{{ f.file.url }}" alt="{{ f.file.name }}">{{ f.source }} {{ f.details }}</a> </li>
-        {% endfor %}
-        </ul>
+        {{ language|language_map }}
+        
+    {% endif %}
+    
+    {% if attachments %}
+        {% include "includes/filelist.html" %}
     {% endif %}
     
     {% ifinstalled "website.apps.lexicon" %}

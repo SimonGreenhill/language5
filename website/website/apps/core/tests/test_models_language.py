@@ -3,6 +3,40 @@ from django.db import IntegrityError
 from django.test import TestCase
 from website.apps.core.models import Language, Family
 
+class Test_Language_Repr(TestCase):
+    def setUp(self):
+        self.editor = User.objects.create(username='admin')
+    
+    def test_simple(self):
+        l = Language.objects.create(language='A', 
+                                    slug='a', 
+                                    information='', classification='',
+                                    isocode='aaa', editor=self.editor)
+        assert unicode(l) == u'A'
+
+    def test_dialect(self):
+        l = Language.objects.create(language='A', dialect="B",
+                                    slug='a', 
+                                    information='', classification='',
+                                    isocode='aaa', editor=self.editor)
+        assert unicode(l) == u'A (B Dialect)'
+    
+    def test_dialect_equals_none(self):
+        l = Language.objects.create(language='A', dialect=None,
+                                    slug='a', 
+                                    information='', classification='',
+                                    isocode='aaa', editor=self.editor)
+        assert unicode(l) == u'A'
+        
+    def test_empty_dialect(self):
+        l = Language.objects.create(language='A', dialect=u"",
+                                    slug='a', 
+                                    information='', classification='',
+                                    isocode='aaa', editor=self.editor)
+        assert unicode(l) == u'A'
+
+
+
 class Test_Language(TestCase):
     """Tests the Language Model"""
     def setUp(self):

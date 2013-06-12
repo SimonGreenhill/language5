@@ -9,9 +9,15 @@ from website.apps.core.models import Language, Source
 from website.apps.lexicon.models import Lexicon, Word
 from website.apps.entry.dataentry.generic import process_post_and_save, GenericFormSet
 
+#
+#  TODO: DEPRECATE ME
+#
+
+
+
 @login_required()
 def FranklinView(request, task):
-    """Data Entry Task for Franklin 1973"""
+    """Data entry task for Franklin 1973"""
     template_name = "entry/formtemplates/generic.html"
     
     # Note - put this here, it'll only get instantiated once this view is called.

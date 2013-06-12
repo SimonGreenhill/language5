@@ -35,6 +35,12 @@
             <tr>
                 {% for field in form %}
                     <td {% if field.errors %}class="error"{% endif %}>
+                        {% ifequal field.name "word" %}
+                            {% if form.initial.order_id %}
+                                {{ form.initial.order_id }}.
+                            {% endif %}
+                        {% endifequal %}
+                        
                         {{ field }}
                         {% if field.errors %}
                             <i class="tip icon-exclamation-sign" 

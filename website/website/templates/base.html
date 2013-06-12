@@ -47,7 +47,7 @@
                       <a href="{% url "about" %}">About</a>
                   </li>
                   <li{% active 'family-index' %}>
-                      <a href="{% url "family-index" %}">Language Families</a>
+                      <a href="{% url "family-index" %}">Families</a>
                   </li>
                   <li{% active 'language-index' %}>
                       <a href="{% url "language-index" %}">Languages</a>
@@ -65,6 +65,12 @@
                   {% ifinstalled "website.apps.pronouns" %}
                   <li{% active 'pronouns:index' %}>
                       <a href="{% url "pronouns:index" %}">Pronouns</a>
+                  </li>
+                  {% endifinstalled %}
+                  
+                  {% ifinstalled "website.apps.statistics" %}
+                  <li{% active 'statistics:statistics' %}>
+                      <a href="{% url "statistics:statistics" %}">Statistics</a>
                   </li>
                   {% endifinstalled %}
                   
