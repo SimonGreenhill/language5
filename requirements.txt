@@ -15,6 +15,7 @@ simples3                                                    # Amazon S3 for back
 django-nvd3                                                 # for graphing statistics
 IPython                                                     # for local work.
 django-static-sitemaps                                      # static sitemaps
+python-Levenshtein                                          # for string similarity metrics
 # searching:
 -e git://github.com/etianen/django-watson.git#egg=django-watson
 
