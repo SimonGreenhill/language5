@@ -53,6 +53,13 @@
                 <h1>Data Entry Task: {{ task }} {{ content }}</h1>
             </div>
             
+            {% if task.description %}
+                <div class="alert alert-block">
+                  <h4>Please Note: </h4>
+                  <p>{{ task.description|linebreaks }}</p>
+                </div>
+            {% endif %}
+            
             {% if task.file %}
                 <div class="row clearfix">
                   <div class="span8 offset2 well">
