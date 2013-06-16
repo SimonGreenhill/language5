@@ -49,7 +49,7 @@ class Command(BaseCommand):
     def find_combined(self, language=None, word=None, source=None):
         combined = []
         
-        qset = Lexicon.objects.all()
+        qset = Lexicon.objects.all().order_by('language')
         
         # filter on language if given a language.
         if language:
