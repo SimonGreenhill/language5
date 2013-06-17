@@ -73,7 +73,11 @@ class Command(BaseCommand):
         if 'd' in args or 'dupes' in args or 'dedupe' in args:
             duplicates = self.find_duplicates()
             for obj in duplicates:
-                self._print('Duplicate: %d - %s, %s = %r' % (obj.id, obj.language, obj.word, obj.entry))
+                self._print('Duplicate: %d/%d/%d/%d - %s, %s = %r' % (obj.id, 
+                    obj.language.id, 
+                    obj.source.id,
+                    obj.word.id,
+                    obj.language, obj.word, obj.entry))
             
             if 'save' in options and options['save']:
                 self.delete(duplicates)
