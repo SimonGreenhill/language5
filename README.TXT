@@ -1,6 +1,22 @@
 Language 5
 ==========
 
+Features:
+---------
+
+* fully scalable. 
+* fast.
+* automated tests for most of the code to check everything works as expected.
+* everything is tracked with a version history (i.e. who edited this lexical item and when and how).
+* everything is linked to a source. 
+* maps of each language.
+* Full data entry system: 
+** allows easy adding of data (scanned images/PDF)
+** pdf/images are zoomable, so you can zoom in to identify things.
+* Real-time statistics:
+** http://transnewguinea.org/statistics/
+
+
 
 Needed Cronjobs:
 ----------------
