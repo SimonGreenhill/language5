@@ -8,15 +8,15 @@ from website.apps.lexicon.models import Lexicon
 
 
 class Command(BaseCommand):
-    args = 'hygiene --delete'
+    args = 'hygiene [empty, dedupe] --save'
     help = 'Cleans Data from Database'
     output_transaction = True
     option_list = BaseCommand.option_list + (
-        make_option('--delete',
+        make_option('--save',
             action='store_true',
-            dest='delete',
+            dest='save',
             default=False,
-            help='Delete dirty data rather than listing it'),
+            help='Save changes to data rather than listing it'),
         )
         
     def _print(self, message):
@@ -59,16 +59,23 @@ class Command(BaseCommand):
                 obj.delete()
             
     def handle(self, *args, **options):
-        empties = self.find_empty()
-        duplicates = self.find_duplicates()
+        if len(args) == 0:
+            args = ('empty', 'dedupe')
         
-        for obj in empties:
-            self._print('Empty: %d - %r' % (obj.id, obj.entry))
-        for obj in duplicates:
-            self._print('Duplicate: %d - %s, %s = %r' % (obj.id, obj.language, obj.word, obj.entry))
+        if 'e' in args or 'empty' in args or 'empties' in args:
+            empties = self.find_empty()
+            for obj in empties:
+                self._print('Empty: %d - %r' % (obj.id, obj.entry))
+            
+            if 'save' in options and options['save']:
+                self.delete(empties)
         
-        if 'delete' in options and options['delete']:
-            self.delete(empties)
-            self.delete(duplicates)
+        if 'd' in args or 'dupes' in args or 'dedupe' in args:
+            duplicates = self.find_duplicates()
+            for obj in duplicates:
+                self._print('Duplicate: %d - %s, %s = %r' % (obj.id, obj.language, obj.word, obj.entry))
+            
+            if 'save' in options and options['save']:
+                self.delete(duplicates)
             
         
