@@ -245,3 +245,63 @@ class Test_Filter(TestCase):
         assert values['word'] == self.words[0].id
         assert values['source'] == self.sources[0].id
     
+    
+
+
+class Test_Ignore_Protoforms(HygieneDataMixin):
+    """Tests the split_entries management command ignores protoforms"""
+    
+    def setUp(self):
+        super(Test_Ignore_Protoforms, self).setUp()
+        self.pform1 = Lexicon.objects.create(
+            language=self.lang, 
+            word=self.word,
+            source=self.source,
+            editor=self.editor,
+            entry="*n(e,i)ri"
+        ) 
+        self.pform2 = Lexicon.objects.create(
+            language=self.lang, 
+            word=self.word,
+            source=self.source,
+            editor=self.editor,
+            entry="*n(e/i)ri"
+        ) 
+        self.pform3 = Lexicon.objects.create(
+            language=self.lang, 
+            word=self.word,
+            source=self.source,
+            editor=self.editor,
+            entry="*neri, *niri"
+        )
+    
+    def test_comma(self):
+        cmd = split_entries.Command()
+        found = cmd.find_combined()
+        assert self.pform1 not in found
+        
+    def test_slash(self):
+        cmd = split_entries.Command()
+        found = cmd.find_combined()
+        assert self.pform2 not in found
+    
+    def test_correct(self):
+        cmd = split_entries.Command()
+        found = cmd.find_combined()
+        # pform3 SHOULD be found
+        assert self.pform3 in found
+    
+    def test_correctly_split_protoform(self):
+        cmd = split_entries.Command()
+        cmd.split_and_replace(self.pform3)
+        one = Lexicon.objects.filter(entry="*neri")
+        two = Lexicon.objects.filter(entry="*niri")
+        
+        assert len(one) == len(two) == 1
+        one, two = one[0], two[0]
+        
+        assert one.language == two.language == self.pform3.language
+        assert one.editor == two.editor == self.pform3.editor
+        assert one.source == two.source == self.pform3.source
+        assert one.word == two.word == self.pform3.word
+        
