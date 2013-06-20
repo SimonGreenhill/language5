@@ -16,7 +16,6 @@ django-nvd3                                                 # for graphing stati
 python-Levenshtein                                          # for string similarity metrics
 IPython                                                     # for local work.
 django-static-sitemaps                                      # static sitemaps
-python-Levenshtein                                          # for string similarity metrics
 django_compressor==dev                                      # for asset compression/cache busting
 # searching:
 -e git://github.com/etianen/django-watson.git#egg=django-watson
