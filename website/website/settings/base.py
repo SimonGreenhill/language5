@@ -90,7 +90,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'compressor.finders.CompressorFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -162,6 +162,7 @@ INSTALLED_APPS = [
     'watson',                            # search
     'dbbackup',                          # backup
     'static_sitemaps',                   # static sitemaps.
+    'compressor',                        # django-compressor for asset compression and versioning.
     
     # website
     'website.apps.core',                 # core functionality

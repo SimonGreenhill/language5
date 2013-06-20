@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load website_tags %}
+{% load compress %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,8 +16,11 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   
+  {% compress css %}
   <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}" />
   <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-responsive.min.css" %}" />
+  {% endcompress %}
+  
   {% block head %}{% endblock %}
 </head>
 <body>
