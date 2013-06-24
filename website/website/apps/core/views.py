@@ -2,13 +2,25 @@ from django.db.models import Count
 from django.conf import settings
 from django.http import Http404
 from django.shortcuts import render, redirect
-from django.views.generic import DetailView
+from django.views.generic import DetailView, TemplateView
+from django.core.urlresolvers import reverse
 
 from website.apps.core.models import Family, Language, AlternateName, Source
 
 from django_tables2 import SingleTableView
 from website.apps.core.tables import LanguageIndexTable, SourceIndexTable, FamilyIndexTable
 from website.apps.lexicon.tables import LanguageLexiconTable, SourceLexiconTable
+
+class RobotsTxt(TemplateView):
+    """simple robots.txt implementation"""
+    template_name = "robots.txt"
+    content_type = "text/plain"
+    
+    def get_context_data(self, **kwargs):
+        context = super(RobotsTxt, self).get_context_data(**kwargs)
+        #context['site'] = reverse('django.contrib.sitemaps.views.sitemap')
+        return context
+    
 
 class LanguageIndex(SingleTableView):
     """Language Index"""
@@ -153,4 +165,6 @@ def iso_lookup(request, iso):
     else:
         raise Http404
         
+
+
 

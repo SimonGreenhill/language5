@@ -159,7 +159,6 @@ INSTALLED_APPS = [
     # third-party
     'south',                             # south: database migrations
     'reversion',                         # reversion: object version control.
-    'robots',                            # django-robots: robots.txt handling
     'djangosecure',                      # django-secure: Security helper
     'django_tables2',                    # django-tables2: tables helper
     'watson',                            # search
@@ -287,9 +286,6 @@ OLAC_SETTINGS = {
     'shortLocation': 'Canberra, Australia',
 }
 
-
-# cache the ``robots.txt`` for 24 hours (86400 seconds).
-ROBOTS_CACHE_TIMEOUT = 60*60*24
 
 # Set PIWIK ID
 PIWIK_ID = 1
