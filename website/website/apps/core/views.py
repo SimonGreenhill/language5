@@ -16,11 +16,6 @@ class RobotsTxt(TemplateView):
     template_name = "robots.txt"
     content_type = "text/plain"
     
-    def get_context_data(self, **kwargs):
-        context = super(RobotsTxt, self).get_context_data(**kwargs)
-        #context['site'] = reverse('django.contrib.sitemaps.views.sitemap')
-        return context
-    
 
 class LanguageIndex(SingleTableView):
     """Language Index"""
