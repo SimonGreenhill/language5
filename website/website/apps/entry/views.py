@@ -113,7 +113,7 @@ def quick_entry(request):
         wordlist=form.cleaned_data['wordlist'],
         language=form.cleaned_data['language'],
         records=form.cleaned_data['records'],
-        view='GenericView',
+        view='WordlistView' if form.cleaned_data.get('wordlist', False) else 'GenericView',
         completable=True
     )
     t.save()
