@@ -24,6 +24,7 @@ class WordLexiconTable(DataTable):
     """Lexicon table for Word pages"""
     id = tables.Column()
     language = tables.LinkColumn('language-detail', args=[A('language.slug')])
+    classification = tables.Column()
     source = tables.LinkColumn('source-detail', args=[A('source.slug')])
     entry = tables.Column()
     annotation = tables.Column()
