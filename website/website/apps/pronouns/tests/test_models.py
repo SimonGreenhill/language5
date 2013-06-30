@@ -2,7 +2,7 @@ from django.test import TestCase
 
 from website.apps.pronouns.models import Paradigm, Pronoun, Relationship
 
-from website.apps.pronouns.tests.test_views import DefaultSettingsMixin
+from website.apps.pronouns.tests import DefaultSettingsMixin
 
 class Test_RelationshipManager_get_relationships_for_pronoun(DefaultSettingsMixin, TestCase):
     """Test the function get_relationships_for_pronoun on the RelationshipManager for Relationship"""

@@ -4,10 +4,11 @@ from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
 from website.apps.core.models import Language, Source
+from website.apps.lexicon.models import Lexicon
 from website.apps.pronouns.models import Paradigm, Pronoun
 from website.apps.pronouns.tools import full_repr_row
 
-from website.apps.pronouns.tests.test_views import DefaultSettingsMixin
+from website.apps.pronouns.tests import DefaultSettingsMixin
 
 
 class Test_Paradigm(DefaultSettingsMixin, TestCase):
@@ -51,9 +52,16 @@ class Test_Paradigm(DefaultSettingsMixin, TestCase):
                 pron.delete()
             else:
                 # modify the stored entries so we can identify them later.
-                pron.form = "old"
+                pron.form = Lexicon.objects.create(
+                    editor=self.editor, 
+                    source=self.source,
+                    language=self.lang,
+                    word=self.word,
+                    entry="old"
+                )
+                pron.form.save()
                 pron.save()
-            
+                
         # how many should we have deleted
         missing = [_ for _ in Pronoun._generate_all_combinations() if _['alignment'][0] == 'A']
         assert len(p.pronoun_set.all()) == (len(Pronoun._generate_all_combinations()) - len(missing))
@@ -66,7 +74,7 @@ class Test_Paradigm(DefaultSettingsMixin, TestCase):
         
         for pron in p.pronoun_set.all():
             if pron.alignment == 'A':
-                assert pron.form == ''
+                assert pron.form is None
             else:
-                assert pron.form == 'old'
+                assert pron.form.entry == 'old'
         

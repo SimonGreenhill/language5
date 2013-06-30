@@ -3,7 +3,7 @@ from django.test import TestCase
 from website.apps.core.models import Language
 from website.apps.pronouns.models import Paradigm, Pronoun, Rule, Relationship
 from website.apps.pronouns.tools import copy_paradigm
-from website.apps.pronouns.tests.test_views import DefaultSettingsMixin
+from website.apps.pronouns.tests import DefaultSettingsMixin
 
 
 class TestCopyParadigm(DefaultSettingsMixin, TestCase):

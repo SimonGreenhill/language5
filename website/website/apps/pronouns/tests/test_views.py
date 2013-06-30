@@ -1,28 +1,10 @@
 from django.test import TestCase
 from django.test.client import Client
-from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
-from website.apps.core.models import Language, Source
-from website.apps.pronouns.models import Paradigm, Pronoun
 from website.apps.pronouns.tools import full_repr_row
-
-# Mixin for default test content
-class DefaultSettingsMixin(object):
-    def add_fixtures(self):
-        self.editor = User.objects.create_user('admin', 'admin@admin.com', "test")
-        self.lang = Language.objects.create(language='A', slug='langa', 
-                                             information='i.1', 
-                                             classification='a, b',
-                                             isocode='aaa', editor=self.editor)
-        self.source = Source.objects.create(year=1991, author='Smith', 
-                                 slug='Smith1991', reference='S2',
-                                 comment='c1', editor=self.editor)
-        self.pdm = Paradigm.objects.create(language=self.lang, 
-                                 source=self.source, 
-                                 editor=self.editor,
-                                 comment="test")
-
+from website.apps.pronouns.models import Paradigm, Pronoun
+from website.apps.pronouns.tests import DefaultSettingsMixin
 
 # Test View: Add paradigm
 class Test_AddParadigmView(DefaultSettingsMixin, TestCase):

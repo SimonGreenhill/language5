@@ -4,10 +4,7 @@ from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.db.models import Q
 
-from website.apps.core.models import Language, Source
-from website.apps.pronouns.models import Paradigm, Pronoun, Rule, Relationship
-
-from website.apps.pronouns.tests.test_views import DefaultSettingsMixin
+from website.apps.pronouns.tests import DefaultSettingsMixin
 
 class ProcessRuleMixin(DefaultSettingsMixin):
     def setUp(self):

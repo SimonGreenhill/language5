@@ -3,7 +3,7 @@ from django.test import TestCase
 from website.apps.pronouns.models import Paradigm, Pronoun
 from website.apps.pronouns.tools import find_identicals
 
-from website.apps.pronouns.tests.test_views import DefaultSettingsMixin
+from website.apps.pronouns.tests import DefaultSettingsMixin
 
 
 class TestFindIdenticals(DefaultSettingsMixin, TestCase):

@@ -2,7 +2,7 @@ from django.test import TestCase
 
 from website.apps.pronouns.models import Paradigm, Pronoun
 from website.apps.pronouns.tools import full_repr_row
-from website.apps.pronouns.tests.test_views import DefaultSettingsMixin
+from website.apps.pronouns.tests import DefaultSettingsMixin
 
 class TestReprRow(DefaultSettingsMixin, TestCase):
     
