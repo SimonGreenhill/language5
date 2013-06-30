@@ -469,8 +469,7 @@ class Paradigm(TrackedModel):
                     number = comb['number'][0],
                     alignment = comb['alignment'][0],
                     gender = gender,
-                    form=""
-                    #form="%s - %s - %s - %s" % (comb['person'][0], comb['number'][0], comb['gender'][0], comb['alignment'][0]) ,
+                    form=None
                 )
                 obj.save()
     
@@ -523,11 +522,10 @@ class Pronoun(TrackedModel):
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES,
         blank=True, null=True,
         help_text="Gender")
-    form = models.TextField(blank=True, null=True,
-        help_text="Form")
+    form = models.ForeignKey('lexicon.Lexicon', null=True, blank=True)
         
     def __unicode__(self):
-        return '%s%s %s: %s' % (self.person, self.number, self.alignment, self.form)
+        return '%s%s %s' % (self.person, self.number, self.alignment)
     
     @staticmethod
     def _generate_all_combinations():
@@ -589,7 +587,7 @@ class Relationship(TrackedModel):
     objects = PronounRelationshipManager()
     
     def __unicode__(self):
-        return '<Relationship: %s-%s>' % (self.pronoun1.form, self.pronoun2.form)
+        return '<Relationship: %s-%s>' % (self.pronoun1, self.pronoun2)
 
     class Meta:
         db_table = 'pronoun_relationships'
