@@ -552,18 +552,37 @@ class Pronoun(TrackedModel):
         
 
 class PronounRelationshipManager(models.Manager):
-    def get_relationships_for_pronoun(self, pronoun):
-        return self.filter(models.Q(pronoun1=pronoun) | models.Q(pronoun2=pronoun))
     
-    def has_relationship_between(self, pronoun1, pronoun2): 
-        qset = self.filter(
-            models.Q(pronoun1=pronoun1) & models.Q(pronoun2=pronoun2) | 
-            models.Q(pronoun1=pronoun2) & models.Q(pronoun2=pronoun1)
-        )
-        if len(qset) == 0:
-            return False
+    def _get_pk(self, thing):
+        if hasattr(thing, 'pk'):
+            return thing.pk
+        elif type(thing) == int:
+            return thing
         else:
-            return qset
+            raise ValueError("Unable to identify the PK of %r" % thing)
+    
+    def get_relationships_for_pronoun(self, pronoun):
+        return self.filter(
+            models.Q(pronoun1_id=self._get_pk(pronoun)) | 
+            models.Q(pronoun2_id=self._get_pk(pronoun))
+        )
+    
+    def has_relationship_between(self, pronoun1, entry1, pronoun2, entry2):
+        ppk1, ppk2 = self._get_pk(pronoun1), self._get_pk(pronoun2)
+        lpk1, lpk2 = self._get_pk(entry1), self._get_pk(entry2)
+        qset = self.filter(
+            models.Q(pronoun1_id=ppk1) & models.Q(pronoun2_id=ppk2) |
+            models.Q(pronoun1_id=ppk2) & models.Q(pronoun2_id=ppk1)
+        )
+        qset = qset.filter(
+            models.Q(entry1_id=lpk1) & models.Q(entry2_id=lpk2) |
+            models.Q(entry1_id=lpk2) & models.Q(entry2_id=lpk1)
+        )
+
+        if len(qset) > 0:
+            return True
+        else:
+            return False
 
 
 class Relationship(TrackedModel):
@@ -578,15 +597,17 @@ class Relationship(TrackedModel):
     paradigm = models.ForeignKey('Paradigm')
     pronoun1 = models.ForeignKey('Pronoun', related_name="pronoun1")
     pronoun2 = models.ForeignKey('Pronoun', related_name="pronoun2")
+    entry1 = models.ForeignKey('lexicon.Lexicon', related_name="entry1")
+    entry2 = models.ForeignKey('lexicon.Lexicon', related_name="entry2")
     relationship = models.CharField(max_length=2, choices=RELATIONSHIP_CHOICES,
         default=None, blank=True, null=True, help_text="Relationship")
     comment = models.TextField(blank=True, null=True,
-        help_text="Comment on this paradigm")
+        help_text="Comment on this relationship")
     
     objects = PronounRelationshipManager()
     
     def __unicode__(self):
-        return '<Relationship: %s-%s>' % (self.pronoun1, self.pronoun2)
+        return '%s-%s' % (self.pronoun1, self.pronoun2)
 
     class Meta:
         db_table = 'pronoun_relationships'
@@ -599,7 +620,7 @@ class Rule(TrackedModel):
     relationships = models.ManyToManyField('Relationship', blank=True, null=True)
     
     def __unicode__(self):
-        return '<Rule: %d-%s>' % (self.paradigm, self.rule)
+        return '%d-%s' % (self.paradigm.id, self.rule)
 
     class Meta:
         db_table = 'pronoun_rules'

@@ -4,7 +4,10 @@ from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.db.models import Q
 
+from website.apps.lexicon.models import Lexicon
+from website.apps.pronouns.models import Rule, Relationship
 from website.apps.pronouns.tests import DefaultSettingsMixin
+
 
 class ProcessRuleMixin(DefaultSettingsMixin):
     def setUp(self):
@@ -16,7 +19,13 @@ class ProcessRuleMixin(DefaultSettingsMixin):
         
         self.expected_identicals = []
         for p in self.pdm.pronoun_set.all()[0:3]:
-            p.form = 'I AM THE SAME'
+            p.entries.add(Lexicon.objects.create(
+                editor=self.editor, 
+                source=self.source,
+                language=self.lang,
+                word=self.word,
+                entry='I AM THE SAME'
+            ))
             p.save()
             self.expected_identicals.append(p)
         
@@ -71,7 +80,9 @@ class Test_ProcessRuleView_process_identicals(ProcessRuleMixin, TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, 
             reverse('pronouns:edit_relationships', kwargs={'paradigm_id': 1}))
-        assert len(Rule.objects.all()) == 1, "Should have saved a rule"
+        
+        assert Rule.objects.count() == 1, "should have saved a rule"
+        
         # get the saved rule & test it
         r = Rule.objects.all()[0]
         assert r.paradigm == self.pdm, "Rule should belong to this paradigm"
@@ -83,6 +94,8 @@ class Test_ProcessRuleView_process_identicals(ProcessRuleMixin, TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, 
             reverse('pronouns:edit_relationships', kwargs={'paradigm_id': 1}))
+        
+        assert Rule.objects.count() == 1, "should have saved a rule"
         # get the saved rule & test relationsips
         r = Rule.objects.all()[0]
         assert len(r.relationships.all()) == 3, 'Was expecting 3 relationships'
@@ -92,9 +105,13 @@ class Test_ProcessRuleView_process_identicals(ProcessRuleMixin, TestCase):
             assert rel.pronoun2 in self.expected_identicals
             
     def test_does_not_save_duplicates(self):
-        response = self.client.post(self.url, self.form_data)
-        response = self.client.post(self.url, self.form_data)
-        rule = Rule.objects.all()[0]
+        for i in range(0, 2):
+            response = self.client.post(self.url, self.form_data)
+            self.assertEqual(response.status_code, 302)
+            self.assertRedirects(response, 
+                reverse('pronouns:edit_relationships', kwargs={'paradigm_id': 1}))
+        
+        rule = Rule.objects.get(pk=1)
         assert len(rule.relationships.all()) == 3, 'Was expecting 3 relationships'
         n = len(Relationship.objects.all()) 
         assert n == 3, "Expecting a total of 3 relationships, not %d" % n
@@ -110,7 +127,7 @@ class Test_ProcessRuleView_process_rules(ProcessRuleMixin, TestCase):
         self.assertRedirects(response, 
             reverse('pronouns:edit_relationships', kwargs={'paradigm_id': 1}))
         # no rule should be saved
-        assert len(Rule.objects.all()) == 0
+        assert Rule.objects.count() == 0
         
     def test_fails_on_invalid_rules_form(self):
         response = self.client.post(self.url, {
@@ -124,7 +141,7 @@ class Test_ProcessRuleView_process_rules(ProcessRuleMixin, TestCase):
         self.assertRedirects(response, 
             reverse('pronouns:edit_relationships', kwargs={'paradigm_id': 1}))
         # no rule should be saved
-        assert len(Rule.objects.all()) == 0
+        assert Rule.objects.count() == 0
 
     def test_fails_on_invalid_rules_form_two(self):
         response = self.client.post(self.url, {
@@ -138,4 +155,4 @@ class Test_ProcessRuleView_process_rules(ProcessRuleMixin, TestCase):
         self.assertRedirects(response, 
             reverse('pronouns:edit_relationships', kwargs={'paradigm_id': 1}))
         # no rule should be saved
-        assert len(Rule.objects.all()) == 0
+        assert Rule.objects.count() == 0

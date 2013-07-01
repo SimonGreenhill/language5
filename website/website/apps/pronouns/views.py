@@ -2,7 +2,7 @@ from django.http import Http404
 from django.shortcuts import render, redirect, render_to_response, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
-from django.db.models import Q
+from django.db.models import Q, Count
 
 from website.apps.core.models import Family, Language, Source
 from website.apps.pronouns.models import Paradigm, Pronoun, Relationship, Rule
@@ -81,9 +81,8 @@ def edit(request, paradigm_id):
 def edit_relationships(request, paradigm_id):
     p = get_object_or_404(Paradigm, pk=paradigm_id)
     relationship_form = RelationshipFormSet(request.POST or None, instance=p)
-    
     # Yuck - filter querysets -> must be a better way to do this!
-    q = Pronoun.objects.all().filter(paradigm=p).exclude(form="")
+    q = Pronoun.objects.all().filter(paradigm=p).annotate(entry_count=Count('entries')).exclude(entry_count=0)
     for f in relationship_form.forms:
         f.fields['pronoun1'].queryset = q
         f.fields['pronoun2'].queryset = q
@@ -112,7 +111,8 @@ def process_rule(request, paradigm_id):
     # do we have do_identicals? 
     if 'process_identicals' in request.POST:
         # 1. process form
-        members = find_identicals(p.pronoun_set.all())
+        members = find_identicals(p)
+        
         # 2. implement rule
         if len(members) > 0:
             # 3. save rule to rule table.
@@ -121,11 +121,14 @@ def process_rule(request, paradigm_id):
                 rule="Identical Entries set to Total Syncretism",
                 editor=request.user
             )
-            for p1, p2 in members:
+            for m1, m2 in members:
                 # Ignore anything we've already set
-                if Relationship.objects.has_relationship_between(p1, p2) == False:
+                if not Relationship.objects.has_relationship_between(m1[0], m1[1], m2[0], m2[1]):
                     rel = Relationship.objects.create(
-                        paradigm = p, pronoun1=p1, pronoun2=p2, relationship='TS',
+                        paradigm = p, 
+                        pronoun1_id=m1[0], pronoun2_id=m2[0], 
+                        entry1_id=m1[1], entry2_id=m2[1],
+                        relationship='TS',
                         editor=request.user
                     )
                     rule.relationships.add(rel)

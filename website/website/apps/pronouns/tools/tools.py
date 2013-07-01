@@ -1,3 +1,4 @@
+from django.db.models import Count
 from website.apps.pronouns.models import Paradigm, Pronoun
 
 def full_repr_row(p):
@@ -99,36 +100,38 @@ def add_pronoun_table(pronoun_set, filter_empty_rows=True):
                 if filter_empty_rows: 
                     non_zero = 0
                     for cell, value in cells[label].items():
-                        if value is not None and len(value.form) > 0:
+                        if value is not None and value.entries.count() > 0:
                             non_zero += 1
                     if non_zero: # at least one cell is not empty
                         pronoun_rows.append((label, cells[label]))
                 else:
                     pronoun_rows.append((label, cells[label]))
-        assert found_row, "Unable to find expected row for Paradigm: %s - probably need to run _prefill_pronouns()" % wanted_label
+        assert found_row, \
+        "Unable to find expected row for Paradigm: %s - probably need to run _prefill_pronouns()" % wanted_label
             
     if not filter_empty_rows: 
         assert len(pronoun_rows) == len(Pronoun._generate_all_rows())
     return pronoun_rows
 
 
-def find_identicals(pronouns):
+def find_identicals(paradigm):
     """Find identical forms in the given list of `pronouns`"""
     identical = set()
-    for p1 in pronouns:
-        if p1.form == '':
-            # ignore empties.
-            continue
-            
-        for p2 in pronouns:
-            if p2.form == '':
-                # ignore empties
-                continue
-            elif p1 == p2:
-                # ignore self
-                continue
-            elif p1.form == p2.form:
-                identical.add(tuple(sorted([p1,p2])))
+    pronouns = paradigm.pronoun_set.annotate(entry_count=Count('entries')).exclude(entry_count=0)
+    pronouns = pronouns.values_list('id', 'entries__id', 'entries__entry')
+    
+    for pronoun1 in pronouns:
+        for pronoun2 in pronouns:
+            if pronoun1[1] == pronoun2[1]:
+                continue # ignore self.
+                
+            if pronoun1[2] == pronoun2[2]:
+                # same, try to order them consistently
+                if pronoun1[1] < pronoun2[1]:
+                    o = (pronoun1, pronoun2)
+                else:
+                    o = (pronoun2, pronoun1)
+                identical.add(o)
     return identical
     
 
@@ -176,7 +179,8 @@ def copy_paradigm(pdm, language):
         obj.save()
     
     # 3. PRONOUNS: loop over pronouns in pdm and COPY to newpdm
-    mapping = {} # dictionary of old pronouns -> new pronouns
+    mapping_pronoun = {} # dictionary of old pronouns -> new pronouns
+    mapping_entry = {}   # dictionary of old entries -> new entries
     
     for pron in pdm.pronoun_set.all():
         # save these for later
@@ -192,7 +196,7 @@ def copy_paradigm(pdm, language):
         assert pron.pk != old_pk != None, \
             "Should have created a new paradigm PK"
         
-        mapping[old_pk] = pron
+        mapping_pronoun[old_pk] = pron
         
         assert pron.entries.count() == 0, \
             "Oops. Lexical items should not have been copied yet"
@@ -200,10 +204,13 @@ def copy_paradigm(pdm, language):
         # now copy the lexical items.
         # have to use the old pronoun as the new one's forgotten everything.
         for lex_obj in lexicon_set:
+            old_lex_pk = lex_obj.pk
             lex_obj.pk = None # will now create new entry
             if lex_obj.language != language:
                 lex_obj.language = language
             lex_obj.save()
+            
+            mapping_entry[old_lex_pk] = lex_obj
             
             # and add to new pronoun
             pron.entries.add(lex_obj)
@@ -220,8 +227,10 @@ def copy_paradigm(pdm, language):
         obj.paradigm = newpdm
         
         # update pronouns
-        obj.pronoun1 = mapping[obj.pronoun1.pk]
-        obj.pronoun2 = mapping[obj.pronoun2.pk]
+        obj.pronoun1 = mapping_pronoun[obj.pronoun1.pk]
+        obj.pronoun2 = mapping_pronoun[obj.pronoun2.pk]
+        obj.entry1 = mapping_entry[obj.entry1.pk]
+        obj.entry2 = mapping_entry[obj.entry2.pk]
         obj.save()
     
     return newpdm

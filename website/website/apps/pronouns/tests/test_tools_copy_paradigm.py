@@ -64,16 +64,31 @@ class TestCopyParadigm(DefaultSettingsMixin, TestCase):
             p.comment = str(i)
             p.save()
         
+        # we need to have a lexical item or two.
+        for i in range(0, 3):
+            lex = Lexicon.objects.create(
+                    editor=self.editor, 
+                    source=self.source,
+                    language=self.lang,
+                    word=self.word,
+                    entry="same"
+            )
+            pronouns[i].entries.add(lex)
+            pronouns[i].save()
+        
         # should have no relationships
         assert len(Relationship.objects.all()) == 0
         
         # create some relationships for paradigm 1
         rel1 = Relationship.objects.create(
-            paradigm=self.pdm, pronoun1=pronouns[0], pronoun2=pronouns[1], 
+            paradigm=self.pdm, 
+            pronoun1=pronouns[0], pronoun2=pronouns[1], 
+            entry1=pronouns[0].entries.all()[0], entry2=pronouns[1].entries.all()[0],
             relationship='TS', editor=self.editor
         )
         rel2 = Relationship.objects.create(
             paradigm=self.pdm, pronoun1=pronouns[0], pronoun2=pronouns[2], 
+            entry1=pronouns[0].entries.all()[0], entry2=pronouns[2].entries.all()[0],
             relationship='FO', editor=self.editor
         )
         
