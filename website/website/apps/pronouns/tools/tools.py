@@ -155,9 +155,6 @@ def extract_rule(values):
         
     # all good, return rule.
     return rule
-    
-    
-
 
 
 def copy_paradigm(pdm, language):
@@ -180,10 +177,14 @@ def copy_paradigm(pdm, language):
     
     # 3. PRONOUNS: loop over pronouns in pdm and COPY to newpdm
     mapping = {} # dictionary of old pronouns -> new pronouns
+    
     for pron in pdm.pronoun_set.all():
-        old_pk = pron.pk                      # save for later
-        old_lexicon_count = pron.entries.count() # save for later
-
+        # save these for later
+        old_pk = pron.pk
+        # ... and this, because as soon as we change the pk on pron, then
+        # it'll forget its lexical items.
+        lexicon_set = pron.entries.all()       
+        
         pron.pk = None # will now create new entry
         pron.paradigm = newpdm # update paradigm
         pron.save() # save, creating a new paradigm
@@ -197,17 +198,19 @@ def copy_paradigm(pdm, language):
             "Oops. Lexical items should not have been copied yet"
         
         # now copy the lexical items.
-        for lex_obj in pron.entries.all():
+        # have to use the old pronoun as the new one's forgotten everything.
+        for lex_obj in lexicon_set:
             lex_obj.pk = None # will now create new entry
             if lex_obj.language != language:
                 lex_obj.language = language
             lex_obj.save()
+            
+            # and add to new pronoun
             pron.entries.add(lex_obj)
         
-        assert pron.entries.count() == old_lexicon_count, \
-            "Lexicon count does not match %d, got %d" % (old_lexicon_count, pron.entries.count())
-        
-        
+        assert pron.entries.count() == len(lexicon_set), \
+            "Lexicon count does not match %d, got %d" % (len(lexicon_set), pron.entries.count())
+            
     assert pdm.pronoun_set.count() == newpdm.pronoun_set.count(), \
         "Something went wrong - should have the same number of pronouns in both old and new paradigms"
     

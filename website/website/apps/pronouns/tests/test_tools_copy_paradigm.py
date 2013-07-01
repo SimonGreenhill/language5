@@ -136,7 +136,7 @@ class TestCopyParadigm(DefaultSettingsMixin, TestCase):
             assert new_p.paradigm == newpdm
             assert old_p.paradigm == self.pdm
     
-    def test_adds_pronoun_form_sets(self):
+    def test_adds_pronoun_entries(self):
         
         def _make_token(p):
             return "%s-%s-%s-%s" % (p.person, p.number, p.gender, p.alignment)
@@ -152,15 +152,17 @@ class TestCopyParadigm(DefaultSettingsMixin, TestCase):
         
         # go through old paradigm, add some lexical items to each.
         for pron in self.pdm.pronoun_set.all():
-            pron.entries.add(
-                Lexicon.objects.create(
+            lex = Lexicon.objects.create(
                     editor=self.editor, 
                     source=self.source,
                     language=self.lang,
                     word=self.word,
                     entry=_make_token(pron)
-                )
             )
+            lex.save()
+            pron.entries.add(lex)
+            pron.save()
+            assert pron.entries.count() == 1, "Setup failed!"
         
         # copy paradigm...
         newpdm = copy_paradigm(self.pdm, self.lang2)
