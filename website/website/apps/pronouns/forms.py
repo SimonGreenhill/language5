@@ -14,12 +14,12 @@ class ParadigmForm(forms.ModelForm):
 class SimplePronounForm(forms.ModelForm):
     class Meta:
         model = Pronoun
-        fields = ('form', 'comment',)
+        fields = ('entries', 'comment',)
         exclude = ('editor', 'added',)
         hidden = ('paradigm', 'alignment', 'person', 'number',)
         widgets = {
             'comment': forms.widgets.TextInput(attrs={'class': 'input-medium hide', 'placeholder': 'comment'}),
-            'form': forms.widgets.TextInput(attrs={'class': 'input-medium',}),
+            'entries': forms.widgets.TextInput(attrs={'class': 'input-medium',}),
         }
 
 PronounFormSet = inlineformset_factory(Paradigm, Pronoun,
@@ -29,11 +29,11 @@ PronounFormSet = inlineformset_factory(Paradigm, Pronoun,
 class FullPronounForm(forms.ModelForm):
     class Meta:
         model = Pronoun
-        fields = ('person', 'number', 'alignment', 'form', 'comment')
+        fields = ('person', 'number', 'alignment', 'entries', 'comment')
         exclude = ('editor', 'added', 'gender', 'paradigm')
         widgets = {
             'comment': forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'comment'}),
-            'form': forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'form'}),
+            'entries': forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'form'}),
         }
 
 

@@ -1,6 +1,7 @@
 from django.test import TestCase
 
 from website.apps.core.models import Language
+from website.apps.lexicon.models import Lexicon
 from website.apps.pronouns.models import Paradigm, Pronoun, Rule, Relationship
 from website.apps.pronouns.tools import copy_paradigm
 from website.apps.pronouns.tests import DefaultSettingsMixin
@@ -57,9 +58,10 @@ class TestCopyParadigm(DefaultSettingsMixin, TestCase):
         
     def test_adds_relationships(self):
         pronouns = self.pdm.pronoun_set.all()[0:3]
-        # update pronouns
+        
+        # set the pronoun comment to something we can check later...
         for i, p in enumerate(pronouns):
-            p.form = "%d" % i
+            p.comment = str(i)
             p.save()
         
         # should have no relationships
@@ -94,22 +96,22 @@ class TestCopyParadigm(DefaultSettingsMixin, TestCase):
         assert newrels[0].relationship == rel1.relationship == 'TS'
         assert newrels[1].relationship == rel2.relationship == 'FO'
         
-        # check the forms
-        assert newrels[0].pronoun1.form == '0', 'Expected 0 got %r' % newrels[0].pronoun1.form
-        assert newrels[0].pronoun2.form == '1'
+        # check the new protoform comments to make sure they're right
+        assert newrels[0].pronoun1.comment == '0', 'Expected 0 got %r' % newrels[0].pronoun1.comment
+        assert newrels[0].pronoun2.comment == '1', 'Expected 1 got %r' % newrels[0].pronoun2.comment
         
-        assert newrels[1].pronoun1.form == '0'
-        assert newrels[1].pronoun2.form == '2'
+        assert newrels[1].pronoun1.comment == '0', 'Expected 0 got %r' % newrels[0].pronoun1.comment
+        assert newrels[1].pronoun2.comment == '2', 'Expected 2 got %r' % newrels[0].pronoun2.comment
         
     
     def test_adds_pronouns(self):
         
         count = Pronoun.objects.count()
         
-        # update pronouns with the field `form` set to the PK.
+        # update pronouns with the field `comment` set to the PK.
         old_pronouns = {}
         for p in self.pdm.pronoun_set.all():
-            p.form = str(p.pk)
+            p.comment = str(p.pk)
             p.save()
             old_pronouns[p.pk] = p
         
@@ -121,9 +123,9 @@ class TestCopyParadigm(DefaultSettingsMixin, TestCase):
             "Should have twice as many pronouns now, %r not %r" % (count*2, Pronoun.objects.count())
         
         # loop over new pronouns and check that they match their ancestral object
-        # in all attributes. Remember the ancestral PK is stored in `form`
+        # in all attributes. Remember the ancestral PK is stored in `comment`
         for new_p in newpdm.pronoun_set.all():
-            pk = int(new_p.form)
+            pk = int(new_p.comment)
             assert pk in old_pronouns
             old_p = old_pronouns[pk]
             
@@ -133,4 +135,60 @@ class TestCopyParadigm(DefaultSettingsMixin, TestCase):
             # check paradigm
             assert new_p.paradigm == newpdm
             assert old_p.paradigm == self.pdm
+    
+    def test_adds_pronoun_form_sets(self):
+        
+        def _make_token(p):
+            return "%s-%s-%s-%s" % (p.person, p.number, p.gender, p.alignment)
+            
+        def _break_token(p):
+            keys = ['person', 'number', 'gender', 'alignment']
+            values = []
+            for v in p.split("-"):
+                if v == u'None':
+                    v = None
+                values.append(v)
+            return dict(zip(keys, values))
+        
+        # go through old paradigm, add some lexical items to each.
+        for pron in self.pdm.pronoun_set.all():
+            pron.entries.add(
+                Lexicon.objects.create(
+                    editor=self.editor, 
+                    source=self.source,
+                    language=self.lang,
+                    word=self.word,
+                    entry=_make_token(pron)
+                )
+            )
+        
+        # copy paradigm...
+        newpdm = copy_paradigm(self.pdm, self.lang2)
+        
+        # check old paradigm
+        for pron in self.pdm.pronoun_set.all():
+            assert pron.entries.count() == 1, "Should have one pronoun form"
+            lex_obj = pron.entries.all()[0]
+            # check language is correct!
+            assert lex_obj.language == self.pdm.language, \
+                "Language should still be %s" % self.pdm.language
+            
+            # check other attributes
+            values = _break_token(lex_obj.entry)
+            for attr in values:
+                assert values[attr] == getattr(pron, attr)
+            
+        # check new paradigm
+        for pron in newpdm.pronoun_set.all():
+            assert pron.entries.count() == 1, "Should have one pronoun form"
+            lex_obj = pron.entries.all()[0]
+            
+            # check language is correct!
+            assert lex_obj.language == self.lang2, \
+                "Language should be changed to %s" % self.lang2
+            
+            # check other attributes
+            values = _break_token(lex_obj.entry)
+            for attr in values:
+                assert values[attr] == getattr(pron, attr)
             

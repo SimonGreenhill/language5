@@ -468,8 +468,7 @@ class Paradigm(TrackedModel):
                     person = comb['person'][0],
                     number = comb['number'][0],
                     alignment = comb['alignment'][0],
-                    gender = gender,
-                    form=None
+                    gender = gender
                 )
                 obj.save()
     
@@ -522,8 +521,8 @@ class Pronoun(TrackedModel):
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES,
         blank=True, null=True,
         help_text="Gender")
-    form = models.ForeignKey('lexicon.Lexicon', null=True, blank=True)
-        
+    entries = models.ManyToManyField('lexicon.Lexicon', null=True, blank=True)
+    
     def __unicode__(self):
         return '%s%s %s' % (self.person, self.number, self.alignment)
     

@@ -23,7 +23,6 @@ def short_repr_row(p):
             'number': p.number,
             'alignment': p.alignment,
             'gender': p.gender,
-            'form': p.form
         }
     else:
         newp = {
@@ -181,17 +180,36 @@ def copy_paradigm(pdm, language):
     
     # 3. PRONOUNS: loop over pronouns in pdm and COPY to newpdm
     mapping = {} # dictionary of old pronouns -> new pronouns
-    for obj in pdm.pronoun_set.all():
-        old_pk = obj.pk
-        obj.pk = None # will now create new entry
-        obj.paradigm = newpdm
-        obj.save()
-        assert obj.pk != old_pk != None
-        mapping[old_pk] = obj
-    
+    for pron in pdm.pronoun_set.all():
+        old_pk = pron.pk                      # save for later
+        old_lexicon_count = pron.entries.count() # save for later
+
+        pron.pk = None # will now create new entry
+        pron.paradigm = newpdm # update paradigm
+        pron.save() # save, creating a new paradigm
+        
+        assert pron.pk != old_pk != None, \
+            "Should have created a new paradigm PK"
+        
+        mapping[old_pk] = pron
+        
+        assert pron.entries.count() == 0, \
+            "Oops. Lexical items should not have been copied yet"
+        
+        # now copy the lexical items.
+        for lex_obj in pron.entries.all():
+            lex_obj.pk = None # will now create new entry
+            if lex_obj.language != language:
+                lex_obj.language = language
+            lex_obj.save()
+            pron.entries.add(lex_obj)
+        
+        assert pron.entries.count() == old_lexicon_count, \
+            "Lexicon count does not match %d, got %d" % (old_lexicon_count, pron.entries.count())
+        
+        
     assert pdm.pronoun_set.count() == newpdm.pronoun_set.count(), \
         "Something went wrong - should have the same number of pronouns in both old and new paradigms"
-    
     
     # 4. RELATIONSHIPS: loop over relationships in pdm and copy to newpdm
     for obj in pdm.relationship_set.all():
