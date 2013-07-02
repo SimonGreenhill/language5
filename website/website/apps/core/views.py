@@ -107,6 +107,11 @@ def language_detail(request, language):
             'links': my_lang.link_set.all(),
             'attachments': my_lang.attachment_set.all(),
         }
+        
+        # sources used 
+        source_ids = [_['source_id'] for _ in my_lang.lexicon_set.values('source_id').distinct().all()]
+        out['sources_used'] = Source.objects.filter(pk__in=source_ids)
+        
         # load lexicon if installed.
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
             table = LanguageLexiconTable(my_lang.lexicon_set.select_related().all())
@@ -118,14 +123,10 @@ def language_detail(request, language):
             from website.apps.pronouns.models import Paradigm, Pronoun
             from website.apps.pronouns.tools import add_pronoun_ordering, add_pronoun_table
             try: 
-                p = Paradigm.objects.filter(language=my_lang)[0]
-                out['pronoun_rows'] =  add_pronoun_table(p.pronoun_set.all())
+                out['pronoun'] = Paradigm.objects.filter(language=my_lang)[0]
+                out['pronoun_rows'] =  add_pronoun_table(out['pronoun'].pronoun_set.all())
             except IndexError: # no paradigm
                 pass
-            
-            # sources used 
-            source_ids = [_['source_id'] for _ in my_lang.lexicon_set.values('source_id').distinct().all()]
-            out['sources_used'] = Source.objects.filter(pk__in=source_ids)
             
         return render(request, 'core/language_detail.html', out)
     except Language.DoesNotExist:
