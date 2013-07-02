@@ -25,8 +25,7 @@ def WordlistView(request, task):
             'language': task.language,
             'source': task.source,
             'word': w,
-            'order_id': i, # not used by form processing but just to show the number
-                          # of the item in HTML
+            'order_id': i, # not used by form processing but just to show the number of the item in HTML
         })
     
     # process form
