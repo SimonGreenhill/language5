@@ -4,8 +4,8 @@ from website.apps.entry.views import TaskIndex
 
 urlpatterns = patterns('',
     url(r'^$', TaskIndex.as_view(), name="index"),
-    url(r'^0$', 
+    url(r'^task/quick$', 
         'website.apps.entry.views.quick_entry', name="quick"),
-    url(r'^(?P<task_id>\d+)$', 
+    url(r'^task/(?P<task_id>\d+)$', 
         'website.apps.entry.views.task_detail', name="detail"),
 )
