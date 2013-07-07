@@ -12,7 +12,7 @@ env.remote_apache_dir='/home/sjg/webapps/transnewguinea/apache2'
 env.remote_repository_dir='/home/sjg/webapps/transnewguinea/transnewguinea'
 
 # the dir with manage.py.
-env.remote_app_dir='/home/sjg/webapps/transnewguinea/transnewguinea/website'
+env.remote_app_dir='/home/sjg/webapps/transnewguinea/language5/website'
     
 # virtualenv
 env.venv = 'transnewguinea'
@@ -97,7 +97,7 @@ def clone():
     local("gunzip dump.json.gz")
     print("moving database.db to database.db-old")
     local("mv website/website/database.db website/website/database.db-old")
-    local("cd website; python manage.py syncdb --noinput")
+    local("cd website; python manage.py syncdb")
     local("cd website; python manage.py migrate --noinput")
     local("cd website; python manage.py loaddata ../dump.json")
     local("rm dump.json")
