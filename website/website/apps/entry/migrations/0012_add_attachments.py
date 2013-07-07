@@ -11,8 +11,11 @@ class Migration(DataMigration):
         # Note: Don't use "from appname.models import ModelName". 
         # Use orm.ModelName to refer to models in this application,
         # and orm['appname.ModelName'] for models in other applications.
-        
-        me = orm['auth.User'].objects.get(pk=1)
+        try:
+            me = orm['auth.User'].objects.get(pk=1)
+        except:
+            me = None # this happens if we're migrating with out data
+            # in which case the loop below won't care that editor is NUll
         
         # select all task.image
         for task in orm.Task.objects.all():
