@@ -10,8 +10,12 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         tables = ['robots_rule', 'robots_rule_allowed', 'robots_rule_disallowed', 'robots_url', 'robots_rule_sites']
         for table in tables:
-            db.delete_table(table, cascade=True)
-
+            try:
+                db.delete_table(table, cascade=True)
+            except:
+                pass
+            
+            
     def backwards(self, orm):
         raise NotImplementedError("Not implemented.")
 
