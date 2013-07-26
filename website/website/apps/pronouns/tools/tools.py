@@ -1,14 +1,19 @@
 from django.db.models import Count
-from website.apps.pronouns.models import Paradigm, Pronoun
+from website.apps.pronouns.models import Paradigm, PronounType, Pronoun, ALIGNMENT_CHOICES
 
 def full_repr_row(p):
     """Build a string representation of the given pronoun `p`"""
     # handle objects
     if isinstance(p, Pronoun):
+        if p.pronountype.gender is None:
+            return " ".join([p.pronountype.get_person_display(), p.pronountype.get_number_display()])
+        else:
+            return " ".join([p.pronountype.get_person_display(), p.pronountype.get_number_display(), p.pronountype.get_gender_display()])
+    elif isinstance(p, PronounType):
         if p.gender is None:
             return " ".join([p.get_person_display(), p.get_number_display()])
         else:
-            return " ".join([p.get_person_display(), p.get_number_display(), p.get_gender_display()])
+            return " ".join([pget_person_display(), p.get_number_display(), p.get_gender_display()])
     # handle dictionary
     else:
         if p['gender'] is None:
@@ -16,9 +21,17 @@ def full_repr_row(p):
         else:
             return " ".join([p['person'][1], p['number'][1], p['gender'][1]])
 
+
 def short_repr_row(p):
     """Builds a short string representation of the given pronoun `p`"""
     if isinstance(p, Pronoun):
+        newp = {
+            'person': p.pronountype.person,
+            'number': p.pronountype.number,
+            'alignment': p.pronountype.alignment,
+            'gender': p.pronountype.gender,
+        }
+    elif isinstance(p, PronounType):
         newp = {
             'person': p.person,
             'number': p.number,
@@ -48,13 +61,15 @@ def add_pronoun_ordering(pronoun_form):
     for form in pronoun_form:
         row = full_repr_row(form.instance)
         rows[row] = rows.get(row, 
-            dict(zip([x[0] for x in Pronoun.ALIGNMENT_CHOICES], [None for x in Pronoun.ALIGNMENT_CHOICES]))
+            dict(zip([x[0] for x in ALIGNMENT_CHOICES], [None for x in ALIGNMENT_CHOICES]))
         )
-        rows[row][form.instance.alignment] = form
+        rows[row][form.instance.pronountype.alignment] = form
         
     pronoun_form.pronoun_rows = []
     # Sort
-    for row in Pronoun._generate_all_rows():
+    ptype_rows = PronounType._generate_all_rows()
+    
+    for row in ptype_rows:
         wanted_label = full_repr_row(row)
         found_row = False
         for label in rows:
@@ -63,7 +78,7 @@ def add_pronoun_ordering(pronoun_form):
                 found_row = True
         assert found_row, "Unable to find expected row for Paradigm: %s" % label
     
-    assert len(pronoun_form.pronoun_rows) == len(Pronoun._generate_all_rows())
+    assert len(pronoun_form.pronoun_rows) == len(ptype_rows)
     return pronoun_form
 
 
@@ -79,16 +94,16 @@ def add_pronoun_table(pronoun_set, filter_empty_rows=True):
         # get row or set it to (A, None), (S, None), (O, None), (P, None)
         # i.e. empty placeholders for each different ALIGNMENT
         cells[label] = cells.get(label, 
-            dict(zip([_[0] for _ in Pronoun.ALIGNMENT_CHOICES], 
-                     [None for _ in Pronoun.ALIGNMENT_CHOICES]))
+            dict(zip([_[0] for _ in ALIGNMENT_CHOICES], 
+                     [None for _ in ALIGNMENT_CHOICES]))
         )
         # Save the pronoun into the right row/alignment cell.
-        cells[label][p.alignment] = p
-    
+        cells[label][p.pronountype.alignment] = p
     # Now do the sorting of the table *rows*
     pronoun_rows = []
     # Sort
-    for row in Pronoun._generate_all_rows():
+    ptype_rows = PronounType._generate_all_rows()
+    for row in ptype_rows:
         wanted_label = full_repr_row(row)
         found_row = False
         # go through each label in the cells e.g. (1st person singular...etc)
@@ -100,7 +115,7 @@ def add_pronoun_table(pronoun_set, filter_empty_rows=True):
                 if filter_empty_rows: 
                     non_zero = 0
                     for cell, value in cells[label].items():
-                        if value is not None and value.entries.count() > 0:
+                        if value is not None and len(value.entries.all()) > 0:
                             non_zero += 1
                     if non_zero: # at least one cell is not empty
                         pronoun_rows.append((label, cells[label]))
@@ -108,9 +123,8 @@ def add_pronoun_table(pronoun_set, filter_empty_rows=True):
                     pronoun_rows.append((label, cells[label]))
         assert found_row, \
         "Unable to find expected row for Paradigm: %s - probably need to run _prefill_pronouns()" % wanted_label
-            
     if not filter_empty_rows: 
-        assert len(pronoun_rows) == len(Pronoun._generate_all_rows())
+        assert len(pronoun_rows) == len(ptype_rows)
     return pronoun_rows
 
 
@@ -160,77 +174,3 @@ def extract_rule(values):
     return rule
 
 
-def copy_paradigm(pdm, language):
-    """Copies the paradigm `pdm` to a new paradigm for `language`"""
-    # 1. create new paradigm
-    old = Paradigm._prefill_pronouns
-    Paradigm._prefill_pronouns = lambda x: x # Unhook prefill_pronouns!
-    newpdm = Paradigm.objects.create(language=language, 
-                                     source=pdm.source, 
-                                     editor=pdm.editor,
-                                     comment="")
-    
-    Paradigm._prefill_pronouns = old # Reattach prefill_pronouns (YUCK)
-    
-    # 2. RULES: loop over rules in pdm and copy to newpdm
-    for obj in pdm.rule_set.all():
-        obj.pk = None # will now create new entry
-        obj.paradigm = newpdm
-        obj.save()
-    
-    # 3. PRONOUNS: loop over pronouns in pdm and COPY to newpdm
-    mapping_pronoun = {} # dictionary of old pronouns -> new pronouns
-    mapping_entry = {}   # dictionary of old entries -> new entries
-    
-    for pron in pdm.pronoun_set.all():
-        # save these for later
-        old_pk = pron.pk
-        # ... and this, because as soon as we change the pk on pron, then
-        # it'll forget its lexical items.
-        lexicon_set = pron.entries.all()       
-        
-        pron.pk = None # will now create new entry
-        pron.paradigm = newpdm # update paradigm
-        pron.save() # save, creating a new paradigm
-        
-        assert pron.pk != old_pk != None, \
-            "Should have created a new paradigm PK"
-        
-        mapping_pronoun[old_pk] = pron
-        
-        assert pron.entries.count() == 0, \
-            "Oops. Lexical items should not have been copied yet"
-        
-        # now copy the lexical items.
-        # have to use the old pronoun as the new one's forgotten everything.
-        for lex_obj in lexicon_set:
-            old_lex_pk = lex_obj.pk
-            lex_obj.pk = None # will now create new entry
-            if lex_obj.language != language:
-                lex_obj.language = language
-            lex_obj.save()
-            
-            mapping_entry[old_lex_pk] = lex_obj
-            
-            # and add to new pronoun
-            pron.entries.add(lex_obj)
-        
-        assert pron.entries.count() == len(lexicon_set), \
-            "Lexicon count does not match %d, got %d" % (len(lexicon_set), pron.entries.count())
-            
-    assert pdm.pronoun_set.count() == newpdm.pronoun_set.count(), \
-        "Something went wrong - should have the same number of pronouns in both old and new paradigms"
-    
-    # 4. RELATIONSHIPS: loop over relationships in pdm and copy to newpdm
-    for obj in pdm.relationship_set.all():
-        obj.pk = None # will now create new entry
-        obj.paradigm = newpdm
-        
-        # update pronouns
-        obj.pronoun1 = mapping_pronoun[obj.pronoun1.pk]
-        obj.pronoun2 = mapping_pronoun[obj.pronoun2.pk]
-        obj.entry1 = mapping_entry[obj.entry1.pk]
-        obj.entry2 = mapping_entry[obj.entry2.pk]
-        obj.save()
-    
-    return newpdm

@@ -9,7 +9,6 @@ from website.apps.pronouns.models import Paradigm, Pronoun, Relationship
 class ParadigmIndexTable(DataTable):
     """Paradigm Listing"""
     language = tables.LinkColumn('pronouns:detail', args=[A('id')])
-    edit = tables.LinkColumn("pronouns:edit", args=[A('id')])
     
     class Meta(DataTable.Meta):
         model = Paradigm
@@ -24,8 +23,7 @@ class PronounTable(DataTable):
     class Meta(DataTable.Meta):
         model = Pronoun
         order_by = 'id' # default sorting
-        #sequence = ('person', 'number', 'alignment', 'gender', 'form', 'comment')
-        sequence = ('person', 'number', 'alignment', 'gender', 'comment')
+        sequence = ('pronountype', 'comment')
         exclude = ('id', 'editor', 'added', 'paradigm')
     Meta.attrs['summary'] = 'Table of Pronouns'
 

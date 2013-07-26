@@ -145,7 +145,7 @@ class TestCopyParadigm(DefaultSettingsMixin, TestCase):
             old_p = old_pronouns[pk]
             
             for attr in ('person', 'number', 'gender', 'alignment'):
-                assert getattr(new_p, attr) == getattr(old_p, attr)
+                assert getattr(new_p.pronountype, attr) == getattr(old_p.pronountype, attr)
             
             # check paradigm
             assert new_p.paradigm == newpdm
@@ -154,7 +154,7 @@ class TestCopyParadigm(DefaultSettingsMixin, TestCase):
     def test_adds_pronoun_entries(self):
         
         def _make_token(p):
-            return "%s-%s-%s-%s" % (p.person, p.number, p.gender, p.alignment)
+            return "%s-%s-%s-%s" % (p.pronountype.person, p.pronountype.number, p.pronountype.gender, p.pronountype.alignment)
             
         def _break_token(p):
             keys = ['person', 'number', 'gender', 'alignment']
@@ -193,7 +193,7 @@ class TestCopyParadigm(DefaultSettingsMixin, TestCase):
             # check other attributes
             values = _break_token(lex_obj.entry)
             for attr in values:
-                assert values[attr] == getattr(pron, attr)
+                assert values[attr] == getattr(pron.pronountype, attr)
             
         # check new paradigm
         for pron in newpdm.pronoun_set.all():
@@ -207,5 +207,5 @@ class TestCopyParadigm(DefaultSettingsMixin, TestCase):
             # check other attributes
             values = _break_token(lex_obj.entry)
             for attr in values:
-                assert values[attr] == getattr(pron, attr)
+                assert values[attr] == getattr(pron.pronountype, attr)
             

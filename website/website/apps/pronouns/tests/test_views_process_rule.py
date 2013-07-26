@@ -65,6 +65,7 @@ class Test_ProcessRuleView_process_identicals(ProcessRuleMixin, TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, 
             reverse('pronouns:edit_relationships', kwargs={'paradigm_id': 1}))
+            
         rule = Rule.objects.all()[0]
         for p in self.expected_identicals:
             rel = Relationship.objects.filter(Q(pronoun1=p) | Q(pronoun2=p))

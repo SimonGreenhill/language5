@@ -4,6 +4,8 @@ from django.forms.models import modelformset_factory, inlineformset_factory
 
 from website.apps.core.models import Language, Family, Source
 from website.apps.pronouns.models import Paradigm, Pronoun, Relationship
+from website.apps.pronouns.models import PERSON_CHOICES, NUMBER_CHOICES
+from website.apps.pronouns.models import GENDER_CHOICES, ALIGNMENT_CHOICES
 
 class ParadigmForm(forms.ModelForm):
     class Meta:
@@ -16,7 +18,7 @@ class SimplePronounForm(forms.ModelForm):
         model = Pronoun
         fields = ('entries', 'comment',)
         exclude = ('editor', 'added',)
-        hidden = ('paradigm', 'alignment', 'person', 'number',)
+        hidden = ('paradigm',)
         widgets = {
             'comment': forms.widgets.TextInput(attrs={'class': 'input-medium hide', 'placeholder': 'comment'}),
             'entries': forms.widgets.TextInput(attrs={'class': 'input-medium',}),
@@ -26,24 +28,9 @@ PronounFormSet = inlineformset_factory(Paradigm, Pronoun,
         can_delete=False, extra=0, form=SimplePronounForm)
 
 
-class FullPronounForm(forms.ModelForm):
-    class Meta:
-        model = Pronoun
-        fields = ('person', 'number', 'alignment', 'entries', 'comment')
-        exclude = ('editor', 'added', 'gender', 'paradigm')
-        widgets = {
-            'comment': forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'comment'}),
-            'entries': forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'form'}),
-        }
-
-
 class RelationshipForm(forms.ModelForm):
     def __init__(self, *args,**kwargs):
         super(RelationshipForm, self).__init__(*args, **kwargs)
-        # print self.instance
-        # print type(self.instance)
-        # self.fields['pronoun1'].queryset = Pronoun.objects.filter(paradigm=self.instance)
-        #self.fields['client'].queryset = Client.objects.filter(company=company)
     
     class Meta:
         model = Relationship
@@ -60,13 +47,13 @@ RelationshipFormSet = inlineformset_factory(Paradigm, Relationship,
 
 # Prepend --- to these choice fields for the RuleForm.
 alignment_choices = [("---", "-")]
-alignment_choices.extend(Pronoun.ALIGNMENT_CHOICES)
+alignment_choices.extend(ALIGNMENT_CHOICES)
 person_choices = [("---", "-")]
-person_choices.extend(Pronoun.PERSON_CHOICES)
+person_choices.extend(PERSON_CHOICES)
 number_choices = [("---", "-")]
-number_choices.extend(Pronoun.NUMBER_CHOICES)
+number_choices.extend(NUMBER_CHOICES)
 gender_choices = [("---", "-")]
-gender_choices.extend(Pronoun.GENDER_CHOICES)
+gender_choices.extend(GENDER_CHOICES)
 relationship_choices = [("---", "-")]
 relationship_choices.extend(Relationship.RELATIONSHIP_CHOICES)
 

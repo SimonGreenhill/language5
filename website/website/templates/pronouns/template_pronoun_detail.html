@@ -14,16 +14,24 @@
             <tr>
                 <th>{{ row }}</th>
                 <td class="alignment_a">
-                    {{ cells.A.form }}
+                    {% for e in cells.A.entries.all %}
+                        {% if not forloop.first %}, {% endif %} {{ e.entry }}
+                    {% endfor %}
                 </td>
                 <td class="alignment_s">
-                    {{ cells.S.form }}
+                    {% for e in cells.S.entries.all %}
+                        {% if not forloop.first %}, {% endif %} {{ e.entry }}
+                    {% endfor %}
                 </td>
                 <td class="alignment_o">
-                    {{ cells.O.form }}
+                    {% for e in cells.O.entries.all %}
+                        {% if not forloop.first %}, {% endif %} {{ e.entry }}
+                    {% endfor %}
                 </td>
                 <td class="alignment_p">
-                    {{ cells.P.form }}
+                    {% for e in cells.P.entries.all %}
+                        {% if not forloop.first %}, {% endif %} {{ e.entry }}
+                    {% endfor %}
                 </td>
             </tr>
             <!-- ENDROW -->

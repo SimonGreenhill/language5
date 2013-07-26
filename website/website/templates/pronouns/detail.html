@@ -65,13 +65,11 @@
         
         {% include "pronouns/template_pronoun_detail.html" %}
         
-    <h3> Relationships: </h3>
     
-        {% if relationship_table %}
+	{% if relationship_table %}
+    	<h3> Relationships: </h3>
             {% render_table relationship_table "table.html" %}
-        {% else %}
-            <p class="error">No results found!</p>
-        {% endif %}
+    {% endif %}
     
 {% endblock %}
 

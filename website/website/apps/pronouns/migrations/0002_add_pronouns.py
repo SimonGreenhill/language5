@@ -1,114 +1,480 @@
 # -*- coding: utf-8 -*-
 import datetime
 from south.db import db
-from south.v2 import SchemaMigration
+from south.v2 import DataMigration
 from django.db import models
 
+from website.apps.pronouns.tools import short_repr_row, full_repr_row
 
-class Migration(SchemaMigration):
+
+PronounCombinations = [
+    # 1st (excl) Person, Sing.
+    {
+        'alignment': ('A', 'A'),
+        'gender': None,
+        'number': ('sg', 'Singular'),
+        'person': ('1', '1st (excl) Person')
+    },
+    {
+        'alignment': ('S', 'S'),
+        'gender': None,
+        'number': ('sg', 'Singular'),
+        'person': ('1', '1st (excl) Person')
+    },
+    {
+        'alignment': ('O', 'O'),
+        'gender': None,
+        'number': ('sg', 'Singular'),
+        'person': ('1', '1st (excl) Person')
+    },
+    {
+        'alignment': ('P', 'Possessive'),
+        'gender': None,
+        'number': ('sg', 'Singular'),
+        'person': ('1', '1st (excl) Person')
+    },
+    # 1st (excl) Person, Dual.
+    {
+        'alignment': ('A', 'A'),
+        'gender': None,
+        'number': ('du', 'Dual'),
+        'person': ('1', '1st (excl) Person')
+    },
+    {
+        'alignment': ('S', 'S'),
+        'gender': None,
+        'number': ('du', 'Dual'),
+        'person': ('1', '1st (excl) Person')
+    },
+    {
+        'alignment': ('O', 'O'),
+        'gender': None,
+        'number': ('du', 'Dual'),
+        'person': ('1', '1st (excl) Person')
+    },
+    {
+        'alignment': ('P', 'Possessive'),
+        'gender': None,
+        'number': ('du', 'Dual'),
+        'person': ('1', '1st (excl) Person')
+    },
+    
+    # 1st (excl) Person, Plural
+    {
+        'alignment': ('A', 'A'),
+        'gender': None,
+        'number': ('pl', 'Plural'),
+        'person': ('1', '1st (excl) Person')
+    },
+    {
+        'alignment': ('S', 'S'),
+        'gender': None,
+        'number': ('pl', 'Plural'),
+        'person': ('1', '1st (excl) Person')
+    },
+    {
+        'alignment': ('O', 'O'),
+        'gender': None,
+        'number': ('pl', 'Plural'),
+        'person': ('1', '1st (excl) Person')
+    },
+    {
+        'alignment': ('P', 'Possessive'),
+        'gender': None,
+        'number': ('pl', 'Plural'),
+        'person': ('1', '1st (excl) Person')
+    },
+    
+    # 1st (incl) Person, Dual
+    {
+        'alignment': ('A', 'A'),
+        'gender': None,
+        'number': ('du', 'Dual'),
+        'person': ('12', '1st (incl) Person')
+    },
+    {
+        'alignment': ('S', 'S'),
+        'gender': None,
+        'number': ('du', 'Dual'),
+        'person': ('12', '1st (incl) Person')
+    },
+    {
+        'alignment': ('O', 'O'),
+        'gender': None,
+        'number': ('du', 'Dual'),
+        'person': ('12', '1st (incl) Person')
+    },
+    {
+        'alignment': ('P', 'Possessive'),
+        'gender': None,
+        'number': ('du', 'Dual'),
+        'person': ('12', '1st (incl) Person')
+    },
+    
+    # 1st (incl) Person, Plural
+    {
+        'alignment': ('A', 'A'),
+        'gender': None,
+        'number': ('pl', 'Plural'),
+        'person': ('12', '1st (incl) Person')
+    },
+    {
+        'alignment': ('S', 'S'),
+        'gender': None,
+        'number': ('pl', 'Plural'),
+        'person': ('12', '1st (incl) Person')
+    },
+    {
+        'alignment': ('O', 'O'),
+        'gender': None,
+        'number': ('pl', 'Plural'),
+        'person': ('12', '1st (incl) Person')
+    },
+    {
+        'alignment': ('P', 'Possessive'),
+        'gender': None,
+        'number': ('pl', 'Plural'),
+        'person': ('12', '1st (incl) Person')
+    },
+    
+    # 2nd person Sg.
+    {
+        'alignment': ('A', 'A'),
+        'gender': None,
+        'number': ('sg', 'Singular'),
+        'person': ('2', '2nd Person')
+    },
+    {
+        'alignment': ('S', 'S'),
+        'gender': None,
+        'number': ('sg', 'Singular'),
+        'person': ('2', '2nd Person')
+    },
+    {
+        'alignment': ('O', 'O'),
+        'gender': None,
+        'number': ('sg', 'Singular'),
+        'person': ('2', '2nd Person')
+    },
+    {
+        'alignment': ('P', 'Possessive'),
+        'gender': None,
+        'number': ('sg', 'Singular'),
+        'person': ('2', '2nd Person')
+    },
+    # 2nd Person Dual. 
+    {
+        'alignment': ('A', 'A'),
+        'gender': None,
+        'number': ('du', 'Dual'),
+        'person': ('2', '2nd Person')
+    },
+    {
+        'alignment': ('S', 'S'),
+        'gender': None,
+        'number': ('du', 'Dual'),
+        'person': ('2', '2nd Person')
+    },
+    {
+        'alignment': ('O', 'O'),
+        'gender': None,
+        'number': ('du', 'Dual'),
+        'person': ('2', '2nd Person')
+    },
+    {
+        'alignment': ('P', 'Possessive'),
+        'gender': None,
+        'number': ('du', 'Dual'),
+        'person': ('2', '2nd Person')
+    },
+    # 2nd Person, Plural
+    {
+        'alignment': ('A', 'A'),
+        'gender': None,
+        'number': ('pl', 'Plural'),
+        'person': ('2', '2nd Person')
+    },
+    {
+        'alignment': ('S', 'S'),
+        'gender': None,
+        'number': ('pl', 'Plural'),
+        'person': ('2', '2nd Person')
+    },
+    {
+        'alignment': ('O', 'O'),
+        'gender': None,
+        'number': ('pl', 'Plural'),
+        'person': ('2', '2nd Person')
+    },
+    {
+        'alignment': ('P', 'Possessive'),
+        'gender': None,
+        'number': ('pl', 'Plural'),
+        'person': ('2', '2nd Person')
+    },
+    # 3rd Person ----- INCLUDES GENDER
+    {
+        'alignment': ('A', 'A'),
+        'gender': ('M', 'Masculine'),
+        'number': ('sg', 'Singular'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('S', 'S'),
+        'gender': ('M', 'Masculine'),
+        'number': ('sg', 'Singular'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('O', 'O'),
+        'gender': ('M', 'Masculine'),
+        'number': ('sg', 'Singular'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('P', 'Possessive'),
+        'gender': ('M', 'Masculine'),
+        'number': ('sg', 'Singular'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('A', 'A'),
+        'gender': ('F', 'Feminine'),
+        'number': ('sg', 'Singular'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('S', 'S'),
+        'gender': ('F', 'Feminine'),
+        'number': ('sg', 'Singular'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('O', 'O'),
+        'gender': ('F', 'Feminine'),
+        'number': ('sg', 'Singular'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('P', 'Possessive'),
+        'gender': ('F', 'Feminine'),
+        'number': ('sg', 'Singular'),
+        'person': ('3', '3rd Person')
+    },
+    {   
+        'alignment': ('A', 'A'),
+        'gender': ('N', 'Neuter'),
+        'number': ('sg', 'Singular'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('S', 'S'),
+        'gender': ('N', 'Neuter'),
+        'number': ('sg', 'Singular'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('O', 'O'),
+        'gender': ('N', 'Neuter'),
+        'number': ('sg', 'Singular'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('P', 'Possessive'),
+        'gender': ('N', 'Neuter'),
+        'number': ('sg', 'Singular'),
+        'person': ('3', '3rd Person')},
+    {
+        'alignment': ('A', 'A'),
+        'gender': ('M', 'Masculine'),
+        'number': ('du', 'Dual'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('S', 'S'),
+        'gender': ('M', 'Masculine'),
+        'number': ('du', 'Dual'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('O', 'O'),
+        'gender': ('M', 'Masculine'),
+        'number': ('du', 'Dual'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('P', 'Possessive'),
+        'gender': ('M', 'Masculine'),
+        'number': ('du', 'Dual'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('A', 'A'),
+        'gender': ('F', 'Feminine'),
+        'number': ('du', 'Dual'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('S', 'S'),
+        'gender': ('F', 'Feminine'),
+        'number': ('du', 'Dual'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('O', 'O'),
+        'gender': ('F', 'Feminine'),
+        'number': ('du', 'Dual'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('P', 'Possessive'),
+        'gender': ('F', 'Feminine'),
+        'number': ('du', 'Dual'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('A', 'A'),
+        'gender': ('N', 'Neuter'),
+        'number': ('du', 'Dual'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('S', 'S'),
+        'gender': ('N', 'Neuter'),
+        'number': ('du', 'Dual'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('O', 'O'),
+        'gender': ('N', 'Neuter'),
+        'number': ('du', 'Dual'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('P', 'Possessive'),
+        'gender': ('N', 'Neuter'),
+        'number': ('du', 'Dual'),
+        'person': ('3', '3rd Person')},
+    {
+        'alignment': ('A', 'A'),
+        'gender': ('M', 'Masculine'),
+        'number': ('pl', 'Plural'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('S', 'S'),
+        'gender': ('M', 'Masculine'),
+        'number': ('pl', 'Plural'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('O', 'O'),
+        'gender': ('M', 'Masculine'),
+        'number': ('pl', 'Plural'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('P', 'Possessive'),
+        'gender': ('M', 'Masculine'),
+        'number': ('pl', 'Plural'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('A', 'A'),
+        'gender': ('F', 'Feminine'),
+        'number': ('pl', 'Plural'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('S', 'S'),
+        'gender': ('F', 'Feminine'),
+        'number': ('pl', 'Plural'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('O', 'O'),
+        'gender': ('F', 'Feminine'),
+        'number': ('pl', 'Plural'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('P', 'Possessive'),
+        'gender': ('F', 'Feminine'),
+        'number': ('pl', 'Plural'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('A', 'A'),
+        'gender': ('N', 'Neuter'),
+        'number': ('pl', 'Plural'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('S', 'S'),
+        'gender': ('N', 'Neuter'),
+        'number': ('pl', 'Plural'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('O', 'O'),
+        'gender': ('N', 'Neuter'),
+        'number': ('pl', 'Plural'),
+        'person': ('3', '3rd Person')
+    },
+    {
+        'alignment': ('P', 'Possessive'),
+        'gender': ('N', 'Neuter'),
+        'number': ('pl', 'Plural'),
+        'person': ('3', '3rd Person')
+    }
+]
+
+class Migration(DataMigration):
 
     def forwards(self, orm):
-        # Adding model 'PronounType'
-        db.create_table(u'pronouns_pronountype', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('editor', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
-            ('added', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('alignment', self.gf('django.db.models.fields.CharField')(max_length=1)),
-            ('person', self.gf('django.db.models.fields.CharField')(max_length=2)),
-            ('number', self.gf('django.db.models.fields.CharField')(max_length=2)),
-            ('gender', self.gf('django.db.models.fields.CharField')(max_length=1, null=True, blank=True)),
-            ('word', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['lexicon.Word'])),
-        ))
-        db.send_create_signal(u'pronouns', ['PronounType'])
-
-        # Adding model 'Paradigm'
-        db.create_table('paradigms', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('editor', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
-            ('added', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('language', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['core.Language'])),
-            ('source', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['core.Source'])),
-            ('comment', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
-        ))
-        db.send_create_signal(u'pronouns', ['Paradigm'])
-
-        # Adding model 'Pronoun'
-        db.create_table('pronouns', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('editor', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
-            ('added', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('paradigm', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['pronouns.Paradigm'])),
-            ('pronountype', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['pronouns.PronounType'])),
-            ('comment', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
-        ))
-        db.send_create_signal(u'pronouns', ['Pronoun'])
-
-        # Adding M2M table for field entries on 'Pronoun'
-        m2m_table_name = db.shorten_name('pronouns_entries')
-        db.create_table(m2m_table_name, (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('pronoun', models.ForeignKey(orm[u'pronouns.pronoun'], null=False)),
-            ('lexicon', models.ForeignKey(orm[u'lexicon.lexicon'], null=False))
-        ))
-        db.create_unique(m2m_table_name, ['pronoun_id', 'lexicon_id'])
-
-        # Adding model 'Relationship'
-        db.create_table('pronoun_relationships', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('editor', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
-            ('added', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('paradigm', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['pronouns.Paradigm'])),
-            ('pronoun1', self.gf('django.db.models.fields.related.ForeignKey')(related_name='pronoun1', to=orm['pronouns.Pronoun'])),
-            ('pronoun2', self.gf('django.db.models.fields.related.ForeignKey')(related_name='pronoun2', to=orm['pronouns.Pronoun'])),
-            ('entry1', self.gf('django.db.models.fields.related.ForeignKey')(related_name='entry1', to=orm['lexicon.Lexicon'])),
-            ('entry2', self.gf('django.db.models.fields.related.ForeignKey')(related_name='entry2', to=orm['lexicon.Lexicon'])),
-            ('relationship', self.gf('django.db.models.fields.CharField')(default=None, max_length=2, null=True, blank=True)),
-            ('comment', self.gf('django.db.models.fields.TextField')(null=True, blank=True)),
-        ))
-        db.send_create_signal(u'pronouns', ['Relationship'])
-
-        # Adding model 'Rule'
-        db.create_table('pronoun_rules', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('editor', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
-            ('added', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('paradigm', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['pronouns.Paradigm'])),
-            ('rule', self.gf('django.db.models.fields.CharField')(max_length=64)),
-        ))
-        db.send_create_signal(u'pronouns', ['Rule'])
-
-        # Adding M2M table for field relationships on 'Rule'
-        m2m_table_name = db.shorten_name('pronoun_rules_relationships')
-        db.create_table(m2m_table_name, (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('rule', models.ForeignKey(orm[u'pronouns.rule'], null=False)),
-            ('relationship', models.ForeignKey(orm[u'pronouns.relationship'], null=False))
-        ))
-        db.create_unique(m2m_table_name, ['rule_id', 'relationship_id'])
-
+        "Write your forwards methods here."
+        # Note: Don't use "from appname.models import ModelName". 
+        # Use orm.ModelName to refer to models in this application,
+        # and orm['appname.ModelName'] for models in other applications.
+        editor = orm['auth.User'].objects.all()[0]
+        
+        words = {}
+        # create words
+        for p in PronounCombinations:
+            # create word
+            w = short_repr_row(p)
+            f = full_repr_row(p)
+            slug = w.lower().replace(" ", "_")
+            print u"%s -> %s: %s" % (slug, w, f)
+            
+            word = orm['lexicon.Word'].objects.create(
+                word = w,
+                slug = slug,
+                full = f,
+                editor=editor
+            )
+            word.save()
+            
+            words[w] = word
+                 
+            if p['gender'] is None:
+                gender = None
+            else:
+                gender = p['gender'][0]
+            
+            ptype = orm['pronouns.pronountype'].objects.create(
+                alignment = p['alignment'][0],
+                person = p['person'][0],
+                number = p['number'][0],
+                gender = gender,
+                word=word,
+                editor=editor
+            )
+            ptype.save()
+            
 
     def backwards(self, orm):
-        # Deleting model 'PronounType'
-        db.delete_table(u'pronouns_pronountype')
-
-        # Deleting model 'Paradigm'
-        db.delete_table('paradigms')
-
-        # Deleting model 'Pronoun'
-        db.delete_table('pronouns')
-
-        # Removing M2M table for field entries on 'Pronoun'
-        db.delete_table(db.shorten_name('pronouns_entries'))
-
-        # Deleting model 'Relationship'
-        db.delete_table('pronoun_relationships')
-
-        # Deleting model 'Rule'
-        db.delete_table('pronoun_rules')
-
-        # Removing M2M table for field relationships on 'Rule'
-        db.delete_table(db.shorten_name('pronoun_rules_relationships'))
-
+        "Write your backwards methods here."
 
     models = {
         u'auth.group': {
@@ -259,4 +625,5 @@ class Migration(SchemaMigration):
         }
     }
 
-    complete_apps = ['pronouns']
+    complete_apps = ['auth', 'pronouns']
+    symmetrical = True

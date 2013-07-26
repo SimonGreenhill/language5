@@ -16,6 +16,7 @@ from website.apps.pronouns.tools import find_identicals, extract_rule
 
 from django_tables2 import SingleTableView
 
+
 class Index(SingleTableView):
     """Index"""
     model = Paradigm
@@ -23,17 +24,20 @@ class Index(SingleTableView):
     table_class = ParadigmIndexTable
     table_pagination = {"per_page": 50}
 
+    def get_queryset(self):
+        return Paradigm.objects.select_related().all()
+
 
 
 def detail(request, paradigm_id):
     try:
-        p = Paradigm.objects.get(pk=paradigm_id)
+        p = Paradigm.objects.select_related().get(pk=paradigm_id)
         out = {
             'paradigm': p,
             'language': p.language,
             'source': p.source,
-            'pronoun_rows': add_pronoun_table(p.pronoun_set.all()),
-            'relationship_table': PronounRelationshipTable(p.relationship_set.all())
+            'pronoun_rows': add_pronoun_table(p.pronoun_set.prefetch_related("entries", "pronountype").all()),
+            'relationship_table': PronounRelationshipTable(p.relationship_set.select_related().all())
         }
         return render(request, 'pronouns/detail.html', out)
     except Paradigm.DoesNotExist:
@@ -61,6 +65,7 @@ def edit(request, paradigm_id):
     pronoun_form = PronounFormSet(request.POST or None, instance=p)
     
     if pronoun_form.is_valid():
+        # TODO: HANDLE ,
         instances = pronoun_form.save(commit=False)
         for obj in instances:
             obj.editor = request.user
@@ -68,6 +73,8 @@ def edit(request, paradigm_id):
         return redirect('pronouns:detail', p.id)
         
     pronoun_form = add_pronoun_ordering(pronoun_form)
+    
+    import IPython; IPython.embed()
     
     # the initial view and the error view
     return render_to_response('pronouns/edit.html', {
