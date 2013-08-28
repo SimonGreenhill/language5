@@ -74,7 +74,7 @@ def edit(request, paradigm_id):
         
     pronoun_form = add_pronoun_ordering(pronoun_form)
     
-    import IPython; IPython.embed()
+    #import IPython; IPython.embed()
     
     # the initial view and the error view
     return render_to_response('pronouns/edit.html', {
