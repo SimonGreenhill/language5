@@ -1,8 +1,8 @@
 from django import forms
 from django.forms.formsets import formset_factory
-from django.forms.models import modelformset_factory, inlineformset_factory
+from django.forms.models import BaseModelFormSet, inlineformset_factory
 
-from website.apps.core.models import Language, Family, Source
+from website.apps.lexicon.models import Lexicon
 from website.apps.pronouns.models import Paradigm, Pronoun, Relationship
 from website.apps.pronouns.models import PERSON_CHOICES, NUMBER_CHOICES
 from website.apps.pronouns.models import GENDER_CHOICES, ALIGNMENT_CHOICES
@@ -12,24 +12,49 @@ class ParadigmForm(forms.ModelForm):
         model = Paradigm
         exclude = ('editor', 'added')
 
+#-----------------------------------------------------------------
+# ENTRIES
 
-class SimplePronounForm(forms.ModelForm):
+class SimplePronounLexiconForm(forms.ModelForm):
+    # replace model select with charfields
+    entries = forms.CharField()
+    comment = forms.CharField(required=False) 
+    
+    def __init__(self, *args, **kwargs):
+        super(SimplePronounLexiconForm, self).__init__(*args, **kwargs)
+        entries, comments = [], []
+        for e in self.instance.entries.all():
+            entries.append(e.entry)
+            comments.append(e.annotation)
+        self.fields['entries'].initial = ", ".join(entries)
+        self.fields['comment'].initial = ", ".join(comments)
+        #self.initial['entries'] = ", ".join(entries)
+        #self.initial['comment'] = ", ".join(comments)
+        
+        
     class Meta:
         model = Pronoun
-        fields = ('entries', 'comment',)
-        exclude = ('editor', 'added',)
-        hidden = ('paradigm',)
+        fields = ('entries', 'comment', 'pronountype')
+        exclude = ('editor', 'added', 'paradigm')
         widgets = {
-            'comment': forms.widgets.TextInput(attrs={'class': 'input-medium hide', 'placeholder': 'comment'}),
-            'entries': forms.widgets.TextInput(attrs={'class': 'input-medium',}),
+            'entry': forms.widgets.TextInput(attrs={'class': 'input-medium',}),
+            'annotation': forms.widgets.TextInput(attrs={'class': 'input-medium hide', 'placeholder': 'comment'}),
         }
-
+        
 PronounFormSet = inlineformset_factory(Paradigm, Pronoun,
-        can_delete=False, extra=0, form=SimplePronounForm)
+         can_delete=False, extra=0, form=SimplePronounLexiconForm)
+
+#>>> AuthorFormSet = modelformset_factory(Author, formset=BaseAuthorFormSet)
 
 
+
+# PronounFormSet = inlineformset_factory(Paradigm, Pronoun,
+#         can_delete=False, extra=0, form=SimpleLexiconForm)
+
+#-----------------------------------------------------------------
+# RELATIONSHIPS
 class RelationshipForm(forms.ModelForm):
-    def __init__(self, *args,**kwargs):
+    def __init__(self, *args, **kwargs):
         super(RelationshipForm, self).__init__(*args, **kwargs)
     
     class Meta:
@@ -45,6 +70,9 @@ RelationshipFormSet = inlineformset_factory(Paradigm, Relationship,
                             can_delete=True, extra=1, form=RelationshipForm)
 
 
+
+#-----------------------------------------------------------------
+# RULES
 # Prepend --- to these choice fields for the RuleForm.
 alignment_choices = [("---", "-")]
 alignment_choices.extend(ALIGNMENT_CHOICES)

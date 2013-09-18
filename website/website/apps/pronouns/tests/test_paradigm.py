@@ -19,7 +19,6 @@ class Test_Paradigm(DefaultSettingsMixin, TestCase):
         assert self.pdm.pronoun_set.count() == 3
     
     def test_prefill(self):
-        
         # make sure the correct number of pronouns is there..
         assert self.pdm.pronoun_set.count() == len(PronounType._generate_all_combinations())
         
