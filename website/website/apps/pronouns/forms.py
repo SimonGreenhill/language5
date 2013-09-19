@@ -1,6 +1,7 @@
 from django import forms
 from django.forms.formsets import formset_factory
-from django.forms.models import BaseModelFormSet, inlineformset_factory
+from django.forms.models import BaseModelFormSet
+from django.forms.models import modelformset_factory, inlineformset_factory
 
 from website.apps.lexicon.models import Lexicon
 from website.apps.pronouns.models import Paradigm, Pronoun, Relationship
@@ -10,46 +11,37 @@ from website.apps.pronouns.models import GENDER_CHOICES, ALIGNMENT_CHOICES
 class ParadigmForm(forms.ModelForm):
     class Meta:
         model = Paradigm
-        exclude = ('editor', 'added')
+        exclude = ('editor', 'added', 'phon_entry', 'loan', 'loan_source')
 
 #-----------------------------------------------------------------
 # ENTRIES
 
-class SimplePronounLexiconForm(forms.ModelForm):
-    # replace model select with charfields
-    entries = forms.CharField()
-    comment = forms.CharField(required=False) 
-    
-    def __init__(self, *args, **kwargs):
-        super(SimplePronounLexiconForm, self).__init__(*args, **kwargs)
-        entries, comments = [], []
-        for e in self.instance.entries.all():
-            entries.append(e.entry)
-            comments.append(e.annotation)
-        self.fields['entries'].initial = ", ".join(entries)
-        self.fields['comment'].initial = ", ".join(comments)
-        #self.initial['entries'] = ", ".join(entries)
-        #self.initial['comment'] = ", ".join(comments)
-        
-        
+class LexiconForm(forms.ModelForm):
     class Meta:
-        model = Pronoun
-        fields = ('entries', 'comment', 'pronountype')
-        exclude = ('editor', 'added', 'paradigm')
-        widgets = {
-            'entry': forms.widgets.TextInput(attrs={'class': 'input-medium',}),
-            'annotation': forms.widgets.TextInput(attrs={'class': 'input-medium hide', 'placeholder': 'comment'}),
-        }
+        model = Lexicon
+        exclude = ('editor', 'added')
+
+
+# get all our formsets
+def create_pronoun_formset(paradigm, postdata=None):
+    EntriesFormSet = modelformset_factory(Lexicon, form=LexiconForm, extra=0)
+    formsets = []
+    for pronoun in paradigm.pronoun_set.all():
+        print pronoun
+        f = EntriesFormSet(initial=pronoun.entries.all(), prefix=pronoun.id)
+        print f
+        # TODO: 
+        # add to formset? 
+        # or create one formset per cell? 
+        # this_formset = LexiconFormSet(prefix=xxx)
         
-PronounFormSet = inlineformset_factory(Paradigm, Pronoun,
-         can_delete=False, extra=0, form=SimplePronounLexiconForm)
-
-#>>> AuthorFormSet = modelformset_factory(Author, formset=BaseAuthorFormSet)
-
-
-
-# PronounFormSet = inlineformset_factory(Paradigm, Pronoun,
-#         can_delete=False, extra=0, form=SimpleLexiconForm)
+        # TODO: ordering?
+        
+        # TODO: load in postdata
+        
+        # TODO: 
+    import IPython; IPython.embed()
+    
 
 #-----------------------------------------------------------------
 # RELATIONSHIPS

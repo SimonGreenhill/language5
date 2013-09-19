@@ -9,7 +9,7 @@ from website.apps.pronouns.models import Paradigm, Pronoun, Relationship, Rule
 from website.apps.pronouns.tables import ParadigmIndexTable, PronounTable, PronounRelationshipTable
 
 from website.apps.pronouns.forms import ParadigmForm, RelationshipFormSet
-from website.apps.pronouns.forms import PronounFormSet, RuleForm
+from website.apps.pronouns.forms import create_pronoun_formset, RuleForm
 
 from website.apps.pronouns.tools import add_pronoun_ordering, add_pronoun_table
 from website.apps.pronouns.tools import find_identicals, extract_rule
@@ -62,10 +62,11 @@ def add(request):
 def edit(request, paradigm_id):
     p = get_object_or_404(Paradigm, pk=paradigm_id)
     
+    
+    PronounFormSet = create_pronoun_formset(Paradigm)
     pronoun_form = PronounFormSet(request.POST or None, instance=p)
     
     if pronoun_form.is_valid():
-        # TODO: HANDLE ,
         instances = pronoun_form.save(commit=False)
         for obj in instances:
             obj.editor = request.user
