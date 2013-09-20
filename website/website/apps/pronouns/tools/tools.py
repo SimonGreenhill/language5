@@ -54,34 +54,6 @@ def short_repr_row(p):
     else:
         return "%(person)s%(number)s %(gender)s %(alignment)s" % newp
 
-
-    
-def add_pronoun_ordering(pronoun_form):
-    rows = {}
-    for form in pronoun_form:
-        row = full_repr_row(form.instance)
-        rows[row] = rows.get(row, 
-            dict(zip([x[0] for x in ALIGNMENT_CHOICES], [None for x in ALIGNMENT_CHOICES]))
-        )
-        rows[row][form.instance.pronountype.alignment] = form
-        
-    pronoun_form.pronoun_rows = []
-    # Sort
-    ptype_rows = PronounType._generate_all_rows()
-    
-    for row in ptype_rows:
-        wanted_label = full_repr_row(row)
-        found_row = False
-        for label in rows:
-            if wanted_label == label:
-                pronoun_form.pronoun_rows.append((label, rows[label]))
-                found_row = True
-        assert found_row, "Unable to find expected row for Paradigm: %s" % label
-    
-    assert len(pronoun_form.pronoun_rows) == len(ptype_rows)
-    return pronoun_form
-
-
 def add_pronoun_table(pronoun_set, filter_empty_rows=True):
     """Construct a table for the given pronoun set
     

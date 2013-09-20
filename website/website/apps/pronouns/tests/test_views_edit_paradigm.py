@@ -31,11 +31,11 @@ class Test_EditParadigmView(DefaultSettingsMixin, TestCase):
             reverse("pronouns:edit", kwargs={'paradigm_id': self.pdm.id})))
         
     def test_form_generation(self):
-        # get form 
         form = self.response.context['pronouns']
-        print form
-        assert False
-        
+        raise NotImplementedError("Not Implemented")
+    
+    def test_form_load(self):
+        raise NotImplementedError("Not Implemented")
         
     def test_form_save(self):
         raise NotImplementedError("Not Implemented")

@@ -19,7 +19,14 @@ class ParadigmForm(forms.ModelForm):
 class LexiconForm(forms.ModelForm):
     class Meta:
         model = Lexicon
-        exclude = ('editor', 'added')
+        hidden = ('id',)
+        exclude = ('editor', 'added', 
+                   'loan', 'loan_source', 'phon_entry', 
+                   'source', 'word', 'language')
+
+
+
+
 
 
 # get all our formsets
@@ -27,21 +34,74 @@ def create_pronoun_formset(paradigm, postdata=None):
     EntriesFormSet = modelformset_factory(Lexicon, form=LexiconForm, extra=0)
     formsets = []
     for pronoun in paradigm.pronoun_set.all():
-        print pronoun
-        f = EntriesFormSet(initial=pronoun.entries.all(), prefix=pronoun.id)
-        print f
-        # TODO: 
-        # add to formset? 
-        # or create one formset per cell? 
-        # this_formset = LexiconFormSet(prefix=xxx)
+        formset = EntriesFormSet(postdata,
+                       queryset = pronoun.entries.all(),
+                       prefix='%d:%d' % (pronoun.paradigm_id, pronoun.id))
         
+        formsets.append((pronoun, formset))
         # TODO: ordering?
         
-        # TODO: load in postdata
         
-        # TODO: 
-    import IPython; IPython.embed()
+        # def add_pronoun_ordering(pronoun_form):
+        #     rows = {}
+        #     for form in pronoun_form:
+        #         row = full_repr_row(form.instance)
+        #         rows[row] = rows.get(row, 
+        #             dict(zip([x[0] for x in ALIGNMENT_CHOICES], [None for x in ALIGNMENT_CHOICES]))
+        #         )
+        #         rows[row][form.instance.pronountype.alignment] = form
+        # 
+        #     pronoun_form.pronoun_rows = []
+        #     # Sort
+        #     ptype_rows = PronounType._generate_all_rows()
+        #     
+        #     for row in ptype_rows:
+        #         wanted_label = full_repr_row(row)
+        #         found_row = False
+        #         for label in rows:
+        #             if wanted_label == label:
+        #                 pronoun_form.pronoun_rows.append((label, rows[label]))
+        #                 found_row = True
+        #         assert found_row, "Unable to find expected row for Paradigm: %s" % label
+        #     
+        #     assert len(pronoun_form.pronoun_rows) == len(ptype_rows)
+        #     return pronoun_form
+        # 
+        
+        
+        
+    return formsets
     
+def save_pronoun_formset(paradigm, pronoun, formset, user):
+    """
+    
+    >>> for pronoun, formset in create_pronoun_formset(paradigm, postdata):
+    >>>     saved = save_pronoun_formset(paradigm, pronoun, formset, request.user)
+        
+    """
+    instances = formset.save(commit=False)
+    for lex in instances:
+        lex.editor = user                        # inject editor
+        lex.word = pronoun.pronountype.word      # inject word
+        lex.source = paradigm.source             # inject source
+        lex.language = paradigm.language         # inject language
+        lex.save()
+        
+        # and add to pronoun entries.
+        pronoun.entries.add(lex)
+        pronoun.save()
+    return
+
+def pronoun_formsets_are_valid(formsets):
+    """Tests if all formsets are valid"""
+    for pronoun, formset in formsets:
+        if not formset.is_valid():
+            return False
+    return True
+
+
+
+
 
 #-----------------------------------------------------------------
 # RELATIONSHIPS

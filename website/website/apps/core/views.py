@@ -131,7 +131,7 @@ def language_detail(request, language):
         # load pronouns
         if 'website.apps.pronouns' in settings.INSTALLED_APPS:
             from website.apps.pronouns.models import Paradigm, Pronoun
-            from website.apps.pronouns.tools import add_pronoun_ordering, add_pronoun_table
+            from website.apps.pronouns.tools import add_pronoun_table
             try: 
                 out['pronoun'] = Paradigm.objects.filter(language=my_lang)[0]
                 out['pronoun_rows'] =  add_pronoun_table(out['pronoun'].pronoun_set.all())

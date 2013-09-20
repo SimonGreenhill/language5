@@ -8,10 +8,13 @@ from website.apps.core.models import Family, Language, Source
 from website.apps.pronouns.models import Paradigm, Pronoun, Relationship, Rule
 from website.apps.pronouns.tables import ParadigmIndexTable, PronounTable, PronounRelationshipTable
 
-from website.apps.pronouns.forms import ParadigmForm, RelationshipFormSet
-from website.apps.pronouns.forms import create_pronoun_formset, RuleForm
+from website.apps.pronouns.forms import ParadigmForm, RelationshipFormSet, RuleForm
+from website.apps.pronouns.forms import pronoun_formsets_are_valid
+from website.apps.pronouns.forms import create_pronoun_formset
+from website.apps.pronouns.forms import save_pronoun_formset
 
-from website.apps.pronouns.tools import add_pronoun_ordering, add_pronoun_table
+
+from website.apps.pronouns.tools import add_pronoun_table
 from website.apps.pronouns.tools import find_identicals, extract_rule
 
 from django_tables2 import SingleTableView
@@ -23,7 +26,7 @@ class Index(SingleTableView):
     template_name = 'pronouns/index.html'
     table_class = ParadigmIndexTable
     table_pagination = {"per_page": 50}
-
+    
     def get_queryset(self):
         return Paradigm.objects.select_related().all()
 
@@ -62,21 +65,17 @@ def add(request):
 def edit(request, paradigm_id):
     p = get_object_or_404(Paradigm, pk=paradigm_id)
     
+    if request.POST:
+        pronoun_form = create_pronoun_formset(p, request.POST)
+    else:
+        pronoun_form = create_pronoun_formset(p)
     
-    PronounFormSet = create_pronoun_formset(Paradigm)
-    pronoun_form = PronounFormSet(request.POST or None, instance=p)
-    
-    if pronoun_form.is_valid():
-        instances = pronoun_form.save(commit=False)
-        for obj in instances:
-            obj.editor = request.user
-            obj.save()
+    # save if valid.
+    if pronoun_formsets_are_valid(pronoun_form):
+        for pronoun, formset in pronoun_form:
+            saved = save_pronoun_formset(p, pronoun, formset, request.user)
         return redirect('pronouns:detail', p.id)
         
-    pronoun_form = add_pronoun_ordering(pronoun_form)
-    
-    #import IPython; IPython.embed()
-    
     # the initial view and the error view
     return render_to_response('pronouns/edit.html', {
         'paradigm': p,
