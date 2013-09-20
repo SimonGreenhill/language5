@@ -66,10 +66,7 @@ def add(request):
 def edit(request, paradigm_id):
     p = get_object_or_404(Paradigm, pk=paradigm_id)
     
-    if request.POST:
-        pronoun_form = create_pronoun_formset(p, request.POST)
-    else:
-        pronoun_form = create_pronoun_formset(p)
+    pronoun_form = create_pronoun_formset(p, request.POST or None)
     
     # save if valid.
     if pronoun_formsets_are_valid(pronoun_form):

@@ -52,8 +52,12 @@ class PronounType(TrackedModel):
         return PronounType.objects.all().order_by("pk")
     
     @staticmethod
+    def _get_row_size():
+        return len(PronounType.ALIGNMENT_CHOICES)
+    
+    @staticmethod
     def _generate_all_rows():
-        out, seen = [], []
+        out = []
         # Each combination of gender, number and person
         for ptype in PronounType._generate_all_combinations():
             p = {
@@ -67,13 +71,8 @@ class PronounType(TrackedModel):
             
             if p not in seen:
                 out.append(p)
-                seen.append(p)
         return out
     
-    @staticmethod
-    def _get_row_size():
-        return len(PronounType.ALIGNMENT_CHOICES)
-        
     
 
 class Paradigm(TrackedModel):
