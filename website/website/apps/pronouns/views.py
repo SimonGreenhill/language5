@@ -26,6 +26,7 @@ class Index(SingleTableView):
     template_name = 'pronouns/index.html'
     table_class = ParadigmIndexTable
     table_pagination = {"per_page": 50}
+    order_by_field = 'language'
     
     def get_queryset(self):
         return Paradigm.objects.select_related().all()
