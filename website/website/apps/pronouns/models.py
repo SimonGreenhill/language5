@@ -57,7 +57,7 @@ class PronounType(TrackedModel):
     
     @staticmethod
     def _generate_all_rows():
-        out = []
+        out, seen = [], []
         # Each combination of gender, number and person
         for ptype in PronounType._generate_all_combinations():
             p = {
@@ -71,6 +71,7 @@ class PronounType(TrackedModel):
             
             if p not in seen:
                 out.append(p)
+                seen.append(p)
         return out
     
     

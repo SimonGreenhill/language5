@@ -6,12 +6,15 @@ from django.db.models import Q, Count
 
 from website.apps.core.models import Family, Language, Source
 from website.apps.pronouns.models import Paradigm, Pronoun, Relationship, Rule
-from website.apps.pronouns.tables import ParadigmIndexTable, PronounTable, PronounRelationshipTable
+from website.apps.pronouns.tables import ParadigmIndexTable
+from website.apps.pronouns.tables import PronounTable
+from website.apps.pronouns.tables import PronounRelationshipTable
 
 from website.apps.pronouns.forms import ParadigmForm, RelationshipFormSet, RuleForm
 from website.apps.pronouns.forms import pronoun_formsets_are_valid
 from website.apps.pronouns.forms import create_pronoun_formset
 from website.apps.pronouns.forms import save_pronoun_formset
+from website.apps.pronouns.forms import sort_formset
 
 
 from website.apps.pronouns.tools import add_pronoun_table
@@ -65,7 +68,6 @@ def add(request):
 @login_required()
 def edit(request, paradigm_id):
     p = get_object_or_404(Paradigm, pk=paradigm_id)
-    
     pronoun_form = create_pronoun_formset(p, request.POST or None)
     
     # save if valid.
@@ -77,7 +79,7 @@ def edit(request, paradigm_id):
     # the initial view and the error view
     return render_to_response('pronouns/edit.html', {
         'paradigm': p,
-        'pronouns': pronoun_form,
+        'pronouns': sort_formset(pronoun_form),
     }, context_instance=RequestContext(request))
 
 

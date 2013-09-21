@@ -7,6 +7,8 @@ from website.apps.pronouns.tests import DefaultSettingsMixin
 from website.apps.pronouns.forms import create_pronoun_formset
 from website.apps.pronouns.forms import save_pronoun_formset
 from website.apps.pronouns.forms import pronoun_formsets_are_valid
+from website.apps.pronouns.forms import sort_formset
+
 
 class FormsetSettingsMixin(object):
     """
@@ -45,7 +47,7 @@ class FormsetSettingsMixin(object):
         """Helper function to generate some post data"""
         postdata = {'submit': 'true'}
         for pronoun in paradigm.pronoun_set.all():
-            key = '%d:%d' % (pronoun.paradigm_id, pronoun.id)
+            key = '%d_%d' % (pronoun.paradigm_id, pronoun.id)
             postdata['%s-TOTAL_FORMS' % key] = u'1'
             postdata['%s-INITIAL_FORMS' % key] = u'1'
             postdata['%s-MAX_NUM_FORMS' % key] = u'1000'
@@ -84,20 +86,20 @@ class TestFormsetValidity(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
     
     def test_change_is_valid(self):
         postdata = self._generate_post_data(self.pdm)
-        postdata['1:1-0-entry'] = 'testing' # change something
+        postdata['1_1-0-entry'] = 'testing' # change something
         formsets = create_pronoun_formset(self.pdm, postdata)
         assert pronoun_formsets_are_valid(formsets)
     
     def test_missing_is_not_valid(self):
         postdata = self._generate_post_data(self.pdm)
-        del(postdata['1:1-0-entry'])
+        del(postdata['1_1-0-entry'])
         formsets = create_pronoun_formset(self.pdm, postdata)
         assert not pronoun_formsets_are_valid(formsets)
     
     def test_is_valid_with_addition(self):
         postdata = self._generate_post_data(self.pdm)
-        postdata['1:1-1-entry'] = 'testing' # change something
-        postdata['1:1-TOTAL_FORMS'] = u'2'
+        postdata['1_1-1-entry'] = 'testing' # change something
+        postdata['1_1-TOTAL_FORMS'] = u'2'
         formsets = create_pronoun_formset(self.pdm, postdata)
         assert pronoun_formsets_are_valid(formsets)
 
@@ -156,7 +158,7 @@ class TestFormsetCreator(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
     
     def test_formset_submission_with_update(self):
         postdata = self._generate_post_data(self.pdm)
-        postdata['1:1-0-entry'] = 'testing' # change something
+        postdata['1_1-0-entry'] = 'testing' # change something
         
         formsets = create_pronoun_formset(self.pdm, postdata)
         
@@ -169,8 +171,8 @@ class TestFormsetCreator(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
     
     def test_formset_submission_with_create(self):
         postdata = self._generate_post_data(self.pdm)
-        postdata['1:1-1-entry'] = 'testing' # change something
-        postdata['1:1-TOTAL_FORMS'] = u'2'
+        postdata['1_1-1-entry'] = 'testing' # change something
+        postdata['1_1-TOTAL_FORMS'] = u'2'
         formsets = create_pronoun_formset(self.pdm, postdata)
         
         for f in formsets: 
@@ -190,7 +192,7 @@ class TestFormsetCreator(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
         
     def test_save_with_update(self):
         postdata = self._generate_post_data(self.pdm)
-        postdata['1:1-0-entry'] = 'testing' # change something
+        postdata['1_1-0-entry'] = 'testing' # change something
         
         for pronoun, formset in create_pronoun_formset(self.pdm, postdata):
             saved = save_pronoun_formset(self.pdm, pronoun, formset, self.editor)
@@ -205,8 +207,8 @@ class TestFormsetCreator(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
         
     def test_save_with_addition(self):
         postdata = self._generate_post_data(self.pdm)
-        postdata['1:1-1-entry'] = 'testing' # change something
-        postdata['1:1-TOTAL_FORMS'] = u'2'
+        postdata['1_1-1-entry'] = 'testing' # change something
+        postdata['1_1-TOTAL_FORMS'] = u'2'
         
         for pronoun, formset in create_pronoun_formset(self.pdm, postdata):
             saved = save_pronoun_formset(self.pdm, pronoun, formset, self.editor)
@@ -234,8 +236,8 @@ class TestFormsetCreator(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
         # saving the same data multiple times should not increase the size of the set.
         
         postdata = self._generate_post_data(self.pdm)
-        postdata['1:1-1-entry'] = 'testing' # change something
-        postdata['1:1-TOTAL_FORMS'] = u'2'
+        postdata['1_1-1-entry'] = 'testing' # change something
+        postdata['1_1-TOTAL_FORMS'] = u'2'
         
         for pronoun, formset in create_pronoun_formset(self.pdm, postdata):
             saved = save_pronoun_formset(self.pdm, pronoun, formset, self.editor)
@@ -260,3 +262,37 @@ class TestFormsetCreator(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
                 assert len(entries) == 1
                 assert entries[0].entry == 'pron-{0}'.format(pron.id)
                 assert entries[0].annotation == 'ann-{0}'.format(pron.id)
+
+
+
+class TestFormsetSorter(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
+    def test_number_of_rows(self):
+        formsets = create_pronoun_formset(self.pdm, self._generate_post_data(self.pdm))
+        sortf = sort_formset(formsets)
+        assert len(sortf) == 3
+    
+    def test_tokens(self):
+        formsets = create_pronoun_formset(self.pdm, self._generate_post_data(self.pdm))
+        rows = sort_formset(formsets)
+        assert rows[0][0] == u'1st (excl) Person Singular'
+        assert rows[1][0] == u'2nd Person Singular'
+        assert rows[2][0] == u'3rd Person Singular'
+    
+    def test_four_per_row(self):
+        formsets = create_pronoun_formset(self.pdm, self._generate_post_data(self.pdm))
+        for row in sort_formset(formsets):
+            assert len(row[1]) == 4
+            assert 'A' in row[1]
+            assert 'S' in row[1]
+            assert 'O' in row[1]
+            assert 'P' in row[1]
+    
+    def test_row_formsets(self):
+        formsets = create_pronoun_formset(self.pdm, self._generate_post_data(self.pdm))
+        for row in sort_formset(formsets):
+            assert row[1]['A'] is not None
+            assert row[1]['S'] is None
+            assert row[1]['O'] is None
+            assert row[1]['P'] is None
+        
+        

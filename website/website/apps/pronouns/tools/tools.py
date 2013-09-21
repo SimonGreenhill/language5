@@ -1,8 +1,18 @@
 from django.db.models import Count
-from website.apps.pronouns.models import Paradigm, PronounType, Pronoun, ALIGNMENT_CHOICES
+from website.apps.pronouns.models import Paradigm, PronounType, Pronoun
+from website.apps.pronouns.models import ALIGNMENT_CHOICES, PERSON_CHOICES, NUMBER_CHOICES, GENDER_CHOICES
 
 def full_repr_row(p):
     """Build a string representation of the given pronoun `p`"""
+    
+    def _get(key, choices):
+        if isinstance(key, basestring):
+            for x, y in choices:
+                if key == x: 
+                    return y
+        else:
+            return key[1]
+    
     # handle objects
     if isinstance(p, Pronoun):
         if p.pronountype.gender is None:
@@ -13,13 +23,17 @@ def full_repr_row(p):
         if p.gender is None:
             return " ".join([p.get_person_display(), p.get_number_display()])
         else:
-            return " ".join([pget_person_display(), p.get_number_display(), p.get_gender_display()])
+            return " ".join([p.get_person_display(), p.get_number_display(), p.get_gender_display()])
     # handle dictionary
     else:
+        person = _get(p['person'], PERSON_CHOICES)
+        number = _get(p['number'], NUMBER_CHOICES)
+        
         if p['gender'] is None:
-            return " ".join([p['person'][1], p['number'][1]])
+            return " ".join([person, number])
         else:
-            return " ".join([p['person'][1], p['number'][1], p['gender'][1]])
+            gender = _get(p['gender'], GENDER_CHOICES)
+            return " ".join([person, number, gender])
 
 
 def short_repr_row(p):

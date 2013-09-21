@@ -4,9 +4,11 @@ from django.forms.models import BaseModelFormSet
 from django.forms.models import modelformset_factory, inlineformset_factory
 
 from website.apps.lexicon.models import Lexicon
-from website.apps.pronouns.models import Paradigm, Pronoun, Relationship
+from website.apps.pronouns.models import Paradigm, PronounType, Pronoun, Relationship
 from website.apps.pronouns.models import PERSON_CHOICES, NUMBER_CHOICES
 from website.apps.pronouns.models import GENDER_CHOICES, ALIGNMENT_CHOICES
+
+from website.apps.pronouns.tools import full_repr_row
 
 class ParadigmForm(forms.ModelForm):
     class Meta:
@@ -23,55 +25,57 @@ class LexiconForm(forms.ModelForm):
         exclude = ('editor', 'added', 
                    'loan', 'loan_source', 'phon_entry', 
                    'source', 'word', 'language')
-
-
-
-
+        widgets = {
+            'entry': forms.widgets.TextInput(attrs={'class': 'input-small',}),
+            'annotation': forms.widgets.TextInput(attrs={'class': 'input-small hide', 'placeholder': 'comment'}),
+        }
 
 
 # get all our formsets
 def create_pronoun_formset(paradigm, postdata=None):
     EntriesFormSet = modelformset_factory(Lexicon, form=LexiconForm, extra=0)
     formsets = []
-    for pronoun in paradigm.pronoun_set.all():
+    
+    for pronoun in paradigm.pronoun_set.all().select_related("pronountype"):
         formset = EntriesFormSet(postdata,
                        queryset = pronoun.entries.all(),
-                       prefix='%d:%d' % (pronoun.paradigm_id, pronoun.id))
+                       prefix='%d_%d' % (pronoun.paradigm_id, pronoun.id))
         
         formsets.append((pronoun, formset))
-        # TODO: ordering?
-        
-        
-        # def add_pronoun_ordering(pronoun_form):
-        #     rows = {}
-        #     for form in pronoun_form:
-        #         row = full_repr_row(form.instance)
-        #         rows[row] = rows.get(row, 
-        #             dict(zip([x[0] for x in ALIGNMENT_CHOICES], [None for x in ALIGNMENT_CHOICES]))
-        #         )
-        #         rows[row][form.instance.pronountype.alignment] = form
-        # 
-        #     pronoun_form.pronoun_rows = []
-        #     # Sort
-        #     ptype_rows = PronounType._generate_all_rows()
-        #     
-        #     for row in ptype_rows:
-        #         wanted_label = full_repr_row(row)
-        #         found_row = False
-        #         for label in rows:
-        #             if wanted_label == label:
-        #                 pronoun_form.pronoun_rows.append((label, rows[label]))
-        #                 found_row = True
-        #         assert found_row, "Unable to find expected row for Paradigm: %s" % label
-        #     
-        #     assert len(pronoun_form.pronoun_rows) == len(ptype_rows)
-        #     return pronoun_form
-        # 
-        
-        
-        
     return formsets
     
+def sort_formset(formsets):
+    """
+    Sort formset for template view appropriately. 
+    
+    Returns a list of dicts
+    
+    [
+        (rowname, {A:.., S:...}),
+        (rowname, {A:.., S:...}),
+        (rowname, {A:.., S:...}),
+    ]
+    """
+    ptypes = dict([(p['id'], p) for p in PronounType.objects.all().values()])
+    rows = {}
+    
+    empty = dict(zip([x[0] for x in ALIGNMENT_CHOICES], 
+                     [None for x in ALIGNMENT_CHOICES])
+    )
+    
+    # use decorate-sort-undecorate pattern to loop over pronoun and formset
+    # in formsets. The sort key is the pronountype.id + 3 / 4 
+    # add three to get the grouping right (1-4), (5-8), (9-12) etc
+    for pronoun, formset in formsets:
+        pt = ptypes[pronoun.pronountype.id]
+        row = full_repr_row(pt)
+        sortkey = (pronoun.pronountype.id + 3) / 4
+        rows[(sortkey, row)] = rows.get((sortkey, row), empty.copy())
+        rows[(sortkey, row)][pt['alignment']] = formset
+    
+    return [(key, rows[(_, key)]) for (_, key) in sorted(rows)]
+
+
 def save_pronoun_formset(paradigm, pronoun, formset, user):
     """
     
