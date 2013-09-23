@@ -15,22 +15,58 @@
                 <th>{{ row }}</th>
                 <td class="alignment_a">
                     {% for e in cells.A.entries.all %}
-                        {% if not forloop.first %}, {% endif %} {{ e.entry }}
+                        {% if not forloop.first %}, {% endif %} 
+                        {{ e.entry }} 
+                        {% if e.annotation %} 
+                            <i class="tip icon-comment" 
+                                data-toggle="tooltip" 
+                                data-placement="top" 
+                                data-container="td"
+                                title="{{ e.annotation|escape }}">-
+                            </i>
+                        {% endif %}
                     {% endfor %}
                 </td>
                 <td class="alignment_s">
                     {% for e in cells.S.entries.all %}
-                        {% if not forloop.first %}, {% endif %} {{ e.entry }}
+                        {% if not forloop.first %}, {% endif %} 
+                        {{ e.entry }}
+                        {% if e.annotation %} 
+                            <i class="tip icon-comment" 
+                                data-toggle="tooltip" 
+                                data-placement="top" 
+                                data-container="td"
+                                title="{{ e.annotation|escape }}">-
+                            </i>
+                        {% endif %}
                     {% endfor %}
                 </td>
                 <td class="alignment_o">
                     {% for e in cells.O.entries.all %}
-                        {% if not forloop.first %}, {% endif %} {{ e.entry }}
+                        {% if not forloop.first %}, {% endif %} 
+                        {{ e.entry }}
+                        {% if e.annotation %} 
+                            <i class="tip icon-comment" 
+                                data-toggle="tooltip" 
+                                data-placement="top" 
+                                data-container="td"
+                                title="{{ e.annotation|escape }}">-
+                            </i>
+                        {% endif %}
                     {% endfor %}
                 </td>
                 <td class="alignment_p">
                     {% for e in cells.P.entries.all %}
-                        {% if not forloop.first %}, {% endif %} {{ e.entry }}
+                        {% if not forloop.first %}, {% endif %} 
+                        {{ e.entry }}
+                        {% if e.annotation %} 
+                            <i class="tip icon-comment" 
+                                data-toggle="tooltip" 
+                                data-placement="top" 
+                                data-container="td"
+                                title="{{ e.annotation|escape }}">-
+                            </i>
+                        {% endif %}
                     {% endfor %}
                 </td>
             </tr>
