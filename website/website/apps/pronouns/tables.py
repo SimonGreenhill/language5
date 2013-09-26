@@ -33,18 +33,6 @@ class PronounRelationshipTable(DataTable):
     pronoun1 = tables.Column(accessor='pronoun2.pronountype', verbose_name="Pronoun 1")
     pronoun2 = tables.Column(accessor='pronoun2.pronountype', verbose_name="Pronoun 2")
     
-    
-    
-    # def render_pronoun(self, record):
-    #     pt = unicode(record.pronountype)
-    #     return tables.Column().render(value=pt, bound_column=None)
-    # 
-    # def render_pronoun1(self, record):
-    #     return self.render_pronoun(record.pronoun1)
-    #     
-    # def render_pronoun2(self, record):
-    #     return self.render_pronoun(record.pronoun2)
-    
     class Meta(DataTable.Meta):
         model = Relationship
         order_by = 'id' # default sorting
