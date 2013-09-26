@@ -39,13 +39,18 @@ class Index(SingleTableView):
 def detail(request, paradigm_id):
     try:
         p = Paradigm.objects.select_related().get(pk=paradigm_id)
+        ptable = p.pronoun_set.prefetch_related("entries", "pronountype").all()
         out = {
             'paradigm': p,
             'language': p.language,
             'source': p.source,
-            'pronoun_rows': add_pronoun_table(p.pronoun_set.prefetch_related("entries", "pronountype").all()),
-            'relationship_table': PronounRelationshipTable(p.relationship_set.select_related().all())
+            'pronoun_rows': add_pronoun_table(ptable),
+            'relationship_table': None
         }
+        relationships = p.relationship_set.select_related().all()
+        if len(relationships) > 0:
+            out['relationship_table'] = PronounRelationshipTable(relationships)
+        
         return render(request, 'pronouns/detail.html', out)
     except Paradigm.DoesNotExist:
         raise Http404 # fail. Doesn't exist so pop out a 404

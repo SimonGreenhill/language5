@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 
 from website.apps.lexicon.models import Lexicon
 from website.apps.pronouns.tools import full_repr_row
-from website.apps.pronouns.models import Paradigm, PronounType, Pronoun
+from website.apps.pronouns.models import Paradigm, PronounType, Pronoun, Relationship
 from website.apps.pronouns.tests import DefaultSettingsMixin
 
 class Test_Index(DefaultSettingsMixin, TestCase):
@@ -43,7 +43,33 @@ class Test_Detail(DefaultSettingsMixin, TestCase):
         self.url = reverse('pronouns:detail', kwargs={'paradigm_id': 1})
         self.client = Client()
         self.response = self.client.get(self.url)
-
+    
+    def _create_relationship(self):
+        "Simple helper function to add a relationship"
+        p1, p2 = self.pdm.pronoun_set.all()[0:2]
+        lexs = []
+        for p in (p1, p2):
+            lex = Lexicon.objects.create(
+                editor=self.editor,
+                language=self.lang,
+                source=self.source,
+                word=self.word,
+                entry='fudge-%d' % p.id
+            )
+            lex.save()
+            lexs.append(lex)
+            p.entries.add(lex)
+        
+        rel = Relationship.objects.create(
+            editor=self.editor,
+            paradigm=self.pdm,
+            pronoun1=p1, pronoun2=p2,
+            entry1=lexs[0], entry2=lexs[1],
+            relationship="TS",
+            comment="a note"
+        )
+        rel.save()
+        return rel
     
     def test_200ok(self):
         self.assertEqual(self.response.status_code, 200)
@@ -79,6 +105,36 @@ class Test_Detail(DefaultSettingsMixin, TestCase):
         for p in self.pdm.pronoun_set.all():
             for e in p.entries.all():
                 self.assertContains(response, e.entry)
+    
+    def test_shows_relationships(self):
+        """Should show defined relationships if present"""
+        rel = self._create_relationship()
+        assert self.pdm.relationship_set.count() == 1, \
+            "I was expecting one relationship to be defined!"
+        
+        # re-call the view.
+        response = self.client.get(self.url)
+        # test
+        assert response.context['relationship_table'] is not None, \
+            "Template variable relationship_table should be initialised"
+        self.assertContains(response, "Relationships")
+        
+    def test_hides_relationships(self):
+        """Should NOT show relationships block if none are given"""
+        assert self.pdm.relationship_set.count() == 0, \
+            "I was expecting NO relationships to be defined!"
+        self.assertNotContains(self.response, "Relationships")
+        
+    def test_relationship_details(self):
+        rel = self._create_relationship()
+        assert self.pdm.relationship_set.count() == 1, \
+            "I was expecting one relationship to be defined!"
+        
+        # re-call the view.
+        response = self.client.get(self.url)
+        self.assertContains(response, "fudge-%d" % rel.pronoun1.id)
+        self.assertContains(response, "fudge-%d" % rel.pronoun2.id)
+
         
 
 # Test View: Add paradigm
