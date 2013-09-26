@@ -93,8 +93,13 @@ def edit(request, paradigm_id):
 def edit_relationships(request, paradigm_id):
     p = get_object_or_404(Paradigm, pk=paradigm_id)
     relationship_form = RelationshipFormSet(request.POST or None, instance=p)
-    # Yuck - filter querysets -> must be a better way to do this!
-    q = Pronoun.objects.all().filter(paradigm=p).annotate(entry_count=Count('entries')).exclude(entry_count=0)
+    
+    # Yuck - filter pronouns to match the given paradigm.
+    #    -> must be a better way to do this!
+    q = Pronoun.objects.all().filter(paradigm=p)
+    q = q.annotate(entry_count=Count('entries')).exclude(entry_count=0)
+    q = q.select_related()
+    
     for f in relationship_form.forms:
         f.fields['pronoun1'].queryset = q
         f.fields['pronoun2'].queryset = q
@@ -106,11 +111,15 @@ def edit_relationships(request, paradigm_id):
             obj.save()
         return redirect('pronouns:detail', p.id)
     
+    ptable = p.pronoun_set.prefetch_related("entries", "pronountype").all()
+    
+    
+    
     return render_to_response('pronouns/edit_relationships.html', {
         'paradigm': p,
         'language': p.language,
         'source': p.source,
-        'pronoun_rows': add_pronoun_table(p.pronoun_set.all()),
+        'pronoun_rows': add_pronoun_table(ptable),
         'relationships': relationship_form,
         'rule_form': RuleForm(),
         'applied_rules': p.rule_set.all(),

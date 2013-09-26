@@ -115,7 +115,7 @@ class RelationshipForm(forms.ModelForm):
     
     class Meta:
         model = Relationship
-        exclude = ('editor', 'added', 'paradigm')
+        exclude = ('editor', 'added', 'paradigm', 'entry1', 'entry2')
         hidden = ('id', 'paradigm')
         widgets = {
             'comment': forms.widgets.TextInput(attrs={'class': 'input-medium'}),
