@@ -133,7 +133,7 @@ class Pronoun(TrackedModel):
     entries = models.ManyToManyField('lexicon.Lexicon', null=True, blank=True)
     
     def __unicode__(self):
-        return u'%d: %s' % (self.paradigm.id, self.pronountype)
+        return u'%s' % self.pronountype
     
     @staticmethod
     def _generate_all_rows():
