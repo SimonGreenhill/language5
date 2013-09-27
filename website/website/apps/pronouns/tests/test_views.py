@@ -64,7 +64,6 @@ class Test_Detail(DefaultSettingsMixin, TestCase):
             editor=self.editor,
             paradigm=self.pdm,
             pronoun1=p1, pronoun2=p2,
-            entry1=lexs[0], entry2=lexs[1],
             relationship="TS",
             comment="a note"
         )

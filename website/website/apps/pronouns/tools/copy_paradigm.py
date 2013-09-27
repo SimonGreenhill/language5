@@ -70,8 +70,6 @@ def copy_paradigm(pdm, language):
         # update pronouns
         obj.pronoun1 = mapping_pronoun[obj.pronoun1.pk]
         obj.pronoun2 = mapping_pronoun[obj.pronoun2.pk]
-        obj.entry1 = mapping_entry[obj.entry1.pk]
-        obj.entry2 = mapping_entry[obj.entry2.pk]
         obj.save()
     
     return newpdm

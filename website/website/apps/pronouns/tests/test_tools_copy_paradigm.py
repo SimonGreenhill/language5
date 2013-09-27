@@ -83,12 +83,10 @@ class TestCopyParadigm(DefaultSettingsMixin, TestCase):
         rel1 = Relationship.objects.create(
             paradigm=self.pdm, 
             pronoun1=pronouns[0], pronoun2=pronouns[1], 
-            entry1=pronouns[0].entries.all()[0], entry2=pronouns[1].entries.all()[0],
             relationship='TS', editor=self.editor
         )
         rel2 = Relationship.objects.create(
             paradigm=self.pdm, pronoun1=pronouns[0], pronoun2=pronouns[2], 
-            entry1=pronouns[0].entries.all()[0], entry2=pronouns[2].entries.all()[0],
             relationship='FO', editor=self.editor
         )
         

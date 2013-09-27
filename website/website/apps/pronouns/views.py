@@ -94,15 +94,19 @@ def edit_relationships(request, paradigm_id):
     p = get_object_or_404(Paradigm, pk=paradigm_id)
     relationship_form = RelationshipFormSet(request.POST or None, instance=p)
     
-    # Yuck - filter pronouns to match the given paradigm.
-    #    -> must be a better way to do this!
-    q = Pronoun.objects.all().filter(paradigm=p)
-    q = q.annotate(entry_count=Count('entries')).exclude(entry_count=0)
-    q = q.select_related()
-    
-    for f in relationship_form.forms:
-        f.fields['pronoun1'].queryset = q
-        f.fields['pronoun2'].queryset = q
+    def _fix_relationship_form(relationship_form):
+        # Yuck - filter pronouns to match the given paradigm.
+        #    -> must be a better way to do this!
+        q = Pronoun.objects.all().filter(paradigm=p)
+        q = q.annotate(entry_count=Count('entries')).exclude(entry_count=0)
+        q = q.select_related()
+        
+        for f in relationship_form.forms:
+            f.fields['pronoun1'].queryset = q
+            f.fields['pronoun2'].queryset = q
+        return relationship_form
+        
+    relationship_form = _fix_relationship_form(relationship_form)
     
     if relationship_form.is_valid():
         instances = relationship_form.save(commit=False)
@@ -112,8 +116,6 @@ def edit_relationships(request, paradigm_id):
         return redirect('pronouns:detail', p.id)
     
     ptable = p.pronoun_set.prefetch_related("entries", "pronountype").all()
-    
-    
     
     return render_to_response('pronouns/edit_relationships.html', {
         'paradigm': p,
@@ -144,11 +146,10 @@ def process_rule(request, paradigm_id):
             )
             for m1, m2 in members:
                 # Ignore anything we've already set
-                if not Relationship.objects.has_relationship_between(m1[0], m1[1], m2[0], m2[1]):
+                if not Relationship.objects.has_relationship_between(m1[0], m2[0]):
                     rel = Relationship.objects.create(
                         paradigm = p, 
                         pronoun1_id=m1[0], pronoun2_id=m2[0], 
-                        entry1_id=m1[1], entry2_id=m2[1],
                         relationship='TS',
                         editor=request.user
                     )

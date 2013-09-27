@@ -32,7 +32,6 @@ class RelationshipMixin(DefaultSettingsMixin):
         self.rel = Relationship.objects.create(
             paradigm = self.pdm, 
             pronoun1=self.p1, pronoun2=self.p2, 
-            entry1=self.lex1, entry2=self.lex2,
             relationship='TS', editor=self.editor
         )
     
@@ -88,13 +87,13 @@ class Test_RelationshipManager_get_relationships_for_pronoun(RelationshipMixin, 
 class Test_RelationshipManager_has_relationship_between(RelationshipMixin, TestCase):
     """Test the function has_relationship_between on the RelationshipManager for Relationship"""
     def test_has_relationship_for_arg1_with_obj(self):
-        assert Relationship.objects.has_relationship_between(self.p1, self.lex1, self.p2, self.lex2)
+        assert Relationship.objects.has_relationship_between(self.p1, self.p2)
         
     def test_has_relationship_for_arg2_with_obj(self):
-        assert Relationship.objects.has_relationship_between(self.p2, self.lex2, self.p1, self.lex1)
+        assert Relationship.objects.has_relationship_between(self.p2, self.p1)
 
     def test_has_relationship_for_arg1_with_pk(self):
-        assert Relationship.objects.has_relationship_between(self.p1.pk, self.lex1.pk, self.p2.pk, self.lex2.pk)
+        assert Relationship.objects.has_relationship_between(self.p1.pk, self.p2.pk)
         
     def test_has_relationship_for_arg2_with_pk(self):
-        assert Relationship.objects.has_relationship_between(self.p2.pk, self.lex2.pk, self.p1.pk, self.lex1.pk)
+        assert Relationship.objects.has_relationship_between(self.p2.pk, self.p1.pk)
