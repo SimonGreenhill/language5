@@ -90,7 +90,7 @@ handlers = {
 
 filename = os.path.join(
      os.environ['IMPORTER_DATAROOT'],
-    "0007_pronouns_old_data.json"
+    "0007_pronouns_old_data.json.gz"
 )
 
 assert os.path.isfile(filename), "Filename {0} is not found".format(filename)
@@ -102,6 +102,9 @@ ed = User.objects.get(pk=1) # get editor
 
 for entity in data:
     fun = handlers.get(entity[u'model'])
-    assert fun is not None, "Unhandled Entity: {0}".format(entity[u'model'])
-    objs = fun(entity)
+    if fun is None:
+        pass#print "Unhandled Entity: {0}".format(entity[u'model'])
+    else:
+        print entity[u'model'], entity[u'pk']
+        objs = fun(entity)
 
