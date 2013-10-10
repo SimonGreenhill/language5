@@ -8,25 +8,20 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Deleting field 'Rule.relationship'
-        db.delete_column('pronoun_rules', 'relationship_id')
+        # Deleting field 'Relationship.entry2'
+        db.delete_column('pronoun_relationships', 'entry2_id')
 
-        # Adding M2M table for field relationships on 'Rule'
-        db.create_table('pronoun_rules_relationships', (
-            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
-            ('rule', models.ForeignKey(orm[u'pronouns.rule'], null=False)),
-            ('relationship', models.ForeignKey(orm[u'pronouns.relationship'], null=False))
-        ))
-        db.create_unique('pronoun_rules_relationships', ['rule_id', 'relationship_id'])
+        # Deleting field 'Relationship.entry1'
+        db.delete_column('pronoun_relationships', 'entry1_id')
 
 
     def backwards(self, orm):
 
-        # User chose to not deal with backwards NULL issues for 'Rule.relationship'
-        raise RuntimeError("Cannot reverse this migration. 'Rule.relationship' and its values cannot be restored.")
-        # Removing M2M table for field relationships on 'Rule'
-        db.delete_table('pronoun_rules_relationships')
+        # User chose to not deal with backwards NULL issues for 'Relationship.entry2'
+        raise RuntimeError("Cannot reverse this migration. 'Relationship.entry2' and its values cannot be restored.")
 
+        # User chose to not deal with backwards NULL issues for 'Relationship.entry1'
+        raise RuntimeError("Cannot reverse this migration. 'Relationship.entry1' and its values cannot be restored.")
 
     models = {
         u'auth.group': {
@@ -66,36 +61,62 @@ class Migration(SchemaMigration):
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
         u'core.family': {
-            'Meta': {'object_name': 'Family', 'db_table': "'families'"},
+            'Meta': {'ordering': "['family']", 'object_name': 'Family', 'db_table': "'families'"},
             'added': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'editor': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"}),
-            'family': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '64'}),
+            'family': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '64', 'db_index': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '64'})
         },
         u'core.language': {
-            'Meta': {'unique_together': "(('isocode', 'language'),)", 'object_name': 'Language', 'db_table': "'languages'"},
+            'Meta': {'ordering': "['language', 'dialect']", 'unique_together': "(('isocode', 'language', 'dialect'),)", 'object_name': 'Language', 'db_table': "'languages'", 'index_together': "[['language', 'dialect']]"},
             'added': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'classification': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            'dialect': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '64', 'null': 'True', 'blank': 'True'}),
             'editor': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"}),
             'family': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['core.Family']", 'symmetrical': 'False', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'information': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'isocode': ('django.db.models.fields.CharField', [], {'db_index': 'True', 'max_length': '3', 'null': 'True', 'blank': 'True'}),
-            'language': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '64', 'db_index': 'True'}),
+            'language': ('django.db.models.fields.CharField', [], {'max_length': '64', 'db_index': 'True'}),
             'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '64'})
         },
         u'core.source': {
-            'Meta': {'object_name': 'Source', 'db_table': "'sources'"},
+            'Meta': {'ordering': "['author', 'year']", 'object_name': 'Source', 'db_table': "'sources'", 'index_together': "[['author', 'year']]"},
             'added': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'author': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'author': ('django.db.models.fields.CharField', [], {'max_length': '255', 'db_index': 'True'}),
             'bibtex': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'comment': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'editor': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'reference': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '64'}),
-            'year': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'})
+            'year': ('django.db.models.fields.IntegerField', [], {'db_index': 'True', 'null': 'True', 'blank': 'True'})
+        },
+        u'lexicon.lexicon': {
+            'Meta': {'ordering': "['entry']", 'object_name': 'Lexicon', 'db_table': "'lexicon'"},
+            'added': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'annotation': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            'editor': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"}),
+            'entry': ('django.db.models.fields.CharField', [], {'max_length': '32', 'db_index': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'language': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['core.Language']"}),
+            'loan': ('django.db.models.fields.BooleanField', [], {'default': 'False', 'db_index': 'True'}),
+            'loan_source': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'loan_source_set'", 'null': 'True', 'to': u"orm['core.Language']"}),
+            'phon_entry': ('django.db.models.fields.CharField', [], {'max_length': '32', 'null': 'True', 'blank': 'True'}),
+            'source': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['core.Source']"}),
+            'word': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['lexicon.Word']"})
+        },
+        u'lexicon.word': {
+            'Meta': {'ordering': "['word']", 'object_name': 'Word', 'db_table': "'words'"},
+            'added': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'comment': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            'editor': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"}),
+            'full': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'quality': ('django.db.models.fields.CharField', [], {'default': "u'0'", 'max_length': '1'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '64'}),
+            'word': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '64', 'db_index': 'True'})
         },
         u'pronouns.paradigm': {
             'Meta': {'object_name': 'Paradigm', 'db_table': "'paradigms'"},
@@ -109,15 +130,23 @@ class Migration(SchemaMigration):
         u'pronouns.pronoun': {
             'Meta': {'object_name': 'Pronoun', 'db_table': "'pronouns'"},
             'added': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'alignment': ('django.db.models.fields.CharField', [], {'max_length': '1'}),
             'comment': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'editor': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"}),
-            'form': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            'entries': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'to': u"orm['lexicon.Lexicon']", 'null': 'True', 'blank': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'paradigm': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['pronouns.Paradigm']"}),
+            'pronountype': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['pronouns.PronounType']"})
+        },
+        u'pronouns.pronountype': {
+            'Meta': {'object_name': 'PronounType'},
+            'added': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'alignment': ('django.db.models.fields.CharField', [], {'max_length': '1'}),
+            'editor': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"}),
             'gender': ('django.db.models.fields.CharField', [], {'max_length': '1', 'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'number': ('django.db.models.fields.CharField', [], {'max_length': '2'}),
-            'paradigm': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['pronouns.Paradigm']"}),
-            'person': ('django.db.models.fields.CharField', [], {'max_length': '2'})
+            'person': ('django.db.models.fields.CharField', [], {'max_length': '2'}),
+            'word': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['lexicon.Word']"})
         },
         u'pronouns.relationship': {
             'Meta': {'object_name': 'Relationship', 'db_table': "'pronoun_relationships'"},

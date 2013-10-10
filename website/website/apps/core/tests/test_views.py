@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.test.client import Client
+from website.apps.core.models import Source
 
 class Test_LanguageIndex(TestCase):
     """Tests the Language Index page"""
@@ -56,6 +57,15 @@ class Test_LanguageDetails(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Also Known As:')
         self.assertContains(response, 'fudge')
+
+    def test_bad_paginator(self):
+        response = self.client.get('/language/language1?page=10000')
+        self.assertEqual(response.status_code, 404)
+        
+    def test_bad_nonint_paginator(self):
+        response = self.client.get('/language/language1?page=banana')
+        self.assertEqual(response.status_code, 404)
+
 
 
 class Test_ISOLookup(TestCase):
@@ -143,4 +153,30 @@ class Test_FamilyDetail(TestCase):
         self.assertContains(response, 'Language2')
         self.assertContains(response, 'Language3')
 
-    
+
+
+class Test_SourceDetail(TestCase):
+    """Tests the source_detail view"""
+    fixtures = ['test_core.json']
+    def setUp(self):
+        self.client = Client()
+        
+    def test_404_on_missing_source(self):
+        response = self.client.get('/source/fudge')
+        self.assertEqual(response.status_code, 404)
+        
+    def test_find_valid_source(self):
+        response = self.client.get('/source/testsource')
+        self.assertContains(response, 'Greenhill')
+        
+    def test_paginator(self):
+        response = self.client.get('/source/testsource?page=1')
+        self.assertContains(response, 'Greenhill')
+        
+    def test_bad_paginator(self):
+        response = self.client.get('/source/testsource?page=10000')
+        self.assertEqual(response.status_code, 404)
+        
+    def test_bad_nonint_paginator(self):
+        response = self.client.get('/source/testsource?page=banana')
+        self.assertEqual(response.status_code, 404)

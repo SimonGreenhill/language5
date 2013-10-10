@@ -31,7 +31,7 @@
     </h2>
     <p>
         <strong>Comment: </strong>
-        {{ paradigm.comment }}
+        {{ paradigm.annotation }}
     </p>    
     
     <div id="scroller">
@@ -47,7 +47,6 @@
     <form action="{% url "pronouns:edit" paradigm.id %}" method="post" class="form-inline">
         {% csrf_token %}
         <table id="pronouns" class="table table-bordered table-condensed">
-            {{ pronouns.management_form }}
             <thead>
                 <tr>
                     <td>&nbsp;</td>
@@ -58,41 +57,61 @@
                 </tr>
             </thead>
             <tbody>
-                {% for row, forms in pronouns.pronoun_rows %}
+                {% for row, formset in pronouns %}
                 <!-- ROW -->
                     <tr>
                         <th>{{ row }}</th>
                         <td class="alignment_a">
-                            {{ forms.A.form }}
-                            {{ forms.A.comment }}
-                            {% for hidden in forms.A.hidden_fields %}
-                                {{ hidden }}
-                            {% endfor %}
-                            <a href="#" onclick="$('#{{ forms.A.comment.auto_id }}').toggle('100')" ><i class="icon-comment"></i></a>
+							{{ formset.A.management_form }}
+                            {% for form in formset.A %}
+								<p>
+									{{ form.entry }}
+		                            {{ form.annotation }}
+		                            <a href="#" onclick="$('#{{ form.annotation.auto_id }}').toggle()" ><i class="icon-comment"></i></a>
+		                            {% for hidden in form.hidden_fields %}
+		                                {{ hidden }}
+		                            {% endfor %}
+								</p>
+							{% endfor %}
                         </td>
                         <td class="alignment_s">
-                            {{ forms.S.form }}
-                            {{ forms.S.comment }}
-                            {% for hidden in forms.S.hidden_fields %}
-                                {{ hidden }}
-                            {% endfor %}
-                            <a href="#" onclick="$('#{{ forms.S.comment.auto_id }}').toggle('100')" ><i class="icon-comment"></i></a>
+							{{ formset.S.management_form }}
+                            {% for form in formset.S %}
+								<p>
+									{{ form.entry }}
+		                            {{ form.annotation }}
+		                            {% for hidden in form.hidden_fields %}
+		                                {{ hidden }}
+		                            {% endfor %}
+		                            <a href="#" onclick="$('#{{ form.annotation.auto_id }}').toggle()" ><i class="icon-comment"></i></a>
+								</p>
+							{% endfor %}
                         </td>
                         <td class="alignment_o">
-                            {{ forms.O.form }}
-                            {{ forms.O.comment }}
-                            {% for hidden in forms.O.hidden_fields %}
-                                {{ hidden }}
-                            {% endfor %}
-                            <a href="#" onclick="$('#{{ forms.O.comment.auto_id }}').toggle('100')" ><i class="icon-comment"></i></a>
+							{{ formset.O.management_form }}
+                            {% for form in formset.O %}
+								<p>
+									{{ form.entry }}
+		                            {{ form.annotation }}
+		                            {% for hidden in form.hidden_fields %}
+		                                {{ hidden }}
+		                            {% endfor %}
+		                            <a href="#" onclick="$('#{{ form.annotation.auto_id }}').toggle()" ><i class="icon-comment"></i></a>
+								</p>
+							{% endfor %}
                         </td>
                         <td class="alignment_p">
-                            {{ forms.P.form }}
-                            {{ forms.P.comment }}
-                            {% for hidden in forms.P.hidden_fields %}
-                                {{ hidden }}
-                            {% endfor %}
-                            <a href="#" onclick="$('#{{ forms.P.comment.auto_id }}').toggle('100')" ><i class="icon-comment"></i></a>
+							{{ formset.P.management_form }}
+                            {% for form in formset.P %}
+								<p>
+									{{ form.entry }}
+		                            {{ form.annotation }}
+		                            {% for hidden in form.hidden_fields %}
+		                                {{ hidden }}
+		                            {% endfor %}
+		                            <a href="#" onclick="$('#{{ form.annotation.auto_id }}').toggle()" ><i class="icon-comment"></i></a>
+								</p>
+							{% endfor %}
                         </td>
                     </tr>
                     <!-- ENDROW -->

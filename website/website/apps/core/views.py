@@ -4,6 +4,7 @@ from django.http import Http404
 from django.shortcuts import render, redirect
 from django.views.generic import DetailView, TemplateView
 from django.core.urlresolvers import reverse
+from django.core.paginator import EmptyPage, PageNotAnInteger
 
 from website.apps.core.models import Family, Language, AlternateName, Source
 
@@ -68,9 +69,14 @@ class SourceDetail(DetailView):
         context = super(SourceDetail, self).get_context_data(**kwargs)
         context['attachments'] = kwargs['object'].attachment_set.all()
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
-            table = SourceLexiconTable(kwargs['object'].lexicon_set.select_related().all())
-            table.paginate(page=self.request.GET.get('page', 1), per_page=50)
-            context['lexicon_table'] = table
+            context['lexicon_table'] = SourceLexiconTable(kwargs['object'].lexicon_set.select_related().all())
+            try:
+                context['lexicon_table'].paginate(page=self.request.GET.get('page', 1), per_page=50)
+            except EmptyPage: # 404 on a empty page
+                raise Http404
+            except PageNotAnInteger: # 404 on invalid page number
+                raise Http404
+        
         return context
     
 
@@ -107,25 +113,30 @@ def language_detail(request, language):
             'links': my_lang.link_set.all(),
             'attachments': my_lang.attachment_set.all(),
         }
+        
+        # sources used 
+        source_ids = [_['source_id'] for _ in my_lang.lexicon_set.values('source_id').distinct().all()]
+        out['sources_used'] = Source.objects.filter(pk__in=source_ids)
+        
         # load lexicon if installed.
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
-            table = LanguageLexiconTable(my_lang.lexicon_set.select_related().all())
-            table.paginate(page=request.GET.get('page', 1), per_page=50)
-            out['lexicon_table'] = table
+            out['lexicon_table'] = LanguageLexiconTable(my_lang.lexicon_set.select_related().all())
+            try:
+                out['lexicon_table'].paginate(page=request.GET.get('page', 1), per_page=50)
+            except EmptyPage: # 404 on a empty page
+                raise Http404
+            except PageNotAnInteger: # 404 on invalid page number
+                raise Http404
         
         # load pronouns
         if 'website.apps.pronouns' in settings.INSTALLED_APPS:
             from website.apps.pronouns.models import Paradigm, Pronoun
-            from website.apps.pronouns.tools import add_pronoun_ordering, add_pronoun_table
+            from website.apps.pronouns.tools import add_pronoun_table
             try: 
-                p = Paradigm.objects.filter(language=my_lang)[0]
-                out['pronoun_rows'] =  add_pronoun_table(p.pronoun_set.all())
+                out['pronoun'] = Paradigm.objects.filter(language=my_lang)[0]
+                out['pronoun_rows'] =  add_pronoun_table(out['pronoun'].pronoun_set.all())
             except IndexError: # no paradigm
                 pass
-            
-            # sources used 
-            source_ids = [_['source_id'] for _ in my_lang.lexicon_set.values('source_id').distinct().all()]
-            out['sources_used'] = Source.objects.filter(pk__in=source_ids)
             
         return render(request, 'core/language_detail.html', out)
     except Language.DoesNotExist:

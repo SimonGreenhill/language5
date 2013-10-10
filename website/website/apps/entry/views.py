@@ -42,7 +42,7 @@ class TaskIndex(SingleTableView):
     table_pagination = {"per_page": 50}
     order_by_field = 'added'
     
-    queryset = Task.objects.all().select_related().filter(done=False)
+    queryset = Task.objects.filter(done=False).select_related('source', 'wordlist', 'language')    
     
     def get_context_data(self, **kwargs):
         context = super(TaskIndex, self).get_context_data(**kwargs)
