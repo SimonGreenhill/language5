@@ -51,9 +51,9 @@ def handle_pronoun(content):
                 editor_id=editor_id
             )
             lex.save()
-            print("Created Lexicon: {0} - {1} - {2} {3}".format(
+            print("Created Lexicon: {0} - {1} - {2}".format(
                 pdm.language, ptype, lex, 
-                '(%s)' % pron.comment if pron.comment is not None else '')
+                )
             )
             
             # 5. add to entries for this Pronoun.
