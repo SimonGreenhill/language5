@@ -31,17 +31,19 @@ def get_xy(label, get_latest=False):
         y.append(float(statistic.get_statistic(label)))
     return {'x': x, 'y': y, 'name': label}
 
+
 def statistics(request):
     """Shows statistics"""
     out = {}
-    out['charttype'] = "lineChart"
     out['charts'] = []
     
+    # add line graphs
     for i, label in enumerate(WANTED_STATISTICS, 1):
         out['charts'].append({
             'label': label,
+            'type': "lineChart",
             'id': 'chart_id_%d' % i,
             'data': get_xy(label, get_latest=True)
         })
-        
+    
     return render(request, 'statistics/details.html', out)

@@ -42,7 +42,7 @@ class TaskIndex(SingleTableView):
     table_pagination = {"per_page": 50}
     order_by_field = 'added'
     
-    queryset = Task.objects.all().select_related().filter(done=False)
+    queryset = Task.objects.filter(done=False).select_related('source', 'wordlist', 'language')    
     
     def get_context_data(self, **kwargs):
         context = super(TaskIndex, self).get_context_data(**kwargs)
@@ -113,7 +113,7 @@ def quick_entry(request):
         wordlist=form.cleaned_data['wordlist'],
         language=form.cleaned_data['language'],
         records=form.cleaned_data['records'],
-        view='GenericView',
+        view='WordlistView' if form.cleaned_data.get('wordlist', False) else 'GenericView',
         completable=True
     )
     t.save()

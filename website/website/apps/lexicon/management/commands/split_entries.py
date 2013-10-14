@@ -46,10 +46,10 @@ class Command(BaseCommand):
         if hasattr(self, 'stdout'):
             self.stdout.write(message)
     
-    def find_combined(self, language=None, word=None, source=None):
+    def find_combined(self, language=None, word=None, source=None, ignore_protoforms=True):
         combined = []
         
-        qset = Lexicon.objects.all()
+        qset = Lexicon.objects.all().order_by('language')
         
         # filter on language if given a language.
         if language:
@@ -61,6 +61,12 @@ class Command(BaseCommand):
         if source:
             qset = qset.filter(source=source)
         
+        # remove protoforms 
+        if ignore_protoforms:
+            #qset = qset.exclude(entry__startswith="*")
+            qset = qset.exclude(entry__regex=r'^\*\w+\(\w+[,/]\w+\)\w+')
+            
+            
         combined.extend(qset.filter(entry__icontains="/"))
         combined.extend(qset.filter(entry__icontains=","))
         return combined

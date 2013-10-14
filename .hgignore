@@ -11,3 +11,4 @@ syntax: regexp
 website/website/templates/revision.txt
 ^website/django.log
 ^website/django-db.log
+^static_root/

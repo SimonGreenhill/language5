@@ -98,7 +98,7 @@ class Test_Empty(HygieneDataMixin):
     def test_delete(self):
         assert len(Lexicon.objects.all()) == 6
         cmd = hygiene.Command()
-        cmd.handle([], delete=True)
+        cmd.delete(cmd.find_empty())
         assert len(Lexicon.objects.all()) == 2, "Expected 2 got: %d" % len(Lexicon.objects.all())
         assert Lexicon.objects.get(pk=self.good1.pk)
         assert Lexicon.objects.get(pk=self.good2.pk)
@@ -107,7 +107,7 @@ class Test_Empty(HygieneDataMixin):
 class Test_Duplicates(HygieneDataMixin):
     """Tests the hygiene management command - find-duplicates"""
     
-    def test_find_duplicates(self):
+    def test_find(self):
         dupe1 = Lexicon.objects.create(
                 language=self.good1.language, 
                 word=self.good1.word,
@@ -121,7 +121,7 @@ class Test_Duplicates(HygieneDataMixin):
         assert len(dupes) == 1
         assert dupes[0].id == dupe1.id
     
-    def test_delete_duplicates(self):
+    def test_delete(self):
         dupe1 = Lexicon.objects.create(
                 language=self.good1.language, 
                 word=self.good1.word,
@@ -131,7 +131,7 @@ class Test_Duplicates(HygieneDataMixin):
         )
         
         cmd = hygiene.Command()
-        cmd.handle([], delete=True)
+        cmd.delete(cmd.find_duplicates())
         assert len(Lexicon.objects.all()) == 2, "Expected 2 got: %d" % len(Lexicon.objects.all())
         assert Lexicon.objects.get(pk=self.good1.pk)
         assert Lexicon.objects.get(pk=self.good2.pk)
@@ -166,7 +166,6 @@ class Test_Duplicates(HygieneDataMixin):
         cmd = hygiene.Command()
         dupes = cmd.find_duplicates()
         assert len(dupes) == 0
-        
         
     def test_not_duplicate_if_different_language(self):
         newlang = Language.objects.create(language='B', slug='langb', 

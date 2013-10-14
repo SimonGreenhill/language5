@@ -5,7 +5,6 @@ pil                                                         # Python Imaging Lib
 psycopg2                                                    # database adaptor
 django-reversion>=1.7                                       # versioning
 South>=0.8.1                                                # database migrations
-django-robots                                               # robots.txt
 pytz                                                        # timezone support
 django-secure                                               # security
 django-discover-runner                                      # better test runner
@@ -16,7 +15,9 @@ django-nvd3                                                 # for graphing stati
 python-Levenshtein                                          # for string similarity metrics
 IPython                                                     # for local work.
 django-static-sitemaps                                      # static sitemaps
+django_compressor==dev                                      # for asset compression/cache busting
 # searching:
 -e git://github.com/etianen/django-watson.git#egg=django-watson
+
 
 

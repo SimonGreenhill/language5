@@ -1,6 +1,8 @@
 from django.db.models import Count
+from django.http import Http404
 from django.views.generic import DetailView
 from django.shortcuts import get_object_or_404
+from django.core.paginator import EmptyPage, PageNotAnInteger
 
 from website.apps.lexicon.models import Word, WordSubset, Cognate
 
@@ -39,7 +41,11 @@ class WordDetail(DetailView):
     
     def get_context_data(self, **kwargs):
         context = super(WordDetail, self).get_context_data(**kwargs)
-        table = WordLexiconTable(kwargs['object'].lexicon_set.select_related().all())
-        table.paginate(page=self.request.GET.get('page', 1), per_page=50)
-        context['lexicon'] = table
+        context['lexicon'] = WordLexiconTable(kwargs['object'].lexicon_set.select_related().all())
+        try:
+            context['lexicon'].paginate(page=self.request.GET.get('page', 1), per_page=50)
+        except EmptyPage: # 404 on a empty page
+            raise Http404
+        except PageNotAnInteger: # 404 on invalid page number
+            raise Http404
         return context

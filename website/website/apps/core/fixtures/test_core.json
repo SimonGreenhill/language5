@@ -29,8 +29,21 @@
      "language": "Language3",  "editor": 1, "isocode": "bbb", 
      "slug": "language3"}}, 
 
+ {"pk": 1, "model": "core.source", "fields": 
+     {
+         "added": "2011-09-01T10:20:30Z", 
+         "slug": "testsource",
+         "year": "2013", 
+         "author": "Greenhill",
+         "bibtex": "@{journal...}", 
+         "comment": "insightful!", 
+         "reference": "ref",
+         "editor": 1
+     }
+ },
 
 {"pk": 1, "model": "core.alternatename", "fields": 
     {"added": "2011-09-01T10:20:30Z", "name": "fudge", "language": 1,  
     "editor": 1, "slug": "fudge"}}
+
 ]

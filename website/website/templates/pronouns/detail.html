@@ -6,6 +6,14 @@
 
 {% block title %} Pronoun Paradigms: {{ paradigm.language }} {% endblock %}
 
+{% block head %}
+    <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+    <style>
+    .hide {display: none;}
+    </style>
+{% endblock %}
+
 {% block content %}
     <div class="page-header">
         <h1>Pronoun Paradigm: {{ paradigm.language }}</h1>
@@ -65,13 +73,17 @@
         
         {% include "pronouns/template_pronoun_detail.html" %}
         
-    <h3> Relationships: </h3>
     
-        {% if relationship_table %}
+	{% if relationship_table %}
+    	<h3> Relationships: </h3>
             {% render_table relationship_table "table.html" %}
-        {% else %}
-            <p class="error">No results found!</p>
-        {% endif %}
+    {% endif %}
     
+	<!-- initialise tooltips -->
+    <script>
+        $(document).ready(function() {
+          $('.tip').tooltip();
+        });
+    </script>
 {% endblock %}
 

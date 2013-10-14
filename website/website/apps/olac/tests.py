@@ -180,9 +180,6 @@ class Test_ListIdentifiers(TestCase):
         try:
             xmldoc = minidom.parseString(response.content)
         except:
-            print response.content
-            import IPython; IPython.embed()
-            
             raise
             
     def test_listidentifiers(self):

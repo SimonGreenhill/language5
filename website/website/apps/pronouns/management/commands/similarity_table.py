@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.core.management.base import BaseCommand
-from website.apps.pronouns.models import Paradigm, Pronoun
+from website.apps.pronouns.models import Paradigm, PronounType, Pronoun
 from website.apps.pronouns.tools import short_repr_row, PronounFinder
 
 class Command(BaseCommand):
@@ -10,7 +10,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         pdm = Paradigm.objects.get(pk=args[0])
         pf = PronounFinder()
-        labels = [short_repr_row(p) for p in Pronoun._generate_all_combinations()]
+        labels = [short_repr_row(p) for p in PronounType._generate_all_combinations()]
         data = {}
         for p1 in pdm.pronoun_set.all():
             p1_id = short_repr_row(p1)

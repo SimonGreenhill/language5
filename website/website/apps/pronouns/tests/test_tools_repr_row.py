@@ -1,8 +1,8 @@
 from django.test import TestCase
 
-from website.apps.pronouns.models import Paradigm, Pronoun
+from website.apps.pronouns.models import Paradigm, PronounType, Pronoun
 from website.apps.pronouns.tools import full_repr_row
-from website.apps.pronouns.tests.test_views import DefaultSettingsMixin
+from website.apps.pronouns.tests import DefaultSettingsMixin
 
 class TestReprRow(DefaultSettingsMixin, TestCase):
     
@@ -10,8 +10,10 @@ class TestReprRow(DefaultSettingsMixin, TestCase):
         self.add_fixtures()
     
     def test_obj(self):
-        p = Pronoun.objects.create(paradigm=self.pdm, editor=self.editor,
-                            number='sg', alignment="A", person="1", gender=None)
+        pt = PronounType.objects.create(number='sg', alignment="A", person="1", 
+                                        gender=None, editor=self.editor, word=self.word)
+        p = Pronoun.objects.create(paradigm=self.pdm, editor=self.editor, 
+                            pronountype=pt)
         assert full_repr_row(p) == "1st (excl) Person Singular"
     
     def test_dict(self):
@@ -24,8 +26,9 @@ class TestReprRow(DefaultSettingsMixin, TestCase):
         assert full_repr_row(d) == "1st (excl) Person Singular"
         
     def test_obj_no_gender(self):
-        p = Pronoun.objects.create(paradigm=self.pdm, editor=self.editor,
-                            number='sg', alignment="A", person="1", gender="M")
+        pt = PronounType.objects.create(number='sg', alignment="A", person="1", 
+                                        gender="M", editor=self.editor, word=self.word)
+        p = Pronoun.objects.create(paradigm=self.pdm, editor=self.editor, pronountype=pt)
         assert full_repr_row(p) == "1st (excl) Person Singular Masculine"
         
     def test_dict_no_gender(self):
@@ -38,6 +41,6 @@ class TestReprRow(DefaultSettingsMixin, TestCase):
         assert full_repr_row(d) == "1st (excl) Person Singular Masculine"
         
     def test_no_errors(self):
-        for row in Pronoun._generate_all_combinations():
+        for row in PronounType._generate_all_combinations():
             full_repr_row(row)
 

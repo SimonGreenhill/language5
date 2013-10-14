@@ -1,6 +1,8 @@
 from django.db import models
+from django.db.models.signals import pre_save
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
+from website.signals import create_redirect
 
 import watson
 
@@ -202,6 +204,10 @@ class PopulationSize(TrackedModel):
         db_table = 'popsize'
 
 
+# pre-save adding of redirects when slug field altered.
+pre_save.connect(create_redirect, sender=Source, dispatch_uid="source:001")
+pre_save.connect(create_redirect, sender=Family, dispatch_uid="family:001")
+pre_save.connect(create_redirect, sender=Language, dispatch_uid="language:001")
 
 
 watson.register(Language, fields=('family', 'language', 'dialect', 'isocode', 'classification', 'information'))

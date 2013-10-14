@@ -82,3 +82,11 @@ class Test_WordDetail(TestSetup, TestCase):
         self.assertEquals(response.status_code, 200)
         assert 'table' in response.context
         self.assertEquals(len(response.context['table'].rows), 2)
+
+    def test_bad_paginator(self):
+        response = self.client.get('/word/hand?page=10000')
+        self.assertEqual(response.status_code, 404)
+        
+    def test_bad_nonint_paginator(self):
+        response = self.client.get('/word/hand?page=banana')
+        self.assertEqual(response.status_code, 404)

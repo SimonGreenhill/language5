@@ -1,10 +1,12 @@
 from django.db import models
+from django.db.models.signals import pre_save
 from django.core.urlresolvers import reverse
 
 import watson
 
 from website.apps.core.models import TrackedModel
 from website.apps.statistics import statistic
+from website.signals import create_redirect
 
 
 
@@ -176,6 +178,10 @@ class Correspondence(TrackedModel):
     class Meta:
         db_table = 'correspondences'
 
+
+# pre-save adding of redirects when slug field altered.
+pre_save.connect(create_redirect, sender=Word, dispatch_uid="word:001")
+pre_save.connect(create_redirect, sender=WordSubset, dispatch_uid="wordsubset:001")
 
 
 watson.register(Word, fields=('word', 'full'))

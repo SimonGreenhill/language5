@@ -5,7 +5,7 @@ from django.views.generic import TemplateView, RedirectView
 from django.contrib import admin
 admin.autodiscover()
 
-from website.apps.core.views import LanguageIndex
+from website.apps.core.views import LanguageIndex, RobotsTxt
 from website.apps.core.views import SourceIndex, SourceDetail
 from website.apps.core.views import FamilyIndex, FamilyDetail
 
@@ -58,10 +58,10 @@ urlpatterns = patterns('',
     url(r'^sitemap.xml', include('static_sitemaps.urls')),
        
     # Robots.txt
-    (r'^robots\.txt$', include('robots.urls')),
+    url(r'^robots\.txt$', RobotsTxt.as_view(),  name='robots_txt'),
     
     # OAI:
-    (r'^oai/', include('website.apps.olac.urls')),
+    url(r'^oai/', include('website.apps.olac.urls')),
     
     # ADMIN
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -129,4 +129,4 @@ if settings.DEBUG:
     urlpatterns += patterns('',
         (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     )
-
+    

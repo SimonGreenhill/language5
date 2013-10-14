@@ -90,7 +90,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'compressor.finders.CompressorFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -101,9 +101,11 @@ TEST_RUNNER = 'discover_runner.DiscoverRunner'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-    # 'django.template.loaders.eggs.Loader',
+    ('django.template.loaders.cached.Loader', (
+        'django.template.loaders.filesystem.Loader',
+        'django.template.loaders.app_directories.Loader',
+        'django.template.loaders.eggs.Loader'
+    )),
 )
 
 MIDDLEWARE_CLASSES = [
@@ -117,6 +119,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware',
+    'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
 ]    
 
 ROOT_URLCONF = 'website.urls'
@@ -156,12 +159,12 @@ INSTALLED_APPS = [
     # third-party
     'south',                             # south: database migrations
     'reversion',                         # reversion: object version control.
-    'robots',                            # django-robots: robots.txt handling
     'djangosecure',                      # django-secure: Security helper
     'django_tables2',                    # django-tables2: tables helper
     'watson',                            # search
     'dbbackup',                          # backup
     'static_sitemaps',                   # static sitemaps.
+    'compressor',                        # django-compressor for asset compression and versioning.
     
     # website
     'website.apps.core',                 # core functionality
@@ -283,9 +286,6 @@ OLAC_SETTINGS = {
     'shortLocation': 'Canberra, Australia',
 }
 
-
-# cache the ``robots.txt`` for 24 hours (86400 seconds).
-ROBOTS_CACHE_TIMEOUT = 60*60*24
 
 # Set PIWIK ID
 PIWIK_ID = 1

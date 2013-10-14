@@ -6,8 +6,9 @@
 {% block head %}
     {% include_nvd3jscss %}
     {% for chart in charts %}
-        {% load_chart charttype chart.data chart.id True "%d %b %Y" %}
+        {% load_chart chart.type chart.data chart.id True "%d %b %Y" %}
     {% endfor %}
+
 {% endblock %}
 
 {% block content %}
@@ -15,9 +16,13 @@
         <h1>Statistics for {{ SITE_NAME }}</h1>
     </div>
     
+    
     {% for chart in charts %}
-        <h2>{{ chart.label }}</h2>
-        {% include_container chart.id 200 700 %}
+        <div class="span6">
+            <h2>{{ chart.label }}</h2>
+        
+            {% include_container chart.id 200 600 %}
+        </div>
     {% endfor %}
     
 {% endblock %}
