@@ -17,6 +17,20 @@ env.remote_app_dir='/home/sjg/webapps/transnewguinea/transnewguinea/website'
 # virtualenv
 env.venv = 'transnewguinea'
 
+# things that dumpdata should ignore
+dump_ignores = [
+    'contenttypes', 
+    'watson.searchentry', 
+    'admin.logentry',
+    'sessions.session', 
+    'south.migrationhistory',
+]
+
+
+
+
+
+
 def deploy():
     """Deploy the site."""
     print '\nDEPLOY >> Updating remote mercurial repository...'
@@ -86,8 +100,10 @@ def update():
 
 def snapshot():
     """Takes a snapshot"""
-    run("workon %s; cd %s; python manage.py dumpdata -e contenttypes > %s/dump.json" \
-        % (env.venv, env.remote_app_dir, env.remote_root_dir))
+    ignore = " ".join(['-e %s' % i for i in dump_ignores])
+    
+    run("workon %s; cd %s; python manage.py dumpdata --indent=2 -e %s > %s/dump.json" \
+        % (env.venv, env.remote_app_dir, ignore, env.remote_root_dir))
     run("cd %s; gzip -9 dump.json" % env.remote_root_dir)
     get("%s/dump.json.gz" % env.remote_root_dir, "dump.json.gz")
 
