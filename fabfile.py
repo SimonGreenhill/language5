@@ -12,7 +12,7 @@ env.remote_apache_dir='/home/sjg/webapps/transnewguinea/apache2'
 env.remote_repository_dir='/home/sjg/webapps/transnewguinea/transnewguinea'
 
 # the dir with manage.py.
-env.remote_app_dir='/home/sjg/webapps/transnewguinea/language5/website'
+env.remote_app_dir='/home/sjg/webapps/transnewguinea/transnewguinea/website'
     
 # virtualenv
 env.venv = 'transnewguinea'
