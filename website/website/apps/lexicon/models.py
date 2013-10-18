@@ -96,9 +96,9 @@ class Lexicon(TrackedModel):
     source = models.ForeignKey('core.Source')
     word = models.ForeignKey('Word')
     
-    entry = models.CharField(max_length=32, db_index=True, 
+    entry = models.CharField(max_length=128, db_index=True, 
         help_text="Entry from source")
-    phon_entry = models.CharField(max_length=32, null=True, blank=True,
+    phon_entry = models.CharField(max_length=128, null=True, blank=True,
         help_text="Entry in Phonological format (in known)")
     
     annotation = models.TextField(blank=True, null=True,
