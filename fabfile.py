@@ -101,8 +101,7 @@ def update():
 def snapshot():
     """Takes a snapshot"""
     ignore = " ".join(['-e %s' % i for i in dump_ignores])
-    
-    run("workon %s; cd %s; python manage.py dumpdata --indent=2 -e %s > %s/dump.json" \
+    run("workon %s; cd %s; python manage.py dumpdata --indent=2 %s > %s/dump.json" \
         % (env.venv, env.remote_app_dir, ignore, env.remote_root_dir))
     run("cd %s; gzip -9 dump.json" % env.remote_root_dir)
     get("%s/dump.json.gz" % env.remote_root_dir, "dump.json.gz")
