@@ -115,4 +115,5 @@ def clone():
     local("cd website; python manage.py syncdb")
     local("cd website; python manage.py migrate --noinput")
     local("cd website; python manage.py loaddata ../dump.json")
+    local("cd website; python manage.py createcachetable cache")
     local("rm dump.json")
