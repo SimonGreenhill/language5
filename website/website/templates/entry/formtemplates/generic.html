@@ -1,5 +1,5 @@
 {% load staticfiles %}
-<form action="/entry/{{ task.id }}" method="post" class="form-inline">
+<form action="{% url "task:detail" task.id %}" method="post" class="form-inline">
     {% csrf_token %}
     {{ formset.management_form }}
     <table id="entryform" class="table table-bordered table-condensed">
