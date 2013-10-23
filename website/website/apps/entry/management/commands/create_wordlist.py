@@ -20,7 +20,7 @@ class Command(BaseCommand):
             help='Run'),
         )
     
-    def parse(self, handle):
+    def parse(self, handle, create=False):
         """Reads a filename. Ordering is set to order in file
         
         File format: 
@@ -61,16 +61,28 @@ class Command(BaseCommand):
                 except Word.DoesNotExist:
                     # we're going to crash anyway later. Just put a placeholder for now
                     w = None
-                    errors.append(line)
+                    errors.append((order_id, line))
                 
                 words[order_id] = w
                 order_id += 1
         
         if len(errors):
-            raise Word.DoesNotExist(
-                "%d words don't exist: %s" % (len(errors), ", ".join(errors))
-            )
-            
+            if create:
+                # creating the following words...
+                ed = User.objects.get(pk=1)
+                for order_id, slug in errors:
+                    w = Word.objects.create(
+                        word = slug.replace("-", " "),
+                        slug = slug,
+                        editor = ed
+                    )
+                    w.save()
+                    words[order_id] = w # move into words
+            else:      
+                errorstring = ", ".join(["%d. %s" % e for e in errors])
+                raise Word.DoesNotExist(
+                    "%d words don't exist: %s" % (len(errors), errorstring)
+                )
         
         return words
         
@@ -80,9 +92,8 @@ class Command(BaseCommand):
             quit()
         
         with open(args[1], 'rU') as handle:
-            words = self.parse(handle)
+            words = self.parse(handle, options['create'])
         sys.stdout.write("%d words loaded from %s" % (len(words), args[1]))
-        
         
         if 'run' in options and options['run']:
             ed = User.objects.get(pk=1)
