@@ -82,6 +82,7 @@ class Command(BaseCommand):
                         editor = ed
                     )
                     w.save()
+                    print("Created word: {}".format(w))
                     words[order_id] = w # move into words
             else:      
                 errorstring = ", ".join(["%d. %s" % e for e in errors])
@@ -97,7 +98,7 @@ class Command(BaseCommand):
             quit()
         
         with open(args[1], 'rU') as handle:
-            words = self.parse(handle, options['create'])
+            words = self.parse(handle, options['create'] )
         sys.stdout.write("%d words loaded from %s" % (len(words), args[1]))
         
         if 'run' in options and options['run']:
