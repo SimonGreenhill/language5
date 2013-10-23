@@ -18,6 +18,11 @@ class Command(BaseCommand):
             dest='run',
             default=False,
             help='Run'),
+        make_option('--create',
+            action='store_true',
+            dest='create',
+            default=False,
+            help='Create unknown words'),
         )
     
     def parse(self, handle, create=False):
@@ -92,7 +97,7 @@ class Command(BaseCommand):
             quit()
         
         with open(args[1], 'rU') as handle:
-            words = self.parse(handle, 'create' in options)
+            words = self.parse(handle, options['create'])
         sys.stdout.write("%d words loaded from %s" % (len(words), args[1]))
         
         if 'run' in options and options['run']:
