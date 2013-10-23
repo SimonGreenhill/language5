@@ -92,7 +92,7 @@ class Command(BaseCommand):
             quit()
         
         with open(args[1], 'rU') as handle:
-            words = self.parse(handle, options['create'])
+            words = self.parse(handle, 'create' in options)
         sys.stdout.write("%d words loaded from %s" % (len(words), args[1]))
         
         if 'run' in options and options['run']:
