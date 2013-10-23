@@ -1,4 +1,3 @@
-{% load staticfiles %}
 <form action="{% url "task:detail" task.id %}" method="post" class="form-inline">
     {% csrf_token %}
     {{ formset.management_form }}
