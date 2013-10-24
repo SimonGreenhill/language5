@@ -48,7 +48,7 @@ def link_glottolog(lang):
 
 
 @register.filter
-def lang_map(lang):
+def language_map(lang):
     """Embeds a link to LLMap"""
     WIDTH = 400
     HEIGHT = 300
