@@ -96,9 +96,9 @@ class Lexicon(TrackedModel):
     source = models.ForeignKey('core.Source')
     word = models.ForeignKey('Word')
     
-    entry = models.CharField(max_length=32, db_index=True, 
+    entry = models.CharField(max_length=128, db_index=True, 
         help_text="Entry from source")
-    phon_entry = models.CharField(max_length=32, null=True, blank=True,
+    phon_entry = models.CharField(max_length=128, null=True, blank=True,
         help_text="Entry in Phonological format (in known)")
     
     annotation = models.TextField(blank=True, null=True,
@@ -164,6 +164,9 @@ class CorrespondenceSet(TrackedModel):
     source = models.ForeignKey('core.Source', blank=True, null=True)
     comment = models.TextField(blank=True, null=True, help_text="Notes")
     
+    def __unicode__(self):
+        return u"Correspondence Set: %s" % self.comment
+    
     class Meta:
         db_table = 'corrsets'
         verbose_name_plural = 'Correspondence Sets'
@@ -174,6 +177,9 @@ class Correspondence(TrackedModel):
     language = models.ForeignKey('core.Language')
     corrset = models.ForeignKey('CorrespondenceSet')
     rule = models.CharField(max_length=5)
+    
+    def __unicode__(self):
+        return u"Correspondence: %s /%s/" % (self.language.slug, self.rule)
     
     class Meta:
         db_table = 'correspondences'

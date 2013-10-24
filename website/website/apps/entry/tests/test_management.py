@@ -105,3 +105,15 @@ class TestWordlistParser(TestCase):
         content.reset() # rewind
         with self.assertRaises(ValueError):
             wl = self.cmd.parse(content)
+    
+    def test_create(self):
+        content = cStringIO.StringIO()
+        content.write('one\n')
+        content.write('two\n')
+        content.write('three\n')        
+        content.reset() # rewind
+
+        assert Word.objects.count() == 2
+        wl = self.cmd.parse(content, create=True)
+        assert Word.objects.count() == 3
+        assert Word.objects.get(slug='three')
