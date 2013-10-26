@@ -73,10 +73,14 @@ def add(request):
 @login_required()
 def edit(request, paradigm_id):
     p = get_object_or_404(Paradigm, pk=paradigm_id)
+    paradigm_form = ParadigmForm(request.POST or None, instance=p)
     pronoun_form = create_pronoun_formset(p, request.POST or None)
     
     # save if valid.
-    if pronoun_formsets_are_valid(pronoun_form):
+    if pronoun_formsets_are_valid(pronoun_form) and paradigm_form.is_valid():
+        p = paradigm_form.save(commit=False)
+        p.editor = request.user
+        p.save()
         for pronoun, formset in pronoun_form:
             saved = save_pronoun_formset(p, pronoun, formset, request.user)
         return redirect('pronouns:detail', p.id)
@@ -84,6 +88,7 @@ def edit(request, paradigm_id):
     # the initial view and the error view
     return render_to_response('pronouns/edit.html', {
         'paradigm': p,
+        'paradigm_form': paradigm_form,
         'pronouns': sort_formset(pronoun_form),
     }, context_instance=RequestContext(request))
 

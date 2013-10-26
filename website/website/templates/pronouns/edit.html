@@ -29,10 +29,6 @@
     <h2>
         <strong>Language: </strong> {{ paradigm.language }}
     </h2>
-    <p>
-        <strong>Comment: </strong>
-        {{ paradigm.annotation }}
-    </p>    
     
     <div id="scroller">
         <div class="row clearfix">
@@ -46,6 +42,17 @@
 
     <form action="{% url "pronouns:edit" paradigm.id %}" method="post" class="form-inline">
         {% csrf_token %}
+		
+		<p class="well">
+			{{ paradigm_form.management_form }}
+			{{ paradigm_form.language.as_hidden }}
+			{{ paradigm_form.source.as_hidden }}
+
+			{{ paradigm_form.comment.label }}
+			{{ paradigm_form.comment }}
+	    </p>   
+		
+		
         <table id="pronouns" class="table table-bordered table-condensed">
             <thead>
                 <tr>
