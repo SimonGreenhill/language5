@@ -48,7 +48,7 @@ def link_glottolog(lang):
 
 
 @register.filter
-def lang_map(lang):
+def language_map(lang):
     """Embeds a link to LLMap"""
     WIDTH = 400
     HEIGHT = 300
@@ -57,7 +57,7 @@ def lang_map(lang):
         return mark_safe("""
         <img src="http://llmap.org/language/%s.png?width=%d&height=%d" alt="Map of %s: courtesy of LL-MAP" />
         """ % (lang.isocode, WIDTH, HEIGHT, unicode(lang))
-        ).strip()
+        )
     else:
         return ""
 

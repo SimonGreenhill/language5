@@ -5,7 +5,7 @@ from website.apps.core.templatetags.website_tags import link_olac
 from website.apps.core.templatetags.website_tags import link_multitree
 from website.apps.core.templatetags.website_tags import link_glottolog
 from website.apps.core.templatetags.website_tags import link_llmap
-from website.apps.core.templatetags.website_tags import lang_map
+from website.apps.core.templatetags.website_tags import language_map
 from website.apps.core.models import Language
 
 class LanguageMixin(object):
@@ -87,15 +87,15 @@ class Test_Link_Glottolog(LanguageMixin, TestCase):
 class Test_Language_Map(LanguageMixin, TestCase):
     def test(self):
         self.assertEqual(
-            lang_map(self.language), 
+            language_map(self.language).strip(), 
             '<img src="http://llmap.org/language/%s.png?width=%d&height=%d" alt="Map of %s: courtesy of LL-MAP" />' %
             (self.language.isocode, 400, 300, self.language.language)
         )
     def test_empty(self):
-        self.assertEqual(lang_map(""), "")
+        self.assertEqual(language_map(""), "")
     
     def test_empty2(self):
-        self.assertEqual(lang_map(None), "")
+        self.assertEqual(language_map(None), "")
         
     
 
