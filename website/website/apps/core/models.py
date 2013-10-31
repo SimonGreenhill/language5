@@ -218,10 +218,11 @@ watson.register(Link, fields=('language', 'link', 'description'))
 #watson.register(Note, fields=('language', 'source', 'note'))
 
 statistic.register("Number of Families", Family)
-statistic.register("Number of Languages", Language)
-statistic.register("Number of Sources", Source)
+statistic.register("Number of Languages", Language, graph=1)
+statistic.register("Number of Sources", Source, graph=2)
 statistic.register("Number of Notes", Note)
 statistic.register("Number of Alternate Names", AlternateName)
 statistic.register("Number of Locations", Location)
 statistic.register("Number of Links", Link)
 statistic.register("Number of Files", Attachment)
+
