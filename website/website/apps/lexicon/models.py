@@ -195,9 +195,9 @@ watson.register(WordSubset, fields=('subset', 'description'))
 watson.register(Lexicon, fields=('entry', 'annotation'))
 
 
-statistic.register("Number of Words", Word)
+statistic.register("Number of Words", Word, graph=3)
 statistic.register("Number of Word Sets", WordSubset)
-statistic.register("Number of Lexical Items", Lexicon)
+statistic.register("Number of Lexical Items", Lexicon, graph=4)
 statistic.register("Number of Cognates", Cognate)
 statistic.register("Number of Cognate Sets", CognateSet)
 statistic.register("Number of Correspondences", Correspondence)

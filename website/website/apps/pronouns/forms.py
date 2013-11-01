@@ -13,7 +13,10 @@ from website.apps.pronouns.tools import full_repr_row
 class ParadigmForm(forms.ModelForm):
     class Meta:
         model = Paradigm
-        exclude = ('editor', 'added', 'phon_entry', 'loan', 'loan_source')
+        widgets = {
+            'comment': forms.widgets.Textarea(attrs={'cols':60, 'rows':5, 'class': 'field span12'}),
+        }
+        exclude = ('editor', 'added',)
 
 #-----------------------------------------------------------------
 # ENTRIES
