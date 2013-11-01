@@ -28,7 +28,7 @@ class Test_Split_Entries(HygieneDataMixin):
                 word=self.word,
                 source=self.source,
                 editor=self.editor,
-                entry="foo,bar"
+                entry="foo, bar"
             ),
         }
         

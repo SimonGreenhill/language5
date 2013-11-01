@@ -6,16 +6,9 @@ from website.apps.statistics import statistic
 
 GRAPH_START_TIME = datetime.strptime("01 Apr 2013 00:00:00", "%d %b %Y %H:%M:%S")
 
-WANTED_STATISTICS = [
-    "Number of Languages", 
-    "Number of Sources", 
-    "Number of Words", 
-    "Number of Lexical Items",
-]
 
 def format_time_struct(date):
     return int(mktime(date)) * 1000 # I have no idea why * 1000 is needed
-    
     
 def get_xy(label, get_latest=False):
     x = [format_time_struct(GRAPH_START_TIME.timetuple()),]
@@ -31,14 +24,12 @@ def get_xy(label, get_latest=False):
         y.append(float(statistic.get_statistic(label)))
     return {'x': x, 'y': y, 'name': label}
 
-
 def statistics(request):
     """Shows statistics"""
-    out = {}
-    out['charts'] = []
+    out = {'charts': []}
     
     # add line graphs
-    for i, label in enumerate(WANTED_STATISTICS, 1):
+    for i, label in enumerate(statistic.get_graphing(), 1):
         out['charts'].append({
             'label': label,
             'type': "lineChart",

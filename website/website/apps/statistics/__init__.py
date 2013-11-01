@@ -28,7 +28,7 @@ class Statistic(object):
         return model.objects.count()
         
     def get_statistic(self, label):
-        model, field, method = self._registry[label]
+        model, field, method, graph = self._registry[label]
         return self._statistics[method](model, field)
     
     def update(self, save=True):
@@ -45,8 +45,16 @@ class Statistic(object):
                     value = value
                 )
         return out
-            
-    def register(self, label, model, field='id', method="count"):
+        
+    def get_graphing(self):
+        """Returns a list of the statistics to graph"""
+        tograph = []
+        for label in self._registry:
+            if self._registry[label][-1] > 0:
+                tograph.append((label, self._registry[label][-1]))
+        return [_[0] for _ in sorted(tograph, key=lambda tup: tup[1])]
+    
+    def register(self, label, model, field='id', method="count", graph=False):
         """
         Registers the given model(s) with the given admin class.
         """
@@ -59,6 +67,6 @@ class Statistic(object):
                 'Invalid statistical method `%s`. Valid values are: %s' % (method, ",".join(self._statistics))
             )
         # Instantiate the admin class to save in the registry
-        self._registry[label] = (model, field, method)
+        self._registry[label] = (model, field, method, graph)
 
 statistic = Statistic()

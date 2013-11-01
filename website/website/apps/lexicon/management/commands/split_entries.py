@@ -68,7 +68,7 @@ class Command(BaseCommand):
             
             
         combined.extend(qset.filter(entry__icontains="/"))
-        combined.extend(qset.filter(entry__icontains=","))
+        combined.extend(qset.filter(entry__icontains=", "))
         return combined
     
     def split_and_replace(self, obj):

@@ -57,7 +57,7 @@ def language_map(lang):
         return mark_safe("""
         <img src="http://llmap.org/language/%s.png?width=%d&height=%d" alt="Map of %s: courtesy of LL-MAP" />
         """ % (lang.isocode, WIDTH, HEIGHT, unicode(lang))
-        ).strip()
+        )
     else:
         return ""
 
