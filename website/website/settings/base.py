@@ -96,9 +96,6 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '=_1)@n652y5qic+)1sj)7!#p##kn0#!k2@yr&amp;e)!019$0tynt2'
 
-# Replace Test Runner with the auto-discover one (django-discover-runner)
-TEST_RUNNER = 'discover_runner.DiscoverRunner'
-
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     ('django.template.loaders.cached.Loader', (
