@@ -1,20 +1,19 @@
-django>=1.5                                                 # django framework
+django>=1.6                                                 # django framework
 django-extensions>=1.1.1                                    # useful tools
 fabric                                                      # deployment etc
-pil                                                         # Python Imaging Library
+pillow                                                      # A better python imaging library
 psycopg2                                                    # database adaptor
 django-reversion>=1.7                                       # versioning
 South>=0.8.1                                                # database migrations
 pytz                                                        # timezone support
 django-secure                                               # security
-django-discover-runner                                      # better test runner
 django-tables2                                              # better table handling
 django-dbbackup                                             # database & media backup
 simples3                                                    # Amazon S3 for backup
 django-nvd3                                                 # for graphing statistics
 python-Levenshtein                                          # for string similarity metrics
 IPython                                                     # for local work.
-django-static-sitemaps                                      # static sitemaps
+django-static-sitemaps>=1.5.5                               # static sitemaps
 django_compressor==dev                                      # for asset compression/cache busting
 # searching:
 -e git://github.com/etianen/django-watson.git#egg=django-watson
