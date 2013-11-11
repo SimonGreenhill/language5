@@ -74,7 +74,11 @@ class PronounType(TrackedModel):
                 seen.append(p)
         return out
     
-    
+
+SYSTEM_CHOICES = (
+    ('F', 'Free'),
+    ('B', 'Bound'),
+)    
 
 class Paradigm(TrackedModel):
     """Paradigm Details"""
@@ -82,6 +86,9 @@ class Paradigm(TrackedModel):
     source = models.ForeignKey(Source)
     comment = models.TextField(blank=True, null=True,
         help_text="Comment on this paradigm")
+    system_type = models.CharField(max_length=1, choices=SYSTEM_CHOICES,
+        default="F",
+        help_text="Type of Pronoun System")
     
     def __unicode__(self):
         return u"%s" % self.language.slug
