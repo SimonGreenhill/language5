@@ -82,7 +82,7 @@ class Command(BaseCommand):
                         editor = ed
                     )
                     w.save()
-                    print("Created word: {}".format(w))
+                    #print("Created word: {}".format(w))
                     words[order_id] = w # move into words
             else:      
                 errorstring = ", ".join(["%d. %s" % e for e in errors])

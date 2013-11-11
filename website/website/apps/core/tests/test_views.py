@@ -114,7 +114,7 @@ class Test_FamilyIndex(TestCase):
     def setUp(self):
         self.client = Client()
     
-    def missing_trailing_slash(self):
+    def test_missing_trailing_slash(self):
         """index pages should redirect to trailing slash"""
         response = self.client.get('/family')
         self.assertRedirects(response, '/family/', status_code=301, target_status_code=200)
