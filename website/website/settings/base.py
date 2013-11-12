@@ -167,6 +167,7 @@ INSTALLED_APPS = [
     'website.apps.core',                 # core functionality
     'website.apps.statistics',           # statistics
     'website.apps.lexicon',              # lexicon
+    'website.apps.olac',                 # OLAC
     'django_nvd3',                       # for graphing statistics
     
     # NOTE: all other apps should be added to local.py
