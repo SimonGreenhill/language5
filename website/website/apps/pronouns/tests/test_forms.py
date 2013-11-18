@@ -125,7 +125,7 @@ class TestFormsetCreator(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
         for formid, form in formsets:
             assert len(form.forms) == formid.entries.count() == 1
             # is PK correct?
-            assert form.forms[0].initial['id'] == formid.entries.all()[0].pk
+            assert form.forms[0].initial['entry'] == 'pron-%d' % formid.entries.all()[0].pk
     
     def test_each_formset_gets_the_right_values(self):
         """Is the value of each form field set correctly?"""

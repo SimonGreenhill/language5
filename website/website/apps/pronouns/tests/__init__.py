@@ -6,9 +6,6 @@ from website.apps.pronouns.models import Paradigm, PronounType, Pronoun
 
 # Mixin for default test content
 class DefaultSettingsMixin(object):
-    
-    fixtures = ['test_pronoun_types.json']
-    
     def add_fixtures(self):
         self.editor = User.objects.create_user('admin', 'admin@admin.com', "test")
         self.lang = Language.objects.create(language='A', slug='langa', 

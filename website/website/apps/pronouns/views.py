@@ -73,7 +73,7 @@ def add(request):
 @login_required()
 def edit(request, paradigm_id):
     p = get_object_or_404(Paradigm, pk=paradigm_id)
-    paradigm_form = ParadigmForm(request.POST or None, instance=p)
+    paradigm_form = ParadigmForm(request.POST or None, instance=p, prefix='pdm')
     pronoun_form = create_pronoun_formset(p, request.POST or None)
     
     # save if valid.

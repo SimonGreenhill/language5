@@ -461,7 +461,11 @@ class Test_EditParadigmView(TestCase):
     
     def _generate_post_data(self, paradigm):
         """Helper function to generate some post data"""
-        postdata = {'submit': 'true'}
+        postdata = {
+            'submit': 'true',
+            'pdm-language': u'%d' % self.lang.id,
+            'pdm-source': u'%d' % self.source.id,
+        }
         for pronoun in paradigm.pronoun_set.all():
             key = '%d_%d' % (pronoun.paradigm_id, pronoun.id)
             postdata['%s-TOTAL_FORMS' % key] = u'1'
@@ -519,7 +523,7 @@ class Test_EditParadigmView(TestCase):
                                  source=self.source, 
                                  editor=self.editor,
                                  comment="full paradigm")
-                                 
+        self.fullpdm.save()
         assert self.fullpdm.pronoun_set.count() == len(PronounCombinations), \
             "Expected %d pronouns not %d" % (len(PronounCombinations), self.fullpdm.pronoun_set.count())
         
@@ -555,7 +559,6 @@ class Test_EditParadigmView(TestCase):
     def test_form_save(self):
         postdata = self._generate_post_data(self.fullpdm)
         response = self.client.post(self.url, postdata)
-        self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, 
             reverse('pronouns:detail', kwargs={'paradigm_id': self.fullpdm.id}))
     
@@ -567,7 +570,6 @@ class Test_EditParadigmView(TestCase):
                 postdata[p] = int(postdata[p]) + 10000
         
         response = self.client.post(self.url, postdata)
-        self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, 
             reverse('pronouns:detail', kwargs={'paradigm_id': self.fullpdm.id}))
         
