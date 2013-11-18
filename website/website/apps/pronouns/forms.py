@@ -27,9 +27,6 @@ class LexiconForm(forms.ModelForm):
         model = Lexicon
         hidden = ('id',)
         fields = ['entry', 'annotation']
-        # exclude = ('editor', 'added', 
-        #            'loan', 'loan_source', 'phon_entry', 
-        #            'source', 'word', 'language')
         widgets = {
             'entry': forms.widgets.TextInput(attrs={'class': 'input-small',}),
             'annotation': forms.widgets.TextInput(attrs={'class': 'input-small hide', 'placeholder': 'comment'}),
