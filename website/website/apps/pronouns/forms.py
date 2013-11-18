@@ -17,7 +17,6 @@ class ParadigmForm(forms.ModelForm):
         widgets = {
             'comment': forms.widgets.Textarea(attrs={'cols':60, 'rows':5, 'class': 'field span12'}),
         }
-        exclude = ('editor', 'added',)
 
 #-----------------------------------------------------------------
 # ENTRIES
