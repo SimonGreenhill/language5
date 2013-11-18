@@ -238,17 +238,6 @@ LOGGING = {
     }
 }
 
-# Caching:
-CACHES = {
-    'default': {
-        # 'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
-        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-        'LOCATION': 'cache',
-        'KEY_PREFIX': SITE_NAME,
-    }
-}
-CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
-
 # maximum age of persistent database connection
 CONN_MAX_AGE = 64 
 
