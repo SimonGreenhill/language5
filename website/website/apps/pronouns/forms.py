@@ -13,6 +13,7 @@ from website.apps.pronouns.tools import full_repr_row
 class ParadigmForm(forms.ModelForm):
     class Meta:
         model = Paradigm
+        fields = ['language', 'source', 'comment']
         widgets = {
             'comment': forms.widgets.Textarea(attrs={'cols':60, 'rows':5, 'class': 'field span12'}),
         }
@@ -25,9 +26,10 @@ class LexiconForm(forms.ModelForm):
     class Meta:
         model = Lexicon
         hidden = ('id',)
-        exclude = ('editor', 'added', 
-                   'loan', 'loan_source', 'phon_entry', 
-                   'source', 'word', 'language')
+        fields = ['entry', 'annotation']
+        # exclude = ('editor', 'added', 
+        #            'loan', 'loan_source', 'phon_entry', 
+        #            'source', 'word', 'language')
         widgets = {
             'entry': forms.widgets.TextInput(attrs={'class': 'input-small',}),
             'annotation': forms.widgets.TextInput(attrs={'class': 'input-small hide', 'placeholder': 'comment'}),
