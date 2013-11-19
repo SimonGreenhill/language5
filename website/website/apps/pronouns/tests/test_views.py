@@ -113,7 +113,6 @@ class Test_Detail(DefaultSettingsMixin, TestCase):
         
         # re-call the view.
         response = self.client.get(self.url)
-        import IPython; IPython.embed()
         
         # test
         assert response.context['relationship_table'] is not None, \
