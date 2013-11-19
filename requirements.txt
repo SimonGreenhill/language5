@@ -17,3 +17,5 @@ django-static-sitemaps>=1.5.5                               # static sitemaps
 django_compressor==dev                                      # for asset compression/cache busting
 # searching:
 -e git://github.com/etianen/django-watson.git#egg=django-watson
+xlrd                                                        # XLRD for parsing xls files
+
