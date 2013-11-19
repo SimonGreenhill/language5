@@ -19,7 +19,7 @@ class GenericForm(forms.ModelForm):
     
     class Meta:
         model = Lexicon
-        exclude = ('editor', 'phon_entry', 'loan', 'loan_source')
+        fields = ['annotation', 'entry', 'language', 'source', 'word']
         widgets = {
             # over-ride Textarea for annotation
             'annotation': forms.widgets.TextInput(

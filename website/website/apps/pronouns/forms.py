@@ -13,11 +13,10 @@ from website.apps.pronouns.tools import full_repr_row
 class ParadigmForm(forms.ModelForm):
     class Meta:
         model = Paradigm
-        fields = ['language', 'source', 'comment']
+        fields = ['language', 'source', 'analect', 'comment']
         widgets = {
             'comment': forms.widgets.Textarea(attrs={'cols':60, 'rows':5, 'class': 'field span12'}),
         }
-        exclude = ('editor', 'added',)
 
 #-----------------------------------------------------------------
 # ENTRIES
@@ -35,12 +34,17 @@ class LexiconForm(forms.ModelForm):
 
 # get all our formsets
 def create_pronoun_formset(paradigm, postdata=None):
-    EntriesFormSet = modelformset_factory(Lexicon, form=LexiconForm, extra=0)
     formsets = []
     
     for pronoun in paradigm.pronoun_set.all().select_related("pronountype"):
+        qset = pronoun.entries.all()
+        if len(qset) == 0:
+            EntriesFormSet = modelformset_factory(Lexicon, form=LexiconForm, extra=1)
+        else:
+            EntriesFormSet = modelformset_factory(Lexicon, form=LexiconForm, extra=0)
+        
         formset = EntriesFormSet(postdata,
-                       queryset = pronoun.entries.all(),
+                       queryset = qset,
                        prefix='%d_%d' % (pronoun.paradigm_id, pronoun.id))
         
         formsets.append((pronoun, formset))

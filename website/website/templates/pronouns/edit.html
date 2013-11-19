@@ -42,36 +42,116 @@
 
     <form action="{% url "pronouns:edit" paradigm.id %}" method="post" class="form-inline">
         {% csrf_token %}
-		<p class="well">
-			{{ paradigm_form.management_form }}
-			
-			{{ paradigm_form.language.as_hidden }}
-			{{ paradigm_form.source.as_hidden }}
-
-			{{ paradigm_form.comment.label }}
-			{{ paradigm_form.comment }}
-
-
-            {% if paradigm_form.non_field_errors %}
+        {{ paradigm_form.management_form }}
+        {% if paradigm_form.non_field_errors %}
+            <i class="tip icon-exclamation-sign" 
+                data-toggle="tooltip" 
+                data-placement="top" 
+                data-container="td"
+                title="
+                {% for error in paradigm_form.non_field_errors %}
+                    {{ error|escape }} 
+                {% endfor %}">
+            </i>
+        {% endif %}
+        <p>
+            <span class="span2">{{ paradigm_form.language.label }}:</span>
+            {{ paradigm_form.language }} 
+            {% if paradigm_form.language.errors %}
                 <i class="tip icon-exclamation-sign" 
                     data-toggle="tooltip" 
                     data-placement="top" 
                     data-container="td"
                     title="
-                    {% for error in paradigm_form.non_field_errors %}
+                    {% for error in paradigm_form.language.errors %}
                         {{ error|escape }} 
                     {% endfor %}">
                 </i>
             {% endif %}
-
-            {% if paradigm_form.language.errors %}
-                <!-- ERROR: {{ paradigm_form.language.errors }} -->
-            {% endif %}
-            {% if paradigm_form.source.errors %}
-                <!-- ERROR: {{ paradigm_form.source.errors }} -->
-            {% endif %}
-		</p>   
-
+        </p>
+        <p>
+            <span class="span2">{{ paradigm_form.source.label }}:</span>
+                {{ paradigm_form.source }}
+                {% if paradigm_form.source.errors %}
+                    <i class="tip icon-exclamation-sign" 
+                        data-toggle="tooltip" 
+                        data-placement="top" 
+                        data-container="td"
+                        title="
+                        {% for error in paradigm_form.source.errors %}
+                            {{ error|escape }} 
+                        {% endfor %}">
+                    </i>
+                {% endif %}
+         </p>
+        <p>
+            <span class="span2">{{ paradigm_form.analect.label }}:</span>
+                 {{ paradigm_form.analect }} 
+                 {% if paradigm_form.analect.errors %}
+                     <i class="tip icon-exclamation-sign" 
+                         data-toggle="tooltip" 
+                         data-placement="top" 
+                         data-container="td"
+                         title="
+                         {% for error in paradigm_form.analect.errors %}
+                             {{ error|escape }} 
+                         {% endfor %}">
+                     </i>
+                 {% endif %}
+        </p>
+        <p>
+            <span class="span2">{{ paradigm_form.comment.label }}:</span>
+                 {{ paradigm_form.comment }} 
+                 {% if paradigm_form.comment.errors %}
+                     <i class="tip icon-exclamation-sign" 
+                         data-toggle="tooltip" 
+                         data-placement="top" 
+                         data-container="td"
+                         title="
+                         {% for error in paradigm_form.comment.errors %}
+                             {{ error|escape }} 
+                         {% endfor %}">
+                     </i>
+                 {% endif %}
+        </p>
+        
+        <div class="well{% ifequal paradigm.analect "F" %} hide{% endifequal %}" id="info_bound"> 
+            <h3>Guidelines for entering <strong>bound pronoun</strong> data</h3>
+            
+            <p>1. Choose maximally informative verb / TAM (i.e. the one with 
+                the most distinctions)
+            </p>
+            
+            <p>2. For variant forms (e.g. na- vs n-) choose maximal forms 
+                from which other(s) can be derived, e.g. na- rather than n-
+            </p>
+            
+            <p>3. Don’t need to fill all cells (this will help us measure 
+                information content of agreement system). If no form, use 
+                zero (i.e. 0, symbol for numeral zero; not ø)
+            </p>
+            
+            <p>NOTE. that this is the opposite policy to what we are doing
+                with the free pronoun paradigms, where each cell will be filled
+                with whatever form would be used to express that category, e.g.
+                if there is no 3rd dual and it would be expressed by 3rd plural,
+                the 3rd plural form should be filled in to the 3rd dual cell.
+            </p>
+        </div>
+            
+        <div class="well{% ifequal paradigm.analect "B" %} hide{% endifequal %}" id="info_free"> 
+            <h3>Guidelines for entering <strong>free pronoun</strong> cells</h3>
+            
+            <p>1. fill all cells even if this means being forced into
+                including a bound form, e.g. –ku for 1sg poss. in some
+                Austronesian languages.
+            </p>
+            
+            <p>2. However, if there is a free form (even if rare), use this 
+                instead of a bound form
+            </p>
+        </div>
+        
         <table id="pronouns" class="table table-bordered table-condensed">
             <thead>
                 <tr>
@@ -84,117 +164,32 @@
             </thead>
             <tbody>
                 {% for row, formset in pronouns %}
-                <!-- ROW -->
+                    <!-- ROW -->
                     <tr>
                         <th>{{ row }}</th>
                         <td class="alignment_a">
-							{{ formset.A.management_form }}
+                            {{ formset.A.management_form }}
                             {% for form in formset.A %}
-								<p>
-									{{ form.entry }}
-		                            {{ form.annotation }}
-		                            <a href="#" onclick="$('#{{ form.annotation.auto_id }}').toggle()" ><i class="icon-comment"></i></a>
-		                            {% for hidden in form.hidden_fields %}
-		                                {{ hidden }}
-		                            {% endfor %}
-									
-						            {% if form.non_field_errors %}
-						                <i class="tip icon-exclamation-sign" 
-						                    data-toggle="tooltip" 
-						                    data-placement="top" 
-						                    data-container="td"
-						                    title="
-						                    {% for error in form.non_field_errors %}
-						                        {{ error|escape }} 
-						                    {% endfor %}">
-						                </i>
-						            {% endif %}
-								</p>
-							{% endfor %}
+                                {% include "pronouns/pronoun_form.html" with form=form %}
+                            {% endfor %}
                         </td>
                         <td class="alignment_s">
-							{{ formset.S.management_form }}
+                            {{ formset.S.management_form }}
                             {% for form in formset.S %}
-								<p>
-
-									{{ form.entry }}
-		                            {{ form.annotation }}
-		                            <a href="#" onclick="$('#{{ form.annotation.auto_id }}').toggle()" ><i class="icon-comment"></i></a>
-		                            {% for hidden in form.hidden_fields %}
-		                                {{ hidden }}
-		                            {% endfor %}
-								
-						            {% if form.non_field_errors %}
-						                <i class="tip icon-exclamation-sign" 
-						                    data-toggle="tooltip" 
-						                    data-placement="top" 
-						                    data-container="td"
-						                    title="
-						                    {% for error in form.non_field_errors %}
-						                        {{ error|escape }} 
-						                    {% endfor %}">
-						                </i>
-						            {% endif %}
-								</p>
-							{% endfor %}
+                                {% include "pronouns/pronoun_form.html" with form=form %}
+                            {% endfor %}
                         </td>
                         <td class="alignment_o">
-							{{ formset.O.management_form }}
+                            {{ formset.O.management_form }}
                             {% for form in formset.O %}
-								<p>
-									{{ form.non_field_errors }}
-									{{ form.entry.errors }}
-									{{ form.annotation.errors }}
-									
-									{{ form.entry }}
-		                            {{ form.annotation }}
-		                            <a href="#" onclick="$('#{{ form.annotation.auto_id }}').toggle()" ><i class="icon-comment"></i></a>
-		                            {% for hidden in form.hidden_fields %}
-		                                {{ hidden }}
-		                            {% endfor %}
-
-						            {% if form.non_field_errors %}
-						                <i class="tip icon-exclamation-sign" 
-						                    data-toggle="tooltip" 
-						                    data-placement="top" 
-						                    data-container="td"
-						                    title="
-						                    {% for error in form.non_field_errors %}
-						                        {{ error|escape }} 
-						                    {% endfor %}">
-						                </i>
-						            {% endif %}
-								</p>
-							{% endfor %}
+                                {% include "pronouns/pronoun_form.html" with form=form %}
+                            {% endfor %}
                         </td>
                         <td class="alignment_p">
-							{{ formset.P.management_form }}
+                            {{ formset.P.management_form }}
                             {% for form in formset.P %}
-								<p>
-									{{ form.non_field_errors }}
-									{{ form.entry.errors }}
-									{{ form.annotation.errors }}
-									
-									{{ form.entry }}
-		                            {{ form.annotation }}
-		                            <a href="#" onclick="$('#{{ form.annotation.auto_id }}').toggle()" ><i class="icon-comment"></i></a>
-		                            {% for hidden in form.hidden_fields %}
-		                                {{ hidden }}
-		                            {% endfor %}
-
-						            {% if form.non_field_errors %}
-						                <i class="tip icon-exclamation-sign" 
-						                    data-toggle="tooltip" 
-						                    data-placement="top" 
-						                    data-container="td"
-						                    title="
-						                    {% for error in form.non_field_errors %}
-						                        {{ error|escape }} 
-						                    {% endfor %}">
-						                </i>
-						            {% endif %}
-								</p>
-							{% endfor %}
+                                {% include "pronouns/pronoun_form.html" with form=form %}
+                            {% endfor %}
                         </td>
                     </tr>
                     <!-- ENDROW -->
@@ -212,6 +207,23 @@
         $(document).ready(function() {
           $('.tip').tooltip();
           $('#scroller').scrollToFixed();
+          
+          var analect = jQuery('#id_pdm-analect');
+          var select = this.value;
+          analect.change(function () {
+              $('#info_free').show();
+              $('#info_bound').show();
+              if ($(this).val() == 'F') {
+                  $('#info_bound').hide();
+              }
+              else if ($(this).val() == 'B') {
+                  $('#info_free').hide();
+              }
+              else {
+                  $('#info_free').show();
+                  $('#info_bound').show();
+              }
+          });    
         });
-    </script>
+        </script>
 {% endblock %}

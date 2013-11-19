@@ -1,0 +1,23 @@
+<!-- begin subform --> 
+<p>
+    {{ form.entry }}
+    {{ form.annotation }}
+    
+    <a href="#" onclick="$('#{{ form.annotation.auto_id }}').toggle()" ><i class="icon-comment"></i></a>
+    {% for hidden in form.hidden_fields %}
+        {{ hidden }}
+    {% endfor %}
+   
+    {% if form.non_field_errors %}
+        <i class="tip icon-exclamation-sign" 
+            data-toggle="tooltip" 
+            data-placement="top" 
+            data-container="td"
+            title="
+            {% for error in form.non_field_errors %}
+                {{ error|escape }} 
+            {% endfor %}">
+        </i>
+    {% endif %}
+</p>
+<!-- end subform --> 
