@@ -13,7 +13,7 @@ from website.apps.pronouns.tools import full_repr_row
 class ParadigmForm(forms.ModelForm):
     class Meta:
         model = Paradigm
-        fields = ['language', 'source', 'comment']
+        fields = ['language', 'source', 'analect', 'comment']
         widgets = {
             'comment': forms.widgets.Textarea(attrs={'cols':60, 'rows':5, 'class': 'field span12'}),
         }
