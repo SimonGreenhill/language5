@@ -12,12 +12,10 @@ class Migration(SchemaMigration):
         db.add_column('paradigms', 'analect',
                       self.gf('django.db.models.fields.CharField')(max_length=1, null=True, blank=True),
                       keep_default=False)
-
-
+            
     def backwards(self, orm):
         # Deleting field 'Paradigm.analect'
         db.delete_column('paradigms', 'analect')
-
 
     models = {
         u'auth.group': {
