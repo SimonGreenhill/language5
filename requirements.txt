@@ -3,8 +3,8 @@ django-extensions>=1.1.1                                    # useful tools
 fabric                                                      # deployment etc
 pillow                                                      # A better python imaging library
 psycopg2                                                    # database adaptor
-django-reversion>=1.7                                       # versioning
-South>=0.8.1                                                # database migrations
+django-reversion>=1.8                                       # versioning
+South>=0.8.3                                                # database migrations
 pytz                                                        # timezone support
 django-secure                                               # security
 django-tables2                                              # better table handling
@@ -17,6 +17,3 @@ django-static-sitemaps>=1.5.5                               # static sitemaps
 django_compressor==dev                                      # for asset compression/cache busting
 # searching:
 -e git://github.com/etianen/django-watson.git#egg=django-watson
-
-
-
