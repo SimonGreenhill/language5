@@ -42,14 +42,14 @@
 
     <form action="{% url "pronouns:edit" paradigm.id %}" method="post" class="form-inline">
         {% csrf_token %}
-		<p class="well">
-			{{ paradigm_form.management_form }}
-			
-			{{ paradigm_form.language.as_hidden }}
-			{{ paradigm_form.source.as_hidden }}
+        <p class="well">
+            {{ paradigm_form.management_form }}
+            
+            {{ paradigm_form.language.as_hidden }}
+            {{ paradigm_form.source.as_hidden }}
 
-			{{ paradigm_form.comment.label }}
-			{{ paradigm_form.comment }}
+            {{ paradigm_form.comment.label }}
+            {{ paradigm_form.comment }}
 
 
             {% if paradigm_form.non_field_errors %}
@@ -70,7 +70,7 @@
             {% if paradigm_form.source.errors %}
                 <!-- ERROR: {{ paradigm_form.source.errors }} -->
             {% endif %}
-		</p>   
+        </p>   
 
         <table id="pronouns" class="table table-bordered table-condensed">
             <thead>
@@ -84,118 +84,32 @@
             </thead>
             <tbody>
                 {% for row, formset in pronouns %}
-                <!-- ROW -->
+                    <!-- ROW -->
                     <tr>
                         <th>{{ row }}</th>
                         <td class="alignment_a">
-							{{ formset.A.management_form }}
+                            {{ formset.A.management_form }}
                             {% for form in formset.A %}
-							
-								<p>
-									{{ form.entry }}
-		                            {{ form.annotation }}
-		                            <a href="#" onclick="$('#{{ form.annotation.auto_id }}').toggle()" ><i class="icon-comment"></i></a>
-		                            {% for hidden in form.hidden_fields %}
-		                                {{ hidden }}
-		                            {% endfor %}
-									
-						            {% if form.non_field_errors %}
-						                <i class="tip icon-exclamation-sign" 
-						                    data-toggle="tooltip" 
-						                    data-placement="top" 
-						                    data-container="td"
-						                    title="
-						                    {% for error in form.non_field_errors %}
-						                        {{ error|escape }} 
-						                    {% endfor %}">
-						                </i>
-						            {% endif %}
-								</p>
-							{% endfor %}
+                                {% include "pronouns/pronoun_form.html" with form=form %}
+                            {% endfor %}
                         </td>
                         <td class="alignment_s">
-							{{ formset.S.management_form }}
+                            {{ formset.S.management_form }}
                             {% for form in formset.S %}
-								<p>
-
-									{{ form.entry }}
-		                            {{ form.annotation }}
-		                            <a href="#" onclick="$('#{{ form.annotation.auto_id }}').toggle()" ><i class="icon-comment"></i></a>
-		                            {% for hidden in form.hidden_fields %}
-		                                {{ hidden }}
-		                            {% endfor %}
-								
-						            {% if form.non_field_errors %}
-						                <i class="tip icon-exclamation-sign" 
-						                    data-toggle="tooltip" 
-						                    data-placement="top" 
-						                    data-container="td"
-						                    title="
-						                    {% for error in form.non_field_errors %}
-						                        {{ error|escape }} 
-						                    {% endfor %}">
-						                </i>
-						            {% endif %}
-								</p>
-							{% endfor %}
+                                {% include "pronouns/pronoun_form.html" with form=form %}
+                            {% endfor %}
                         </td>
                         <td class="alignment_o">
-							{{ formset.O.management_form }}
+                            {{ formset.O.management_form }}
                             {% for form in formset.O %}
-								<p>
-									{{ form.non_field_errors }}
-									{{ form.entry.errors }}
-									{{ form.annotation.errors }}
-									
-									{{ form.entry }}
-		                            {{ form.annotation }}
-		                            <a href="#" onclick="$('#{{ form.annotation.auto_id }}').toggle()" ><i class="icon-comment"></i></a>
-		                            {% for hidden in form.hidden_fields %}
-		                                {{ hidden }}
-		                            {% endfor %}
-
-						            {% if form.non_field_errors %}
-						                <i class="tip icon-exclamation-sign" 
-						                    data-toggle="tooltip" 
-						                    data-placement="top" 
-						                    data-container="td"
-						                    title="
-						                    {% for error in form.non_field_errors %}
-						                        {{ error|escape }} 
-						                    {% endfor %}">
-						                </i>
-						            {% endif %}
-								</p>
-							{% endfor %}
+                                {% include "pronouns/pronoun_form.html" with form=form %}
+                            {% endfor %}
                         </td>
                         <td class="alignment_p">
-							{{ formset.P.management_form }}
+                            {{ formset.P.management_form }}
                             {% for form in formset.P %}
-								<p>
-									{{ form.non_field_errors }}
-									{{ form.entry.errors }}
-									{{ form.annotation.errors }}
-									
-									{{ form.entry }}
-		                            {{ form.annotation }}
-		                            <a href="#" onclick="$('#{{ form.annotation.auto_id }}').toggle()" ><i class="icon-comment"></i></a>
-		                            {% for hidden in form.hidden_fields %}
-		                                {{ hidden }}
-		                            {% endfor %}
-
-						            {% if form.non_field_errors %}
-						                <i class="tip icon-exclamation-sign" 
-						                    data-toggle="tooltip" 
-						                    data-placement="top" 
-						                    data-container="td"
-						                    title="
-						                    {% for error in form.non_field_errors %}
-						                        {{ error|escape }} 
-						                    {% endfor %}">
-						                </i>
-						            {% endif %}
-								</p>
-							{% endfor %}
+                                {% include "pronouns/pronoun_form.html" with form=form %}
+                            {% endfor %}
                         </td>
                     </tr>
                     <!-- ENDROW -->
