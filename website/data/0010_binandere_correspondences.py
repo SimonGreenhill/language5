@@ -114,7 +114,6 @@ for key in protobinandere:
             raise ValueError("Unable to find slug for %s" % language)
         
         Lobj = Language.objects.get(slug=slug)
-
         corr = Correspondence.objects.create(
             language=Lobj,
             corrset=corrset,
