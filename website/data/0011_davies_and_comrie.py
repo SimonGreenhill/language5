@@ -11,7 +11,7 @@ from website.apps.lexicon.models import Lexicon, Word, CognateSet, Cognate
 from openpyxl import load_workbook
 
 filename = os.path.join(os.environ['IMPORTER_DATAROOT'], '0011_davies_and_comrie.xlsx')
-is_cognate = re.compile(r"""\s+(\d+)$""")
+is_cognate = re.compile(r"""\s+?(\d+?)$""")
 languages = {
     'Bisorio': 'bisorio',
     'Iniai': 'bisorio-iniai',
@@ -64,7 +64,7 @@ def process_item(item):
     # start processing properly.
     items = []
     cognate = None
-    for i in item.split("/"):
+    for i in item.split(" / "):
         i = i.strip()
         # get cognate
         cog = is_cognate.findall(i)
@@ -76,7 +76,20 @@ def process_item(item):
             cognate = int(cog[0])
             i = is_cognate.sub('', i)
             i = i.strip()
-        
+            
+            # make sure that we haven't assigned a cognate set i.e. an integer 
+            # to something that should be a reflex.
+            try:
+                int(i)
+            except:
+                pass
+            else:
+                raise ValueError(u'%r :: %s :: %r' % (item, cog, i))
+            
+            if len(i) == 1:
+                raise ValueError(u'%r :: %s :: %r' % (item, cog, i))
+            
+            
         items.append(i)
     
     return [(i, cognate) for i in items]
@@ -117,6 +130,9 @@ for i in range(1, w.get_highest_column()):
     cognate_sets = {}
     
     for language in sorted(values):
+        if language is None:
+            continue
+            
         lslug = languages[language]
         try:
             LObj = Language.objects.get(slug=lslug)
