@@ -7,7 +7,7 @@ from website.apps.core.admin import TrackedModelAdmin
 # Admin
 class ParadigmAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
-    list_display = ('language', 'source', 'comment', 'added')
+    list_display = ('language', 'source', 'analect', 'comment')
     list_filter = ('editor',)
     ordering = ('language',)
     search_fields = ('language', 'source', 'comment')
