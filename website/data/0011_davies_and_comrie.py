@@ -117,14 +117,11 @@ for i in range(1, w.get_highest_column()):
     cognate_sets = {}
     
     for language in sorted(values):
+        lslug = languages[language]
         try:
-            LObj = Language.objects.get(slug=languages[language])
+            LObj = Language.objects.get(slug=lslug)
         except Language.DoesNotExist:
-            LObj = Language.objects.create(
-                language=language,
-                slug=languages[language],
-                editor=ed,
-            )
+            LObj = Language.objects.create(language=language, slug=lslug, editor=ed)
             LObj.save()
             print 'ERROR: I should not have needed to create %s' % language
         
