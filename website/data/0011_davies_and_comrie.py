@@ -86,7 +86,7 @@ def process_item(item):
             else:
                 raise ValueError(u'%r :: %s :: %r' % (item, cog, i))
             
-            if len(i) == 1:
+            if len(i) == 0:
                 raise ValueError(u'%r :: %s :: %r' % (item, cog, i))
             
             
@@ -139,6 +139,8 @@ for i in range(1, w.get_highest_column()):
         except Language.DoesNotExist:
             LObj = Language.objects.create(language=language, slug=lslug, editor=ed)
             LObj.save()
+            # FOR DEBUGGING ONLY ON LOCAL SITE. PRODUCTION SHOULD 
+            # HAVE THIS LANGUAGE ALREADY CREATED!
             print 'ERROR: I should not have needed to create %s' % language
         
         item = process_item(values[language])
