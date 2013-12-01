@@ -19,7 +19,7 @@ class GenericForm(forms.ModelForm):
     
     class Meta:
         model = Lexicon
-        fields = ['annotation', 'entry', 'language', 'source', 'word']
+        fields = ['language', 'source', 'word', 'entry', 'annotation']
         widgets = {
             # over-ride Textarea for annotation
             'annotation': forms.widgets.TextInput(
