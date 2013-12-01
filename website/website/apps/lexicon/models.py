@@ -176,7 +176,7 @@ class Correspondence(TrackedModel):
     """Sound Correspondence Rules"""
     language = models.ForeignKey('core.Language')
     corrset = models.ForeignKey('CorrespondenceSet')
-    rule = models.CharField(max_length=5)
+    rule = models.CharField(max_length=32)
     
     def __unicode__(self):
         return u"Correspondence: %s /%s/" % (self.language.slug, self.rule)
