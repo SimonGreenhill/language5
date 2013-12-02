@@ -29,7 +29,7 @@ class TestReprRow(DefaultSettingsMixin, TestCase):
         pt = PronounType.objects.create(number='sg', alignment="A", person="1", sequence=11,
                                         gender="M", editor=self.editor, word=self.word)
         p = Pronoun.objects.create(paradigm=self.pdm, editor=self.editor, pronountype=pt)
-        assert full_repr_row(p) == "1st (excl) Person Singular Masculine"
+        assert full_repr_row(p) == "1st (excl) Person Singular Gender 1"
         
     def test_dict_no_gender(self):
         d = {

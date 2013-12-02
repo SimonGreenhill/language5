@@ -26,9 +26,9 @@ NUMBER_CHOICES = (
 )
 
 GENDER_CHOICES = (
-    ('M', 'Masculine'),
+    ('M', 'Gender 1'),
     ('F', 'Feminine'),
-    ('N', "Neuter"),
+    ('N', 'Gender 2'),
 )
 
 ANALECT_TYPES = (
