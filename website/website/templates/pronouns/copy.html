@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load website_tags %}
+{% load pronoun_tags %}
+
+{% block title %} Pronoun Paradigms: {{ paradigm.language }} {% endblock %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>Pronoun Paradigm: {{ paradigm.language }}</h1>
+    </div>
+    
+    <div class="alert alert-error">
+        <form action="{% url "pronouns:copy_paradigm" paradigm.id %}" method="post" class="form">
+            {% csrf_token %}
+            
+            <h2>Copy this paradigm?: </h2>
+            
+            {{ paradigm_form.management_form }}
+            {% if paradigm_form.non_field_errors %}
+                <i class="tip icon-exclamation-sign" 
+                    data-toggle="tooltip" 
+                    data-placement="top" 
+                    data-container="td"
+                    title="
+                    {% for error in paradigm_form.non_field_errors %}
+                        {{ error|escape }} 
+                    {% endfor %}">
+                </i>
+            {% endif %}
+            <p>
+                <span class="span2">{{ paradigm_form.language.label }}:</span>
+                {{ paradigm_form.language }} 
+                {% if paradigm_form.language.errors %}
+                    <i class="tip icon-exclamation-sign" 
+                        data-toggle="tooltip" 
+                        data-placement="top" 
+                        data-container="td"
+                        title="
+                        {% for error in paradigm_form.language.errors %}
+                            {{ error|escape }} 
+                        {% endfor %}">
+                    </i>
+                {% endif %}
+            </p>
+            <p>
+                <span class="span2">{{ paradigm_form.source.label }}:</span>
+                    {{ paradigm_form.source }}
+                    {% if paradigm_form.source.errors %}
+                        <i class="tip icon-exclamation-sign" 
+                            data-toggle="tooltip" 
+                            data-placement="top" 
+                            data-container="td"
+                            title="
+                            {% for error in paradigm_form.source.errors %}
+                                {{ error|escape }} 
+                            {% endfor %}">
+                        </i>
+                    {% endif %}
+             </p>
+            <p>
+                <span class="span2">{{ paradigm_form.analect.label }}:</span>
+                     {{ paradigm_form.analect }} 
+                     {% if paradigm_form.analect.errors %}
+                         <i class="tip icon-exclamation-sign" 
+                             data-toggle="tooltip" 
+                             data-placement="top" 
+                             data-container="td"
+                             title="
+                             {% for error in paradigm_form.analect.errors %}
+                                 {{ error|escape }} 
+                             {% endfor %}">
+                         </i>
+                     {% endif %}
+            </p>
+            <p>
+                <span class="span2">{{ paradigm_form.comment.label }}:</span>
+                     {{ paradigm_form.comment }} 
+                     {% if paradigm_form.comment.errors %}
+                         <i class="tip icon-exclamation-sign" 
+                             data-toggle="tooltip" 
+                             data-placement="top" 
+                             data-container="td"
+                             title="
+                             {% for error in paradigm_form.comment.errors %}
+                                 {{ error|escape }} 
+                             {% endfor %}">
+                         </i>
+                     {% endif %}
+            </p>
+            
+            
+            <p>{{ copy_form }}</p>
+            <button type="submit" name="submit" class="btn"><i class="icon-ok"></i> Copy! </button>
+        </form>
+    </div>
+
+    
+{% endblock %}
+

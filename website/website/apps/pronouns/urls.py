@@ -11,6 +11,8 @@ urlpatterns = patterns('',
         'website.apps.pronouns.views.edit', name="edit"),
     url(r'^(?P<paradigm_id>\d+)/relationship$', 
         'website.apps.pronouns.views.edit_relationships', name="edit_relationships"),
+    url(r'^(?P<paradigm_id>\d+)/copy$', 
+        'website.apps.pronouns.views.copy', name="copy_paradigm"),
     url(r'^(?P<paradigm_id>\d+)/rule$', 
         'website.apps.pronouns.views.process_rule', name="process_rule"),
 )

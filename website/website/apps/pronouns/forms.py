@@ -10,6 +10,10 @@ from website.apps.pronouns.models import GENDER_CHOICES, ALIGNMENT_CHOICES
 
 from website.apps.pronouns.tools import full_repr_row
 
+class CopyForm(forms.Form):
+    pass
+
+
 class ParadigmForm(forms.ModelForm):
     class Meta:
         model = Paradigm
