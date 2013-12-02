@@ -43,6 +43,11 @@
     <form action="{% url "pronouns:edit" paradigm.id %}" method="post" class="form-inline">
         {% csrf_token %}
         {{ paradigm_form.management_form }}
+        
+        <p> 
+            <span class="span2"> Last Edited:</span>
+            {{ paradigm.added|date:"r" }} by {{ paradigm.editor|title }}.
+        </p>
         {% if paradigm_form.non_field_errors %}
             <i class="tip icon-exclamation-sign" 
                 data-toggle="tooltip" 
