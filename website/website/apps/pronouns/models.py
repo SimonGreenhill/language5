@@ -36,6 +36,12 @@ ANALECT_TYPES = (
     ('B', 'Bound'),
 )
 
+
+class ActivePronounTypeManager(models.Manager):
+    """Hides inactive pronouns"""
+    def get_queryset(self):
+        return super(ActivePronounTypeManager, self).get_queryset().filter(active=True)
+
     
 class PronounType(TrackedModel):
     """Types of Pronouns"""
@@ -48,14 +54,18 @@ class PronounType(TrackedModel):
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES,
         blank=True, null=True,
         help_text="Gender")
+    active = models.BooleanField(default=True, db_index=True, help_text="Show on website?")
+    sequence = models.PositiveSmallIntegerField(db_index=True, unique=True)
     word = models.ForeignKey('lexicon.Word')
+    
+    objects = ActivePronounTypeManager() # manager
     
     def __unicode__(self):
         return '%s%s %s' % (self.person, self.number, self.alignment)
     
     @staticmethod
     def _generate_all_combinations():
-        return PronounType.objects.all().order_by("pk")
+        return PronounType.objects.all().filter(active=True).order_by("sequence")
     
     @staticmethod
     def _get_row_size():
