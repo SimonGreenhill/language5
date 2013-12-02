@@ -26,10 +26,16 @@ NUMBER_CHOICES = (
 )
 
 GENDER_CHOICES = (
-    ("M", 'Masculine'),
-    ("F", 'Feminine'),
-    ("N", "Neuter"),
+    ('M', 'Masculine'),
+    ('F', 'Feminine'),
+    ('N', "Neuter"),
 )
+
+ANALECT_TYPES = (
+    ('F', 'Free'),
+    ('B', 'Bound'),
+)
+
     
 class PronounType(TrackedModel):
     """Types of Pronouns"""
@@ -86,9 +92,8 @@ class Paradigm(TrackedModel):
     source = models.ForeignKey(Source)
     comment = models.TextField(blank=True, null=True,
         help_text="Comment on this paradigm")
-    system_type = models.CharField(max_length=1, choices=SYSTEM_CHOICES,
-        default="F",
-        help_text="Type of Pronoun System")
+    analect = models.CharField(max_length=1, choices=ANALECT_TYPES, blank=True, null=True,
+        help_text="System Type")
     
     def __unicode__(self):
         return u"%s" % self.language.slug

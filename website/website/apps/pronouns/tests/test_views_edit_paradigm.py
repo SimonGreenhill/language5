@@ -543,7 +543,12 @@ class Test_EditParadigmView(TestCase):
         self.client = Client()
         self.client.login(username='admin', password='test')
         self.response = self.client.get(self.url)
-        
+    
+    def test_plumbing(self):
+        """tests the internal plumbing of this test case."""
+        for p in self.fullpdm.pronoun_set.all():
+            assert p.entries.count() == 1
+    
     def test_form_load(self):
         for formid, formdict in self.response.context['pronouns']:
             for alignment in ("A", "S", "O", "P"):
@@ -579,4 +584,31 @@ class Test_EditParadigmView(TestCase):
             assert pronoun.entries.count() == 1
             lex = pronoun.entries.all()[0]
             assert int(lex.entry) == (10000 + pronoun.id)
+    
+    def test_disappearing_forms(self):
+        # why did the forms disappear???
+        from django.forms.formsets import BaseFormSet
+        from website.apps.pronouns.forms import LexiconForm
         
+        for label, formsets in self.response.context['pronouns']:
+            for expected in ['A', 'S', 'O', 'P']:
+                assert expected in formsets, "Expected a formset for {}-{}".format(label, expected)
+                assert isinstance(formsets[expected], BaseFormSet)
+                # go through each form
+                for form in formsets[expected]:
+                    # each form in the formset should be a LexiconForm
+                    assert isinstance(form, LexiconForm)
+                    # do I have the expected fields?
+                    assert 'entry' in form.fields
+                    assert 'annotation' in form.fields
+                    
+                    # expected key 
+                    key = 'id_{}_{}-0'.format(self.fullpdm.id, form.initial['entry'])
+                    
+                    # in form?
+                    assert "{}-entry".format(key) in form.as_p()
+                    assert "{}-annotation".format(key) in form.as_p()
+                    
+                    # in response.content?
+                    assert "{}-entry".format(key) in self.response.content
+                    assert "{}-annotation".format(key) in self.response.content
