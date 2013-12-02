@@ -41,6 +41,9 @@ def create_pronoun_formset(paradigm, postdata=None):
     formsets = []
     
     for pronoun in paradigm.pronoun_set.all().select_related("pronountype"):
+        if pronoun.pronountype.active == False:
+            continue
+            
         qset = pronoun.entries.all()
         if len(qset) == 0:
             EntriesFormSet = modelformset_factory(Lexicon, form=LexiconForm, extra=1)
@@ -66,7 +69,7 @@ def sort_formset(formsets):
         (rowname, {A:.., S:...}),
     ]
     """
-    ptypes = dict([(p['id'], p) for p in PronounType.objects.all().values()])
+    ptypes = dict([(p['sequence'], p) for p in PronounType.objects.all().values()])
     rows = {}
     
     empty = dict(zip([x[0] for x in ALIGNMENT_CHOICES], 
@@ -74,12 +77,12 @@ def sort_formset(formsets):
     )
     
     # use decorate-sort-undecorate pattern to loop over pronoun and formset
-    # in formsets. The sort key is the pronountype.id + 3 / 4 
+    # in formsets. The sort key is the pronountype.sequence + 3 / 4 
     # add three to get the grouping right (1-4), (5-8), (9-12) etc
     for pronoun, formset in formsets:
-        pt = ptypes[pronoun.pronountype.id]
+        pt = ptypes[pronoun.pronountype.sequence]
         row = full_repr_row(pt)
-        sortkey = (pronoun.pronountype.id + 3) / 4
+        sortkey = (pronoun.pronountype.sequence + 3) / 4
         rows[(sortkey, row)] = rows.get((sortkey, row), empty.copy())
         rows[(sortkey, row)][pt['alignment']] = formset
     

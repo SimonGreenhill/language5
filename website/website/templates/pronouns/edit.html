@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load compress %}
 {% load render_table from django_tables2 %}
 {% load website_tags %}
 {% load pronoun_tags %}
@@ -9,15 +10,21 @@
 {% block head %}
     <!-- for javascript charpicker, and formset adder -->
     <link rel="stylesheet" type="text/css" href="{% static "css/jquery.keypad.css" %}" />
-    <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
-    <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
-    <script type="text/javascript" src="{% static "js/jquery.keypad.min.js" %}"></script>
-    <script type="text/javascript" src="{% static "js/charpicker.js" %}"></script>
-    <script type="text/javascript" src="{% static "js/jquery-scrolltofixed-min.js" %}"></script>
+    
     <style>
     .add-row{ padding: 1em; }
     .hide {display: none;}
     </style>
+
+    {% compress js %}
+        <!-- for javascript charpicker, and formset adder -->
+        <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/jquery.keypad.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/jquery.formset.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/charpicker.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/jquery-scrolltofixed-min.js" %}"></script>
+    {% endcompress %}
 {% endblock %}
 
 
@@ -43,6 +50,11 @@
     <form action="{% url "pronouns:edit" paradigm.id %}" method="post" class="form-inline">
         {% csrf_token %}
         {{ paradigm_form.management_form }}
+        
+        <p> 
+            <span class="span2"> Last Edited:</span>
+            {{ paradigm.added|date:"r" }} by {{ paradigm.editor|title }}.
+        </p>
         {% if paradigm_form.non_field_errors %}
             <i class="tip icon-exclamation-sign" 
                 data-toggle="tooltip" 
@@ -167,25 +179,25 @@
                     <!-- ROW -->
                     <tr>
                         <th>{{ row }}</th>
-                        <td class="alignment_a">
+                        <td class="alignment_a df-{{ formset.A.prefix}}">
                             {{ formset.A.management_form }}
                             {% for form in formset.A %}
                                 {% include "pronouns/pronoun_form.html" with form=form %}
                             {% endfor %}
                         </td>
-                        <td class="alignment_s">
+                        <td class="alignment_s df-{{ formset.S.prefix}}">
                             {{ formset.S.management_form }}
                             {% for form in formset.S %}
                                 {% include "pronouns/pronoun_form.html" with form=form %}
                             {% endfor %}
                         </td>
-                        <td class="alignment_o">
+                        <td class="alignment_o df-{{ formset.O.prefix}}">
                             {{ formset.O.management_form }}
                             {% for form in formset.O %}
                                 {% include "pronouns/pronoun_form.html" with form=form %}
                             {% endfor %}
                         </td>
-                        <td class="alignment_p">
+                        <td class="alignment_p df-{{ formset.P.prefix}}">
                             {{ formset.P.management_form }}
                             {% for form in formset.P %}
                                 {% include "pronouns/pronoun_form.html" with form=form %}
@@ -208,6 +220,38 @@
           $('.tip').tooltip();
           $('#scroller').scrollToFixed();
           
+          {% comment %}
+          
+          THIS DOES NOT WORK - IGNORE IT FOR NOW...
+          
+          {% for row, formset in pronouns %}
+              $('.df-{{ formset.A.prefix}} p').formset({
+                  prefix: '{{ formset.A.prefix }}',
+                  formCssClass: 'df-{{ formset.A.prefix }}',
+                  addText: '<i class="icon-plus"></i>',
+                  deleteText: '<i class="icon-remove"></i>',
+              });
+              $('.df-{{ formset.S.prefix}} p').formset({
+                  prefix: '{{ formset.S.prefix }}',
+                  formCssClass: 'df-{{ formset.S.prefix }}',
+                  addText: '<i class="icon-plus"></i>',
+                  deleteText: '<i class="icon-remove"></i>',
+              });
+              $('.df-{{ formset.O.prefix}} p').formset({
+                  prefix: '{{ formset.O.prefix }}',
+                  formCssClass: 'df-{{ formset.O.prefix }}',
+                  addText: '<i class="icon-plus"></i>',
+                  deleteText: '<i class="icon-remove"></i>',
+              });
+              $('.df-{{ formset.P.prefix}} p').formset({
+                  prefix: '{{ formset.P.prefix }}',
+                  formCssClass: 'df-{{ formset.P.prefix }}',
+                  addText: '<i class="icon-plus"></i>',
+                  deleteText: '<i class="icon-remove"></i>',
+              });
+          {% endfor %}
+          
+          {% endcomment %}
           var analect = jQuery('#id_pdm-analect');
           var select = this.value;
           analect.change(function () {

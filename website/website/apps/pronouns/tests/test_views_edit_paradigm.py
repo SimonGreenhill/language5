@@ -492,7 +492,7 @@ class Test_EditParadigmView(TestCase):
                                  comment='c1', editor=self.editor)
         
         # Load all pronoun combinations
-        for p in PronounCombinations:
+        for i, p in enumerate(PronounCombinations, 1):
             # create word
             w = short_repr_row(p)
             this_word = Word.objects.create(
@@ -513,6 +513,7 @@ class Test_EditParadigmView(TestCase):
                 person = p['person'][0],
                 number = p['number'][0],
                 gender = gender,
+                sequence = i, 
                 word=this_word,
                 editor=self.editor
             )
