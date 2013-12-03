@@ -17,7 +17,7 @@ class CopyForm(forms.Form):
 class ParadigmForm(forms.ModelForm):
     class Meta:
         model = Paradigm
-        fields = ['language', 'source', 'analect', 'comment']
+        fields = ['language', 'label', 'source', 'analect', 'comment']
         widgets = {
             'comment': forms.widgets.Textarea(attrs={'cols':60, 'rows':5, 'class': 'field span12'}),
         }

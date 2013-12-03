@@ -82,6 +82,21 @@
             {% endif %}
         </p>
         <p>
+            <span class="span2">{{ paradigm_form.label.label }}:</span>
+            {{ paradigm_form.label }} 
+            {% if paradigm_form.label.errors %}
+                <i class="tip icon-exclamation-sign" 
+                    data-toggle="tooltip" 
+                    data-placement="top" 
+                    data-container="td"
+                    title="
+                    {% for error in paradigm_form.label.errors %}
+                        {{ error|escape }} 
+                    {% endfor %}">
+                </i>
+            {% endif %}
+        </p>
+        <p>
             <span class="span2">{{ paradigm_form.source.label }}:</span>
                 {{ paradigm_form.source }}
                 {% if paradigm_form.source.errors %}

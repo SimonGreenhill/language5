@@ -14,6 +14,14 @@ from website.apps.pronouns.tests import DefaultSettingsMixin
 class Test_Paradigm(DefaultSettingsMixin, TestCase):
     def setUp(self):
         self.add_fixtures()
+    
+    def test_repr_no_label(self):
+        assert unicode(self.pdm) == 'A'
+
+    def test_repr_with_label(self):
+        self.pdm.label = 'test'
+        self.pdm.save()
+        assert unicode(self.pdm) == 'A: test'
         
     def test_have_some_pronoun_types(self):
         assert self.pdm.pronoun_set.count() == 3
