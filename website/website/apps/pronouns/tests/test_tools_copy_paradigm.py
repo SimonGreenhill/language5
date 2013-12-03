@@ -23,11 +23,37 @@ class TestCopyParadigm(DefaultSettingsMixin, TestCase):
         # haven't done anything, so no paradigm should exist for this language
         assert len(Paradigm.objects.filter(language=self.lang2)) == 0
         
-    def test_adds_paradigm(self):
+    def test_copies_paradigm_language(self):
         newpdm = copy_paradigm(self.pdm, self.lang2)
         assert newpdm != self.pdm
         assert newpdm.language == self.lang2
+        
+    def test_copies_paradigm_source(self):
+        newpdm = copy_paradigm(self.pdm, self.lang2)
+        assert newpdm != self.pdm
+        assert newpdm.source == self.pdm.source
     
+    def test_copies_paradigm_comment(self):
+        self.pdm.comment = 'banana'
+        self.pdm.save()
+        newpdm = copy_paradigm(self.pdm, self.lang2)
+        assert newpdm != self.pdm
+        assert newpdm.comment == self.pdm.comment
+
+    def test_copies_paradigm_label(self):
+        self.pdm.label = 'label'
+        self.pdm.save()
+        newpdm = copy_paradigm(self.pdm, self.lang2)
+        assert newpdm != self.pdm
+        assert newpdm.label == self.pdm.label
+
+    def test_copies_paradigm_analect(self):
+        self.pdm.analect = 'F'
+        self.pdm.save()
+        newpdm = copy_paradigm(self.pdm, self.lang2)
+        assert newpdm != self.pdm
+        assert newpdm.analect == self.pdm.analect
+
     def test_adds_paradigm_doesnt_affect_previous(self):
         newpdm = copy_paradigm(self.pdm, self.lang2)
         assert self.pdm.language == self.lang
