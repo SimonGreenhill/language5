@@ -69,7 +69,6 @@ def add(request):
         'paradigm_form': paradigm_form,
     }, context_instance=RequestContext(request))
 
-
 @login_required()
 def edit(request, paradigm_id):
     p = get_object_or_404(Paradigm, pk=paradigm_id)

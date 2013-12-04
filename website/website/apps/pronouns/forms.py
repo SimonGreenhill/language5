@@ -26,6 +26,7 @@ class ParadigmForm(forms.ModelForm):
 # ENTRIES
 
 class LexiconForm(forms.ModelForm):
+    entry = forms.CharField(required=False)
     class Meta:
         model = Lexicon
         hidden = ('id',)
@@ -98,15 +99,20 @@ def save_pronoun_formset(paradigm, pronoun, formset, user):
     """
     instances = formset.save(commit=False)
     for lex in instances:
-        lex.editor = user                        # inject editor
-        lex.word = pronoun.pronountype.word      # inject word
-        lex.source = paradigm.source             # inject source
-        lex.language = paradigm.language         # inject language
-        lex.save()
-        
-        # and add to pronoun entries.
-        pronoun.entries.add(lex)
-        pronoun.save()
+        # keep things with entries
+        if len(lex.entry.strip()):
+            lex.editor = user                        # inject editor
+            lex.word = pronoun.pronountype.word      # inject word
+            lex.source = paradigm.source             # inject source
+            lex.language = paradigm.language         # inject language
+            lex.save()
+            
+            # and add to pronoun entries.
+            pronoun.entries.add(lex)
+            pronoun.save()
+        # remove empty forms.
+        else:
+            lex.delete()
     return
 
 def pronoun_formsets_are_valid(formsets):

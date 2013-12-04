@@ -433,52 +433,7 @@ PronounCombinations = [
 ]
 
 
-
-# Test View: Edit paradigm
-class Test_EditParadigmView(DefaultSettingsMixin, TestCase):
-    
-    def setUp(self):
-        self.add_fixtures()
-        self.url = reverse('pronouns:edit', kwargs={'paradigm_id': self.pdm.id})
-        self.client = Client()
-        self.client.login(username='admin', password='test')
-        self.response = self.client.get(self.url)
-    
-    def test_200ok(self):
-        self.assertEqual(self.response.status_code, 200)
-        self.assertTemplateUsed(self.response, 'pronouns/edit.html')
-    
-    def test_fail_when_not_logged_in(self):
-        self.assertEqual(self.client.get(self.url).status_code, 200)
-        self.client.logout()
-        response = self.client.get(self.url)
-        self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, "%s?next=%s" % (reverse('login'), 
-            reverse("pronouns:edit", kwargs={'paradigm_id': self.pdm.id})))
-
-
 class Test_EditParadigmView(TestCase):
-    
-    def _generate_post_data(self, paradigm):
-        """Helper function to generate some post data"""
-        postdata = {
-            'submit': 'true',
-            'pdm-language': u'%d' % self.lang.id,
-            'pdm-source': u'%d' % self.source.id,
-        }
-        for pronoun in paradigm.pronoun_set.all():
-            key = '%d_%d' % (pronoun.paradigm_id, pronoun.id)
-            postdata['%s-TOTAL_FORMS' % key] = u'1'
-            postdata['%s-INITIAL_FORMS' % key] = u'1'
-            postdata['%s-MAX_NUM_FORMS' % key] = u'1000'
-            
-            for idx, entry in enumerate(pronoun.entries.all()):
-                postdata['%s-%d-id' % (key, idx)] = u'%d' % entry.id
-                postdata['%s-%d-entry' % (key, idx)] = entry.entry
-                postdata['%s-%d-annotation' % (key, idx)] = entry.annotation
-        
-        return postdata
-    
     
     def setUp(self):
         """Note, this requires the full pronoun complement."""
@@ -545,6 +500,39 @@ class Test_EditParadigmView(TestCase):
         self.client.login(username='admin', password='test')
         self.response = self.client.get(self.url)
     
+    
+    def _generate_post_data(self, paradigm):
+        """Helper function to generate some post data"""
+        postdata = {
+            'submit': 'true',
+            'pdm-language': u'%d' % self.lang.id,
+            'pdm-source': u'%d' % self.source.id,
+        }
+        for pronoun in paradigm.pronoun_set.all():
+            key = '%d_%d' % (pronoun.paradigm_id, pronoun.id)
+            postdata['%s-TOTAL_FORMS' % key] = u'1'
+            postdata['%s-INITIAL_FORMS' % key] = u'1'
+            postdata['%s-MAX_NUM_FORMS' % key] = u'1000'
+            
+            for idx, entry in enumerate(pronoun.entries.all()):
+                postdata['%s-%d-id' % (key, idx)] = u'%d' % entry.id
+                postdata['%s-%d-entry' % (key, idx)] = entry.entry
+                postdata['%s-%d-annotation' % (key, idx)] = entry.annotation
+        
+        return postdata
+    
+    def test_200ok(self):
+        self.assertEqual(self.response.status_code, 200)
+        self.assertTemplateUsed(self.response, 'pronouns/edit.html')
+    
+    def test_fail_when_not_logged_in(self):
+        self.assertEqual(self.client.get(self.url).status_code, 200)
+        self.client.logout()
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, "%s?next=%s" % (reverse('login'), 
+            reverse("pronouns:edit", kwargs={'paradigm_id': self.fullpdm.id})))
+        
     def test_plumbing(self):
         """tests the internal plumbing of this test case."""
         for p in self.fullpdm.pronoun_set.all():
@@ -613,3 +601,24 @@ class Test_EditParadigmView(TestCase):
                     # in response.content?
                     assert "{}-entry".format(key) in self.response.content
                     assert "{}-annotation".format(key) in self.response.content
+
+
+    def test_form_removes_empties(self):
+        postdata = self._generate_post_data(self.fullpdm)
+        
+        empty_id = '1_1-0-entry'
+        null_id = '1_33-0-entry'
+        postdata[empty_id] = u''
+        del(postdata[null_id])
+        
+        response = self.client.post(self.url, postdata)
+        self.assertRedirects(response, 
+            reverse('pronouns:detail', kwargs={'paradigm_id': self.fullpdm.id}))
+        
+        updatedpdm = Paradigm.objects.get(pk=self.fullpdm.id)
+        # find the updated lexical entries..
+        for pronoun in updatedpdm.pronoun_set.all():
+            if pronoun.id in (1, 33):
+                assert pronoun.entries.count() == 0
+            else:
+                assert pronoun.entries.count() == 1
