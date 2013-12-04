@@ -8,13 +8,15 @@ from website.apps.pronouns.models import Paradigm, Pronoun, Relationship
 
 class ParadigmIndexTable(DataTable):
     """Paradigm Listing"""
-    language = tables.LinkColumn('pronouns:detail', args=[A('id')])
+    def render_language(self, record):
+        col = tables.LinkColumn('pronouns:detail', args=[record.id])
+        return col.render(value=unicode(record), record=unicode(record), bound_column=None)
     
     class Meta(DataTable.Meta):
         model = Paradigm
         order_by = 'language' # default sorting
         sequence = ('id', 'language', 'source')
-        exclude = ('editor', 'added', 'comment')
+        exclude = ('editor', 'added', 'comment', 'label')
     Meta.attrs['summary'] = 'Table of Paradigms'
 
 

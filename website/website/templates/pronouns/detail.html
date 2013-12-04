@@ -16,7 +16,7 @@
 
 {% block content %}
     <div class="page-header">
-        <h1>Pronoun Paradigm: {{ paradigm.language }}</h1>
+        <h1>Pronoun Paradigm: {{ paradigm }}</h1>
     </div>
     
     <ul class="breadcrumb">
@@ -40,6 +40,12 @@
             (<a href="{{ paradigm.language|link_ethnologue }}">{{ paradigm.language.isocode }}</a>) 
             <a href="{% url "language-detail" paradigm.language.slug %}">{{ paradigm.language }}</a>.
     </p>
+    {% if paradigm.label %}
+        <p>
+            <strong>Label: </strong> 
+            {{ paradigm.label }}
+        </p>
+    {% endif %}
     <p>
         <strong>Family: </strong> 
         {% for family in paradigm.language.family_set.all %}

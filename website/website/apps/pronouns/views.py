@@ -22,6 +22,8 @@ from website.apps.pronouns.tools import find_identicals, extract_rule
 
 from django_tables2 import SingleTableView
 
+import reversion
+
 
 class Index(SingleTableView):
     """Index"""
@@ -57,6 +59,7 @@ def detail(request, paradigm_id):
         
 
 @login_required()
+@reversion.create_revision()
 def add(request):
     paradigm_form = ParadigmForm(request.POST or None)
     if paradigm_form.is_valid():
@@ -71,6 +74,7 @@ def add(request):
 
 
 @login_required()
+@reversion.create_revision()
 def edit(request, paradigm_id):
     p = get_object_or_404(Paradigm, pk=paradigm_id)
     paradigm_form = ParadigmForm(request.POST or None, instance=p, prefix='pdm')
@@ -95,6 +99,7 @@ def edit(request, paradigm_id):
 
 
 @login_required()
+@reversion.create_revision()
 def edit_relationships(request, paradigm_id):
     p = get_object_or_404(Paradigm, pk=paradigm_id)
     relationship_form = RelationshipFormSet(request.POST or None, instance=p)
@@ -134,6 +139,7 @@ def edit_relationships(request, paradigm_id):
 
 
 @login_required()
+@reversion.create_revision()
 def process_rule(request, paradigm_id):
     p = get_object_or_404(Paradigm, pk=paradigm_id)
     # do we have do_identicals? 
@@ -198,6 +204,7 @@ def process_rule(request, paradigm_id):
 
 
 @login_required()
+@reversion.create_revision()
 def copy(request, paradigm_id):
     """Copies a Paradigm"""
     p = get_object_or_404(Paradigm, pk=paradigm_id)

@@ -90,12 +90,6 @@ class TestFormsetValidity(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
         formsets = create_pronoun_formset(self.pdm, postdata)
         assert pronoun_formsets_are_valid(formsets)
     
-    def test_missing_is_not_valid(self):
-        postdata = self._generate_post_data(self.pdm)
-        del(postdata['1_1-0-entry'])
-        formsets = create_pronoun_formset(self.pdm, postdata)
-        assert not pronoun_formsets_are_valid(formsets)
-    
     def test_is_valid_with_addition(self):
         postdata = self._generate_post_data(self.pdm)
         postdata['1_1-1-entry'] = 'testing' # change something
@@ -204,7 +198,6 @@ class TestFormsetCreator(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
         lex = Lexicon.objects.get(pk=1)
         assert lex.entry == 'testing'
         
-        
     def test_save_with_addition(self):
         postdata = self._generate_post_data(self.pdm)
         postdata['1_1-1-entry'] = 'testing' # change something
@@ -262,7 +255,22 @@ class TestFormsetCreator(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
                 assert len(entries) == 1
                 assert entries[0].entry == 'pron-{0}'.format(pron.id)
                 assert entries[0].annotation == 'ann-{0}'.format(pron.id)
-
+        
+    def test_save_with_delete(self):
+        postdata = self._generate_post_data(self.pdm)
+        postdata['1_1-0-entry'] = u''
+        
+        for pronoun, formset in create_pronoun_formset(self.pdm, postdata):
+            saved = save_pronoun_formset(self.pdm, pronoun, formset, self.editor)
+            
+        # should now have 2 lexical items
+        assert Lexicon.objects.count() == 2, "expecting 2"
+        # should have an empty pronoun set for pronoun 1
+        assert Pronoun.objects.get(pk=1).entries.count() == 0
+        # should have deleted the lexical object 1
+        with self.assertRaises(Lexicon.DoesNotExist):
+            assert Lexicon.objects.get(pk=1)
+            
 
 
 class TestFormsetSorter(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):

@@ -9,7 +9,10 @@ def copy_paradigm(pdm, language):
     newpdm = Paradigm.objects.create(language=language, 
                                      source=pdm.source, 
                                      editor=pdm.editor,
-                                     comment="")
+                                     comment=pdm.comment,
+                                     analect=pdm.analect,
+                                     label=pdm.label
+                                     )
     
     Paradigm._prefill_pronouns = old # Reattach prefill_pronouns (YUCK)
     

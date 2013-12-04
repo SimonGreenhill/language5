@@ -104,9 +104,15 @@ class Paradigm(TrackedModel):
         help_text="Comment on this paradigm")
     analect = models.CharField(max_length=1, choices=ANALECT_TYPES, blank=True, null=True,
         help_text="System Type")
+    label = models.CharField(max_length=32, 
+        blank=True, null=True, 
+        help_text="Short label")
     
     def __unicode__(self):
-        return u"%s" % self.language.slug
+        if self.label:
+            return u"%s: %s" % (self.language, self.label)
+        else:
+            return u"%s" % self.language
     
     def save(self, *args, **kwargs):
         if not self.pk:
