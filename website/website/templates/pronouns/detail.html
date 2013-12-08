@@ -52,10 +52,14 @@
             <a href="{% url "family-detail" family.slug %}">{{ family }}</a>.
         {% endfor %}
     </p>
-
+    
     <p>
         <strong>System Type: </strong> 
         {{ paradigm.analect }}
+    </p>
+    <p>
+        <strong>Source: </strong> 
+        <a href="{% url "source-detail" paradigm.source.slug %}">{{ paradigm.source }}</a>.
     </p>
     
     <p>
