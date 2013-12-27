@@ -3,19 +3,19 @@ from fabric.api import env, run, local, require, get
 STATICDIR = "website/static"
 
 env.hosts=['sjg@simon.net.nz',]
-env.remote_root_dir='/home/sjg/webapps/transnewguinea'
+env.remote_root_dir='/home/sjg/webapps/pdb'
     
 # where apache lives.
-env.remote_apache_dir='/home/sjg/webapps/transnewguinea/apache2'
+env.remote_apache_dir='/home/sjg/webapps/pdb/apache2'
     
 # top of the hg repository.
-env.remote_repository_dir='/home/sjg/webapps/transnewguinea/transnewguinea'
+env.remote_repository_dir='/home/sjg/webapps/pdb/pdb'
 
 # the dir with manage.py.
-env.remote_app_dir='/home/sjg/webapps/transnewguinea/language5/website'
+env.remote_app_dir='/home/sjg/webapps/pdb/language5/website'
     
 # virtualenv
-env.venv = 'transnewguinea'
+env.venv = 'pdb'
 
 # things that dumpdata should ignore
 dump_ignores = [
@@ -24,6 +24,8 @@ dump_ignores = [
     'admin.logentry',
     'sessions.session', 
     'south.migrationhistory',
+    'reversion.revision', 
+    'reversion.version',
 ]
 
 
@@ -52,7 +54,7 @@ def deploy():
 
 def deploy_update_requirements():
     """Update site-packages using requirements file on deploy"""
-    run("workon %s; cd %s; pip install --upgrade -r ./transnewguinea/requirements.txt" \
+    run("workon %s; cd %s; pip install --upgrade -r ./pdb/requirements.txt" \
         % (env.venv, env.remote_root_dir))
 
 def download_new_assets():
