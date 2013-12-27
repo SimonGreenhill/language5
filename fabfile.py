@@ -24,6 +24,8 @@ dump_ignores = [
     'admin.logentry',
     'sessions.session', 
     'south.migrationhistory',
+    'reversion.revision', 
+    'reversion.version',
 ]
 
 
