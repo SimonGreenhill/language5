@@ -48,7 +48,7 @@ TIME_ZONE = 'America/Chicago'
 LANGUAGE_CODE = 'en-us'
 
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/?logged-in"
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
