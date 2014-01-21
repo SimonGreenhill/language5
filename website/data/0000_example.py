@@ -21,3 +21,9 @@ s = Source.objects.create(year=1111, author="Simon", slug="simon",
                           editor=ed)
 
 # NOTE: if you get UnicodeDecodeErrors make sure you're using u"var" instead of "var"
+
+# NOTES: you cannot use get_or_create because of - 
+# django.db.transaction.TransactionManagementError: Your database backend
+# doesn't behave properly when autocommit is off. Turn it on before using
+# 'atomic'.
+
