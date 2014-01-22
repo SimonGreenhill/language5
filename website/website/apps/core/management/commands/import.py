@@ -27,7 +27,7 @@ class Command(BaseCommand):
                                 if os.path.splitext(_)[1] == '.py'
                                 and _.startswith("0")])
         for filename in files:
-            print(" - {0}".format(filename))
+            print(" - {0}".format(os.path.join('data', filename)))
         
         
     @transaction.commit_manually

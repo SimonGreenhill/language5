@@ -32,27 +32,37 @@ class Command(BaseCommand):
         if len(args) != 2:
             raise IndexError("mergeword needs two slugs as arguments")
         
+        if 'save' in options and options['save']:
+            dryrun = False
+        else:
+            dryrun = True
+            self._print("*** DRY RUN! Use --save to save changes! ***")
+        
         # try get word 1
         try:
             w1 = Word.objects.get(slug=args[0])
         except Word.DoesNotExist:
-            raise
+            raise Word.DoesNotExist(u"Unable to find {}".format(args[0]))
             
         # try get word 2
         try:
             w2 = Word.objects.get(slug=args[1])
         except Word.DoesNotExist:
-            raise
+            raise Word.DoesNotExist(u"Unable to find {}".format(args[1]))
         
         for obj in w2.lexicon_set.all():
-            self._print(obj)
-            if 'save' in options and options['save']:
+            self._print(u"Moving {} to {}".format(obj, w1))
+            if not dryrun:
                 with reversion.create_revision():
                     obj.word = w1
                     obj.save()
         
         # remove word 2
-        if 'save' in options and options['save']:
+        if not dryrun:
             assert w2.lexicon_set.count() == 0
             with reversion.create_revision():
+                self._print(u"Deleting Word {}".format(w2))
                 w2.delete()
+        else:
+            self._print("*** DRY RUN! Use --save to save changes! ***")
+            
