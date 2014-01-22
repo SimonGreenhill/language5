@@ -21,8 +21,15 @@ class Test_Index(DefaultSettingsMixin, TestCase):
     def test_shows_paradigms(self):
         self.assertEqual(self.response.status_code, 200)
         self.assertContains(self.response, 'Smith (1991)')
+    
+    def test_shows_labels(self):
+        self.pdm.label = 'sausage'
+        self.pdm.save()
+        self.response = self.client.get(self.url)
+        self.assertEqual(self.response.status_code, 200)
+        self.assertContains(self.response, unicode(self.pdm))
+        self.assertContains(self.response, 'sausage')
         
-
 
 class Test_Detail(DefaultSettingsMixin, TestCase):
     def setUp(self):
@@ -79,6 +86,15 @@ class Test_Detail(DefaultSettingsMixin, TestCase):
     
     def test_comment_in_content(self):
         self.assertContains(self.response, 'test')
+    
+    def test_label_in_content(self):
+        self.pdm.label = 'sausage'
+        self.pdm.save()
+        self.response = self.client.get(self.url)
+        self.assertEqual(self.response.status_code, 200)
+        self.assertContains(self.response, unicode(self.pdm))
+        self.assertContains(self.response, 'sausage')
+        self.assertContains(self.response, '<h1>Pronoun Paradigm: A: sausage</h1>')
         
     def test_content_rows(self):
         for p in self.pdm.pronoun_set.all():
@@ -174,3 +190,12 @@ class Test_AddParadigmView(DefaultSettingsMixin, TestCase):
         }, follow=True)
         self.assertEqual(Pronoun.objects.count(), count+len(PronounType._generate_all_combinations()))
         
+    def test_paradigm_save_with_label(self):
+        count = Paradigm.objects.count()
+        response = self.client.post(self.url, {
+            'language': self.lang.id, 'source': self.source.id, 'comment': 'foo', 'label': 'xxx'
+        }, follow=True)
+        self.assertEqual(Paradigm.objects.count(), count+1)
+        self.assertContains(response, 'xxx')
+        
+    

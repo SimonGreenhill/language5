@@ -10,17 +10,19 @@ from website.apps.pronouns.tables import ParadigmIndexTable
 from website.apps.pronouns.tables import PronounTable
 from website.apps.pronouns.tables import PronounRelationshipTable
 
-from website.apps.pronouns.forms import ParadigmForm, RelationshipFormSet, RuleForm
+from website.apps.pronouns.forms import CopyForm, ParadigmForm, RelationshipFormSet, RuleForm
 from website.apps.pronouns.forms import pronoun_formsets_are_valid
 from website.apps.pronouns.forms import create_pronoun_formset
 from website.apps.pronouns.forms import save_pronoun_formset
 from website.apps.pronouns.forms import sort_formset
 
 
-from website.apps.pronouns.tools import add_pronoun_table
+from website.apps.pronouns.tools import add_pronoun_table, copy_paradigm
 from website.apps.pronouns.tools import find_identicals, extract_rule
 
 from django_tables2 import SingleTableView
+
+import reversion
 
 
 class Index(SingleTableView):
@@ -57,6 +59,7 @@ def detail(request, paradigm_id):
         
 
 @login_required()
+@reversion.create_revision()
 def add(request):
     paradigm_form = ParadigmForm(request.POST or None)
     if paradigm_form.is_valid():
@@ -71,6 +74,7 @@ def add(request):
 
 
 @login_required()
+@reversion.create_revision()
 def edit(request, paradigm_id):
     p = get_object_or_404(Paradigm, pk=paradigm_id)
     paradigm_form = ParadigmForm(request.POST or None, instance=p, prefix='pdm')
@@ -95,6 +99,7 @@ def edit(request, paradigm_id):
 
 
 @login_required()
+@reversion.create_revision()
 def edit_relationships(request, paradigm_id):
     p = get_object_or_404(Paradigm, pk=paradigm_id)
     relationship_form = RelationshipFormSet(request.POST or None, instance=p)
@@ -134,6 +139,7 @@ def edit_relationships(request, paradigm_id):
 
 
 @login_required()
+@reversion.create_revision()
 def process_rule(request, paradigm_id):
     p = get_object_or_404(Paradigm, pk=paradigm_id)
     # do we have do_identicals? 
@@ -195,4 +201,37 @@ def process_rule(request, paradigm_id):
     else:
         return redirect('pronouns:detail', p.id)
         
+
+
+@login_required()
+@reversion.create_revision()
+def copy(request, paradigm_id):
+    """Copies a Paradigm"""
+    p = get_object_or_404(Paradigm, pk=paradigm_id)
+    paradigm_form = ParadigmForm(request.POST or None, instance=p, prefix='pdm')
+    copy_form = CopyForm(request.POST or None, prefix='copy')
     
+    # save if valid.
+    if copy_form.is_valid() and paradigm_form.is_valid():
+        # construct a temporary paradigm to validate, we do NOT
+        # want to update the original paradigm `p` with the 
+        # changed form data, so this is just for holding and
+        # validating the incoming form values.
+        temp_p = paradigm_form.save(commit=False)
+        # copy the old paradigm to the temporary paradigm language
+        new_p = copy_paradigm(p, temp_p.language)
+        # update details of new paradigm from temporary paradigm
+        new_p.editor = request.user
+        new_p.comment = temp_p.comment
+        new_p.source = temp_p.source
+        new_p.analect = temp_p.analect
+        new_p.save()
+        return redirect('pronouns:detail', new_p.id)
+        
+    # the initial view and the error view
+    return render_to_response('pronouns/copy.html', {
+        'paradigm': p,
+        'paradigm_form': paradigm_form,
+        'copy_form': copy_form,
+    }, context_instance=RequestContext(request))
+

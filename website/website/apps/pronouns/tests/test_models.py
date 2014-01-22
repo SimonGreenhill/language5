@@ -1,12 +1,14 @@
+from django.test import TestCase
+from django.test.client import Client
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
+
 from website.apps.core.models import Language, Source
-from website.apps.lexicon.models import Word
+from website.apps.lexicon.models import Word, Lexicon
 from website.apps.pronouns.models import Paradigm, PronounType, Pronoun
 
-
-# Mixin for default test content
-class DefaultSettingsMixin(object):
-    def add_fixtures(self):
+class Test_PronounType(TestCase):
+    def setUp(self):
         self.editor = User.objects.create_user('admin', 'admin@admin.com', "test")
         self.lang = Language.objects.create(language='A', slug='langa', 
                                              information='i.1', 
@@ -29,24 +31,35 @@ class DefaultSettingsMixin(object):
             p = PronounType.objects.create(
                 word=w, 
                 alignment='A', person=person, number='sg',
-                sequence=person, # dummy variable just for sorting
+                sequence = person, # dummy
                 editor=self.editor
             )
+            if person == 2: # PERSON 2 should be hidden!
+                p.active = False
+            else:
+                p.active = True
             p.save()
-        
-        
-        # create this here so that _prefill_pronouns() takes advantage of our
-        # newly created pronountypes
-        self.pdm = Paradigm.objects.create(language=self.lang, 
+    
+    def test_count(self):
+        assert PronounType.objects.count() == 2
+    
+    def test_generate_all_combinations(self):
+        combinations = PronounType._generate_all_combinations()
+        assert combinations[0] == PronounType.objects.filter(person=1).get()
+        assert combinations[1] == PronounType.objects.filter(person=3).get()
+    
+    def test_paradigm_create(self):
+        pdm = Paradigm.objects.create(language=self.lang, 
                                  source=self.source, 
                                  editor=self.editor,
                                  comment="test")
-        self.pdm._prefill_pronouns()
-
-    
-    def test_have_some_pronoun_types(self):
-        # lots of tests will fail bizarrely if we don't have any pronountypes 
-        # defined (i.e. those that iterate over PronounType._generate_all*).
-        # So here we check that the add_fixtures code has successfully set things
-        # up
-        assert PronounType.objects.count() == 3
+        pdm._prefill_pronouns()
+        
+        # make sure the correct number of pronouns is there..
+        assert pdm.pronoun_set.count() == 2
+        
+        # check the pronouns themselves...
+        for comb in PronounType._generate_all_combinations():
+            queryset = Pronoun.objects.filter(pronountype=comb)
+            assert len(queryset) == 1, 'Got {0} not one'.format(len(queryset))
+        

@@ -13,6 +13,8 @@ from website.apps.entry.forms import QuickEntryViewForm
 from website.apps.entry import dataentry
 from website.apps.entry.utils import task_log
 
+import reversion
+
 def encode_checkpoint(content):
     """Encodes a checkpoint (request.POST QueryDict) as database storable"""
     # make sure we're using protocol 2: http://bugs.python.org/issue2980
@@ -59,6 +61,7 @@ class TaskIndex(SingleTableView):
 
 
 @login_required()
+@reversion.create_revision()
 def task_detail(request, task_id):
     "Handles routing of tasks"
     # 1. check if task is valid
@@ -91,6 +94,7 @@ def task_detail(request, task_id):
     
 
 @login_required()
+@reversion.create_revision()
 def quick_entry(request):
     """Quick data entry"""
     form = QuickEntryViewForm(request.POST)
