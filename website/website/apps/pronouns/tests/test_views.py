@@ -129,6 +129,7 @@ class Test_Detail(DefaultSettingsMixin, TestCase):
         
         # re-call the view.
         response = self.client.get(self.url)
+        
         # test
         assert response.context['relationship_table'] is not None, \
             "Template variable relationship_table should be initialised"
@@ -197,5 +198,3 @@ class Test_AddParadigmView(DefaultSettingsMixin, TestCase):
         }, follow=True)
         self.assertEqual(Paradigm.objects.count(), count+1)
         self.assertContains(response, 'xxx')
-        
-    

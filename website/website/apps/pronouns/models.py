@@ -90,7 +90,11 @@ class PronounType(TrackedModel):
                 seen.append(p)
         return out
     
-    
+
+SYSTEM_CHOICES = (
+    ('F', 'Free'),
+    ('B', 'Bound'),
+)    
 
 class Paradigm(TrackedModel):
     """Paradigm Details"""
