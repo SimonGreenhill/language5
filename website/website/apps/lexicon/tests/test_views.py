@@ -3,7 +3,7 @@ from django.test.client import Client
 from django.core.urlresolvers import reverse
 
 from test_models import TestSetup
-from website.apps.lexicon.models import Word, WordSubset
+from website.apps.lexicon.models import Word, WordSubset, Lexicon
 
 class Test_WordIndex(TestSetup, TestCase):
     """Tests the Word Index page"""
@@ -90,3 +90,35 @@ class Test_WordDetail(TestSetup, TestCase):
     def test_bad_nonint_paginator(self):
         response = self.client.get('/word/hand?page=banana')
         self.assertEqual(response.status_code, 404)
+
+
+class Test_LexiconDetail(TestSetup, TestCase):
+    def setUp(self):
+        super(Test_LexiconDetail, self).setUp()
+        # Create lexicon ..
+        self.lex = Lexicon.objects.create(
+            language=self.lang1, 
+            word=self.word1,
+            source=self.source1,
+            editor=self.editor,
+            entry="sausage",
+            annotation="eggs"
+        )
+    
+    def test_get(self):
+        url = reverse('lexicon-detail', kwargs={'pk': self.lex.id})
+        response = self.client.get(url)
+        self.assertEquals(response.status_code, 200)
+    
+    def test_get_missing(self):
+        url = reverse('lexicon-detail', kwargs={'pk': 5})
+        response = self.client.get(url)
+        self.assertEquals(response.status_code, 404)
+    
+    def test_get_data(self):
+        # check data
+        url = reverse('lexicon-detail', kwargs={'pk': self.lex.id})
+        response = self.client.get(url)
+        self.assertEquals(response.status_code, 200)
+        assert 'sausage' in response.content
+        assert 'eggs' in response.content

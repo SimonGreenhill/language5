@@ -9,7 +9,7 @@ from website.apps.core.views import LanguageIndex, RobotsTxt
 from website.apps.core.views import SourceIndex, SourceDetail
 from website.apps.core.views import FamilyIndex, FamilyDetail
 
-from website.apps.lexicon.views import WordIndex, WordDetail
+from website.apps.lexicon.views import WordIndex, WordDetail, LexiconDetail
 
 from sitemap import sitemaps
 
@@ -90,6 +90,9 @@ if 'website.apps.lexicon' in settings.INSTALLED_APPS:
     
         # Subset-Detail: Show the given word subset
         url(r'^word/\?subset=(?P<slug>.+)$', WordDetail.as_view(), name="subset-detail"),
+    
+        # lexicon-detail: detail word.
+        url(r'^lexicon/(?P<pk>\d+)$', LexiconDetail.as_view(), name="lexicon-detail"),
     
     )
 

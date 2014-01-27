@@ -4,7 +4,7 @@ from django.views.generic import DetailView
 from django.shortcuts import get_object_or_404
 from django.core.paginator import EmptyPage, PageNotAnInteger
 
-from website.apps.lexicon.models import Word, WordSubset, Cognate
+from website.apps.lexicon.models import Word, WordSubset, Lexicon, Cognate
 
 from django_tables2 import SingleTableView
 from website.apps.lexicon.tables import WordIndexTable, WordLexiconTable
@@ -49,3 +49,9 @@ class WordDetail(DetailView):
         except PageNotAnInteger: # 404 on invalid page number
             raise Http404
         return context
+
+
+class LexiconDetail(DetailView):
+    """Lexicon Detail"""
+    model = Lexicon
+    template_name = 'lexicon/lexicon_detail.html'
