@@ -8,12 +8,16 @@ class Test_LanguageIndex(TestCase):
     
     def setUp(self):
         self.client = Client()
-    
+        
+    def test_template_used(self):
+        response = self.client.get('/language/')
+        self.assertTemplateUsed(response, 'core/language_index.html')
+        
     def test_missing_trailing_slash(self):
         """index pages should redirect to trailing slash"""
         response = self.client.get('/language')
         self.assertRedirects(response, '/language/', status_code=301, target_status_code=200)
-    
+        
     def test_index(self):
         "Test languages.index"
         response = self.client.get('/language/')
@@ -30,11 +34,15 @@ class Test_LanguageDetails(TestCase):
     def setUp(self):
         self.client = Client()
     
+    def test_template_used(self):
+        response = self.client.get('/language/language1')
+        self.assertTemplateUsed(response, 'core/language_detail.html')
+    
     def test_details(self):
         "Test the default details view"
         response = self.client.get('/language/language1')
         self.assertEqual(response.status_code, 200)
-
+    
     def test_redirect_on_alternate_names(self):
         "Test redirection to canonical URL when given an alternate name"
         # Check that response to an existing language is 200 OK.
@@ -44,28 +52,27 @@ class Test_LanguageDetails(TestCase):
         # Check that response to ./fudge/ is 302 and redirected
         response = self.client.get('/language/fudge')
         self.assertRedirects(response, '/language/language1', status_code=301, target_status_code=200)
-        
+    
     def test_404_on_nonexistent_language(self):
         "Test that a non-existent language raises a 404"
         # Check that response to ./nonexistentlanguage/ is 404 NotFound
         response = self.client.get('/language/nonexistentlanguage')
         self.assertEqual(response.status_code, 404)
-        
+    
     def test_alternate_names_shown_in_details(self):
         "Test that the details view shows alternate names too"
         response = self.client.get('/language/language1')
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Also Known As:')
         self.assertContains(response, 'fudge')
-
+    
     def test_bad_paginator(self):
         response = self.client.get('/language/language1?page=10000')
         self.assertEqual(response.status_code, 404)
-        
+    
     def test_bad_nonint_paginator(self):
         response = self.client.get('/language/language1?page=banana')
         self.assertEqual(response.status_code, 404)
-
 
 
 class Test_ISOLookup(TestCase):
@@ -78,6 +85,7 @@ class Test_ISOLookup(TestCase):
         >1 Matching entries - show a list of the languages
     """
     fixtures = ['test_core.json']
+    
     def setUp(self):
         self.client = Client()
     
@@ -107,12 +115,15 @@ class Test_ISOLookup(TestCase):
         self.assertEqual(response.status_code, 404)
 
 
-
 class Test_FamilyIndex(TestCase):
     """Tests the family_index view"""
     fixtures = ['test_core.json']
     def setUp(self):
         self.client = Client()
+    
+    def test_template_used(self):
+        response = self.client.get('/family/')
+        self.assertTemplateUsed(response, 'core/family_index.html')
     
     def test_missing_trailing_slash(self):
         """index pages should redirect to trailing slash"""
@@ -125,14 +136,16 @@ class Test_FamilyIndex(TestCase):
         self.assertContains(response, 'Mayan')
         
         
-        
-        
 class Test_FamilyDetail(TestCase):
     """Tests the family_detail view"""
     fixtures = ['test_core.json']
     def setUp(self):
         self.client = Client()
-    
+        
+    def test_template_used(self):
+        response = self.client.get('/family/austronesian')
+        self.assertTemplateUsed(response, 'core/family_detail.html')
+        
     def test_404_on_missing_family(self):
         response = self.client.get('/family/basque')
         self.assertEqual(response.status_code, 404)
@@ -144,7 +157,7 @@ class Test_FamilyDetail(TestCase):
         self.assertContains(response, 'Language1')
         self.assertNotContains(response, 'Language2')
         self.assertContains(response, 'Language3')
-    
+        
     def test_family_detail_2(self):
         response = self.client.get('/family/mayan')
         self.assertContains(response, 'Mayan')
@@ -154,29 +167,33 @@ class Test_FamilyDetail(TestCase):
         self.assertContains(response, 'Language3')
 
 
-
 class Test_SourceDetail(TestCase):
     """Tests the source_detail view"""
     fixtures = ['test_core.json']
     def setUp(self):
         self.client = Client()
-        
+    
+    def test_template_used(self):
+        response = self.client.get('/source/testsource')
+        self.assertTemplateUsed(response, 'core/source_detail.html')
+    
     def test_404_on_missing_source(self):
         response = self.client.get('/source/fudge')
         self.assertEqual(response.status_code, 404)
-        
+    
     def test_find_valid_source(self):
         response = self.client.get('/source/testsource')
         self.assertContains(response, 'Greenhill')
-        
+    
     def test_paginator(self):
         response = self.client.get('/source/testsource?page=1')
         self.assertContains(response, 'Greenhill')
-        
+    
     def test_bad_paginator(self):
         response = self.client.get('/source/testsource?page=10000')
         self.assertEqual(response.status_code, 404)
-        
+    
     def test_bad_nonint_paginator(self):
         response = self.client.get('/source/testsource?page=banana')
         self.assertEqual(response.status_code, 404)
+    
