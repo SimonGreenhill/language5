@@ -16,6 +16,8 @@ class Test_Index(DefaultSettingsMixin, TestCase):
     
     def test_200ok(self):
         self.assertEqual(self.response.status_code, 200)
+    
+    def test_template_used(self):
         self.assertTemplateUsed(self.response, 'pronouns/index.html')
     
     def test_shows_paradigms(self):
@@ -79,6 +81,8 @@ class Test_Detail(DefaultSettingsMixin, TestCase):
     
     def test_200ok(self):
         self.assertEqual(self.response.status_code, 200)
+    
+    def test_template(self):
         self.assertTemplateUsed(self.response, 'pronouns/detail.html')
     
     def test_language_in_content(self):
@@ -164,6 +168,8 @@ class Test_AddParadigmView(DefaultSettingsMixin, TestCase):
     
     def test_200ok(self):
         self.assertEqual(self.response.status_code, 200)
+    
+    def test_template(self):
         self.assertTemplateUsed(self.response, 'pronouns/add.html')
     
     def test_fail_when_not_logged_in(self):
