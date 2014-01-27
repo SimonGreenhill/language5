@@ -8,7 +8,11 @@ class Test_LanguageIndex(TestCase):
     
     def setUp(self):
         self.client = Client()
-        
+    
+    def test_200ok(self):
+        response = self.client.get('/language/')
+        self.assertEqual(response.status_code, 200)
+    
     def test_template_used(self):
         response = self.client.get('/language/')
         self.assertTemplateUsed(response, 'core/language_index.html')
@@ -33,6 +37,10 @@ class Test_LanguageDetails(TestCase):
     
     def setUp(self):
         self.client = Client()
+    
+    def test_200ok(self):
+        response = self.client.get('/language/language1')
+        self.assertEqual(response.status_code, 200)
     
     def test_template_used(self):
         response = self.client.get('/language/language1')
@@ -89,6 +97,10 @@ class Test_ISOLookup(TestCase):
     def setUp(self):
         self.client = Client()
     
+    def test_200ok(self):
+        response = self.client.get('/iso/aaa')
+        self.assertEqual(response.status_code, 200)
+    
     def test_multiple_iso_entries(self):
         "Test that ISO codes with multiple languages returns a list"
         # check that /iso/aaa/ is sent to a list of pages.
@@ -121,6 +133,10 @@ class Test_FamilyIndex(TestCase):
     def setUp(self):
         self.client = Client()
     
+    def test_200ok(self):
+        response = self.client.get('/family/')
+        self.assertEqual(response.status_code, 200)
+    
     def test_template_used(self):
         response = self.client.get('/family/')
         self.assertTemplateUsed(response, 'core/family_index.html')
@@ -142,6 +158,10 @@ class Test_FamilyDetail(TestCase):
     def setUp(self):
         self.client = Client()
         
+    def test_200ok(self):
+        response = self.client.get('/family/austronesian')
+        self.assertEqual(response.status_code, 200)
+    
     def test_template_used(self):
         response = self.client.get('/family/austronesian')
         self.assertTemplateUsed(response, 'core/family_detail.html')
@@ -172,6 +192,10 @@ class Test_SourceDetail(TestCase):
     fixtures = ['test_core.json']
     def setUp(self):
         self.client = Client()
+    
+    def test_200ok(self):
+        response = self.client.get('/source/testsource')
+        self.assertEqual(response.status_code, 200)
     
     def test_template_used(self):
         response = self.client.get('/source/testsource')
