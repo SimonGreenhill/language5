@@ -11,7 +11,15 @@ class Test_WordIndex(TestSetup, TestCase):
         self.client = Client()
         self.url = reverse('word-index')
         super(Test_WordIndex, self).setUp()
-        
+    
+    def test_200ok(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+    
+    def test_template(self):
+        response = self.client.get(self.url)
+        self.assertTemplateUsed(response, 'lexicon/word_index.html')
+    
     def test_get_all_words(self):
         # just getting the words index should get all words.
         response = self.client.get(self.url)
@@ -69,6 +77,14 @@ class Test_WordIndex(TestSetup, TestCase):
     
 
 class Test_WordDetail(TestSetup, TestCase):
+    def test_200ok(self):
+        response = self.client.get(reverse('word-detail', kwargs={'slug': self.word1.slug}))
+        self.assertEqual(response.status_code, 200)
+    
+    def test_template(self):
+        response = self.client.get(reverse('word-detail', kwargs={'slug': self.word1.slug}))
+        self.assertTemplateUsed(response, 'lexicon/word_detail.html')
+    
     def test_get_all_words(self):
         url = reverse('word-detail', kwargs={'slug': self.word1.slug})
         response = self.client.get(url)
@@ -105,10 +121,15 @@ class Test_LexiconDetail(TestSetup, TestCase):
             annotation="eggs"
         )
     
-    def test_get(self):
+    def test_200ok(self):
         url = reverse('lexicon-detail', kwargs={'pk': self.lex.id})
         response = self.client.get(url)
         self.assertEquals(response.status_code, 200)
+    
+    def test_template(self):
+        url = reverse('lexicon-detail', kwargs={'pk': self.lex.id})
+        response = self.client.get(url)
+        self.assertTemplateUsed(response, 'lexicon/lexicon_detail.html')
     
     def test_get_missing(self):
         url = reverse('lexicon-detail', kwargs={'pk': 5})
