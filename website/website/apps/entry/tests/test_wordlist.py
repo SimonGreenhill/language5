@@ -100,9 +100,13 @@ class TestWordlist(WordlistMixin):
         assert self.task.records == len(self.wordlist.words.all())
 
 
-
 class Test_WordlistView(WordlistMixin):
     """Tests the WordlistView Detail Page"""
+    
+    def test_template_used(self):
+        self.client.login(username="admin", password="test")
+        response = self.client.get(self.task.get_absolute_url())
+        self.assertTemplateUsed(response, 'entry/detail.html')
     
     def test_wordlist_overrides_records(self):
         """
