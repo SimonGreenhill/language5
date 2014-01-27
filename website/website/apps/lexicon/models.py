@@ -113,7 +113,11 @@ class Lexicon(TrackedModel):
     
     def __unicode__(self):
         return u"%d-%s" % (self.id, self.entry)
-
+        
+    @models.permalink
+    def get_absolute_url(self):
+        return ('lexicon-detail', [self.pk])
+        
     class Meta:
         db_table = 'lexicon'
         verbose_name_plural = 'Lexical Items'
