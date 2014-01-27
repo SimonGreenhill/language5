@@ -1,8 +1,11 @@
 from django.db.models import Count
 from django.http import Http404
 from django.views.generic import DetailView
+from django.views.generic.edit import UpdateView
 from django.shortcuts import get_object_or_404
 from django.core.paginator import EmptyPage, PageNotAnInteger
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 from website.apps.lexicon.models import Word, WordSubset, Lexicon, Cognate
 
@@ -55,3 +58,20 @@ class LexiconDetail(DetailView):
     """Lexicon Detail"""
     model = Lexicon
     template_name = 'lexicon/lexicon_detail.html'
+
+#@reversion.create_revision()
+
+class LexiconEdit(UpdateView):
+    """Lexicon Editor"""
+    model = Lexicon
+    #fields = ['name'] ? necc?
+    template_name_suffix = '_edit'
+    
+    def form_valid(self, form):
+        # TODO: set editor and timestamp and reversion
+        return super(LexiconEdit, self).form_valid(form)
+            
+    # have to be logged in!
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(LexiconEdit, self).dispatch(*args, **kwargs)

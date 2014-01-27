@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block extra_keywords %} {{object}} {% endblock %}
+
+{% block title %} Lexicon #{{ object }} | {{SITE_NAME }} {% endblock %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>
+            {{ object }}
+        </h1>
+    </div>
+    
+    <ul class="breadcrumb">
+      <li>
+          <a href="{% url "index" %}">Home</a> 
+          <span class="divider">/</span>
+      </li>
+    </ul>
+    
+    
+    <h2> Lexicon #{{ object.id }}:</h2>
+    
+    <form action="{% url "lexicon-edit" object.id %}" method="post">
+    {% csrf_token %}
+        <div class="table-container">
+            <table class="table table-bordered table-condensed" summary="Table of Lexical Item">
+                {% for field in form %}
+                    <tr>
+                        <th> {{ field.label_tag }} </th>
+                        <td>
+                            {{ field.errors }}
+                            {{ field }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <p class="well">
+            <button type="submit" name="submit" class="btn btn-primary right"><i class="icon-ok"></i> Save </button>
+        </p>
+    </form>
+    
+{% endblock %}

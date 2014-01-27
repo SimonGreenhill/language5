@@ -9,7 +9,8 @@ from website.apps.core.views import LanguageIndex, RobotsTxt
 from website.apps.core.views import SourceIndex, SourceDetail
 from website.apps.core.views import FamilyIndex, FamilyDetail
 
-from website.apps.lexicon.views import WordIndex, WordDetail, LexiconDetail
+from website.apps.lexicon.views import WordIndex, WordDetail
+from website.apps.lexicon.views import LexiconDetail, LexiconEdit
 
 from sitemap import sitemaps
 
@@ -93,6 +94,9 @@ if 'website.apps.lexicon' in settings.INSTALLED_APPS:
     
         # lexicon-detail: detail word.
         url(r'^lexicon/(?P<pk>\d+)$', LexiconDetail.as_view(), name="lexicon-detail"),
+    
+        # lexicon-detail: detail word.
+        url(r'^lexicon/(?P<pk>\d+)/edit$', LexiconEdit.as_view(), name="lexicon-edit"),
     
     )
 
