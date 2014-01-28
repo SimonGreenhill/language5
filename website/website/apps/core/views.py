@@ -11,6 +11,7 @@ from website.apps.core.models import Family, Language, AlternateName, Source
 from django_tables2 import SingleTableView
 from website.apps.core.tables import LanguageIndexTable, SourceIndexTable, FamilyIndexTable
 from website.apps.lexicon.tables import LanguageLexiconTable, SourceLexiconTable
+from website.apps.lexicon.tables import LanguageLexiconEditTable, SourceLexiconEditTable
 
 class RobotsTxt(TemplateView):
     """simple robots.txt implementation"""
@@ -69,7 +70,13 @@ class SourceDetail(DetailView):
         context = super(SourceDetail, self).get_context_data(**kwargs)
         context['attachments'] = kwargs['object'].attachment_set.all()
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
-            context['lexicon_table'] = SourceLexiconTable(kwargs['object'].lexicon_set.select_related().all())
+            
+            if self.request.user.is_authenticated():
+                table = SourceLexiconEditTable(kwargs['object'].lexicon_set.select_related().all())
+            else:
+                table = SourceLexiconTable(kwargs['object'].lexicon_set.select_related().all())
+            
+            context['lexicon_table'] = table
             try:
                 context['lexicon_table'].paginate(page=self.request.GET.get('page', 1), per_page=50)
             except EmptyPage: # 404 on a empty page
@@ -120,7 +127,11 @@ def language_detail(request, language):
         
         # load lexicon if installed.
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
-            out['lexicon_table'] = LanguageLexiconTable(my_lang.lexicon_set.select_related().all())
+            if request.user.is_authenticated():
+                table = LanguageLexiconEditTable(my_lang.lexicon_set.select_related().all())
+            else:
+                table = LanguageLexiconTable(my_lang.lexicon_set.select_related().all())
+            out['lexicon_table'] = table
             try:
                 out['lexicon_table'].paginate(page=request.GET.get('page', 1), per_page=50)
             except EmptyPage: # 404 on a empty page

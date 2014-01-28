@@ -12,6 +12,7 @@ from website.apps.lexicon.forms import LexiconForm
 
 from django_tables2 import SingleTableView
 from website.apps.lexicon.tables import WordIndexTable, WordLexiconTable
+from website.apps.lexicon.tables import WordLexiconEditTable
 
 
 class WordIndex(SingleTableView):
@@ -45,7 +46,13 @@ class WordDetail(DetailView):
     
     def get_context_data(self, **kwargs):
         context = super(WordDetail, self).get_context_data(**kwargs)
-        context['lexicon'] = WordLexiconTable(kwargs['object'].lexicon_set.select_related().all())
+        
+        if self.request.user.is_authenticated():
+            table = WordLexiconEditTable(kwargs['object'].lexicon_set.select_related().all())
+        else:
+            table = WordLexiconTable(kwargs['object'].lexicon_set.select_related().all())
+            
+        context['lexicon'] = table
         try:
             context['lexicon'].paginate(page=self.request.GET.get('page', 1), per_page=50)
         except EmptyPage: # 404 on a empty page
