@@ -14,6 +14,11 @@ from website.apps.entry.tests import DataMixin
 class Test_GenericView(DataMixin):
     """Tests the GenericView Detail Page"""
     
+    def test_template_used(self):
+        self.client.login(username="admin", password="test")
+        response = self.client.get(self.task.get_absolute_url())
+        self.assertTemplateUsed(response, 'entry/detail.html')
+    
     def test_testimage_is_present(self):
         """
         This test makes sure that the test image is present on the file-system

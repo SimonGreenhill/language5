@@ -1,13 +1,18 @@
 from django.db.models import Count
 from django.http import Http404
 from django.views.generic import DetailView
+from django.views.generic.edit import UpdateView
 from django.shortcuts import get_object_or_404
 from django.core.paginator import EmptyPage, PageNotAnInteger
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
-from website.apps.lexicon.models import Word, WordSubset, Cognate
+from website.apps.lexicon.models import Word, WordSubset, Lexicon, Cognate
+from website.apps.lexicon.forms import LexiconForm
 
 from django_tables2 import SingleTableView
 from website.apps.lexicon.tables import WordIndexTable, WordLexiconTable
+from website.apps.lexicon.tables import WordLexiconEditTable
 
 
 class WordIndex(SingleTableView):
@@ -41,7 +46,13 @@ class WordDetail(DetailView):
     
     def get_context_data(self, **kwargs):
         context = super(WordDetail, self).get_context_data(**kwargs)
-        context['lexicon'] = WordLexiconTable(kwargs['object'].lexicon_set.select_related().all())
+        
+        if self.request.user.is_authenticated():
+            table = WordLexiconEditTable(kwargs['object'].lexicon_set.select_related().all())
+        else:
+            table = WordLexiconTable(kwargs['object'].lexicon_set.select_related().all())
+            
+        context['lexicon'] = table
         try:
             context['lexicon'].paginate(page=self.request.GET.get('page', 1), per_page=50)
         except EmptyPage: # 404 on a empty page
@@ -49,3 +60,30 @@ class WordDetail(DetailView):
         except PageNotAnInteger: # 404 on invalid page number
             raise Http404
         return context
+
+
+class LexiconDetail(DetailView):
+    """Lexicon Detail"""
+    model = Lexicon
+    template_name = 'lexicon/lexicon_detail.html'
+
+
+class LexiconEdit(UpdateView):
+    """Lexicon Editor"""
+    model = Lexicon
+    form_class = LexiconForm
+    template_name_suffix = '_edit'
+    
+    def form_valid(self, form):
+        from django.utils import timezone
+        import reversion
+        form.instance.editor = self.request.user
+        form.instance.added = timezone.now()
+        with reversion.create_revision():
+            form.save()
+        return super(LexiconEdit, self).form_valid(form)
+        #return HttpResponseRedirect(form.get_succ_url())
+    
+    @method_decorator(login_required) # ensure logged in
+    def dispatch(self, *args, **kwargs):
+        return super(LexiconEdit, self).dispatch(*args, **kwargs)

@@ -12,7 +12,8 @@ from website.apps.lexicon.models import CorrespondenceSet, Correspondence
 class TestSetup(object):
     """Mixin for test data"""
     def setUp(self):
-        self.editor = User.objects.create(username='admin')
+        self.editor = User.objects.create_user('admin',
+                                               'admin@example.com', "test")
         self.word1 = Word.objects.create(word='Hand', slug='hand', 
                                         full='a hand', editor=self.editor)
         self.word2 = Word.objects.create(word='One', slug='one', 

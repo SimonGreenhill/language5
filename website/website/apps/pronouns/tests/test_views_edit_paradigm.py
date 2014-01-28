@@ -521,9 +521,11 @@ class Test_EditParadigmView(TestCase):
         
         return postdata
     
+    def test_template_used(self):
+        self.assertTemplateUsed(self.response, 'pronouns/edit.html')
+    
     def test_200ok(self):
         self.assertEqual(self.response.status_code, 200)
-        self.assertTemplateUsed(self.response, 'pronouns/edit.html')
     
     def test_fail_when_not_logged_in(self):
         self.assertEqual(self.client.get(self.url).status_code, 200)
