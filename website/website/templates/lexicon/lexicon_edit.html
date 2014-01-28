@@ -7,19 +7,9 @@
 {% block content %}
     <div class="page-header">
         <h1>
-            {{ object }}
+            Lexicon #{{ object.id }}:
         </h1>
     </div>
-    
-    <ul class="breadcrumb">
-      <li>
-          <a href="{% url "index" %}">Home</a> 
-          <span class="divider">/</span>
-      </li>
-    </ul>
-    
-    
-    <h2> Lexicon #{{ object.id }}:</h2>
     
     <form action="{% url "lexicon-edit" object.id %}" method="post">
     {% csrf_token %}

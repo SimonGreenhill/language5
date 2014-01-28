@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
 from website.apps.lexicon.models import Word, WordSubset, Lexicon, Cognate
+from website.apps.lexicon.forms import LexiconForm
 
 from django_tables2 import SingleTableView
 from website.apps.lexicon.tables import WordIndexTable, WordLexiconTable
@@ -59,19 +60,23 @@ class LexiconDetail(DetailView):
     model = Lexicon
     template_name = 'lexicon/lexicon_detail.html'
 
-#@reversion.create_revision()
 
 class LexiconEdit(UpdateView):
     """Lexicon Editor"""
     model = Lexicon
-    #fields = ['name'] ? necc?
+    form_class = LexiconForm
     template_name_suffix = '_edit'
     
     def form_valid(self, form):
-        # TODO: set editor and timestamp and reversion
+        from django.utils import timezone
+        import reversion
+        form.instance.editor = self.request.user
+        form.instance.added = timezone.now()
+        with reversion.create_revision():
+            form.save()
         return super(LexiconEdit, self).form_valid(form)
-            
-    # have to be logged in!
-    @method_decorator(login_required)
+        #return HttpResponseRedirect(form.get_succ_url())
+    
+    @method_decorator(login_required) # ensure logged in
     def dispatch(self, *args, **kwargs):
         return super(LexiconEdit, self).dispatch(*args, **kwargs)
