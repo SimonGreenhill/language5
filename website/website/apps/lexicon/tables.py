@@ -4,6 +4,7 @@ from django_tables2.utils import A  # alias for Accessor
 from website.apps.core.tables import DataTable
 
 from website.apps.lexicon.models import Word, WordSubset, Lexicon
+from website.apps.lexicon.models import CognateSet, Cognate
 
 
 class WordIndexTable(DataTable):
@@ -78,6 +79,42 @@ class SourceLexiconTable(DataTable):
         sequence = ('id', 'language', 'word', 'entry', 'annotation', 'loan')
         exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'source')
     Meta.attrs['summary'] = 'Table of Lexicon'
+
+
+class CognateSetDetailTable(DataTable):
+    """Cognate set detail table"""
+    id = tables.Column()
+    language = tables.LinkColumn('language-detail', args=[A('language.slug')])
+    word = tables.LinkColumn('word-detail', args=[A('word.slug')])
+    source = tables.LinkColumn('source-detail', args=[A('source.slug')])
+    entry = tables.Column()
+    annotation = tables.Column()
+    loan = tables.BooleanColumn(null=False, yesno=('x', ''))
+    
+    def render_language(self, record):
+        col = tables.LinkColumn('language-detail', args=[record.language.slug])
+        return col.render(value=unicode(record.language), record=unicode(record.language), bound_column=None)
+    
+    class Meta(DataTable.Meta):
+        model = Lexicon
+        order_by_field = 'language' # default sorting
+        sequence = ('id', 'language', 'word', 'entry', 'annotation', 'loan')
+        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'source')
+    Meta.attrs['summary'] = 'Table of Lexicon'
+
+
+class CognateSetIndexTable(DataTable):
+    """Table of cognate sets"""
+    id = tables.LinkColumn('cognateset-detail', args=[A('id')])
+    protoform = tables.LinkColumn('cognateset-detail', args=[A('id')])
+    gloss = tables.LinkColumn('cognateset-detail', args=[A('id')])
+    
+    class Meta(DataTable.Meta):
+        model = CognateSet
+        order_by_field = 'id' # default sorting
+        sequence = ('id', 'protoform', 'gloss', 'quality',)
+        exclude = ('editor', 'added', 'comment', 'source', 'lexicon',)
+    Meta.attrs['summary'] = 'Table of Cognate Sets'
 
 
 # Tables with Edit links
