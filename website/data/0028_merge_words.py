@@ -419,7 +419,7 @@ for destination, source in parse_words(words):
     # update annotation
     old = Word.objects.get(slug=source)
     for entry in old.lexicon_set.all():
-        if len(entry.annotation) == 0:
+        if not entry.annotation:
             entry.annotation = old.word
             entry.save()
         print "\t", repr(entry).ljust(30), entry.annotation
