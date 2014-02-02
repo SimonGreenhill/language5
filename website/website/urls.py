@@ -10,6 +10,7 @@ from website.apps.core.views import SourceIndex, SourceDetail
 from website.apps.core.views import FamilyIndex, FamilyDetail
 
 from website.apps.lexicon.views import WordIndex, WordDetail
+from website.apps.lexicon.views import CognateSetIndex, CognateSetDetail
 from website.apps.lexicon.views import LexiconDetail, LexiconEdit
 
 from sitemap import sitemaps
@@ -85,19 +86,25 @@ if 'website.apps.lexicon' in settings.INSTALLED_APPS:
     urlpatterns += patterns("",
         # Word-Index: Show all words
         url(r'^word/$', WordIndex.as_view(), name="word-index"),
-    
+        
         # Word-Detail: Show the given word
         url(r'^word/(?P<slug>.+)$', WordDetail.as_view(), name="word-detail"),
-    
+        
         # Subset-Detail: Show the given word subset
         url(r'^word/\?subset=(?P<slug>.+)$', WordDetail.as_view(), name="subset-detail"),
-    
-        # lexicon-detail: detail word.
+        
+        # lexicon-detail: detail of lexical item.
         url(r'^lexicon/(?P<pk>\d+)$', LexiconDetail.as_view(), name="lexicon-detail"),
-    
-        # lexicon-detail: detail word.
+        
+        # lexicon-edit: edit lexical item.
         url(r'^lexicon/(?P<pk>\d+)/edit$', LexiconEdit.as_view(), name="lexicon-edit"),
-    
+        
+        # cognateset-index: List cognate Sets
+        url(r'^cognate/$', CognateSetIndex.as_view(), name="cognateset-index"),
+        
+        # cognateset-detail: details of cognate sets
+        url(r'^cognate/(?P<pk>\d+)$', CognateSetDetail.as_view(), name="cognateset-detail"),
+        
     )
 
 # ------------------------------------------------------------------------ #

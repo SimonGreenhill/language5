@@ -79,7 +79,7 @@ class TestSetup(object):
             if getattr(original, field.name) != getattr(saved, field.name):
                 raise AssertionError("Expected %r for field %s got %r" % (getattr(original, field.name), field.name, getattr(saved, field.name)))
         return True
-    
+
 
 class Test_Words(TestSetup, TestCase):
     """Simple tests for words"""
