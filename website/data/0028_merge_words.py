@@ -426,4 +426,4 @@ for destination, source in parse_words(words):
         
     # MOVE
     cmd = mergeword.Command()
-    cmd.handle(destination, source)
+    cmd.handle(destination, source, save=True)
