@@ -12,14 +12,14 @@ you
 root
 to come
 breast
-rain
+to rain
 i
 name
 louse
 wing
 meat
 arm-hand
-fly
+fly-sp
 night
 ear
 neck
@@ -79,7 +79,7 @@ thigh
 thick
 long
 to blow
-wood
+stick
 to run
 to fall
 eye
