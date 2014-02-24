@@ -5,6 +5,19 @@ from django.views.generic import TemplateView, RedirectView
 from django.contrib import admin
 admin.autodiscover()
 
+from tastypie.api import Api
+from website.apps.core.resources import LanguageResource, SourceResource
+from website.apps.lexicon.resources import WordResource
+
+
+v1_api = Api(api_name='v1')
+v1_api.register(LanguageResource())
+v1_api.register(SourceResource())
+v1_api.register(WordResource())
+
+
+
+
 from website.apps.core.views import LanguageIndex, RobotsTxt
 from website.apps.core.views import SourceIndex, SourceDetail
 from website.apps.core.views import FamilyIndex, FamilyDetail
@@ -74,7 +87,9 @@ urlpatterns = patterns('',
         name="login"),
     url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', name="logout"),
     
-    url(r'^favicon\.ico$', RedirectView.as_view(url='%s/favicon.ico' % settings.STATIC_URL))
+    url(r'^favicon\.ico$', RedirectView.as_view(url='%s/favicon.ico' % settings.STATIC_URL)),
+    
+    (r'^api/', include(v1_api.urls)),
 )
 
 
