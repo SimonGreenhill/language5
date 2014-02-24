@@ -26,7 +26,13 @@
       </li>
       <li>
           <a href="{% url "word-detail" object.slug %}">{{ object }}</a>
+          <span class="divider">/</span>
       </li>
+      {% if user.is_staff %}
+          <li>
+              <a href="{% url "word-edit" object.slug %}">edit</a>
+          </li>
+      {% endif %}
     </ul>
     
     
@@ -36,6 +42,12 @@
         {% render_table lexicon "table.html" %}
     {% else %}
         <p class="error">No results found!</p>
+    {% endif %}
+    
+    {% if user.is_staff %}
+        <p>
+            <a href="{% url "word-edit" object.slug %}">Edit this word</a>
+        </p>
     {% endif %}
     
     
