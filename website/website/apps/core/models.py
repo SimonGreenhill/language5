@@ -8,11 +8,30 @@ import watson
 
 from website.apps.statistics import statistic
 
+# The AllMethodCachingQueryset and AllMethodCachingManager add cached querysets for 
+# use in formsets. This makes life much easier for the poor database. Have hooked
+# them into TrackedModel to enable them everywhere.
+# see: http://stackoverflow.com/questions/8176200/caching-queryset-choices-for-modelchoicefield-or-modelmultiplechoicefield-in-a-d
+class AllMethodCachingQueryset(models.query.QuerySet):
+    def all(self, get_from_cache=True):
+        if get_from_cache:
+            return self
+        else:
+            return self._clone()
+
+
+class AllMethodCachingManager(models.Manager):
+    def get_query_set(self):
+        return AllMethodCachingQueryset(self.model, using=self._db)
+
 
 class TrackedModel(models.Model):
     """Abstract base class containing editorial information"""
     editor = models.ForeignKey(User)
     added = models.DateTimeField(auto_now_add=True)
+    
+    objects = models.Manager()
+    cache_all_method = AllMethodCachingManager()
     
     class Meta:
         abstract = True

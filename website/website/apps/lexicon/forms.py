@@ -1,6 +1,7 @@
 # forms.py
 from django import forms
-from website.apps.lexicon.models import Lexicon
+from website.apps.core.models import Language, Source
+from website.apps.lexicon.models import Word, Lexicon
 
 class LexiconForm(forms.ModelForm):
     class Meta:
@@ -9,6 +10,10 @@ class LexiconForm(forms.ModelForm):
         
 
 class WordForm(forms.ModelForm):
+    language = forms.ModelChoiceField(queryset=Language.cache_all_method.all().order_by('slug'))
+    word = forms.ModelChoiceField(queryset=Word.cache_all_method.all().order_by('word'))
+    source = forms.ModelChoiceField(queryset=Source.cache_all_method.all().order_by('slug'))
+    
     class Meta:
         model = Lexicon
         fields = ['language', 'source', 'word', 'entry', 'annotation']
