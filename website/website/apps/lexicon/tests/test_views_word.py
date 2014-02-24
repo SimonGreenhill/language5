@@ -144,7 +144,7 @@ class Test_LexiconDetail(TestSetup, TestCase):
 class Test_WordEdit(TestSetup, TestCase):
     def setUp(self):
         super(Test_WordEdit, self).setUp()
-        self.lex = Lexicon.objects.create(
+        self.lex1 = Lexicon.objects.create(
             language=self.lang1, 
             word=self.word1,
             source=self.source1,
@@ -160,26 +160,22 @@ class Test_WordEdit(TestSetup, TestCase):
             entry="banana",
             annotation=""
         )
+        self.items = [self.lex1, self.lex2]
         self.url = reverse('word-edit', kwargs={'slug': self.word1.slug})
     
     def get_post_data(self, objects):
-        postdata = {}
+        postdata = {
+            'form-TOTAL_FORMS': u'2',
+            'form-INITIAL_FORMS': u'2',
+            'form-MAX_NUM_FORMS': u'1000',
+            'submit': 'true',
+        }
         
-        'form-TOTAL_FORMS': u'1',
-        'form-INITIAL_FORMS': u'1',
-        'form-MAX_NUM_FORMS': u'1000',
-        'form-0-language': self.lang.id,
-        'form-0-source': self.source.id,
-        'form-0-word': self.word.id,
-        'form-0-entry': 'simon',
-        'form-0-annotation': 'comment',
-        'submit': 'true',
-        
-        
-        for obj in objects:
+        for i, obj in enumerate(objects):
             for k, v in obj.__dict__.items():
                 if not k.startswith("_") and k not in ('added', 'editor_id', 'loan_source_id', 'loan'):
-                    postdata["form-%d-%s" % (obj.id, k)] = v
+                    k = k.replace("_id", "")
+                    postdata["form-%d-%s" % (i, k)] = v
         return postdata
     
     def test_error_on_notlogged_in(self):
@@ -212,37 +208,55 @@ class Test_WordEdit(TestSetup, TestCase):
         
     def test_post(self):
         self.client.login(username="admin", password="test")
-        postdata = self.get_post_data([self.lex, self.lex2])
-        print postdata
-        postdata['entry'] = 'banana'
+        postdata = self.get_post_data(self.items)
+        response = self.client.post(self.url, postdata, follow=True)
+        self.assertRedirects(response, reverse('word-detail', 
+                                    kwargs={'slug': self.word1.slug}),
+                                    status_code=302, target_status_code=200)
+        self.assertEquals(response.status_code, 200)
+        assert 'sausage' in response.content
+        assert 'banana' in response.content
+    
+    def test_update_entry(self):
+        self.client.login(username="admin", password="test")
+        postdata = self.get_post_data(self.items)
+        postdata['form-0-entry'] = 'apricot' # replace 'sausage' with 'apricot'
+        response = self.client.post(self.url, postdata, follow=True)
+        self.assertRedirects(response, reverse('word-detail', 
+                                    kwargs={'slug': self.word1.slug}),
+                                    status_code=302, target_status_code=200)
+        self.assertEquals(response.status_code, 200)
+        assert 'apricot' in response.content
+        assert 'banana' in response.content
+        assert 'sausage' not in response.content
+        
+    def test_update_editor(self):
+        from django.contrib.auth.models import User
+        newuser = User.objects.create_user('dave', 'dave@example.com', 'secret')
+        self.client.login(username="dave", password="secret")
+        postdata = self.get_post_data(self.items)
+        postdata['form-0-entry'] = 'apricot' # replace 'sausage' with 'apricot'
         response = self.client.post(self.url, postdata, follow=True)
         self.assertEquals(response.status_code, 200)
-        assert 'banana' in response.content
-        assert 'sausage' in response.content
-        assert 'eggs' in response.content
+        assert Lexicon.objects.get(pk=self.lex1.id).editor == newuser, "Have not updated editor!"
         
-    # def test_update_editor(self):
-    #     from django.contrib.auth.models import User
-    #     assert self.lex.editor == self.editor
-    #     newuser = User.objects.create_user('dave', 'dave@example.com', 'secret')
-    #     self.client.login(username="dave", password="secret")
-    #     response = self.client.post(self.url, self.get_post_data(self.lex), follow=True)
-    #     self.assertEquals(response.status_code, 200)
-    #     assert Lexicon.objects.get(pk=self.lex.id).editor == newuser, "Have not updated editor!"
-    #     
-    # def test_update_added(self):
-    #     added = self.lex.added
-    #     self.client.login(username="admin", password="test")
-    #     response = self.client.post(self.url, self.get_post_data(self.lex), follow=True)
-    #     now = Lexicon.objects.get(pk=self.lex.id).added
-    #     assert now > added, "%r is not larger than %r" % (now, added)
-    #     
-    # def test_create_revision(self):
-    #     import reversion
-    #     version_list = reversion.get_for_object(self.lex)
-    #     assert len(version_list) == 0
-    #     self.client.login(username="admin", password="test")
-    #     response = self.client.post(self.url, self.get_post_data(self.lex), follow=True)
-    #     version_list = reversion.get_for_object(self.lex)
-    #     assert len(version_list) == 1
+    def test_update_added(self):
+        added = self.lex1.added
+        self.client.login(username="admin", password="test")
+        postdata = self.get_post_data(self.items)
+        postdata['form-0-entry'] = 'apricot' # replace 'sausage' with 'apricot'
+        response = self.client.post(self.url, postdata, follow=True)
+        now = Lexicon.objects.get(pk=self.lex1.id).added
+        assert now > added, "%r is not larger than %r" % (now, added)
+        
+    def test_create_revision(self):
+        import reversion
+        version_list = reversion.get_for_object(self.lex1)
+        assert len(version_list) == 0
+        self.client.login(username="admin", password="test")
+        postdata = self.get_post_data(self.items)
+        postdata['form-0-entry'] = 'apricot' # replace 'sausage' with 'apricot'
+        response = self.client.post(self.url, postdata, follow=True)
+        version_list = reversion.get_for_object(self.lex1)
+        assert len(version_list) == 1
 
