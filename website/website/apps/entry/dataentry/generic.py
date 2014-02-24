@@ -109,7 +109,6 @@ def GenericView(request, task):
             initial['language'] = task.language
         if task.source:
             initial['source'] = task.source
-
         formset = GenericFormSet(initial=[initial for i in range(task.records)])
     
     return render_to_response('entry/detail.html', {
