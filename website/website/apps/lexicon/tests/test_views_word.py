@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 
 from test_models import TestSetup
 from website.apps.lexicon.models import Word, WordSubset, Lexicon
-from website.apps.lexicon.models import CognateSet, Cognate
+
 
 class Test_WordIndex(TestSetup, TestCase):
     """Tests the Word Index page"""
@@ -139,96 +139,11 @@ class Test_LexiconDetail(TestSetup, TestCase):
         self.assertEquals(response.status_code, 200)
         assert 'sausage' in response.content
         assert 'eggs' in response.content
-        
 
-class Test_LexiconEdit(TestSetup, TestCase):
+
+class Test_WordEdit(TestSetup, TestCase):
     def setUp(self):
-        super(Test_LexiconEdit, self).setUp()
-        self.lex = Lexicon.objects.create(
-            language=self.lang1, 
-            word=self.word1,
-            source=self.source1,
-            editor=self.editor,
-            entry="sausage",
-            annotation="eggs"
-        )
-        self.url = reverse('lexicon-edit', kwargs={'pk': self.lex.id})
-    
-    def get_post_data(self, obj):
-        return dict(
-            [(k.replace("_id", ""),v) for k,v in obj.__dict__.items() \
-                if not k.startswith("_") and k not in ('added', 'editor_id', 'loan_source_id', 'loan')
-            ]
-        )
-        
-    
-    def test_error_on_notlogged_in(self):
-        response = self.client.get(self.url)
-        self.assertEquals(response.status_code, 302)
-        self.assertRedirects(response, "/accounts/login/?next=%s" % self.url, 
-                                    status_code=302, target_status_code=200)
-        
-    def test_200ok_logged_in(self):
-        self.client.login(username="admin", password="test")
-        response = self.client.get(self.url)
-        self.assertEquals(response.status_code, 200)
-    
-    def test_template(self):
-        self.client.login(username="admin", password="test")
-        response = self.client.get(self.url)
-        self.assertTemplateUsed(response, 'lexicon/lexicon_edit.html')
-    
-    def test_error_on_missing(self):
-        self.client.login(username="admin", password="test")
-        response = self.client.get(reverse('lexicon-detail', kwargs={'pk': 5}))
-        self.assertEquals(response.status_code, 404)
-        
-    def test_get(self):
-        self.client.login(username="admin", password="test")
-        response = self.client.get(self.url)
-        self.assertEquals(response.status_code, 200)
-        assert 'sausage' in response.content
-        assert 'eggs' in response.content
-        
-    def test_post(self):
-        self.client.login(username="admin", password="test")
-        postdata = self.get_post_data(self.lex)
-        postdata['entry'] = 'banana'
-        response = self.client.post(self.url, postdata, follow=True)
-        self.assertEquals(response.status_code, 200)
-        assert 'banana' in response.content
-        assert 'sausage' not in response.content
-        assert 'eggs' in response.content
-        
-    def test_update_editor(self):
-        from django.contrib.auth.models import User
-        assert self.lex.editor == self.editor
-        newuser = User.objects.create_user('dave', 'dave@example.com', 'secret')
-        self.client.login(username="dave", password="secret")
-        response = self.client.post(self.url, self.get_post_data(self.lex), follow=True)
-        self.assertEquals(response.status_code, 200)
-        assert Lexicon.objects.get(pk=self.lex.id).editor == newuser, "Have not updated editor!"
-        
-    def test_update_added(self):
-        added = self.lex.added
-        self.client.login(username="admin", password="test")
-        response = self.client.post(self.url, self.get_post_data(self.lex), follow=True)
-        now = Lexicon.objects.get(pk=self.lex.id).added
-        assert now > added, "%r is not larger than %r" % (now, added)
-        
-    def test_create_revision(self):
-        import reversion
-        version_list = reversion.get_for_object(self.lex)
-        assert len(version_list) == 0
-        self.client.login(username="admin", password="test")
-        response = self.client.post(self.url, self.get_post_data(self.lex), follow=True)
-        version_list = reversion.get_for_object(self.lex)
-        assert len(version_list) == 1
-    
-
-class CognateSetMixin(object):
-    """A mixin for cognate set information"""
-    def add_cognates(self):
+        super(Test_WordEdit, self).setUp()
         self.lex1 = Lexicon.objects.create(
             language=self.lang1, 
             word=self.word1,
@@ -242,96 +157,106 @@ class CognateSetMixin(object):
             word=self.word1,
             source=self.source1,
             editor=self.editor,
-            entry="wurst",
-            annotation=""
-        )
-        self.lex3 = Lexicon.objects.create(
-            language=self.lang1, 
-            word=self.word1,
-            source=self.source1,
-            editor=self.editor,
             entry="banana",
             annotation=""
         )
-        self.cogset1 = CognateSet.objects.create(
-            protoform = "*sausage",
-            gloss = "sausage-like things",
-            editor=self.editor
-        )
-        
-        Cognate.objects.create(lexicon=self.lex1, cognateset=self.cogset1, editor=self.editor)
-        Cognate.objects.create(lexicon=self.lex2, cognateset=self.cogset1, editor=self.editor)
-        
-        self.cogset2 = CognateSet.objects.create(
-            protoform = "*banana",
-            gloss = "a delicious yellow fruit",
-            editor=self.editor
-        )
-        Cognate.objects.create(lexicon=self.lex3, cognateset=self.cogset2, editor=self.editor)
-        
-        
-
-class Test_CognateSetIndex(TestSetup, CognateSetMixin, TestCase):
-    def setUp(self):
-        super(Test_CognateSetIndex, self).setUp()
-        self.add_cognates()
-        self.url = reverse('cognateset-index')
+        self.items = [self.lex1, self.lex2]
+        self.url = reverse('word-edit', kwargs={'slug': self.word1.slug})
     
-    def test_200ok_logged_in(self):
-        self.client.login(username="admin", password="test")
-        response = self.client.get(self.url)
-        self.assertEquals(response.status_code, 200)
+    def get_post_data(self, objects):
+        postdata = {
+            'form-TOTAL_FORMS': u'2',
+            'form-INITIAL_FORMS': u'2',
+            'form-MAX_NUM_FORMS': u'1000',
+            'submit': 'true',
+        }
+        
+        for i, obj in enumerate(objects):
+            for k, v in obj.__dict__.items():
+                if not k.startswith("_") and k not in ('added', 'editor_id', 'loan_source_id', 'loan'):
+                    k = k.replace("_id", "")
+                    postdata["form-%d-%s" % (i, k)] = v
+        return postdata
     
     def test_error_on_notlogged_in(self):
         response = self.client.get(self.url)
         self.assertEquals(response.status_code, 302)
         self.assertRedirects(response, "/accounts/login/?next=%s" % self.url, 
                                     status_code=302, target_status_code=200)
+        
+    def test_200ok_logged_in(self):
+        self.client.login(username="admin", password="test")
+        response = self.client.get(self.url)
+        self.assertEquals(response.status_code, 200)
     
     def test_template(self):
         self.client.login(username="admin", password="test")
         response = self.client.get(self.url)
-        self.assertTemplateUsed(response, 'lexicon/cognateset_index.html')
+        self.assertTemplateUsed(response, 'lexicon/word_edit.html')
     
-    def test_get_data(self):
+    def test_error_on_missing(self):
         self.client.login(username="admin", password="test")
-        response = self.client.get(self.url)
-        self.assertEquals(response.status_code, 200)
-        assert '*sausage' in response.content
-        assert '*banana' in response.content
-        
-
-class Test_CognateSetDetail(TestSetup, CognateSetMixin, TestCase):
-    def setUp(self):
-        super(Test_CognateSetDetail, self).setUp()
-        self.add_cognates()
-        self.url = reverse('cognateset-detail', kwargs={'pk': self.cogset1.id})
-    
-    def test_200ok_logged_in(self):
-        self.client.login(username="admin", password="test")
-        response = self.client.get(self.url)
-        self.assertEquals(response.status_code, 200)
-    
-    def test_error_on_notlogged_in(self):
-        response = self.client.get(self.url)
-        self.assertEquals(response.status_code, 302)
-        self.assertRedirects(response, "/accounts/login/?next=%s" % self.url, 
-                                    status_code=302, target_status_code=200)
-    
-    def test_get_missing(self):
-        self.client.login(username="admin", password="test")
-        response = self.client.get(reverse('cognateset-detail', kwargs={'pk': 5}))
+        response = self.client.get(reverse('word-edit', kwargs={'slug': 'sausage'}))
         self.assertEquals(response.status_code, 404)
         
-    def test_template(self):
-        self.client.login(username="admin", password="test")
-        response = self.client.get(self.url)
-        self.assertTemplateUsed(response, 'lexicon/cognateset_detail.html')
-    
-    def test_get_data(self):
+    def test_get(self):
         self.client.login(username="admin", password="test")
         response = self.client.get(self.url)
         self.assertEquals(response.status_code, 200)
         assert 'sausage' in response.content
-        assert 'wurst' in response.content
-        assert 'banana' not in response.content
+        assert 'banana' in response.content
+        
+    def test_post(self):
+        self.client.login(username="admin", password="test")
+        postdata = self.get_post_data(self.items)
+        response = self.client.post(self.url, postdata, follow=True)
+        self.assertRedirects(response, reverse('word-detail', 
+                                    kwargs={'slug': self.word1.slug}),
+                                    status_code=302, target_status_code=200)
+        self.assertEquals(response.status_code, 200)
+        assert 'sausage' in response.content
+        assert 'banana' in response.content
+    
+    def test_update_entry(self):
+        self.client.login(username="admin", password="test")
+        postdata = self.get_post_data(self.items)
+        postdata['form-0-entry'] = 'apricot' # replace 'sausage' with 'apricot'
+        response = self.client.post(self.url, postdata, follow=True)
+        self.assertRedirects(response, reverse('word-detail', 
+                                    kwargs={'slug': self.word1.slug}),
+                                    status_code=302, target_status_code=200)
+        self.assertEquals(response.status_code, 200)
+        assert 'apricot' in response.content
+        assert 'banana' in response.content
+        assert 'sausage' not in response.content
+        
+    def test_update_editor(self):
+        from django.contrib.auth.models import User
+        newuser = User.objects.create_user('dave', 'dave@example.com', 'secret')
+        self.client.login(username="dave", password="secret")
+        postdata = self.get_post_data(self.items)
+        postdata['form-0-entry'] = 'apricot' # replace 'sausage' with 'apricot'
+        response = self.client.post(self.url, postdata, follow=True)
+        self.assertEquals(response.status_code, 200)
+        assert Lexicon.objects.get(pk=self.lex1.id).editor == newuser, "Have not updated editor!"
+        
+    def test_update_added(self):
+        added = self.lex1.added
+        self.client.login(username="admin", password="test")
+        postdata = self.get_post_data(self.items)
+        postdata['form-0-entry'] = 'apricot' # replace 'sausage' with 'apricot'
+        response = self.client.post(self.url, postdata, follow=True)
+        now = Lexicon.objects.get(pk=self.lex1.id).added
+        assert now > added, "%r is not larger than %r" % (now, added)
+        
+    def test_create_revision(self):
+        import reversion
+        version_list = reversion.get_for_object(self.lex1)
+        assert len(version_list) == 0
+        self.client.login(username="admin", password="test")
+        postdata = self.get_post_data(self.items)
+        postdata['form-0-entry'] = 'apricot' # replace 'sausage' with 'apricot'
+        response = self.client.post(self.url, postdata, follow=True)
+        version_list = reversion.get_for_object(self.lex1)
+        assert len(version_list) == 1
+

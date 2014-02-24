@@ -13,9 +13,9 @@ from website.apps.lexicon.models import Lexicon, Word
 from website.apps.entry.utils import task_log
 
 class GenericForm(forms.ModelForm):
-    language = forms.ModelChoiceField(queryset=Language.objects.order_by('slug'))
-    word = forms.ModelChoiceField(queryset=Word.objects.order_by('word'))
-    source = forms.ModelChoiceField(queryset=Source.objects.order_by('slug'))
+    language = forms.ModelChoiceField(queryset=Language.cache_all_method.all().order_by('slug'))
+    word = forms.ModelChoiceField(queryset=Word.cache_all_method.all().order_by('word'))
+    source = forms.ModelChoiceField(queryset=Source.cache_all_method.all().order_by('slug'))
     
     class Meta:
         model = Lexicon
@@ -109,7 +109,6 @@ def GenericView(request, task):
             initial['language'] = task.language
         if task.source:
             initial['source'] = task.source
-
         formset = GenericFormSet(initial=[initial for i in range(task.records)])
     
     return render_to_response('entry/detail.html', {
