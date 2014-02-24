@@ -2,10 +2,12 @@ from django.db.models import Count
 from django.http import Http404
 from django.views.generic import DetailView
 from django.views.generic.edit import UpdateView
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render_to_response, redirect
+from django.template import RequestContext
 from django.core.paginator import EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.utils import timezone
 
 from website.apps.lexicon.models import Word, WordSubset, Lexicon, CognateSet
 from website.apps.lexicon.forms import LexiconForm
@@ -14,6 +16,10 @@ from django_tables2 import SingleTableView
 from website.apps.lexicon.tables import WordIndexTable, WordLexiconTable
 from website.apps.lexicon.tables import WordLexiconEditTable
 from website.apps.lexicon.tables import CognateSetIndexTable, CognateSetDetailTable
+
+# for WordEdit
+from django.forms.models import modelformset_factory
+from website.apps.lexicon.forms import WordForm
 
 
 class WordIndex(SingleTableView):
@@ -155,3 +161,30 @@ class LexiconEdit(UpdateView):
     @method_decorator(login_required) # ensure logged in
     def dispatch(self, *args, **kwargs):
         return super(LexiconEdit, self).dispatch(*args, **kwargs)
+
+
+
+
+@login_required()
+def word_edit(request, slug):
+    # because Class-Based Views suck for complex things
+    w = get_object_or_404(Word, slug=slug)
+    GenericFormSet = modelformset_factory(Lexicon, form=WordForm, extra=0)
+    formset = GenericFormSet(request.POST or None, queryset=w.lexicon_set.all())
+    
+    if request.POST and formset.is_valid():
+        import reversion
+        for form in formset:
+            if form.is_valid() and len(form.changed_data):
+                # if form is valid and some fields have changed
+                # two stages here to set default fields
+                with reversion.create_revision():
+                    obj = form.save(commit=False)
+                    obj.editor = request.user
+                    obj.added = timezone.now()
+                    obj.save()
+        return redirect(w)
+    else:
+        return render_to_response('lexicon/word_edit.html', 
+                                  {'word': w, 'formset': formset},
+                                  context_instance=RequestContext(request))

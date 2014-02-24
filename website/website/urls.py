@@ -36,16 +36,16 @@ urlpatterns = patterns('',
     url(r'^family/$', FamilyIndex.as_view(), name="family-index"),
     
     # Language-Detail: Show the given language
-    url(r'^language/(?P<language>.+)$', 
+    url(r'^language/(?P<language>[\w-]+)$', 
         'website.apps.core.views.language_detail', 
         name="language-detail"
     ),
     
     # Source-Detail: Show the given source
-    url(r'^source/(?P<slug>.+)$', SourceDetail.as_view(), name="source-detail"),
+    url(r'^source/(?P<slug>[\w-]+)$', SourceDetail.as_view(), name="source-detail"),
 
     # Family-Detail: Show the given family
-    url(r'^family/(?P<slug>.+)$', FamilyDetail.as_view(), name="family-detail"),
+    url(r'^family/(?P<slug>[\w-]+)$', FamilyDetail.as_view(), name="family-detail"),
 
     # ISO Lookup: redirects to the language page
     url(r'^iso/(?P<iso>\w{3})$', 
@@ -88,16 +88,13 @@ if 'website.apps.lexicon' in settings.INSTALLED_APPS:
         url(r'^word/$', WordIndex.as_view(), name="word-index"),
         
         # Word-Detail: Show the given word
-        url(r'^word/(?P<slug>.+)$', WordDetail.as_view(), name="word-detail"),
+        url(r'^word/(?P<slug>[\w-]+)$', WordDetail.as_view(), name="word-detail"),
         
         # Subset-Detail: Show the given word subset
-        url(r'^word/\?subset=(?P<slug>.+)$', WordDetail.as_view(), name="subset-detail"),
+        url(r'^word/\?subset=(?P<slug>[\w-]+)$', WordDetail.as_view(), name="subset-detail"),
         
         # lexicon-detail: detail of lexical item.
         url(r'^lexicon/(?P<pk>\d+)$', LexiconDetail.as_view(), name="lexicon-detail"),
-        
-        # lexicon-edit: edit lexical item.
-        url(r'^lexicon/(?P<pk>\d+)/edit$', LexiconEdit.as_view(), name="lexicon-edit"),
         
         # cognateset-index: List cognate Sets
         url(r'^cognate/$', CognateSetIndex.as_view(), name="cognateset-index"),
@@ -105,6 +102,10 @@ if 'website.apps.lexicon' in settings.INSTALLED_APPS:
         # cognateset-detail: details of cognate sets
         url(r'^cognate/(?P<pk>\d+)$', CognateSetDetail.as_view(), name="cognateset-detail"),
         
+        # Admin/Editor pages
+        # lexicon-edit: edit lexical item.
+        url(r'^lexicon/(?P<pk>\d+)/edit$', LexiconEdit.as_view(), name="lexicon-edit"),
+        url(r'^word/(?P<slug>[\w-]+)/edit$', 'website.apps.lexicon.views.word_edit', name="word-edit"),
     )
 
 # ------------------------------------------------------------------------ #
