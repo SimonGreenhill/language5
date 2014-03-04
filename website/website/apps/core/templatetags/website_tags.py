@@ -46,6 +46,14 @@ def link_glottolog(lang):
     else:
         return ""
 
+@register.filter
+def link_wikipedia(lang):
+    """Links to Wikipedia"""
+    if isinstance(lang, Language) and lang.isocode:
+        return "https://en.wikipedia.org/wiki/ISO_639:%s" % lang.isocode
+    else:
+        return ""
+        
 
 @register.filter
 def language_map(lang):
