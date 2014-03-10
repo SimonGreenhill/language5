@@ -16,7 +16,7 @@ class HygieneDataMixin(TestCase):
         self.lang = Language.objects.create(language='A', slug='lang', 
                                              information='i.1', classification='a, b',
                                              isocode='aaa', editor=self.editor)
-        self.source = Source.objects.create(year=1991, author='Smith', 
+        self.source = Source.objects.create(year="1991", author='Smith', 
                                  slug='Smith1991', reference='S2',
                                  comment='c1', editor=self.editor)
         

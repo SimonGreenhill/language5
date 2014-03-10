@@ -6,26 +6,21 @@ class Test_Source(TestCase):
     """Tests the Source Model"""
     def setUp(self):
         self.editor = User.objects.create(username='admin')
-        self.source1 = Source.objects.create(year=1991, author='Smith', 
+        self.source1 = Source.objects.create(year="1991", author='Smith', 
                                     slug='Smith1991', reference='S2',
                                     comment='c1', editor=self.editor)
-        self.source2 = Source.objects.create(year=2002, author='Jones', 
+        self.source2 = Source.objects.create(year="2002", author='Jones', 
                                     slug='Jones2002', reference='J2',
                                     comment='c2', editor=self.editor)
     
     def test_set_year(self):
-        self.assertEquals(Source.objects.get(pk=1).year, 1991)
-        self.assertEquals(Source.objects.get(pk=2).year, 2002)
+        self.assertEquals(Source.objects.get(pk=1).year, '1991')
+        self.assertEquals(Source.objects.get(pk=2).year, '2002')
     
     def test_set_year_to_none(self):
         self.source1.year = None
         self.source1.save()
         
-    def test_fail_on_nonyear(self):
-        self.source1.year = 'aaa'
-        with self.assertRaises(ValueError):
-            self.source1.save()
-    
     def test_set_author(self):
         self.assertEquals(Source.objects.get(pk=1).author, 'Smith')
         self.assertEquals(Source.objects.get(pk=2).author, 'Jones')
@@ -54,7 +49,7 @@ class Test_Source(TestCase):
         # now have one thing
         self.assertEquals(len(Source.objects.all()), 1)
         # now have the CORRECT one thing
-        self.assertEquals(Source.objects.get(pk=2).year, 2002)
+        self.assertEquals(Source.objects.get(pk=2).year, "2002")
         # and we can't get the thing we deleted.
         with self.assertRaises(Source.DoesNotExist):
             Source.objects.get(pk=1)
@@ -62,6 +57,6 @@ class Test_Source(TestCase):
     def test_repr(self):
         """Test source's special handling of repr"""
         s = Source.objects.get(pk=1)
-        self.assertEquals(s.__unicode__(), "%s (%d)" % (self.source1.author, self.source1.year))
+        self.assertEquals(s.__unicode__(), "%s (%s)" % (self.source1.author, self.source1.year))
         s.year = None
         self.assertEquals(s.__unicode__(), self.source1.author)

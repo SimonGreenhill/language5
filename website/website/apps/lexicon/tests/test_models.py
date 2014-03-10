@@ -30,7 +30,7 @@ class TestSetup(object):
                                              isocode='bbb', editor=self.editor)
         
         # some sources
-        self.source1 = Source.objects.create(year=1991, author='Smith', 
+        self.source1 = Source.objects.create(year="1991", author='Smith', 
                                  slug='Smith1991', reference='S2',
                                  comment='c1', editor=self.editor)
         self.source2 = Source.objects.create(year=2002, author='Jones', 

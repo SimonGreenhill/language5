@@ -13,7 +13,7 @@ class DataMixin(TestCase):
         self.editor = User.objects.create_user('admin',
                                                'admin@example.com', "test")
         self.language = Language.objects.get(pk=1)
-        self.source = Source.objects.create(year=1991, author='Smith', 
+        self.source = Source.objects.create(year="1991", author='Smith', 
                                     slug='smith1991', reference='S2',
                                     comment='c1', editor=self.editor)
         self.att = Attachment.objects.create(
