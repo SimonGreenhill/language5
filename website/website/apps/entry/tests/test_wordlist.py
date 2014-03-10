@@ -17,7 +17,7 @@ class WordlistMixin(TestCase):
         self.editor = User.objects.create_user('admin',
                                                'admin@example.com', "test")
         self.source = Source.objects.create(
-                year=1991,
+                year="1991",
                 author='Smith',
                 slug='Smith1991',
                 reference='S2',

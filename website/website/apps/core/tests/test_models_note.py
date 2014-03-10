@@ -14,7 +14,7 @@ class Test_Note(TestCase):
         self.lang2 = Language.objects.create(language='B', slug='langb',
                                              information='i.2', classification='c, d, e',
                                              isocode='bbb', editor=self.editor)
-        self.source1 = Source.objects.create(year=1991, author='Smith', 
+        self.source1 = Source.objects.create(year="1991", author='Smith', 
                                              slug='Smith1991', reference='S2',
                                              comment='c1', editor=self.editor)
         self.source2 = Source.objects.create(year=2002, author='Jones', 

@@ -20,7 +20,7 @@ class RedirectionTestMixin(object):
         self.altname = AlternateName.objects.create(language=self.language, name='x',
                                              slug='x', editor=self.editor)
         self.family = Family.objects.create(family='An', slug='s1', editor=self.editor)
-        self.source = Source.objects.create(year=1991, author='Smith', 
+        self.source = Source.objects.create(year="1991", author='Smith', 
                                     slug='Smith1991', reference='S2',
                                     comment='c1', editor=self.editor)
         self.client = Client()
