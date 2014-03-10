@@ -40,7 +40,8 @@ class TrackedModel(models.Model):
 
 class Source(TrackedModel):
     """Source Details"""
-    year = models.IntegerField(blank=True, null=True, db_index=True,
+    year = models.CharField(max_length=12, 
+        blank=True, null=True, db_index=True,
         help_text="Year published")
     author = models.CharField(max_length=255, db_index=True, 
         help_text="Short Author list e.g. (Smith et al.)")
