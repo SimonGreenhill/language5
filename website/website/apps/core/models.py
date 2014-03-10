@@ -70,7 +70,6 @@ class Source(TrackedModel):
         index_together = [
             ["author", "year"],
         ]
-        unique_together = ['author', 'year']
 
 
 class Note(TrackedModel):
