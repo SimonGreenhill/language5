@@ -1,12 +1,16 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% load nvd3_tags %}
 
 {% block title %} {{ SITE_NAME }} Statistics {% endblock %}
 
 {% block head %}
-    {% include_nvd3jscss %}
+    <link media="all" href="{% static "nvd3/nv.d3.min.css" %}" type="text/css" rel="stylesheet" />
+    <script src="{% static "nvd3/d3.min.js" %}" type="text/javascript"></script>
+    <script src="{% static "nvd3/nv.d3.min.js" %}" type="text/javascript"></script>
+    
     {% for chart in charts %}
-        {% load_chart chart.type chart.data chart.id True "%d %b %Y" %}
+        {% load_chart chart.type chart.data chart.id chart.extra %}
     {% endfor %}
 
 {% endblock %}

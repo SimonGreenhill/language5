@@ -34,7 +34,11 @@ def statistics(request):
             'label': label,
             'type': "lineChart",
             'id': 'chart_id_%d' % i,
-            'data': get_xy(label, get_latest=True)
+            'data': get_xy(label, get_latest=True),
+            'extra': {
+                 'x_is_date': True,
+                 'x_axis_format': "%d %b %Y",
+            }
         })
     
     return render(request, 'statistics/details.html', out)
