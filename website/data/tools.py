@@ -336,6 +336,16 @@ def create_correspondence(varname,
     """.format(**locals())
 
 
+def get_latest_words():
+    import requests
+    url = "http://transnewguinea.org/api/v1/word/?format=json&limit=1000"
+    r = requests.get(url)
+    words = []
+    for obj in r.json()['objects']:
+        words.append(obj['slug'])
+    return words
+
+
 if __name__ == '__main__':
     print create_source('source',
                       year="year", 
