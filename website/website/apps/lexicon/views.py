@@ -12,7 +12,7 @@ from django.utils import timezone
 from website.apps.lexicon.models import Word, WordSubset, Lexicon, CognateSet
 from website.apps.lexicon.forms import LexiconForm
 
-from django_tables2 import SingleTableView
+from django_tables2 import SingleTableView, RequestConfig
 from website.apps.lexicon.tables import WordIndexTable, WordLexiconTable
 from website.apps.lexicon.tables import WordLexiconEditTable
 from website.apps.lexicon.tables import CognateSetIndexTable, CognateSetDetailTable
@@ -55,12 +55,13 @@ class WordDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(WordDetail, self).get_context_data(**kwargs)
         
+        qset = kwargs['object'].lexicon_set.select_related().all()
         if self.request.user.is_authenticated():
-            table = WordLexiconEditTable(kwargs['object'].lexicon_set.select_related().all())
+            context['lexicon'] = WordLexiconEditTable(qset)
         else:
-            table = WordLexiconTable(kwargs['object'].lexicon_set.select_related().all())
+            context['lexicon'] = WordLexiconTable(qset)
+        RequestConfig(self.request).configure(context['lexicon'])
             
-        context['lexicon'] = table
         try:
             context['lexicon'].paginate(page=self.request.GET.get('page', 1), per_page=50)
         except EmptyPage: # 404 on a empty page
@@ -88,12 +89,13 @@ class CognateSetIndex(DetailView):
     def get_context_data(self, **kwargs):
         context = super(CognateSetIndex, self).get_context_data(**kwargs)
         
+        qset = kwargs['object'].lexicon_set.select_related().all()
         if self.request.user.is_authenticated():
-            table = WordLexiconEditTable(kwargs['object'].lexicon_set.select_related().all())
+            context['lexicon'] = WordLexiconEditTable(qset)
         else:
-            table = WordLexiconTable(kwargs['object'].lexicon_set.select_related().all())
-            
-        context['lexicon'] = table
+            context['lexicon'] = WordLexiconTable(qset)
+        RequestConfig(request).configure(context['lexicon'])
+        
         try:
             context['lexicon'].paginate(page=self.request.GET.get('page', 1), per_page=50)
         except EmptyPage: # 404 on a empty page
@@ -126,10 +128,10 @@ class CognateSetDetail(DetailView):
     
     def get_context_data(self, **kwargs):
         context = super(CognateSetDetail, self).get_context_data(**kwargs)
-        
-        table = CognateSetDetailTable(kwargs['object'].lexicon.select_related().all())
-        
-        context['lexicon'] = table
+        qset = kwargs['object'].lexicon.select_related().all()
+        context['lexicon'] = CognateSetDetailTable(qset)
+        RequestConfig(request).configure(context['lexicon'])
+
         try:
             context['lexicon'].paginate(page=self.request.GET.get('page', 1), per_page=50)
         except EmptyPage: # 404 on a empty page
