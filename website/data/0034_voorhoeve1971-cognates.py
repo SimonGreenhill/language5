@@ -38,7 +38,7 @@ for lex in V71.lexicon_set.all():
             if cog not in cognates[lex.word]:
                 cogset = CognateSet.objects.create(
                     protoform="",
-                    gloss=lex.word,
+                    gloss=lex.word.word,
                     source=V71,
                     comment="",
                     quality='1', # published
