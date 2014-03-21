@@ -94,7 +94,7 @@ class CognateSetIndex(DetailView):
             context['lexicon'] = WordLexiconEditTable(qset)
         else:
             context['lexicon'] = WordLexiconTable(qset)
-        RequestConfig(request).configure(context['lexicon'])
+        RequestConfig(self.request).configure(context['lexicon'])
         
         try:
             context['lexicon'].paginate(page=self.request.GET.get('page', 1), per_page=50)
@@ -130,7 +130,7 @@ class CognateSetDetail(DetailView):
         context = super(CognateSetDetail, self).get_context_data(**kwargs)
         qset = kwargs['object'].lexicon.select_related().all()
         context['lexicon'] = CognateSetDetailTable(qset)
-        RequestConfig(request).configure(context['lexicon'])
+        RequestConfig(self.request).configure(context['lexicon'])
 
         try:
             context['lexicon'].paginate(page=self.request.GET.get('page', 1), per_page=50)
