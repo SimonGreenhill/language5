@@ -8,7 +8,7 @@ from django.core.paginator import EmptyPage, PageNotAnInteger
 
 from website.apps.core.models import Family, Language, AlternateName, Source
 
-from django_tables2 import SingleTableView
+from django_tables2 import SingleTableView, RequestConfig
 from website.apps.core.tables import LanguageIndexTable, SourceIndexTable, FamilyIndexTable
 from website.apps.lexicon.tables import LanguageLexiconTable, SourceLexiconTable
 from website.apps.lexicon.tables import LanguageLexiconEditTable, SourceLexiconEditTable
@@ -40,7 +40,7 @@ class SourceIndex(SingleTableView):
     template_name = 'core/source_index.html'
     table_class = SourceIndexTable
     table_pagination = {"per_page": 50}
-    order_by_field = 'slug'
+    order_by = 'slug'
     
     def get_queryset(self):
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
@@ -55,7 +55,7 @@ class FamilyIndex(SingleTableView):
     template_name = 'core/family_index.html'
     table_class = FamilyIndexTable
     table_pagination = {"per_page": 50}
-    order_by_field = 'family'
+    order_by = 'family'
     
     def get_queryset(self):
         return Family.objects.annotate(count=Count('language'))
@@ -71,12 +71,14 @@ class SourceDetail(DetailView):
         context['attachments'] = kwargs['object'].attachment_set.all()
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
             
+            qset = kwargs['object'].lexicon_set.select_related().all()
             if self.request.user.is_authenticated():
-                table = SourceLexiconEditTable(kwargs['object'].lexicon_set.select_related().all())
+                context['lexicon_table'] = SourceLexiconEditTable(qset)
             else:
-                table = SourceLexiconTable(kwargs['object'].lexicon_set.select_related().all())
+                context['lexicon_table'] = SourceLexiconTable(qset)
             
-            context['lexicon_table'] = table
+            RequestConfig(self.request).configure(context['lexicon_table'])
+            
             try:
                 context['lexicon_table'].paginate(page=self.request.GET.get('page', 1), per_page=50)
             except EmptyPage: # 404 on a empty page
@@ -99,6 +101,7 @@ class FamilyDetail(DetailView):
                     ).annotate(count=Count('lexicon'))
         
         )
+        RequestConfig(self.request).configure(context['languages'])
         return context
 
 
@@ -127,11 +130,14 @@ def language_detail(request, language):
         
         # load lexicon if installed.
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
+            qset = my_lang.lexicon_set.select_related().all()
             if request.user.is_authenticated():
-                table = LanguageLexiconEditTable(my_lang.lexicon_set.select_related().all())
+                out['lexicon_table'] = LanguageLexiconEditTable(qset)
             else:
-                table = LanguageLexiconTable(my_lang.lexicon_set.select_related().all())
-            out['lexicon_table'] = table
+                out['lexicon_table'] = LanguageLexiconTable(qset)
+            
+            RequestConfig(request).configure(out['lexicon_table'])
+            
             try:
                 out['lexicon_table'].paginate(page=request.GET.get('page', 1), per_page=50)
             except EmptyPage: # 404 on a empty page

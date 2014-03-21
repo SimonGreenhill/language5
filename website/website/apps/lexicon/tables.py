@@ -1,6 +1,5 @@
 import django_tables2 as tables
 from django_tables2.utils import A  # alias for Accessor
-
 from website.apps.core.tables import DataTable
 
 from website.apps.lexicon.models import Word, WordSubset, Lexicon
@@ -37,7 +36,7 @@ class WordLexiconTable(DataTable):
     
     class Meta(DataTable.Meta):
         model = Lexicon
-        order_by_field = 'word' # default sorting
+        order_by = 'word' # default sorting
         sequence = ('id', 'language', 'entry', 'annotation', 'loan',  'source')
         exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'word')
     Meta.attrs['summary'] = 'Table of Lexicon'
@@ -54,7 +53,7 @@ class LanguageLexiconTable(DataTable):
 
     class Meta(DataTable.Meta):
         model = Lexicon
-        order_by_field = 'word' # default sorting
+        order_by = 'word' # default sorting
         sequence = ('id', 'word', 'entry', 'annotation', 'loan', 'source')
         exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'language')
     Meta.attrs['summary'] = 'Table of Lexicon'
@@ -75,7 +74,7 @@ class SourceLexiconTable(DataTable):
     
     class Meta(DataTable.Meta):
         model = Lexicon
-        order_by_field = 'language' # default sorting
+        order_by = 'language' # default sorting
         sequence = ('id', 'language', 'word', 'entry', 'annotation', 'loan')
         exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'source')
     Meta.attrs['summary'] = 'Table of Lexicon'
@@ -97,7 +96,7 @@ class CognateSetDetailTable(DataTable):
     
     class Meta(DataTable.Meta):
         model = Lexicon
-        order_by_field = 'language' # default sorting
+        order_by = 'language' # default sorting
         sequence = ('id', 'language', 'word', 'entry', 'annotation', 'loan')
         exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'source')
     Meta.attrs['summary'] = 'Table of Lexicon'
@@ -108,26 +107,70 @@ class CognateSetIndexTable(DataTable):
     id = tables.LinkColumn('cognateset-detail', args=[A('id')])
     protoform = tables.LinkColumn('cognateset-detail', args=[A('id')])
     gloss = tables.LinkColumn('cognateset-detail', args=[A('id')])
+    count = tables.Column()
     
     class Meta(DataTable.Meta):
         model = CognateSet
-        order_by_field = 'id' # default sorting
-        sequence = ('id', 'protoform', 'gloss', 'quality',)
+        order_by = 'id' # default sorting
+        sequence = ('id', 'protoform', 'gloss', 'count', 'quality',)
         exclude = ('editor', 'added', 'comment', 'source', 'lexicon',)
     Meta.attrs['summary'] = 'Table of Cognate Sets'
 
 
+
 # Tables with Edit links
+# it would be nice if these could just inherit from their parents (e.g. WordLexiconEditTable 
+# is subclass of WordLexiconTable) but then django-tables has problems - i.e. column types
+# aren't inherited (esp. LinkColumn's get converted to Column's etc)
 class WordLexiconEditTable(WordLexiconTable):
     id = tables.LinkColumn('lexicon-edit', args=[A('id')])
-    class Meta(DataTable.Meta): pass
+    language = tables.LinkColumn('language-detail', args=[A('language.slug')])
+    classification = tables.Column()
+    source = tables.LinkColumn('source-detail', args=[A('source.slug')])
+    entry = tables.Column()
+    annotation = tables.Column()
+    loan = tables.BooleanColumn(null=False, yesno=('x', ''))
+    
+    def render_language(self, record):
+        col = tables.LinkColumn('language-detail', args=[record.language.slug])
+        return col.render(value=unicode(record.language), record=unicode(record.language), bound_column=None)
+    
+    class Meta(WordLexiconTable.Meta):
+        model = Lexicon
+        order_by = 'word' # default sorting
+        sequence = ('id', 'language', 'entry', 'annotation', 'loan',  'source')
+        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'word')
+    Meta.attrs['summary'] = 'Table of Lexicon'
 
 
-class LanguageLexiconEditTable(WordLexiconTable):
+class LanguageLexiconEditTable(LanguageLexiconTable):
     id = tables.LinkColumn('lexicon-edit', args=[A('id')])
-    class Meta(DataTable.Meta): pass
+    source = tables.LinkColumn('source-detail', args=[A('source.slug')])
+    word = tables.LinkColumn('word-detail', args=[A('word.slug')])
+    entry = tables.Column()
+    annotation = tables.Column()
+    loan = tables.BooleanColumn(null=False, yesno=('x', ''))
+    
+    class Meta(LanguageLexiconTable.Meta):
+        model = Lexicon
+        order_by = 'word' # default sorting
+        sequence = ('id', 'word', 'entry', 'annotation', 'loan', 'source')
+        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'language')
+    Meta.attrs['summary'] = 'Table of Lexicon'
 
 
-class SourceLexiconEditTable(WordLexiconTable):
+class SourceLexiconEditTable(SourceLexiconTable):
     id = tables.LinkColumn('lexicon-edit', args=[A('id')])
-    class Meta(DataTable.Meta): pass
+    language = tables.LinkColumn('language-detail', args=[A('language.slug')])
+    word = tables.LinkColumn('word-detail', args=[A('word.slug')])
+    entry = tables.Column()
+    annotation = tables.Column()
+    loan = tables.BooleanColumn(null=False, yesno=('x', ''))
+    
+    class Meta(SourceLexiconTable.Meta):
+        model = Lexicon
+        order_by = 'language' # default sorting
+        sequence = ('id', 'language', 'word', 'entry', 'annotation', 'loan')
+        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'source')
+    Meta.attrs['summary'] = 'Table of Lexicon'
+        
