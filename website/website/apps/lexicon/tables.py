@@ -108,12 +108,13 @@ class CognateSetIndexTable(DataTable):
     protoform = tables.LinkColumn('cognateset-detail', args=[A('id')])
     gloss = tables.LinkColumn('cognateset-detail', args=[A('id')])
     count = tables.Column()
+    source = tables.LinkColumn('source-detail', args=[A('source.slug')])
     
     class Meta(DataTable.Meta):
         model = CognateSet
         order_by = 'id' # default sorting
-        sequence = ('id', 'protoform', 'gloss', 'count', 'quality',)
-        exclude = ('editor', 'added', 'comment', 'source', 'lexicon',)
+        sequence = ('id', 'protoform', 'gloss', 'count', 'source', )
+        exclude = ('editor', 'added', 'comment', 'lexicon', 'quality')
     Meta.attrs['summary'] = 'Table of Cognate Sets'
 
 
