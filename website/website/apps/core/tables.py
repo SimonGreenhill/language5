@@ -40,7 +40,7 @@ class SourceIndexTable(DataTable):
     
     class Meta(DataTable.Meta):
         model = Source
-        order_by = ('author', 'year') # default sorting
+        order_by = ('author', 'year')
         sequence = ('author', 'year', 'reference', 'count')
         exclude = ('id', 'editor', 'added', 'slug', 'comment', 'bibtex')
     Meta.attrs['summary'] = 'Table of Sources'

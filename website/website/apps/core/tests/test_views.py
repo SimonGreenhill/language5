@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.test.client import Client
+from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
 from website.apps.core.models import Source, Language, Family
@@ -36,16 +37,16 @@ class Test_LanguageIndex(TestCase):
     def test_sorting(self):
         response = self.client.get('{}?sort=language'.format(self.url))
         for i, obj in enumerate(Language.objects.all().order_by('language')):
-            assert response.context['table'].data.data[i] == obj
+            assert response.context['table'].rows[i].record == obj
             
         response = self.client.get('{}?sort=-language'.format(self.url))
         for i, obj in enumerate(Language.objects.all().order_by('-language')):
-            assert response.context['table'].data.data[i] == obj
+            assert response.context['table'].rows[i].record == obj
     
     def test_sorting_invalid(self):
         response = self.client.get("{}?sort=sausage".format(self.url))
         for i, obj in enumerate(Language.objects.all().order_by('language')):
-            assert response.context['table'].data.data[i] == obj
+            assert response.context['table'].rows[i].record == obj
         
 
 class Test_LanguageDetail(TestCase):
@@ -167,16 +168,16 @@ class Test_FamilyIndex(TestCase):
     def test_sorting(self):
         response = self.client.get('{}?sort=family'.format(self.url))
         for i, obj in enumerate(Family.objects.all().order_by('family')):
-            assert response.context['table'].data.data[i] == obj
+            assert response.context['table'].rows[i].record == obj
             
         response = self.client.get('{}?sort=-family'.format(self.url))
         for i, obj in enumerate(Family.objects.all().order_by('-family')):
-            assert response.context['table'].data.data[i] == obj
+            assert response.context['table'].rows[i].record == obj
     
     def test_sorting_invalid(self):
         response = self.client.get("{}?sort=sausage".format(self.url))
         for i, obj in enumerate(Family.objects.all().order_by('family')):
-            assert response.context['table'].data.data[i] == obj
+            assert response.context['table'].rows[i].record == obj
         
     
         
@@ -218,19 +219,69 @@ class Test_FamilyDetail(TestCase):
         response = self.client.get('/family/mayan?sort=language')
         mayan_langs = Language.objects.filter(family__slug="mayan")
         for i, obj in enumerate(mayan_langs):
-            assert response.context['table'].data.data[i] == obj
+            assert response.context['table'].rows[i].record == obj
             
         response = self.client.get('/family/mayan?sort=-language')
         for i, obj in enumerate(mayan_langs[::-1]):
-            assert response.context['table'].data.data[i] == obj
+            assert response.context['table'].rows[i].record == obj
     
     def test_sorting_invalid(self):
         mayan_langs = Language.objects.filter(family__slug="mayan")
         response = self.client.get("/family/mayan?sort=sausage")
         for i, obj in enumerate(mayan_langs):
+            assert response.context['table'].rows[i].record == obj
+
+
+class Test_SourceIndex(TestCase):
+    """Tests the source_index view"""
+    def setUp(self):
+        self.client = Client()
+        self.url = reverse('source-index')
+        self.editor = User.objects.create(username='admin')
+        self.source1 = Source.objects.create(year="1991", author='Smith', 
+                                    slug='smith1991', reference='...',
+                                    comment='...', editor=self.editor)
+        self.source2 = Source.objects.create(year="2002", author='Jones', 
+                                    slug='jones2002', reference='...',
+                                    comment='...', editor=self.editor)
+    
+    def test_200ok(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+    
+    def test_template_used(self):
+        response = self.client.get(self.url)
+        self.assertTemplateUsed(response, 'core/source_index.html')
+    
+    def test_missing_trailing_slash(self):
+        """index pages should redirect to trailing slash"""
+        response = self.client.get(self.url[0:-1])
+        self.assertRedirects(response, self.url, status_code=301, target_status_code=200)
+    
+    def test_content(self):
+        response = self.client.get(self.url)
+        self.assertContains(response, 'Smith')
+        self.assertContains(response, 'Jones')
+     
+    def test_sorting(self):
+        response = self.client.get('{}?sort=year'.format(self.url))
+        for i, obj in enumerate([self.source1, self.source2]):
             assert response.context['table'].data.data[i] == obj
-
-
+            
+        response = self.client.get('{}?sort=author'.format(self.url))
+        for i, obj in enumerate([self.source2, self.source1]):
+            assert response.context['table'].data.data[i] == obj
+    
+    def test_sorting_invalid(self):
+        response = self.client.get("{}?sort=sausage".format(self.url))
+        for i, obj in enumerate([self.source2, self.source1]):
+            print
+            print i, obj, obj.author, obj.year
+            o2 = response.context['table'].rows[i].record
+            print o2, o2.author, o2.year
+            print
+            assert response.context['table'].rows[i].record == obj
+    
 
 class Test_SourceDetail(TestCase):
     """Tests the source_detail view"""
