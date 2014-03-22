@@ -2,12 +2,12 @@ from django.test import TestCase
 from django.test.client import Client
 from django.core.urlresolvers import reverse
 
-from test_models import TestSetup
+from website.apps.lexicon.tests import DataMixin, DataMixinLexicon
 from website.apps.lexicon.models import Word, WordSubset, Lexicon
 from website.apps.lexicon.models import CognateSet, Cognate
 
 
-class Test_LexiconDetail(TestSetup, TestCase):
+class Test_LexiconDetail(DataMixin, TestCase):
     def setUp(self):
         super(Test_LexiconDetail, self).setUp()
         self.lex = Lexicon.objects.create(
@@ -39,7 +39,7 @@ class Test_LexiconDetail(TestSetup, TestCase):
         assert 'eggs' in response.content
         
 
-class Test_LexiconEdit(TestSetup, TestCase):
+class Test_LexiconEdit(DataMixin, TestCase):
     def setUp(self):
         super(Test_LexiconEdit, self).setUp()
         self.lex = Lexicon.objects.create(

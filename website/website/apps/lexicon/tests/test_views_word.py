@@ -2,11 +2,11 @@ from django.test import TestCase
 from django.test.client import Client
 from django.core.urlresolvers import reverse
 
-from test_models import TestSetup
+from website.apps.lexicon.tests import DataMixin, DataMixinLexicon
 from website.apps.lexicon.models import Word, WordSubset, Lexicon
 
 
-class Test_WordIndex(TestSetup, TestCase):
+class Test_WordIndex(DataMixin, TestCase):
     """Tests the Word Index page"""
     def setUp(self):
         self.client = Client()
@@ -77,7 +77,7 @@ class Test_WordIndex(TestSetup, TestCase):
         self.assertEquals(len(response.context['table'].rows), 3)
     
 
-class Test_WordDetail(TestSetup, TestCase):
+class Test_WordDetail(DataMixinLexicon, TestCase):
     def test_200ok(self):
         response = self.client.get(reverse('word-detail', kwargs={'slug': self.word1.slug}))
         self.assertEqual(response.status_code, 200)
@@ -109,7 +109,7 @@ class Test_WordDetail(TestSetup, TestCase):
         self.assertEqual(response.status_code, 404)
 
 
-class Test_LexiconDetail(TestSetup, TestCase):
+class Test_LexiconDetail(DataMixin, TestCase):
     def setUp(self):
         super(Test_LexiconDetail, self).setUp()
         self.lex = Lexicon.objects.create(
@@ -141,7 +141,7 @@ class Test_LexiconDetail(TestSetup, TestCase):
         assert 'eggs' in response.content
 
 
-class Test_WordEdit(TestSetup, TestCase):
+class Test_WordEdit(DataMixin, TestCase):
     def setUp(self):
         super(Test_WordEdit, self).setUp()
         self.lex1 = Lexicon.objects.create(
