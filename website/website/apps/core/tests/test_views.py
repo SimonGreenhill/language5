@@ -1,52 +1,55 @@
 from django.test import TestCase
 from django.test.client import Client
-from website.apps.core.models import Source, Language
+from django.core.urlresolvers import reverse
+
+from website.apps.core.models import Source, Language, Family
 
 class Test_LanguageIndex(TestCase):
     """Tests the Language Index page"""
     fixtures = ['test_core.json']
     
     def setUp(self):
+        self.url = reverse('language-index')
         self.client = Client()
     
     def test_200ok(self):
-        response = self.client.get('/language/')
+        response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
     
     def test_template_used(self):
-        response = self.client.get('/language/')
+        response = self.client.get(self.url)
         self.assertTemplateUsed(response, 'core/language_index.html')
         
     def test_missing_trailing_slash(self):
         """index pages should redirect to trailing slash"""
-        response = self.client.get('/language')
+        response = self.client.get(self.url[0:-1])
         self.assertRedirects(response, '/language/', status_code=301, target_status_code=200)
         
-    def test_index(self):
+    def test_content(self):
         "Test languages.index"
-        response = self.client.get('/language/')
+        response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Language1')
         self.assertContains(response, 'Language2')
         self.assertContains(response, 'Language3')
     
     def test_sorting(self):
-        response = self.client.get('/language/?sort=language')
+        response = self.client.get('{}?sort=language'.format(self.url))
         for i, obj in enumerate(Language.objects.all().order_by('language')):
             assert response.context['table'].data.data[i] == obj
             
-        response = self.client.get('/language/?sort=-language')
+        response = self.client.get('{}?sort=-language'.format(self.url))
         for i, obj in enumerate(Language.objects.all().order_by('-language')):
             assert response.context['table'].data.data[i] == obj
     
     def test_sorting_invalid(self):
-        response = self.client.get("/language/?sort=sausage")
+        response = self.client.get("{}?sort=sausage".format(self.url))
         for i, obj in enumerate(Language.objects.all().order_by('language')):
             assert response.context['table'].data.data[i] == obj
         
 
-class Test_LanguageDetails(TestCase):
-    """Tests the Language Details Page"""
+class Test_LanguageDetail(TestCase):
+    """Tests the Language Detail Page"""
     fixtures = ['test_core.json']
     
     def setUp(self):
@@ -59,11 +62,6 @@ class Test_LanguageDetails(TestCase):
     def test_template_used(self):
         response = self.client.get('/language/language1')
         self.assertTemplateUsed(response, 'core/language_detail.html')
-    
-    def test_details(self):
-        "Test the default details view"
-        response = self.client.get('/language/language1')
-        self.assertEqual(response.status_code, 200)
     
     def test_redirect_on_alternate_names(self):
         "Test redirection to canonical URL when given an alternate name"
@@ -146,25 +144,41 @@ class Test_FamilyIndex(TestCase):
     fixtures = ['test_core.json']
     def setUp(self):
         self.client = Client()
+        self.url = reverse('family-index')
     
     def test_200ok(self):
-        response = self.client.get('/family/')
+        response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
     
     def test_template_used(self):
-        response = self.client.get('/family/')
+        response = self.client.get(self.url)
         self.assertTemplateUsed(response, 'core/family_index.html')
     
     def test_missing_trailing_slash(self):
         """index pages should redirect to trailing slash"""
-        response = self.client.get('/family')
-        self.assertRedirects(response, '/family/', status_code=301, target_status_code=200)
+        response = self.client.get(self.url[0:-1])
+        self.assertRedirects(response, self.url, status_code=301, target_status_code=200)
     
-    def test_family_index(self):
-        response = self.client.get('/family/')
+    def test_content(self):
+        response = self.client.get(self.url)
         self.assertContains(response, 'Austronesian')
         self.assertContains(response, 'Mayan')
+    
+    def test_sorting(self):
+        response = self.client.get('{}?sort=family'.format(self.url))
+        for i, obj in enumerate(Family.objects.all().order_by('family')):
+            assert response.context['table'].data.data[i] == obj
+            
+        response = self.client.get('{}?sort=-family'.format(self.url))
+        for i, obj in enumerate(Family.objects.all().order_by('-family')):
+            assert response.context['table'].data.data[i] == obj
+    
+    def test_sorting_invalid(self):
+        response = self.client.get("{}?sort=sausage".format(self.url))
+        for i, obj in enumerate(Family.objects.all().order_by('family')):
+            assert response.context['table'].data.data[i] == obj
         
+    
         
 class Test_FamilyDetail(TestCase):
     """Tests the family_detail view"""
@@ -199,6 +213,23 @@ class Test_FamilyDetail(TestCase):
         self.assertNotContains(response, 'Language1')
         self.assertContains(response, 'Language2')
         self.assertContains(response, 'Language3')
+
+    def test_sorting(self):
+        response = self.client.get('/family/mayan?sort=language')
+        mayan_langs = Language.objects.filter(family__slug="mayan")
+        for i, obj in enumerate(mayan_langs):
+            assert response.context['table'].data.data[i] == obj
+            
+        response = self.client.get('/family/mayan?sort=-language')
+        for i, obj in enumerate(mayan_langs[::-1]):
+            assert response.context['table'].data.data[i] == obj
+    
+    def test_sorting_invalid(self):
+        mayan_langs = Language.objects.filter(family__slug="mayan")
+        response = self.client.get("/family/mayan?sort=sausage")
+        for i, obj in enumerate(mayan_langs):
+            assert response.context['table'].data.data[i] == obj
+
 
 
 class Test_SourceDetail(TestCase):
