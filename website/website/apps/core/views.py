@@ -25,7 +25,7 @@ class LanguageIndex(SingleTableView):
     template_name = 'core/language_index.html'
     table_class = LanguageIndexTable
     table_pagination = {"per_page": 50}
-    order_by_field = 'language'
+    order_by = 'language'
     
     def get_queryset(self):
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:

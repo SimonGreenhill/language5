@@ -42,7 +42,7 @@ class TaskIndex(SingleTableView):
     template_name = 'entry/index.html'
     table_class = TaskIndexTable
     table_pagination = {"per_page": 50}
-    order_by_field = 'added'
+    order_by = 'added'
     
     queryset = Task.objects.filter(done=False).select_related('source', 'wordlist', 'language')    
     

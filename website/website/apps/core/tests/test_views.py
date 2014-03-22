@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.test.client import Client
-from website.apps.core.models import Source
+from website.apps.core.models import Source, Language
 
 class Test_LanguageIndex(TestCase):
     """Tests the Language Index page"""
@@ -29,7 +29,21 @@ class Test_LanguageIndex(TestCase):
         self.assertContains(response, 'Language1')
         self.assertContains(response, 'Language2')
         self.assertContains(response, 'Language3')
-
+    
+    def test_sorting(self):
+        response = self.client.get('/language/?sort=language')
+        for i, obj in enumerate(Language.objects.all().order_by('language')):
+            assert response.context['table'].data.data[i] == obj
+            
+        response = self.client.get('/language/?sort=-language')
+        for i, obj in enumerate(Language.objects.all().order_by('-language')):
+            assert response.context['table'].data.data[i] == obj
+    
+    def test_sorting_invalid(self):
+        response = self.client.get("/language/?sort=sausage")
+        for i, obj in enumerate(Language.objects.all().order_by('language')):
+            assert response.context['table'].data.data[i] == obj
+        
 
 class Test_LanguageDetails(TestCase):
     """Tests the Language Details Page"""
