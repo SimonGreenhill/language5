@@ -320,7 +320,6 @@ class Test_SourceIndex(PaginatorTestMixin, TestCase):
 
 class Test_SourceDetail(TestCase):
     """Tests the source_detail view"""
-    fixtures = ['test_core.json']
     def setUp(self):
         self.client = Client()
         self.editor = User.objects.create(username='admin')
