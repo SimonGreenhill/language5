@@ -1,0 +1,298 @@
+# ? -> glottal
+
+man         egi
+woman       avesa
+old-man     baeau egi
+old-woman   baeau avesa
+child       ?oeva
+boy         tamaru
+husband     eme
+wife        avesa
+father      abai
+mother      adei
+older-brother   wuini egi
+younger-brother nabu
+older-sister    wuini avesa
+younger-sister  nabu
+i           ia
+you(s)      ga
+he          noa
+we-two      guadai
+you-two     aeadai
+they-two    omadai
+
+we          gea
+you         aea
+they        omoa
+all         wuwuru
+head        ilolo
+hair        li?imu
+forehead    ?owara
+eye         ini
+nose        durumu
+ear         ?ope
+tooth       ma?a
+tongue      goba
+jaw         arena
+throat      unari
+nape        outa
+mouth       noga
+shoulder    gabi
+arm         ima
+elbow       igusu
+palm-of-hand    ima saga
+
+finger      ima du?uri
+fingernail  tovele
+chest       sagasaga
+breast      ama
+belly       beni
+navel       igege
+back        doe
+buttocks    boto
+leg         ?au
+thigh       ?obe
+knee        turuna
+sole-of-foot    ?au saga
+skin        ?opi
+body-hair   limu
+blood       lala
+fat         mona
+bone        kisa
+heart       goigoibo
+liver       arame
+sore        amai
+
+dream       nivi
+to-dream    nivi
+sun         nina
+moon        dovele
+star        visiu
+sky         nogara
+cloud       au
+fog         au
+rain        bailo
+night       garu
+day         samu
+morning     biga
+evening     lavi
+water       ?a?ama
+river       guina
+pond        -
+ground      ?arima
+stone       gomana
+sand        ?ane?a
+mountain    oro
+
+bush        lalausu
+garden      ibaga
+fence       orabo
+wind        ani
+to-blow     -
+fire        eu
+smoke       bausu
+ashes       konunu
+road        laea
+tree        ana
+trunk       gubara
+branch      daga
+stump       gabana
+root        tai
+bark        ?opi
+tree-top    ?u?una
+fruit       iora
+kunai       -
+sweet-potato    kanua
+taro        tebele
+
+yam         obili
+banana      kia?i
+sugarcane   ?ou
+pandanus    -
+betel-nut   ueni
+tanket      -
+salt        ?i?iga
+dog         dari
+pig         talae
+tail        doru
+fur         limu
+bird        manu
+feather     papa
+egg         muru?u
+wing        aena
+cassowary   guia
+snake       mio
+fish        ?orebe
+fly         nagama
+mosquito    nemo
+
+butterfly   bebe
+house       uru
+bow         taraki
+arrow       gara
+string      maina
+net-bag     toba
+clothes     barowo
+song        madi
+big         ogoda
+small       kiwonai
+good        eboebo
+bad         oreore
+long        aeata
+short       tupa
+sick        marai
+hungry      onu
+red         lalalala
+white       ?eme?eme
+black       dubaduba
+yellow      kedike di
+
+green       korakorara
+hot         odaoda
+cold        meme?a
+blind       ini bubu
+deaf        ?ope kuku
+full        goubu?ebu?e
+come-quickly    ai ineinea
+old         boae
+new         gadara
+rotten      oreore
+right-hand  ?i?ata ima
+left-hand   ?ebe ima
+to-eat      isiisi
+to-drink    dorodoro
+to-stand-up iaida
+to-sit-down auri gudu
+to-speak    osiosi
+to-call-out kotukotu
+to-run      iouiou
+to-walk     baebae
+
+to-take     ?eva?eva
+to-give     mini
+to-hit      keakea
+to-break    au lobo
+to-fall     lopa gudu       // from standing
+to-fall     ?oi gudu        // from height
+to-sleep    ?ui?ui
+to-lie-down ?ui?ui
+to-see      erieri
+to-hear     naninani
+to-cry      ini ei
+to-sing     madi ei
+to-cook     daridari
+to-blow     eu wuwuri
+to-jump     pakapaka
+to-laugh    torutoru
+to-be-afraid    taguru
+to-scratch  gagogagoro
+
+to-throw    odaoda
+to-swim     lolololo
+to-wash     ?a?ama opuopu
+to-look-for eri avini
+to-smell    mudumudu
+to-make-bow -
+to-go       onioni
+to-come     aiai
+to-go-up    mudamuda
+to-go-down  gudugudu
+to-turn     ebelesi
+to-put-down odi gudu
+to-hold     ?eva?eva
+to-carry    gabigabi
+to-push     bibibibi
+to-pull     deudeu
+to-fly      levolevo
+to-shoot    iuta
+to-bite     ?apu?apu
+to-vomit    gobi ariari
+
+
+to-cough    oko seisei
+to-chop     eu pelepele
+to-break    ana au lobolobo
+name        omu
+pain        iaia
+thick       iduna
+thin        ariari
+narrow      ororo
+wide        bamubamu
+straight    ?oro?oroni
+crooked     kiokio
+ripe-banana nanau
+cooked      daridari
+wet         nuda
+dry         wurawura
+different   enere
+heavy       urumu
+stop        aupaea
+joke        -
+to-swell    boboga
+
+to-enter    danidani
+to-go-outside   uleule
+to-buy      guri
+to-dig      -
+to-sweat    luma sinisini
+to-swallow     nodonodo
+to-sew      surisuri
+to-pour     sorisori
+to-cut      ?oi lobo
+to-tie      badibadi
+to-draw-water   sorisori
+who         auno
+what        aboua
+where       abode
+when        dia uana de
+when        abo samu
+later       lo?oai
+how-much    liva
+
+to-stand-up va idara
+to-dig      lavilavi
+to-hit      keakea
+stick       ana
+to-burn     gabugabu
+louse       tuma
+far     adabau
+near        tebina
+many    seriada
+this    eva     // close
+this    ne      // further
+that    ada
+here    evade
+there   nede
+there   adade   // distant
+one ?omu
+two ?ava
+three   aiseri
+four    tourai
+five    ima ?omu
+six     ima lilia ?omu
+seven   ima lilia ?ava
+eight   ima lilia aiseri
+nine    ima lilia tourai
+ten     nanau ?omu
+eleven  nanau ?omu ?omu
+twelve  nanau ?omu ?ava
+thirteen nanau ?omu aiseri
+fourteen nanau ?omu tourai
+fifteen  nanau ?omu ima ?omu
+sixteen  nanau ?omu ima lilia ?ava
+seventeen   nanau ?omu ima lilia ?ava
+eighteen    nanau ?omu ima lilia aiseri
+nineteen    nanau ?omu ima lilia tourai
+twenty      nanau ?ava
+and         ele
+together-with   eo
+
+to-fight    verua
+sharp   ?ani
+blunt   uba
+to-understand  sagunai
+to-kill maibau
+to-tell oseri
+piece-of-wood   ana
+to-float    ?aruai
+not     da
