@@ -2,11 +2,11 @@ from django.test import TestCase
 from django.test.client import Client
 from django.core.urlresolvers import reverse
 
-from test_models import TestSetup
+from website.apps.lexicon.tests import DataMixin, DataMixinLexicon
 from website.apps.lexicon.models import Word, WordSubset, Lexicon
 
 
-class Test_WordIndex(TestSetup, TestCase):
+class Test_WordIndex(DataMixin, TestCase):
     """Tests the Word Index page"""
     def setUp(self):
         self.client = Client()
@@ -63,6 +63,16 @@ class Test_WordIndex(TestSetup, TestCase):
         response = self.client.get(self.url, {'subset': 'fudge'})
         self.assertEquals(response.status_code, 404)
     
+    def test_sorting(self):
+        response = self.client.get(self.url, {'sort': 'fullword'})
+        self.assertEquals(response.status_code, 200)
+        for i, obj in enumerate([self.word1, self.word2, self.word3]):
+            assert response.context['table'].rows[i].record == obj
+        response = self.client.get(self.url, {'sort': '-fullword'})
+        self.assertEquals(response.status_code, 200)
+        for i, obj in enumerate([self.word3, self.word2, self.word1]):
+            assert response.context['table'].rows[i].record == obj
+    
     def test_ordering_on_count(self):
         response = self.client.get(self.url, {'sort': 'count'})
         self.assertEquals(response.status_code, 200)
@@ -76,8 +86,13 @@ class Test_WordIndex(TestSetup, TestCase):
         assert 'table' in response.context
         self.assertEquals(len(response.context['table'].rows), 3)
     
+    def test_sorting_invalid(self):
+        response = self.client.get(self.url, {'sort': 'sausage'})
+        for i, obj in enumerate([self.word1, self.word2, self.word3]):
+            assert response.context['table'].rows[i].record == obj
+    
 
-class Test_WordDetail(TestSetup, TestCase):
+class Test_WordDetail(DataMixinLexicon, TestCase):
     def test_200ok(self):
         response = self.client.get(reverse('word-detail', kwargs={'slug': self.word1.slug}))
         self.assertEqual(response.status_code, 200)
@@ -107,41 +122,24 @@ class Test_WordDetail(TestSetup, TestCase):
     def test_bad_nonint_paginator(self):
         response = self.client.get('/word/hand?page=banana')
         self.assertEqual(response.status_code, 404)
+    
+    def test_sorting(self):
+        url = reverse('word-detail', kwargs={'slug': self.word2.slug})
+        response = self.client.get(url, {'sort': 'language'})
+        for i, obj in enumerate([self.lexicon3, self.lexicon2]):
+            assert response.context['table'].rows[i].record == obj
+        response = self.client.get(url, {'sort': '-language'})
+        for i, obj in enumerate([self.lexicon2, self.lexicon3]):
+            assert response.context['table'].rows[i].record == obj
+    
+    def test_sorting_invalid(self):
+        url = reverse('word-detail', kwargs={'slug': self.word2.slug})
+        response = self.client.get(url, {'sort': 'sausage'})
+        for i, obj in enumerate([self.lexicon2, self.lexicon3]):
+            assert response.context['table'].rows[i].record == obj
 
 
-class Test_LexiconDetail(TestSetup, TestCase):
-    def setUp(self):
-        super(Test_LexiconDetail, self).setUp()
-        self.lex = Lexicon.objects.create(
-            language=self.lang1, 
-            word=self.word1,
-            source=self.source1,
-            editor=self.editor,
-            entry="sausage",
-            annotation="eggs"
-        )
-        self.url = reverse('lexicon-detail', kwargs={'pk': self.lex.id})
-    
-    def test_200ok(self):
-        response = self.client.get(self.url)
-        self.assertEquals(response.status_code, 200)
-    
-    def test_template(self):
-        response = self.client.get(self.url)
-        self.assertTemplateUsed(response, 'lexicon/lexicon_detail.html')
-    
-    def test_get_missing(self):
-        response = self.client.get(reverse('lexicon-detail', kwargs={'pk': 5}))
-        self.assertEquals(response.status_code, 404)
-    
-    def test_get_data(self):
-        response = self.client.get(self.url)
-        self.assertEquals(response.status_code, 200)
-        assert 'sausage' in response.content
-        assert 'eggs' in response.content
-
-
-class Test_WordEdit(TestSetup, TestCase):
+class Test_WordEdit(DataMixin, TestCase):
     def setUp(self):
         super(Test_WordEdit, self).setUp()
         self.lex1 = Lexicon.objects.create(

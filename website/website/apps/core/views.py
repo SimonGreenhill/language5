@@ -25,7 +25,6 @@ class LanguageIndex(SingleTableView):
     template_name = 'core/language_index.html'
     table_class = LanguageIndexTable
     table_pagination = {"per_page": 50}
-    order_by_field = 'language'
     
     def get_queryset(self):
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
@@ -40,7 +39,6 @@ class SourceIndex(SingleTableView):
     template_name = 'core/source_index.html'
     table_class = SourceIndexTable
     table_pagination = {"per_page": 50}
-    order_by = 'slug'
     
     def get_queryset(self):
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
@@ -55,7 +53,6 @@ class FamilyIndex(SingleTableView):
     template_name = 'core/family_index.html'
     table_class = FamilyIndexTable
     table_pagination = {"per_page": 50}
-    order_by = 'family'
     
     def get_queryset(self):
         return Family.objects.annotate(count=Count('language'))

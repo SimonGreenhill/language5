@@ -148,7 +148,13 @@ if 'website.apps.statistics' in settings.INSTALLED_APPS:
     )
 
 
-    
+# ------------------------------------------------------------------------ #
+# Maps                                                                     #
+# ------------------------------------------------------------------------ #
+if 'website.apps.maps' in settings.INSTALLED_APPS:
+    urlpatterns += patterns("",
+        url(r"^maps/", include('website.apps.maps.urls', namespace='maps')),
+    )
 
 
 

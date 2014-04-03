@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.test.client import Client
 from django.core.urlresolvers import reverse
 
-from test_models import TestSetup
+from website.apps.lexicon.tests import DataMixin, DataMixinLexicon
 from website.apps.lexicon.models import Word, WordSubset, Lexicon
 from website.apps.lexicon.models import CognateSet, Cognate
 
@@ -52,7 +52,7 @@ class CognateSetMixin(object):
         
         
 
-class Test_CognateSetIndex(TestSetup, CognateSetMixin, TestCase):
+class Test_CognateSetIndex(DataMixin, CognateSetMixin, TestCase):
     def setUp(self):
         super(Test_CognateSetIndex, self).setUp()
         self.add_cognates()
@@ -82,7 +82,7 @@ class Test_CognateSetIndex(TestSetup, CognateSetMixin, TestCase):
         assert '*banana' in response.content
         
 
-class Test_CognateSetDetail(TestSetup, CognateSetMixin, TestCase):
+class Test_CognateSetDetail(DataMixin, CognateSetMixin, TestCase):
     def setUp(self):
         super(Test_CognateSetDetail, self).setUp()
         self.add_cognates()
