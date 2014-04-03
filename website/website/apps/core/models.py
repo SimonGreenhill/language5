@@ -184,7 +184,7 @@ class Location(TrackedModel):
     latitude = models.FloatField(help_text="Latitiude")
 
     def __unicode__(self):
-        return "%d %2.4f-%2.4f" % (self.isocode, self.longitude, self.latitude)
+        return "%s %2.4f-%2.4f" % (self.isocode, self.longitude, self.latitude)
 
     class Meta:
         verbose_name_plural = "Geographical Locations"
