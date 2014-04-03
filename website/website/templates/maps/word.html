@@ -15,7 +15,7 @@
         <h1>Map for {{ object }}</h1>
     </div>
     
-    <div id="map" style="width: 800px; height: 600px"></div>
+    <div id="map" style="width: 700px; height: 500px"></div>
     
     <script>
         var map = L.map('map').setView([-5.3, 141.0], 5);
@@ -33,9 +33,10 @@
         }).addTo(map);
         
         {% for rec in records %}
-            L.marker([{{ rec.latitude }}, {{ rec.longitude }}], { icon: p }).bindLabel("{{ rec.label }}", { noHide: true }).addTo(map);
+            L.marker([{{ rec.latitude }}, {{ rec.longitude }}], { icon: p, clickable: true }).bindLabel("{{ rec.label }}", { noHide: true }).addTo(map);
         {% endfor %}
-    </script>
+        </script>
     
+    <div id="images"> </div>
     
 {% endblock %}
