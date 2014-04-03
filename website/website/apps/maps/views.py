@@ -1,5 +1,6 @@
 from django.http import Http404
 from django.views.generic import DetailView
+from website.apps.core.models import Location
 from website.apps.lexicon.models import Word
 
 
@@ -12,18 +13,33 @@ class WordMap(DetailView):
         context = super(WordMap, self).get_context_data(**kwargs)
         context['records'] = []
         
-        # DUMMY 
+        isos = set()
+        entries = []
+        # this is a bit horrific but minimises database queries.
+        # 1. get entries and store in `entries`
+        for e in kwargs['object'].lexicon_set.select_related('language').all():
+            if e.language.isocode and len(e.language.isocode) == 3:
+                entries.append({
+                    'label': e.entry,
+                    'language': e.language,
+                    'isocode': e.language.isocode,
+                })
+                # save isocode
+                isos.add(e.language.isocode)
         
-        from random import gauss, sample
-        from string import ascii_lowercase
+        # 2. get locations for the isocodes we've seen and store in a lookup table
+        locations = {}
+        for loc in Location.objects.filter(isocode__in=list(isos)):
+            locations[loc.isocode] = loc
         
-        MAX = 100
-        def get_rand_loc():
-            return (gauss(-5.3, 4), gauss(141.0, 4))
-        
-        for i in range(0, MAX):
-            lat, lon = get_rand_loc()
-            wrd = "".join(sample(ascii_lowercase, 5))
-            context['records'].append({'latitude': lat, 'longitude': lon, 'label': wrd})
+        # 3. loop back through entries and plug in location data if we know it.
+        for e in entries:
+            if e['isocode'] in locations:
+                e['latitude'] = locations[e['isocode']].latitude
+                e['longitude'] = locations[e['isocode']].longitude
+                context['records'].append(e)
+            else:
+                # ignore entries without lats/longs
+                continue
         
         return context
