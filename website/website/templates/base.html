@@ -65,6 +65,10 @@
                   <li{% active 'source-index' %}>
                       <a href="{% url "source-index" %}">Sources</a>
                   </li>
+
+                  <li{% active 'maps:language-map' %}>
+                      <a href="{% url "maps:language-map" %}">Language Map</a>
+                  </li>
                   
                   {% ifinstalled "website.apps.lexicon" %}
                   <li{% active 'word-index' %}>

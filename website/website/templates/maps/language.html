@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
-{% block title %} {{ SITE_NAME }} Word Map: {{ object }} {% endblock %}
+{% block title %} {{ SITE_NAME }} Languages: {% endblock %}
 
 {% block head %}
     <link media="all" href="{% static "css/leaflet.css" %}" type="text/css" rel="stylesheet" />
@@ -14,7 +14,7 @@
 
 {% block content %}
     <div class="page-header">
-        <h1>Map for {{ object }}</h1>
+        <h1>Languages Map</h1>
     </div>
     
     <div id="map" style="width: 700px; height: 500px"></div>
