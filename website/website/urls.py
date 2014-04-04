@@ -15,6 +15,8 @@ v1_api.register(LanguageResource())
 v1_api.register(SourceResource())
 v1_api.register(WordResource())
 
+from website.apps.maps.resources import LanguageMapResource
+v1_api.register(LanguageMapResource())
 
 
 
