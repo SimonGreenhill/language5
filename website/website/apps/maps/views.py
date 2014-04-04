@@ -1,7 +1,8 @@
 from django.http import Http404
-from django.views.generic import DetailView
-from website.apps.core.models import Location
+from django.views.generic import DetailView, ListView
+from website.apps.core.models import Language, Location
 from website.apps.lexicon.models import Word, CognateSet
+
 
 def prepare_map_data(queryset):
     # this is a bit horrific but minimises database queries.
@@ -35,6 +36,24 @@ def prepare_map_data(queryset):
             continue
     return final
 
+
+class LanguageMap(ListView):
+    """Word Map Detail"""
+    model = Language
+    template_name = 'maps/language.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super(LanguageMap, self).get_context_data(**kwargs)
+        
+        class dummy(object):  # quack!
+            def __init__(self, lang):
+                self.entry = lang
+                self.language = lang
+            
+        context['records'] = prepare_map_data([
+            dummy(_) for _ in Language.objects.all()
+        ])
+        return context
 
 
 class WordMap(DetailView):
