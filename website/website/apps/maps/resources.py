@@ -1,3 +1,4 @@
+from django.db.models import Count
 from django.core.urlresolvers import reverse
 
 from tastypie import fields
@@ -69,12 +70,13 @@ class LanguageMapResource(Resource):
         
     def get_object_list(self, request):
         results = []
-        for L in Language.objects.all():
-            results.append({
-                'isocode': L.isocode,
-                'language': L.language,
-                'label': L.language,
-                'url': reverse('language-detail', kwargs={'language': L.slug}),
-            })
+        for L in Language.objects.annotate(count=Count('lexicon')).all():
+            if L.count > 0:
+                results.append({
+                    'isocode': L.isocode,
+                    'language': L.language,
+                    'label': L.language,
+                    'url': reverse('language-detail', kwargs={'language': L.slug}),
+                })
         return prepare_map_data(results)
 
