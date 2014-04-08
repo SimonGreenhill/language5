@@ -9,6 +9,7 @@
     <link media="all" href="{% static "css/leaflet.fullscreen.css" %}" type="text/css" rel="stylesheet" />
     <script src="{% static "js/leaflet.js" %}" type="text/javascript"></script>
     <script src="{% static "js/leaflet.label.js" %}" type="text/javascript"></script>
+    <script src="{% static "js/leaflet.oms.js" %}" type="text/javascript"></script>
     <script src="{% static "js/leaflet.fullscreen.js" %}" type="text/javascript"></script>
 {% endblock %}
 
@@ -26,7 +27,7 @@
               position: 'topleft'
           }
         }).setView([-5.3, 141.0], 5);
-        
+        var oms = new OverlappingMarkerSpiderfier(map);
         var p = L.icon({
             iconUrl: '{% static "img/orange-star.png" %}',
             iconSize: [10, 10],
@@ -39,8 +40,9 @@
         }).addTo(map);
         
         {% for rec in records %}
-            L.marker([{{ rec.latitude }}, {{ rec.longitude }}], { icon: p, clickable: true }).bindLabel("{{ rec.label }}", { noHide: true }).addTo(map);
+            var m = L.marker([{{ rec.latitude }}, {{ rec.longitude }}], { icon: p, clickable: true }).bindLabel("{{ rec.label }}", { noHide: true }).addTo(map);
+            oms.addMarker(m);
         {% endfor %}
-        </script>
+    </script>
     
 {% endblock %}
