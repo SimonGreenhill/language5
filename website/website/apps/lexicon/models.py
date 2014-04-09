@@ -95,15 +95,14 @@ class Lexicon(TrackedModel):
     language = models.ForeignKey('core.Language')
     source = models.ForeignKey('core.Source')
     word = models.ForeignKey('Word')
-    
     entry = models.CharField(max_length=128, db_index=True, 
         help_text="Entry from source")
     phon_entry = models.CharField(max_length=128, null=True, blank=True,
         help_text="Entry in Phonological format (in known)")
-    
+    source_gloss = models.CharField(max_length=128, null=True, blank=True,
+        help_text="Gloss in original source if it is semantically different")
     annotation = models.TextField(blank=True, null=True,
         help_text="Annotation for this item")
-    
     loan = models.BooleanField(default=False, db_index=True,
         help_text="Is a loan word?")
     loan_source = models.ForeignKey('core.Language', blank=True, null=True, 
