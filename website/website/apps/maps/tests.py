@@ -120,14 +120,6 @@ class TestPrepareMapDataUtility(DataMixinLexiconLocations, TestCase):
         assert result[0]['label'] == self.lexicon1.entry
 
 
-class TestViewLanguageMap(DataMixinLexiconLocations, TestCase):
-    def test_context(self):
-        response = self.client.get(reverse('maps:language-map'))
-        self.assertEquals(response.status_code, 200)
-        assert 'records' in response.context
-        result = response.context['records']
-        assert len(result) == 2
-
 
 class TestViewWordMap(DataMixinLexiconLocations, TestCase):
     def test_404(self):

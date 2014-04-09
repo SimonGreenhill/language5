@@ -1,5 +1,7 @@
 <span class="result">
-    <p>{{ result.content_type}}: <a href="{{result.url}}">{{result.title}}</a></p>
+    <p>Lexical Item: 
+        &laquo;<a href="{{result.url}}">{{result.object.entry}}</a>&raquo;
+        in <a href=".."> {{ result.object.language }}</a>.
+    </p>
     <p>{% if result.description %}{{result.description|linebreaks}}{% endif %}</p>
-
 </span>
