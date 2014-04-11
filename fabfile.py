@@ -26,7 +26,6 @@ dump_ignores = [
     'south.migrationhistory',
     'reversion.revision', 
     'reversion.version',
-    'cache',
 ]
 
 
