@@ -247,6 +247,7 @@ def create_lexicon(varname,
                   annotation="",
                   loan="",
                   loan_source="",
+                  source_gloss="",
                   editor=""):
     
     _check(locals())    
@@ -260,6 +261,7 @@ def create_lexicon(varname,
                             phon_entry="{phon_entry}", 
                             annotation="{annotation}", 
                             loan="{loan}", 
+                            source_gloss="{source_gloss}",
                             editor={editor}
     )
     """.format(**locals())
@@ -374,7 +376,7 @@ if __name__ == '__main__':
                   editor="editor_obj")
     
     print create_lexicon('lexicon',
-                  language="lexicon_obj", 
+                  language="language_obj", 
                   source="source_obj", 
                   word="word_obj", 
                   entry="entry", 

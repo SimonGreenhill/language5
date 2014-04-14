@@ -14,7 +14,7 @@ django-nvd3                                                 # for graphing stati
 python-Levenshtein                                          # for string similarity metrics
 IPython                                                     # for local work.
 django-static-sitemaps>=1.5.5                               # static sitemaps
-django_compressor==dev                                      # for asset compression/cache busting
+django_compressor                                           # for asset compression/cache busting
 django-tastypie                                             # API
 requests                                                    # useful for data
 # searching:
