@@ -25,7 +25,7 @@ class GenericForm(forms.ModelForm):
             'annotation': forms.widgets.TextInput(
                     attrs={'class': 'input-medium'}),
             
-            # and set input-small
+            # and set input size
             'entry': forms.widgets.TextInput(attrs={'class': 'input-medium'}),
             'language': forms.widgets.Select(attrs={'class': 'input-medium'}),
             'source': forms.widgets.Select(attrs={'class': 'input-medium'}),
