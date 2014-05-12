@@ -24,6 +24,8 @@
   <!-- for javascript charpicker, image zoomer, scroller, and formset adder -->
   <link rel="stylesheet" type="text/css" href="{% static "css/jquery.keypad.css" %}" />
   <link rel="stylesheet" type="text/css" href="{% static "css/jquery.fs.zoomer.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/select2.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/select2-bootstrap.css" %}" />
   
   <style>
   .zoomer_wrapper { border: 1px solid #ddd; border-radius: 3px; height: 500px; margin: 10px 0; overflow: hidden; width: 100%; }
@@ -40,6 +42,7 @@
   <script type="text/javascript" src="{% static "js/jquery.fs.zoomer.min.js" %}"></script>
   <script type="text/javascript" src="{% static "js/jquery-scrolltofixed-min.js" %}"></script>
   <script type="text/javascript" src="{% static "js/jquery.formset.min.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/select2.min.js" %}"></script>
   <script type="text/javascript" src="{% static "admin/js/admin/RelatedObjectLookups.js" %}"></script>
   {% endcompress %}
 </head>
@@ -138,6 +141,9 @@
               keepFieldValues: ':hidden',
               addText: '<i class="icon-plus"></i> Add entry',
               deleteText: '<i class="icon-remove"></i>',
+          });
+          $('select').each(function(i) {
+              $(this).select2({width:"element"});
           });
         });
     </script>
