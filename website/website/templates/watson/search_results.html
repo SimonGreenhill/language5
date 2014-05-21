@@ -8,9 +8,57 @@
 
 {% block content %}
     <h1>Search results{% if query %} for &ldquo;{{query}}&rdquo;{% endif %}</h1>
-
+    
+    <div class="well">
+        Found {{ page_obj.paginator.count }} results.
+    </div>
+    
     {% if search_results %}
         {% search_results search_results %}
+        
+        {% if is_paginated %}
+        {% spaceless %}
+            {% with page_obj.paginator.count as total %}
+                {% with page_obj.object_list|length as count %}
+                    {% block pagination %}
+                    <div class="pagination pagination-large pagination-centered">
+                        <ul>
+                            {% if page_obj.has_previous %}
+                                {% block pagination.previous %}
+                                    <li class="previous">
+                                        <a href="?q={{ query }}&amp;page={{ page_obj.previous_page_number }}">&laquo;</a>
+                                    </li>
+                                {% endblock pagination.previous %}
+                            {% endif %}
+                            {% for p in page_obj.paginator.page_range %}
+                                <li{% ifequal p page_obj.number %} class="active"{% endifequal %}>
+                                    <a href="?q={{ query }}&amp;page={{ p }}">{{ p }}</a>
+                                </li>
+                            {% endfor %}
+                    
+                            {% if page_obj.has_next %}
+                                {% block pagination.next %}
+                                    <li class="next">
+                                        <a href="?q={{ query }}&amp;page={{ page_obj.next_page_number }}">&raquo;</a>
+                                    </li>
+                                {% endblock pagination.next %}
+                            {% endif %}
+                
+                        </ul>
+                        {% block pagination.cardinality %}
+                            <p class="cardinality">
+                                {% if total != count %} Showing {{ count }} of {{ total }} {% else %}{{ total }}{% endif %} results.
+                            </p>
+                        {% endblock pagination.cardinality %}
+                    </div>
+                    {% endblock pagination %}
+                {% endwith %}
+            {% endwith %}
+        </div>
+        {% endspaceless %}
+        {% endif %}
+        
+
     {% else %}
         {% if query %}
             <p><em>There are no results to display.</em></p>
@@ -19,5 +67,6 @@
             <p><em>Please enter a query in the search form.</em></p>
         {% endif %}
     {% endif %}
+
 
 {% endblock content %}

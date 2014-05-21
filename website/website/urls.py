@@ -69,7 +69,7 @@ urlpatterns = patterns('',
     ),
 
     # search page
-    url(r"^search/", include('watson.urls', namespace='watson')),
+    url(r"^search/", include('watson.urls', namespace='watson'), {'paginate_by': 50, }),
     
     # Sitemap
     url(r'^sitemap.xml', include('static_sitemaps.urls')),
