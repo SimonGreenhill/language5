@@ -12,6 +12,8 @@
     {% for chart in charts %}
         {% load_chart chart.type chart.data chart.id chart.extra %}
     {% endfor %}
+    
+    {% load_chart family.type family.data family.id family.extra %}
 
 {% endblock %}
 
@@ -28,5 +30,12 @@
             {% include_container chart.id 200 600 %}
         </div>
     {% endfor %}
+    
+    <div class="span8">
+        <h2> {{ family.label }} </h2>
+        
+        {% include_container family.id 400 600 %}
+    
+    </div>
     
 {% endblock %}
