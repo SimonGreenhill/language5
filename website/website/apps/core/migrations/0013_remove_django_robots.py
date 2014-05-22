@@ -2,18 +2,19 @@
 import datetime
 from south.db import db
 from south.v2 import SchemaMigration
-from django.db import models
-
+from django.db import models, connection
 
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
         tables = ['robots_rule', 'robots_rule_allowed', 'robots_rule_disallowed', 'robots_url', 'robots_rule_sites']
+        installed = connection.introspection.table_names()
         for table in tables:
-            try:
-                db.delete_table(table, cascade=True)
-            except:
-                pass
+            if table in installed:
+                try:
+                    db.delete_table(table, cascade=True)
+                except:
+                    pass
             
             
     def backwards(self, orm):
