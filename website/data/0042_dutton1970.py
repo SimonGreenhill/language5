@@ -278,7 +278,7 @@ for i, key in enumerate(cognates, 1):
     # TODO: figure out gloss ???
     CogSet = CognateSet.objects.create(
         protoform='',
-        gloss=WObj,
+        gloss=WObj.word,
         source=Ross2014,
         comment="MDR: %d" % cogid,
         quality='0', # unassesed
