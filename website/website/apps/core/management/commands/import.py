@@ -64,9 +64,13 @@ class Command(BaseCommand):
             module_name = os.path.splitext(module_name)[0]
             sys.path.insert(0, directory)
             with reversion.create_revision():
-                module = __import__(module_name)
+                try:
+                    module = __import__(module_name)
+                except Exception, e:
+                    print(u"Failed to Import - Exception: %s" % e)
+                    raise
             #execfile(filename)
-        except ImportError:
+        except ImportError, e:
             transaction.rollback()
             raise
         finally:
