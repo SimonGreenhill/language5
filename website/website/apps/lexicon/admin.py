@@ -73,7 +73,6 @@ class CognateSetAdmin(TrackedModelAdmin, VersionAdmin):
     list_filter = ('editor', 'source', 'quality')
     ordering = ('id',)
     list_select_related = True
-    
     inlines = [CognatesInline]
     
     def queryset(self, request):

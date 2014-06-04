@@ -26,6 +26,7 @@ class WordLexiconTable(DataTable):
     language = tables.LinkColumn('language-detail', args=[A('language.slug')])
     source = tables.LinkColumn('source-detail', args=[A('source.slug')])
     entry = tables.Column()
+    source_gloss = tables.Column()
     annotation = tables.Column()
     loan = tables.BooleanColumn(null=False, yesno=('x', ''))
     
@@ -37,7 +38,7 @@ class WordLexiconTable(DataTable):
         model = Lexicon
         order_by = 'word' # default sorting
         sequence = ('id', 'language', 'entry', 'annotation', 'loan',  'source')
-        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'word', 'source_gloss')
+        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'word',)
     Meta.attrs['summary'] = 'Table of Lexicon'
 
 
@@ -47,6 +48,7 @@ class LanguageLexiconTable(DataTable):
     source = tables.LinkColumn('source-detail', args=[A('source.slug')])
     word = tables.LinkColumn('word-detail', args=[A('word.slug')])
     entry = tables.Column()
+    source_gloss = tables.Column()
     annotation = tables.Column()
     loan = tables.BooleanColumn(null=False, yesno=('x', ''))
 
@@ -54,7 +56,7 @@ class LanguageLexiconTable(DataTable):
         model = Lexicon
         order_by = 'word' # default sorting
         sequence = ('id', 'word', 'entry', 'annotation', 'loan', 'source')
-        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'language', 'source_gloss')
+        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'language',)
     Meta.attrs['summary'] = 'Table of Lexicon'
 
 
@@ -64,6 +66,7 @@ class SourceLexiconTable(DataTable):
     language = tables.LinkColumn('language-detail', args=[A('language.slug')])
     word = tables.LinkColumn('word-detail', args=[A('word.slug')])
     entry = tables.Column()
+    source_gloss = tables.Column()
     annotation = tables.Column()
     loan = tables.BooleanColumn(null=False, yesno=('x', ''))
     
@@ -75,7 +78,7 @@ class SourceLexiconTable(DataTable):
         model = Lexicon
         order_by = 'language' # default sorting
         sequence = ('id', 'language', 'word', 'entry', 'annotation', 'loan')
-        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'source', 'source_gloss')
+        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'source',)
     Meta.attrs['summary'] = 'Table of Lexicon'
 
 
@@ -86,6 +89,7 @@ class CognateSetDetailTable(DataTable):
     word = tables.LinkColumn('word-detail', args=[A('word.slug')])
     source = tables.LinkColumn('source-detail', args=[A('source.slug')])
     entry = tables.Column()
+    source_gloss = tables.Column()
     annotation = tables.Column()
     loan = tables.BooleanColumn(null=False, yesno=('x', ''))
     
@@ -97,7 +101,7 @@ class CognateSetDetailTable(DataTable):
         model = Lexicon
         order_by = 'language' # default sorting
         sequence = ('id', 'language', 'word', 'entry', 'annotation', 'loan')
-        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'source', 'source_gloss')
+        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'source',)
     Meta.attrs['summary'] = 'Table of Lexicon'
 
 
@@ -127,6 +131,7 @@ class WordLexiconEditTable(WordLexiconTable):
     language = tables.LinkColumn('language-detail', args=[A('language.slug')])
     source = tables.LinkColumn('source-detail', args=[A('source.slug')])
     entry = tables.Column()
+    source_gloss = tables.Column()
     annotation = tables.Column()
     loan = tables.BooleanColumn(null=False, yesno=('x', ''))
     
@@ -138,7 +143,7 @@ class WordLexiconEditTable(WordLexiconTable):
         model = Lexicon
         order_by = 'word' # default sorting
         sequence = ('id', 'language', 'entry', 'annotation', 'loan',  'source')
-        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'word', 'source_gloss')
+        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'word',)
     Meta.attrs['summary'] = 'Table of Lexicon'
 
 
@@ -147,6 +152,7 @@ class LanguageLexiconEditTable(LanguageLexiconTable):
     source = tables.LinkColumn('source-detail', args=[A('source.slug')])
     word = tables.LinkColumn('word-detail', args=[A('word.slug')])
     entry = tables.Column()
+    source_gloss = tables.Column()
     annotation = tables.Column()
     loan = tables.BooleanColumn(null=False, yesno=('x', ''))
     
@@ -154,7 +160,7 @@ class LanguageLexiconEditTable(LanguageLexiconTable):
         model = Lexicon
         order_by = 'word' # default sorting
         sequence = ('id', 'word', 'entry', 'annotation', 'loan', 'source')
-        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'language', 'source_gloss')
+        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'language',)
     Meta.attrs['summary'] = 'Table of Lexicon'
 
 
@@ -163,6 +169,7 @@ class SourceLexiconEditTable(SourceLexiconTable):
     language = tables.LinkColumn('language-detail', args=[A('language.slug')])
     word = tables.LinkColumn('word-detail', args=[A('word.slug')])
     entry = tables.Column()
+    source_gloss = tables.Column()
     annotation = tables.Column()
     loan = tables.BooleanColumn(null=False, yesno=('x', ''))
     
@@ -170,6 +177,6 @@ class SourceLexiconEditTable(SourceLexiconTable):
         model = Lexicon
         order_by = 'language' # default sorting
         sequence = ('id', 'language', 'word', 'entry', 'annotation', 'loan')
-        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'source', 'source_gloss')
+        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'source',)
     Meta.attrs['summary'] = 'Table of Lexicon'
         
