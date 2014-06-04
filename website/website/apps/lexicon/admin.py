@@ -61,9 +61,9 @@ class WordSubsetAdmin(TrackedModelAdmin, VersionAdmin):
 
 class LexiconAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
-    list_display = ('id', 'language', 'source', 'word', 'entry', 'annotation', 'loan')
+    list_display = ('id', 'language', 'source', 'word', 'entry', 'source_gloss', 'annotation', 'loan')
     list_filter = ('editor', 'language', 'word', 'source', 'loan')
-    search_fields = ('entry', 'word__word', 'annotation')
+    search_fields = ('entry', 'word__word', 'source_gloss', 'annotation')
     ordering = ('id',)
     
 

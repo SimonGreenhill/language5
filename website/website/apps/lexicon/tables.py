@@ -77,7 +77,7 @@ class SourceLexiconTable(DataTable):
     class Meta(DataTable.Meta):
         model = Lexicon
         order_by = 'language' # default sorting
-        sequence = ('id', 'language', 'word', 'entry', 'annotation', 'loan')
+        sequence = ('id', 'language', 'word', 'entry', 'source_gloss', 'annotation', 'loan')
         exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'source',)
     Meta.attrs['summary'] = 'Table of Lexicon'
 
@@ -100,7 +100,7 @@ class CognateSetDetailTable(DataTable):
     class Meta(DataTable.Meta):
         model = Lexicon
         order_by = 'language' # default sorting
-        sequence = ('id', 'language', 'word', 'entry', 'annotation', 'loan')
+        sequence = ('id', 'language', 'word', 'entry', 'source_gloss', 'annotation', 'loan')
         exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'source',)
     Meta.attrs['summary'] = 'Table of Lexicon'
 
@@ -142,7 +142,7 @@ class WordLexiconEditTable(WordLexiconTable):
     class Meta(WordLexiconTable.Meta):
         model = Lexicon
         order_by = 'word' # default sorting
-        sequence = ('id', 'language', 'entry', 'annotation', 'loan',  'source')
+        sequence = ('id', 'language', 'entry', 'source_gloss', 'annotation', 'loan',  'source')
         exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'word',)
     Meta.attrs['summary'] = 'Table of Lexicon'
 
@@ -159,7 +159,7 @@ class LanguageLexiconEditTable(LanguageLexiconTable):
     class Meta(LanguageLexiconTable.Meta):
         model = Lexicon
         order_by = 'word' # default sorting
-        sequence = ('id', 'word', 'entry', 'annotation', 'loan', 'source')
+        sequence = ('id', 'word', 'entry', 'source_gloss', 'annotation', 'loan', 'source')
         exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'language',)
     Meta.attrs['summary'] = 'Table of Lexicon'
 
@@ -176,7 +176,7 @@ class SourceLexiconEditTable(SourceLexiconTable):
     class Meta(SourceLexiconTable.Meta):
         model = Lexicon
         order_by = 'language' # default sorting
-        sequence = ('id', 'language', 'word', 'entry', 'annotation', 'loan')
+        sequence = ('id', 'language', 'word', 'entry', 'source_gloss', 'annotation', 'loan')
         exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'source',)
     Meta.attrs['summary'] = 'Table of Lexicon'
         
