@@ -30,7 +30,7 @@ class Command(BaseCommand):
     
     def handle(self, *args, **options):
         if len(args) != 2:
-            raise IndexError("mergeword needs two slugs as arguments")
+            raise IndexError("mergeword needs two slugs as arguments: mergeword destination source")
         
         if 'save' in options and options['save']:
             dryrun = False
