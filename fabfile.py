@@ -112,6 +112,7 @@ def snapshot():
 def clone():
     """Clones the production database"""
     snapshot()
+    local("rm -f dump.json.gz")
     local("gunzip dump.json.gz")
     print("moving database.db to database.db-old")
     local("mv website/website/database.db website/website/database.db-old")
