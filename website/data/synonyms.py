@@ -42,8 +42,8 @@ SYNONYMS = {
     'buy': 'to-buy-sell-barter',
     'cassowary n': 'cassowary',
     'centipede n': 'centipede',
-    'chop with axe': 'to-chop-cut-down',
-    'chop': 'to-chop-cut-down',
+    'chop with axe': 'to-chop',
+    'chop': 'to-chop',
     'clay pan': 'pan',
     'coconut n': 'coconut',
     'coconut tree': 'coconut-palm',
@@ -81,12 +81,13 @@ SYNONYMS = {
     'how many?': 'how-many',
     'how?': 'how',
     'hungry': 'to-be-hungry',
-    'inside-the-house': 'inside',
+    'inside-the-house': 'in',
     'intestines': 'guts',
     'jaw/chin': 'chin-jaw',
     'kill person': 'to-kill',
     'kill pig': 'to-kill',
     'kunai grass': 'kunai',
+    'alang alang grass': 'kunai',
     'left arm': 'left-arm',
     'left hand': 'left-hand',
     'leg-upper': 'thigh',
@@ -295,13 +296,12 @@ SYNONYMS.update({
     '1st person plural': 'we',
     
     # 2 SG: you -- thou
-    'd:2s': 'you-sg',
-    '2sg free': 'you-sg',
-    '2 sing. subject': 'you-sg',
-    '2sg': 'you-sg',
-    'you 2sg': 'you-sg',
-    '2sg pron': 'you-sg',
-    'thou': 'you-sg',
+    'd:2s': 'you',
+    '2sg free': 'you',
+    '2 sing. subject': 'you',
+    '2sg': 'you',
+    'you 2sg': 'you',
+    '2sg pron': 'you',
     
     # 2 SG POSS: your
     '2 sing. poss.': 'your-sg',
@@ -324,23 +324,10 @@ SYNONYMS.update({
     '3rd singular possessive': 'his',
     
     # 3 PL: they
-    '3pl free': 'they-plural',
-    '3pl.free': 'they-plural',
-    'd:3p': 'they-plural',
+    '3pl free': 'they',
+    '3pl.free': 'they',
+    'd:3p': 'they',
     
-    # object forms
-    'o:1s': 'me',
-    'o:2s': 'pronoun-o1s',
-    '2pl obj': 'pronoun-o1s',
-    'o:1p': 'us',
-    'o:3p': 'pronoun-o3p',
-    'o:3s': 'pronoun-o3s',
-    'p:1s': 'pronoun-p1s',
-    'p:2s': 'pronoun-p2s',
-    'p:3s': 'pronoun-p3s',
-    
-    '2pl/o:3p': 'pronoun-o3p',
-    '2pl/p:3p': 'pronoun-p3p',
 })
 
 
