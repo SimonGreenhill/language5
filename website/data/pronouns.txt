@@ -1,0 +1,62 @@
+Pronouns in TransNewGuinea.org
+==============================
+
+[D]
+---
+
+d:1s                  I (pronoun d:1s)                                - i
+d:2s                  you (pronoun d:2s)                              - you
+d:2s dual             you (pronoun d:2s, dual)                        - you-dual
+d:3s                  he, she, it (pronoun d:3s)                      - he-she
+                                                                      
+d:1p                  we (pronoun d:1p)                               - we
+d:1p dual             we (pronoun d:1p, dual)                         - we-dual
+d:1p excl             we excl. (pronoun d:1p, excl)                   - we-excl
+d:1p excl dual        we excl. dual (pronoun d:1p, excl, dual)        - we-two-excl
+d:1p excl plural      we excl. plural (pronoun d:1p, excl, plural)    - we-pl-excl
+d:1p incl             we incl. (pronoun d:1p, incl)                   - we-incl
+d:1p incl dual        we incl. dual (pronoun d:1p, incl, dual)        - we-two-incl
+d:1p incl plural      we incl. plural (pronoun d:1p, incl, plural)    - we-pl-incl
+
+d:2p                  you pl. (pronoun d:2p)                          - you-pl
+d:2p dual             you plural two (pronoun d:2p, dual)             - you-pl-dual
+
+d:3p                  they (pronoun d:3p)                             - they
+d:3p dual             they dual (pronoun d:3p, dual)                  - they-dual
+
+
+[O]
+---
+
+(used as object of verb/preposition)
+
+o:1s                   me (pronoun o:1s)                              - me
+o:2s                   you (pronoun o:2s)                             - you-o2s
+o:3s                   him, her, it (pronoun o:3s)                    - him-her-it
+                       
+o:1p                   us (pronoun o:1p)                              - us
+o:1p dual              us two (pronoun o:1p, dual)                    - us two
+                       
+o:2p                   you (pronoun o2p)                              - you-pl-o2p
+o:2p dual              you pl. two (pronoun o:2p, dual)               - you-pl-dual-o2p
+                       
+o:3p                   them (pronoun o:3p)                            - them
+o:3p dual              them (pronoun o:3p, dual)                      - them-dual
+
+[P]
+---
+
+p:1s                   my (pronoun p:1s)                               - my
+p:2s                   your (pronoun: p:2s)                            - your-sg
+p:3s                   his, hers, its (pronoun p:3s)                   - his
+                       
+p:1p                   our (pronoun p:1p)                              - our
+p:1p dual              our (two) (pronoun p:1p, dual)                  - our-dual
+                       
+p:2p                   your pl (pronoun p:2p)                          - your-pl
+p:2p dual              your (two) pl (pronoun p:2p, dual)              - your-pl-dual
+                       
+p:3p                   their (pronoun p:3p)                            - their
+p:3p dual              their (pronoun p:3p, dual)                      - their-dual
+
+
