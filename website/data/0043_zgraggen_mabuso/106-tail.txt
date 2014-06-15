@@ -1,0 +1,29 @@
+C1 Kare 		tail			ɔːsa
+C2 Girawa		tail			iˀɛu
+C3 Munit		tail			wɛu
+C4 Bemal            	tail                 	ujag                	1495
+C5 Sihan            	tail                	hoku                	1192
+C6 Gumalu		tail			fahuk
+C7 Isebe            	tail                	fohug               	1192
+C8 Amele            	tail                	hohu-               	1192
+C9 Bau              	tail                 	fohuk               	1192
+C10 Panim           	tail                 	fohug               	1192
+C11 Rapting		tail			vir̃ik
+C12 Wamas		tail			mʌlu
+C13 Samosa		tail			marogu
+C14 Murupi		tail			malu
+C15 Saruga		tail			usigu
+C16 Nake            	tail                 	bohug               	1192
+C17 Mosimo		tail			masu
+C18 Garus           	tail                 	virik               	1495
+C19 Yoidik		tail			udik
+C20 Rempi		tail			vidiuk
+C21 Bagupi          	tail                 	usig                	1495
+C22 Silopi          	tail                 	po:n                	1192
+C23 Utu             	tail                 	bo:n                	1192
+C24 Mawan           	tail                 	bo:                 	1192
+C25 Baimak          	tail                 	fof(u)              	1192
+C26 Matepi          	tail                 	bo                  	1192
+C27 Gal             	tail                	foh                 	1192
+C28 Garuh		tail			bizop
+C29 Kamba           	tail                 	fæ:f                	1192

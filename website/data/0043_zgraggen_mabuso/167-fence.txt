@@ -1,0 +1,30 @@
+C1 Kare             	fence               	siɛsa               	1443
+C2 Girawa           	fence               	polim               	
+C3 Munit            	fence               	ʌ:le                	
+C4 Bemal            	fence               	gilan               	
+C5 Sihan            	fence               	ʌ:ri                	
+C6 Gumalu           	fence               	ʌ:r                 	
+C7 Isebe            	fence               	ge:r                	
+C8 Amele            	fence               	ke:l                	
+C9 Bau              	fence               	ge:r                	
+C10 Panim           	fence               	sæl                 	1443
+C11 Rapting         	fence               	ail                 	
+C12 Wamas           	fence               	sɛ:                 	1443
+C13 Samosa          	fence               	se                  	1443
+C14 Murupi          	fence               	ʌ:ri                	
+C15 Saruga          	fence               	se:ru               	
+C16 Nake            	fence               	ʌ:r                 	
+C17 Mosimo          	fence               	sɛ                  	1443
+C18 Garus           	fence               	sisɛp               	1443
+C19 Yoidik          	fence               	sasap               	1443
+C20 Rempi           	fence               	sasap               	1443
+C21 Bagupi          	fence               	ʌ:r                 	
+C22 Silopi          	fence               	ʌ:r                 	
+C23 Utu             	fence               	ɛ:p                 	1443
+C24 Mawan           	fence               	ʌ:r                 	
+C25 Baimak          	fence               	ar                  	
+C26 Matepi          	fence               	ʌ:r                 	
+C27 Gal             	fence               	ʌr                  	
+C28 Garuh           	fence               	heᵱ                 	
+C28 Garuh           	fence               	hef                 	1443?
+C29 Kamba           	fence               	kʌr                 	

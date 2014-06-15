@@ -1,0 +1,29 @@
+C1 Kare             	crayfish            	nemura              	1494
+C2 Girawa           	crayfish            	sapau               	
+C3 Munit		crayfish		sisi
+C4 Bemal            	crayfish            	sabau               	
+C5 Sihan		crayfish		sa sa
+C6 Gumalu		crayfish		ur̃
+C7 Isebe		crayfish		wɛhin
+C8 Amele		crayfish		uːl
+C9 Bau			crayfish		ˀohu
+C10 Panim		crayfish		uːl
+C11 Rapting         	crayfish            	mare                	1411
+C12 Wamas           	crayfish            	mare                	1411
+C13 Samosa          	crayfish            	nemure              	1494
+C14 Murupi          	crayfish            	mʌrea               	1411
+C15 Saruga          	crayfish            	zoma:ru             	
+C16 Nake		crayfish		goi
+C17 Mosimo          	crayfish            	mare                	1411
+C18 Garus           	crayfish            	mar̃ɛh               	1411
+C19 Yoidik 		crayfish		sabay
+C20 Rempi		crayfish		ilaˀ
+C21 Bagupi          	crayfish            	zomʌr               	
+C22 Silopi          	crayfish            	demʌ:r              	
+C23 Utu             	crayfish            	zemʌr               	
+C24 Mawan           	crayfish            	domʌr
+C25 Baimak		crayfish		amis               	
+C26 Matepi          	crayfish            	lomor               	
+C27 Gal			crayfish		goi
+C28 Garuh		crayfish		goi
+C29 Kamba		crayfish		guæ

@@ -1,0 +1,31 @@
+C1 Kare             	leg                 	bogo-               	1179
+C1 Kare             	leg                 	kesire-      	
+C2 Girawa           	leg                 	iso-                	
+C3 Munit            	leg                 	ha-                 	1298
+C4 Bemal            	leg                 	a~ra-               	             	
+C5 Sihan            	leg                 	hai-                	1298
+C6 Gumalu           	leg                 	fai                 	
+C7 Isebe            	leg                 	zai                 	
+C8 Amele            	leg                 	yai                 	
+C9 Bau              	leg                 	rai                 	
+C10 Panim           	leg                 	yai                 	              	
+C11 Rapting         	leg                 	baʔa-               	1179
+C12 Wamas           	leg                 	batari-             	
+C13 Samosa          	leg                 	dura-               	              	
+C14 Murupi          	leg                 	baʔa-               	1179
+C15 Saruga          	leg                 	fau-                	1298             
+C16 Nake            	leg                 	sipu-               	
+C17 Mosimo          	leg                 	batali-             	  	
+C18 Garus           	leg                 	baʔu-               	1179
+C19 Yoidik          	leg                 	boʔ-                	1179         	
+C20 Rempi           	leg                 	bʌʔa-               	1179            
+C21 Bagupi          	leg                 	fa-                 	1298
+C22 Silopi          	leg                 	fa-                 	1298
+C23 Utu             	leg                 	fa-                 	1298
+C24 Mawan           	leg                 	fʌ-                 	1298
+C25 Baimak          	leg                 	fa:-                	1298
+C25 Baimak		leg			katirʌ-
+C26 Matepi          	leg                 	fa-                 	1298
+C27 Gal             	leg                 	fau-                	              	
+C28 Garuh           	leg                 	bai-                	1298
+C29 Kamba           	leg                 	fe(i)               	1298

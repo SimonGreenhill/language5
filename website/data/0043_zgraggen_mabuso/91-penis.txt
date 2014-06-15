@@ -1,0 +1,35 @@
+C1 Kare             	penis               	ne-                 	1188
+C2 Girawa           	penis               	se-                 	1308?
+C2 Girawa           	penis               	ne-                  	1188
+C3 Munit            	penis               	se-                 	
+C4 Bemal            	penis               	wai-                	1309
+C5 Sihan            	penis               	ke-
+C5 Sihan		penis			pami-          	
+C6 Gumalu           	penis               	au-                 	
+C7 Isebe            	penis               	ere-                	
+C8 Amele            	penis               	bam-
+C8 Amele		penis			ka-           	
+C9 Bau              	penis               	ele-
+C9 Bau			penis			pamik         	
+C10 Panim           	penis               	ele-                	
+C11 Rapting         	penis               	ne                  	1188
+C12 Wamas           	penis               	ne                  	1188
+C13 Samosa          	penis               	ne                  	1188
+C14 Murupi          	penis               	ne                  	1188
+C15 Saruga          	penis               	ova-                	1309
+C16 Nake            	penis               	ne                  	1188
+C17 Mosimo          	penis               	ne                  	1188
+C18 Garus           	penis               	ne                  	1188
+C19 Yoidik          	penis               	de-                 	1308
+C20 Rempi           	penis               	de-                 	1308
+C21 Bagupi          	penis               	owa-                	1309
+C22 Silopi          	penis               	owe-                	1309
+C23 Utu             	penis               	ove-                	1309
+C24 Mawan           	penis               	se-                 	1308
+C25 Baimak          	penis               	au-                 	1309
+C25 Baimak          	penis               	pami-          	
+C26 Matepi          	penis               	howe-               	1309
+C27 Gal             	penis               	se-                 	1308
+C28 Garuh           	penis               	de-                 	1308
+C28 Garuh           	penis               	nitu                	1188?
+C29 Kamba           	penis               	de-                 	1308

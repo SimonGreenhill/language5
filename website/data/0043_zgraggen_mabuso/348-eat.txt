@@ -1,0 +1,30 @@
+C1 Kare             	eat                 	za-                 	1249
+C2 Girawa           	eat                 	ze-                 	1249         	
+C3 Munit            	eat                 	de-                 	1249
+C4 Bemal            	eat                 	ze-                 	1249
+C5 Sihan            	eat                 	de-                 	1249
+C6 Gumalu           	eat                 	re-                 	
+C7 Isebe            	eat                 	zi-                 	1249
+C8 Amele            	eat                 	ye-                 	1249
+C9 Bau              	eat                 	le-                 	1249
+C10 Panim           	eat                 	ye-                 	1249
+C11 Rapting         	eat                 	zi-                 	1249
+C12 Wamas           	eat                 	za-                 	1249
+C13 Samosa          	eat                 	zʌu-                	1249
+C14 Murupi          	eat                 	zan-                	1249
+C14 Murupi          	eat                 	da-           	
+C15 Saruga          	eat                 	za-                 	1249
+C16 Nake            	eat                 	za-                 	1249
+C17 Mosimo          	eat                 	ya-                 	1249
+C18 Garus           	eat                 	ze-                 	1249
+C19 Yoidik          	eat                 	za-                 	1249
+C20 Rempi           	eat                 	za-                 	1249
+C21 Bagupi          	eat                 	za-                 	1249
+C22 Silopi          	eat                 	raun-               	1249
+C23 Utu             	eat                 	zaun-               	1249
+C24 Mawan           	eat                 	da-                 	1249
+C25 Baimak          	eat                 	da-                 	1249
+C26 Matepi          	eat                 	lan-                	1249
+C27 Gal             	eat                 	la-                 	1249
+C28 Garuh           	eat                 	la-                 	1249
+C29 Kamba           	eat                 	le-                 	1249

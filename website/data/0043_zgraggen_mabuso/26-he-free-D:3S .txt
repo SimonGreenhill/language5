@@ -1,0 +1,46 @@
+C1 Kare             	D:3S                	noŋga               	1164
+C1 Kare             	D:3S                	ei           	
+C2 Girawa           	D:3S                	nukas               	1164
+C2 Girawa           	D:3S                	o
+C2 Girawa           	D:3S                	eʔi               	              	
+C3 Munit            	D:3S                	ug                  	
+C3 Munit            	D:3S                	uge                 	1481
+C4 Bemal            	D:3S                	gue                 	1481
+C5 Sihan            	D:3S                	uʔpa                	
+C5 Sihan            	D:3S                	ugba                	
+C5 Sihan            	D:3S                	uqa                 	1481
+C6 Gumalu           	D:3S                	uʔpa                	
+C6 Gumalu           	D:3S                	ugba                	
+C7 Isebe            	D:3S                	uqa                 	1481
+C7 Isebe            	D:3S                	ugba                	
+C7 Isebe            	D:3S                	uʔpa                	
+C8 Amele            	D:3S                	uʔpa                	
+C8 Amele            	D:3S                	ugba                	
+C8 Amele            	D:3S                	uqa                 	1481
+C9 Bau              	D:3S                	uqa                 	1481
+C9 Bau              	D:3S                	uʔpa                	
+C9 Bau              	D:3S                	ugba                	
+C10 Panim           	D:3S                	uqa                 	1481
+C10 Panim           	D:3S                	ugba                	
+C10 Panim           	D:3S                	uʔpa                	
+C11 Rapting         	D:3S                	nugo                	1164
+C12 Wamas           	D:3S                	nugo                	1164
+C13 Samosa          	D:3S                	nugo                	1164
+C14 Murupi          	D:3S                	nuga                	1164
+C15 Saruga          	D:3S                	nuga                	1164
+C16 Nake            	D:3S                	nug                 	1164
+C17 Mosimo          	D:3S                	nugo                	1164
+C18 Garus           	D:3S                	nug                 	1164
+C19 Yoidik          	D:3S                	go                  	1481
+C19 Yoidik          	D:3S                	won              	
+C20 Rempi           	D:3S                	nuk                 	1164
+C20 Rempi           	D:3S                	on                  	
+C21 Bagupi          	D:3S                	nug                 	1164
+C22 Silopi          	D:3S                	nug                 	1164
+C23 Utu             	D:3S                	nuk                 	1164
+C24 Mawan           	D:3S                	nuk                 	1164
+C25 Baimak          	D:3S                	nuk                 	1164
+C26 Matepi          	D:3S                	nug                 	1164
+C27 Gal             	D:3S                	nug                 	1164
+C28 Garuh           	D:3S                	nug                 	
+C29 Kamba           	D:3S                	nug                 	1164

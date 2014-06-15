@@ -1,0 +1,29 @@
+C1 Kare			how many 		kagʌːruga
+C2 Girawa		how many 		ɛrʌsɛbos
+C3 Munit		how many 		gʌda
+C4 Bemal		how many 		eiˀeizʌb
+C5 Sihan            	how many            	kani:ʔak            	1233
+C6 Gumalu           	how many            	ganio               	
+C7 Isebe            	how many            	gʌni                	1233
+C8 Amele            	how many            	kʌniʔ               	1233
+C9 Bau              	how many            	kʌni                	1233
+C10 Panim           	how many            	gani                	1233
+C11 Rapting         	how many		arɛguˀpa 	
+C12 Wamas   		how many		katata
+C13 Samosa      	how many		kalevaːta
+C14 Murupi             	how many		ʌtuguta
+C15 Saruga     		how many		aruguta
+C16 Nake       		how many		arigoay
+C17 Mosimo          	how many		karɛguta
+C18 Garus          	how many		gɛndeˀ
+C19 Yoidik          	how many            	gænim               	1233
+C20 Rempi           	how many            	gain                	1233
+C21 Bagupi            	how many    		ari gotɛk
+C22 Silopi     		how many 		ariparipo
+C23 Utu         	how many 		alipok
+C24 Mawan 		how many 		ʌrɛra
+C25 Baimak          	how many            	ga:ni               	1233
+C27 Gal             	how many            	gʌne                	1233
+C28 Garuh           	how many            	ganeu               	
+C28 Garuh           	how many            	gane                	1233
+C29 Kamba           	how many            	gʌne                	1233

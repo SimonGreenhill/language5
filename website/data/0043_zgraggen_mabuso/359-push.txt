@@ -1,0 +1,30 @@
+C1 Kare			push			sɛi-
+C2 Girawa		push			suoru-
+C3 Munit            	push                	nunde-              	1354
+C4 Bemal            	push                	su-                 	1354
+C5 Sihan            	push                	nude-               	1354
+C6 Gumalu           	push                	sunde-              	
+C7 Isebe            	push                	sundi-              	1354
+C8 Amele            	push                	sundo-              	1354
+C9 Bau              	push                	sunde-              	1354
+C10 Panim           	push                	sund-               	1354
+C11 Rapting		push			gɛlɛt-
+C12 Wamas		push			
+C13 Samosa		push			gɛrama-
+C14 Murupi		push			wihawa ug-
+C15 Saruga		push			ugugɛ-
+C16 Nake		push			inor ogɛ-
+C17 Mosimo		push			gilʌlɛ kuga-
+C18 Garus		push			yɛli-
+C19 Yoidik		push			asi-
+C20 Rempi		push			kikɛi-
+C20 Rempi		push			isɛn-
+C21 Bagupi		push			
+C22 Silopi		push			ɛm-
+C23 Utu			push			amɛno-
+C24 Mawan           	push                	sununuer-           	1354
+C25 Baimak          	push                	sunetu-             	1354
+C26 Matepi          	push                	sununu er-          	1354
+C27 Gal			push			ɛni-
+C28 Garuh           	push                	dutun-              	1354
+C29 Kamba           	push                	dutun-              	1354

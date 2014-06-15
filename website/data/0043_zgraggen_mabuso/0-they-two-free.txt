@@ -1,0 +1,30 @@
+C1 Kare             	they two (free)           	keru
+C2 Girawa	        	they two (free)           	ɛʔi sau-g ari
+C3 Munit	        	they two (free)           	urɛ
+C4 Bemal            	they two (free)           	go zau-g al
+C5 Sihan            	they two (free)           	uʔpa-rɛ
+C6 Gumalu	        	they two (free)           	hoa-rɛ
+C7 Isebe            	they two (free)           	hoa-lɛ
+C8 Amele            	they two (free)           	owa-lɛ
+C9 Bau              	they two (free)           	hoa-rɛ
+C10 Panim           	they two (free)           	hoʌ-lɛ
+C11 Rapting         	they two (free)           	airɛ
+C12 Wamas           	they two (free)           	ay arita
+C13 Samosa          	they two (free)           	
+C14 Murupi          	they two (free)           	ɛ ari ta
+C15 Saruga          	they two (free)           	ilay
+C16 Nake            	they two (free)           	ilʌy
+C17 Mosimo	        	they two (free)           	nug arita
+C18 Garus           	they two (free)           	inɛ-t (?)
+C19 Yoidik	        	they two (free)           	on mɛ-ʔ pa
+C20 Rempi           	they two (free)           	ɛn mɛy-ʔ ba
+C21 Bagupi          	they two (free)           	ɛ-y
+C22 Silopi	        	they two (free)           	ɛra
+C23 Utu             	they two (free)           	ɛra
+C24 Mawan           	they two (free)           	ɛrar
+C25 Baimak          	they two (free)           	ʌtow
+C26 Matepi          	they two (free)           	ɛla
+C27 Gal             	they two (free)           	bɛ arit
+C28 Garuh           	they two (free)           	
+C29 Kamba           	they two (free)           	uni ʌrit
+

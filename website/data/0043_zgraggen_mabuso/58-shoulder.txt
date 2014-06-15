@@ -1,0 +1,32 @@
+C1 Kare             	shoulder            	pasamora            	
+C2 Girawa           	shoulder            	eperu-              	1178           	            
+C3 Munit            	shoulder            	abara-              	1178             
+C4 Bemal            	shoulder            	abʌra-              	1178
+C5 Sihan            	shoulder            	abʌra-              	1178              
+C6 Gumalu           	shoulder            	apatʌ               	
+C7 Isebe            	shoulder            	guba-               	1292 	
+C8 Amele            	shoulder            	qato-               	1178
+C8 Amele            	shoulder            	guqa-               	1292?
+C9 Bau              	shoulder            	kapara-             	1178
+C10 Panim           	shoulder            	guba-               	1292
+C11 Rapting         	shoulder            	ge:ge-              	1292
+C12 Wamas           	shoulder            	paya fahu-          	
+C13 Samosa          	shoulder            	emisa-              	
+C14 Murupi          	shoulder            	guga-               	1292
+C15 Saruga          	shoulder            	guga-               	1292
+C16 Nake            	shoulder            	goga-               	1292
+C17 Mosimo          	shoulder            	ima(ha)-            	
+C18 Garus           	shoulder            	ime-                	
+C19 Yoidik          	shoulder            	ima-                	
+C20 Rempi           	shoulder            	gugu-               	1292
+C21 Bagupi          	shoulder            	guga-               	1292
+C22 Silopi          	shoulder            	uye-                	1292
+C23 Utu             	shoulder            	uze-                	1292
+C24 Mawan           	shoulder            	abahi-              	1178
+C25 Baimak          	shoulder            	kapata-             	1178
+C25 Baimak          	shoulder            	dota-      	
+C26 Matepi          	shoulder            	lote-        	
+C26 Matepi          	shoulder            	guge-               	1292
+C27 Gal             	shoulder            	gugu-               	1292
+C28 Garuh           	shoulder            	goga-               	1292
+C29 Kamba           	shoulder            	gubʌ-               	1292

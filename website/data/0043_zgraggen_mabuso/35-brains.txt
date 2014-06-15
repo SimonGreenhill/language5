@@ -1,0 +1,30 @@
+C1 Kare             	brains              	irogu               	1283
+C2 Girawa           	brains              	duriu               	
+C3 Munit            	brains              	ñuhũnhu
+C3 Munit            	brains              	zunug     	
+C4 Bemal            	brains              	dubi-               	
+C5 Sihan            	brains              	nohu-               	
+C6 Gumalu           	brains              	mukifu              	
+C7 Isebe            	brains              	ilofo-              	1283
+C8 Amele            	brains              	ilohu-              	1283
+C9 Bau              	brains              	iloufu-             	1283
+C10 Panim           	brains              	ilofu-              	1283
+C11 Rapting         	brains              	muki-                	1169
+C12 Wamas           	brains              	kimu                	
+C13 Samosa          	brains              	komo                	
+C14 Murupi          	brains              	mugupi              	1169
+C15 Saruga          	brains              	ilu:                	1283
+C16 Nake            	brains              	muki-               	1169
+C17 Mosimo          	brains              	ki:mu               	
+C18 Garus           	brains              	ulaʔ                	
+C19 Yoidik          	brains              	tabela-             	
+C20 Rempi           	brains              	mugiu-               	1169
+C21 Bagupi          	brains              	yeluma              	
+C22 Silopi          	brains              	mugi                	1169
+C23 Utu             	brains              	mogop               	1169
+C24 Mawan           	brains              	mugia               	1169
+C25 Baimak          	brains              	mukifu              	1169
+C26 Matepi          	brains              	lu                  	1283
+C27 Gal             	brains              	luw                 	1283
+C28 Garuh           	brains              	muki-               	1169
+C29 Kamba           	brains              	mugi-                	1169

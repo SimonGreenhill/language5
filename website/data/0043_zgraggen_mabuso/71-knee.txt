@@ -1,0 +1,29 @@
+C1 Kare             	knee                	umauma              	
+C2 Girawa           	knee                	wo-                 	            	
+C3 Munit            	knee                	gando-              	1181
+C4 Bemal            	knee                	tauban              	
+C5 Sihan            	knee                	kʌ:t                	1181
+C5 Sihan            	knee                	ihoro-        	
+C6 Gumalu           	knee                	katira-             	    	   	
+C7 Isebe            	knee                	gʌtirʌ-             	1181
+C8 Amele            	knee                	ko:p                	
+C9 Bau              	knee                	katira-             	1181    	
+C10 Panim           	knee                	gatilʌ-             	1181  	
+C11 Rapting         	knee                	gate-               	1181
+C12 Wamas           	knee                	tavar- amu          	
+C13 Samosa          	knee                	tava(ra)- amo       	
+C14 Murupi          	knee                	tava- mu            	
+C15 Saruga          	knee                	tova-               	     	
+C16 Nake            	knee                	gate-               	1181    	
+C17 Mosimo          	knee                	tavali- amug        	    	
+C18 Garus           	knee                	gʌte-               	1181        	
+C19 Yoidik          	knee                	gata- amak           	   1181   	        
+C20 Rempi           	knee                	gʌta- amuk            	1181
+C21 Bagupi          	knee                	dowa- amug          	
+C22 Silopi          	knee                	keta-               	1181   	
+C23 Utu             	knee                	gete-               	1181
+C24 Mawan           	knee                	tavari-             	
+C25 Baimak          	knee                	ʌ:muk               	    	
+C26 Matepi          	knee                	gate-               	1181             
+C28 Garuh           	knee                	kasɛ-               	1181
+C29 Kamba           	knee                	gate-               	1181

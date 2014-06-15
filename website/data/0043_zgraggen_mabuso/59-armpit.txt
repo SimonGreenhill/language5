@@ -1,0 +1,29 @@
+C1 Kare             	armpit              	sosola              	1294
+C2 Girawa		armpit			asɛru-
+C3 Munit            	armpit              	gia-                	1293
+C4 Bemal            	armpit              	gisa-               	1293
+C5 Sihan            	armpit              	kia-                	1293
+C6 Gumalu		armpit			giˀa
+C7 Isebe            	armpit              	gea-                	1293
+C8 Amele            	armpit              	gia-                	1293
+C9 Bau              	armpit              	giʔa-               	1293
+C10 Panim           	armpit              	giʔa-               	1293
+C11 Rapting         	armpit              	gigen               	1293
+C12 Wamas		armpit			terere-
+C13 Samosa		armpit			terɛrɛ-
+C14 Murupi          	armpit              	giʔi-               	1293
+C15 Saruga          	armpit              	sia-                	1294
+C16 Nake            	armpit              	sia-                	1294
+C17 Mosimo		armpit			tɛtɛlɛ
+C18 Garus           	armpit              	giʔi-               	1293
+C19 Yoidik          	armpit              	giʔi-               	1293
+C20 Rempi           	armpit              	giʔi-               	1293
+C21 Bagupi          	armpit              	siali-              	1294
+C22 Silopi          	armpit              	sio-                	1294
+C23 Utu             	armpit              	sio-                	1294
+C24 Mawan           	armpit              	sio-                	1294
+C25 Baimak          	armpit              	sioli-              	1294
+C26 Matepi          	armpit              	sio-                	1294
+C27 Gal             	armpit              	gibdi-              	1293
+C28 Garuh           	armpit              	gibdi-              	1293
+C29 Kamba           	armpit              	givri-              	1293

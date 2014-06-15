@@ -1,0 +1,31 @@
+C1 Kare			before			igira
+C2 Girawa		before			matɛr
+C3 Munit            	before              	bereude             	1236
+C3 Munit		before			bɛrʌːt
+C4 Bemal		before			sɛs
+C5 Sihan            	before              	wereud              	1236
+C6 Gumalu           	before              	βereu               	
+C7 Isebe            	before              	were                	1236
+C8 Amele            	before              	vele                	1236
+C9 Bau              	before              	velow               	1236
+C10 Panim           	before              	wele                	1236
+C11 Rapting          	before			wogam
+C12 Wamas   		before			gɛdɛ
+C13 Samosa      	before			gɛrɛ
+C14 Murupi      	before			gera
+C15 Saruga     		before			amumare
+C16 Nake       		before			ʌmʌˀ
+C17 Mosimo          	before			gere
+C18 Garus           	before			uˀumtɛ
+C19 Yoidik      	before			wagʌmta
+C20 Rempi            	before			vagam
+C21 Bagupi  		before			amʌh
+C22 Silopi          	before              	wʌru                	1236
+C23 Utu             	before              	waru                	1236
+C24 Mawan           	before              	walu                	1236
+C25 Baimak		before			ilei
+C26 Matepi          	before              	wʌru                	1236
+C26 Matepi		before			mʌtu
+C27 Gal			before			aun
+C28 Garuh		before			angau
+C29 Kamba		before			algu

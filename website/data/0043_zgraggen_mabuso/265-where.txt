@@ -1,0 +1,34 @@
+C1 Kare             	where               	dɛga                	1232
+C2 Girawa           	where               	erʌpa               	
+C3 Munit            	where               	ʌdi                 	1232
+C4 Bemal		where			ɛru
+C5 Sihan		where			aːyɛ
+C5 Sihan		where			ʌku
+C6 Gumalu		where
+C7 Isebe            	where               	aye                 	1232
+C7 Isebe		where			hagu
+C8 Amele		where			ai
+C8 Amele		where			ana
+C9 Bau			where			hag
+C10 Panim		where			ai
+C11 Rapting         	where               	are                 	1232
+C12 Wamas		where			aramo
+C13 Samosa          	where               	ʌ:r                 	1232
+C14 Murupi          	where               	ʌragaya             	1232
+C15 Saruga		where			ɛwʌra
+C16 Nake            	where               	are                 	1232
+C17 Mosimo		where			romo
+C18 Garus           	where               	arek                	1232
+C19 Yoidik          	where               	adek                	1232
+C20 Rempi           	where               	de                  	1232
+C21 Bagupi          	where               	ʌre                 	1232
+C22 Silopi          	where               	aripo               	1232
+C23 Utu             	where               	ori                 	1232
+C24 Mawan           	where               	ʌ:re                	1232
+C25 Baimak          	where               	ate                 	1232
+C26 Matepi          	where               	ʌre                 	1232
+C27 Gal             	where               	ʌre                 	1232
+C28 Garuh           	where               	adeŋgu              	
+C28 Garuh           	where               	adepa               	1232?
+C29 Kamba           	where               	arewa               	1232  
+C29 Kamba		where			arʌn

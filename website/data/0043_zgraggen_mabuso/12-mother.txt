@@ -1,0 +1,49 @@
+C1 Kare             	mother              	ana                 	1261
+C1 Kare			mother			nʌ-
+C1 Kare			mother			nan-
+C2 Girawa           	mother              	ani-                	1261
+C3 Munit            	mother              	aw                  	1262
+C3 Munit            	mother              	ani-                	1261
+C4 Bemal            	mother              	anikay             	
+C4 Bemal            	mother              	ana-                	1261
+C5 Sihan            	mother              	a:ni-               	1261
+C5 Sihan            	mother              	aw                  	1262
+C6 Gumalu           	mother              	ani-                	
+C6 Gumalu		mother			au
+C7 Isebe            	mother              	ani-                	1261
+C7 Isebe            	mother              	au                  	1262
+C8 Amele            	mother              	ani-                	1261
+C8 Amele            	mother              	au                 	1262
+C8 Amele            	mother              	anag                	1195
+C9 Bau              	mother              	ani-                	1261
+C9 Bau              	mother              	au                  	1262
+C10 Panim           	mother              	ani-                	1261
+C10 Panim           	mother              	ʌu                 	1262
+C11 Rapting         	mother              	ana-                	1261
+C12 Wamas           	mother              	ana-                	1261
+C13 Samosa          	mother              	ʌnʌ-                	1261
+C14 Murupi          	mother              	ʌnʌ-                	
+C15 Saruga          	mother              	anu-                	1261
+C16 Nake            	mother              	ʌnʌ-                	1261
+C17 Mosimo          	mother              	ana-                	1261
+C18 Garus           	mother              	ane-                	1261
+C19 Yoidik          	mother              	nen               	
+C19 Yoidik          	mother              	ana-	           	1261
+C20 Rempi           	mother              	ʌn-                 	1261
+C21 Bagupi          	mother              	ʌ:n                 	
+C21 Bagupi          	mother              	ene-                	1261
+C22 Silopi          	mother              	enu-                	1261
+C22 Silopi          	mother              	aweke               	1262
+C23 Utu             	mother              	nu-                 	1261
+C23 Utu             	mother              	awa                 	1262
+C24 Mawan           	mother              	awa                 	1262
+C24 Mawan           	mother              	ani-                	1261
+C25 Baimak          	mother              	ana-                	1261
+C25 Baimak          	mother              	aw                  	1262
+C26 Matepi          	mother              	ʌn                  	
+C26 Matepi          	mother              	enu-                	1261
+C27 Gal             	mother              	ani-                	1261
+C28 Garuh           	mother              	ana-                	1261
+C28 Garuh           	mother              	nɛn                	
+C29 Kamba           	mother              	ani-                	1261
+

@@ -1,0 +1,30 @@
+C1 Kare			stand up		korokair-
+C2 Girawa           	stand up            	sira                	1484
+C3 Munit            	stand up            	ayɛ-                	1383
+C4 Bemal            	stand up            	asɛ-                	1383
+C5 Sihan            	stand up            	ayɛ-                	1383
+C6 Gumalu		stand up		ay-			1383
+C7 Isebe            	stand up            	ayi-                	1383
+C8 Amele            	stand up            	aye-                	1383?
+C8 Amele            	stand up            	ase-                	1490
+C9 Bau              	stand up            	ay-                 	1383
+C10 Panim           	stand up            	ay-                 	1383
+C11 Rapting		stand up		(turug) asɛ-
+C12 Wamas		stand up		tari kah-
+C13 Samosa		stand up		tarikasu-
+C14 Murupi          	stand up            	atɛrɛ-              	1472
+C15 Saruga          	stand up            	atarɛ-              	1472
+C16 Nake            	stand up            	atosɛ-              	1472
+C17 Mosimo		stand up		talikah-
+C18 Garus           	stand up            	siruʔ-              	1484
+C19 Yoidik          	stand up            	sɛ-                 	1484
+C20 Rempi           	stand up            	sɛ-                 	1484
+C21 Bagupi		stand up		atali-
+C22 Silopi          	stand up            	ay-                 	1383
+C23 Utu             	stand up            	aiz-                	1383
+C24 Mawan           	stand up            	ayɛ-                	1383
+C25 Baimak          	stand up            	ayɛ-                	1383
+C26 Matepi          	stand up            	ari-                	1383
+C27 Gal             	stand up            	ai-                 	1383
+C28 Garuh           	stand up            	ah-                 	1490
+C29 Kamba           	stand up            	as-                 	1490

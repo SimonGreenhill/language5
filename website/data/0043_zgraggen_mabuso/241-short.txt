@@ -1,0 +1,35 @@
+C1 Kare             	short               	utupa               	1374
+C2 Girawa           	short               	kotu                	1374?
+C2 Girawa           	short               	otoʔ                	
+C3 Munit            	short               	kotin               	1374
+C3 Munit            	short               	enig         	
+C4 Bemal            	short               	hogu                	
+C5 Sihan            	short               	kotin               	
+C6 Gumalu           	short               	kofiu               	
+C7 Isebe            	short               	bafu                	
+C8 Amele            	short               	kohiʔ               	
+C9 Bau              	short               	tutu                	1228
+C9 Bau              	short               	kofi           	
+C10 Panim           	short               	gohi                	
+C11 Rapting         	short               	tutu                	1228
+C12 Wamas           	short               	tu:                 	1228
+C13 Samosa          	short               	atuku               	
+C14 Murupi          	short               	utu                 	1228
+C15 Saruga          	short               	utu                 	1228
+C16 Nake            	short               	tutu                	1228
+C17 Mosimo          	short               	tu                  	1228
+C18 Garus           	short               	tu:                 	1228
+C19 Yoidik          	short               	duiniʔ              	
+C20 Rempi           	short               	tutu                	1228
+C21 Bagupi          	short               	tutu                	1228
+C22 Silopi          	short               	tutapʌ:g            	
+C23 Utu             	short               	omʌtu               	
+C24 Mawan           	short               	tu:                 	1228
+C25 Baimak          	short               	kofi, pahu          	
+C26 Matepi          	short               	tutu                	1228
+C27 Gal             	short               	tutu                	1228
+C28 Garuh           	short               	susu                	
+C28 Garuh           	short               	qakub               	1374?
+C28 Garuh           	short               	tutu                	1228?
+C28 Garuh		short			subaːp
+C29 Kamba           	short               	kutuf               	1374

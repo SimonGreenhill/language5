@@ -1,0 +1,29 @@
+C1 Kare             	G-string            	bomɔra              	1353
+C2 Girawa           	G-string            	pæ:m                	1353
+C3 Munit		G-string		kurig
+C4 Bemal            	G-string            	ba:m                	1353
+C5 Sihan            	G-string            	pa:m                	1353
+C6 Gumalu		G-string		pʌm			1353
+C7 Isebe            	G-string            	bam                 	1353
+C8 Amele            	G-string            	bam                 	1353
+C9 Bau              	G-string            	pam                 	1353
+C10 Panim           	G-string            	bam                 	1353
+C11 Rapting         	G-string            	baim                	1353
+C12 Wamas           	G-string            	ba:m                	1353
+C13 Samosa          	G-string            	ba:mi               	1353
+C14 Murupi		G-string		mʌi
+C15 Saruga          	G-string            	ba:me               	1353
+C16 Nake            	G-string            	ba:m                	1353
+C17 Mosimo          	G-string            	ba:m                	1353
+C18 Garus           	G-string            	baim                	1353
+C19 Yoidik          	G-string            	bɛm                 	1353
+C20 Rempi           	G-string            	baim                	1353
+C21 Bagupi          	G-string            	ba:m                	1353
+C22 Silopi          	G-string            	pa:m                	1353
+C23 Utu             	G-string            	ba:m                	1353
+C24 Mawan           	G-string            	bam                 	1353
+C25 Baimak          	G-string            	bam                 	1353
+C26 Matepi          	G-string            	bam                 	1353
+C27 Gal             	G-string            	bam                 	1353
+C28 Garuh           	G-string            	bam                 	1353
+C29 Kamba           	G-string            	bam                 	1353

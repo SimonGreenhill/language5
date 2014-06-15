@@ -1,0 +1,33 @@
+C1 Kare			top (of tree)		muɛna
+C2 Girawa 		top (of tree)		æruˀ
+C3 Munit		top (of tree)		uriːg
+C4 Bemal		top (of tree)		otoːw
+C5 Sihan            	top (of tree)       	koʔin               	1488
+C6 Gumalu		top (of tree)		gou
+C7 Isebe            	top (of tree)       	goʔin               	1488
+C8 Amele            	top (of tree)       	goʔin               	1488?
+C8 Amele            	top (of tree)       	igoʔ                	1336
+C9 Bau              	top (of tree)       	koʔin               	1488?
+C9 Bau			top (of tree)		kʌti koˀ n
+C10 Panim           	top (of tree)       	goʔin               	1488
+C11 Rapting         	top (of tree)       	go:k                	1336
+C12 Wamas		top (of tree)		tukʌːr
+C13 Samosa		top (of tree)		kuma	
+C14 Murupi		top (of tree)		umʌgu
+C14 Murupi		top (of tree)		utuwahe
+C15 Saruga          	top (of tree)       	go:gu               	1336
+C16 Nake            	top (of tree)       	go:k                	1336
+C17 Mosimo		top (of tree)		kuma
+C17 Mosimo		top (of tree)		utukaru
+C18 Garus		top (of tree)		umauk
+C19 Yoidik		top (of tree)		muʌːk
+C20 Rempi		top (of tree)		uːmauk
+C21 Bagupi          	top (of tree)       	go:g                	1336
+C22 Silopi          	top (of tree)       	kØ:g                	1336
+C23 Utu             	top (of tree)       	go:k                	1336
+C24 Mawan           	top (of tree)       	go:k                	1336
+C25 Baimak          	top (of tree)       	gok                 	1336
+C26 Matepi          	top (of tree)       	go:g                	1336
+C27 Gal             	top (of tree)       	gok                 	1336
+C28 Garuh           	top (of tree)       	goug                	1336
+C29 Kamba           	top (of tree)       	gog                 	1336

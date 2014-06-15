@@ -1,0 +1,55 @@
+C1 Kare			tail (bird)		siːrugu
+C2 Girawa		tail (bird)		pitiu
+C3 Munit		tail (bird)		bitu
+C4 Bemal		tail (bird)		bitotow
+C5 Sihan            	tail (bird)         	pitu                	
+C6 Gumalu           	tail (bird)         	pitiu               	
+C7 Isebe            	tail (bird)         	bitu                	
+C8 Amele            	tail (bird)         	pitohuʔ             	
+C9 Bau              	tail (bird)         	piti                	
+C10 Panim           	tail (bird)         	biti                	
+C11 Rapting         	tail (bird)         	virik               	
+C12 Wamas           	tail (bird)         	siharu              	
+C13 Samosa          	tail (bird)         	sisarere            	
+C14 Murupi          	tail (bird)         	sa:ru, siha:ru      	
+C15 Saruga          	tail (bird)         	si:ru               	
+C16 Nake            	tail (bird)         	bitutu              	
+C17 Mosimo          	tail (bird)         	siharu              	
+C18 Garus           	tail (bird)         	bitota              	
+C19 Yoidik          	tail (bird)         	udik                	
+C20 Rempi           	tail (bird)         	vidiuk              	
+C21 Bagupi          	tail (bird)         	solulug             	
+C22 Silopi          	tail (bird)         	sinulug, sin        	
+C23 Utu             	tail (bird)         	sipuk- uruk         	
+C24 Mawan           	tail (bird)         	biti                	
+C25 Baimak          	tail (bird)         	biti                	
+C26 Matepi          	tail (bird)         	sihurug             	
+C27 Gal             	tail (bird)         	foh                 	
+C28 Garuh           	tail (bird)         	bizu                	
+C29 Kamba           	tail (bird)         	fæf                 	
+C1 Kare             	tail (birds)        	si:rugu             	1420
+C2 Girawa           	tail (birds)        	pitiu                	1312
+C3 Munit            	tail (birds)        	bitu                	1312
+C4 Bemal            	tail (birds)        	bitotow             	1312
+C5 Sihan            	tail (birds)        	pitu                	1312
+C6 Gumalu           	tail (birds)        	pitiu               	1312
+C7 Isebe            	tail (birds)        	bitu                	1312
+C8 Amele            	tail (birds)        	bi-, biti-          	1312
+C9 Bau              	tail (birds)        	piti                	1312
+C10 Panim           	tail (birds)        	biti                	1312
+C11 Rapting         	tail (birds)        	virik               	1495
+C12 Wamas           	tail (birds)        	si-haru             	1420
+C14 Murupi          	tail (birds)        	si-ha:ru            	1420
+C15 Saruga          	tail (birds)        	si:ru               	1420
+C16 Nake            	tail (birds)        	bitutu              	1312
+C17 Mosimo          	tail (birds)        	si-haru             	1420
+C18 Garus           	tail (birds)        	bitota              	1312
+C19 Yoidik          	tail (birds)        	udik                	1495
+C20 Rempi           	tail (birds)        	vidiuk              	1495
+C21 Bagupi          	tail (birds)        	sol-ulug            	1420
+C22 Silopi          	tail (birds)        	sin-ulug            	1420
+C23 Utu             	tail (birds)        	uruk                	1420
+C24 Mawan           	tail (birds)        	biti                	1312
+C25 Baimak          	tail (birds)        	biti                	1312
+C26 Matepi          	tail (birds)        	si-hurug            	1420
+

@@ -1,0 +1,31 @@
+C1 Kare			talk			aga-
+C2 Girawa           	talk                	amʌn mo-            	
+C3 Munit		talk			avo mɛ-
+C4 Bemal		talk			zɛ mɛ-
+C5 Sihan		talk			ava mɛ-
+C6 Gumalu		talk			ze matɛ-
+C7 Isebe		talk			yɛ madi-	
+C8 Amele		talk			yɛ mat-
+C9 Bau   		talk			lɛ mʌt-
+C10 Panim		talk			ze made-
+C11 Rapting         	talk                	nin me-   
+C12 Wamas		talk			nin ˀpa-        	
+C13 Samosa          	talk                	nene oga-           	
+C14 Murupi          	talk                	nini a-             	
+C15 Saruga          	talk                	nini a-             	
+C16 Nake            	talk                	nin a-     
+C17 Mosimo		talk			nin ma-    	
+C18 Garus           	talk                	nin ma-             	
+C19 Yoidik          	talk                	nin pʌ-             	
+C20 Rempi           	talk                	nin pa-   
+C21 Bagupi		talk			ninˀa-
+C22 Silopi		talk			an-
+C22 Silopi		talk			ma-
+C23 Utu 		talk			an-
+C23 Utu			talk			m-
+C24 Mawan		talk			nʌr me-
+C25 Baimak          	talk			rɛr mɛ-
+C26 Matepi          	talk                	nin m-            
+C27 Gal   		talk			lɛl ˀɛ-
+C28 Garuh		talk			nay a-
+C29 Kamba  		talk			an-

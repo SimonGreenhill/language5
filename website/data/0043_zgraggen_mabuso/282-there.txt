@@ -1,0 +1,36 @@
+C1 Kare			there		ogʌːna
+C2 Girawa		there		ʌisɛn
+C3 Munit		there		ɛinogo
+C4 Bemal		there		ulibɛ
+C5 Sihan		there		oi- kon
+C6 Gumalu		there		lɛwaˀi
+C7 Isebe		there		ahuna
+C8 Amele		there		ɛhuɛn
+C8 Amele		there		naha
+C9 Bau			there		hoˀa
+C9 Bau			there		hokono
+C10 Panim		there		ahũna
+C11 Rapting		there		airɛ
+C12 Wamas		there		wa
+C13 Samosa		there		hoga
+C14 Murupi		there		waˀaga
+C15 Saruga		there		vege
+C15 Saruga		there		žeti
+C16 Nake		there		waig
+C16 Nake		there		žapɔr
+C17 Mosimo		there		waˀa
+C18 Garus		there		unaˀɛ
+C19 Yoidik		there		ugʌˀ
+C20 Rempi		there		ɔˀga
+C20 Rempi		there		ɔˀ
+C21 Bagupi		there		yɛti
+C22 Silopi		there		deir
+C23 Utu			there		undaum
+C23 Utu			there		nɛndaum
+C24 Mawan		there		reia -ai
+C24 Mawan		there		au- nuga
+C25 Baimak		there		onaiga
+C26 Matepi		there		waur
+C27 Gal			there		au
+C28 Garuh		there		au
+C29 Kamba		there		uwa

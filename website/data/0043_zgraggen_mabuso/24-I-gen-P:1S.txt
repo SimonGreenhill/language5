@@ -1,0 +1,60 @@
+C1 Kare             	P:1S                	-i                  	1270
+C1 Kare             	P:1S                	-ya
+C2 Girawa           	P:1S                	-i                  	1270
+C2 Girawa           	P:1S                	-y                  	1270
+C2 Girawa           	P:1S                	-r                  	1270
+C2 Girawa           	P:1S                	-0̸
+C3 Munit            	P:1S                	-i                  	1270
+C3 Munit            	P:1S                	-0̸
+C4 Bemal            	P:1S                	-i                  	1478
+C4 Bemal            	P:1S                	-y                  	1270
+C4 Bemal            	P:1S                	-0̸
+C5 Sihan            	P:1S                	-(i)a
+C5 Sihan            	P:1S                	-i                  	1270
+C5 Sihan            	P:1S                	-l                  	1478
+C6 Gumalu            	P:1S                	-i                  	1270
+C6 Gumalu            	P:1S                	-0̸
+C7 Isebe            	P:1S                	-i                  	1270
+C7 Isebe            	P:1S                	-0̸
+C8 Amele            	P:1S                	-i                  	1270
+C9 Bau              	P:1S                	-i                  	1270
+C10 Panim           	P:1S                	-i                  	1270
+C10 Panim           	P:1S                	-0̸
+C11 Rapting         	P:1S                	-i                  	1270
+C11 Rapting         	P:1S                	-a
+C11 Rapting         	P:1S                	-e
+C12 Wamas           	P:1S                	-i                  	1270
+C12 Wamas           	P:1S                	-a
+C12 Wamas           	P:1S                	-e
+C13 Samosa          	P:1S                	-i                  	1270
+C13 Samosa          	P:1S                	-e
+C13 Samosa          	P:1S                	-0̸
+C14 Murupi          	P:1S                	-ya                 	1270
+C14 Murupi          	P:1S                	-0̸
+C14 Murupi          	P:1S                	-a
+C15 Saruga          	P:1S                	-i                  	1270
+C15 Saruga          	P:1S                	-ia
+C15 Saruga          	P:1S                	-na
+C16 Nake            	P:1S                	-i                  	1270
+C16 Nake            	P:1S                	-in
+C17 Mosimo          	P:1S                	-i                  	1270
+C17 Mosimo          	P:1S                	-0̸                  	1270
+C18 Garus           	P:1S                	-i                  	1270
+C18 Garus           	P:1S                	-0̸
+C19 Yoidik          	P:1S                	-y                  	1270
+C20 Rempi           	P:1S                	-0̸
+C21 Bagupi          	P:1S                	-y                  	1270
+C21 Bagupi          	P:1S                	-n
+C21 Bagupi          	P:1S                	-0̸
+C22 Silopi          	P:1S                	-i                  	1270
+C23 Utu             	P:1S                	-i                  	1270
+C23 Utu             	P:1S                	-0̸
+C24 Mawan           	P:1S                	-i                  	1270
+C25 Baimak          	P:1S                	-i                  	1270
+C25 Baimak          	P:1S                	-0̸
+C26 Matepi          	P:1S                	-Vl                 	1478
+C27 Gal             	P:1S                	-i                  	1270
+C27 Gal             	P:1S                	-l                  	1478
+C28 Garuh           	P:1S                	-l                  	1478
+C28 Garuh           	P:1S                	-0̸
+C29 Kamba           	P:1S                	-l                  	1478

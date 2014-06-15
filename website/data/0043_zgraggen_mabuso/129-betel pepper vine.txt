@@ -1,0 +1,30 @@
+C1 Kare			betel pepper vine	sumbi
+C2 Girawa           	betel pepper vine   	jakai               	1323
+C3 Munit		betel pepper vine	hũra
+C4 Bemal		betel pepper vine	bur̃
+C5 Sihan		betel pepper vine	our
+C6 Gumalu		betel pepper vine	ohur̃
+C7 Isebe		betel pepper vine	ˀohur
+C8 Amele		betel pepper vine	hul
+C9 Bau			betel pepper vine	ohul
+C10 Panim		betel pepper vine	ohul
+C11 Rapting		betel pepper vine	ohol
+C12 Wamas           	betel pepper vine   	žai                 	1323
+C13 Samosa          	betel pepper vine   	zai                 	1323
+C14 Murupi          	betel pepper vine   	zʌi                 	1323
+C15 Saruga          	betel pepper vine   	zʌy                 	1323
+C16 Nake		betel pepper vine	our
+C17 Mosimo          	betel pepper vine   	zay                 	1323
+C18 Garus		betel pepper vine	žo
+C19 Yoidik		betel pepper vine	žo
+C20 Rempi		betel pepper vine	uhor
+C20 Rempi		betel pepper vine	ɔr
+C21 Bagupi		betel pepper vine	our
+C22 Silopi		betel pepper vine	our
+C23 Utu			betel pepper vine	our
+C24 Mawan		betel pepper vine	our
+C25 Baimak		betel pepper vine	our
+C26 Matepi		betel pepper vine	our
+C27 Gal			betel pepper vine	ɛur
+C28 Garuh		betel pepper vine	aur̃
+C29 Kamba		betel pepper vine	kaur

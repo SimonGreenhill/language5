@@ -1,0 +1,37 @@
+C1 Kare             	tree possum 	dʌ:ma               	1201
+C2 Girawa		tree possum	sibʌːl
+C3 Munit            	tree possum 	damʌy               	1201
+C3 Munit		tree possum	kaka
+C4 Bemal		tree possum	haukay
+C4 Bemal		tree possum	siwai
+C5 Sihan		tree possum	tiːʌˀ
+C6 Gumalu		tree possum	tamʌi			1201
+C7 Isebe		tree possum	doːl
+C8 Amele            	tree possum 	dama                	1201
+C9 Bau              	tree possum 	damay               	1201
+C10 Panim           	tree possum 	dʌmi                	1201
+C11 Rapting		tree possum	aru
+C12 Wamas		tree possum	getine
+C13 Samosa		tree possum	
+C14 Murupi		tree possum	ɛtini
+C14 Murupi		tree possum	yʌgi
+C14 Murupi		tree possum	ɛmina
+C15 Saruga		tree possum	ʌːu
+C16 Nake            	tree possum 	dama:               	1201
+C17 Mosimo		tree possum	kitiːni
+C18 Garus		tree possum	wamæ
+C19 Yoidik		tree possum	wamɛ
+C19 Yoidik		tree possum	alip
+C20 Rempi		tree possum	vʌkuin
+C21 Bagupi          	tree possum 	damʌ                	1201
+C22 Silopi		tree possum	yʌgi
+C22 Silopi          	tree possum 	damʌ                	1201
+C23 Utu             	tree possum 	dama                	1201
+C23 Utu			tree possum	yagi
+C24 Mawan           	tree possum 	damay               	1201
+C24 Mawan		tree possum	yagi
+C25 Baimak          	tree possum 	tamay               	1201
+C26 Matepi          	tree possum 	dama                	1201
+C27 Gal             	tree possum 	damai               	1201
+C28 Garuh           	tree possum 	damai               	1201
+C29 Kamba           	tree possum 	dame                	1201

@@ -1,0 +1,29 @@
+C1 Kare			wooden bowl 		soika
+C2 Girawa		wooden bowl 		mʌro
+C3 Munit            	wooden plate        	he:i                	1448
+C4 Bemal            	wooden plate        	tebil               	1222
+C5 Sihan            	wooden plate        	hɛ:                 	1448
+C7 Isebe            	wooden plate        	wɛs                 	1448
+C9 Bau              	wooden plate        	vɛs                 	1448
+C10 Panim           	wooden plate        	bæs                 	1448
+C11 Rapting         	wooden plate        	tawil               	1222
+C12 Wamas           	wooden plate        	tʌ:ᵬile             	1222
+C13 Samosa          	wooden plate        	tavireu             	1222
+C13 Samosa          	wooden plate        	fai                 	1448
+C14 Murupi          	wooden plate        	tʌbir               	1222
+C15 Saruga          	wooden plate        	tawira              	1222
+C16 Nake            	wooden plate        	tʌvil               	1222
+C17 Mosimo          	wooden plate        	tʌ:bele             	1222
+C18 Garus           	wooden plate        	tavil               	1222
+C19 Yoidik          	wooden plate        	dabir               	1222
+C20 Rempi           	wooden plate        	tʌ:wur              	1222
+C21 Bagupi          	wooden plate        	taᵬil               	1222
+C22 Silopi          	wooden plate        	tabir               	1222
+C23 Utu             	wooden plate        	tavir               	1222
+C24 Mawan           	wooden plate        	tʌbir               	1222
+C25 Baimak          	wooden plate        	fa:s                	1448
+C26 Matepi          	wooden plate        	tavil               	1222
+C27 Gal             	wooden plate        	tawir               	1222
+C28 Garuh           	wooden plate        	sabir̃              	
+C28 Garuh           	wooden plate        	tabiD               	1222?
+C29 Kamba           	wooden plate        	tʌvir               	1222

@@ -1,0 +1,30 @@
+C1 Kare             	path                	i:mbu               	1211
+C2 Girawa           	path                	apu                 	1211
+C3 Munit            	path                	abu                 	1211
+C4 Bemal            	path                	abu                 	1211
+C5 Sihan            	path                	ahu                 	1211
+C6 Gumalu           	path                	hiu                 	
+C7 Isebe            	path                	i:                  	1211
+C8 Amele            	path                	žiʔ                 	1211
+C9 Bau              	path                	hi                  	1211
+C10 Panim           	path                	i                   	1211
+C11 Rapting         	path                	i:p                 	1211
+C12 Wamas           	path                	i:bu                	1211
+C13 Samosa          	path                	zovo                	
+C14 Murupi          	path                	i:ᵬu                	1211
+C15 Saruga          	path                	i:hu                	1211
+C16 Nake            	path                	i:h                 	1211
+C17 Mosimo          	path                	i:bu                	1211
+C18 Garus           	path                	i:p                 	1211
+C19 Yoidik          	path                	i:b                 	1211
+C20 Rempi           	path                	i:pman              	1211
+C21 Bagupi          	path                	i:hi                	1211
+C22 Silopi          	path                	ebin                	
+C23 Utu             	path                	irimen              	
+C24 Mawan           	path                	mana                	
+C25 Baimak          	path                	i:m                 	1211
+C26 Matepi          	path                	i:h                 	1211
+C27 Gal             	path                	i:m                 	1211
+C28 Garuh           	path                	ibman               	
+C28 Garuh           	path                	ib                  	1211?
+C29 Kamba           	path                	if                  	1211

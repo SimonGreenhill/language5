@@ -1,0 +1,33 @@
+C1 Kare             	knife               	inasa               	1455
+C2 Girawa		knife			silæp
+C3 Munit            	knife               	basin               	1364
+C4 Bemal		knife			žiʌg
+C5 Sihan            	knife               	pasin               	1364
+C6 Gumalu		knife			pasin			1364
+C7 Isebe            	knife               	basin               	1364
+C8 Amele            	knife               	basin               	1364?
+C8 Amele 		knife			sigin
+C8 Amele		knife			sinike
+C9 Bau              	knife               	pasin               	1364
+C10 Panim           	knife               	basin               	1364
+C11 Rapting         	knife               	kana                	
+C12 Wamas           	knife               	kana                	
+C13 Samosa          	knife               	kana                	
+C14 Murupi          	knife               	kana
+C14 Murupi		knife			bʌːb                	
+C15 Saruga		knife			bawa
+C16 Nake            	knife               	isina               	1455
+C17 Mosimo          	knife               	kana                	
+C18 Garus           	knife               	ina:                	1455
+C19 Yoidik          	knife               	inaʔ                	1455
+C20 Rempi           	knife               	inaʔ                	1455
+C21 Bagupi          	knife               	isina               	1455
+C22 Silopi          	knife               	ina                 	1455
+C23 Utu             	knife               	ina                 	1455
+C23 Utu			knife			wambon
+C24 Mawan           	knife               	ina                 	1455
+C26 Matepi          	knife               	ina                 	1455
+C27 Gal             	knife               	pasin               	1364
+C27 Gal			knife			yap
+C28 Garuh		knife			biːp
+C29 Kamba           	knife               	barin               	1364

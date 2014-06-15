@@ -1,0 +1,31 @@
+C1 Kare             	navel               	simurugo            	
+C2 Girawa           	navel               	sori-kamuk          	1304?
+C2 Girawa           	navel               	sor-                	               	            
+C3 Munit            	navel               	iri-                	1304
+C4 Bemal            	navel               	soli-               	1304
+C5 Sihan            	navel               	iri-                	1304
+C6 Gumalu           	navel               	hiri-               	
+C7 Isebe            	navel               	hili-               	1304
+C8 Amele            	navel               	sili-               	1304
+C9 Bau              	navel               	hiri-               	1304
+C10 Panim           	navel               	hili-               	1304
+C11 Rapting         	navel               	sumuri-             	
+C12 Wamas           	navel               	sumuli-             	  	
+C13 Samosa          	navel               	naso-               	   	
+C14 Murupi          	navel               	simuli-             	
+C15 Saruga          	navel               	ihuru-              	        	
+C16 Nake            	navel               	imuri-              	        	
+C17 Mosimo          	navel               	sumuli-             	          	
+C18 Garus           	navel               	ʒimuli-             	           	
+C19 Yoidik          	navel               	natma-              	          	
+C20 Rempi           	navel               	susmi-              	
+C21 Bagupi          	navel               	ihuru-              	          	
+C22 Silopi          	navel               	ihu-                	           	
+C23 Utu             	navel               	yu-                 	
+C24 Mawan           	navel               	iri-                	1304 	
+C25 Baimak          	navel               	iri-                	1304 	
+C26 Matepi          	navel               	ihuru          	
+C26 Matepi          	navel               	silu-               	1304
+C27 Gal             	navel               	iri-                	1304
+C28 Garuh           	navel               	hir̃i-              	1304	
+C29 Kamba           	navel               	sivr̃i-             	1304

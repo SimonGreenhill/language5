@@ -1,0 +1,34 @@
+C1 Kare			star 			bizi
+C1 Kare			star			ariŋgi
+C2 Girawa		star 			ururim
+C3 Munit		star			hãi
+C4 Bemal		star			ur̃ɛb
+C5 Sihan            	star                	hai                 	1347
+C6 Gumalu		star			pʰʌi
+C7 Isebe		star			surupʌ
+C8 Amele            	morning/evening star	boi                 	1347
+C9 Bau			star			marapɛ
+C9 Bau			star			surufay
+C10 Panim		star			malʌbi
+C11 Rapting 		star			up
+C12 Wamas		star			biːhi
+C13 Samosa		star			ʌriwu	
+C14 Murupi		star			bihi
+C15 Saruga		star			piruma
+C15 Saruga		star			tohonin
+C16 Nake		star			piːrum
+C16 Nake		star			tohonin
+C17 Mosimo		star			biːhi
+C18 Garus		star			up
+C19 Yoidik		star			up
+C20 Rempi		star			pʌtui
+C21 Bagupi		star			birum
+C22 Silopi		star			fasir			?
+C22 Silopi          	star                	fai                 	1347
+C23 Utu             	star                	fasir               	1347
+C24 Mawan           	star                	far                 	1347
+C25 Baimak          	star                	fay                 	1347
+C26 Matepi          	star                	fal                 	1347
+C27 Gal             	star                	fai                 	1347
+C28 Garuh		star			hor̃bay
+C29 Kamba		star			sorwɛ

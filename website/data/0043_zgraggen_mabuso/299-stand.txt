@@ -1,0 +1,30 @@
+C1 Kare             	stand               	towind(og)-         	1483
+C2 Girawa           	stand               	taira               	
+C3 Munit		stand			ayɛm
+C4 Bemal		stand			asɛ-
+C5 Sihan		stand			tavɛ-
+C6 Gumalu		stand			tʰawɛ
+C7 Isebe            	stand               	-tawi-              	1483
+C8 Amele            	stand               	tawe-               	1483
+C9 Bau              	stand               	-taw-               	1483
+C10 Panim           	stand               	-tawe-              	1483
+C11 Rapting         	stand               	turug-              	1484
+C12 Wamas		stand			bata-
+C13 Samosa		stand			ataida-
+C14 Murupi		stand			ɛmɛ-
+C14 Murupi		stand			patau-
+C15 Saruga          	stand               	atʌri               	1472
+C16 Nake  		stand			orɛ-
+C17 Mosimo		stand			pata-
+C18 Garus           	stand               	tʰiruk              	1484
+C19 Yoidik		stand			sɛˀɛd-
+C20 Rempi		stand			sɛˀɛtu-
+C21 Bagupi		stand			oreda-
+C22 Silopi		stand			irɛra-
+C23 Utu 		stand			aiz-
+C24 Mawan		stand			ainda-
+C25 Baimak		stand			aye-
+C26 Matepi          	stand               	ire                 	
+C27 Gal             	stand               	irek                	
+C28 Garuh		stand			hib-
+C29 Kamba		stand			sir

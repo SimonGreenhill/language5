@@ -1,0 +1,31 @@
+C1 Kare			calf			ʌ:ta
+C2 Girawa		calf			tupsi-
+C3 Munit		calf			sosi-
+C4 Bemal		calf			žiu- tabu
+C5 Sihan            	calf                	use-                	1299
+C6 Gumalu		calf			usɛ-
+C7 Isebe            	calf                	mataufu-            	1300
+C8 Amele 		calf			pik
+C9 Bau              	calf                	use-                	1299
+C9 Bau              	calf                	matefu-             	1300
+C10 Panim		calf			yai- bignʌg
+C11 Rapting		calf			marara-
+C12 Wamas		calf			dau
+C13 Samosa		calf			marʌea-
+C14 Murupi		calf			malala-	
+C15 Saruga		calf			marara-
+C16 Nake		calf			marara-
+C17 Mosimo		calf			mararʌ-
+C18 Garus		calf			mar̃ʌlɛ
+C19 Yoidik		calf			mauldʌ-
+C20 Rempi		calf			maldɛ-
+C21 Bagupi		calf			isumagi
+C22 Silopi          	calf                	usi-                	1299
+C23 Utu             	calf                	usi-                	1299
+C24 Mawan		calf			uhɛhu-
+C25 Baimak          	calf                	use-                	1299
+C25 Baimak          	calf                	madefu-             	1300
+C26 Matepi		calf			hunu-
+C27 Gal             	calf                	usi-                	1299
+C28 Garuh           	calf                	didi-               	1299
+C29 Kamba           	calf                	matfu-              	1300

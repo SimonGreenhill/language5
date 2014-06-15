@@ -1,0 +1,29 @@
+C1 Kare             	fog                 	toŋgoisʌ            	1214
+C2 Girawa		fog			iyow
+C3 Munit            	fog                 	hundu               	1215
+C4 Bemal		fog			pi
+C5 Sihan            	fog                 	hud                 	1215
+C6 Gumalu		fog			fut
+C7 Isebe		fog			uwɛ
+C8 Amele		fog			hut
+C9 Bau              	fog                 	fu:d                	1215
+C10 Panim           	fog                 	fud                 	1215
+C11 Rapting         	fog                 	tag                 	1214
+C12 Wamas           	fog                 	tʌ:gu               	1214
+C13 Samosa          	fog                 	tʌ:gu               	1214
+C14 Murupi          	fog                 	tʌ:gu               	1214
+C15 Saruga          	fog                 	to:gu               	1214
+C16 Nake            	fog                 	to:g                	1214
+C17 Mosimo          	fog                 	tʌ:gu               	1214
+C18 Garus           	fog                 	tauk                	1214
+C19 Yoidik          	fog                 	dʌ:g                	1214
+C20 Rempi		fog			budbud
+C21 Bagupi          	fog                 	tok                 	1214
+C22 Silopi          	fog                 	furip               	1215
+C23 Utu             	fog                 	fur                 	1215
+C24 Mawan           	fog                 	furu                	1215
+C25 Baimak          	fog                 	fud                 	1215
+C26 Matepi          	fog                 	fur                 	1215
+C27 Gal             	fog                 	fur                 	1215
+C28 Garuh           	fog                 	bud                 	1215
+C29 Kamba		fog			lambi

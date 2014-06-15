@@ -1,0 +1,30 @@
+C1 Kare             	fill up             	ɛlɛ-                	1465
+C2 Girawa           	fill up             	´raine-             	1465?
+C2 Girawa		fill up			murumo-
+C3 Munit            	fill up             	wete-               	1248
+C4 Bemal            	fill up             	ulɛ-                	1465
+C5 Sihan            	fill up             	wete-               	1248
+C6 Gumalu		fill up			namɛ-
+C7 Isebe            	fill up             	weti-               	1248
+C8 Amele            	fill up             	wete                	
+C9 Bau              	fill up             	wet-                	1248
+C10 Panim           	fill up             	wete-               	1248
+C11 Rapting         	fill up             	wet-                	1248
+C12 Wamas           	fill up             	wete-               	1248
+C13 Samosa          	fill up             	veto-               	1248
+C14 Murupi          	fill up             	wete-               	1248
+C15 Saruga          	fill up             	wete-               	1248
+C16 Nake            	fill up             	wete-               	1248
+C17 Mosimo          	fill up             	wete-               	1248
+C18 Garus           	fill up             	vi-                 	1248
+C19 Yoidik          	fill up             	we-                 	1248
+C20 Rempi           	fill up             	ve-                 	1248
+C21 Bagupi          	fill up             	wete-               	1248
+C22 Silopi          	fill up             	wet-                	1248
+C23 Utu             	fill up             	vet                 	1248
+C24 Mawan           	fill up             	vete-               	1248
+C25 Baimak          	fill up             	wete-               	1248
+C26 Matepi          	fill up             	vet-                	1248
+C27 Gal             	fill up             	vete-               	1248
+C28 Garuh		fill up			ose-
+C29 Kamba		fill up			gogɛr-

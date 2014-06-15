@@ -1,0 +1,37 @@
+C1 Kare			bamboo			bʌːra
+C2 Girawa           	bamboo              	or                  	1337
+C3 Munit            	bamboo              	ɛndu                	1337
+C4 Bemal            	bamboo              	ar                  	1337
+C5 Sihan            	bamboo              	ɛhun                	1338
+C6 Gumalu		bamboo			ɛt			1337
+C7 Isebe            	bamboo              	ɛd                  	1337
+C8 Amele            	bamboo              	ʔeed                	1337
+C8 Amele            	bamboo              	aːgɛl
+C8 Amele            	bamboo              	wadup
+C9 Bau              	bamboo              	ɛt                  	1337
+C10 Panim           	bamboo              	æd                  	1337
+C11 Rapting         	bamboo              	aruk                	1337
+C12 Wamas           	bamboo              	ka:r                	1337
+C13 Samosa          	bamboo              	ka:rɛ               	1337
+C14 Murupi          	bamboo              	a:ru                	1337
+C15 Saruga          	bamboo              	a:ru                	1337
+C16 Nake            	bamboo              	gor̃op              	
+C17 Mosimo          	bamboo              	ka:r                	1337
+C18 Garus           	bamboo              	aruk                	1337
+C19 Yoidik          	bamboo              	aduk                	1337
+C20 Rempi           	bamboo              	ʌduk                	1337
+C20 Rempi           	bamboo              	ʌr̃ʌs
+C20 Rempi           	bamboo              	biːd
+C21 Bagupi          	bamboo              	ar                  	1337
+C22 Silopi          	bamboo              	ʔa:r                	1337
+C23 Utu             	bamboo              	ar                  	1337
+C24 Mawan           	bamboo              	ʔɛf                 	1338
+C25 Baimak          	bamboo              	ɛf                  	1338
+C26 Matepi          	bamboo              	ʌr̃                 	1337
+C26 Matepi          	bamboo              	fozin
+C27 Gal             	bamboo              	ʔɛh                 	1338
+C28 Garuh		bamboo			livat
+C28 Garuh		bamboo			din
+C28 Garuh		bamboo			laum
+C28 Garuh		bamboo			bodor̃
+C29 Kamba           	bamboo              	karu:g              	1337

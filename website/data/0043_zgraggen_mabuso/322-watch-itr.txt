@@ -1,0 +1,30 @@
+C1 Kare			watch.ITR		oma mɛ-
+C2 Girawa		watch.ITR		amoitɛ
+C3 Munit		watch.ITR		ama-
+C4 Bemal		watch.ITR		hamɛti-
+C5 Sihan		watch.ITR		ofɛ-
+C6 Gumalu		watch.ITR		bami-
+C7 Isebe		watch.ITR		meˀi-
+C8 Amele		watch.ITR		mɛˀi-
+C9 Bau   		watch.ITR		mɛhi-
+C10 Panim		watch.ITR		mɛˀi-
+C11 Rapting		watch.ITR		dibɛ-
+C12 Wamas		watch.ITR		diˀpo-
+C13 Samosa		watch.ITR		diˀo-
+C14 Murupi		watch.ITR		dipɛ-
+C15 Saruga          	watch.ITR           	ohoge-              	1396
+C16 Nake            	watch.ITR           	ohogo-              	1396
+C17 Mosimo		watch.ITR		diʔɛ-
+C18 Garus		watch.ITR		ilɛ-
+C19 Yoidik		watch.ITR		ilei-
+C20 Rempi		watch.ITR		moyau-
+C20 Rempi		watch.ITR		hɛ-
+C21 Bagupi          	watch.ITR           	ohogu-              	1396
+C22 Silopi		watch.ITR		og-
+C23 Utu 		watch.ITR		ok-
+C24 Mawan		watch.ITR		ohoge-
+C25 Baimak		watch.ITR		amukɛ-
+C26 Matepi		watch.ITR		ohog-
+C27 Gal             	watch.ITR           	hoge-               	1396
+C28 Garuh		watch.ITR		nɛg-
+C29 Kamba		watch.ITR		amin-

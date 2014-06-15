@@ -1,0 +1,29 @@
+C1 Kare             	dream               	niŋgai mo-          	
+C2 Girawa           	dream               	epire               	
+C3 Munit            	dream               	bibiri              	
+C4 Bemal            	dream               	wabil               	
+C5 Sihan            	dream               	bebere              	
+C6 Gumalu           	dream               	bebere              	
+C7 Isebe            	dream               	bebeli              	
+C8 Amele            	dream               	bebele              	
+C9 Bau              	dream               	bepel               	
+C10 Panim           	dream               	bebele              	
+C11 Rapting         	dream               	pan me-             	
+C12 Wamas           	dream               	nigai abo-          	
+C13 Samosa          	dream               	nigei mo-           	
+C14 Murupi          	dream               	nigai ta-           	
+C15 Saruga          	dream               	nigazaga ite        	
+C16 Nake            	dream               	abula ak-           	
+C17 Mosimo          	dream               	nigai av-           	
+C18 Garus           	dream               	pan ma-             	
+C19 Yoidik          	dream               	diʔo-               	
+C20 Rempi           	dream               	ʔulo-               	
+C21 Bagupi          	dream               	eβurau              	
+C22 Silopi          	dream               	βaβ                 	
+C23 Utu             	dream               	vav                 	
+C24 Mawan           	dream               	wawure              	
+C25 Baimak          	dream               	wapire              	
+C26 Matepi          	dream               	wavur               	
+C27 Gal             	dream               	tul ne-             	
+C28 Garuh           	dream               	sul ni-             	
+C29 Kamba           	dream               	tul ni-  

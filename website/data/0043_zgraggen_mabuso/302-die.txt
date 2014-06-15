@@ -1,0 +1,30 @@
+C1 Kare        		die			mai-
+C2 Girawa		die			mezo-
+C3 Munit		die			zrumɛ-
+C4 Bemal            	die                 	nom                	
+C5 Sihan		die			ar̃mɛ-
+C6 Gumalu		die			armɛ-
+C7 Isebe		die			armi-
+C8 Amele		die			ʌlmɛ-
+C9 Bau   		die			armɛ-
+C10 Panim		die			almɛ-
+C11 Rapting         	die                 	mau-                	
+C12 Wamas           	die                 	ma-                 	
+C13 Samosa          	die                 	ma-                 	
+C14 Murupi          	die                 	ma-                 	
+C15 Saruga          	die                 	ma-                 	
+C16 Nake            	die                 	nau-                	1384
+C17 Mosimo          	die                 	ma-                 	
+C18 Garus		die			mayo-
+C19 Yoidik          	die                 	muw-                	
+C20 Rempi           	die                 	mo-                 	
+C21 Bagupi          	die                 	mau-                	
+C22 Silopi          	die                 	nam-                	1384
+C23 Utu             	die                 	nam-                	1384
+C24 Mawan           	die                 	naum-               	1384
+C25 Baimak          	die                 	naume-              	1384
+C26 Matepi          	die                 	naum-               	1384
+C27 Gal             	die                 	naue-               	1384
+C28 Garuh           	die                 	bir̃-                	1382
+C28 Garuh           	die                 	mauh- (sic)         	1384?
+C29 Kamba		die			mous-

@@ -1,0 +1,33 @@
+C1 Kare			fight			aga-
+C2 Girawa		fight			marai maˀo-
+C3 Munit		fight			uri-
+C4 Bemal		fight			malay mɛ-
+C5 Sihan            	fight               	adɛ-                	1403
+C6 Gumalu		fight			huba(a)bɛ-
+C6 Gumalu		fight			atɛ-
+C7 Isebe            	fight               	adi-                	1403
+C8 Amele            	fight               	ʔade-               	1403
+C9 Bau              	fight (hit)         	fʌn me-             	
+C10 Panim           	fight           	fan ade-            	1403
+C11 Rapting		fight			gara(ta) mɛ-
+C11 Rapting		fight			marɛ-
+C12 Wamas		fight			marʌ-
+C13 Samosa		fight			evo-
+C14 Murupi		fight			aˀiri fɛ-
+C15 Saruga		fight			mʌro-
+C16 Nake		fight			malo-
+C17 Mosimo		fight			ˀpɛwɛ
+C17 Mosimo		fight			malʌ-
+C18 Garus		fight			nupu-
+C19 Yoidik		fight			uhɛl-
+C20 Rempi		fight			oid-
+C21 Bagupi		fight			maro-
+C22 Silopi		fight			mam-
+C23 Utu			fight			mami-
+C24 Mawan           	fight               	ar-                 	1403
+C24 Mawan		fight			mamo-
+C25 Baimak          	fight               	atu-                	1403
+C26 Matepi          	fight               	ar̃-                 	1403
+C27 Gal             	fight               	aru-                	1403
+C28 Garuh		fight			bihal-
+C29 Kamba		fight			s-

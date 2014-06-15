@@ -1,0 +1,36 @@
+C1 Kare             	garden              	pə:sili             	1442
+C1 Kare 		garden 			sʌiŋga
+C2 Girawa		garden			boːi
+C3 Munit		garden			arʌw
+C4 Bemal		garden			salau
+C5 Sihan		garden			abia
+C6 Gumalu		garden			pɛrau
+C7 Isebe		garden			yesʌn
+C8 Amele		garden			api
+C9 Bau			garden			abi
+C10 Panim		garden			abi
+C10 Panim		garden			yesʌn
+C11 Rapting		garden			ɛn
+C12 Wamas           	garden              	fahɛri              	1442
+C12 Wamas		garden			kɛnɛgɛ
+C13 Samosa		garden			kenagara
+C14 Murupi          	garden              	wahili              	1442
+C14 Murupi		garden			ɛnɛga
+C15 Saruga          	garden              	paili               	1442
+C16 Nake		garden			anʌp
+C17 Mosimo		garden			kenege
+C18 Garus		garden			ɛn
+C19 Yoidik		garden			ˀɛn
+C20 Rempi		garden			ɛn
+C21 Bagupi          	garden              	pail                	1442
+C22 Silopi          	garden              	pair                	1442
+C22 Silopi          	garden              	anub
+C22 Silopi          	garden              	pʌir
+C23 Utu             	garden              	pair                	1442
+C24 Mawan           	garden              	pair                	1442
+C25 Baimak		garden			p rau
+C26 Matepi          	garden              	pail                	1442
+C27 Gal             	garden              	pair                	1442
+C28 Garuh		garden			hib
+C28 Garuh		garden			daːd
+C29 Kamba		garden			dʌr

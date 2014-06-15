@@ -1,0 +1,34 @@
+C1 Kare             	shrub (tangget)     	kaugu               	1462
+C2 Girawa		shrub (tangget)		
+C3 Munit            	shrub (tangget)     	kwãhu               	1339
+C4 Bemal            	shrub (tangget)     	wabum               	1339
+C5 Sihan            	shrub (tangget)     	pahu                	1339
+C6 Gumalu		shrub (tangget)		bʌf
+C7 Isebe		shrub (tangget)		aˀizor
+C8 Amele		shrub (tangget)		ˀaˀisol
+C9 Bau              	shrub (tangget)     	paf                 	1339
+C10 Panim		shrub (tangget)		aˀisol
+C10 Panim		shrub (tangget)		saguni
+C11 Rapting		shrub (tangget)		awaʔ
+C12 Wamas		shrub (tangget)		koʌː
+C12 Wamas           	shrub (tangget)     	bab                 	1339
+C13 Samosa          	shrub (tangget)     	ba:bu               	1339
+C14 Murupi          	shrub (tangget)     	pabu                	1339
+C14 Murupi		shrub (tangget)		abʌ
+C15 Saruga          	shrub (tangget)     	fa:hu               	1339
+C16 Nake            	shrub (tangget)     	pahum               	1339
+C17 Mosimo          	shrub (tangget)     	ba:bu               	1339
+C17 Mosimo		shrub (tangget)		koʌː
+C18 Garus           	shrub (tangget)     	avʌ:ʔ               	1462
+C19 Yoidik          	shrub (tangget)     	awʌʔ                	1462
+C20 Rempi           	shrub (tangget)     	awaʔ                	1462
+C21 Bagupi          	shrub (tangget)     	pahum               	1339
+C22 Silopi          	shrub (tangget)     	pahum               	1339
+C23 Utu             	shrub (tangget)     	pahum               	1339
+C24 Mawan           	shrub (tangget)     	koahu               	1339
+C25 Baimak          	shrub (tangget)     	pafu                	1339
+C26 Matepi          	shrub (tangget)     	pahum               	1339
+C27 Gal             	shrub (tangget)     	ʔaway               	1462
+C28 Garuh		shrub (tangget)		babuim
+C28 Garuh		shrub (tangget)		kava
+C29 Kamba           	shrub (tangget)     	kawa                	1462

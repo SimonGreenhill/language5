@@ -1,0 +1,41 @@
+C1 Kare             	mosquito            	maranusi            	
+C2 Girawa           	mosquito            	ɛs                  	1432?
+C2 Girawa           	mosquito            	ʌ:s                 	
+C3 Munit            	mosquito            	g̃ahi			1432
+C3 Munit		mosquito		ãi          	
+C4 Bemal            	mosquito            	siul                	
+C5 Sihan            	mosquito            	i:u                 	1432
+C6 Gumalu           	mosquito            	ihimʌr              	
+C7 Isebe            	mosquito            	ihi                 	1432
+C8 Amele            	mosquito            	is                 	1432
+C9 Bau              	mosquito            	ʔihimar             	1432
+C10 Panim           	mosquito            	ihi                 	1432
+C11 Rapting         	mosquito            	makene              	1453?
+C11 Rapting         	mosquito            	mumuʔ               	
+C12 Wamas           	mosquito            	makanis             	1453?
+C12 Wamas           	mosquito            	makene              	
+C13 Samosa          	mosquito            	makanis             	
+C13 Samosa          	mosquito            	makani(si)          	1453?
+C14 Murupi          	mosquito            	makani(si)            	
+C14 Murupi          	mosquito            	makanihi            	1453?
+C14 Murupi		mosquito		biːra
+C15 Saruga          	mosquito            	makanihi            	
+C16 Nake            	mosquito            	makini              	1453?
+C16 Nake            	mosquito            	kopani              	
+C17 Mosimo          	mosquito            	makali              	1453?
+C17 Mosimo          	mosquito            	makini              	
+C18 Garus           	mosquito            	makili              	?
+C18 Garus           	mosquito            	makʌli             	
+C19 Yoidik          	mosquito            	is                  	1432
+C20 Rempi           	mosquito            	is                  	1432
+C21 Bagupi          	mosquito            	kapani              	
+C22 Silopi          	mosquito            	ipi                 	1197
+C23 Utu             	mosquito            	ipi                 	1197
+C24 Mawan           	mosquito            	ipi                 	1197
+C25 Baimak          	mosquito            	imʌr                	
+C26 Matepi          	mosquito            	ipi                 	1197
+C27 Gal             	mosquito            	pepek               	
+C28 Garuh           	mosquito            	kaᵱni               	
+C28 Garuh           	mosquito            	kavni               	?
+C28 Garuh           	mosquito            	kapanih             	1453?
+C29 Kamba           	mosquito            	ibis                	1197

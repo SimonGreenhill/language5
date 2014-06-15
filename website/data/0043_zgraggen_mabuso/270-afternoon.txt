@@ -1,0 +1,31 @@
+C1 Kare        		afternoon		uru migi
+C2 Girawa    		afternoon		wærir
+C2 Girawa		afternoon		uriarir
+C3 Munit		afternoon		deiːwa seˀ
+C3 Munit            	afternoon           	tuetue              	1378
+C4 Bemal		afternoon		umusik
+C5 Sihan           	afternoon		deiwa
+C6 Gumalu              	afternoon		dɛhipv
+C7 Isebe		afternoon		yɛhiu
+C8 Amele		afternoon		wɛsu
+C9 Bau   		afternoon 		lɛhiu
+C10 Panim		afternoon		yehiu
+C11 Rapting          	afternoon		uturak
+C12 Wamas   		afternoon		suhabʌːg
+C13 Samosa      	afternoon		susava
+C14 Murupi             	afternoon		tutɛgo
+C15 Saruga     		afternoon		totohu
+C16 Nake       		afternoon		tohu fʌːg
+C17 Mosimo          	afternoon		suhaw g
+C18 Garus           	afternoon		tuwʌːˀ
+C19 Yoidik          	afternoon		tuːʌk
+C20 Rempi            	afternoon		tuʌg
+C21 Bagupi      	afternoon		dohu fʌg
+C22 Silopi     		afternoon		dohu
+C23 Utu         	afternoon		tohu
+C24 Mawan      		afternoon		dohu
+C25 Baimak   		afternoon		dɛːiv
+C26 Matepi            	afternoon		tohu
+C27 Gal             	afternoon           	tuɛ                 	1378
+C28 Garuh           	afternoon           	tueb                	1378
+C29 Kamba           	afternoon           	tuɛf                	1378

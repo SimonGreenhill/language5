@@ -1,0 +1,29 @@
+C1 Kare			trunk			mbigi
+C2 Girawa		trunk			ænip
+C3 Munit            	trunk               	umu                 	1206
+C4 Bemal		trunk			ɛnip
+C5 Sihan            	trunk               	um                  	1206
+C6 Gumalu           	trunk               	um                  	
+C7 Isebe            	trunk               	um                  	1206
+C8 Amele            	trunk               	um                  	1206
+C9 Bau              	trunk               	um                  	1206
+C10 Panim           	trunk               	u:m                 	1206
+C11 Rapting         	trunk               	mu                  	1206
+C12 Wamas           	trunk               	mu:                 	1206
+C13 Samosa          	trunk               	mu                  	1206
+C14 Murupi          	trunk               	(a)mu               	1206
+C15 Saruga          	trunk               	dirimu              	1206
+C16 Nake            	trunk               	imu                 	1206
+C17 Mosimo          	trunk               	mu:                 	1206
+C18 Garus           	trunk               	mu:ʔ                	1206
+C19 Yoidik          	trunk               	mu:                 	1206
+C20 Rempi           	trunk               	mu:                 	1206
+C21 Bagupi          	trunk               	mu                  	1206
+C22 Silopi          	trunk               	mu:                 	1206
+C23 Utu             	trunk               	mu:                 	1206
+C24 Mawan           	trunk               	mu                  	1206
+C25 Baimak          	trunk               	mu:                 	1206
+C26 Matepi          	trunk               	mu:                 	1206
+C27 Gal             	trunk               	umu                 	1206
+C28 Garuh           	trunk               	yimu                	
+C29 Kamba           	trunk               	um                  	1206

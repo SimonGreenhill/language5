@@ -1,0 +1,30 @@
+C1 Kare			bathe (itr)		ži idagu-
+C2 Girawa		bathe (itr)		ʌːn zo-
+C3 Munit		bathe (itr)		wãn du-
+C4 Bemal		bathe (itr)		ziwɛ-
+C5 Sihan		bathe (itr)		vado-
+C6 Gumalu		bathe (itr)		wa ru-
+C7 Isebe		bathe (itr)		wa yo(u)
+C8 Amele		bathe (itr)		wa yo-
+C9 Bau			bathe (itr)		wa ro-
+C10 Panim		bathe (itr)		wa zo-
+C11 Rapting		bathe (itr)		ze zau-
+C12 Wamas		bathe (itr)		j̊i za-
+C13 Samosa		bathe (itr)		zi zag-
+C14 Murupi		bathe (itr)		ze da-
+C15 Saruga		bathe (itr)		zi otono-
+C16 Nake		bathe (itr)		di žɛ-
+C17 Mosimo		bathe (itr)		ži za-
+C18 Garus		bathe (itr)		žɛ
+C18 Garus		bathe (itr)		zou-
+C19 Yoidik		bathe (itr)		iaˀ-
+C20 Rempi		bathe (itr)		žɛ ža-
+C21 Bagupi		bathe (itr)		di yau-
+C22 Silopi		bathe (itr)		de ra-
+C23 Utu			bathe (itr)		ze za-
+C24 Mawan		bathe (itr)		de la-
+C25 Baimak		bathe (itr)		lɛ la-
+C26 Matepi		bathe (itr)		lɛ lo-
+C27 Gal			bathe (itr)		lɛ lahow(ɛ)-
+C28 Garuh		bathe (itr)		le la-
+C29 Kamba		bathe (itr)		lu-

@@ -1,0 +1,30 @@
+C1 Kare			dance		ila-
+C2 Girawa		dance		ɛtɛ-
+C3 Munit		dance		barʌi dua-
+C4 Bemal		dance		magɛn mɛ-
+C5 Sihan		dance		parai du-
+C6 Gumalu		dance		baray du-
+C7 Isebe		dance		
+C8 Amele		dance		i:k mɛ-
+C9 Bau			dance		sɛk tuˀ-
+C10 Panim		dance		due du-
+C11 Rapting		dance		asu il
+C12 Wamas		dance		
+C13 Samosa		dance		
+C14 Murupi		dance		ura mɛ-
+C15 Saruga		dance		asu ilɛ-
+C16 Nake		dance		ila
+C17 Mosimo		dance		
+C18 Garus		dance		
+C19 Yoidik		dance		
+C20 Rempi		dance		dugum-
+C21 Bagupi		dance		abi ila-
+C22 Silopi		dance		faug oro awiay-
+C23 Utu			dance		avi ra-
+C24 Mawan		dance		fau gʌra avile-
+C25 Baimak		dance		parɛi ira-
+C26 Matepi		dance		avi il-
+C27 Gal			dance		du irɛ-
+C28 Garuh		dance		ahi ed-
+C28 Garuh		dance		gor-
+C29 Kamba		dance		denis m-

@@ -1,0 +1,29 @@
+C1 Kare      		tear			sambereg-  	
+C2 Girawa		tear			irɛ-
+C3 Munit		tear			kwasilɛ-
+C4 Bemal		tear			kak-
+C5 Sihan            	tear                	basire-             	1246
+C6 Gumalu		tear			paʔasirɛ-
+C7 Isebe            	tear                	basili-             	1246
+C8 Amele		tear			balatɛ-
+C9 Bau              	tear                	pasir-              	1246
+C10 Panim           	tear                	basil-              	1246
+C11 Rapting         	tear                	karel-              	1246
+C12 Wamas		tear			sabilo-
+C13 Samosa		tear			savir-
+C14 Murupi		tear			sabirɛ-
+C15 Saruga		tear			sawilɛ-
+C16 Nake  		tear			gahili-
+C17 Mosimo		tear			sabil
+C18 Garus		tear			aseil-
+C19 Yoidik          	tear                	pasæli-             	1246
+C20 Rempi           	tear                	kasail-             	1246
+C21 Bagupi          	tear                	kahili-             	1246
+C22 Silopi          	tear                	pesar-              	1246
+C23 Utu             	tear                	pasir-              	1246
+C24 Mawan           	tear                	pahile-             	1246
+C25 Baimak		tear			kakarɛ-
+C26 Matepi          	tear                	pasil-              	1246
+C27 Gal             	tear                	pasire-             	1246
+C28 Garuh		tear			kadir̃-
+C29 Kamba           	tear                	pʌrir-              	1246

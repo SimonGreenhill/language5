@@ -1,0 +1,37 @@
+C1 Kare             	new                 	gasigi              	
+C2 Girawa           	new                 	awau                	
+C3 Munit            	new                 	eraʔ                	
+C4 Bemal            	new                 	awaw                	1258
+C5 Sihan            	new                 	erʌʔ                	
+C6 Gumalu           	new                 	erau                	
+C7 Isebe            	new                 	faun                	1258
+C8 Amele            	new                 	haun                	1258
+C9 Bau              	new                 	bilde               	
+C10 Panim           	new                 	eyeba         	
+C10 Panim           	new                 	faun                	1258
+C11 Rapting         	new                 	zu:ro               	
+C12 Wamas           	new                 	vouva
+C12 Wamas           	new                 	kauta        	
+C13 Samosa          	new                 	vuga
+C13 Samosa          	new                 	vugakaugu         	
+C14 Murupi          	new                 	ofua                	
+C15 Saruga          	new                 	azegu
+C15 Saruga          	new                 	zoi          	
+C16 Nake            	new                 	yara
+C16 Nake            	new                 	auwe          	
+C17 Mosimo          	new                 	kauta               	
+C18 Garus           	new                 	azeʔ                	
+C19 Yoidik          	new                 	aweʔ                	
+C20 Rempi           	new                 	aweʔ                	
+C21 Bagupi          	new                 	yara                	
+C22 Silopi          	new                 	eroug
+C22 Silopi          	new                 	zɔr          	
+C23 Utu             	new                 	ezog                	
+C24 Mawan           	new                 	roug 
+C24 Mawan		new			yar               	
+C25 Baimak          	new                 	yolmay              	
+C26 Matepi          	new                 	yor                 	
+C27 Gal             	new                 	fau                 	
+C28 Garuh           	new                 	bau                 	1258
+C29 Kamba           	new                 	faug                	
+

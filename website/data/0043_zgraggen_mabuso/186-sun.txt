@@ -1,0 +1,32 @@
+C1 Kare             	sun                 	ana:za              	
+C2 Girawa           	sun                 	pirarau             	
+C3 Munit            	sun                 	anale               	
+C4 Bemal            	sun                 	ʌm                  	1217
+C5 Sihan            	sun                 	ʌ:ma                	1217
+C5 Sihan            	sun                 	a:siʔ         	
+C6 Gumalu           	sun                 	as                  	
+C7 Isebe            	sun                 	am                  	1217
+C8 Amele            	sun                 	am                  	
+C8 Amele            	sun                 	ʔam                 	1217
+C9 Bau              	sun                 	ʌm                  	1217
+C10 Panim           	sun                 	am                  	1217
+C11 Rapting         	sun                 	vir                 	1445
+C12 Wamas           	sun                 	bihi                	1445
+C13 Samosa          	sun                 	vesi                	1445
+C14 Murupi          	sun                 	visi                	1445
+C15 Saruga          	sun                 	usi                 	1445
+C16 Nake            	sun                 	u:s                 	1445
+C17 Mosimo          	sun                 	vi:hi               	1445
+C18 Garus           	sun                 	kalam               	
+C19 Yoidik          	sun                 	ʌ:                  	
+C20 Rempi           	sun                 	ʔʌ:
+C20 Rempi		sun			ah             	
+C21 Bagupi          	sun                 	u:s                 	1445
+C22 Silopi          	sun                 	u:n                 	1445
+C23 Utu             	sun                 	us                  	1445
+C24 Mawan           	sun                 	ʌ:m                 	1217
+C25 Baimak          	sun                 	am                  	1217
+C26 Matepi          	sun                 	uh                  	1445
+C27 Gal             	sun                 	am                  	1217
+C28 Garuh           	sun                 	am                  	1217
+C29 Kamba           	sun                 	kem                 	1217

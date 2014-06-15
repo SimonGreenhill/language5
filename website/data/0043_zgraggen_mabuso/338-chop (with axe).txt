@@ -1,0 +1,32 @@
+C1 Kare			chop (with axe)		o-
+C2 Girawa           	chop (with axe)    	patiru-             	1457
+C3 Munit            	chop (with axe)    	kwatide-            	1457
+C4 Bemal            	chop (with axe)    	kuat-               	1457
+C5 Sihan		chop (with axe)		ako-
+C6 Gumalu		chop (with axe)		ago-
+C7 Isebe		chop (with axe)		ago-
+C8 Amele		chop (with axe)		ago-
+C9 Bau   		chop (with axe)		ak-
+C10 Panim		chop (with axe)		o-
+C11 Rapting         	chop (with axe)    	otar                	
+C12 Wamas           	chop (with axe)    	katur               	
+C13 Samosa          	chop (with axe)    	tuge-               	1458
+C14 Murupi          	chop (with axe)    	atʌr                	
+C15 Saruga          	chop (with axe)    	otaru               	
+C16 Nake		chop (with axe)		obote-
+C17 Mosimo          	chop (with axe)    	ko-              	
+C18 Garus           	chop (with axe)    	uwɛtʰ                	
+C19 Yoidik          	chop (with axe)    	tʌr̃-                 	
+C20 Rempi           	chop (with axe)    	ad-                	
+C21 Bagupi		chop (with axe)		ohili-
+C22 Silopi		chop (with axe)		ikwo
+C22 Silopi		chop (with axe)		oupo-
+C23 Utu             	chop (with axe)    	ˀo-                	1458
+C24 Mawan		chop (with axe)		o-
+C24 Mawan		chop (with axe)		otore-
+C25 Baimak		chop (with axe)		ako-
+C26 Matepi          	chop (with axe)    	om                	
+C27 Gal			chop (with axe)		o-
+C28 Garuh		chop (with axe)		ubas-
+C28 Garuh		chop (with axe)		sur̃-
+C29 Kamba           	chop (with axe)    	kubil-               	

@@ -1,0 +1,33 @@
+C1 Kare			stone axe 		tʌːᵬa
+C2 Girawa           	stone axe           	mʌ:n                	
+C3 Munit            	stone axe           	musi mana  
+C3 Munit		stone axe 		mɛu mana              	
+C4 Bemal            	stone axe           	mʌn                 	
+C5 Sihan            	stone axe           	mana                	
+C6 Gumalu           	stone axe           	manau               	
+C7 Isebe            	stone axe           	manu                	
+C8 Amele            	stone axe           	mana
+C9 Bau			stone axe 		safor                	
+C10 Panim           	stone axe           	men manu            	
+C11 Rapting 		stone axe 		tau
+C12 Wamas           	stone axe         	matau               	1351
+C13 Samosa          	stone axe           	tau                 	
+C14 Murupi          	stone axe         	matava              	1351
+C14 Murupi		stone axe 		taba
+C15 Saruga		stone axe 		makarai
+C16 Nake            	stone axe         	ma:taw              	1351
+C17 Mosimo          	stone axe         	matau               	1351
+C18 Garus		stone axe 		balot
+C19 Yoidik		stone axe 		talal
+C19 Yoidik		stone axe 		t u
+C20 Rempi		stone axe 		kar̃i
+C21 Bagupi		stone axe 		ˀi tob
+C22 Silopi		stone axe 		tou
+C23 Utu             	stone axe         	matou               	1351
+C24 Mawan           	stone axe         	matab               	1351
+C25 Baimak		stone axe 		sadut
+C26 Matepi		stone axe 		sapɔr tov
+C27 Gal             	stone axe           	tau         
+C28 Garuh		stone axe 		sao
+C28 Garuh		stone axe 		mah huey
+C29 Kamba		stone axe 		bʌːr̃ tu        	

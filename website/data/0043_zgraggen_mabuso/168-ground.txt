@@ -1,0 +1,30 @@
+C1 Kare             	ground              	ʌ:na                	1209
+C2 Girawa           	ground              	o:m                 	
+C3 Munit            	ground              	basa                	
+C4 Bemal            	ground              	em                  	
+C5 Sihan            	ground              	mi:r                	
+C6 Gumalu           	ground              	mire                	
+C7 Isebe            	ground              	mi:r                	
+C8 Amele            	ground              	maha                	
+C9 Bau              	ground              	mir                 	
+C10 Panim           	ground              	maha                	
+C11 Rapting         	ground              	wan                 	1209
+C12 Wamas           	ground              	wane                	1209
+C13 Samosa          	ground              	vane                	1209
+C14 Murupi          	ground              	vəna                	1209
+C15 Saruga          	ground              	vana                	1209
+C16 Nake            	ground              	van                 	1209
+C16 Nake		ground			ʌb
+C17 Mosimo          	ground              	vane                	1209
+C18 Garus           	ground              	wan                 	1209
+C19 Yoidik          	ground              	wan                 	1209
+C20 Rempi           	ground              	vʌn                 	1209
+C21 Bagupi          	ground              	eb                  	
+C22 Silopi          	ground              	ʔeβ                 	
+C23 Utu             	ground              	ep                  	
+C24 Mawan           	ground              	ap                  	
+C25 Baimak          	ground              	mon                 	
+C26 Matepi          	ground              	e:v                 	
+C27 Gal             	ground              	ab                  	
+C28 Garuh           	ground              	wan                 	1209
+C29 Kamba           	ground              	wan                 	1209

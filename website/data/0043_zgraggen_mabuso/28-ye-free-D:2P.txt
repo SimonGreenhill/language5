@@ -1,0 +1,29 @@
+C1 Kare             	D:2P                	wu                  	
+C2 Girawa           	D:2P                	ʌʔʌ                 	
+C3 Munit            	D:2P                	a-ge                	
+C4 Bemal            	D:2P                	ʌg                  	1166
+C5 Sihan            	D:2P                	ʌ-ke                	1166
+C6 Gumalu           	D:2P                	a-ge                	
+C7 Isebe            	D:2P                	ʌ-ge                 	1166
+C8 Amele            	D:2P                	a-ke                 	
+C9 Bau              	D:2P                	a-ke                	1166
+C10 Panim           	D:2P                	ʌ-ge                 	1166
+C11 Rapting         	D:2P                	age                 	1166
+C12 Wamas           	D:2P                	ʌge                 	1166
+C13 Samosa          	D:2P                	ʌge                 	1166
+C14 Murupi          	D:2P                	aga                 	1166
+C15 Saruga          	D:2P                	ʌga                 	1166
+C16 Nake            	D:2P                	ʌg                  	1166
+C17 Mosimo          	D:2P                	ʌge                 	1166
+C18 Garus           	D:2P                	e-g                 	1166
+C19 Yoidik          	D:2P                	ʌg                  	1166
+C20 Rempi           	D:2P                	hʌk                 	1166
+C21 Bagupi          	D:2P                	e-g                 	1166
+C22 Silopi          	D:2P                	eg                  	1166
+C23 Utu             	D:2P                	ek                  	1166
+C24 Mawan           	D:2P                	a-k                 	1166
+C25 Baimak          	D:2P                	ak                  	1166
+C26 Matepi          	D:2P                	eg                  	1166
+C27 Gal             	D:2P                	ʌg                  	1166
+C28 Garuh           	D:2P                	ʌg                  	1166
+C29 Kamba           	D:2P                	ag                  	1166

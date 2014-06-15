@@ -1,0 +1,32 @@
+C1 Kare			breast			oːy
+C2 Girawa           	breast              	apur                	1302
+C3 Munit		breast			api(ri)-
+C4 Bemal		breast			ʌːpi-
+C5 Sihan		breast			suː-
+C6 Gumalu		breast			hu
+C6 Gumalu		breast			hugu-
+C7 Isebe		breast			hu-
+C8 Amele		breast			suk
+C9 Bau			breast			huː
+C10 Panim		breast			su-
+C11 Rapting         	breast              	au                  	1302
+C12 Wamas           	breast              	au                  	1302
+C13 Samosa          	breast              	au                  	1302
+C14 Murupi          	breast              	au                  	1302
+C15 Saruga          	breast              	au                  	1302
+C16 Nake		breast			su
+C16 Nake		breast			suha
+C17 Mosimo          	breast              	au                  	1302
+C18 Garus           	breast              	a: 
+C18 Garus		breast 			a:ve-           	1302
+C19 Yoidik		breast 			susu-		
+C20 Rempi		breast			susuˀɛ-
+C21 Bagupi          	breast              	a:v                 	1302
+C22 Silopi          	breast              	ava                 	1302
+C23 Utu             	breast              	awa                 	1302
+C24 Mawan           	breast              	auma                	1302
+C25 Baimak          	breast              	aumay               	1302
+C26 Matepi          	breast              	awa                 	1302
+C27 Gal             	breast              	au-                 	1302
+C28 Garuh		breast			hu
+C29 Kamba           	breast              	auma                	1302

@@ -1,0 +1,33 @@
+C1 Kare			girl			unʌina
+C2 Girawa           	girl                	makun               	1259
+C3 Munit		girl			ãlã mãŋgun
+C4 Bemal            	girl                	ainak               	1477
+C5 Sihan		girl			arʌ haun
+C6 Gumalu		girl			arau haun
+C6 Gumalu		girl			arau ohi
+C7 Isebe		girl			aid asin
+C8 Amele		girl			
+C9 Bau			girl			ait haun
+C10 Panim		girl			asin faun	
+C11 Rapting		girl			aih pɛrap
+C12 Wamas		girl			nahɛ
+C13 Samosa		girl			na aːzi
+C14 Murupi		girl			asi pahavu
+C15 Saruga		girl			mɛha naina
+C16 Nake		girl			mimino magun 
+C16 Nake		girl			-- naina 
+C17 Mosimo		girl			na aːhe
+C18 Garus		girl			magun
+C18 Garus		girl			nalei
+C19 Yoidik		girl			yɛs magun
+C19 Yoidik		girl			yɛs pusaˀ
+C20 Rempi		girl			nais
+C21 Bagupi		girl			mimino main
+C22 Silopi		girl			mɛha mʌgun		
+C23 Utu             	girl                	meha magun 	         1259
+C24 Mawan		girl			mɛmina nain magun
+C25 Baimak		girl			ait haun
+C26 Matepi		girl			mɛmina ŋgail
+C27 Gal			girl			air fau
+C28 Garuh           	woman, daughter     	ah                  	1477
+C29 Kamba           	girl                	magun               	1259

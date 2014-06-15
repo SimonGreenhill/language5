@@ -1,0 +1,31 @@
+C1 Kare             	chin                	sembe-              	1287
+C2 Girawa		chin			aro-
+C3 Munit            	chin                	ibe-                	1287
+C4 Bemal            	chin                	sibe-               	1287
+C4 Bemal		chin			maum(u)-
+C5 Sihan            	chin                	ibe-                	1287
+C6 Gumalu		chin			aga-
+C7 Isebe            	chin                	hibe-               	1287
+C8 Amele            	chin                	sibe-               	1287
+C9 Bau              	chin                	hipe-               	1287
+C10 Panim           	chin                	hibe-               	1287
+C11 Rapting         	chin                	aga-                	1288
+C12 Wamas		chin			mai-
+C13 Samosa          	chin                	sove- 
+C13 Samosa		chin			ʌgʌ	           	1288
+C14 Murupi		chin			mai-
+C15 Saruga          	chin                	aga-                	1288
+C16 Nake            	chin                	aga-                	1288
+C17 Mosimo          	chin                	gaga-               	1288
+C18 Garus           	chin                	age-                	1288
+C19 Yoidik          	chin                	sibe-               	1287
+C20 Rempi           	chin                	si:ve-              	1287
+C21 Bagupi          	chin                	aga-                	1288
+C22 Silopi          	chin                	age-                	1288
+C23 Utu             	chin                	age-                	1288
+C24 Mawan           	chin                	aga-                	1288
+C25 Baimak          	chin                	aka-                	1288
+C26 Matepi          	chin                	age-                	1288
+C27 Gal             	chin                	aga-                	1288
+C28 Garuh           	chin                	aka-                	1288
+C29 Kamba           	chin                	siwe-               	1287

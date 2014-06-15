@@ -1,0 +1,29 @@
+C1 Kare			thumb			nɛmɛna gumʌga
+C2 Girawa		thumb			tʌb
+C3 Munit		thumb			balʌnimã
+C4 Bemal 		thumb			
+C5 Sihan            	thumb               	ma:           	       1296
+C6 Gumalu		thumb			mia bɛu
+C7 Isebe            	thumb               	mamak               	1296
+C8 Amele            	thumb               	mamɔk               	1296
+C9 Bau              	thumb               	mamag               	1296
+C10 Panim		thumb			mamʌg
+C11 Rapting		thumb			mɛtap
+C12 Wamas		thumb			aƀia
+C13 Samosa		thumb			asɛ
+C14 Murupi		thumb			mɛtaƀa
+C15 Saruga		thumb			mɛhu
+C16 Nake		thumb			mɛʰ
+C17 Mosimo		thumb			aviha
+C18 Garus		thumb			anuk
+C19 Yoidik		thumb			anʌːg
+C20 Rempi		thumb			tʰanaun
+C21 Bagupi		thumb			mɛhɛ
+C22 Silopi		thumb			mɛmɛn
+C23 Utu			thumb			mipanup
+C24 Mawan		thumb			mɛmɛ
+C25 Baimak          	thumb               	mamak               	1296
+C26 Matepi		thumb			meʰ
+C27 Gal             	thumb               	ma                  	1296
+C28 Garuh		thumb			sanɛug
+C29 Kamba		thumb			tʌnig

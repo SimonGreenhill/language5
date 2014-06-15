@@ -1,0 +1,29 @@
+C1 Kare             	old (person)        	sʌŋgʌβa, sagura     	1158
+C2 Girawa		old (person)		oyʌm
+C3 Munit		old (person)		dãmɛu
+C4 Bemal		old (person)		ur̃ɛuk
+C5 Sihan		old (person)		bʌˀi
+C6 Gumalu		old (person)		mɛhur̃
+C7 Isebe		old (person)		keinma
+C8 Amele		old (person)		toye			
+C9 Bau			old (person)		toya
+C10 Panim           	old (person)        	keinma              	1256
+C11 Rapting         	old (person)        	saguʔ               	1158
+C12 Wamas           	old (person)        	sagu                	1158
+C13 Samosa          	old (person)        	sagogu              	1158
+C14 Murupi          	old (person)        	sagu                	1158
+C15 Saruga          	old (person)        	a:gu                	1158
+C16 Nake            	old (person)        	ʌ:gu                	1158
+C17 Mosimo          	old (person)        	sagu                	1158
+C18 Garus           	old (person)        	saguʔ               	1158
+C19 Yoidik          	old (person)        	saguʔ               	1158
+C20 Rempi		old (person)		avei
+C21 Bagupi          	old (person)        	ʌ:gu                	1158
+C22 Silopi 		old (person)		mɛhur
+C23 Utu			old (person)		mɛhur
+C24 Mawan		old (person)		mɛhur		
+C25 Baimak		old (person)		mɛhur		
+C26 Matepi		old (person)		mɛhur
+C27 Gal             	old (person)        	sigam               	1158
+C28 Garuh           	old (person)        	kino               	1256
+C29 Kamba           	old (person)        	kɛima               	1256

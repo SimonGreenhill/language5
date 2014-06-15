@@ -1,0 +1,32 @@
+C1 Kare             	saliva              	sondoma             	
+C1 Kare             	saliva              	sinoʔ               	1286?
+C2 Girawa           	saliva              	sinoʔ               	
+C3 Munit            	saliva              	sã:ri-              	
+C3 Munit            	saliva              	sino-               	1286?
+C4 Bemal            	saliva              	sino-               	
+C5 Sihan            	saliva              	sahara-
+C5 Sihan		saliva			iːn              	
+C6 Gumalu           	saliva              	sahʌri              	
+C7 Isebe            	saliva              	oisa-               	
+C8 Amele            	saliva              	zahala              	
+C9 Bau              	saliva              	sahara-,  oʔosa-    	
+C10 Panim           	saliva              	oʔosa-              	
+C11 Rapting         	saliva              	sinuwal             	1286
+C12 Wamas           	saliva              	sonoma              	1286
+C13 Samosa          	saliva              	sanamo              	1286
+C14 Murupi          	saliva              	subunaru            	
+C15 Saruga          	saliva              	imihor              	
+C16 Nake            	saliva              	ihighor             	
+C17 Mosimo          	saliva              	sonomo              	
+C18 Garus           	saliva              	sinu                	1286
+C19 Yoidik          	saliva              	ʒeʔ                 	
+C20 Rempi           	saliva              	zeouk               	
+C21 Bagupi          	saliva              	imisol              	
+C22 Silopi          	saliva              	oren                	
+C23 Utu             	saliva              	ozen                	
+C24 Mawan           	saliva              	ore-                	
+C25 Baimak          	saliva              	sʌ:ri               	
+C26 Matepi          	saliva              	isor                	
+C27 Gal             	saliva              	psi-                	
+C28 Garuh           	saliva              	wo:ru-              	
+C29 Kamba           	saliva              	sifuru              	

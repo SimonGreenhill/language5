@@ -1,0 +1,31 @@
+C1 Kare             	name                	seme-               	
+C2 Girawa           	name                	eni-                	1189
+C3 Munit            	name                	beni-                	1189
+C4 Bemal            	name                	wani-                	1189
+C5 Sihan            	name                	veni-                	1189
+C6 Gumalu           	name                	weni-               	
+C7 Isebe            	name                	yeni-                	1189
+C8 Amele            	name                	iza-                	
+C9 Bau              	name                	leni-                	1189
+C10 Panim           	name                	ženu               	1189
+C10 Panim           	name                	ʒenu                	?
+C11 Rapting         	name                	vani-                	1189
+C12 Wamas           	name                	bina                	
+C13 Samosa          	name                	bina                	
+C14 Murupi          	name                	bina                	
+C15 Saruga          	name                	pina                	
+C16 Nake            	name                	bina                	
+C17 Mosimo          	name                	bina                	
+C18 Garus           	name                	vani-                	1189
+C19 Yoidik          	name                	weni-                	1189
+C20 Rempi           	name                	vani-                	1189
+C21 Bagupi          	name                	binʌ                	
+C22 Silopi          	name                	wani-                	1189
+C23 Utu             	name                	vani-                	1189
+C24 Mawan           	name                	wani-                	1189
+C25 Baimak          	name                	wani-                	1189
+C26 Matepi          	name                	wani-                	1189
+C27 Gal             	name                	wani-                	1189
+C28 Garuh           	name                	wani-               	
+C28 Garuh           	name                	oni-                	1189?
+C29 Kamba           	name                	weni-                	1189

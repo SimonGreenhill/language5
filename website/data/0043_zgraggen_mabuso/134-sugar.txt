@@ -1,0 +1,29 @@
+C1 Kare			sugar		sukaura  	
+C2 Girawa		sugar		sʌ       	1325
+C3 Munit		sugar		sã       	1325
+C4 Bemal		sugar		ʌm       	1326
+C5 Sihan		sugar		sʌ       	1325
+C6 Gumalu		sugar		sʌː      	1325
+C7 Isebe		sugar		sa       	1325
+C8 Amele		sugar		hʌ       	1325
+C9 Bau			sugar		sʌ       	1325
+C10 Panim		sugar		sʌ       	1325
+C11 Rapting		sugar		am       	1326
+C12 Wamas		sugar		subuli   	
+C13 Samosa		sugar		suguri   	
+C14 Murupi		sugar		subuli   	
+C15 Saruga		sugar		isuri    	
+C16 Nake		sugar		am       	1326
+C17 Mosimo		sugar		subuli   	
+C18 Garus		sugar		dɛ       	1325
+C19 Yoidik		sugar		dah      	1325
+C20 Rempi		sugar		dʌː      	1325
+C21 Bagupi		sugar		banʌ     	
+C22 Silopi		sugar		sa       	1325
+C23 Utu			sugar		sa       	1325
+C24 Mawan		sugar		sa       	1325
+C25 Baimak		sugar		sa       	1325
+C26 Matepi		sugar		sʌ       	1325
+C27 Gal			sugar		sa       	1325
+C28 Garuh		sugar		am       	1326
+C29 Kamba		sugar		kam      	1326

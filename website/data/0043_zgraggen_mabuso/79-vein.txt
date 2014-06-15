@@ -1,0 +1,30 @@
+C1 Kare             	vein                	silisiri            	1306
+C2 Girawa           	vein                	dun                 	            	
+C3 Munit            	vein                	didi-        	
+C3 Munit            	vein                	silʌ-               	1306
+C4 Bemal            	vein                	diri-               	
+C5 Sihan            	vein                	sirima(n)-          	1306
+C6 Gumalu           	vein                	sirima              	
+C7 Isebe            	vein                	silima-             	1306
+C8 Amele            	vein                	hilima-             	1306
+C9 Bau              	vein                	sirima-             	1306
+C10 Panim           	vein                	silimʌ-             	1306            
+C11 Rapting         	vein                	dilik               	1306
+C12 Wamas           	vein                	sili                	1306
+C13 Samosa          	vein                	sirini              	1306
+C14 Murupi          	vein                	simul-              	1306
+C15 Saruga          	vein                	sili                	1306
+C16 Nake            	vein                	sili:-              	1306
+C17 Mosimo          	vein                	sili                	1306
+C18 Garus           	vein                	dile-               	1306             
+C19 Yoidik          	vein                	dir̃i-               	1306
+C20 Rempi           	vein                	di:ri-              	1306
+C21 Bagupi          	vein                	sili                	1306
+C22 Silopi          	vein                	siri                	1306
+C23 Utu             	vein                	zi:ri               	
+C24 Mawan           	vein                	sirimu-             	1306
+C25 Baimak          	vein                	sirimuk             	1306
+C26 Matepi          	vein                	sirihu-             	1306
+C27 Gal             	vein                	simirig             	1306
+C28 Garuh           	vein                	diri-               	1306
+C29 Kamba           	vein                	diri-               	1306

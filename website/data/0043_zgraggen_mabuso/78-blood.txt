@@ -1,0 +1,30 @@
+C1 Kare             	blood               	araw                	1183
+C2 Girawa           	blood               	ˀarian              	1183 	
+C3 Munit            	blood               	eda-                	
+C4 Bemal            	blood               	ese-                	1468
+C5 Sihan            	blood               	eta-                	
+C6 Gumalu           	blood               	roga-               	
+C7 Isebe            	blood               	yoga-               	
+C8 Amele            	blood               	kola-               	
+C9 Bau              	blood               	roka-               	
+C10 Panim           	blood               	zoga                	
+C11 Rapting         	blood               	ti                  	1305
+C12 Wamas           	blood               	ti                  	1305
+C13 Samosa          	blood               	ti                  	1305
+C14 Murupi          	blood               	ʌti                 	1305
+C15 Saruga          	blood               	ti                  	1305
+C16 Nake            	blood               	ti                  	1305
+C17 Mosimo          	blood               	ti                  	1305
+C18 Garus           	blood               	et           	
+C18 Garus           	blood               	ar̃e                 	1183
+C19 Yoidik          	blood               	ʌdʌ-                	1183
+C20 Rempi           	blood               	ʌd                  	1183
+C21 Bagupi          	blood               	ti                  	1305
+C22 Silopi          	blood               	ti                  	1305
+C23 Utu             	blood               	ti                  	1305
+C24 Mawan           	blood               	ʌri-                	1183
+C25 Baimak          	blood               	momoka-             	
+C26 Matepi          	blood               	ti                  	1305
+C27 Gal             	blood               	ti                  	1305
+C28 Garuh           	blood               	si-                 	1305
+C29 Kamba           	blood               	kar̃ʌ-              	1183

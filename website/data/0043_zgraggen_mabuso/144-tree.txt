@@ -1,0 +1,29 @@
+C1 Kare             	tree                	kaima               	1332
+C2 Girawa           	tree                	am                  	1332
+C3 Munit            	tree                	hã                  	1332
+C4 Bemal            	tree                	a:                  	1332
+C5 Sihan		tree			nʌi
+C6 Gumalu		tree			na
+C7 Isebe		tree			na
+C8 Amele		tree			nʌ
+C9 Bau			tree			nʌ
+C10 Panim		tree			nʌ
+C11 Rapting         	tree                	aip                 	1341
+C12 Wamas           	tree                	kaimo               	1332
+C13 Samosa          	tree                	kaimo               	1332
+C14 Murupi          	tree                	aima                	1332
+C15 Saruga          	tree                	aima                	1332
+C16 Nake            	tree                	aim                 	1332
+C17 Mosimo          	tree                	kaimo               	1332
+C18 Garus           	tree                	aip                 	1341
+C19 Yoidik          	tree                	ɛp                  	1341
+C20 Rempi           	tree                	aip                 	1341
+C21 Bagupi          	tree                	im                  	1332
+C22 Silopi		tree			ɛn
+C23 Utu			tree			ɛn
+C24 Mawan		tree			ah
+C25 Baimak		tree			as
+C26 Matepi		tree			ɛs
+C27 Gal			tree			ʌs
+C28 Garuh           	tree                	aib                  	1341
+C29 Kamba		tree			kɛːr

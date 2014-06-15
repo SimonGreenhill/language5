@@ -1,0 +1,30 @@
+C1 Kare             	go, walk            	wa-                 	1386
+C2 Girawa		go, walk		arira-
+C3 Munit		go, walk		uge ta-
+C4 Bemal		go, walk		aida(de)-
+C5 Sihan		go, walk		obɛ-
+C6 Gumalu		go, walk		poɛ-
+C7 Isebe		go, walk		wa
+C8 Amele		go, walk		poɛ-
+C9 Bau   		go, walk		ob-
+C10 Panim		go, walk		obe-
+C11 Rapting		go, walk		an-
+C12 Wamas           	go, walk            	kug-                	1387
+C13 Samosa		go, walk		ivu-
+C14 Murupi          	go, walk            	ug-                 	1387
+C15 Saruga          	go, walk            	ugu-                	1387
+C16 Nake            	go, walk            	ogo-                	1387
+C17 Mosimo          	go, walk            	kuga-               	1387
+C18 Garus		go, walk		gu-
+C19 Yoidik		go, walk		ib-
+C20 Rempi		go, walk		ib-
+C21 Bagupi          	go, walk            	ugu-                	1387
+C22 Silopi          	go, walk            	ugu-                	1387
+C23 Utu			go, walk		ug-
+C24 Mawan		go, walk		lar-
+C25 Baimak          	go, walk            	uku-                	1387
+C26 Matepi		go, walk		mɛnalɛ-
+C27 Gal			go, walk		lar̃-
+C28 Garuh		go, walk		ug-
+C29 Kamba		go, walk		wei-
+

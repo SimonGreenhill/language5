@@ -1,0 +1,31 @@
+C1 Kare             	wind                	oroga               	
+C2 Girawa           	wind                	irir                	
+C3 Munit            	wind                	˜uhe                	
+C4 Bemal            	wind                	woi                 	
+C5 Sihan            	wind                	uhe                 	
+C6 Gumalu           	wind                	ufei                	
+C7 Isebe            	wind                	was ri              	
+C8 Amele            	wind                	papon               	
+C9 Bau              	wind                	papan               	
+C10 Panim           	wind                	aiag                	
+C11 Rapting         	wind                	vetet               	1221
+C12 Wamas           	wind                	warahi              	
+C13 Samosa          	wind                	verige              	
+C14 Murupi          	wind                	vilia               	
+C15 Saruga          	wind                	urua                	
+C16 Nake            	wind                	vet                 	1221
+C17 Mosimo          	wind                	wilehihi            	
+C18 Garus           	wind                	vet                 	1221
+C19 Yoidik          	wind                	wet                 	1221
+C20 Rempi           	wind                	vet                 	1221
+C20 Rempi		wind			dulaw
+C21 Bagupi          	wind                	oya                 	
+C22 Silopi          	wind                	oyo                 	
+C23 Utu             	wind                	oza                 	
+C24 Mawan           	wind                	wete                	1221
+C25 Baimak          	wind                	olo                 	
+C26 Matepi          	wind                	vet                 	1221
+C27 Gal             	wind                	wet                 	1221
+C28 Garuh           	wind                	wus
+C28 Garuh		wind			kar̃ak          	
+C29 Kamba           	wind                	uias                	

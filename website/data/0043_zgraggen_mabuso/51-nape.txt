@@ -1,0 +1,31 @@
+C1 Kare             	nape                	goromA-             	
+C2 Girawa           	nape                	du-                 	                         
+C3 Munit            	nape                	du-                 	
+C4 Bemal            	nape                	du-                  	1470
+C5 Sihan            	nape                	du-                  	1470
+C6 Gumalu           	nape                	du-                  	
+C7 Isebe            	nape                	du-                  	1470
+C8 Amele            	nape                	tu-                 	1470
+C9 Bau              	nape                	tu-                  	1470
+C10 Panim           	nape                	du-                 	1470
+C11 Rapting         	nape                	duʔu-               	1470
+C12 Wamas           	nape                	nu- 
+C12 Wamas		nape			a:mu            	
+C13 Samosa          	nape                	duga-                	1470
+C14 Murupi          	nape                	nuʔu
+C14 Murupi		nape			 tuwari        	
+C15 Saruga          	nape                	duhali              	1471
+C16 Nake            	nape                	duwa                	1470
+C17 Mosimo          	nape                	nu- amu             	
+C18 Garus           	nape                	duʔu-               	1470
+C19 Yoidik          	nape                	du-                  	1470
+C20 Rempi           	nape                	duʔu-                	1470
+C21 Bagupi          	nape                	doa                 	1470
+C22 Silopi          	nape                	duali               	1471
+C23 Utu             	nape                	doʌri               	1471
+C24 Mawan           	nape                	duhari              	1471
+C25 Baimak          	nape                	du-                  	1470
+C26 Matepi          	nape                	duhʌri              	1471
+C27 Gal             	nape                	duhuri              	1471
+C28 Garuh           	nape                	du-                 	1470
+C29 Kamba           	nape                	du-                  	1470

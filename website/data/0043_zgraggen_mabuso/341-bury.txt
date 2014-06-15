@@ -1,0 +1,30 @@
+C1 Kare        		bury			kʌl-
+C1 Kare			bury			me-
+C2 Girawa		bury			up uruɛ-
+C3 Munit		bury			pakwɛ-
+C4 Bemal		bury			ob ɛl-
+C5 Sihan		bury			hɛːraisɛ-
+C6 Gumalu		bury			lɛlɛ-
+C7 Isebe		bury			žɛli-
+C8 Amele		bury			hɛlisi-
+C9 Bau   		bury			rɛr-
+C10 Panim		bury			yele-
+C11 Rapting		bury			borom-
+C12 Wamas		bury			mo-
+C13 Samosa		bury			mo-
+C14 Murupi		bury			mɛ-
+C15 Saruga		bury			ari mɛ-
+C16 Nake  		bury			bumolɛ-
+C17 Mosimo		bury			kalimo-
+C18 Garus           	bury                	bulem-              	
+C19 Yoidik		bury			boˀm
+C20 Rempi           	bury                	bulom-              	
+C21 Bagupi		bury			foˀmɛ-
+C22 Silopi          	bury                	foum-               	
+C23 Utu             	bury                	fom-                	
+C24 Mawan           	bury                	fome-               	
+C25 Baimak		bury			itu-
+C26 Matepi          	bury                	fom-                	
+C27 Gal             	bury                	fome-               	
+C28 Garuh		bury			hubul-
+C29 Kamba		bury			fufum-

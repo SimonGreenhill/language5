@@ -1,0 +1,31 @@
+C1 Kare             	water               	ži:                	1219
+C2 Girawa           	water               	ʌ:n                  	1220
+C2 Girawa           	water               	ɔ:m           	
+C3 Munit            	water               	vã                  	1220
+C4 Bemal            	water               	že                 	1219
+C5 Sihan            	water               	va                  	
+C6 Gumalu           	water               	wa:                 	
+C7 Isebe            	water               	wagu                	1357
+C8 Amele            	water               	wa                  	1220
+C9 Bau              	water               	wʌ                  	1357
+C10 Panim           	water               	wʌ                  	1357
+C11 Rapting         	water               	ze:                 	1219
+C12 Wamas           	water               	ži                 	1219
+C13 Samosa          	water               	zi:                 	1219
+C14 Murupi          	water               	ze                  	1219
+C15 Saruga          	water               	zi:                 	1219
+C16 Nake            	water               	di                  	1219
+C17 Mosimo          	water               	ǰi:                	1219
+C18 Garus           	water               	že                 	1219
+C19 Yoidik          	water               	ilo:                	
+C20 Rempi           	water               	že:                	1219
+C20 Rempi		water			ne
+C21 Bagupi          	water               	di                  	1219
+C22 Silopi          	water               	de                  	1219
+C23 Utu             	water               	ze                  	1219
+C24 Mawan           	water               	re                  	1219
+C25 Baimak          	water               	de                  	1219
+C26 Matepi          	water               	le                  	1219
+C27 Gal             	water               	le                  	1219
+C28 Garuh           	water               	le                  	1219
+C29 Kamba           	water               	le                  	1219

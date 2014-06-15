@@ -1,0 +1,31 @@
+C1 Kare			singapore taro		namara
+C2 Girawa		singapore taro		buˀɛr
+C3 Munit		singapore taro		komkom
+C4 Bemal		singapore taro		komokom
+C5 Sihan		singapore taro		pʌˀʌ
+C6 Gumalu		singapore taro		laima
+C7 Isebe		singapore taro		bauˀu
+C8 Amele		singapore taro		paˀala
+C9 Bau			singapore taro		pʌˀo
+C10 Panim		singapore taro		banbaik
+C11 Rapting		singapore taro		namala
+C12 Wamas		singapore taro		koŋkoŋ
+C13 Samosa		singapore taro		namɛra
+C14 Murupi		singapore taro		namalʌna
+C14 Murupi		singapore taro		koka
+C15 Saruga		singapore taro		namalan
+C16 Nake		singapore taro		namala
+C17 Mosimo		singapore taro		konko
+C18 Garus		singapore taro		
+C19 Yoidik		singapore taro		ma koŋkoŋ
+C20 Rempi		singapore taro		
+C21 Bagupi		singapore taro		namɛla
+C22 Silopi		singapore taro		namɛla
+C23 Utu			singapore taro		ma namira
+C24 Mawan		singapore taro		daima
+C25 Baimak		singapore taro		raima
+C26 Matepi		singapore taro		koːm
+C26 Matepi		singapore taro		namala
+C27 Gal			singapore taro		lɛpau
+C28 Garuh		singapore taro		sibag ma
+C29 Kamba		singapore taro		malæːma

@@ -1,0 +1,29 @@
+C1 Kare             	fat                 	sonda               	1199
+C2 Girawa           	fat                 	siraw               	1199
+C3 Munit		fat			tinu
+C4 Bemal            	fat                 	sirag               	1199
+C5 Sihan		fat			tiːnu
+C6 Gumalu		fat			munau
+C7 Isebe            	fat                 	muna                	1315
+C8 Amele		fat			lalu
+C9 Bau              	fat                 	munahu-             	1315
+C10 Panim		fat			
+C11 Rapting		fat			sumuˀ
+C12 Wamas		fat			sumu
+C13 Samosa		fat			somo
+C14 Murupi		fat			humu
+C15 Saruga		fat			nagu	
+C16 Nake            	fat                 	irʌ:g               	1199
+C17 Mosimo		fat			somu	
+C18 Garus		fat			sumuk
+C19 Yoidik          	fat                 	munag               	1315
+C20 Rempi           	fat                 	manauk              	1315
+C21 Bagupi          	fat                 	tirag               	1199
+C22 Silopi		fat			nagu
+C23 Utu			fat			nagu
+C24 Mawan           	fat                 	irʌ:g               	1199
+C25 Baimak          	fat                 	munaw               	1315
+C26 Matepi          	fat                 	muina               	1315
+C27 Gal             	fat                 	muna                	1315
+C28 Garuh           	fat                 	idaug               	
+C29 Kamba           	fat                 	kid                 	1316

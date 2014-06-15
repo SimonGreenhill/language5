@@ -1,0 +1,31 @@
+C1 Kare             	house               	yagʌ:bu             	
+C2 Girawa           	house               	ɔ:w                 	
+C3 Munit            	house               	debe                	1210
+C4 Bemal            	house               	zaw                 	1210
+C5 Sihan            	house               	do:                 	1210
+C6 Gumalu           	house               	lɔ                  	
+C7 Isebe            	house               	yo                  	1210
+C8 Amele            	house               	zo                  	
+C8 Amele            	house               	yo                  	1210?
+C9 Bau              	house               	do                  	1210
+C10 Panim           	house               	zo                  	1210
+C11 Rapting         	house               	za                  	1210
+C12 Wamas           	house               	jʌ                  	1210
+C13 Samosa          	house               	zau                 	1210
+C14 Murupi          	house               	za:u                	1210
+C15 Saruga          	house               	za:wa               	1210
+C16 Nake            	house               	zau                 	1210
+C17 Mosimo          	house               	yʌ:                 	1210
+C18 Garus           	house               	žouh               	1210
+C19 Yoidik          	house               	sau                 	1210
+C20 Rempi           	house               	saw                 	1210
+C21 Bagupi          	house               	žʌb                	1210
+C22 Silopi          	house               	dʌ                  	1210
+C23 Utu             	house               	za                  	1210
+C24 Mawan           	house               	ra                  	1210
+C25 Baimak          	house               	imʌt                	
+C26 Matepi          	house               	lʌ                  	1210
+C27 Gal             	house               	law                 	1210
+C28 Garuh           	house               	lʌ:g                	
+C28 Garuh           	house               	laul       	    	1210?
+C29 Kamba           	house               	lo                  	1210

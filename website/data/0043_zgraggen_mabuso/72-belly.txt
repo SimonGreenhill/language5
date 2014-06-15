@@ -1,0 +1,29 @@
+C1 Kare             	belly               	e- mboŋga           	
+C2 Girawa           	belly               	noʔo                	
+C3 Munit		belly			
+C4 Bemal            	belly               	bigu-               	
+C5 Sihan            	belly               	wawi-               	1182           	
+C6 Gumalu           	belly               	wavi                	               	
+C7 Isebe            	belly               	wavi-               	1182             
+C8 Amele            	belly               	wau-                	1182
+C9 Bau              	belly               	vavi-               	1182           	
+C10 Panim           	belly               	wawu-               	1182             
+C11 Rapting         	belly               	wo-, o-             	1182
+C12 Wamas           	belly               	oa-                 	1182
+C13 Samosa          	belly               	o(ɛ)̞- si            	1182
+C14 Murupi          	belly               	o- si                 	1182
+C15 Saruga          	belly               	o-                  	1182
+C16 Nake            	belly               	o-                  	1182
+C17 Mosimo          	belly               	o-                  	1182
+C18 Garus           	belly               	o-                  	1182
+C19 Yoidik          	belly               	wo- sʌ             	1182
+C20 Rempi           	belly               	wo- sʌ              	1182
+C21 Bagupi          	belly               	ihuru- ɛm                  	
+C22 Silopi          	belly               	o-                  	1182
+C23 Utu             	belly               	o-                  	1182
+C24 Mawan           	belly               	o-                  	1182
+C25 Baimak          	belly               	o-                  	1182
+C26 Matepi          	belly               	o-                  	1182
+C27 Gal             	belly               	o-                  	1182
+C28 Garuh           	belly               	wo-                  	
+C29 Kamba           	belly               	o-                  	1182

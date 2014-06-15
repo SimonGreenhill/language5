@@ -1,0 +1,31 @@
+C1 Kare			axe (iron)		tʌːba
+C2 Girawa		axe (iron)		
+C3 Munit		axe (iron)		sapɔr
+C4 Bemal		axe (iron)		sapor
+C5 Sihan		axe (iron)		safora
+C6 Gumalu		axe (iron)		sapɔr
+C7 Isebe		axe (iron)		manu
+C8 Amele		axe (iron)		sapol
+C9 Bau			axe (iron)		sapol
+C10 Panim		axe (iron)		manu
+C11 Rapting		axe (iron)		kalki
+C12 Wamas		axe (iron)		kariki
+C13 Samosa		axe (iron)		
+C14 Murupi		axe (iron)		karkis
+C15 Saruga		axe (iron)		tawa
+C16 Nake		axe (iron)		taːᵬ
+C16 Nake		axe (iron)		kalaki
+C17 Mosimo		axe (iron)		kalgi
+C18 Garus		axe (iron)		taleil
+C19 Yoidik		axe (iron)		kalkis
+C20 Rempi		axe (iron)		kalkis
+C21 Bagupi		axe (iron)		tob
+C22 Silopi		axe (iron)		sapor
+C23 Utu			axe (iron)		sapor
+C23 Utu			axe (iron)		tou
+C24 Mawan		axe (iron)		sʌpor
+C25 Baimak		axe (iron)		sapɔl
+C26 Matepi		axe (iron)		sapɔr
+C27 Gal			axe (iron)		sapor
+C28 Garuh		axe (iron)		kalkih
+C29 Kamba		axe (iron)		palaŋgis

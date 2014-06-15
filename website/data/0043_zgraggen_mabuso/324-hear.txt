@@ -1,0 +1,33 @@
+C1 Kare             	hear                	dewe                	1242
+C2 Girawa           	hear                	roi-                	1242?
+C2 Girawa           	hear                	do                  	
+C3 Munit            	hear                	ndu                 	1242
+C4 Bemal            	hear                	dohu                	1242
+C5 Sihan            	hear                	daum                	1242
+C6 Gumalu           	hear                	dahum               	
+C7 Isebe            	hear                	do                  	1242
+C8 Amele            	hear                	dah                 	1242?
+C8 Amele            	hear                	tahu                	?
+C8 Amele            	hear                	tahm-
+C9 Bau              	hear                	to                  	1242
+C10 Panim           	hear                	daham               	1242
+C11 Rapting         	hear                	do                  	1242
+C12 Wamas           	hear                	do                  	1242
+C13 Samosa          	hear                	do                  	1242
+C14 Murupi          	hear                	do                  	1242
+C15 Saruga          	hear                	do,doho             	1242
+C16 Nake            	hear                	do                  	1242
+C17 Mosimo          	hear                	do                  	1242
+C18 Garus           	hear                	doh,duhu            	1242
+C19 Yoidik          	hear                	doh,duhu            	1242
+C20 Rempi           	hear                	du                  	1242
+C21 Bagupi          	hear                	do                  	1242
+C22 Silopi          	hear                	do                  	1242
+C23 Utu             	hear                	do                  	1242
+C24 Mawan           	hear                	do                  	1242
+C25 Baimak          	hear                	do                  	1242
+C26 Matepi          	hear                	do                  	1242
+C27 Gal             	hear                	do                  	1242
+C28 Garuh           	hear                	duwe                	
+C28 Garuh           	hear                	doo-                	1242?
+C29 Kamba           	hear                	du                  	1242

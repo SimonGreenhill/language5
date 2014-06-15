@@ -1,0 +1,35 @@
+C1 Kare			afterwards		asɛra
+C2 Girawa		afterwards		
+C3 Munit		afterwards		ɛsu
+C3 Munit		afterwards		ganiwa
+C4 Bemal		afterwards		aisɛs
+C5 Sihan		afterwards		siːbam
+C5 Sihan		afterwards		sibop
+C6 Gumalu		afterwards		ɛsiˀin
+C7 Isebe		afterwards		siːb
+C8 Amele		afterwards		ɛsi hipna
+C9 Bau			afterwards		ɛsi tuhoil
+C10 Panim		afterwards		sib
+C10 Panim		afterwards		ubɛlu
+C11 Rapting		afterwards		dumurgɛ
+C11 Rapting		afterwards		nagɛ
+C12 Wamas		afterwards		iwiwige
+C13 Samosa		afterwards		minaː
+C14 Murupi		afterwards		sumura
+C15 Saruga		afterwards		sumahigu
+C16 Nake		afterwards		sumul
+C16 Nake		afterwards		giːwi
+C17 Mosimo		afterwards		sonomo
+C18 Garus		afterwards		dumulɛ
+C19 Yoidik		afterwards		dum
+C20 Rempi		afterwards		tumˀɛ
+C21 Bagupi		afterwards		sumur
+C22 Silopi		afterwards		koi
+C23 Utu			afterwards		arɛ
+C24 Mawan		afterwards		arʌː
+C25 Baimak		afterwards		daːri
+C26 Matepi		afterwards		sumur
+C26 Matepi		afterwards		goi
+C27 Gal			afterwards		sumur
+C28 Garuh		afterwards		boi
+C29 Kamba		afterwards		dimba

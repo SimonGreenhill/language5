@@ -1,0 +1,38 @@
+C1 Kare             	sibling ss -        	kaman-      	1265
+C1 Kare             	sibling ss -        	kama-       		1265
+C2 Girawa           	sibling ss -        	amu-                	1265
+C2 Girawa           	sibling ss -        	mage- (n)           	1266?
+C3 Munit            	sibling ss -        	magɛ                	1266
+C4 Bemal            	sibling ss -        	magi-               	1266
+C4 Bemal		sibling ss -		ama-
+C5 Sihan            	sibling ss -        	make-               	1266
+C6 Gumalu		sibling ss -		magɛ-
+C7 Isebe		sibling ss -		oti- naˀʌg
+C8 Amele		sibling ss -		oti- naˀʌk
+C9 Bau 			sibling ss -		oti- naˀʌk
+C10 Panim		sibling ss -		apa- naˀʌg
+C10 Panim 		sibling ss -		oti-
+C11 Rapting         	sibling ss -        	ama-                	1265
+C12 Wamas           	sibling ss -        	kamun-              	1265
+C13 Samosa          	sibling ss -        	komune-             	1265
+C14 Murupi          	sibling ss -        	anu(na)-            	1265
+C15 Saruga          	sibling ss -        	ana(na)-            	1265
+C16 Nake            	sibling ss -        	ama-                	1265
+C17 Mosimo          	sibling ss -        	kamuni
+C17 Mosimo		sibling ss -		kuma-       	1265
+C18 Garus           	sibling ss -        	amo-                	1265
+C19 Yoidik          	sibling ss -        	ama-                	1265
+C20 Rempi           	sibling ss -        	ama-                	1265
+C20 Rempi		sibling ss -		mʌmʌ
+C21 Bagupi          	sibling ss -        	omo-	        	1265
+C21 Bagupi		sibling ss -		amani-
+C22 Silopi          	sibling ss -        	omu-                	1265
+C23 Utu             	sibling ss -        	omu-                	1265
+C24 Mawan           	sibling ss -        	magu-               	1266
+C25 Baimak 		sibling ss -		apai
+C25 Baimak		sibling ss -		reipa- nak
+C26 Matepi		sibling ss -		lɛ- nʌg
+C27 Gal			sibling ss -		le(i)- nʌna
+C28 Garuh           	sibling ss -        	ama-                	1265
+C29 Kamba           	sibling ss -        	kama-               	1265
+

@@ -1,0 +1,36 @@
+C1 Kare             	black               	sugumbʌba           	
+C2 Girawa           	black               	kurum               	1467?
+C2 Girawa           	black               	ʔurum               	
+C3 Munit            	black               	undu                	1467
+C3 Munit            	black               	undu
+C3 Munit		black 			uŋguriʔ       	
+C4 Bemal		black			mutuanau
+C5 Sihan            	black               	ukuri               	
+C6 Gumalu           	black               	gugur               	
+C7 Isebe            	black               	gagatu/ni           	
+C8 Amele            	black               	utuw                	1467
+C8 Amele            	black               	as                 	
+C9 Bau              	black               	utu                 	1467
+C9 Bau		black			olisˀai
+C10 Panim           	black               	gagʌtu              	
+C11 Rapting		black 			pamuˀ
+C12 Wamas		black			pʌma
+C13 Samosa		black			donɛ
+C14 Murupi          	black               	dugata    
+C14 Murupi		black			pamu          	
+C15 Saruga          	black               	du:gata             	
+C16 Nake		black			pʌːmu
+C17 Mosimo		black			pʌːmu
+C18 Garus		black			fæsiʔ
+C19 Yoidik		black			fæsiʔ
+C20 Rempi		black			taroaˀ
+C21 Bagupi		black			pamu
+C22 Silopi          	black               	kʌ:tutu             	1227
+C23 Utu			black			maup
+C24 Mawan           	black               	gugur               	
+C25 Baimak          	black               	gugur               	
+C26 Matepi          	black               	katutu              	1227
+C26 Matepi		black			gugurɛ
+C27 Gal             	black               	katut               	1227
+C28 Garuh		black			pamu
+C29 Kamba           	black               	geremu              	

@@ -1,0 +1,29 @@
+C1 Kare        		buy			ki owu-
+C2 Girawa		buy			(ˀau) mo-
+C3 Munit		buy			gwʌ
+C4 Bemal		buy			gaumɛ-
+C5 Sihan		buy			fayɛ-
+C6 Gumalu		buy			idatmɛ-
+C7 Isebe            	buy                 	idad mi-            	1402
+C8 Amele		buy			fayɛ-
+C9 Bau              	buy                 	idat mɛ-            	1402
+C10 Panim           	buy                 	idad mɛ-            	1402
+C11 Rapting		buy			au-
+C12 Wamas		buy			baimo-
+C13 Samosa		buy			
+C14 Murupi		buy			baimɛ-
+C15 Saruga		buy			baimi-
+C16 Nake  		buy			dagɛn mɛ-
+C17 Mosimo		buy			baim-
+C18 Garus		buy			digb-
+C19 Yoidik          	buy                 	dar̃gɛ-              	1402
+C20 Rempi		buy			dagdai-
+C21 Bagupi		buy			tagɛn mɛ-	
+C22 Silopi		buy			ow
+C23 Utu 		buy			baim-
+C24 Mawan           	buy                 	irar mu-            	1402
+C25 Baimak          	buy                 	itat mu-            	1402
+C26 Matepi          	buy                 	darɛ m-             	1402
+C27 Gal             	buy                 	irar mu-            	1402
+C28 Garuh		buy			dagɛn hi-
+C29 Kamba           	buy                 	irar m-             	1402

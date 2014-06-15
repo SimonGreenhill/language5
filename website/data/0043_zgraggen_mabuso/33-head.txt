@@ -1,0 +1,45 @@
+C1 Kare             	head                	kowo-	
+C1 Kare             	head                	kendʌ:ga
+C1 Kare             	head                	benda	
+C2 Girawa           	head                	tapa-               	1167
+C3 Munit            	head                	taβa                	
+C3 Munit            	head                	tava                	1167
+C4 Bemal            	head                	gagali-             	1168
+C5 Sihan            	head                	irara-              	
+C6 Gumalu           	head                	kati-               	
+C6 Gumalu           	head                	irou-        	
+C7 Isebe            	head                	gati-               	1168
+C8 Amele            	head                	ilo-                	
+C9 Bau              	head                	kati-               	1168
+C9 Bau              	head                	hirou-       	
+C10 Panim           	head                	ilo-         	
+C10 Panim           	head                	gati-               	1168
+C11 Rapting         	head                	garibu              	1168
+C11 Rapting         	head                	igi-        	
+C12 Wamas           	head                	tavi                	1167
+C12 Wamas           	head                	karu                	1168
+C12 Wamas           	head                	tavi- karu          	
+C13 Samosa          	head                	ote- kara           	1168
+C14 Murupi          	head                	utu- wahe           	
+C15 Saruga          	head                	mugupa-             	
+C16 Nake            	head                	mugupa-
+C16 Nake            	head                	igi-       	
+C17 Mosimo          	head                	kʌre                	1168
+C17 Mosimo          	head                	tʌvi-                	1167
+C18 Garus           	head                	manmana-     	
+C18 Garus           	head                	tave-               	1167
+C19 Yoidik          	head                	gʌba-               	
+C20 Rempi           	head                	manmana-            	
+C21 Bagupi          	head                	mugupa-             	
+C22 Silopi          	head                	tewu                	1167
+C22 Silopi          	head                	iro-          	
+C23 Utu             	head                	tewu-                	1167
+C24 Mawan           	head                	iro-          	
+C24 Mawan           	head                	tawu                	1167
+C25 Baimak          	head                	ilo-                	
+C26 Matepi          	head                	mogupɛ             	
+C26 Matepi          	head                	tevu-                	1167
+C27 Gal             	head                	muge-      	
+C28 Garuh           	head                	igi-                	
+C29 Kamba           	head                	kuri-               	1168
+

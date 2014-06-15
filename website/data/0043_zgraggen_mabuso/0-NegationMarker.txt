@@ -1,0 +1,43 @@
+C1 Kare             	negation marker           	-aŋgu
+C1 Kare             	negation marker           	-agu
+C2 Girawa	        	negation marker           	-(ʌ)n
+C2 Girawa	        	negation marker           	-bɛn
+C3 Munit	        	negation marker           	-ago
+C3 Munit	        	negation marker           	-go
+C3 Munit	        	negation marker           	-o
+C4 Bemal            	negation marker           	-ai
+C4 Bemal            	negation marker           	-it
+C5 Sihan            	negation marker           	-wa
+C6 Gumalu	        	negation marker           	-w
+C6 Gumalu	        	negation marker           	-ow
+C7 Isebe            	negation marker           	-u
+C8 Amele            	negation marker           	-na
+C9 Bau              	negation marker           	-ow
+C10 Panim           	negation marker           	-u
+C11 Rapting         	negation marker           	-o
+C12 Wamas           	negation marker           	-a
+C13 Samosa          	negation marker           	-a
+C14 Murupi          	negation marker           	-a
+C15 Saruga          	negation marker           	-a
+C16 Nake            	negation marker           	-a
+C17 Mosimo	        	negation marker           	-a
+C18 Garus           	negation marker           	-ɛh
+C19 Yoidik	        	negation marker           	-ʌ
+C19 Yoidik	        	negation marker           	-ga
+C20 Rempi           	negation marker           	-ʌh
+C21 Bagupi          	negation marker           	-a
+C22 Silopi	        	negation marker           	-ay
+C22 Silopi	        	negation marker           	-ag
+C22 Silopi	        	negation marker           	-an
+C23 Utu             	negation marker           	-a
+C24 Mawan           	negation marker           	-i
+C24 Mawan           	negation marker           	-ak
+C24 Mawan           	negation marker           	-a
+C25 Baimak          	negation marker           	-iki
+C25 Baimak          	negation marker           	-ak
+C26 Matepi          	negation marker           	-a
+C26 Matepi          	negation marker           	-ag
+C27 Gal             	negation marker           	
+C28 Garuh           	negation marker           	
+C29 Kamba           	negation marker           	
+

@@ -1,0 +1,30 @@
+C1 Kare			yellow		kasʌna
+C2 Girawa		yellow		žanou
+C3 Munit		yellow		dʌnɛ                	1369
+C4 Bemal		yellow		baida
+C5 Sihan		yellow		dʌːn                	1369
+C6 Gumalu		yellow		lʌnai
+C7 Isebe		yellow		žʌːni
+C8 Amele		yellow		zaːnˀa
+C9 Bau			yellow		lʌnˀa                	1369
+C10 Panim		yellow		yan                	1369
+C11 Rapting		yellow		malili
+C11 Rapting		yellow		marmaru
+C12 Wamas		yellow		sohobɛrɛ
+C13 Samosa		yellow		kumugum
+C14 Murupi		yellow		ahʌnata
+C15 Saruga		yellow		ahana bɛpa
+C16 Nake		yellow		yʌn                	1369
+C17 Mosimo		yellow		gahɛnɛ
+C18 Garus		yellow		malila
+C19 Yoidik		yellow		maliʌˀ
+C20 Rempi		yellow		yaŋa                	1369
+C21 Bagupi		yellow		ɛsɛnʌg
+C22 Silopi		yellow		asinʌg
+C23 Utu			yellow		asinʌg
+C24 Mawan		yellow		ahinʌga
+C25 Baimak		yellow		danou
+C26 Matepi		yellow		asinʌg
+C27 Gal			yellow		lʌːnɛnɛ
+C28 Garuh		yellow		lain
+C29 Kamba		yellow		lʌnlʌn                	1369

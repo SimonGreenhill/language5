@@ -1,0 +1,29 @@
+C1 Kare             	dirty               	duŋgazizi           	1367
+C2 Girawa           	dirty               	uʔun                	
+C3 Munit		dirty			ʌrumɛ
+C4 Bemal		dirty			
+C5 Sihan		dirty			gegehin
+C6 Gumalu		dirty 			tutufu
+C7 Isebe		dirty			gɛgɛhini
+C8 Amele		dirty			kɛkɛhin
+C9 Bau			dirty			kɛkɛhin
+C10 Panim		dirty			gɛgɛhin
+C11 Rapting         	dirty               	lug                 	1367
+C12 Wamas           	dirty               	duge hɔrɔr          	1367
+C13 Samosa          	dirty               	duruga:va           	1367
+C14 Murupi          	(dirty, black)      	duga(ta)      		1367
+C15 Saruga          	(black)             	duga		     	1367
+C16 Nake		dirty			duburir̃
+C17 Mosimo          	dirty               	du:ge               	1367
+C18 Garus           	dirty               	luglu:ga            	1367
+C19 Yoidik          	dirty               	lugluguʔpa          	1367
+C20 Rempi           	dirty               	luguʔi              	1367
+C21 Bagupi          	dirty               	dug                 	1367
+C22 Silopi		dirty			ɛwu
+C23 Utu			dirty			dusin
+C24 Mawan           	dirty               	duhuhu              	1368
+C25 Baimak          	dirty               	tutufu              	1368
+C26 Matepi		dirty			duha
+C27 Gal			dirty			dursi
+C28 Garuh		dirty			dubdiːt
+C29 Kamba           	dirty               	dufrifi             	1368           	

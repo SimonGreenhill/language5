@@ -1,0 +1,37 @@
+C1 Kare             	back                	sema-
+C1 Kare			back			arewora      	
+C2 Girawa           	back                	kakari              	1174?
+C2 Girawa           	back                	meʔesu-
+C2 Girawa		back			popo-       	
+C3 Munit            	back                	sihõ-               	
+C4 Bemal            	back                	bobo-, bugaji-      	          	
+C5 Sihan            	back                	kokodo-             	1174
+C6 Gumalu           	back                	fofor-              	
+C7 Isebe            	back                	gogodo-             	1174                          
+C8 Amele            	back                	gogodo-             	1174
+C9 Bau              	back                	kokoto-             	1174             
+C10 Panim           	back                	gogodo-             	1174            
+C11 Rapting         	back                	degome
+C11 Rapting		back			 a:ge-       	
+C12 Wamas           	back                	segeme-             	
+C13 Samosa          	back                	segemi
+C13 Samosa		back			 vari-       	
+C14 Murupi          	back                	semaga-             	
+C15 Saruga          	back                	ehu-                	
+C16 Nake            	back                	age-                	
+C17 Mosimo          	back                	segem-              	
+C18 Garus           	back                	dunu-               	
+C19 Yoidik          	back                	agama-              	
+C20 Rempi           	back                	garmama-            	
+C21 Bagupi          	back                	ege-                	
+C22 Silopi          	back                	uru-                	1174 
+C23 Utu            	back                	sume-
+C23 Utu		back			 ehu-         	
+C24 Mawan           	back                	ehu-           	
+C24 Mawan           	back                	uru-               	1174   
+C25 Baimak          	back                	kokoto              	1174
+C25 Baimak          	back                	fofolo-     	
+C26 Matepi          	back                	ehu-                	
+C27 Gal             	back                	gome-               	
+C28 Garuh           	back                	age-                	
+C29 Kamba           	back                	gumi-

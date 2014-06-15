@@ -1,0 +1,31 @@
+C1 Kare			cassowary 		mʌːgwa
+C2 Girawa           	cassowary           	ewar 
+C2 Girawa		cassowary		meːb               	
+C3 Munit		cassowary 		kubuk		
+C4 Bemal		cassowary		kimau
+C5 Sihan            	cassry              	eir                 	1194                 
+C6 Gumalu           	cassowary           	ehir                	
+C7 Isebe            	cassry              	ehir                	1194
+C8 Amele            	cassry              	esil                	1194
+C9 Bau              	cassry              	ehir                	1194
+C10 Panim           	cassry              	ehil                	1194
+C11 Rapting         	cassry              	kivam               	1194
+C12 Wamas           	cassry              	kiwʌ:ri             	1194
+C13 Samosa          	cassry              	kivari              	1194
+C14 Murupi          	cassry              	iwʌ:li              	1194
+C15 Saruga          	cassry              	iwar                	1194
+C16 Nake            	cassry              	iwʌ:r               	1194
+C17 Mosimo 		cassowary 		duwo
+C18 Garus           	cassowary           	asa                 	
+C19 Yoidik          	cassowary           	asʌu                	
+C20 Rempi           	cassowary           	ʌsaw                	
+C21 Bagupi          	cassowary           	iwʌ:r               	
+C22 Silopi          	cassowary           	iwʌr                	
+C22 Silopi          	cassry              	iwʌr                	1194
+C23 Utu             	cassry              	iwar                	1194
+C24 Mawan           	cassry              	iwʌr                	1194
+C25 Baimak          	cassry              	iwal                	1194
+C26 Matepi          	cassry              	iwʌr                	1194
+C27 Gal             	cassry              	iwař               	1194
+C28 Garuh           	cassry              	heːgar̃                	   1194
+C29 Kamba           	cassry              	kiwʌr               	1194

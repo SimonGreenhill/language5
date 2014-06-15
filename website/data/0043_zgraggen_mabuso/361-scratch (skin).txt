@@ -1,0 +1,29 @@
+C1 Kare			scratch (skin)		nanamb-
+C2 Girawa		scratch (skin)		isis arʌru-
+C3 Munit		scratch (skin)		gɛrɛte-
+C4 Bemal		scratch (skin)		kal
+C5 Sihan		scratch (skin)		kɛrɛudɛ-
+C6 Gumalu		scratch (skin)		ninifɛ-
+C7 Isebe		scratch (skin)		tiˀi-
+C8 Amele		scratch (skin)		siˀi-
+C9 Bau			scratch (skin)		nahintiˀ-
+C10 Panim		scratch (skin)		tiˀ-
+C11 Rapting		scratch (skin)		fakɛl-
+C12 Wamas		scratch (skin)		gɛr-
+C13 Samosa		scratch (skin)		
+C14 Murupi		scratch (skin)		nasig-
+C15 Saruga		scratch (skin)		gɛr-
+C16 Nake		scratch (skin)		pagara-
+C17 Mosimo		scratch (skin)		gɛl-
+C18 Garus		scratch (skin)		gɛl-
+C19 Yoidik		scratch (skin)		gɛl-
+C20 Rempi		scratch (skin)		gɛl-
+C21 Bagupi		scratch (skin)		pagɛrɛ-
+C22 Silopi		scratch (skin)		mɛt-
+C23 Utu			scratch (skin)		pag-
+C24 Mawan		scratch (skin)		pagare-
+C25 Baimak		scratch (skin)		pakarɛ-
+C26 Matepi		scratch (skin)		pʌrag-
+C27 Gal			scratch (skin)		pagɛrɛ
+C28 Garuh		scratch (skin)		pagar̃-
+C29 Kamba		scratch (skin)		pʌgʌl-

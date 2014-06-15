@@ -1,0 +1,31 @@
+C1 Kare			no			iː
+C2 Girawa           	no                  	bʌ
+C3 Munit		no 			taːmo
+C4 Bemal		no			taːm
+C5 Sihan            	no                  	be:ʔi               	1237
+C6 Gumalu		no			bitik
+C7 Isebe            	no                  	pe                  	1237
+C8 Amele            	no                  	pe                  	
+C9 Bau              	no                  	ʔpe                 	1237
+C10 Panim           	no                  	be                  	1237
+C11 Rapting         	no                  	pi                  	1237
+C12 Wamas           	no                  	pi                  	1237
+C13 Samosa          	no                  	ʔi                  	1237
+C14 Murupi          	no                  	pi                  	1237
+C15 Saruga          	no                  	pi                  	1237
+C16 Nake		no			irʌ
+C17 Mosimo          	no                  	pi                  	1237
+C18 Garus           	no                  	pi                  	1237
+C19 Yoidik          	no                  	pi                  	1237
+C20 Rempi           	no                  	pi                  	1237
+C21 Bagupi          	no                  	pi                  	1237
+C22 Silopi          	no                  	pitu:k              	1237
+C23 Utu             	no                  	pi                  	1237
+C23 Utu             	no                  	kwituk 
+C24 Mawan		no			kwi(tuk)                 
+C25 Baimak          	no                  	pi                  	1237
+C26 Matepi		no			pi                  	1237
+C26 Matepi		no			kwitug
+C27 Gal			no			itu
+C28 Garuh		no			ida
+C29 Kamba		no			kawa

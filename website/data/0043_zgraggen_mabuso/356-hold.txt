@@ -1,0 +1,30 @@
+C1 Kare             	hold                	pØr-                	1410
+C2 Girawa           	hold                	ato-                	1251
+C3 Munit            	hold                	parɛ-               	1410
+C4 Bemal            	hold                	pat-                	1410
+C5 Sihan            	hold                	farɛ-               	1410
+C6 Gumalu		hold			farɛ-
+C7 Isebe            	hold                	bali-               	1410
+C8 Amele		hold			hɛwɛ-
+C9 Bau              	hold                	fal-                	1410
+C10 Panim           	hold                	fale-               	1410
+C11 Rapting         	hold                	at-                 	1251
+C12 Wamas           	hold                	ʌt-                 	1251
+C13 Samosa          	hold                	fat-                	1410
+C14 Murupi          	hold                	at-                 	1251
+C15 Saruga          	hold                	at-                 	1251
+C16 Nake            	hold                	ata-                	1251
+C17 Mosimo          	hold                	at-                 	1251
+C18 Garus           	hold                	at-                 	1251
+C19 Yoidik          	hold                	at-                 	1251
+C20 Rempi           	hold                	at-                 	1251
+C21 Bagupi          	hold                	atu-                	1251
+C22 Silopi          	hold                	at-                 	1251
+C23 Utu             	hold                	at-                 	1251
+C24 Mawan           	hold                	at-                 	1251
+C25 Baimak          	hold                	atu                 	1251
+C26 Matepi          	hold                	at-                 	1251
+C27 Gal             	hold                	at-                 	1251
+C28 Garuh           	hold                	ara-                	1251
+C29 Kamba           	hold                	ora-                	1251
+

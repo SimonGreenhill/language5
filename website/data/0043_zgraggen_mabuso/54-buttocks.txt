@@ -1,0 +1,31 @@
+C1 Kare             	buttocks            	siomo               	
+C2 Girawa           	buttocks            	pi- amuˀu             	 1175
+C3 Munit            	buttocks            	biere-               	1175
+C4 Bemal            	buttocks            	bi- am              	1175
+C5 Sihan            	buttocks            	bioto               	1175
+C6 Gumalu           	buttocks            	bioto               	
+C7 Isebe            	buttocks            	bioto               	1175
+C8 Amele            	buttocks            	bibito-             	1175?
+C8 Amele            	buttocks            	piʔito              	
+C9 Bau              	buttocks            	piʔoto              	1175
+C10 Panim           	buttocks            	bibito              	1175
+C11 Rapting         	buttocks            	be:- mira          	    1175
+C12 Wamas           	buttocks            	sikuni-             	1290
+C13 Samosa          	buttocks            	sʌve                	
+C14 Murupi          	buttocks            	silu-
+C14 Murupi		buttocks		unu-         	
+C15 Saruga          	buttocks            	soru-               	
+C16 Nake            	buttocks            	tito-               	
+C17 Mosimo          	buttocks            	sikun-              	1290
+C18 Garus           	buttocks            	bili-               	
+C19 Yoidik          	buttocks            	bila-               	
+C20 Rempi           	buttocks            	bi-                 	1175
+C21 Bagupi          	buttocks            	solu-               	
+C22 Silopi          	buttocks            	siha-               	
+C23 Utu             	buttocks            	se                  	
+C24 Mawan           	buttocks            	sihʌ                	
+C25 Baimak          	buttocks            	bioto               	1175
+C26 Matepi          	buttocks            	sihe                	
+C27 Gal             	buttocks            	bigigo              	1175
+C28 Garuh           	buttocks            	biso                	
+C29 Kamba           	buttocks            	bi                  	1175

@@ -1,0 +1,32 @@
+C1 Kare             	meat                	di:ᵬa               	
+C1 Kare             	meat                	di:va               	1417?
+C2 Girawa           	meat                	toʔou               	
+C3 Munit            	meat                	tehu                	1198
+C4 Bemal            	meat                	tʌbug               	1198
+C5 Sihan            	meat                	tehuʔ               	1198
+C6 Gumalu           	meat                	ufu-                	
+C7 Isebe            	meat                	ufun                	1416
+C8 Amele            	meat                	ufun                	
+C8 Amele            	meat                	uhun                	
+C9 Bau              	meat                	ufun                	1416
+C10 Panim           	meat                	ufun                	
+C11 Rapting         	meat                	tibuʔ               	1198
+C12 Wamas           	meat                	dau                 	1417
+C13 Samosa          	meat                	daugu               	1417
+C14 Murupi          	meat                	dau                 	1417
+C15 Saruga          	meat                	uhunu               	1416
+C16 Nake            	meat                	dihun               	1198
+C17 Mosimo          	meat                	dau                 	1417
+C18 Garus           	meat                	suku                	
+C19 Yoidik          	meat                	me:ʔ                	
+C20 Rempi           	meat                	suku                	
+C21 Bagupi          	meat                	tihun               	1198
+C22 Silopi          	meat                	uhun                	1416
+C23 Utu             	meat                	un                  	1416
+C24 Mawan           	meat                	uhun                	1416
+C25 Baimak          	meat                	ufun                	1416
+C25 Baimak          	meat                	un                  	?
+C26 Matepi          	meat                	uhun                	1416
+C27 Gal             	meat                	uhun                	1416
+C28 Garuh           	meat                	sibu                	
+C29 Kamba           	meat                	tæf                 	1198

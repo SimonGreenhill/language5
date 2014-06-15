@@ -1,0 +1,30 @@
+C1 Kare			snake			suːru
+C2 Girawa           	snake               	mɛːn                 	1480
+C3 Munit            	snake               	mani                	1480
+C4 Bemal            	snake               	man                 	1480
+C5 Sihan            	snake               	ma:ni               	1480
+C6 Gumalu		snake			maːni			1480
+C7 Isebe            	snake               	man                 	1480
+C8 Amele            	snake               	man sononeʔ         	1480
+C9 Bau              	snake               	man                 	1480
+C10 Panim           	snake               	man                 	1480
+C11 Rapting         	snake               	magay               	1479
+C12 Wamas           	snake               	mat                 	1319
+C13 Samosa		snake			su
+C14 Murupi		snake			wʌnsuru
+C15 Saruga		snake			suːru
+C16 Nake		snake			magʌy			1479
+C17 Mosimo          	snake               	magay               	1479
+C18 Garus		snake			magæ			1479
+C19 Yoidik          	snake               	magæ                	1479
+C20 Rempi           	snake               	makay               	1479
+C21 Bagupi		snake			sur̃
+C22 Silopi		snake			su
+C23 Utu			snake			su
+C24 Mawan           	snake               	mat                 	1319
+C25 Baimak          	snake               	mat                 	1319
+C26 Matepi		snake			su
+C27 Gal             	snake               	mat                 	1319
+C28 Garuh           	snake               	magay               	1479
+C28 Garuh           	snake               	mat                 	1319
+C29 Kamba           	snake               	mat                 	1319

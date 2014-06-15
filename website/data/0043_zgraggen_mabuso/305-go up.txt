@@ -1,0 +1,29 @@
+C1 Kare             	go up               	to-                 	1388
+C2 Girawa           	go up               	tono-               	1388
+C3 Munit		go up			tɛmuna-
+C4 Bemal		go up			si-
+C5 Sihan            	go up               	oisa tɛ-            	1388
+C6 Gumalu		go up			tʰe-
+C7 Isebe            	go up               	ti-                 	1388
+C8 Amele		go up			tope-
+C9 Bau              	go up               	tɛ-                 	1388
+C10 Panim		go up			ahote-
+C11 Rapting         	go up               	tɛ-                 	1388
+C12 Wamas		go up			ǰeitaga kug-
+C13 Samosa		go up			augɛ kugu-
+C14 Murupi		go up			aga ug-
+C15 Saruga          	go up               	tɛ-                 	1388
+C16 Nake            	go up               	tɛ-                 	1388
+C17 Mosimo		go up			autɛ-
+C18 Garus           	go up               	ti-                 	1388
+C19 Yoidik		go up			daot-
+C20 Rempi           	go up               	tɛ-                 	1388
+C21 Bagupi          	go up               	tɛ-                 	1388
+C22 Silopi          	go up               	t-                  	1388
+C23 Utu             	go up               	t-                  	1388
+C24 Mawan           	go up               	te-                 	1388
+C25 Baimak          	go up               	tɛ-                 	1388
+C26 Matepi          	go up               	tɛ-                 	1388
+C27 Gal             	go up               	tɛ-                 	1388
+C28 Garuh           	go up               	te-                 	1388
+C29 Kamba		go up			karant-

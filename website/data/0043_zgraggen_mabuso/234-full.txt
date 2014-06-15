@@ -1,0 +1,32 @@
+C1 Kare			full			omɔŋgasima
+C2 Girawa		full			ouʔpɛ-
+C3 Munit		full			ɛːsɛ
+C4 Bemal		full			kam-
+C5 Sihan		full			ˀoˀaran
+C5 Sihan		full			ˀosuan
+C6 Gumalu		full			ambɛha
+C7 Isebe		full			arɛpi-
+C8 Amele            	full                	ampɛʔ              	1370
+C8 Amele		full			alibɛ-
+C9 Bau			full			arɛpɛ-
+C10 Panim		full			alɛbɛa
+C11 Rapting         	full                	am ba-              	1370
+C12 Wamas		full			ʌːmug how
+C13 Samosa		full			amug ɛso
+C13 Samosa		full			kakiga
+C14 Murupi		full			ɛkakia-
+C15 Saruga		full			kaki ʌ(n)-
+C16 Nake		full			apusɛ-
+C17 Mosimo		full			amug uhu-
+C18 Garus		full			ohobɛ
+C19 Yoidik		full			agab
+C20 Rempi           	full                	am bɛn              	1370
+C21 Bagupi		full			aupsɛ-
+C22 Silopi		full			ʌːmsom
+C23 Utu			full			ambzo-
+C24 Mawan           	full                	am be-              	1370
+C25 Baimak          	full                	am bɛ-              	1370
+C26 Matepi		full			am so-
+C27 Gal             	full                	am bɛ-              	1370
+C28 Garuh		full			ambium
+C29 Kamba           	full                	am bɛ-              	1370

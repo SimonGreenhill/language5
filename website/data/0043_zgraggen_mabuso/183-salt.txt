@@ -1,0 +1,32 @@
+C1 Kare             	salt                	siawa               	1344
+C2 Girawa           	salt                	siu                 	1344
+C3 Munit		salt 			uːr
+C3 Munit		salt			basil
+C4 Bemal		salt			iːbut
+C5 Sihan            	salt                	siu                 	1344
+C6 Gumalu		salt			siu			1344
+C7 Isebe            	salt                	hi                  	1344
+C8 Amele            	salt                	si                  	1344
+C9 Bau              	salt                	hi                  	1344
+C10 Panim		salt			maˀʌs
+C11 Rapting         	salt                	sam                 	1345
+C12 Wamas           	salt                	sa:mu               	1345
+C13 Samosa          	salt                	sa:mu               	1345
+C14 Murupi          	salt                	sa:mu               	1345
+C15 Saruga		salt			fuː
+C16 Nake            	salt                	su:                 	1344
+C17 Mosimo          	salt                	sa:m                	1345
+C18 Garus           	salt                	soum                	1345
+C18 Garus 		salt			sahuˀ
+C19 Yoidik		salt			gagiˀ
+C19 Yoidik          	salt                	so:m                	1345
+C20 Rempi           	salt                	som                 	1345
+C21 Bagupi          	salt                	u:                  	1344
+C22 Silopi          	salt                	u:                  	1344
+C23 Utu             	salt                	u:                  	1344
+C24 Mawan           	salt                	u:                  	1344
+C25 Baimak          	salt                	u:                  	1344
+C26 Matepi          	salt                	u:                  	1344
+C27 Gal             	salt                	u                   	1344
+C28 Garuh		salt			hiu			1344
+C29 Kamba           	salt                	i:b                 	1344

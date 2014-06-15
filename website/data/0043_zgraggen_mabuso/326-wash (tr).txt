@@ -1,0 +1,34 @@
+C1 Kare             	wash tr             	ži idagu            	
+C2 Girawa           	wash tr             	žou                 	
+C3 Munit            	wash tr             	du                  	
+C4 Bemal            	wash tr (3sg)       	zio-
+C4 Bemal            	wash tr             	zi(w) 	              	
+C5 Sihan            	wash tr             	vado-               	
+C6 Gumalu           	wash tr             	wa ru-              	
+C7 Isebe            	wash tr             	wa yo-              	
+C8 Amele            	wash tr             	yo                  	
+C9 Bau              	wash tr             	wa ro-              	
+C10 Panim           	wash tr             	zo                  	
+C11 Rapting         	wash tr             	yau                 	
+C12 Wamas           	wash tr (3sg)       	zau 
+C12 Wamas	         	wash tr             	 za ya-  	
+C13 Samosa          	wash tr             	zagu                	
+C14 Murupi          	wash tr  (3sg)      	zau  
+C14 Murupi	        	wash tr		        	za(y)-               	
+C15 Saruga          	wash tr             	otono-              	
+C16 Nake            	wash tr             	di ze               	
+C17 Mosimo          	wash tr (2 sg, 3sg) 	zau  
+C17 Mosimo	        	wash tr		        	žai               	
+C18 Garus           	wash tr (3sg)       	zeʔu    
+C18 Garus	        	wash tr             	žɛˀɛ-            	
+C19 Yoidik          	wash tr             	iaʔa-               	
+C20 Rempi           	wash tr             	ʒe ʒeu              	
+C21 Bagupi          	wash tr             	di ya               	 1243
+C22 Silopi          	wash tr             	de ra               	 1243
+C23 Utu             	wash tr             	ze za               	 1243
+C24 Mawan           	wash tr             	de la               	 1243
+C25 Baimak          	wash tr             	le la               	 1243
+C26 Matepi          	wash tr             	le la               	 1243
+C27 Gal             	wash tr             	laho-               	 1243
+C28 Garuh           	wash tr             	le la               	 1243
+C29 Kamba           	wash tr             	le la                  	 1243

@@ -1,0 +1,34 @@
+C1 Kare             	2pl/P:3P            	-a(i)
+C1 Kare             	2pl/P:3P            	-uŋgu
+C2 Girawa           	2pl/P:3P            	-ak                 	1279
+C3 Munit            	2pl/P:3P            	-aʔ                 	1279
+C4 Bemal            	2pl/P:3P            	-ag                 	1279
+C5 Sihan            	2pl/P:3P            	-(i)aʔ              	1279
+C6 Gumalu           	2pl/P:3P            	-(r)aʔ              	1279
+C7 Isebe            	2pl/P:3P            	-ag                 	1279
+C8 Amele            	2pl/P:3P            	-(V)ga              	1279
+C9 Bau              	2pl/P:3P            	-a(ka)              	1279
+C10 Panim           	2pl/P:3P            	-ag(a)              	1279
+C11 Rapting         	2pl/P:3P            	-gar                	1279
+C12 Wamas           	2pl/P:3P            	-gar                	1279
+C13 Samosa          	2pl/P:3P            	-naga               	1279
+C13 Samosa          	2pl/P:3P            	-na(na)             	1279
+C14 Murupi          	2pl/P:3P            	-iaga               	1279
+C15 Saruga          	2pl/P:3P            	-(i)gari            	1279
+C16 Nake            	2pl/P:3P            	-geri               	1279
+C17 Mosimo          	2pl/P:3P            	-na(na)             	1279
+C18 Garus           	2pl/P:3P            	-yak                	1279
+C19 Yoidik          	2pl/P:3P            	-yak                	1279
+C20 Rempi           	2pl/P:3P            	-get                	1279
+C21 Bagupi          	2pl/P:3P            	-gVri               	1279
+C22 Silopi          	2pl/P:3P            	-nagar              	1279
+C23 Utu             	2pl/P:3P            	-nagar              	1279
+C24 Mawan           	2pl/P:3P            	-ari
+C24 Mawan           	2pl/P:3P            	-nag                	1279
+C25 Baimak          	2pl/P:3P            	-nak                	1279
+C25 Baimak          	2pl/P:3P            	-agat
+C26 Matepi          	2pl/P:3P            	-(u)naga(r)         	1279
+C27 Gal             	2pl/P:3P            	-Vl
+C27 Gal             	2pl/P:3P            	-gar                	1279
+C28 Garuh           	2pl/P:3P            	-lag                	1279
+C29 Kamba           	2pl/P:3P            	-lag                	1279

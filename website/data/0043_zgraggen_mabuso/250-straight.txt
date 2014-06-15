@@ -1,0 +1,33 @@
+C1 Kare             	straight            	tubukiʌ:ka          	
+C2 Girawa           	straight            	tuku                	1229?
+C2 Girawa           	straight            	tuʔu                	
+C3 Munit            	straight            	tugu                	1229
+C4 Bemal            	straight            	tu:gi anaw            	1229
+C5 Sihan            	straight            	tutu                	1229
+C6 Gumalu           	straight            	tutu                	
+C7 Isebe            	straight            	tŒutŒuadi           	1229?
+C7 Isebe            	straight            	tʰutʰuadi           	
+C8 Amele            	straight            	tutuʔ               	1229
+C9 Bau              	straight            	tutuh               	1229
+C10 Panim           	straight            	tutuadi             	1229
+C11 Rapting         	straight            	turuk               	1229
+C12 Wamas		straight		mua
+C13 Samosa		straight		varo
+C14 Murupi		straight		ibua
+C15 Saruga		straight		ivʌ
+C16 Nake            	straight            	turugu              	1229
+C17 Mosimo          	straight            	tumtumu       
+C18 Garus		straight		dolpi
+C19 Yoidik		straight		səkʌˀ
+C20 Rempi		straight		tidɔg
+C21 Bagupi		straight		atebahe
+C22 Silopi		straight		orovʌk
+C23 Utu			straight		fɛfɛral
+C24 Mawan		straight		korɔr
+C25 Baimak		straight		korɔr
+C26 Matepi     		straight		korɔr̃
+C27 Gal			straight		korɔr
+C28 Garuh           	straight            	sutgu               	
+C28 Garuh           	straight            	tutuku-             	1229
+C29 Kamba		staright		mangu
+

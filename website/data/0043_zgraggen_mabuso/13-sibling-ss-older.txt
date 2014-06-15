@@ -1,0 +1,47 @@
+C1 Kare             	sibling ss +        	wani                	1486
+C7 Isebe		sibling ss + 		oti- matu
+C8 Amele            	sibling ss +        	wali-               	1486?
+C8 Amele		sibling ss + 		oti- mʌtu
+C9 Bau			sibling ss + 		oti- matu
+C10 Panim		sibling ss + 		oti- matu
+C12 Wamas           	sibling ss +        	aun-                	1264
+C13 Samosa          	sibling ss +        	auna-               	1264
+C14 Murupi          	sibling ss +        	auna-               	1264
+C15 Saruga          	sibling ss +        	aun-                	1264
+C17 Mosimo          	sibling ss +        	aun-                	1264
+C18 Garus		sibling ss +		hahe-
+C21 Bagupi          	sibling ss +        	on-                 	1264
+C22 Silopi          	sibling ss +        	on-                 	1264
+C25 Baimak		sibling ss +		reipa-
+C26 Matepi		sibling ss +		lɛ- matuma
+C27 Gal 		sibling ss +		le(i)- matu
+
+C1 Kare             	sibling ss + (M?)   	wa-                 	1463
+C2 Girawa           	sibling ss + (M?)   	awa-                	1463
+C3 Munit		sibling ss + (M?)	apʌ-
+C4 Bemal 		sibling ss + (M?)	apʌ-
+C5 Sihan		sibling ss + (M?)	afa-
+C6 Gumalu		sibling ss + (M?)	apa-
+C9 Bau			sibling ss + (M?)	apa-
+C10 Panim		sibling ss + (M?)	apa-
+C11 Rapting         	sibling ss + (M?)   	aƀa-                	1463
+C12 Wamas           	sibling ss + (M?)   	aƀa-                	1463
+C13 Samosa          	sibling ss + (M?)   	aba-                	1463
+C14 Murupi          	sibling ss + (M?)   	aba-                	1463
+C15 Saruga          	sibling ss + (M?)   	awa-                	1463
+C16 Nake            	sibling ss + (M?)   	ava-                	1463
+C17 Mosimo          	sibling ss + (M?)   	awa-                	1463
+C18 Garus		sibling ss + (M?)	bab
+C19 Yoidik          	sibling ss + (M?)   	aha-                	1463
+C20 Rempi           	sibling ss + (M?)   	zaha-               	1463
+C20 Rempi		sibling ss + (M?) 	bʌba
+C21 Bagupi          	sibling ss + (M?)   	ou-                 	1463
+C21 Bagupi		sibling ss + (M?) 	abʌːni
+C22 Silopi          	sibling ss + (M?)   	ow-                 	1463
+C23 Utu             	sibling ss + (M?)   	ou-                 	1463
+C23 Utu             	sibling ss + (M?)   	oinʌka
+C24 Mawan		sibling ss + (M?)	apa-
+C25 Baimak		sibling ss + (M?)	apay
+C28 Garuh		sibling ss + (M?)	awa-
+C28 Garuh		sibling ss + (M?) 	aha-
+C29 Kamba           	sibling ss + (M?)   	awa-                	1463

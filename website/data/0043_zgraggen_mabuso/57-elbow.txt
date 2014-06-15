@@ -1,0 +1,33 @@
+C1 Kare             	elbow               	gosiBa              	
+C2 Girawa           	elbow               	ai?wo-              	
+C3 Munit		elbow			ames g
+C4 Bemal            	elbow               	gug€-
+C4 Bemal		elbow			 taumAg       	
+C5 Sihan            	elbow               	u:r                 	
+C6 Gumalu           	elbow               	amuk                	
+C7 Isebe            	elbow               	henen               	
+C8 Amele            	elbow               	suʔul               	
+C8 Amele            	elbow               	suʔun               	1291
+C9 Bau              	elbow               	huʔur               	1291
+C10 Panim           	elbow               	gobisi              	
+C11 Rapting         	elbow               	asue 
+C11 Rapting		elbow			sune          	
+C12 Wamas           	elbow               	sunar- fahu         	
+C13 Samosa          	elbow               	suguna              	1291
+C14 Murupi          	elbow               	suna-               	1291
+C15 Saruga          	elbow               	azepa-              	
+C16 Nake            	elbow               	osa                 	
+C17 Mosimo          	elbow               	suna:li             	1291
+C18 Garus           	elbow               	suʔun               	1291
+C19 Yoidik          	elbow               	su:ʔnʌk             	1291          	
+C20 Rempi           	elbow               	suʔna-              	1291    	
+C21 Bagupi          	elbow               	usʌ- amug            	1177
+C22 Silopi          	elbow               	kusesin             	
+C23 Utu             	elbow               	gusisi              	
+C24 Mawan           	elbow               	gumi                	
+C25 Baimak          	elbow               	a:muk               	1177
+C26 Matepi          	elbow               	guzezi              	
+C27 Gal             	elbow               	sikini-             	1291          	
+C28 Garuh           	elbow               	hokane-             	1291?
+C28 Garuh           	elbow               	higne-              	
+C29 Kamba           	elbow               	sukune-             	1291

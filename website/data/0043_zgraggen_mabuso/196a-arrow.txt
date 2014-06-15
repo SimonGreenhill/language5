@@ -1,0 +1,30 @@
+C1 Kare			arrow (plain)		yʌːnu
+C2 Girawa		arrow (plain)		zɛt mu
+C3 Munit		arrow (plain)		kwɛli
+C4 Bemal		arrow (plain)		dahap
+C5 Sihan		arrow (plain)		sihor
+C6 Gumalu		arrow (plain)		sifor
+C7 Isebe		arrow (plain)		tunʌg
+C8 Amele		arrow (plain)		suan
+C9 Bau			arrow (plain)		sifol
+C10 Panim		arrow (plain)		dunʌg
+C11 Rapting         	arrow (plain)       	futu                	1349
+C12 Wamas           	arrow (plain)       	fotu:               	1349
+C13 Samosa          	arrow (plain)       	fotue               	1349
+C14 Murupi          	arrow (plain)       	fotua               	1349
+C15 Saruga		arrow (plain)		pana
+C16 Nake		arrow (plain)		poːn
+C17 Mosimo          	arrow (plain)       	fotu:               	1349
+C18 Garus           	arrow (plain)       	hutu:               	1349
+C19 Yoidik          	arrow (plain)       	futu:               	1349
+C20 Rempi		arrow (plain)		vir̃
+C21 Bagupi		arrow (plain)		bon
+C22 Silopi		arrow (plain)		abo
+C23 Utu			arrow (plain)		kwʌrˀ
+C23 Utu			arrow (plain)		avo
+C24 Mawan		arrow (plain)		awa
+C25 Baimak		arrow (plain)		
+C26 Matepi		arrow (plain)		aur̃
+C27 Gal			arrow (plain)		awa
+C28 Garuh		arrow (plain)		usu
+C29 Kamba		arrow (plain)		auk

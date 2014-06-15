@@ -1,0 +1,30 @@
+C1 Kare			boy		nukɔmba
+C2 Girawa		boy		sirin
+C3 Munit		boy		nã galab
+C4 Bemal		boy		mogɔy
+C5 Sihan		boy		mɛr haun
+C6 Gumalu		boy		mɛr ohi
+C6 Gumalu		boy		mɛr haun
+C7 Isebe		boy		fʌna manafʌl
+C8 Amele		boy		mɛl ɔs
+C9 Bau			boy		mɛr haun
+C10 Panim		boy		mɛl faun
+C11 Rapting		boy		nawu pɛrʌp
+C12 Wamas		boy		na kuma
+C13 Samosa		boy		na asaːvo
+C14 Murupi		boy		dan pahavu
+C15 Saruga		boy		na pahahuha
+C16 Nake		boy		naˀpara ho
+C17 Mosimo		boy		nʌ kuma
+C18 Garus		boy		dɛl nabuk
+C19 Yoidik		boy		nahal pusaˀ
+C20 Rempi		boy		a ayouk
+C21 Bagupi		boy		napɛra mɛː
+C22 Silopi		boy		danʌn kʌir
+C23 Utu			boy		danʌn porup		
+C24 Mawan		boy		sina gair
+C25 Baimak		boy		na haun
+C26 Matepi		boy		dʌna ŋgail
+C27 Gal			boy		sɛrɛ fau
+C28 Garuh		boy		niːt
+C29 Kamba		boy		geir

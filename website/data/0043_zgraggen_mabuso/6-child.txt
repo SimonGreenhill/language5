@@ -1,0 +1,33 @@
+C1 Kare           	child               	nikola
+C1 Kare           	child               	nokora
+C2 Girawa           	child               	moʔoi               	1257
+C3 Munit            	child               	nã                  	1159
+C4 Bemal            	child               	mogoy               	1257
+C4 Bemal            	child               	nanag               	1159
+C5 Sihan            	child               	mɛ:r                	1473
+C6 Gumalu		child			mɛl
+C7 Isebe            	child               	mɛl                 	1473
+C8 Amele		child			mɛl
+C9 Bau              	child               	mɛr                 	1473
+C10 Panim           	child               	mɛl                 	1473
+C11 Rapting         	child               	nawu                	1159
+C12 Wamas           	child               	na                  	1159
+C13 Samosa          	child               	na                  	1159
+C14 Murupi          	child               	na                  	1159
+C15 Saruga          	child               	na                  	1159
+C16 Nake            	child               	nʌʔpara             	1159
+C17 Mosimo          	child               	nʌ                  	1159
+C18 Garus           	child               	nahʌl               	1159
+C19 Yoidik          	child               	nahal               	1159
+C20 Rempi           	child               	nʌ                  	1159
+C21 Bagupi          	child               	napera              	1159
+C22 Silopi          	child               	nʌ                  	1159
+C23 Utu             	child               	nʌ                  	1159
+C24 Mawan           	child               	nain                	1159
+C25 Baimak          	child               	na                  	1159
+C26 Matepi          	child               	na                  	1159
+C27 Gal			child			sɛrɛ
+C28 Garuh           	child               	na-                 	1159
+C28 Garuh           	child               	ni:t                	
+C29 Kamba           	child               	nir                 	
+C29 Kamba           	child               	na-                 	1159

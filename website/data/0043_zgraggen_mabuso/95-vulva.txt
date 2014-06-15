@@ -1,0 +1,30 @@
+C1 Kare             	vulva               	bo-                 	1190
+C1 Kare             	vulva               	mina-               	1310?
+C2 Girawa           	vulva               	mina-               	1310
+C3 Munit            	vulva               	mina-               	1310
+C4 Bemal            	vulva               	mina-               	1310
+C5 Sihan            	vulva               	mina-               	1310
+C6 Gumalu           	vulva               	mina-               	
+C7 Isebe            	vulva               	mina-               	1310
+C8 Amele            	vulva               	mina-	         	1310
+C9 Bau              	vulva               	mina-               	1310
+C10 Panim           	vulva               	mina-               	1310
+C11 Rapting         	vulva               	bu-                 	1190
+C12 Wamas           	vulva               	bua-                	1190
+C13 Samosa          	vulva               	bu-                 	1190
+C14 Murupi          	vulva               	fu-                 	1190
+C15 Saruga          	vulva               	fu- vlʌːga            	1190
+C16 Nake            	vulva               	ku-                 	
+C17 Mosimo          	vulva               	bu-                 	1190
+C18 Garus           	vulva               	bu-                 	1190
+C19 Yoidik          	vulva               	bu-                 	1190
+C20 Rempi           	vulva               	bu-                 	1190
+C21 Bagupi          	vulva               	fu-                 	1190
+C22 Silopi          	vulva               	fu-                 	1190
+C23 Utu             	vulva               	fu-                 	1190
+C24 Mawan           	vulva               	fu-                 	1190
+C25 Baimak          	vulva               	bia-                	1190
+C26 Matepi          	vulva               	fu-                 	1190
+C27 Gal             	vulva               	fu-                 	1190
+C28 Garuh           	vulva               	se:bu               	
+C29 Kamba           	vulva               	fu-                 	1190

@@ -1,0 +1,30 @@
+C1 Kare    		wet			ži wuma
+C2 Girawa		wet			 
+C3 Munit            	wet                 	baguaru             	1375
+C4 Bemal		wet			ɛnɛw
+C5 Sihan           	wet			waːmɛan
+C6 Gumalu  		wet			dɛhuno
+C7 Isebe            	wet                 	bahu                	1375
+C8 Amele            	wet                 	waʔa                	1375
+C9 Bau              	wet                 	le huʔai               	1375
+C10 Panim		wet			sɛˀɛlɛu
+C11 Rapting          	wet			zeːba
+C12 Wamas   		wet			ži tau
+C13 Samosa      	wet			ži zagura
+C14 Murupi             	wet			ze tamɛu
+C15 Saruga  		wet			botokia(n)-
+C16 Nake            	wet                 	fau                 	1375
+C17 Mosimo          	wet			žɛ ta
+C18 Garus           	wet			luglug
+C19 Yoidik             	wet			žɛːˀpa
+C20 Rempi  		wet			burɛˀ
+C20 Rempi		wet			sasar̃a
+C21 Bagupi          	wet                 	fauro-              	1375
+C22 Silopi     		wet			dɛːntek
+C23 Utu         	wet			zɛːn
+C24 Mawan		wet			lɛha
+C25 Baimak          	wet                 	dɛu                 	1376
+C26 Matepi          	wet                 	lɛh                 	1376
+C27 Gal             	wet                 	lɛh itu             	1376
+C28 Garuh		wet			kabkab
+C29 Kamba 		wet			baurak

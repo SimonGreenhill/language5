@@ -1,0 +1,42 @@
+C1 Kare             	cloud               	sʌ:mba              	
+C1 Kare             	cloud               	sugumbʌba    	 	
+C2 Girawa           	cloud               	omar                	
+C3 Munit            	cloud               	min                 	
+C4 Bemal            	cloud               	amel                	
+C5 Sihan            	cloud		       	ʌba tina	   	1213                
+C6 Gumalu           	cloud               	gugur̃                 	
+C6 Gumalu           	cloud               	hav iasiu           	
+C7 Isebe            	cloud               	hʌb                 	1213
+C7 Isebe            	cloud               	gagʌtu                	
+C8 Amele            	cloud               	sa:w                	               	
+C9 Bau              	cloud               	haᵬ                	1213
+C9 Bau              	cloud               	tain             	
+C10 Panim           	cloud               	hau                 	1213
+C11 Rapting         	cloud               	sap                 	
+C12 Wamas           	cloud               	saᵬe megu          	
+C12 Wamas           	cloud               	-- onʌmo             	
+C13 Samosa          	cloud               	save 
+C13 Samosa		cloud			tʌːgu               	
+C14 Murupi          	cloud               	-- tugatamɛ               	
+C14 Murupi          	cloud               	saba balu           	
+C15 Saruga          	cloud               	save 
+C15 Saruga		cloud			-- tugata               	               
+C16 Nake            	cloud               	ʌ:ᵬ                	1213
+C17 Mosimo          	cloud               	sabe 
+C17 Mosimo		cloud			-- amu               	
+C18 Garus           	cloud               	sep                 	
+C19 Yoidik          	cloud               	sap                 	
+C20 Rempi           	cloud               	sap  
+C20 Rempi		cloud			tim biuk               	
+C21 Bagupi          	cloud               	tok
+C21 Bagupi          	cloud               	wau            	
+C22 Silopi          	cloud               	i:hu
+C22 Silopi          	cloud               	katutu        	
+C23 Utu             	cloud               	ewam                	
+C24 Mawan           	cloud               	rom
+C24 Mawan           	cloud               	romumu            	
+C25 Baimak          	cloud               	ʌ:b                 	1213
+C26 Matepi          	cloud               	fur                 	      	
+C27 Gal             	cloud               	ʌb uhur̃            	1213
+C28 Garuh           	cloud               	hap                 	
+C29 Kamba           	cloud               	sʌᵬ                	1213

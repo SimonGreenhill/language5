@@ -1,0 +1,31 @@
+C1 Kare			light (of fire)		liwika
+C2 Girawa		light (of fire)		dzɛrɛu
+C3 Munit		light (of fire)		un
+C3 Munit		light (of fire)		uːga
+C4 Bemal		light (of fire)		ɛlɛw
+C5 Sihan		light (of fire)		ioˀ
+C6 Gumalu		light (of fire)		
+C7 Isebe		light (of fire)		iyeuni
+C8 Amele		light (of fire)		kowo
+C9 Bau			light (of fire)		iɛˀ
+C10 Panim		light (of fire)		izouˀɛ
+C11 Rapting		light (of fire)		aˀag
+C12 Wamas		light (of fire)		
+C13 Samosa		light (of fire)		
+C14 Murupi		light (of fire)		aru
+C14 Murupi		light (of fire)		dire
+C15 Saruga		light (of fire)		orau
+C16 Nake		light (of fire)		amob
+C17 Mosimo		light (of fire)		luwagu
+C18 Garus		light (of fire)		zalɛˀ
+C19 Yoidik		light (of fire)		mɛːgu
+C20 Rempi		light (of fire)		dididɛ
+C21 Bagupi		light (of fire)		oraum
+C22 Silopi		light (of fire)		
+C23 Utu			light (of fire)		aruto
+C24 Mawan		light (of fire)		ɛup
+C25 Baimak		light (of fire)		ɛmaup
+C26 Matepi		light (of fire)		onup
+C27 Gal			light (of fire)		aup
+C28 Garuh		light (of fire)		ar̃au
+C29 Kamba		light (of fire)		ar

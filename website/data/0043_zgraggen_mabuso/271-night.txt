@@ -1,0 +1,36 @@
+C1 Kare             	night               	anorima             	
+C2 Girawa           	night               	pututu              	
+C3 Munit            	night               	gututu
+C3 Munit            	night               	gu:hume
+C3 Munit            	night               	tuwil	
+C4 Bemal            	night               	umaum               	
+C5 Sihan            	night               	wi:ku               	
+C6 Gumalu           	night               	wimea               	
+C7 Isebe            	night               	tumu:g              	1235
+C8 Amele            	night               	vitiʔ               	
+C8 Amele            	night               	tu                  	1234?
+C9 Bau              	night               	kakatuʔey           	
+C10 Panim           	night               	gafudia             	
+C11 Rapting         	night               	tumʌg               	1235
+C12 Wamas           	night               	tumahimou           	1235
+C13 Samosa          	night               	dotaga
+C13 Samosa          	night               	donou       	
+C14 Murupi          	night               	utu heu             	
+C15 Saruga          	night               	oto mʌ:gu           	
+C16 Nake            	night               	ɔtu
+C16 Nake            	night               	gatitu         	
+C17 Mosimo          	night               	tuhmahmou           	1235
+C18 Garus           	night               	tiro:m              	
+C19 Yoidik          	night               	tokando             	
+C20 Rempi           	night               	tarɔ                	
+C21 Bagupi          	night               	otu sem             	
+C22 Silopi          	night               	tupʌna              	1234
+C23 Utu             	night               	evosom              	
+C24 Mawan           	night               	abuia               	
+C25 Baimak          	night               	kakatu
+C25 Baimak          	night               	abuide      	
+C26 Matepi          	night               	tupʌna              	1234
+C27 Gal             	night               	esiei               	
+C28 Garuh           	night               	suban               	
+C28 Garuh           	night               	tuqan               	1234?
+C29 Kamba           	night               	tupʌn mane          	1234

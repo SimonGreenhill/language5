@@ -1,0 +1,30 @@
+C1 Kare			empty			thamʌnden
+C2 Girawa		empty			usʌˀ
+C3 Munit		empty
+C4 Bemal		empty			sʌːg
+C5 Sihan		empty			beːˀye
+C6 Gumalu		empty			gaulbira
+C7 Isebe		empty			nibɛ
+C8 Amele		empty			danʌˀ
+C9 Bau			empty			kaulpil-
+C10 Panim		empty			utʌm
+C11 Rapting		empty			seidʌr
+C12 Wamas		empty			saita
+C13 Samosa		empty			saida
+C14 Murupi		empty			hai dʌram
+C15 Saruga		empty			sai da-
+C16 Nake		empty			agaru
+C16 Nake		empty			irʌ
+C17 Mosimo		empty			haida
+C18 Garus		empty			seiˀ
+C19 Yoidik		empty			tamdaem
+C20 Rempi		empty			suman
+C21 Bagupi		empty			agulu
+C22 Silopi          	empty               	tonogom             	1371
+C23 Utu             	empty               	tonogu-             	1371
+C24 Mawan		empty			gaur-
+C25 Baimak		empty			nubiti
+C26 Matepi		empty			bitug
+C27 Gal             	empty               	tanag               	1371
+C28 Garuh		empty			hamudidio
+C29 Kamba		empty			tʌgu

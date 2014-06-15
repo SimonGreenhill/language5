@@ -1,0 +1,29 @@
+C1 Kare             	bow                 	e:raw               	
+C2 Girawa           	bow                 	pʰuri               	
+C3 Munit            	bow                 	paraʔu              	
+C4 Bemal            	bow                 	kem                 	
+C5 Sihan            	bow                 	pari                	
+C6 Gumalu           	bow                 	bali                	
+C7 Isebe            	bow                 	bari                	
+C8 Amele            	bow                 	pali                	
+C9 Bau              	bow                 	pari                	
+C10 Panim           	bow                 	bali                	
+C11 Rapting         	bow                 	zit                 	1435
+C12 Wamas           	bow                 	ǰehine             	1435
+C13 Samosa          	bow                 	zesine              	1435
+C14 Murupi          	bow                 	zehina              	1435
+C15 Saruga          	bow                 	zeina               	1435
+C16 Nake            	bow                 	   žʌt                	1435
+C17 Mosimo          	bow                 	yihini              	1435
+C18 Garus           	bow                 	žit                	1435
+C19 Yoidik          	bow                 	žit                	1435
+C20 Rempi           	bow                 	zait                	1435
+C21 Bagupi          	bow                 	žʌt                	1435
+C22 Silopi          	bow                 	dein                	1435
+C23 Utu             	bow                 	že:in              	1435
+C24 Mawan           	bow                 	re:ina              	1435
+C25 Baimak          	bow                 	rein                	1435
+C26 Matepi          	bow                 	lein                	1435
+C27 Gal             	bow                 	lein                	1435
+C28 Garuh           	bow                 	lat                 	1435
+C29 Kamba           	bow                 	lesen               	1435

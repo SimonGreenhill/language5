@@ -1,0 +1,30 @@
+C1 Kare			sago			biɛːwa
+C2 Girawa           	sago                	amap	         	1330
+C2 Girawa		sago			amoum
+C3 Munit            	sago                	ama                 	1330
+C4 Bemal            	sago                	amam                	1330
+C5 Sihan            	sago                	ama                 	1330
+C6 Gumalu		sago			amam
+C7 Isebe            	sago                	ama                 	1330
+C8 Amele            	sago                	ʔamaʔ               	1330
+C9 Bau              	sago                	ama:                	1330
+C10 Panim		sago			amaʌː			1330
+C11 Rapting		sago			dul
+C12 Wamas           	sago                	mbo:b 
+C13 Samosa		sago			beu              	
+C14 Murupi          	sago                	bopi                	
+C15 Saruga          	sago                	bo:pi               	
+C16 Nake            	sago                	bop                 	
+C17 Mosimo          	sago                	bobi                	
+C18 Garus           	sago                	bom                 	
+C19 Yoidik          	sago                	bo:m                	
+C20 Rempi           	sago                	bom                 	
+C21 Bagupi          	sago                	bo:p                	
+C22 Silopi          	sago                	amag                	1330
+C23 Utu             	sago                	amak                	1330
+C24 Mawan           	sago                	amak                	1330
+C25 Baimak          	sago                	amau                	1330
+C26 Matepi		sago			bɛr̃iv
+C27 Gal			sago			fɛm
+C28 Garuh           	sago                	bom   
+C29 Kamba		sago			fæm              	

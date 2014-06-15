@@ -1,0 +1,34 @@
+C1 Kare             	arrow               	uŋgiʌra             	
+C2 Girawa           	arrow               	aʔir                	
+C3 Munit            	arrow               	haŋgʌ:r             	
+C4 Bemal            	arrow               	hagal               	
+C5 Sihan            	arrow               	ikir
+C5 Sihan            	arrow               	pʌ:r          	
+C6 Gumalu           	arrow               	igir                	
+C7 Isebe            	arrow               	igil                	
+C8 Amele		arrow			kamat
+C9 Bau              	arrow               	ikil                	
+C10 Panim		arrow			gagʌd
+C11 Rapting         	arrow               	dagay               	1348
+C12 Wamas           	arrow               	ʌ:gri
+C12 Wamas           	arrow               	pʌri sama    	
+C13 Samosa          	arrow               	agri                	
+C14 Murupi          	arrow               	ʌgili               	
+C15 Saruga          	arrow               	aguru               	
+C16 Nake            	arrow               	yʌ:ru               	
+C17 Mosimo          	arrow               	a:gli
+C17 Mosimo          	arrow               	bali         	
+C18 Garus		arrow			tagʌ
+C19 Yoidik          	arrow               	dagai               	1348
+C20 Rempi           	arrow               	daga                	1348
+C21 Bagupi          	arrow               	ʌ:gur               	
+C22 Silopi          	arrow               	ʌgurʌg
+C22 Silopi          	arrow               	pʌr masʌn   	
+C23 Utu             	arrow               	agur
+C23 Utu             	arrow               	par           	
+C24 Mawan           	arrow               	ʌ:guri              	
+C25 Baimak          	arrow               	igir                	
+C26 Matepi          	arrow               	agur                	
+C27 Gal             	arrow               	hagur               	
+C28 Garuh           	arrow               	dakal               	1348
+C29 Kamba           	arrow               	dagal               	1348

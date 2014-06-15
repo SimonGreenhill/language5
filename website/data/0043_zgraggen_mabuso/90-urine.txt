@@ -1,0 +1,32 @@
+C1 Kare             	urine               	iβa                 	
+C1 Kare             	urine               	iva                 	1187?
+C2 Girawa           	urine               	si                  	1187
+C3 Munit            	urine               	suã                 	1187
+C4 Bemal            	urine               	sipa-               	1187
+C5 Sihan            	urine               	heva-               	1187
+C6 Gumalu           	urine               	yafou               	
+C7 Isebe            	urine               	sifadow             	1187
+C8 Amele            	urine               	yahoʔ               	1430?
+C8 Amele            	urine               	zahɔʔ               	
+C9 Bau              	urine               	yafe                	1430
+C10 Panim           	urine               	siwad-              	
+C11 Rapting         	urine               	solan               	
+C12 Wamas           	urine               	dze                 	1414
+C13 Samosa          	urine               	se:gu               	
+C14 Murupi          	urine               	zɛ                  	1414
+C15 Saruga          	urine               	zeipa               	
+C16 Nake            	urine               	sor                 	
+C17 Mosimo          	urine               	ze                  	
+C18 Garus           	urine               	salol               	
+C19 Yoidik          	urine               	salole-             	
+C20 Rempi           	urine               	silol               	
+C21 Bagupi          	urine               	deip                	1414
+C22 Silopi          	urine               	deip                	1414
+C23 Utu             	urine               	xeip                	?
+C23 Utu             	urine               	zeip                	1414
+C24 Mawan           	urine               	reip                	1414
+C25 Baimak          	urine               	sire                	1186
+C26 Matepi          	urine               	leip                	1414
+C27 Gal             	urine               	seserem             	
+C28 Garuh           	urine               	hibr̃u-             	1474
+C29 Kamba           	urine               	sufura-              	1474

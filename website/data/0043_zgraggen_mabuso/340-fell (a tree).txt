@@ -1,0 +1,31 @@
+C1 Kare             	fell (tree)         	o-                  	1400
+C2 Girawa		fell (tree)		totɛ-
+C3 Munit		fell (tree)		hã ˀu-
+C4 Bemal		fell (tree)		ka-
+C5 Sihan		fell (tree)		uːʌtɛ-
+C6 Gumalu		fell (tree)		o-			1400
+C7 Isebe            	fell (tree)         	ʔo-                 	1400
+C8 Amele		fell (tree)		oto-
+C9 Bau              	fell (tree)         	o-                  	1400
+C9 Bau			fell (tree)		bɛt-
+C10 Panim		fell (tree)		koukid-
+C11 Rapting         	fell (tree)         	o-                  	1400
+C12 Wamas           	fell (tree)         	ko-                 	1400
+C13 Samosa          	fell (tree)         	ko-                 	1400
+C14 Murupi          	fell (tree)         	o-                  	1400
+C15 Saruga          	fell (tree)         	o-                  	1400
+C16 Nake            	fell (tree)         	o-                  	1400
+C17 Mosimo		fell (tree)		katul-
+C18 Garus           	fell (tree)         	ʔo-                 	1400
+C19 Yoidik		fell (tree)		tʌr̃-
+C20 Rempi           	fell (tree)         	ɔ-                  	1400
+C20 Rempi		fell (tree)		utar-
+C21 Bagupi          	fell (tree)         	o-                  	1400
+C22 Silopi          	fell (tree)         	o-                  	1400
+C23 Utu             	fell (tree)         	ʔo-                 	1400
+C24 Mawan           	fell (tree)         	o-                  	1400
+C25 Baimak          	fell (tree)         	o-                  	1400
+C26 Matepi          	fell (tree)         	ow-                 	1400
+C27 Gal             	fell (tree)         	o-                  	1400
+C28 Garuh           	fell (tree)         	u-                  	1400
+C29 Kamba           	fell (tree)         	kwa-                	1400

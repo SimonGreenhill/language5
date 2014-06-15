@@ -1,0 +1,30 @@
+C1 Kare			potato		ʌgigi
+C2 Girawa		potato		ˀupi
+C3 Munit		potato		kubia
+C4 Bemal		potato		kubi
+C5 Sihan		potato		kubi
+C6 Gumalu		potato		wagigʌi
+C7 Isebe		potato		dorˀo
+C8 Amele		potato		
+C9 Bau			potato		
+C10 Panim		potato		gog
+C11 Rapting		potato		soŋgal
+C12 Wamas		potato		wagik
+C13 Samosa		potato		vagig
+C14 Murupi		potato		vagigi
+C15 Saruga		potato		vagigi
+C16 Nake		potato		tonom
+C16 Nake		potato		wagigik
+C17 Mosimo		potato		agigi
+C18 Garus		potato		soŋgʌl
+C19 Yoidik		potato		sarembʌt
+C20 Rempi		potato		soŋgɛl
+C21 Bagupi		potato		tonom
+C22 Silopi		potato		
+C23 Utu			potato		kuːvia
+C24 Mawan		potato		vahige
+C25 Baimak		potato		wagigay
+C26 Matepi		potato		wagigi
+C27 Gal			potato		kaukau
+C28 Garuh		potato		sonom
+C29 Kamba		potato		duræka

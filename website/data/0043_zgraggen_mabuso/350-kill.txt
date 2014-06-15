@@ -1,0 +1,32 @@
+C1 Kare             	kill                	muŋg-               	
+C2 Girawa           	kill                	we-                 	1404?
+C2 Girawa           	kill                	be-                 	
+C3 Munit            	kill                	kwe-                	
+C4 Bemal            	kill                	ʔwe-                	1404
+C5 Sihan            	kill                	be-                 	1404
+C6 Gumalu           	kill                	be-                 	
+C7 Isebe            	kill                	bi-                 	
+C8 Amele            	kill                	po-                 	
+C9 Bau              	kill                	be-                 	1404
+C10 Panim           	kill                	be-                 	1404
+C11 Rapting         	kill                	duʔug o-            	
+C12 Wamas           	kill                	marare ma-          	
+C13 Samosa          	kill                	mura-               	
+C14 Murupi          	kill                	mura-               	
+C15 Saruga          	kill                	pe-                 	
+C16 Nake            	kill                	dua-                	
+C17 Mosimo          	kill                	mora-               	
+C18 Garus           	kill                	uhil-               	
+C19 Yoidik          	kill                	po-                 	1404
+C20 Rempi           	kill                	bɛ-                 	1404
+C21 Bagupi          	kill                	pe-                 	1404
+C22 Silopi          	kill                	po-                 	
+C23 Utu             	kill                	kwo-                	
+C24 Mawan           	kill                	kwe-                	
+C25 Baimak          	kill                	be-      
+C25 Baimak		kill			tug ako-           	
+C26 Matepi          	kill                	pim-	         	1404?
+C26 Matepi          	kill                	pa-                 	
+C27 Gal             	kill                	pe-                 	1404
+C28 Garuh           	kill                	dugu-               	
+C29 Kamba           	kill                	p-                  	1404

@@ -1,0 +1,87 @@
+C1 Kare             	P:3S                	-ba                 	1274
+C1 Kare             	P:3S                	-a
+C1 Kare             	P:3S                	-0̸
+C1 Kare             	P:3S                	-uŋga               	1275
+C2 Girawa           	P:3S                	-k                  	1275
+C2 Girawa           	P:3S                	-ʔ
+C2 Girawa           	P:3S                	-w
+C3 Munit            	P:3S                	-g                  	1275
+C3 Munit            	P:3S                	-ʔ                  	1275
+C3 Munit            	P:3S                	-0̸
+C3 Munit            	P:3S                	-u
+C4 Bemal            	P:3S                	-b                  	1274
+C4 Bemal            	P:3S                	-(a)g               	1275
+C4 Bemal            	P:3S                	-0̸                  	1275
+C5 Sihan            	P:3S                	-ʔ                  	1275
+C5 Sihan            	P:3S                	-ku                 	1275
+C5 Sihan            	P:3S                	-ba                 	1274
+C5 Sihan            	P:3S                	-0̸
+C6 Gumalu            	P:3S                	-(V)g
+C6 Gumalu            	P:3S                	-w
+C7 Isebe            	P:3S                	-f                  	1274
+C7 Isebe            	P:3S                	-u
+C7 Isebe            	P:3S                	-0̸
+C7 Isebe            	P:3S                	-ag                 	1275
+C8 Amele            	P:3S                	-ak
+C8 Amele            	P:3S                	-(i)g               	1275
+C9 Bau              	P:3S                	-f                  	1274
+C9 Bau              	P:3S                	-n
+C9 Bau              	P:3S                	-u
+C9 Bau              	P:3S                	-0̸
+C9 Bau              	P:3S                	-(V)k               	1275
+C10 Panim           	P:3S                	-0̸
+C10 Panim           	P:3S                	-u
+C10 Panim           	P:3S                	-(V)g               	1275
+C10 Panim           	P:3S                	-f                  	1274
+C11 Rapting         	P:3S                	-Vg                 	1275
+C11 Rapting         	P:3S                	-u
+C11 Rapting         	P:3S                	-0̸
+C12 Wamas           	P:3S                	-Vg                 	1275
+C12 Wamas           	P:3S                	-u
+C12 Wamas           	P:3S                	-0̸
+C13 Samosa          	P:3S                	-ogu
+C13 Samosa          	P:3S                	-g                  	1275
+C13 Samosa          	P:3S                	-0̸
+C14 Murupi          	P:3S                	-(u)gu              	1275
+C14 Murupi          	P:3S                	-0̸
+C15 Saruga          	P:3S                	-ag                 	1275
+C15 Saruga          	P:3S                	-gu
+C15 Saruga          	P:3S                	-0̸
+C16 Nake            	P:3S                	-ag                 	1275
+C16 Nake            	P:3S                	-y
+C16 Nake            	P:3S                	-0̸
+C17 Mosimo          	P:3S                	-0̸
+C17 Mosimo          	P:3S                	-ugu                	1275
+C17 Mosimo          	P:3S                	-ɛ
+C18 Garus           	P:3S                	-Vʔ                 	
+C18 Garus           	P:3S                	-Vk                 	1275
+C18 Garus           	P:3S                	-0̸                  	
+C19 Yoidik          	P:3S                	-k                  	1275
+C19 Yoidik          	P:3S                	-ʔ                  	1275
+C20 Rempi           	P:3S                	-(V)k               	1275
+C20 Rempi           	P:3S                	-i
+C20 Rempi           	P:3S                	-0̸
+C21 Bagupi          	P:3S                	-Vg                 	1275
+C21 Bagupi          	P:3S                	-0̸
+C22 Silopi          	P:3S                	-ga                 	1275
+C22 Silopi          	P:3S                	-u
+C22 Silopi          	P:3S                	-0̸
+C23 Utu             	P:3S                	-k                  	1275
+C23 Utu             	P:3S                	-ag                 	1275
+C23 Utu             	P:3S                	-n                  	
+C23 Utu             	P:3S                	-0̸                  	
+C24 Mawan           	P:3S                	-ag                 	1275
+C25 Baimak          	P:3S                	-f                  	1274
+C25 Baimak          	P:3S                	-Vk                 	1275
+C25 Baimak          	P:3S                	-0̸
+C26 Matepi          	P:3S                	-(u)g               	1275
+C26 Matepi          	P:3S                	-0̸
+C27 Gal             	P:3S                	-Vg                 	1275
+C27 Gal             	P:3S                	-0̸
+C28 Garuh           	P:3S                	-uk                 	1275
+C28 Garuh           	P:3S                	-u                  	1274
+C28 Garuh           	P:3S                	-p
+C28 Garuh           	P:3S                	-0̸                  	1274
+C29 Kamba           	P:3S                	-(V)g               	1275
+C29 Kamba           	P:3S                	-f                  	
+C29 Kamba           	P:3S                	-0̸                  	

@@ -1,0 +1,31 @@
+C1 Kare             	sweat               	wʌ:ra               	
+C2 Girawa           	sweat               	mui                 	
+C2 Girawa           	sweat               	musas         	 	1433?
+C3 Munit            	sweat               	eri-                	
+C4 Bemal		sweat			sibigɛl
+C5 Sihan            	sweat               	eriʔ                	
+C6 Gumalu           	sweat               	muhuri-             	
+C7 Isebe            	sweat               	muhulu-              	1433
+C8 Amele            	sweat               	musul               	1433
+C9 Bau              	sweat               	muhur               	1433
+C10 Panim           	sweat               	muhul               	1433
+C11 Rapting         	sweat               	misul               	1433
+C12 Wamas           	sweat               	mi:li               	1433
+C13 Samosa          	sweat               	miri                	1433
+C14 Murupi          	sweat               	mihulu              	1433
+C15 Saruga          	sweat               	mi:lu               	1433
+C16 Nake            	sweat               	mihur               	1433
+C17 Mosimo          	sweat               	mili                	1433
+C18 Garus           	sweat               	misul               	1433
+C19 Yoidik          	sweat               	milu-                	1433
+C20 Rempi           	sweat               	milu-                	1433
+C21 Bagupi          	sweat               	mihur               	1433
+C22 Silopi          	sweat               	eri                 	
+C23 Utu             	sweat               	eri                 	
+C24 Mawan           	sweat               	eri                 	
+C25 Baimak          	sweat               	mul-                 	1433
+C26 Matepi          	sweat               	eri-                	
+C27 Gal			sweat			saisaʰ
+C28 Garuh           	sweat               	hir̃i               	
+C29 Kamba           	sweat               	zeri                	
+

@@ -1,0 +1,31 @@
+C1 Kare             	big                 	mi:gi               	1366
+C2 Girawa           	big                 	mɛwɛo               	1366
+C3 Munit		big			bɛlɛp
+C4 Bemal            	big                 	bano                	1225
+C5 Sihan            	big                 	be:non              	1225
+C6 Gumalu           	big                 	penota              	
+C7 Isebe            	big                 	be:n                	1225
+C8 Amele            	big                 	pe:n                	
+C8 Amele            	big                 	ben                 	1225?
+C9 Bau              	big                 	be:n                	1225
+C10 Panim           	big                 	ben                 	1225
+C10 Panim           	big                 	mu                  	1366
+C11 Rapting		big			wogay
+C12 Wamas           	big                 	mɛ                  	1366
+C13 Samosa          	big                 	mɛ                  	1366
+C14 Murupi          	big                 	ɛmɛ                 	1366
+C15 Saruga          	big                 	ɛmɛ                 	1366
+C16 Nake            	big                 	eme                 	1366
+C17 Mosimo		big			mɛtakʌi
+C18 Garus		big			busaˀ
+C19 Yoidik		big			busaˀ
+C20 Rempi		big			ayauk
+C21 Bagupi          	big                 	ɛmɛ                 	1366
+C22 Silopi          	big                 	ma:na               	1366
+C23 Utu             	big                 	nɛna                	1366
+C24 Mawan           	big                 	m´                  	1366
+C25 Baimak          	big                 	mɛ:u                	1366
+C26 Matepi          	big                 	mɛ                  	1366
+C27 Gal			big			inʌn
+C28 Garuh		big			naːr̃iv
+C29 Kamba		big			nʌri

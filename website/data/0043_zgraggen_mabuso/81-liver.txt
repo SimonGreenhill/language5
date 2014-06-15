@@ -1,0 +1,28 @@
+C1 Kare             	liver               	koura               	
+C2 Girawa           	liver               	bau- au             	
+C3 Munit            	liver               	uru-                	
+C4 Bemal            	liver               	bahu-               	
+C5 Sihan            	liver               	kema-               	1184
+C6 Gumalu           	liver               	gemʌ-               	
+C7 Isebe            	liver               	
+C8 Amele            	liver               	gema-               	1184
+C9 Bau              	liver               	kema-               	1184
+C10 Panim           	liver               	gemʌ-               	1184
+C12 Wamas           	liver               	game-               	1184
+C13 Samosa          	liver               	gʌme-               	1184
+C14 Murupi          	liver               	gʌm-                	1184
+C15 Saruga          	liver               	gam-                	1184
+C16 Nake            	liver               	gam-                	1184
+C17 Mosimo          	liver               	gami-               	1184
+C18 Garus           	liver               	game-               	1184
+C19 Yoidik          	liver               	ulu-                	
+C20 Rempi           	liver               	gʌma-               	1184
+C21 Bagupi          	liver               	geme-               	1184
+C22 Silopi          	liver               	kemu-               	1184
+C23 Utu             	liver               	gemu- 		       	1184             
+C24 Mawan           	liver               	ga-                 	
+C25 Baimak          	liver               	ulu- a:uk           	
+C26 Matepi          	liver               	uru aug             	
+C27 Gal             	liver               	gami-               	1184
+C28 Garuh           	liver               	gama-               	
+C29 Kamba           	liver               	kuru- gagrag        	

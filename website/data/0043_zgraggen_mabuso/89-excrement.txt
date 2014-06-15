@@ -1,0 +1,31 @@
+C3 Munit            	(intestines)        	bi:            		1301
+C5 Sihan            	(intestines)        	bi:            		1301
+C7 Isebe            	(intestines)        	biyu             	1301
+C10 Panim           	(intestines)        	bi(ad)        		1301
+C24 Mawan           	(intestines)        	bi:                	1301
+
+C1 Kare             	faeces, intestines, urine	si             	1186
+C2 Girawa           	faeces, intestines  	pi                  	1301
+C4 Bemal            	faeces, intestines  	bi-                 	1301
+C6 Gumalu		excrement		pi-
+C8 Amele            	faeces, intestines  	buye-               	1301
+C9 Bau              	faeces, intestines  	pi                  	1301
+C11 Rapting         	faeces, intestines  	bi                  	1301
+C12 Wamas           	faeces, intestines  	si                  	1186
+C13 Samosa          	faeces, intestines  	si                  	1186
+C14 Murupi          	faeces, intestines  	si                  	1186
+C15 Saruga          	faeces, intestines  	si:                 	1186
+C16 Nake            	faeces, intestines  	si                  	1186
+C17 Mosimo          	faeces, intestines  	si                  	1186
+C18 Garus           	faeces, intestines  	bi:                 	1301
+C19 Yoidik          	faeces, intestines  	bi                  	1301
+C20 Rempi           	faeces, intestines  	bi                  	1301
+C21 Bagupi          	faeces, intestines  	si:                 	1186
+C22 Silopi          	faeces, intestines  	si:                 	1186
+C23 Utu             	faeces, intestines  	si                  	1186
+C25 Baimak          	faeces, intestines  	bi:                 	1301
+C26 Matepi          	faeces, intestines  	si                  	1186
+C27 Gal             	faeces, intestines  	bi                  	1301
+C28 Garuh		excrement		bi-
+C29 Kamba           	faeces, intestines  	bi                  	1301
+

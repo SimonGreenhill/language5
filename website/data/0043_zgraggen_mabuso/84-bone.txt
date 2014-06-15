@@ -1,0 +1,29 @@
+C1 Kare             	bone                	pasa:ga             	1452
+C2 Girawa		bone			isuˀau
+C3 Munit		bone			ho-
+C4 Bemal            	bone                	pahi-               	1452
+C5 Sihan            	bone                	efai-               	1452
+C6 Gumalu		bone			pɛhiri-
+C7 Isebe            	bone                	behili-             	1439
+C8 Amele            	bone                	teful               	1496
+C9 Bau              	bone                	fehili-             	1439
+C10 Panim           	bone                	tefulu-             	1496
+C11 Rapting         	bone                	pasi-               	1452
+C12 Wamas           	bone                	fahulu-             	1439
+C13 Samosa          	bone                	faso                	1452
+C14 Murupi          	bone                	wahi-               	1452
+C15 Saruga          	bone                	epe-                	1452
+C16 Nake            	bone                	epe-                	1452
+C17 Mosimo          	bone                	fahul-              	1439
+C18 Garus           	bone                	pasi-               	1452
+C19 Yoidik          	bone                	pasi-               	1452
+C20 Rempi           	bone                	pasi-               	1452
+C21 Bagupi          	bone                	epe-                	1452
+C22 Silopi          	bone                	epe-                	1452
+C23 Utu             	bone                	epe-                	1452
+C24 Mawan           	bone                	epe-                	1452
+C25 Baimak          	bone                	epay-               	1452
+C26 Matepi          	bone                	epe-                	1452
+C27 Gal             	bone                	epe-                	1452
+C28 Garuh           	bone                	ivi-                	1452
+C29 Kamba           	bone                	kefsi-              	1452

@@ -1,0 +1,29 @@
+C1 Kare			who			ɛwama
+C2 Girawa           	who                 	inoˀ                	
+C3 Munit            	who                 	ine                 	
+C4 Bemal            	who                 	i:n                 	1231
+C5 Sihan            	who                 	i:n(e)              	1231
+C6 Gumalu           	who                 	i:n                 	
+C7 Isebe            	who                 	i:ne                	1231
+C8 Amele            	who                 	in                  	1231
+C9 Bau              	who                 	i:n                 	1231
+C10 Panim           	who                 	in                  	1231
+C11 Rapting         	who                 	ven                 	1415
+C12 Wamas           	who                 	wene                	1415
+C13 Samosa          	who                 	vəne                	1415
+C14 Murupi          	who                 	wena                	1415
+C15 Saruga          	who                 	vani                	1415
+C16 Nake            	who                 	ven                 	1415
+C17 Mosimo          	who                 	wene                	1415
+C18 Garus           	who                 	ven                 	1415
+C19 Yoidik          	who                 	wæn                 	1415
+C20 Rempi           	who                 	wen                 	1415
+C21 Bagupi          	who                 	won                 	1415
+C22 Silopi          	who                 	ven                 	1415
+C23 Utu             	who                 	veni                	1415
+C24 Mawan           	who                 	ven                 	1415
+C25 Baimak          	who                 	ven                 	1415
+C26 Matepi          	who                 	ven                 	1415
+C27 Gal             	who                 	wen                 	1415
+C28 Garuh           	who                 	aun                 	1415
+C29 Kamba		who			aun			1415

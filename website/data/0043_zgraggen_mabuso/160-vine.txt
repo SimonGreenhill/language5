@@ -1,0 +1,30 @@
+C1 Kare             	vine                	miʌa  
+C2 Girawa		vine		              	
+C3 Munit            	vine                	muri                	
+C3 Munit            	vine                	sawar               	1340
+C5 Sihan            	vine                	saval               	1340
+C6 Gumalu           	vine                	savʌl               	
+C7 Isebe            	vine                	mʌr                 	
+C8 Amele            	vine                	halu                	1340
+C9 Bau              	vine                	maʔar               	
+C10 Panim           	vine                	dadal               	1340
+C11 Rapting         	vine                	muil                	
+C12 Wamas           	vine                	muri                	
+C13 Samosa          	vine                	muri                	
+C14 Murupi          	vine                	muri
+C14 Murupi		vine			uma                	
+C15 Saruga          	vine                	muri                	
+C16 Nake            	vine                	muri                	
+C17 Mosimo          	vine                	muli                	
+C18 Garus           	vine                	mul i                	
+C19 Yoidik          	vine                	mul i               	
+C20 Rempi           	vine                	mul i               	
+C21 Bagupi          	vine                	muli                	
+C22 Silopi          	vine                	muri                	
+C23 Utu             	vine                	muri                	
+C24 Mawan           	vine                	muri                	
+C25 Baimak          	vine                	muri                	
+C26 Matepi          	vine                	muri                	
+C27 Gal             	vine                	muri                	
+C28 Garuh           	vine                	muri                	
+C29 Kamba           	vine                	darar               	1340

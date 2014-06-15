@@ -1,0 +1,30 @@
+C1 Kare			loincloth		kiburandʌːru
+C2 Girawa		loincloth		pɛːm
+C3 Munit            	loincloth           	doton               	1360
+C4 Bemal            	loincloth           	doton               	1360
+C5 Sihan            	loincloth           	doton               	1360
+C6 Gumalu		loincloth		loto			1431
+C7 Isebe            	loincloth           	yoto                	1431
+C8 Amele            	loincloth           	lotoʔ               	1431
+C9 Bau              	loincloth           	loto                	1431
+C10 Panim           	loincloth           	zamɛl               	1361
+C11 Rapting         	loincloth           	zamɛl               	1361
+C12 Wamas		loincloth		tibur gʌra
+C13 Samosa		loincloth		tivur gʌra
+C14 Murupi		loincloth		tibur̃ garʌwu
+C15 Saruga		loincloth		tiwur gara
+C16 Nake		loincloth		tibur gare
+C16 Nake		loincloth		namɛl
+C17 Mosimo		loincloth		tibur gʌra
+C18 Garus           	loincloth           	zamɛl               	1361
+C19 Yoidik          	loincloth           	yamɛl               	1361
+C20 Rempi		loincloth		tibut gar̃a
+C21 Bagupi		loincloth		tiwur garɛn
+C22 Silopi		loincloth		tibur kara
+C23 Utu			loincloth		tiwur gara
+C24 Mawan           	loincloth           	ro:to               	1431
+C25 Baimak          	loincloth           	loto                	1431
+C26 Matepi		loincloth		
+C27 Gal             	loincloth           	lamɛn               	1361
+C28 Garuh		loincloth		sibut garau
+C29 Kamba           	loincloth           	lamɛl               	1361

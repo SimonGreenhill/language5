@@ -1,0 +1,31 @@
+C1 Kare             	fruit               	o:gʌ                	
+C1 Kare             	fruit               	o:gu                	1333?
+C2 Girawa           	fruit               	nemau               	
+C3 Munit            	fruit               	ma:g                	1204
+C3 Munit            	fruit               	agu                 	1333
+C4 Bemal            	fruit               	da:b                	
+C5 Sihan            	fruit               	aiʔ                 	
+C6 Gumalu           	fruit               	iu                  	
+C7 Isebe            	fruit               	aig                 	1333
+C8 Amele            	fruit               	aig                 	1333
+C9 Bau              	fruit               	i:                  	
+C10 Panim           	fruit               	aik                 	1333
+C11 Rapting         	fruit               	aʔak                	1333
+C12 Wamas           	fruit               	ʌ:gu                	1333
+C13 Samosa          	fruit               	agogu               	1333
+C14 Murupi          	fruit               	aʔʌgu               	1333
+C15 Saruga          	fruit               	augu                	1333
+C16 Nake            	fruit               	auk                 	1333
+C17 Mosimo          	fruit               	ʌ:gu                	1333
+C18 Garus           	fruit               	nagei               	
+C19 Yoidik          	fruit               	ʌga                 	1333
+C20 Rempi           	fruit               	auk                 	1333
+C21 Bagupi          	fruit               	aug                 	1333
+C22 Silopi          	fruit               	aug                 	1333
+C23 Utu             	fruit               	auk                 	1333
+C24 Mawan           	fruit               	aug                 	1333
+C25 Baimak          	fruit               	aug                 	1333
+C26 Matepi          	fruit               	aug                 	1333
+C27 Gal             	fruit               	aug                 	1333
+C28 Garuh           	fruit               	dur̃u               	
+C29 Kamba           	fruit               	mou                 	1204
