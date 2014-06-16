@@ -13,7 +13,7 @@ from synonyms import SYNONYMS, find_synonym
 DIRNAME = os.path.join(os.environ['IMPORTER_DATAROOT'], '0043_zgraggen_mabuso')
 REFERENCE = "Z'graggen, J.A., 1980. A comparative word list of the Mabuso Languages, Madang Province, Papua New Guinea, Canberra: Pacific Linguistics."
 
-IS_DIGIT = re.compile(r"\d\d+")
+IS_DIGIT = re.compile(r"\d{1-4}+")
 
 # Specific synonyms for this dataset
 SYNONYMS.update({
@@ -30,15 +30,15 @@ SYNONYMS.update({
     'calf-of-leg': 'calf',
     'to-chop-cut-down': 'to-chop',
     'I-1st-person-singular': 'i',
-    'thou-free-D:2S': 'you',
-    'he-free-D:3S-': 'he-she',
-    'he-free-D:3S': 'he-she',
+    'thou-free-D2S': 'you',
+    'he-free-D3S-': 'he-she',
+    'he-free-D3S': 'he-she',
     'we-two-free': 'we-dual',
-    'we-free-D:1P': 'we',
+    'we-free-D1P': 'we',
     'you-two-free': 'you-dual',
-    'ye-free-D:2P': 'you-pl',
+    'ye-free-D2P': 'you-pl',
     'they-two-free': 'they-dual',
-    'they-free-D:3P': 'they',
+    'they-free-D3P': 'they',
     'fight-hit': 'to-fight',
     'tie': 'to-tie',
     'fasten': 'to-fasten',
@@ -47,20 +47,20 @@ SYNONYMS.update({
     'axe-iron': 'axe-iron',
     
     # VO / o
-    'O:1S-VerbalObject': 'me',
-    'thou-VO-O:2S': 'you-o2s',
-    'he-VO-O:3S': 'him-her-it',
-    'we-VO-O:1P': 'us',
+    'O1S-VerbalObject': 'me',
+    'thou-VO-O2S': 'you-o2s',
+    'he-VO-O3S': 'him-her-it',
+    'we-VO-O1P': 'us',
     'we-two-vo': 'us-two',
     'you-two-vo': 'you-pl-dual-o2p',
     'ye-VO': 'you-pl-o2p',
     'they-two-vo': 'them-dual',
-    'they-VO-O:3P': 'them',
+    'they-VO-O3P': 'them',
        
      # P
-     'I-gen-P:1S': 'my',
-     'thou-genitive-P:2S': 'your-sg',
-     'he-gen-P:3S': 'his',
+     'I-gen-P1S': 'my',
+     'thou-genitive-P2S': 'your-sg',
+     'he-gen-P3S': 'his',
     
      'we-gen': 'our',
      'we-two-gen': 'our-dual',
@@ -69,7 +69,7 @@ SYNONYMS.update({
      'you-two-gen': 'your-pl-dual',
     
      'they-two-gen': 'their-dual',
-     'they-gen-P:3P': 'their',
+     'they-gen-P3P': 'their',
      
         
 })
@@ -267,7 +267,7 @@ for filename in get_filenames(DIRNAME):
 
 
 # Handle cognates
-cog_counter = 0
+cog_counter, cset_counter = 0, 0
 for key in cognates:
     cogid, WObj = key
     # TODO: get_or_create lookup cognate with MDR <XX>
@@ -284,6 +284,7 @@ for key in cognates:
             editor=ed
         )
         CogSet.save()
+        cset_counter += 1
         print("Created CognateSet obj %d: %s" % (CogSet.id, CogSet.comment))
         
     for m in cognates[key]:
@@ -292,3 +293,9 @@ for key in cognates:
         cog_counter += 1
         print(" %5d: %s << %s" % (cog_counter, CogSet, m))
         
+        
+print("\n\n")
+print("========================================")
+print("Created %d Lexical Items" % lex_counter)
+print("Created %d Cognate Sets" % cset_counter)
+print("Created %d Cognates" % cog_counter)
