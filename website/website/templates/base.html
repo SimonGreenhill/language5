@@ -102,9 +102,14 @@
                           <a href="{% url "admin:index" %}">Admins</a>
                       </li>
                       {% ifinstalled "website.apps.entry" %}
-                      <li{% active 'entry:index' %}>
-                          <a href="{% url "entry:index" %}">Data Entry</a>
-                      </li>
+                          <li{% active 'entry:index' %}>
+                              <a href="{% url "entry:index" %}">Data Entry</a>
+                          </li>
+                      {% endifinstalled %}
+                      {% ifinstalled "website.apps.lexicon" %}
+                          <li{% active 'cognateset-index' %}>
+                              <a href="{% url "cognateset-index" %}">Cognates</a>
+                          </li>
                       {% endifinstalled %}
                   {% else %}
                       <li>
