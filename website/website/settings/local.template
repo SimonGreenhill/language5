@@ -1,0 +1,114 @@
+from .base import * 
+
+SITE_NAME = ""
+SITE_DOMAIN = ""
+
+ALLOWED_HOSTS = ['.<EDIT>.org', 'www.<EDIT>.org']
+
+DEBUG = TEMPLATE_DEBUG = True
+
+INSTALLED_APPS.append('website.apps.lexicon')   # Lexicon
+INSTALLED_APPS.append('website.apps.olac')      # OLAC utils
+INSTALLED_APPS.append('website.apps.entry')     # Data Entry
+
+# MEDIA: 
+# Absolute filesystem path to the directory that will hold user-uploaded files.
+# Example: "/home/media/media.lawrence.com/media/"
+MEDIA_ROOT = '/home/sjg/webapps/static/tng/uploads/'
+
+# URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# trailing slash.
+# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
+MEDIA_URL = 'http://assets.transnewguinea.org/tng/uploads/'
+
+# Absolute path to the directory static files should be collected to.
+# Don't put anything in this directory yourself; store your static files
+# in apps' "static/" subdirectories and in STATICFILES_DIRS.
+# Example: "/home/media/media.lawrence.com/static/"
+STATIC_ROOT = '/home/sjg/webapps/static/tng/'
+
+# URL prefix for static files.
+# Example: "http://media.lawrence.com/static/"
+STATIC_URL = 'http://assets.transnewguinea.org/tng/'
+
+
+# DATABASE:
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2'
+        'NAME': 'sjg_tng',
+        'USER': 'sjg_tng',
+        'PASSWORD': 'bab50905',
+        'HOST': 'localhost',
+        'PORT': '',
+        'TEST_NAME': None,               # use SQLite in-memory for testing
+    }
+}
+
+# EMAIL:
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.webfaction.com'
+EMAIL_PORT = '25'
+EMAIL_HOST_USER = 'sjg_local'
+EMAIL_HOST_PASSWORD = 'Rei4jieP'
+EMAIL_SUBJECT_PREFIX = '[tng.org]'
+SERVER_EMAIL = "admin@transnewguinea.org"
+
+
+# OLAC
+OLAC_SETTINGS = {
+    'sitename': SITE_NAME,
+    'repositoryName': SITE_NAME,
+    'sitedomain': SITE_DOMAIN,
+    'description': SITE_DESCRIPTION,
+    'adminEmail': ADMINS, 
+    'admins': ADMINS,
+    'deletedRecord': 'no', # deletedRecord policy
+    'protocolVersion': '2.0', # the version of the OAI-PMH supported by the repository;
+    'depositor': ADMINS,
+    'institution': <EDIT>,
+    'institutionURL': <EDIT>,
+    'shortLocation': <EDIT>,
+}
+
+
+# Set PIWIK ID
+PIWIK_ID = <EDIT>
+
+# Backup 
+DBBACKUP_STORAGE = 'dbbackup.storage.s3_storage'
+DBBACKUP_S3_BUCKET = '<EDIT>'
+DBBACKUP_S3_ACCESS_KEY = '<EDIT>'
+DBBACKUP_S3_SECRET_KEY = '<EDIT>'
+# no schema and use extended insert format
+DBBACKUP_POSTGRES_BACKUP_COMMANDS = "pg_dump --username={adminuser} --host={host} --port={port} --data-only --inserts {databasename}" 
+DBBACKUP_MEDIA_PATH = MEDIA_ROOT # see https://bitbucket.org/mjs7231/django-dbbackup/pull-request/13/multiple-big-fixes/
+
+
+# Caching?
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        #'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'cache',
+    }
+}
+
+## ADD TO MIDDLEWARE::
+# 'django.middleware.cache.UpdateCacheMiddleware', # first in sequence!
+
+
+# IGNORE IPython Deprecations and RunTime Warnings....
+import warnings
+import exceptions
+warnings.filterwarnings(
+    "ignore", 
+    category=exceptions.RuntimeWarning, 
+    module='django.db.backends.sqlite3', lineno=53
+)
+warnings.filterwarnings(
+    "ignore", 
+    category=exceptions.DeprecationWarning, 
+    module='IPython.frontend.terminal.embed', lineno=239
+)

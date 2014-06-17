@@ -260,31 +260,3 @@ SOUTH_TESTS_MIGRATE = False # just use syncdb
 STATICSITEMAPS_ROOT_SITEMAP = 'website.sitemap.sitemaps'
 
 
-# OLAC
-OLAC_SETTINGS = {
-    'sitename': SITE_NAME,
-    'repositoryName': SITE_NAME,
-    'sitedomain': SITE_DOMAIN,
-    'description': SITE_DESCRIPTION,
-    'adminEmail': ADMINS, 
-    'admins': ADMINS,
-    'deletedRecord': 'no', # deletedRecord policy
-    'protocolVersion': '2.0', # the version of the OAI-PMH supported by the repository;
-    'depositor': ADMINS,
-    'institution': 'Australian National University',
-    'institutionURL': 'http://anu.edu.au',
-    'shortLocation': 'Canberra, Australia',
-}
-
-
-# Set PIWIK ID
-PIWIK_ID = 1
-
-# Backup 
-DBBACKUP_STORAGE = 'dbbackup.storage.s3_storage'
-DBBACKUP_S3_BUCKET = 'sjg-transnewguinea.org'
-DBBACKUP_S3_ACCESS_KEY = 'AKIAI5L4FEQGKHXLZIEQ'
-DBBACKUP_S3_SECRET_KEY = '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'
-# no schema and use extended insert format
-DBBACKUP_POSTGRES_BACKUP_COMMANDS = "pg_dump --username={adminuser} --host={host} --port={port} --data-only --inserts {databasename}" 
-DBBACKUP_MEDIA_PATH = MEDIA_ROOT # see https://bitbucket.org/mjs7231/django-dbbackup/pull-request/13/multiple-big-fixes/
