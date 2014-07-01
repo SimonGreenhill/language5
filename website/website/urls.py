@@ -43,12 +43,15 @@ urlpatterns = patterns('',
     
     # Language-Index: Show all languages
     url(r'^language/$', LanguageIndex.as_view(), name="language-index"),
+    url(r'^language/\?subset=(?P<subset>[\w]+)$', LanguageIndex.as_view(), name="language-index-subset"),
     
     # Source-Index: Show all sources
     url(r'^source/$', SourceIndex.as_view(), name="source-index"),
+    url(r'^source/\?subset=(?P<subset>[\w]+)$', SourceIndex.as_view(), name="source-index-subset"),
     
     # Family-Index: Show all families
     url(r'^family/$', FamilyIndex.as_view(), name="family-index"),
+    url(r'^family/\?subset=(?P<subset>[\w]+)$', FamilyIndex.as_view(), name="family-index-subset"),
     
     # Language-Detail: Show the given language
     url(r'^language/(?P<language>[\w\d\-\.]+)$', 

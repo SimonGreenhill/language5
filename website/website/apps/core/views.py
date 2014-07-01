@@ -27,10 +27,21 @@ class LanguageIndex(SingleTableView):
     table_pagination = {"per_page": 50}
     
     def get_queryset(self):
+        qset = Language.objects.all()
+        if 'subset' in self.request.GET:
+            qset = qset.filter(language__istartswith=self.request.GET['subset'])
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
-            return Language.objects.annotate(count=Count('lexicon')).all()
+            qset = qset.annotate(count=Count('lexicon')).all()
+        return qset
+    
+    def get_context_data(self, **kwargs):
+        context = super(LanguageIndex, self).get_context_data(**kwargs)
+        if 'subset' in self.request.GET:
+            context['subset'] = self.request.GET['subset']
         else:
-            return Language.objects.all()
+            context['subset'] = None
+        context['subsets'] = [_ for _ in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
+        return context
     
     
 class SourceIndex(SingleTableView):
@@ -41,10 +52,21 @@ class SourceIndex(SingleTableView):
     table_pagination = {"per_page": 50}
     
     def get_queryset(self):
+        qset = Source.objects.all()
+        if 'subset' in self.request.GET:
+            qset = qset.filter(author__istartswith=self.request.GET['subset'])
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
-            return Source.objects.annotate(count=Count('lexicon')).all()
+            return qset.annotate(count=Count('lexicon')).all()
+        return qset
+
+    def get_context_data(self, **kwargs):
+        context = super(SourceIndex, self).get_context_data(**kwargs)
+        if 'subset' in self.request.GET:
+            context['subset'] = self.request.GET['subset']
         else:
-            return Source.objects.all()
+            context['subset'] = None
+        context['subsets'] = [_ for _ in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
+        return context
 
 
 class FamilyIndex(SingleTableView):
@@ -55,7 +77,19 @@ class FamilyIndex(SingleTableView):
     table_pagination = {"per_page": 50}
     
     def get_queryset(self):
-        return Family.objects.annotate(count=Count('language'))
+        qset = Family.objects.annotate(count=Count('language'))
+        if 'subset' in self.request.GET:
+            qset = qset.filter(family__istartswith=self.request.GET['subset'])
+        return qset
+
+    def get_context_data(self, **kwargs):
+        context = super(FamilyIndex, self).get_context_data(**kwargs)
+        if 'subset' in self.request.GET:
+            context['subset'] = self.request.GET['subset']
+        else:
+            context['subset'] = None
+        context['subsets'] = [_ for _ in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
+        return context
 
 
 class SourceDetail(DetailView):
