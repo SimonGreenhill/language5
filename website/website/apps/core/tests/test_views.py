@@ -98,6 +98,45 @@ class Test_LanguageIndex(BaseMixin, PaginatorTestMixin, TestCase):
         response = self.client.get("{}?sort=sausage".format(self.url))
         for i, obj in enumerate(Language.objects.all().order_by('language')):
             assert response.context['table'].rows[i].record == obj
+    
+    def test_show_subsets(self):
+        response = self.client.get(self.url)
+        for subset in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+            url = reverse('language-index-subset', kwargs={'subset': subset})
+            self.assertContains(response, url)
+    
+    def test_filter_on_subset(self):
+        # check we get an empty result
+        response = self.client.get('{}?subset=A'.format(self.url))
+        self.assertEqual(response.status_code, 200)
+        
+        self.assertNotContains(response, 'Language1')
+        self.assertNotContains(response, 'Language2')
+        self.assertNotContains(response, 'Language3')
+        
+        # check we get every with L*
+        response = self.client.get('{}?subset=L'.format(self.url))
+        self.assertContains(response, 'Language1')
+        self.assertContains(response, 'Language2')
+        self.assertContains(response, 'Language3')
+        
+        # now create another language
+        A = Language.objects.create(
+                        language='A Language', 
+                        slug='language_a', 
+                        information='', 
+                        classification='',
+                        isocode='xyz', 
+                        editor=self.editor
+        )
+        
+        response = self.client.get('{}?subset=A'.format(self.url))
+        self.assertEqual(response.status_code, 200)
+        
+        self.assertNotContains(response, 'Language1')
+        self.assertNotContains(response, 'Language2')
+        self.assertNotContains(response, 'Language3')
+        self.assertContains(response, 'A Language')
         
 
 class Test_LanguageDetail(BaseMixin, TestCase):
@@ -212,6 +251,30 @@ class Test_FamilyIndex(PaginatorTestMixin, TestCase):
         for i, obj in enumerate(Family.objects.all().order_by('family')):
             assert response.context['table'].rows[i].record == obj
         
+    def test_show_subsets(self):
+        response = self.client.get(self.url)
+        for subset in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+            url = reverse('family-index-subset', kwargs={'subset': subset})
+            self.assertContains(response, url)
+    
+    def test_filter_on_subset(self):
+        # check we get an empty result
+        response = self.client.get('{}?subset=X'.format(self.url))
+        self.assertEqual(response.status_code, 200)
+        
+        self.assertNotContains(response, 'Mayan')
+        self.assertNotContains(response, 'Austronesian')
+        
+        # check M* but not A*
+        response = self.client.get('{}?subset=M'.format(self.url))
+        self.assertContains(response, 'Mayan')
+        self.assertNotContains(response, 'Austronesian')
+        
+        # and A but not M
+        response = self.client.get('{}?subset=A'.format(self.url))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Austronesian')
+        self.assertNotContains(response, 'Mayan')
     
         
 class Test_FamilyDetail(BaseMixin, TestCase):
@@ -308,6 +371,33 @@ class Test_SourceIndex(PaginatorTestMixin, TestCase):
         response = self.client.get('{}?sort=author'.format(self.url))
         for i, obj in enumerate([self.source2, self.source1]):
             assert response.context['table'].data.data[i] == obj
+    
+    def test_show_subsets(self):
+        response = self.client.get(self.url)
+        for subset in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+            url = reverse('source-index-subset', kwargs={'subset': subset})
+            self.assertContains(response, url)
+    
+    def test_filter_on_subset(self):
+        # check we get an empty result
+        response = self.client.get('{}?subset=A'.format(self.url))
+        self.assertEqual(response.status_code, 200)
+        
+        self.assertNotContains(response, 'Smith')
+        self.assertNotContains(response, 'Jones')
+        
+        # check S* but not J*
+        response = self.client.get('{}?subset=S'.format(self.url))
+        self.assertContains(response, 'Smith')
+        self.assertNotContains(response, 'Jones')
+        
+        # and J but not S
+        response = self.client.get('{}?subset=J'.format(self.url))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Jones')
+        self.assertNotContains(response, 'Smith')
+    
+    
     
     @unittest.skip("broken")
     def test_sorting_invalid(self):
