@@ -1,0 +1,30 @@
+D1 Bargam           	(look for)		nag-
+E1 Dimir            	(look for)		taga-
+E2 Malas            	(look for)		latar-
+E3 Bunabun          	(look for)          	maŋgar-   	2078
+E4 Korak            	(look for)		aro-
+E5 Waskia           	(look for)		kosorgi-
+F1 Pay              	(look for)          	mika-     	2078
+F2 Pila             	(look for)		sore-
+F3 Maia             	(look for)		ruᵬa-
+F4 Tani             	(look for)		r̃uw-
+F5 Mauwake          	(look for)		imɛn-
+F6 Bepour           	(look for)		ɛrfi-
+F7 Moere            	(look for)          	meŋker-   	2078
+F8 Kowaki           	(look for)		hahum-
+F9 Mawak            	(look for)		yabt-
+F9 Mawak            	(look for)		yabar-
+F10 Hinihon         	(look for)          	maŋgolo-  	2078
+F10 Hinihon         	(look for)          	faɛk-
+F11 Musar           	(look for)		(sa)haŋg-
+F12 Wanambre        	(look for)		kiok-
+F13 Koguman         	(look for)          	moŋgor(amande)	2078
+F14 Abasakur        	(look for)          	maŋar(iwa)-	2078
+F15 Usan            	(look for)		asiɛm-
+F16 Yaben           	(look for)		azaˀam-
+F17 Yarawata        	(look for)		ɛkwa-
+F18 Bilakura        	(look for)		tʌsikam-
+F19 Parawen         	(look for)		ɛkwati-
+F20 Ukuriguma       	(look for)		yoko-
+F20 Ukuriguma       	(look for)		wɛkwɛa id-
+F21 Amaimon         	(look for)		kɛrɛm-

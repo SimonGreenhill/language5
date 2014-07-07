@@ -1,0 +1,29 @@
+D1 Bargam           	(sharp)             	amena     	2127
+E1 Dimir            	(sharp)			aŋun
+E2 Malas            	(sharp)			anin
+E3 Bunabun          	(sharp)             	kaβ       	2127
+E4 Korak            	(sharp)			ikikin
+E5 Waskia           	(sharp)			kore
+F1 Pay              	(sharp)			onɛk
+F2 Pila             	(sharp)			wɛŋey
+F3 Maia             	(sharp)			wɛnɛt
+F3 Maia             	(sharp)			maip
+F4 Tani             	(sharp)			nɛna
+F5 Mauwake          	(sharp)			anima
+F6 Bepour           	(sharp)             	aβra      	2127
+F7 Moere            	(sharp)             	awor      	2127
+F8 Kowaki           	(sharp)             	aβera     	2127
+F9 Mawak            	(sharp)             	awera     	2127
+F10 Hinihon         	(sharp)             	ewela     	2127
+F11 Musar           	(sharp)             	awera     	2127
+F12 Wanambre        	(sharp)			tolʌt
+F13 Koguman         	(sharp)			ɛninɔt- (v)
+F14 Abasakur        	(sharp)			gɔp
+F15 Usan            	(sharp)			nanʌt
+F16 Yaben           	(sharp)			aulu
+F17 Yarawata        	(sharp)			kasia
+F18 Bilakura        	(sharp)			selalu
+F19 Parawen         	(sharp)			niːgu
+F19 Parawen         	(sharp)			kasiya
+F20 Ukuriguma       	(sharp)			katʌt
+F21 Amaimon         	(sharp)			ŋʌnʌgasim

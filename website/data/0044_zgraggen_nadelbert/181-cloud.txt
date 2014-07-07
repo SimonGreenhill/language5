@@ -1,0 +1,32 @@
+D1 Bargam           	cloud               	waibut    	
+D1 Bargam           	cloud               	tim a-bekoˀ
+E1 Dimir            	cloud               	aptiken   	
+E1 Dimir            	cloud               	tomaŋ    	? 	
+E1 Dimir            	cloud               	abelme    	2197
+E2 Malas            	sky, cloud          	geit      	
+E3 Bunabun          	cloud               	gaid oyan 	
+E4 Korak            	sky, cloud          	taita     	
+E5 Waskia           	sky, cloud          	taiti     	
+F1 Pay			cloud			
+F2 Pila             	cloud               	ulum      	
+F3 Maia             	cloud               	kiwa:mu   	
+F3 Maia             	cloud               	ʌbʌ       	2710
+F4 Tani             	cloud               	urum      	
+F5 Mauwake          	cloud               	aperka    	2710
+F6 Bepour           	cloud               	hapre     	2197,2710
+F7 Moere            	cloud               	keperem   	2710
+F8 Kowaki           	sky, cloud          	haura     	
+F9 Mawak            	cloud               	atoporak  	
+F10 Hinihon         	cloud               	sepelak   	2197,2710
+F11 Musar           	cloud               	hetaim    	
+F12 Wanambre        	sky, cloud          	kaura     	
+F13 Koguman         	cloud               	atugune   	
+F14 Abasakur        	cloud               	tʌpʌra    	2710
+F15 Usan            	cloud               	wʌber     	2197,2710
+F16 Yaben		cloud			
+F17 Yarawata        	cloud               	ekanama   	
+F18 Bilakura        	cloud               	kanam awan	
+F19 Parawen         	cloud               	tata      	
+F20 Ukuriguma       	cloud               	iagar     	
+F21 Amaimon         	cloud               	meki      	
+F21 Amaimon         	cloud               	mekitel   	

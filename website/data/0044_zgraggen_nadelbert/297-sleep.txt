@@ -1,0 +1,27 @@
+D1 Bargam           	(sleep)			us-
+E1 Dimir            	(sleep)             	in        	2137
+E2 Malas            	(sleep)             	in        	2137
+E3 Bunabun          	(sleep)             	ini       	2137
+E4 Korak            	(sleep)             	ani       	2137
+E5 Waskia           	(sleep)             	ani       	2137
+F1 Pay              	(sleep)             	in        	2137
+F2 Pila             	(sleep)             	in        	2137
+F3 Maia             	(sleep)			inɛ-		2137
+F4 Tani             	(sleep)             	in        	2137
+F5 Mauwake          	(sleep)             	ini       	2137
+F6 Bepour           	(sleep)             	in        	2137
+F7 Moere            	(sleep)             	in        	2137
+F8 Kowaki           	(sleep)             	in        	2137
+F9 Mawak            	(sleep)             	in        	2137
+F10 Hinihon         	(sleep)             	in        	2137
+F11 Musar           	(sleep)             	in        	2137
+F12 Wanambre        	(sleep)             	in        	2137
+F13 Koguman         	(sleep)             	in        	2137
+F14 Abasakur        	(sleep)			nama-
+F15 Usan            	(sleep)             	in        	2137
+F16 Yaben           	(sleep)             	in        	2137
+F17 Yarawata        	(sleep)             	in        	2137
+F18 Bilakura        	(sleep)             	iɲ        	2137
+F19 Parawen         	(sleep)             	in        	2137
+F20 Ukuriguma       	(sleep)             	in        	2137
+F21 Amaimon         	(sleep)             	(gekwa)in 	2137

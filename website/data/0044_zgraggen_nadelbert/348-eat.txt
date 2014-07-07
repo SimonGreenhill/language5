@@ -1,0 +1,27 @@
+D1 Bargam           	eat                 	ne-        	2768
+E1 Dimir            	eat                 	na-        	2768
+E2 Malas            	eat                 	an-        	2768
+E3 Bunabun          	eat                 	an-        	2768
+E4 Korak            	eat                 	na-        	2768
+E5 Waskia           	eat                 	na-        	2768
+F1 Pay              	eat                 	nim-       	2768
+F2 Pila             	eat                 	ŋanim-     	2768
+F3 Maia             	eat                 	nime-      	2768
+F4 Tani             	eat                 	im-        	2768
+F5 Mauwake          	eat                 	enim-      	2768
+F6 Bepour           	eat                 	en-        	2768
+F7 Moere            	eat                 	nem-       	2768
+F8 Kowaki           	eat                 	in-        	2768
+F9 Mawak            	eat                 	enem-      	2768
+F10 Hinihon         	eat                 	onom-      	2768
+F11 Musar           	eat                 	en-        	2768
+F12 Wanambre        	eat                 	eɲ-        	2768
+F13 Koguman         	eat                 	neŋ- nom-       	2768
+F14 Abasakur        	eat                 	ɲi-        	2768
+F15 Usan            	eat                 	ni-        	2768
+F16 Yaben 		eat			nu-		2768
+F17 Yarawata        	eat                 	ni-       	2768
+F18 Bilakura        	eat                 	ɲa-        	2768
+F19 Parawen         	eat                 	ni-        	2768
+F20 Ukuriguma       	eat                 	ne-        	2768
+F21 Amaimon         	eat                 	ni-        	2768

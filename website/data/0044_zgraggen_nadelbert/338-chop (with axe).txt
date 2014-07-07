@@ -1,0 +1,29 @@
+D1 Bargam           	chop			horay-
+E1 Dimir            	chop			uduksa-
+E1 Dimir            	chop			kɛra-
+E2 Malas            	chop			butur-
+E3 Bunabun          	chop			sirin-
+E4 Korak            	chop			kau-
+E5 Waskia           	chop			pʌgʌr-
+F1 Pay              	chop			pat-
+F2 Pila             	chop			ŋgok-
+F3 Maia             	chop			boate-
+F3 Maia             	chop			kɛrɛdɛ-
+F4 Tani             	chop			wɛs-
+F5 Mauwake          	chop			wɛp-
+F6 Bepour           	chop			war-
+F7 Moere            	chop			orak-
+F8 Kowaki           	chop			abar-
+F9 Mawak            	chop			war-
+F10 Hinihon         	chop                	ikow      	2764
+F11 Musar           	chop			himalm-
+F12 Wanambre        	chop			saki new-
+F13 Koguman         	chop                	ig        	2764
+F14 Abasakur        	chop                	ig        	2764
+F15 Usan            	chop			su-
+F16 Yaben           	chop			zoøw
+F17 Yarawata        	chop                	kikwa     	2764
+F18 Bilakura        	chop			skot(al)-
+F19 Parawen         	chop                	kikwa     	2764
+F20 Ukuriguma       	chop                	kikwa     	2764
+F21 Amaimon         	chop                	kiku      	2764

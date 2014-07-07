@@ -1,0 +1,29 @@
+D1 Bargam           	(wind)			tim
+E1 Dimir            	(wind)			gagup
+E2 Malas            	(wind)              	yawar     	2186
+E3 Bunabun          	(wind)			navɛnam
+E4 Korak            	(wind)			mipas
+E4 Korak            	(wind)			duŋ
+E5 Waskia           	(wind)			mʌr̃ir̃
+F1 Pay              	(wind)			dʌdʌ
+F2 Pila             	(wind)			wiubui
+F3 Maia             	(wind)			ubinab
+F4 Tani             	(wind)			wowor
+F5 Mauwake          	(wind)              	ewar      	2186
+F6 Bepour           	(wind)			namnam
+F7 Moere            	(wind)			nʌmɛnʌm
+F8 Kowaki           	(wind)			nʌmɛnʌm
+F9 Mawak            	(wind)			upinam
+F10 Hinihon         	(wind)			opiːnom
+F11 Musar           	(wind)			nʌmɛnʌm
+F12 Wanambre        	(wind)			(u)lukum	
+F13 Koguman         	(wind)			ogobɔr
+F14 Abasakur        	(wind)			wewegɔ
+F15 Usan            	(wind)			moin
+F16 Yaben           	(wind)			umaˀwʌn
+F17 Yarawata        	(wind)              	(ni:)ya   	2186
+F17 Yarawata        	(wind)              	kwaitala
+F18 Bilakura        	(wind)			umakwan
+F19 Parawen         	(wind)              	(u)ya     	2186
+F20 Ukuriguma       	(wind)			wian	
+F21 Amaimon         	(wind)			ugum

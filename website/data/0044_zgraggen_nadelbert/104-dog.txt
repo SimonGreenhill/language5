@@ -1,0 +1,27 @@
+D1 Bargam           	dog                 	gaun      	2405
+E1 Dimir            	dog                 	kaŋap     	
+E2 Malas            	dog                 	kakas     	2405
+E3 Bunabun          	dog                 	ka        	2405
+E4 Korak            	dog                 	ku(w)ad   	2405
+E5 Waskia           	dog                 	kausik    	2405
+F1 Pay              	dog                 	ke        	2405
+F2 Pila             	dog                 	kawun     	2405
+F3 Maia             	dog                 	kawuŋ     	2405
+F4 Tani             	dog                 	i:bun     	2406
+F5 Mauwake          	dog                 	siowa     	2408
+F6 Bepour           	dog                 	ofun      	2406
+F7 Moere            	dog                 	sofun     	2406
+F8 Kowaki           	dog                 	eman      	2407
+F9 Mawak            	dog                 	eman      	2407
+F10 Hinihon         	dog                 	eman      	2407
+F11 Musar           	dog                 	eman      	2407
+F12 Wanambre        	dog                 	yaman     	2407
+F13 Koguman         	dog                 	ulir      	
+F14 Abasakur        	dog                 	iko       	2408
+F15 Usan            	dog                 	iaw       	2408
+F16 Yaben           	dog                 	kiko      	2408
+F17 Yarawata        	dog                 	ika       	2408
+F18 Bilakura        	dog                 	i:kwo     	2408
+F19 Parawen         	dog                 	ika:      	2408
+F20 Ukuriguma       	dog                 	ika       	2408
+F21 Amaimon         	dog                 	sika      	2408

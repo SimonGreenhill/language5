@@ -1,0 +1,29 @@
+D1 Bargam           	thundering		wilam wo-
+E1 Dimir            	thundering		aᵬɛrmɛ-
+E2 Malas            	thundering		atɛmbrɛ sa-
+E3 Bunabun          	thundering		geit bum-
+E4 Korak            	thundering		paka-
+E5 Waskia           	thundering		purɛ nea-
+F1 Pay              	thundering		purow-
+F2 Pila             	thundering		garuran-
+F3 Maia             	thundering		-- weikane-
+F4 Tani             	thundering		napɛra sɛn-
+F5 Mauwake          	thundering		apɛrka pr̃an-
+F6 Bepour           	thundering		apɛra puɛw-
+F7 Moere            	thundering		
+F8 Kowaki           	thundering		
+F9 Mawak            	thundering		atopokʌk orop-
+F10 Hinihon         	thundering		sɛpɛlak orop-
+F11 Musar           	thundering		haula ɛlɛkand-
+F12 Wanambre        	thundering		tɛwɛrʌk ɛlɛw
+F13 Koguman         	thundering		tɛrɛbag aŋ-
+F14 Abasakur        	thundering		tapara (a)rapi-
+F15 Usan            	thundering		ay ur-
+F16 Yaben           	thundering		anʌm ye-
+F17 Yarawata        	thundering		yɛkanama lʌm-
+F18 Bilakura        	thundering		kanam yɛw-
+F19 Parawen         	thundering		tata rami-
+F19 Parawen         	thundering		yakita lam-
+F20 Ukuriguma       	thundering		maliralu ulukid-
+F20 Ukuriguma       	thundering		-- sapuko-
+F21 Amaimon         	thundering		ʌtub walai-

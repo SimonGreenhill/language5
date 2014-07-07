@@ -1,0 +1,27 @@
+D1 Bargam           	go down		wo-leh-
+E1 Dimir            	go down		itɛra-
+E2 Malas            	go down		sa-
+E3 Bunabun          	go down		banm-
+E4 Korak            	go down		atuk-
+E5 Waskia           	go down		kapa-
+F1 Pay              	go down		bira-
+F2 Pila             	go down		biriŋ-
+F3 Maia             	go down		gade-
+F4 Tani             	go down		ar-
+F5 Mauwake          	go down		or-
+F6 Bepour           	go down		ɛrp-
+F7 Moere            	go down		ɛrp-
+F8 Kowaki           	go down		ɛram-
+F9 Mawak            	go down		orop-
+F10 Hinihon         	go down		ɛlam-
+F11 Musar           	go down		ɛlʌk- olomb-
+F12 Wanambre        	go down		imanɛ it-
+F13 Koguman         	go down		wamo ya-
+F14 Abasakur        	go down		ara-
+F15 Usan            	go down		umu is-
+F16 Yaben           	go down		tad-
+F17 Yarawata        	go down		dʌːm-
+F18 Bilakura        	go down		agwakuma isu-
+F19 Parawen         	go down		kumaria isu-
+F20 Ukuriguma       	go down		arami-
+F21 Amaimon         	go down		ᵶaiᵶ-

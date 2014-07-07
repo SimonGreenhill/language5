@@ -1,0 +1,28 @@
+D1 Bargam           	house               	bit       	
+D1 Bargam           	house               	from kaben	2702?
+E1 Dimir            	house               	kaben     	2702
+E2 Malas            	house               	amun      	2702
+E3 Bunabun          	house               	amun      	2702
+E4 Korak            	house               	kʌb       	2702
+E5 Waskia           	house               	kʌwam     	2702
+F1 Pay              	house               	dan       	
+F2 Pila             	house               	dawa(r)   	2703
+F3 Maia             	house               	dawa      	2703
+F4 Tani             	house               	dua       	2703
+F5 Mauwake          	house               	kora      	
+F6 Bepour           	house               	mun       	2702
+F7 Moere            	house               	kor       	
+F8 Kowaki           	house               	toʌr̃     	2703
+F9 Mawak            	house               	tuʌr      	2703
+F10 Hinihon         	house               	tuʌl      	2703
+F11 Musar           	house               	fa        	
+F12 Wanambre        	house               	duʌr      	2703
+F13 Koguman         	house               	tuara(b)     	2703
+F14 Abasakur        	house               	tʌra      	2703
+F15 Usan            	house               	mon       	2702
+F16 Yaben           	house               	muñi      	2702
+F17 Yarawata        	house               	mɔno      	2702
+F18 Bilakura        	house               	muñe      	2702
+F19 Parawen         	house               	moʌna     	2702
+F20 Ukuriguma       	house               	mon       	2702
+F21 Amaimon         	house               	mɔne      	2702

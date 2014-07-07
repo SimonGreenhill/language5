@@ -1,0 +1,29 @@
+D1 Bargam           	(dry)			tumay
+E1 Dimir            	(dry)			puŋa
+E2 Malas            	(dry)               	(ka)ker   	2023
+E2 Malas            	(dry)               	amun
+E3 Bunabun          	(dry)			faː
+E4 Korak            	(dry)			orʌn
+E5 Waskia           	(dry)			mar̃akam
+F1 Pay              	(dry)               	(o)kerer  	2023
+F1 Pay              	(dry)               	parʌrʌ
+F2 Pila             	(dry)			paŋ- (v)
+F3 Maia             	(dry)			koroŋa
+F4 Tani             	(dry)			kekas
+F5 Mauwake          	(dry)			ɛrɛs-
+F6 Bepour           	(dry)               	her̃er̃e(wɔb)	2023
+F7 Moere            	(dry)               	kerere    	2023
+F8 Kowaki           	(dry)               	herere(βa)	2023
+F9 Mawak            	(dry)               	erere(kewa)	2023
+F10 Hinihon         	(dry)               	elele(kewa)	2023
+F11 Musar           	(dry)               	elele(keba)	2023
+F12 Wanambre        	(dry)			
+F13 Koguman         	(dry)               	erere(ge) 	2023
+F14 Abasakur        	(dry)			naga
+F15 Usan            	(dry)			sigɛn
+F16 Yaben           	(dry)			kanyaˀʌri
+F17 Yarawata        	(dry)			agʌːra
+F18 Bilakura        	(dry)			gansigʌr
+F19 Parawen         	(dry)			agarami
+F20 Ukuriguma       	(dry)               	goro(rʌgia)	2023
+F21 Amaimon         	(dry)			tawarʌp

@@ -1,0 +1,31 @@
+D1 Bargam           	younger cross-sibling		-hi amigta
+E1 Dimir            	younger cross-sibling		imʌk tinagɛt
+E2 Malas            	younger cross-sibling		emɛnɛm moaka
+E3 Bunabun          	younger cross-sibling		imiɛk otaᵬ
+E4 Korak            	younger cross-sibling		-kɛkɛro gumɛŋ
+E5 Waskia           	younger cross-sibling		koras gotɛk
+F1 Pay              	younger cross-sibling		-babarat nina
+F2 Pila             	younger cross-sibling		
+F3 Maia             	younger cross-sibling		
+F4 Tani             	younger cross-sibling		
+F5 Mauwake          	younger cross-sibling		ɛkɛra(ʔ)	
+F6 Bepour           	younger cross-sibling		sobi tair 
+F7 Moere            	younger cross-sibling		
+F8 Kowaki           	younger cross-sibling			
+F9 Mawak            	younger cross-sibling		nimunat   	
+F9 Mawak            	younger cross-sibling		ima heip  	2437
+F10 Hinihon         	younger cross-sibling		ima hepiop	
+F11 Musar           	younger cross-sibling		-imasay   	
+F11 Musar           	younger cross-sibling		-imem   
+F12 Wanambre        	younger cross-sibling		
+F13 Koguman         	younger cross-sibling		mᵃnogum
+F13 Koguman         	younger cross-sibling		mugumɛ
+F14 Abasakur        	younger cross-sibling		               	
+F15 Usan            	younger cross-sibling		imem      	
+F16 Yaben           	younger cross-sibling		imakaim   
+F17 Yarawata        	younger cross-sibling		ɛmɛnikɛ onaindɛ
+F18 Bilakura        	younger cross-sibling		imakira
+F18 Bilakura        	younger cross-sibling		umokira
+F19 Parawen         	younger cross-sibling		
+F20 Ukuriguma       	younger cross-sibling		utaum
+F21 Amaimon         	younger cross-sibling		eŋumanak gunaya	

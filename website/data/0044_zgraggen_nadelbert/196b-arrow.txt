@@ -1,0 +1,24 @@
+D1 Bargam           	multi-prong arrow   	sarog     	
+E2 Malas            	arrow               	waya mandeŋ	2718
+E3 Bunabun          	(arrow, multi-pronged)	aŋgut     	1962
+E4 Korak            	multi-prong arrow   	kalam sasa	
+E5 Waskia           	multi-prong arrow   	ma:re pasok	
+F1 Pay              	multi-prong arrow   	sokoka    	
+F2 Pila             	multi-prong arrow   	kekembek  	
+F3 Maia             	multi-prong arrow   	pisora    	
+F4 Tani             	multi-prong arrow   	sagog     	
+F5 Mauwake          	multi-prong arrow   	sokoka    	
+F7 Moere            	multi-prong arrow   	upe       	
+F8 Kowaki           	multi-prong arrow   	aʔiwes    	
+F9 Mawak            	multi-prong arrow   	heibet    	
+F10 Hinihon         	multi-prong arrow   	iwet      	
+F11 Musar           	multi-prong arrow   	afikes    	
+F12 Wanambre        	(arrow, multi-pronged)	iket      	1962,2718
+F14 Abasakur        	multi-prong arrow   	emelo     	
+F15 Usan            	multi-prong arrow   	wogais    	
+F16 Yaben           	multi-prong arrow   	a:gujakilu	1962
+F17 Yarawata        	multi-prong arrow   	awaida    	
+F18 Bilakura        	(arrow, multi-pronged)	kagila    	1962,2718
+F19 Parawen         	(arrow, multi-pronged)	egweira   	1962,2718
+F20 Ukuriguma       	multi-prong arrow   	takara    	
+F21 Amaimon         	multi-prong arrow   	mo:ga     	

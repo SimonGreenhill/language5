@@ -1,0 +1,31 @@
+D1 Bargam           	(wash)			hus + 'give'
+E1 Dimir            	(wash)              	yeg- upsɛ-     	2180
+E1 Dimir            	(wash)              	yeg- amnara-
+E2 Malas            	(wash)		
+E3 Bunabun          	(wash)              	yaŋguw-   	2180
+E4 Korak            	(wash)			-ŋgadu-
+E4 Korak            	(wash)			-ŋgaduᵬ-
+E5 Waskia           	(wash)			-aduw-
+F1 Pay              	(wash)              	akawa(t)- 	2180
+F2 Pila             	(wash)			-uwis-
+F3 Maia             	(wash)			-wis-
+F4 Tani             	(wash)			-wis-
+F5 Mauwake          	(wash)              	yakuw-    	2180
+F6 Bepour           	(wash)              	yahiw-    	2180
+F7 Moere            	(wash)              	akiwa-    	2180
+F8 Kowaki           	(wash)              	haiwa(i)  	2180
+F9 Mawak            	(wash)              	heiw-     	2180
+F10 Hinihon         	(wash)			-sɛwi-ma-
+F11 Musar           	(wash)			ombo siɛtɛ-
+F12 Wanambre        	(wash)			-wisu-
+F13 Koguman         	(wash)			-pipugu-
+F14 Abasakur        	(wash)              	waka(sa)- 	2180
+F15 Usan            	(wash)			uᵬ- + 'give'
+F16 Yaben           	(wash)			-tuᵬ-
+F17 Yarawata        	(wash)			ɛtabo-
+F17 Yarawata        	(wash)			-itabar-
+F18 Bilakura        	(wash)			-musatar-
+F19 Parawen         	(wash)			itubu-
+F19 Parawen         	(wash)			itaba-
+F20 Ukuriguma       	(wash)			eta + 'give'
+F21 Amaimon         	(wash)			agis-aku

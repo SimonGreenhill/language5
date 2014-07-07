@@ -1,0 +1,27 @@
+D1 Bargam           	tomorrow            	babe      	
+E1 Dimir            	tomorrow            	kurumo    	
+E2 Malas            	tomorrow            	mitan     	
+E3 Bunabun          	tomorrow            	matina    	
+E4 Korak            	tomorrow            	olaŋe     	
+E5 Waskia           	tomorrow            	kurokse   	
+F1 Pay              	tomorrow            	makara    	
+F2 Pila             	tomorrow            	maŋgara   	
+F3 Maia             	tomorrow            	miŋgoro   	
+F4 Tani             	tomorrow            	meger̃a   	
+F5 Mauwake          	tomorrow            	urka      	
+F6 Bepour           	tomorrow            	obno      	
+F7 Moere            	tomorrow            	wan       	
+F8 Kowaki           	tomorrow            	supa      	
+F9 Mawak            	tomorrow            	supa      	
+F10 Hinihon         	tomorrow            	supine    	
+F11 Musar           	tomorrow            	ineŋ      	
+F12 Wanambre        	tomorrow            	supene    	
+F13 Koguman         	tomorriw		ommɛ
+F14 Abasakur        	tomorriw		weiwa
+F15 Usan            	tomorrow            	barim     	2743
+F16 Yaben           	tomorrow            	balima    	2743
+F17 Yarawata        	tomorrow            	balimo    	2743
+F18 Bilakura        	tomorrow            	balima    	2743
+F19 Parawen         	tomorrow            	barimu    	2743
+F20 Ukuriguma       	tomorrow            	barima    	2743
+F21 Amaimon         	tomorrow            	bu:lam    	2743

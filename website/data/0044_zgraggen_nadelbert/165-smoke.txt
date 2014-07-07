@@ -1,0 +1,29 @@
+D1 Bargam           	(smoke)			-sin
+D1 Bargam           	(smoke)			-s
+E1 Dimir            	(smoke)			inɛptɛŋ
+E1 Dimir            	(smoke)			budʌp
+E2 Malas            	(smoke)             	ikam      	2140
+E3 Bunabun          	(smoke)             	ekab      	2140
+E4 Korak            	(smoke)			tamʌwir
+E5 Waskia           	(smoke)			buːr̃
+F1 Pay              	(smoke)             	kawus     	2140
+F2 Pila             	(smoke)             	iŋab      	2140
+F3 Maia             	(smoke)			ikʌb
+F4 Tani             	(smoke)             	ikʌb      	2140
+F5 Mauwake          	(smoke)             	kʌbus(a)  	2140
+F6 Bepour           	(smoke)			sɛb
+F7 Moere            	(smoke)			upisiɛb
+F8 Kowaki           	(smoke)             	ʔabuʔ     	2140
+F9 Mawak            	(smoke)             	kʌwuk     	2140
+F10 Hinihon         	(smoke)             	kʌwuk     	2140
+F11 Musar           	(smoke)             	kʌ:wuk    	2140
+F12 Wanambre        	(smoke)             	gauk      	2140
+F13 Koguman         	(smoke)			dug
+F14 Abasakur        	(smoke)			kɔ
+F15 Usan            	(smoke)			iʌp
+F16 Yaben           	(smoke)             	ʔʌbu      	2140
+F17 Yarawata        	(smoke)             	ikʌpa     	2140
+F18 Bilakura        	(smoke)			usun
+F19 Parawen         	(smoke)             	ikʌ:pa    	2140
+F20 Ukuriguma       	(smoke)             	ikap      	2140
+F21 Amaimon         	(smoke)			itu

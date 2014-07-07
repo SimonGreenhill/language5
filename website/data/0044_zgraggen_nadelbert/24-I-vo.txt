@@ -1,0 +1,37 @@
+D1 Bargam           	I (VO)	   i-
+D1 Bargam           	I (VO)	   ya-
+E1 Dimir            	I (VO)	   i-
+E2 Malas            	I (VO)	   y-
+E3 Bunabun          	I (VO)	   e-we-
+E4 Korak            	I (VO)	   ŋa-
+E5 Waskia           	I (VO)	   aga-
+F1 Pay              	I (VO)	   y-
+F2 Pila             	I (VO)	   y-
+F3 Maia             	I (VO)	   i-
+F3 Maia             	I (VO)	   e-
+F4 Tani             	I (VO)	   zV-
+F5 Mauwake          	I (VO)	   e-fa-
+F5 Mauwake          	I (VO)	   y-
+F6 Bepour           	I (VO)	   e-fe
+F7 Moere            	I (VO)	   e-we-
+F8 Kowaki           	I (VO)	   
+F9 Mawak            	I (VO)	   ina-
+F10 Hinihon         	I (VO)	   ina-
+F11 Musar           	I (VO)	   e-we-
+F12 Wanambre        	I (VO)	   inV-
+F13 Koguman         	I (VO)	   e-
+F14 Abasakur        	I (VO)	   e-
+F15 Usan            	I (VO)	   yV-
+F16 Yaben           	I (VO)	   yV-
+F17 Yarawata        	I (VO)	   e-n-
+F18 Bilakura        	I (VO)	   ya-
+F19 Parawen         	I (VO)	   en-
+F20 Ukuriguma       	I (VO)	   e-
+F15 Usan            	I (VO)	   Vb -0̸-
+F16 Yaben           	I (VO)	   Vb -l-
+F17 Yarawata        	I (VO)	   Vb -r-
+F18 Bilakura        	I (VO)	   Vb -l-
+F19 Parawen         	I (VO)	   Vb -l-
+F20 Ukuriguma       	I (VO)	   Vb -r-
+F20 Ukuriguma       	I (VO)	   Vb -is-
+F21 Amaimon         	I (VO)	   e-ŋ

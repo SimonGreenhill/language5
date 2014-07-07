@@ -1,0 +1,28 @@
+D1 Bargam           	piece of wood		aya-nabun
+E1 Dimir            	piece of wood		neːntɛ
+E2 Malas            	piece of wood		tabu
+E3 Bunabun          	piece of wood		wam undin
+E4 Korak            	piece of wood		kunitin
+E5 Waskia           	piece of wood		biliŋ
+F1 Pay              	piece of wood		abu
+F2 Pila             	piece of wood		okɔr
+F3 Maia             	piece of wood		koanok
+F4 Tani             	piece of wood		okodua
+F5 Mauwake          	piece of wood		iba
+F6 Bepour           	piece of wood		namʌrɛ
+F7 Moere            	piece of wood		tɛtɛn
+F8 Kowaki           	piece of wood		iˀɛn
+F9 Mawak            	piece of wood		mura
+F9 Mawak            	piece of wood		narɛk
+F10 Hinihon         	piece of wood		(ŋ)ɛna
+F11 Musar           	piece of wood		
+F12 Wanambre        	piece of wood		na sakil
+F13 Koguman         	piece of wood		pi
+F14 Abasakur        	piece of wood		ñiːgwa
+F15 Usan            	piece of wood		ʌbu tʌy
+F16 Yaben           	piece of wood		tʌw
+F17 Yarawata        	piece of wood		mokua
+F18 Bilakura        	piece of wood		kuran
+F19 Parawen         	piece of wood		mʌːma kamun
+F20 Ukuriguma       	piece of wood		kamik
+F21 Amaimon         	piece of wood		tawkwa(p)

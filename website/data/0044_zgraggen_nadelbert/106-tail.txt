@@ -1,0 +1,29 @@
+D1 Bargam           	(dog's) tail        	-bulikin  	2400
+E1 Dimir            	(dog's) tail        	adulit    	
+E1 Dimir            	(dog's) tail        	ar̃urmer  	2403
+E2 Malas            	(dog's) tail        	tiru      	2401
+E3 Bunabun          	(dog's) tail        	mbodur    	2155
+E3 Bunabun          	(dog's) tail        	dur       	2401
+E4 Korak		dog's tail		mum
+E5 Waskia		dog's tail		moːm	
+F1 Pay              	(tail(of dog))      	udur̃ak   	2155
+F2 Pila             	(tail(of dog))      	ndura     	2155
+F3 Maia             	(dog's) tail        	udira     	2401
+F4 Tani             	(tail(of dog))      	du:ra     	2155,2401
+F5 Mauwake          	(tail(of dog))      	alewa     	2155
+F6 Bepour           	(dog's) tail        	ereb      	2402
+F7 Moere		dog's tail		ɛrpop
+F8 Kowaki           	(dog's) tail        	hereb     	2402
+F9 Mawak            	(dog's) tail        	erep      	2402
+F10 Hinihon         	(dog's) tail        	elep      	2402
+F11 Musar           	(dog's) tail        	helep     	2402
+F12 Wanambre		dog's tail		kelɛ
+F13 Koguman         	(dog's) tail        	orene     	2403
+F14 Abasakur		dog's tail		iarot
+F15 Usan            	(dog's) tail        	bur       	2404
+F16 Yaben           	(dog's) tail        	bula      	2404
+F17 Yarawata        	(tail(of dog))      	arua      	2155
+F18 Bilakura        	(tail(of dog))      	du:l      	2155,2401
+F19 Parawen         	(tail(of dog))      	a:ru      	2155,2403
+F20 Ukuriguma       	(dog's) tail        	bura      	2404
+F21 Amaimon         	(dog's) tail        	arukem    	2403, 2155

@@ -1,0 +1,30 @@
+D1 Bargam           	(fly V)			mɛi-
+E1 Dimir            	(fly V)			kiaw-
+E2 Malas            	(fly V)			imbar-
+E3 Bunabun          	(fly V)			warɛm-
+E4 Korak            	(fly V)			yɛ-
+E5 Waskia           	fly (verb)          	buŋia-    	
+F1 Pay              	(fly V)             	birin-    	2042
+F1 Pay              	(fly V)             	bibik
+F2 Pila             	(fly V)			bay-
+F2 Pila             	(fly V)			bɛbɛg-
+F3 Maia             	(fly V)			bebega-
+F4 Tani             	(fly V)             	bi-       	2042
+F5 Mauwake          	(fly V)             	birin-    	2042
+F6 Bepour           	(fly V)             	purur-    	2042
+F6 Bepour           	(fly V)             	pirin(ɛw)-
+F7 Moere            	(fly V)             	purur-    	2042
+F8 Kowaki           	(fly V)             	pirir-    	2042
+F9 Mawak            	(fly V)			pukup irip-
+F10 Hinihon         	(fly V)			fʌwop yowi-
+F11 Musar           	(fly V)			sɛlɛlɛk indiːv-
+F12 Wanambre        	(fly V)			asir it-
+F13 Koguman         	(fly V)			puɛbɛa
+F14 Abasakur        	fly (verb)          	buŋa ya-  	
+F15 Usan            	(fly V)             	puru(grm) 	2042
+F16 Yaben           	(fly V)			balaˀ-
+F17 Yarawata        	fly (verb)          	buŋia id- 	
+F18 Bilakura        	(fly V)			bawakati isu-
+F19 Parawen         	fly (verb)          	buŋie isi-	
+F20 Ukuriguma       	fly (verb)          	buŋgia id-	
+F21 Amaimon         	(fly V)             	pelu(ʌl)  	2042

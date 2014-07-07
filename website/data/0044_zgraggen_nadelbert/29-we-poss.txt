@@ -1,0 +1,27 @@
+D1 Bargam           	1st pl poss.		iy-
+E1 Dimir            	1st pl poss.		yi-n-
+E2 Malas            	1st pl poss.		i-n-
+E3 Bunabun          	1st pl poss.		i-ña-
+E4 Korak            	1st pl poss.		ani-
+E5 Waskia           	1st pl poss.		a-na-
+F1 Pay              	1st pl poss.		i-
+F2 Pila             	1st pl poss.		i-
+F3 Maia             	1st pl poss.		i-
+F4 Tani             	1st pl poss.		zi-
+F5 Mauwake          	1st pl poss.		iy-
+F6 Bepour           	1st pl poss.		i-
+F7 Moere            	1st pl poss.		ikiɛ-
+F8 Kowaki           	1st pl poss.		iˀɛ-
+F9 Mawak            	1st pl poss.		ikɛ-
+F10 Hinihon         	1st pl poss.		
+F11 Musar           	1st pl poss.		yik-
+F12 Wanambre        	1st pl poss.		yi-
+F13 Koguman         	1st pl poss.		i-
+F14 Abasakur        	1st pl poss.		gag-
+F15 Usan            	1st pl poss.		in-
+F16 Yaben           	1st pl poss.		in-
+F17 Yarawata        	1st pl poss.		in-
+F18 Bilakura        	1st pl poss.		iñ-
+F19 Parawen         	1st pl poss.		ina-
+F20 Ukuriguma       	1st pl poss.		ino-
+F21 Amaimon         	1st pl poss.		ini-

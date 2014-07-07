@@ -1,0 +1,29 @@
+D1 Bargam           	plant V			ley-
+E1 Dimir            	plant V             	ub        	2766
+E2 Malas            	plant V             	umb       	2766
+E3 Bunabun          	plant V             	umb       	2766
+E4 Korak            	plant V             	aku       	2766
+E5 Waskia           	plant V             	ʌguwa     	2766
+F1 Pay              	plant V			num-
+F2 Pila             	plant V			bum-
+F2 Pila             	plant V			ŋaŋum-
+F3 Maia             	plant V			bumɛ-
+F4 Tani             	plant V			bum-
+F5 Mauwake          	plant V             	up        	2766
+F6 Bepour           	plant V             	ip        	2766
+F7 Moere            	plant V             	mpu       	2766
+F8 Kowaki           	plant V             	op        	2766
+F9 Mawak            	plant V			
+F10 Hinihon         	plant V             	up        	2766
+F11 Musar           	plant V             	umb       	2766
+F12 Wanambre        	plant V             	up        	2766
+F13 Koguman         	plant V             	ub        	2766
+F14 Abasakur        	plant V             	pi        	2766
+F15 Usan            	plant V             	ub        	2766
+F16 Yaben           	plant V             	ub        	2766
+F17 Yarawata        	plant V			ʌri-
+F18 Bilakura        	plant V             	uβ        	2766
+F19 Parawen         	plant V			ar(iw)-
+F20 Ukuriguma       	plant V             	uw        	2766
+F21 Amaimon         	plant V			ɛr-
+F21 Amaimon         	plant V			sʌki-

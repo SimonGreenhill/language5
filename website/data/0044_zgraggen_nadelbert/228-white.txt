@@ -1,0 +1,28 @@
+D1 Bargam           	(white)			hus
+D1 Bargam           	(white)			nal
+E1 Dimir            	(white)			laptiŋge
+E2 Malas            	(white)             	uyan      	2184
+E3 Bunabun          	(white)             	oyan      	2184
+E4 Korak            	(white)			kʌkiʌk
+E5 Waskia           	(white)			sir̃ʌr̃
+F1 Pay              	(white)             	aya       	2184
+F2 Pila             	(white)			suːʌ
+F3 Maia             	(white)			waya
+F4 Tani             	(white)             	waya      	2184
+F5 Mauwake          	(white)			kiʌ
+F6 Bepour           	(white)			fuʌ
+F7 Moere            	(white)			fɔn
+F8 Kowaki           	(white)			foʌ
+F9 Mawak            	(white)			fuʌ
+F10 Hinihon         	(white)			fuʌ
+F11 Musar           	(white)			fua
+F12 Wanambre        	(white)			fua
+F13 Koguman         	(white)			oŋɔt
+F14 Abasakur        	(white)             	oya       	2184
+F15 Usan            	(white)             	oʌn       	2184
+F16 Yaben           	(white)             	ʔawanu    	2184
+F17 Yarawata        	(white)			kʌra
+F18 Bilakura        	(white)             	awan      	2184
+F19 Parawen         	(white)             	kaunia    	2184
+F20 Ukuriguma       	(white)			yaga
+F21 Amaimon         	(white)			kias

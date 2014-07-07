@@ -1,0 +1,27 @@
+D1 Bargam           	(tongue)            	meleʔ     	2164
+E1 Dimir            	(tongue)		amtɛkmaŋ
+E2 Malas            	(tongue)		imbitɛl
+E3 Bunabun          	(tongue)            	mamdak    	2164
+E4 Korak            	(tongue)		-kumilok
+E5 Waskia           	(tongue)		koamili
+F1 Pay              	(tongue)            	medulʌk   	2164
+F2 Pila             	(tongue)		-kipi
+F3 Maia             	(tongue)		-kopi
+F4 Tani             	(tongue)		-apita
+F5 Mauwake		(tongue)		omaᵬia
+F6 Bepour           	(tongue)            	me:mje    	2164
+F7 Moere            	(tongue)		nawɛˀ
+F8 Kowaki           	(tongue)		nʌbɛʌˀ
+F9 Mawak            	(tongue)		nʌwiʌk
+F10 Hinihon         	(tongue)            	mindʌk    	2164
+F11 Musar		(tongue)		nʌːviʌk
+F12 Wanambre        	(tongue)            	(ka)mindʌnʌk	2164
+F13 Koguman         	(tongue)            	mer̃      	2164
+F14 Abasakur        	(tongue)		yawɛs
+F15 Usan            	(tongue)		ʌbis
+F16 Yaben           	(tongue)		ˀawisa
+F17 Yarawata        	(tongue)		yɛbisa
+F18 Bilakura        	(tongue)		kaᵬisa
+F19 Parawen         	(tongue)		yɛbisa
+F20 Ukuriguma       	(tongue)		ɛbisa
+F21 Amaimon         	(tongue)		taprekɛm

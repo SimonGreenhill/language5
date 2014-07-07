@@ -1,0 +1,30 @@
+D1 Bargam           	(stand up)          	tir̃      	2144
+D1 Bargam           	(stand up)          	era-
+E1 Dimir            	(stand up)		irɛːma-
+E1 Dimir            	(stand up)		idɛ-
+E2 Malas            	(stand up)          	darem     	2144
+E3 Bunabun          	(stand up)          	darm      	2144
+E4 Korak            	(stand up)		pirik-
+E5 Waskia           	(stand up)		bᵃrasu-
+F1 Pay              	(stand up)          	terem     	2144
+F2 Pila             	(stand up)		ɛsɛrɛnd-
+F3 Maia             	(stand up)		padiri-
+F4 Tani             	(stand up)		buidir-
+F5 Mauwake          	(stand up)		ikⁱr-
+F6 Bepour           	(stand up)		hɛra-
+F7 Moere            	(stand up)		
+F8 Kowaki           	(stand up)		w-
+F9 Mawak            	(stand up)		ɛt-
+F9 Mawak            	(stand up)		hiɛ-
+F9 Mawak            	(stand up)		-kup-
+F10 Hinihon         	(stand up)		otop ikw-
+F11 Musar           	(stand up)		fikirumbo-
+F12 Wanambre        	(stand up)		paki-
+F13 Koguman         	(stand up)		sʌrbig-
+F14 Abasakur        	(stand up)		asa-
+F15 Usan            	(stand up)		nʌg-
+F16 Yaben           	(stand up)		day-
+F17 Yarawata        	(stand up)          	daman     	2144
+F18 Bilakura        	(stand up)		dazi-
+F20 Ukuriguma       	(stand up)          	daram     	2144
+F21 Amaimon         	(stand up)          	zelamu    	2144

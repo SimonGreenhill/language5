@@ -1,0 +1,28 @@
+D1 Bargam           	(wooden plate)		deg
+D1 Bargam           	(wooden plate)		daig
+E1 Dimir            	(wooden plate)		gamu
+E2 Malas            	(wooden plate)		gamun
+E3 Bunabun          	(wooden plate)		gumun
+E4 Korak            	(wooden plate)      	tab       	2189
+E5 Waskia           	(wooden plate)      	tawir̃    	2189
+F1 Pay              	(wooden plate)      	tawir     	2189
+F2 Pila             	(wooden plate)		kwai
+F3 Maia             	(wooden plate)		kuna
+F4 Tani             	(wooden plate)      	tabir     	2189
+F5 Mauwake          	(wooden plate)      	epir      	2189
+F6 Bepour           	(wooden plate)      	epir      	2189
+F7 Moere            	(wooden plate)      	upir      	2189
+F8 Kowaki           	(wooden plate)      	sapir     	2189
+F9 Mawak            	(wooden plate)      	sapir̃    	2189
+F10 Hinihon         	(wooden plate)      	sapil     	2189
+F11 Musar           	(wooden plate)      	sa:mbil   	2189
+F12 Wanambre        	(wooden plate)      	sabil     	2189
+F13 Koguman         	(wooden plate)      	ta:wil    	2189
+F14 Abasakur        	(wooden plate)		igija
+F15 Usan            	(wooden plate)      	ta:bin    	2189
+F16 Yaben           	(wooden plate)      	ta:winu   	2189
+F17 Yarawata        	(wooden plate)		kaniki
+F18 Bilakura        	(wooden plate)      	ta:bin    	2189
+F19 Parawen         	(wooden plate)		kaniki
+F20 Ukuriguma       	(wooden plate)		kanin
+F21 Amaimon         	(wooden plate)      	ta:bin    	2189

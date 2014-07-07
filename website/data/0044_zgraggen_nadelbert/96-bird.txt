@@ -1,0 +1,28 @@
+D1 Bargam           	(bird)			ah
+E1 Dimir            	(bird)			liwɛŋ
+E2 Malas            	(bird)              	nambe     	1981
+E3 Bunabun          	(bird)			munguan
+E4 Korak            	(bird)			ais
+E5 Waskia           	(bird)			inaŋinaŋ
+E5 Waskia           	(bird)			ait
+F1 Pay              	(bird)			muka
+F2 Pila             	(bird)			muŋgoa
+F3 Maia             	(bird)			muŋwa
+F4 Tani             	(bird)			muga
+F5 Mauwake          	(bird)              	nepa      	1981
+F6 Bepour           	(bird)              	nepe      	1981
+F7 Moere            	(bird)              	nempe     	1981
+F8 Kowaki           	(bird)			muˀʌ
+F9 Mawak            	(bird)			muŋgʌ
+F10 Hinihon         	(bird)			muŋgʌ
+F11 Musar           	(bird)			muŋga
+F12 Wanambre        	(bird)			muŋga
+F13 Koguman         	(bird)              	nabug     	1981
+F14 Abasakur        	(bird)              	nopo      	1981
+F15 Usan            	(bird)			morogʌn
+F16 Yaben           	(bird)			malʌgwanu
+F17 Yarawata        	(bird)			ibʌla
+F18 Bilakura        	(bird)			malʌgwan
+F19 Parawen         	(bird)			iːbʌra
+F20 Ukuriguma       	(bird)			ibara
+F21 Amaimon         	(bird)			kuːta

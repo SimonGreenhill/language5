@@ -1,0 +1,28 @@
+D1 Bargam           	red                 	bem       	
+D1 Bargam           	red                 	kakaʔ     	2728
+E1 Dimir            	red                 	lalak     	
+E2 Malas            	red                 	bumbup    	
+E3 Bunabun          	red                 	karas     	2728
+E4 Korak            	red                 	milimil   	
+E5 Waskia           	red                 	giaram    	
+F1 Pay              	red                 	akakalʌt  	2728
+F2 Pila             	red                 	wenu      	
+F3 Maia             	red                 	kedʌt     	2728
+F4 Tani             	red                 	unu       	
+F5 Mauwake          	red                 	okʌ       	2728
+F6 Bepour           	red                 	ʌʔu       	2728
+F7 Moere            	red                 	ŋkeʔ      	
+F8 Kowaki           	red                 	etʌt      	2728
+F9 Mawak            	red                 	etʌt      	2728
+F10 Hinihon         	red                 	etʌt      	2728
+F11 Musar           	red                 	hetʌt     	2728
+F12 Wanambre        	red                 	ketat     	2728
+F13 Koguman         	red                 	orogom    	
+F14 Abasakur        	red                 	ikumat    	
+F15 Usan            	red                 	mian      	
+F16 Yaben           	red                 	ʔʌdu      	2728
+F17 Yarawata        	penis, red          	kauña     	
+F18 Bilakura        	red                 	kar̃ʌt    	2728
+F19 Parawen         	red                 	kʌ:ra     	2728
+F20 Ukuriguma       	red                 	urʌt      	2728
+F21 Amaimon         	red                 	amago     	

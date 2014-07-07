@@ -1,0 +1,29 @@
+D1 Bargam           	comb                	danit     	
+E1 Dimir            	comb                	da:pmet   	
+E1 Dimir            	comb                	dawap     	
+E2 Malas            	comb                	kamba     	
+E3 Bunabun          	comb                	kandʌr    	2722
+E4 Korak            	comb                	garigʌr   	2722
+E5 Waskia           	comb                	kʌtar̃eŋ  	2722
+F1 Pay              	comb                	siwor     	
+F2 Pila             	comb                	tukum     	
+F3 Maia             	comb                	miŋ       	
+F4 Tani             	comb                	mi:n      	
+F5 Mauwake          	comb                	sasʌ      	2232
+F6 Bepour           	comb                	humareb   	
+F7 Moere            	comb                	yor       	
+F8 Kowaki           	comb                	hʌter     	2722
+F9 Mawak            	comb                	ʌter      	2722
+F10 Hinihon         	comb                	fʌtel     	2722
+F11 Musar           	comb                	muŋgaimiol	
+F12 Wanambre        	comb                	muŋga kater	
+F12 Wanambre        	comb                	xx kater  	2722?
+F13 Koguman         	comb                	eiremba   	
+F14 Abasakur        	comb                	kiramba   	
+F15 Usan            	comb                	sarʌ:pi   	2232
+F16 Yaben           	comb                	ʔʌʔʌjʌl  	2232
+F17 Yarawata        	comb                	kakarataria	2722
+F18 Bilakura        	comb                	kakasʌl   	2722
+F19 Parawen         	comb                	saŋgarina 	
+F20 Ukuriguma       	comb                	kakasar   	2722
+F21 Amaimon         	comb                	sʌlʌt     	2232

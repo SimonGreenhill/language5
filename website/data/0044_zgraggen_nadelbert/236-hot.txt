@@ -1,0 +1,29 @@
+D1 Bargam           	(hot)			afan
+E1 Dimir            	(hot)               	(ka)kor   	2064
+E2 Malas            	(hot)               	kuari/wop 	2064
+E3 Bunabun          	(hot)               	kuar      	2064
+E4 Korak            	(hot)			bawana
+E5 Waskia           	(hot)               	kowar     	2064
+F1 Pay              	(hot)               	ar        	2064
+F2 Pila             	(hot)			wukwuk
+F2 Pila             	(hot)			wisʌb
+F3 Maia             	(hot)			isab
+F4 Tani             	(hot)               	genewaβ  	2064
+F5 Mauwake          	(hot)               	yowa      	2064
+F6 Bepour           	(hot)               	haririwob 	2064
+F7 Moere            	(hot)               	arwoβ     	2064
+F8 Kowaki           	(hot)			haridua
+F9 Mawak            	(hot)			wawiruʌ
+F10 Hinihon         	(hot)               	alowa     	2064
+F11 Musar           	(hot)               	haleua    	2064
+F12 Wanambre        	(hot)               	kolia     	2064
+F13 Koguman         	(hot)			nonoʌt
+F14 Abasakur        	(hot)               	kouwa     	2064
+F14 Abasakur        	(hot)               	pabat
+F15 Usan            	(hot)			nʌnaw
+F16 Yaben           	(hot)			nʌnu
+F17 Yarawata        	(hot)			nanʌ
+F18 Bilakura        	(hot)			nanuʌ
+F19 Parawen         	(hot)			nana
+F20 Ukuriguma       	(hot)			nana
+F21 Amaimon         	(hot)               	ore       	2064

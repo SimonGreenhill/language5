@@ -1,0 +1,28 @@
+D1 Bargam           	right arm		abun	
+E1 Dimir            	right arm		mugɛm	
+E2 Malas            	right arm		amboris
+E3 Bunabun          	right arm		sik
+E4 Korak            	right arm		dik	
+E5 Waskia           	right arm           	seŋam     	2647
+F1 Pay              	right arm		nadine	
+F2 Pila             	right arm		nambonay
+F3 Maia             	right arm		wabɛna
+F4 Tani             	right arm		wapo
+F5 Mauwake          	right arm		akɛna	
+F6 Bepour           	right arm		maˀʌn
+F7 Moere            	right arm		maŋɛn	
+F8 Kowaki           	right arm		ʌtɛ
+F9 Mawak            	right arm		ʌtɛ	
+F10 Hinihon         	right arm		ʌtɛ	
+F11 Musar           	right arm		ɛndɛ	
+F12 Wanambre        	right arm		atɛ	
+F13 Koguman         	right arm		ɛtɛgɛnɛːŋk	
+F14 Abasakur        	right arm           	ogomat    	2647
+F15 Usan            	right arm		ubrɛgɛn	
+F16 Yaben           	right arm		ˀʌːgiat
+F17 Yarawata        	right arm		dogon tumun
+F18 Bilakura        	right arm		dagan
+F19 Parawen         	right arm           	tuguma    	2647
+F20 Ukuriguma       	right arm           	sigum     	2647
+F21 Amaimon         	right arm		biamasik	
+

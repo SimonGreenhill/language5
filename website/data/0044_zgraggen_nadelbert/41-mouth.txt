@@ -1,0 +1,27 @@
+D1 Bargam		(mouth)			te -dugan
+E1 Dimir            	(mouth)             	kawor(ep) 	2089
+E2 Malas            	(mouth)             	kambar    	2089
+E3 Bunabun          	(mouth)             	kambor̃(ŋga)	2089
+E4 Korak		(mouth)			-kotaŋ
+E5 Waskia		(mouth)			kodaŋ
+F1 Pay              	(mouth)             	bar       	2089
+F2 Pila			(mouth)			-kamnoar
+F3 Maia			(mouth)			-simaŋ
+F4 Tani             	(mouth)             	oupar     	2089
+F5 Mauwake		(mouth)			opamaka
+F6 Bepour		(mouth)			ɛnpɛːsi
+F7 Moere		(mouth)			mposoˀ
+F8 Kowaki           	(mouth)             	hopar     	2089
+F9 Mawak            	(mouth)             	apar(amun)	2089
+F10 Hinihon		(mouth)			pʌmasu
+F11 Musar           	(mouth)             	hembel(a:bu)	2089
+F12 Wanambre        	(mouth)             	kowar     	2089
+F13 Koguman		(mouth)			papɛ
+F14 Abasakur		(mouth)			nʌka pasar
+F15 Usan            	(mouth)             	aber(i)   	2089
+F16 Yaben           	(mouth)             	kabal     	2089
+F17 Yarawata		(mouth)			kabukwata
+F18 Bilakura        	(mouth)             	kamavor   	2089
+F19 Parawen		(mouth)			kaukᵘtʌ
+F20 Ukuriguma		(mouth)			kabogoto
+F21 Amaimon		(mouth)			nanagitɛm

@@ -1,0 +1,28 @@
+D1 Bargam           	fire                	faʔ       	
+E1 Dimir            	fire                	akur̃     	
+E2 Malas            	fire                	andup     	2697
+E3 Bunabun          	fire                	kimbin    	
+E3 Bunabun          	fire                	mundub    	2601,2697
+E4 Korak            	fire                	tamako    	2603
+E5 Waskia           	fire                	tama      	2603
+F1 Pay              	fire                	mud       	2601,2697
+F2 Pila             	fire                	ŋowab     	2602
+F3 Maia             	fire                	uwʌb      	2602
+F4 Tani             	fire                	ewʌb      	2602
+F5 Mauwake          	fire                	mukuna    	
+F6 Bepour           	fire                	ipomin    	
+F7 Moere            	fire                	pikin     	
+F8 Kowaki           	fire                	muntetat  	2601,2697
+F9 Mawak            	fire                	mundu     	2601,2697
+F10 Hinihon         	fire                	mundu     	2601,2697
+F11 Musar           	fire                	mundu     	2601,2697
+F12 Wanambre        	fire                	mundu     	2601,2697
+F13 Koguman         	fire                	mut       	2601,2697
+F14 Abasakur        	fire                	mutu      	2601,2697
+F15 Usan            	fire                	mu:t      	2601,2697
+F16 Yaben           	fire                	mu:ta     	2601,2697
+F17 Yarawata        	fire                	muru      	2697
+F18 Bilakura        	fire                	muta      	2601,2697
+F19 Parawen         	fire                	muru      	2601,2697
+F20 Ukuriguma       	fire                	muta      	2601,2697
+F21 Amaimon         	fire                	o:re      	

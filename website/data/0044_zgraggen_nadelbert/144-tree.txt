@@ -1,0 +1,27 @@
+D1 Bargam           	tree                	ay        	
+E1 Dimir            	tree                	ŋam       	2555,2686
+E2 Malas            	tree                	mumdu     	
+E3 Bunabun          	tree                	wam       	2555
+E4 Korak            	tree                	ta        	
+E5 Waskia           	tree                	tam       	
+F1 Pay              	tree                	nanʌm     	2686
+F2 Pila             	tree                	ŋanam     	2555,2686
+F3 Maia             	tree                	ŋanam     	2555,2686
+F4 Tani             	tree                	nʌm       	2686
+F5 Mauwake          	tree                	nomɔkwʌ   	2686
+F6 Bepour           	tree                	nʌmʌ      	2686
+F7 Moere            	tree                	namʌ      	2686
+F8 Kowaki           	tree                	nʌ        	2686
+F9 Mawak            	tree                	nʌ        	2686
+F10 Hinihon         	tree                	nʌ        	2686
+F11 Musar           	tree                	nʌ        	2686
+F12 Wanambre        	tree                	na        	2555,2686
+F13 Koguman         	tree                	neim      	2555,2686
+F14 Abasakur        	tree                	nʌ:m      	2686
+F15 Usan            	tree                	nʌm       	2686
+F16 Yaben           	tree                	nʌ:mu     	2686
+F17 Yarawata        	tree                	nʌ:ma     	2686
+F18 Bilakura        	tree                	nuom      	2555,2686
+F19 Parawen         	tree                	nʌ:ma     	2686
+F20 Ukuriguma       	tree                	mur       	
+F21 Amaimon         	tree                	ŋʌmu      	2686

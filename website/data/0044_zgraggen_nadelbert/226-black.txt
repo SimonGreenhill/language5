@@ -1,0 +1,29 @@
+D1 Bargam           	(black)			dub	
+E1 Dimir            	(black)			gulɛŋgɛ
+E2 Malas            	(black)             	isere     	1983
+E2 Malas            	(black)             	kurun
+E3 Bunabun          	(black)			kurun
+E4 Korak            	(black)			malʌkos
+E5 Waskia           	(black)			kaitam
+F1 Pay              	(black)             	ausiri    	1983
+F2 Pila             	(black)			koaw
+F3 Maia             	(black)			gigir
+F4 Tani             	(black)			gigir
+F5 Mauwake          	(black)			sɛpʌ
+F6 Bepour           	(black)             	isiwe     	1983
+F7 Moere            	(black)             	isiwe     	1983
+F8 Kowaki           	(black)			uru
+F9 Mawak            	(black)             	siwir(pok)	1983?
+F9 Mawak            	(black)             	usɛb
+F10 Hinihon         	(black)			ulu
+F11 Musar           	(black)			ululumɛk
+F12 Wanambre        	(black)			ulunay
+F13 Koguman         	(black)			yuw
+F14 Abasakur        	(black)			kiːriŋ
+F15 Usan            	(black)			umaw
+F16 Yaben           	(black)			ˀulunu
+F17 Yarawata        	(black)			uma
+F18 Bilakura        	(black)			kulun
+F19 Parawen         	(black)			uma
+F20 Ukuriguma       	(black)			uma
+F21 Amaimon         	(black)			uliliŋ

@@ -1,0 +1,27 @@
+D1 Bargam           	(fire) light        	anu-an    	
+E1 Dimir            	(fire) light        	ulimet    	
+E2 Malas            	(fire) light		imbitɛl
+E3 Bunabun          	(fire) light        	bagen     	
+E4 Korak            	(fire) light        	magana    	
+E5 Waskia           	(fire) light		koamli
+F1 Pay              	(fire) light        	buiroba   	
+F2 Pila             	(fire) light        	kwia      	
+F3 Maia             	(fire) light        	bogo      	
+F4 Tani             	(fire) light        	iniza     	
+F5 Mauwake          	(fire) light		
+F6 Bepour           	(fire) light		hirirɛ- (v)
+F7 Moere            	(fire) light		nawɛ
+F8 Kowaki           	(fire) light        	muntu mai 	2601
+F9 Mawak            	(fire) light        	maik      	
+F10 Hinihon         	(fire) light		ɛtʌt
+F11 Musar           	(fire) light		hɛtʌt
+F12 Wanambre        	(fire) light		ketat
+F13 Koguman         	(fire) light        	ogwa      	
+F14 Abasakur        	(fire) light        	wo        	
+F15 Usan            	(fire) light        	arub      	
+F16 Yaben           	(fire) light        	kwalubu   	
+F17 Yarawata        	(fire) light        	ipu       	
+F18 Bilakura        	(fire) light        	kwalup    	
+F19 Parawen         	(fire) light        	aik       	
+F20 Ukuriguma       	(fire) light        	kiwen   
+F21 Amaimon		(fire) light		  	

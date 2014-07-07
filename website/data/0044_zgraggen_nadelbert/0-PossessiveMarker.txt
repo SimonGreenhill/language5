@@ -1,0 +1,43 @@
+D1 Bargam           	Possessive Marker (sg)	   -go 
+E1 Dimir            	Possessive Marker (sg)	   -me 
+E2 Malas            	Possessive Marker (sg)	   -ner
+D1 Bargam           	Possessive Marker (pl)	   -gi-go 
+E1 Dimir            	Possessive Marker (pl)	   -di-me 
+E2 Malas            	Possessive Marker (pl)	   -i-ner
+E3 Bunabun          	Possessive Marker	   -ar
+E3 Bunabun          	Possessive Marker	   -or
+E4 Korak            	Possessive Marker	   -ŋkate
+E5 Waskia           	Possessive Marker (sg)	   -ka
+E5 Waskia           	Possessive Marker (pl)	   -ŋa
+F1 Pay              	Possessive Marker (sg)	   -ŋor
+F1 Pay              	Possessive Marker (pl)	   -(i)ŋor
+F2 Pila             	Possessive Marker (sg)	   -ŋor
+F2 Pila             	Possessive Marker (pl)	   -ko
+F3 Maia             	Possessive Marker	   -0̸
+F4 Tani             	Possessive Marker	   -0̸
+F4 Tani             	Possessive Marker	   -ŋor
+F5 Mauwake          	Possessive Marker	   -ena
+F6 Bepour           	Possessive Marker (sg)	   -em
+F6 Bepour           	Possessive Marker (pl)	   -hem 
+F7 Moere            	Possessive Marker	   -r
+F7 Moere            	Possessive Marker (5,6)	   -lnor
+F8 Kowaki           	Possessive Marker	   -0̸
+F9 Mawak            	Possessive Marker	   -0̸
+F10 Hinihon         	Possessive Marker	   
+F11 Musar           	Possessive Marker	   -alik
+F12 Wanambre        	Possessive Marker	   -0̸
+F13 Koguman         	Possessive Marker	   -er
+F14 Abasakur        	Possessive Marker (sg)	   -əmp
+F15 Usan            	Possessive Marker (sg)	   -ono
+F16 Yaben           	Possessive Marker (sg)	   -nalu
+F17 Yarawata        	Possessive Marker (sg)	   -ra
+F13 Koguman         	Possessive Marker	   -or
+F14 Abasakur        	Possessive Marker (pl)	   -əp
+F15 Usan            	Possessive Marker (pl)	   -i-no
+F16 Yaben           	Possessive Marker (pl)	   -i-nalu
+F17 Yarawata        	Possessive Marker (pl)	   -ara
+F18 Bilakura        	Possessive Marker	   -0̸
+F19 Parawen         	Possessive Marker	   -ra
+F20 Ukuriguma       	Possessive Marker (sg)	   -or
+F20 Ukuriguma       	Possessive Marker (pl)	   -r
+F21 Amaimon         	Possessive Marker	   -kana

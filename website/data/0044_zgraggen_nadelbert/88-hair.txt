@@ -1,0 +1,32 @@
+D1 Bargam           	hair		-enan
+E1 Dimir            	hair		saːrip
+E2 Malas            	hair		iᵬu      	2258
+E3 Bunabun          	hair		iᵬ       	2258
+E4 Korak            	hair		-munɛ    	2257
+E5 Waskia           	hair		moːnɛ    	2257
+F1 Pay              	hair		-imun    	2257
+F1 Pay              	hair		-ib
+F2 Pila             	hair		unum     	2257
+F3 Maia             	hair		-mu      	2257
+F3 Maia             	hair		-dumu
+F4 Tani             	hair		-oso
+F4 Tani             	hair		-umun    	2257
+F5 Mauwake          	hair		afifa
+F6 Bepour           	hair		humsʌ
+F6 Bepour           	hair		fuˀum     	2257
+F7 Moere            	hair		iːskʌ
+F7 Moere            	hair		fuŋum     	2257
+F8 Kowaki           	hair		imi       	2258
+F9 Mawak            	hair		imi       	2258
+F10 Hinihon         	hair		imi       	2258
+F11 Musar           	hair		imi       	2258
+F12 Wanambre        	hair		imi       	2258
+F13 Koguman         	hair		imi       	2258
+F14 Abasakur        	hair		mʌk
+F15 Usan            	hair		iːm       	2258
+F16 Yaben           	hair		imu 	2258
+F17 Yarawata        	hair		munia       	2257
+F18 Bilakura        	hair		iːm      	2258
+F19 Parawen         	hair		muna 	2257
+F20 Ukuriguma       	hair		iːm      	2258
+F21 Amaimon         	hair		sawar

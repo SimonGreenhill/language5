@@ -1,0 +1,27 @@
+D1 Bargam           	(how many)          	ganin     	2066
+E1 Dimir            	(how many)		adapki
+E2 Malas            	(how many)		dituditu
+E3 Bunabun          	(how many)		dimin
+E4 Korak            	(how many)		adan
+E5 Waskia           	(how many)		ʌᵬila
+F1 Pay              	(how many)		dɛpi
+F2 Pila             	(how many)		ndipi
+F3 Maia             	(how many)		sipi
+F4 Tani             	(how many)		tipi
+F5 Mauwake          	(how many)          	kamin     	2066
+F6 Bepour           	(how many)          	emin      	2066
+F7 Moere            	(how many)          	kemin     	2066
+F8 Kowaki           	(how many)          	ement     	2066
+F9 Mawak            	(how many)          	kemen(dete)	2066
+F10 Hinihon         	(how many)          	kemen(dia)	2066
+F11 Musar           	(how many)		kɛlɛŋkɛp
+F12 Wanambre        	(how many)          	gemete    	2066
+F13 Koguman         	(how many)		migit
+F14 Abasakur        	(how many)		mayandeŋgɛ
+F15 Usan            	(how many)		mʌymʌy
+F16 Yaben           	(how many)		maymay
+F17 Yarawata        	(how many)		maiwan
+F18 Bilakura        	(how many)		daᵬarᵬatu
+F19 Parawen         	(how many)          	umen      	2066
+F20 Ukuriguma       	(how many)		topɛan(ɛan)
+F21 Amaimon         	(how many)		dɛu ᵬasim

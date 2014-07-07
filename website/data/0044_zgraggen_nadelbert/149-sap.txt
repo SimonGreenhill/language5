@@ -1,0 +1,28 @@
+D1 Bargam           	(sap)			-agin
+E1 Dimir            	(sap)			kʌkʌt
+E2 Malas            	(sap)               	katu      	2123
+E3 Bunabun          	(sap)               	ken       	2123
+E4 Korak		(sap)			kapʌt
+E5 Waskia           	(sap)               	kiri      	2123
+F1 Pay              	(sap)			tanʌ
+F2 Pila             	(sap)			ɔkɔnd
+F2 Pila             	(sap)			munub
+F3 Maia             	(sap)			okoŋ
+F4 Tani             	(sap)               	es        	2123
+F5 Mauwake		(sap)			ʌkʌ
+F6 Bepour           	(sap)               	hen       	2123
+F7 Moere            	(sap)			ŋʌ
+F8 Kowaki           	(sap)			mɛmɛr
+F9 Mawak            	(sap)			mɛmɛr
+F10 Hinihon         	(sap)			momol
+F11 Musar           	(sap)               	hen       	2123
+F12 Wanambre        	(sap)               	ken (memel)	2123
+F13 Koguman         	(sap)               	e:s       	2123
+F14 Abasakur        	(sap)               	kanzira   	2123
+F15 Usan            	(sap)               	e:si      	2123
+F16 Yaben           	(sap)               	ʔasi      	2123
+F17 Yarawata        	(sap)               	kasi(a)   	2123
+F18 Bilakura        	(sap)               	kasi      	2123
+F19 Parawen         	(sap)               	ka:si     	2123
+F20 Ukuriguma       	(sap)               	kadi      	2123
+F21 Amaimon         	(sap)               	kese      	2123

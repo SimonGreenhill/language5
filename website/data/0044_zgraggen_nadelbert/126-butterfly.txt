@@ -1,0 +1,28 @@
+D1 Bargam           	butterfly           	kabob     	2512
+E1 Dimir            	butterfly           	lasibu    	
+E2 Malas            	butterfly           	kawaŋ kawaŋ	
+E3 Bunabun          	butterfly           	propir    	
+E4 Korak            	butterfly           	walwal    	2513
+E5 Waskia           	butterfly           	bululu    	2513
+E5 Waskia           	butterfly           	siwo      	2514
+F1 Pay              	butterfly           	wuwul     	2513
+F2 Pila             	butterfly           	kapopor   	2512
+F3 Maia             	butterfly           	kapopor   	2512
+F4 Tani             	butterfly           	kabobor   	2512
+F5 Mauwake          	butterfly           	ofafilka  	
+F6 Bepour           	butterfly           	fefum     	
+F7 Moere            	butterfly           	mapapu    	
+F8 Kowaki           	butterfly           	mapapu    	
+F9 Mawak            	butterfly           	miŋgakur  	
+F10 Hinihon         	butterfly           	maŋgakur  	
+F11 Musar           	butterfly           	mambumbu  	
+F12 Wanambre        	butterfly           	sikakul   	2514
+F13 Koguman         	butterfly           	pamabuk   	
+F14 Abasakur        	butterfly           	sikakwar  	2514
+F15 Usan            	butterfly           	ubuseri   	2515
+F16 Yaben           	butterfly           	abuzale   	2515
+F17 Yarawata        	butterfly           	kabisala  	2515
+F18 Bilakura        	butterfly           	kapsali   	2515
+F19 Parawen         	butterfly           	kapesar   	2515
+F20 Ukuriguma       	butterfly           	abaur     	2515
+F21 Amaimon         	butterfly           	uawasasar 	2515

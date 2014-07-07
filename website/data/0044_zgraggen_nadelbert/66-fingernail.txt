@@ -1,0 +1,29 @@
+D1 Bargam           	(fingernail)		betgeik	
+E1 Dimir            	(fingernail)		mɛkamgɛl
+E2 Malas            	(fingernail)        	sisen     	2038
+E2 Malas            	(fingernail)        	guat
+E3 Bunabun          	(fingernail)		asumuaŋ
+E4 Korak            	(fingernail)		simbɛn
+E5 Waskia           	(fingernail)		kor̃ɛ
+F1 Pay              	(fingernail)		umiriŋ
+F2 Pila             	(fingernail)		taŋga
+F3 Maia             	(fingernail)		taga
+F4 Tani             	(fingernail)		owos	
+F5 Mauwake          	(fingernail)		pamuska	
+F6 Bepour           	(fingernail)		piˀaˀun
+F7 Moere            	(fingernail)		
+F8 Kowaki           	(fingernail)        	(i)siʔen  	2038
+F9 Mawak            	(fingernail)        	siŋgen    	2038
+F10 Hinihon         	(fingernail)        	iŋgen     	2038
+F11 Musar           	(fingernail)        	iŋgen     	2038
+F12 Wanambre        	(fingernail)        	iŋgon     	2038
+F13 Koguman         	(fingernail)		ɛᵬis	
+F14 Abasakur        	(fingernail)		opas
+F14 Abasakur        	(fingernail)		tʌpʌr
+F15 Usan            	(fingernail)		ɛbir
+F16 Yaben           	(fingernail)		ʌgawazin
+F17 Yarawata        	(fingernail)		(nabi)kʌra
+F18 Bilakura        	(fingernail)        	(kapoga:)sin	2038
+F19 Parawen         	(fingernail)		nawikʌra	
+F20 Ukuriguma       	(fingernail)		kar
+F21 Amaimon         	(fingernail)		kʌlia	

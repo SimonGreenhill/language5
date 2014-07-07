@@ -1,0 +1,27 @@
+D1 Bargam           	cry			ga-
+E1 Dimir            	cry                 	ma        	2773
+E2 Malas            	cry                 	amum-     	2230
+E3 Bunabun          	cry                 	amu-      	2230
+E4 Korak            	cry                 	ma        	2773
+E5 Waskia           	cry			nia-
+F1 Pay              	cry                 	umum-     	2230
+F2 Pila             	cry                 	ŋamum-    	2230
+F3 Maia             	cry                 	ŋoume     	2773
+F4 Tani             	cry			nɛw-
+F5 Mauwake          	cry                 	mom-      	2230
+F6 Bepour           	cry                 	emem-     	2230
+F7 Moere            	cry                 	num-      	2230
+F8 Kowaki           	cry                 	mom-      	
+F9 Mawak            	cry                 	mi        	2773
+F10 Hinihon         	cry                 	um-       	2230
+F11 Musar           	cry                 	om-       	2230
+F12 Wanambre        	cry                 	omi-      	2230
+F13 Koguman         	cry                 	mu(m)-    	2230
+F14 Abasakur        	cry			mʌːto-
+F15 Usan            	cry			ɛ-
+F16 Yaben           	cry			yɛw-
+F17 Yarawata        	cry                 	em-       	2230
+F18 Bilakura        	cry			iey-
+F19 Parawen         	cry                 	emoi      	2773
+F20 Ukuriguma       	cry			yama-
+F21 Amaimon         	cry			ɛrɛŋ-

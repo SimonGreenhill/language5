@@ -1,0 +1,27 @@
+D1 Bargam           	belly               	-gem       	2651
+E1 Dimir            	belly               	ŋomaŋ     	2651
+E2 Malas            	belly               	urir      	2340
+E3 Bunabun          	belly               	ku/namun  	2651
+E4 Korak            	belly               	-taŋu      	2651
+E5 Waskia           	belly               	tʌ:gu     	2651
+F1 Pay			belly			-ram
+F2 Pila             	belly               	-mar      	
+F3 Maia             	belly               	ram       	2057
+F4 Tani             	belly               	-utak     	
+F5 Mauwake          	belly               	kanima    	2651
+F6 Bepour		belly			urɛm
+F7 Moere            	belly               	munoŋ kar 	
+F8 Kowaki           	belly               	munaʔ     	
+F9 Mawak            	belly               	usaku     
+F10 Hinihon         	belly			ula
+F11 Musar           	belly			uːla
+F12 Wanambre        	belly			ula uku
+F13 Koguman         	belly               	nout      	
+F14 Abasakur        	belly               	no        	
+F15 Usan            	belly               	uro       	2343
+F16 Yaben           	belly               	kudabun-u 	2343
+F17 Yarawata        	belly               	kuda      	2343
+F18 Bilakura        	belly               	kura: bulguan	2343
+F19 Parawen         	belly               	ku:ra     	2343
+F20 Ukuriguma       	belly               	kuda      	2343
+F21 Amaimon         	belly               	tauya     	

@@ -1,0 +1,29 @@
+D1 Bargam           	eye                 	nagin     	
+D1 Bargam           	eye                 	me        	2631
+E1 Dimir            	eye                 	mekmet    	2631
+E2 Malas            	eye                 	musaŋ     	2631
+E3 Bunabun          	eye                 	moaŋ sik     	2631
+E4 Korak            	eye                 	-minikaŋ  	
+E5 Waskia           	eye                 	motam     	2631
+F1 Pay              	eye                 	-mutak     	2631
+F2 Pila             	eye                 	-mundoa    	2631
+F3 Maia             	eye                 	-munda     	2631
+F4 Tani             	eye                 	-muda      	2631
+F5 Mauwake          	eye                 	-mokwa    	
+F6 Bepour           	eye                 	musepen   	
+F6 Bepour           	eye                 	musʔi     	2631
+F7 Moere            	eye                 	monsi     	2631
+F8 Kowaki           	eye                 	haruha    	2273
+F9 Mawak            	eye                 	araha     	2273
+F10 Hinihon         	eye                 	eleha     	2273
+F11 Musar           	eye                 	mudʌŋgumu 	2631
+F12 Wanambre        	eye                 	mundaweka 	2631
+F13 Koguman         	eye                 	musom     	2631
+F14 Abasakur        	eye                 	musak     	2631
+F15 Usan            	eye                 	mʌg       	2631
+F16 Yaben           	eye                 	magiño    	2631
+F17 Yarawata        	eye                 	makita    	2631
+F18 Bilakura        	eye                 	muɔg      	2631
+F19 Parawen         	eye                 	makita    	2631
+F20 Ukuriguma       	eye                 	mʌ:g      	2631
+F21 Amaimon         	eye                 	momo      	2274

@@ -1,0 +1,28 @@
+D1 Bargam           	sweet potato        	sarim    
+E1 Dimir            	sweet potato		
+E2 Malas            	sweet potato		 	
+E3 Bunabun          	sweet potato        	kumbir    	
+E4 Korak            	sweet potato        	olamreb 
+E5 Waskia           	sweet potato		  	
+F1 Pay              	sweet potato        	maurep    	
+F2 Pila             	sweet potato        	maureb    	
+F3 Maia             	sweet potato        	barebar   	
+F4 Tani             	sweet potato        	barebar   	
+F5 Mauwake          	sweet potato        	waulak    	
+F6 Bepour           	sweet potato        	mamoreb   	
+F7 Moere            	sweet potato        	oromarep  	
+F8 Kowaki           	sweet potato        	memureb   	
+F9 Mawak            	sweet potato        	berur     	
+F10 Hinihon         	sweet potato        	belul     	
+F11 Musar           	sweet potato        	ma:leb    	
+F12 Wanambre        	sweet potato        	ge:las    	
+F13 Koguman         	sweet potato        	gara:s    	
+F14 Abasakur        	sweet potato        	sogoy     	
+F15 Usan            	sweet potato        	mobor     	
+F16 Yaben           	sweet potato        	me:la     	
+F17 Yarawata        	sweet potato        	imsala    	
+F17 Yarawata        	sweet potato        	maila     	
+F18 Bilakura        	sweet potato        	atuatul   	
+F19 Parawen         	sweet potato        	yamara    	
+F20 Ukuriguma       	sweet potato        	yomzera   	
+F21 Amaimon         	sweet potato        	kuwai     	

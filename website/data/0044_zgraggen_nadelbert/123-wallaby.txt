@@ -1,0 +1,29 @@
+D1 Bargam           	wallaby             	sawan     	2505
+D1 Bargam           	wallaby             	waken     	2681
+E1 Dimir            	wallaby             	soŋ       	2505
+E2 Malas            	wallaby             	usu       	
+E3 Bunabun          	wallaby             	imuo      	
+E4 Korak            	wallaby             	sa        	2505
+E5 Waskia           	wallaby             	sawaŋ     	2505
+F1 Pay              	wallaby             	ibi:      	
+F2 Pila             	wallaby             	sawaŋ     	2505
+F3 Maia	            	wallaby			ŋapʌr
+F4 Tani             	wallaby, tree possum	mapar     	2508
+F5 Mauwake          	wallaby             	wakuma    	2507,2681
+F6 Bepour           	wallaby             	sopu      	2506
+F7 Moere            	wallaby             	sopu      	2506
+F8 Kowaki           	wallaby             	piribin   	
+F9 Mawak            	wallaby             	memba     	2508
+F10 Hinihon         	wallaby, tree possum	mimba     	2508
+F11 Musar           	wallaby             	here or below?	2505
+F12 Wanambre        	wallaby             	wa        	2507,2681
+F13 Koguman         	wallaby             	umbugut   	
+F14 Abasakur        	wallaby             	mowaya    	
+F14 Abasakur        	wallaby             	wa        	2507,2681
+F15 Usan            	wallaby             	wayayib   	2507,2681
+F16 Yaben           	wallaby             	wai dagʌ:nu	2681
+F17 Yarawata        	wallaby             	wei dagʌ:na	2681
+F18 Bilakura        	wallaby             	wa:       	2507,2681
+F19 Parawen         	wallaby             	kura:ri   	
+F20 Ukuriguma       	wallaby             	kabin     	
+F21 Amaimon         	wallaby             	ma gap    	

@@ -1,0 +1,30 @@
+D1 Bargam           	green coconut       	-nian     	
+E1 Dimir            	green coconut       	otmet     	
+E2 Malas            	green coconut       	mumun     	
+E3 Bunabun          	green coconut       	suab      	
+E4 Korak            	green coconut       	uyu       	
+E5 Waskia           	green coconut       	barare    	
+F1 Pay              	water, green coconut	ak        	
+F2 Pila             	green coconut       	wayaŋ     	
+F3 Maia             	green coconut       	koyom kwayam	
+F4 Tani             	green coconut       	yag       	
+F5 Mauwake          	green coconut       	popoka    	
+F6 Bepour           	water, green coconut	yaʔa      	
+F7 Moere            	green coconut       	pe        	
+F8 Kowaki           	green coconut       	toma      	
+F9 Mawak            	green coconut       	nomu      	
+F10 Hinihon         	green coconut       	no:mu     	
+F11 Musar           	green coconut       	men       	
+F12 Wanambre        	green coconut       	numu      	
+F13 Koguman         	green coconut       	igim      	
+F13 Koguman         	green coconut       	(i)rigirok(k)
+F14 Abasakur        	green coconut       	mesogu    	
+F15 Usan            	green coconut       	umau      	
+F16 Yaben           	green coconut       	gitu      	
+F17 Yarawata        	green coconut       	blekima   
+F17 Yarawata        	green coconut       	yʌːga	
+F18 Bilakura        	green coconut       	boal      	
+F19 Parawen         	green coconut       	parakin   	
+F20 Ukuriguma       	green coconut       	borok     	
+F21 Amaimon         	green coconut       	bi:suk    	
+F21 Amaimon         	green coconut       	yaga      	?	

@@ -1,0 +1,28 @@
+D1 Bargam           	lightning           	meulik em-	
+E1 Dimir            	lightning		mɛguᵬit-
+E2 Malas            	lightning		atɛmbrɛ kawos-
+E3 Bunabun          	lightning		geit kʌsm-
+E4 Korak            	lightning		puno-
+E5 Waskia           	lightning		purɛ bilikma-
+F1 Pay              	lightning           	muikew-   	
+F2 Pila             	lightning           	mulikan   	
+F3 Maia             	lightning		-- bogoŋa-
+F4 Tani             	lightning		rapɛra wɛrɛkan-
+F5 Mauwake          	lightning		apɛrka wilik-
+F6 Bepour           	lightning		apera ɛrp-
+F7 Moere            	lightning		
+F8 Kowaki           	lightning		
+F9 Mawak            	lightning		
+F10 Hinihon         	lightning           	melelek ewi-	
+F11 Musar           	lightning		momo law-
+F12 Wanambre        	lightning           	memelin ok-	
+F13 Koguman         	lightning		mɛmɛlin ok-
+F14 Abasakur        	lightning		atugumɛ ɛrididibi-
+F15 Usan            	lightning		yawɛs arapi-
+F16 Yaben           	lightning           	meli:ʔ-   	
+F17 Yarawata        	lightning		bagana mbugu-
+F18 Bilakura        	lightning		kanʌm tawaisu-
+F19 Parawen         	lightning           	milikei-  	
+F20 Ukuriguma       	lightning           	bilika-   	
+F21 Amaimon         	lightning           	meki miririmu-	
+F21 Amaimon         	lightning           	kwag-

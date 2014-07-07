@@ -1,0 +1,27 @@
+D1 Bargam           	bowstring           	zemun     	2223
+E1 Dimir            	bowstring           	gabgop    	
+E2 Malas            	bowstring           	mimiŋ     	
+E3 Bunabun          	bowstring           	um        	2223
+E4 Korak            	bowstring           	pitasok   	
+E5 Waskia           	bowstring           	wol       	2223
+F1 Pay              	bowstring           	susuna    	
+F2 Pila             	bowstring		siwʌr
+F3 Maia             	bowstring		siwʌr
+F4 Tani             	bowstring           	duna      	
+F5 Mauwake          	bowstring           	niba      	
+F6 Bepour           	bowstring           	inib      	
+F7 Moere            	bowstring           	fuo       	
+F8 Kowaki           	bowstring           	unib      	
+F9 Mawak            	bowstring           	kuwindar  	
+F10 Hinihon         	bowstring           	kindar    	
+F11 Musar           	bowstring           	gambo:sip 	
+F12 Wanambre        	bowstring           	unuŋgital 	
+F13 Koguman         	bowstring           	endip     	
+F14 Abasakur        	bowstring           	minda     	
+F15 Usan            	bowstring           	omun      	
+F16 Yaben           	bowstring           	imapu     	
+F17 Yarawata        	bowstring           	imapa     	
+F18 Bilakura        	bowstring           	to        	
+F19 Parawen         	bowstring           	imoa:piri 	
+F20 Ukuriguma       	bowstring           	imop      	
+F21 Amaimon         	bowstring           	sual      	

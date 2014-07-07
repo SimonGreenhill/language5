@@ -1,0 +1,31 @@
+D1 Bargam		mosquito		uni
+E1 Dimir            	mosquito            	kasin/mer 	2212,2676
+E2 Malas            	mosquito            	kasin     	2212,2676
+E3 Bunabun          	mosquito            	kain      	2212,2676
+E4 Korak            	mosquito            	kʌs       	2212,2676
+E5 Waskia           	mosquito            	kasim     	2212,2676
+F1 Pay              	mosquito            	ŋasi      	2212
+F2 Pila             	mosquito            	kʌsi      	2212,2676
+F3 Maia             	mosquito            	kʌsi      	2212,2676
+F4 Tani             	mosquito            	ʌsi       	2212,2676
+F5 Mauwake		mosquito		amsamɔla
+F5 Mauwake		mosquito		iːma
+F6 Bepour           	mosquito            	sen       	2212,2676
+F7 Moere            	mosquito            	masen     	2212
+F8 Kowaki           	mosquito            	mʌsen     	2212
+F9 Mawak            	mosquito            	masen     	2212
+F10 Hinihon         	mosquito            	masen     	2212
+F11 Musar           	mosquito            	mʌ:sen    	2212
+F11 Musar           	mosquito            	mʌmbusɛn	2212
+F12 Wanambre        	mosquito            	masen     	2212
+F12 Wanambre        	mosquito            	mambusɛn	2212
+F13 Koguman         	mosquito            	asisir    	2212,2676
+F14 Abasakur		mosquito		asisir
+F15 Usan            	mosquito            	misisir   	2212
+F16 Yaben           	mosquito            	ʔʌsitsilu 	2212,2676
+F17 Yarawata        	mosquito            	kaina     	2212,2676
+F17 Yarawata        	mosquito            	malnasia
+F18 Bilakura        	mosquito            	kasisil   	2212,2676
+F19 Parawen         	mosquito            	kʌina     	2212,2676
+F20 Ukuriguma		mosquito		marɛnɛsi
+F21 Amaimon         	mosquito            	kasin     	2212,2676

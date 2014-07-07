@@ -1,0 +1,27 @@
+D1 Bargam           	(heart)			-babuan
+E1 Dimir            	(heart)			dadɔmɛt
+E2 Malas            	(heart)			mutukunaŋ
+E3 Bunabun          	(heart)             	(ma)mun   	2061
+E4 Korak            	(heart)             	nom       	2061
+E5 Waskia           	(heart)             	maŋa      	2061
+F1 Pay			(heart)			-gom apasu
+F2 Pila             	(heart)             	munuβ     	2061
+F3 Maia             	(heart)			-munub
+F4 Tani             	(heart)			uwaᵬ
+F5 Mauwake          	(heart)			kema manɛka
+F6 Bepour           	(heart)             	(mu)mu    	2061
+F7 Moere            	(heart)             	(mu)mun   	2061
+F8 Kowaki           	(heart)			apʌruhʌ
+F9 Mawak            	(heart)			ʌporʰʌ
+F10 Hinihon         	(heart)			kɛma
+F11 Musar           	(heart)      	  	ɛmbɛ kaluka   	2061?
+F12 Wanambre		(heart)			kʌruka
+F13 Koguman         	(heart)        		ɛmɛŋant		2061
+F14 Abasakur        	(heart)			pɛmɛmak
+F15 Usan            	(heart)			uri
+F16 Yaben           	(heart)			waʌbi
+F17 Yarawata        	(heart)             	mumud(ilam)	2061
+F18 Bilakura        	(heart)			awabunan
+F19 Parawen         	(heart)			utʌːra
+F20 Ukuriguma       	(heart)			aunan
+F21 Amaimon         	(heart)			gamʌːgu

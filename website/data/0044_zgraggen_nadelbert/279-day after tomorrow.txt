@@ -1,0 +1,27 @@
+D1 Bargam           	day after tomorrow		ilato
+E1 Dimir            	day after tomorrow		
+E2 Malas            	day after tomorrow		uyanarindene
+E3 Bunabun          	day after tomorrow		
+E4 Korak            	day after tomorrow		ewele
+E5 Waskia           	day after tomorrow		kuroksɛ awruk
+F1 Pay              	day after tomorrow		bikimokonʌ
+F2 Pila             	day after tomorrow		bigiːma
+F3 Maia             	day after tomorrow		bigimara
+F4 Tani             	day after tomorrow		bigiːmʌra
+F5 Mauwake          	day after tomorrow		ɛrɛ
+F6 Bepour           	day after tomorrow		oᵬno ɛrɛ
+F7 Moere            	day after tomorrow		
+F8 Kowaki           	day after tomorrow		munɛm
+F9 Mawak            	day after tomorrow		im
+F10 Hinihon         	day after tomorrow		fuɛːminɛ
+F11 Musar           	day after tomorrow		ɛlɛ
+F12 Wanambre        	day after tomorrow		keimɛnɛ
+F13 Koguman         	day after tomorrow		aur
+F14 Abasakur        	day after tomorrow		arasirim
+F15 Usan            	day after tomorrow		barim uriːgom
+F16 Yaben           	day after tomorrow		balima anuˀulugialum
+F17 Yarawata        	day after tomorrow		inubliala
+F18 Bilakura        	day after tomorrow		balima tumugasi
+F19 Parawen         	day after tomorrow		inaburʌra
+F20 Ukuriguma       	day after tomorrow		dʌːro
+F21 Amaimon         	day after tomorrow		ɛːrin

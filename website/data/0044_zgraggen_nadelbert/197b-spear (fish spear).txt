@@ -1,0 +1,28 @@
+D1 Bargam           	spear2		saden
+E1 Dimir            	spear2		darga
+E2 Malas            	spear2		
+E3 Bunabun          	spear2		
+E4 Korak            	spear2		naman
+E5 Waskia           	spear2		doːm
+F1 Pay              	spear2		patopʌt
+F2 Pila             	spear2		sɔːp
+F3 Maia             	spear2		wiab
+F3 Maia             	spear2		dogono
+F4 Tani             	spear2		
+F5 Mauwake          	spear2		sɔkɔkʌ
+F6 Bepour           	spear2		
+F7 Moere            	spear2		
+F8 Kowaki           	spear2		
+F9 Mawak            	spear2		
+F10 Hinihon         	spear2		
+F11 Musar           	spear2		
+F12 Wanambre        	spear2		
+F13 Koguman         	spear2		
+F14 Abasakur        	spear2		
+F15 Usan            	spear2		
+F16 Yaben           	spear2		
+F17 Yarawata        	spear2		
+F18 Bilakura        	spear2		waya
+F19 Parawen         	spear2		
+F20 Ukuriguma       	spear2		takʌra
+F21 Amaimon         	spear2		

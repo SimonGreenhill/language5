@@ -1,0 +1,25 @@
+D1 Bargam           	dream			a-sɛn way-
+E1 Dimir            	dream			imu(w)-
+E2 Malas            	dream               	inad-     	
+E3 Bunabun          	dream               	iɲawin    	2775
+F1 Pay              	dream               	r̃uba/in- 	
+F2 Pila             	dream               	rʌba in-  	
+F3 Maia             	dream               	iriba ine-	
+F4 Tani             	dream               	ireba in- 	
+F5 Mauwake          	dream               	inʌβ      	2775
+F6 Bepour           	dream               	inawi     	2775
+F7 Moere            	dream               	inaβ      	2775
+F8 Kowaki           	dream               	inaβ      	2775
+F9 Mawak            	dream               	inab it   	2775
+F10 Hinihon         	dream               	inopae    	2775
+F11 Musar           	dream               	inaβ ik   	2775
+F12 Wanambre        	dream			nini nak-
+F13 Koguman         	dream               	inare e-  	
+F14 Abasakur        	dream			ñiño ki-
+F15 Usan            	dream			inig-
+F16 Yaben           	dream               	inʌ:gw-   	
+F17 Yarawata        	dream			ineigubi-
+F18 Bilakura        	dream               	iɲagw-    	
+F19 Parawen         	dream               	inaigu bigi-	
+F20 Ukuriguma       	dream               	ineigobi- 	
+F21 Amaimon         	dream               	inaigi-   	2775	

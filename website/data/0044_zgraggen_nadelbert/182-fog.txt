@@ -1,0 +1,29 @@
+D1 Bargam           	fog                 	o:nas     	
+E1 Dimir            	fog                 	arkukmet  	
+E2 Malas            	fog                 	andu:wikam	
+E3 Bunabun          	fog                 	buk       	
+E3 Bunabun          	fog                 	ekab ksik 	
+E4 Korak            	fog                 	kawar gauk	
+E5 Waskia           	fog                 	bur       	
+E5 Waskia           	fog                 	nuwi      	
+F1 Pay              	fog                 	abib      	
+F2 Pila             	fog                 	ubam      	
+F3 Maia             	fog                 	komam     	
+F4 Tani             	fog                 	kana wia  	
+F5 Mauwake          	fog                 	aka fua   	
+F6 Bepour           	fog                 	him       	
+F7 Moere            	fog                 	nimum     	
+F8 Kowaki           	fog                 	i:m       	
+F9 Mawak            	fog                 	somba     	
+F10 Hinihon         	fog                 	sombe     	
+F11 Musar		fog			
+F12 Wanambre        	fog                 	ketaim    	
+F13 Koguman         	fog                 	enineba   	
+F14 Abasakur        	fog                 	namuya    	
+F15 Usan		fog			wʌbɛr
+F16 Yaben           	fog                 	youmu     	
+F17 Yarawata        	fog                 	yaumo     	
+F18 Bilakura        	fog                 	wababal   	
+F19 Parawen         	fog                 	youmu     	
+F20 Ukuriguma       	fog                 	abor      	
+F21 Amaimon         	fog                 	kamo      	

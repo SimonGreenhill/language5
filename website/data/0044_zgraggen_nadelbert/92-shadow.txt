@@ -1,0 +1,30 @@
+D1 Bargam           	shadow              	-dulan    	2385
+E1 Dimir            	shadow              	kura      	2387,2666
+E2 Malas            	shadow              	kuŋun     	2387,2666
+E3 Bunabun          	shadow              	kiŋgud    	2387,2666
+E4 Korak            	shadow              	-dod      	2385
+E5 Waskia           	shadow              	doda      	2385
+E5 Waskia           	shadow              	ramur̃um  	2386
+F1 Pay              	shadow              	-gugut    	2387
+F2 Pila             	shadow              	-gugut    	2387
+F3 Maia             	shadow              	-mariam   	2386
+F4 Tani             	shadow              	-gugun    	2387
+F5 Mauwake          	shadow              	kukusa    	2387,2666
+F6 Bepour           	shadow              	oʔut      	2387,2666
+F7 Moere            	shadow              	ikuku     	2387,2666
+F8 Kowaki           	shadow              	oʔu       	2387,2666
+F9 Mawak            	shadow              	kukut     	2387,2666
+F10 Hinihon         	shadow              	kukut     	2387,2666
+F11 Musar           	shadow              	mukukut   	2387
+F11 Musar           	shadow              	oŋguoŋgu  	2387
+F12 Wanambre        	shadow              	gukut     	2387,2666
+F13 Koguman         	shadow              	igitu     	2387,2666
+F14 Abasakur        	shadow              	i:siŋ     	
+F15 Usan            	shadow              	inein     	
+F15 Usan            	shadow              	ugur      	2387,2666
+F16 Yaben           	shadow              	ˀugudu    	2387
+F17 Yarawata        	shadow              	kinakina  	2666
+F18 Bilakura        	shadow              	kugur̃    	2387,2666
+F19 Parawen         	shadow              	makinʌ:kin	2666
+F20 Ukuriguma       	shadow              	kinakin   	2666
+F21 Amaimon         	shadow              	kinikin   	2666

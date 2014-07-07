@@ -1,0 +1,32 @@
+D1 Bargam           	knife               	bair      	
+E1 Dimir            	knife               	amnemado  	
+E1 Dimir            	knife               	bilar̃    	
+E2 Malas            	knife               	kanip     	
+E3 Bunabun          	knife               	kes       	
+E4 Korak            	(knife)             	makit     	2069
+E5 Waskia           	knife               	batir     	
+F1 Pay              	(knife)             	makit     	2069
+F2 Pila             	(knife)             	moait     	2069
+F3 Maia             	knife               	mokit     	
+F4 Tani             	knife               	abot      	
+F4 Tani             	knife               	kines     	
+F5 Mauwake          	knife               	fura      	
+F6 Bepour           	knife               	fura      	
+F7 Moere            	knife               	kura      	
+F8 Kowaki           	knife               	ume       	
+F9 Mawak            	knife               	ume       	
+F10 Hinihon         	knife               	u:me      	
+F11 Musar           	knife               	i:me      	
+F12 Wanambre        	knife               	ume       	
+F13 Koguman         	knife               	tinerik   	
+F14 Abasakur        	knife               	kuwar     	
+F14 Abasakur        	knife               	sarom     	
+F15 Usan            	knife               	asuri     	
+F16 Yaben           	knife               	uki       	
+F17 Yarawata        	knife               	kʌna      	
+F18 Bilakura        	knife               	oki       	
+F19 Parawen         	knife               	mabəkia   	
+F19 Parawen         	knife               	taga:si   	
+F20 Ukuriguma       	knife               	kana      	
+F21 Amaimon         	knife               	kwa:pi    	
+F21 Amaimon         	knife               	kwa:rikem 	

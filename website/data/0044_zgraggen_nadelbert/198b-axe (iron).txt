@@ -1,0 +1,27 @@
+D1 Bargam           	axe                 	tʌlgis    	2720
+E1 Dimir            	(axe, iron)		panu	
+E2 Malas            	(axe, iron)		bur̃ir̃		1965
+E3 Bunabun          	(axe, iron)         	bur̃ir̃   	1965
+E4 Korak            	(axe, iron)         	bur̃ir̃   	1965
+E5 Waskia           	(axe, iron)         	bur̃ir̃   	1965
+F1 Pay              	(axe, iron)         	bur̃ir̃   	1965
+F2 Pila             	(axe, iron)         	bir̃ir̃   	1965
+F3 Maia             	(axe, iron)		budidi	
+F4 Tani             	(axe, iron)         	bur̃i     	1965
+F5 Mauwake          	(axe, iron)         	bur̃ir̃   	1965
+F6 Bepour           	(axe, iron)         	bur̃ir̃   	1965
+F7 Moere            	(axe, iron)         	bur̃ir̃   	1965
+F8 Kowaki           	(axe, iron)         	bur̃ir̃   	1965
+F9 Mawak            	(axe, iron)         	bur̃ir̃   	1965
+F10 Hinihon         	(axe, iron)         	bulil     	1965
+F11 Musar           	(axe, iron)         	bulil     	1965
+F12 Wanambre        	(axe, iron)         	bail      	1965
+F13 Koguman         	(axe, iron)         	beir      	1965
+F14 Abasakur        	(axe, iron)		somwal
+F15 Usan            	(axe, iron)		bɛn
+F16 Yaben           	(axe, iron)		bʌːnu
+F17 Yarawata        	axe                 	braŋgis   	2720
+F18 Bilakura        	(axe, iron)		biʌn
+F19 Parawen         	axe                 	paraŋgis  	2720
+F20 Ukuriguma       	(axe, iron)		karekisi
+F21 Amaimon         	(axe, iron)		tɛta bɛŋ

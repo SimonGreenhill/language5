@@ -1,0 +1,28 @@
+D1 Bargam           	(upper leg)		-bɛt	
+E1 Dimir            	(upper leg)		por̃kut	
+E2 Malas            	(upper leg)		punun
+E3 Bunabun          	(upper leg)		ɛmbagan
+E4 Korak            	(upper leg)         	manam(bul)	2172
+E5 Waskia           	(upper leg)		bugi
+F1 Pay              	(upper leg)		kalkal	
+F2 Pila             	(upper leg)		-kakamba(ˀ)
+F3 Maia             	(upper leg)		-dubur
+F4 Tani             	(upper leg)		-pukoᵬ
+F5 Mauwake          	(upper leg)		kufʌ
+F6 Bepour           	(upper leg)		uf ɛnɛm	
+F7 Moere            	(upper leg)		kuwɛrɛk
+F8 Kowaki           	(upper leg)		(n) ubu
+F9 Mawak            	(upper leg)		ŋgubu
+F10 Hinihon         	(upper leg)		ŋgubu	
+F11 Musar           	(upper leg)		noŋgoːbu
+F12 Wanambre        	(upper leg)		ŋgu
+F13 Koguman         	(upper leg)		mɛndɛ
+F14 Abasakur        	(upper leg)		igugur̃	
+F15 Usan            	(upper leg)		mutaw
+F16 Yaben           	(upper leg)         	mana:mu   	2172
+F16 Yaben           	(upper leg)         	mʌnaˀʌla
+F17 Yarawata        	(upper leg)         	manama    	2172
+F18 Bilakura        	(upper leg)         	manuam    	2172
+F19 Parawen         	(upper leg)         	mana:ma   	2172
+F20 Ukuriguma       	(upper leg)		apada	
+F21 Amaimon         	(upper leg)		duwɛl

@@ -1,0 +1,27 @@
+D1 Bargam           	(netbag)		ziː
+E1 Dimir            	(netbag)		wani
+E2 Malas            	(netbag)		wanin
+E3 Bunabun          	(netbag)		indiab
+E4 Korak            	(netbag)		di
+E5 Waskia           	(netbag)		kiːtʌk
+F1 Pay              	(netbag)		siː
+F2 Pila             	(netbag)		sik
+F3 Maia             	(netbag)		si
+F4 Tani             	(netbag)		sin
+F5 Mauwake          	(netbag)		siʌ
+F6 Bepour           	(netbag)		isʌˀ
+F7 Moere            	(netbag)		intiɛb
+F8 Kowaki           	(netbag)            	epa       	2094
+F9 Mawak            	(netbag)            	epa       	2094
+F10 Hinihon         	(netbag)            	epa       	2094
+F11 Musar           	(netbag)            	emba      	2094
+F12 Wanambre        	(netbag)            	opa       	2094
+F13 Koguman         	(netbag)            	abua      	2094
+F14 Abasakur        	(netbag)            	po        	2094
+F15 Usan            	(netbag)            	abaw      	2094
+F16 Yaben           	(netbag)            	abu       	2094
+F17 Yarawata        	(netbag)            	aba       	2094
+F18 Bilakura        	(netbag)            	abua      	2094
+F19 Parawen         	(netbag)            	aba       	2094
+F20 Ukuriguma       	(netbag)            	abo       	2094
+F21 Amaimon         	(netbag)            	aba       	2094

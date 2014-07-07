@@ -1,0 +1,26 @@
+D1 Bargam           	arrow with bamboo blade	argat     	
+D1 Bargam           	arrow with bamboo blade	samay     	
+E1 Dimir            	arrow with bamboo blade	bulek     	
+E2 Malas            	arrow with bamboo blade	we:maŋ    	
+E3 Bunabun          	196c(arrow, single-point)	kade      	1963
+E4 Korak            	arrow with bamboo blade	wase      	
+E5 Waskia           	arrow with bamboo blade	tawenaŋ   	
+F1 Pay              	arrow with bamboo blade	muwukar   	
+F2 Pila             	arrow with bamboo blade	rubaka    	
+F3 Maia             	arrow with bamboo blade	sirawa    	
+F4 Tani             	arrow with bamboo blade	upuezam   	
+F5 Mauwake          	arrow with bamboo blade	wesia     	
+F8 Kowaki           	arrow with bamboo blade	heremiʔen 	
+F9 Mawak            	arrow with bamboo blade	serek     	
+F9 Mawak            	196c(arrow, single-point)	arivak    	1963?
+F11 Musar           	196c(arrow, single-point)	ariva:k   	1963
+F12 Wanambre        	arrow with bamboo blade	eriak     	
+F13 Koguman         	arrow with bamboo blade	yagob     	
+F14 Abasakur        	arrow with bamboo blade	yambia    	
+F15 Usan            	arrow with bamboo blade	tumburani 	
+F16 Yaben           	arrow with bamboo blade	ambiagu   	
+F17 Yarawata        	arrow with bamboo blade	makidia   	
+F18 Bilakura        	arrow with bamboo blade	agwar kul 	
+F19 Parawen         	arrow with bamboo blade	makiria   	
+F20 Ukuriguma       	arrow with bamboo blade	makila    	
+F21 Amaimon         	arrow with bamboo blade	mugu      	

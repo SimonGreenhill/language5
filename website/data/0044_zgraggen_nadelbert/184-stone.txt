@@ -1,0 +1,30 @@
+D1 Bargam           	stone               	gi:g      	
+E1 Dimir            	stone               	na:mon    	2711
+E2 Malas            	stone               	ubom      	
+E3 Bunabun          	stone               	skar      	
+E4 Korak            	stone               	manduŋ    	
+E5 Waskia           	stone               	mʌŋa      	
+F1 Pay              	stone               	munʌm     	
+F2 Pila             	stone               	pat       	
+F3 Maia             	stone               	idamurub  	
+F3 Maia             	stone               	oat       	
+F4 Tani             	stone               	nɔmo      	2711
+F5 Mauwake          	stone               	mʌduŋ	
+F5 Mauwake          	stone               	nomona    	2711
+F6 Bepour           	stone               	nomon hʌven	2711
+F7 Moere            	stone               	kawen     	
+F8 Kowaki           	stone               	nomon     	2711
+F9 Mawak            	stone               	nome      	2711
+F10 Hinihon         	stone               	nome      	2711
+F11 Musar           	stone               	nomon     	2711
+F12 Wanambre        	stone               	nɔmɔ      	2711
+F13 Koguman         	stone               	pusirim   	
+F14 Abasakur        	stone               	mopuya    	
+F15 Usan            	stone               	nomon     	2711
+F16 Yaben           	stone               	namʌnu    	2711
+F17 Yarawata        	stone               	naman tʌria	2711
+F18 Bilakura        	stone               	namon     	2711
+F19 Parawen         	stone               	numɔn     	2711
+F20 Ukuriguma       	stone               	namɔn     	2711
+F21 Amaimon         	stone               	be:riŋ    	
+F21 Amaimon         	stone               	sepur̃uka 	

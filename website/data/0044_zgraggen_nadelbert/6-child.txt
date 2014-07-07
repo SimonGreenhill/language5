@@ -1,0 +1,31 @@
+D1 Bargam           	child               	amun      	2236
+E1 Dimir            	child               	mulap     	
+E2 Malas            	child               	waŋ imare 	
+E3 Bunabun          	child               	umundian  	
+E4 Korak            	child               	gamaŋ     	
+E5 Waskia           	child               	ku:reaŋ   	
+F1 Pay              	child               	aib       	
+F1 Pay              	child               	lav  
+F1 Pay              	child               	-mami	
+F2 Pila             	child               	nanda pis 	2248
+F3 Maia             	child               	ŋanda     	2248
+F4 Tani             	child               	nada      	2248
+F5 Mauwake          	child               	takira    	
+F6 Bepour           	child               	ses       	2250
+F7 Moere            	child               	kofa      	2249
+F8 Kowaki           	child               	hobu      	2249
+F9 Mawak            	child               	sesa      	2250
+F10 Hinihon         	child               	sesa      	2250
+F11 Musar           	child               	hofu      	2249
+F12 Wanambre        	child               	kowon     	2249
+F13 Koguman         	child               	undum     	
+F14 Abasakur        	child               	masi      	
+F15 Usan            	child               	waw       	2251
+F16 Yaben           	child               	waw       	2251
+F17 Yarawata        	child               	waw       	2251
+F18 Bilakura        	child               	yamun     	2236
+F18 Bilakura        	child               	wuo       	2251
+F19 Parawen         	child               	onsa:kil  	
+F19 Parawen         	child               	wa        	2251
+F20 Ukuriguma       	child               	wa        	2251
+F21 Amaimon         	child               	kokin     	

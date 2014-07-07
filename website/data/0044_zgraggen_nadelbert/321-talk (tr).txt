@@ -1,0 +1,39 @@
+D1 Bargam           	(talk to (tr.))			-bilen-
+D1 Bargam           	(talk to (tr.))			-bulon-
+E1 Dimir            	(talk to (tr.))			sagisa
+E1 Dimir            	(talk to (tr.))			sasa-
+E1 Dimir            	(talk to (tr.))			tagara-
+E2 Malas            	(talk to (tr.))			-tɛkaŋ-
+E2 Malas            	(talk to (tr.))			-takansum-
+E3 Bunabun          	(talk to (tr.))     	 	kembe     	2157
+E4 Korak            	(talk to (tr.))			-mɛn-
+E4 Korak            	(talk to (tr.))			-mindɛr-
+E5 Waskia           	(talk to (tr.))			-man-
+F1 Pay              	(talk to (tr.))			-tat-
+F2 Pila             	(talk to (tr.))			pilang + 'give'
+F3 Maia             	(talk to (tr.))			saki + 'give'
+F4 Tani             	(talk to (tr.))			-atag-
+F5 Mauwake          	(talk to (tr.))			-mak-
+F5 Mauwake          	(talk to (tr.))			-mok-
+F6 Bepour           	(talk to (tr.))			-mor-
+F7 Moere            	(talk to (tr.))    	  	empok(ar)-	2157
+F8 Kowaki           	(talk to (tr.))			-sɛˀ-
+F8 Kowaki           	(talk to (tr.))			-waᵬ-
+F9 Mawak            	(talk to (tr.))			-sɛk-
+F10 Hinihon         	(talk to (tr.))			-moho pokal-
+F11 Musar           	(talk to (tr.))         	-hɛŋg-
+F12 Wanambre        	(talk to (tr.))         	-tow-
+F13 Koguman         	(talk to (tr.))			-oŋgaŋge-
+F13 Koguman         	(talk to (tr.))			-nuŋgaŋge-
+F14 Abasakur        	(talk to (tr.))			tʌga-
+F15 Usan            	(talk to (tr.))			-nob-
+F16 Yaben           	(talk to (tr.))			-am-
+F17 Yarawata        	(talk to (tr.))         	tana-
+F17 Yarawata        	(talk to (tr.))         	-batana- (kamuŋgw-)
+F18 Bilakura        	(talk to (tr.))         	-nakam-
+F19 Parawen         	(talk to (tr.))         	-bitana-kam-
+F20 Ukuriguma       	(talk to (tr.))			komugʷal-
+F20 Ukuriguma       	(talk to (tr.))			nata-
+F20 Ukuriguma       	(talk to (tr.))			-ibot-
+F21 Amaimon         	(talk to (tr.))         	ɛr-
+F21 Amaimon         	(talk to (tr.))         	ɛm-

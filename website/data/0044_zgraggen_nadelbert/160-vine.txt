@@ -1,0 +1,29 @@
+D1 Bargam           	vine                	am        	
+E1 Dimir            	vine                	muriman   	
+E1 Dimir            	vine                	mir̃      	2693
+E2 Malas            	vine                	usokor    	
+E3 Bunabun          	vine                	wi        	
+E4 Korak            	vine                	sima      	2597,2694
+E5 Waskia           	vine                	mayaŋ     	
+E5 Waskia           	vine                	mʌil      	2693
+F1 Pay              	vine                	ut        	
+F2 Pila             	vine                	siwʌr     	2695
+F3 Maia             	vine                	siwar     	2695,2598
+F4 Tani             	vine                	siwʌr     	2695
+F5 Mauwake          	vine                	ifʌr      	2695
+F6 Bepour           	vine                	orib      	2600
+F7 Moere            	vine                	orib      	2600
+F8 Kowaki           	vine                	suman     	2597,2694
+F9 Mawak            	vine                	sumʌn     	2694
+F10 Hinihon         	vine                	sumʌn     	2694
+F11 Musar           	vine                	urip      	2600
+F12 Wanambre        	vine                	suman     	2597,2694
+F13 Koguman         	vine                	tsimoŋ    	2694
+F14 Abasakur        	vine                	wias      	
+F15 Usan            	vine                	i:or      	
+F16 Yaben           	vine                	kukadu    	
+F17 Yarawata        	vine                	ukwala    	2598
+F18 Bilakura        	vine                	okar      	2598
+F19 Parawen         	vine                	uka:ra    	2598
+F20 Ukuriguma       	vine                	ukor      	2598
+F21 Amaimon         	vine                	sʌla      	

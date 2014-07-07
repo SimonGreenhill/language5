@@ -1,0 +1,27 @@
+D1 Bargam           	dance		bar waz-
+E1 Dimir            	dance		
+E2 Malas            	dance		uw-
+E3 Bunabun          	dance		
+E4 Korak            	dance		aduk-
+E5 Waskia           	dance		koala-
+F1 Pay              	dance		uw-
+F2 Pila             	dance		wa gu wa-
+F3 Maia             	dance		tamaŋ uᵬe-
+F4 Tani             	dance		samaŋ uw-
+F5 Mauwake          	dance		
+F6 Bepour           	dance		
+F7 Moere            	dance		
+F8 Kowaki           	dance		
+F9 Mawak            	dance		
+F10 Hinihon         	dance		
+F11 Musar           	dance		uw-
+F12 Wanambre        	dance		uniay ɛh-
+F13 Koguman         	dance		sigipig-
+F14 Abasakur        	dance		mopar ope-
+F15 Usan            	dance		uri wi-
+F16 Yaben           	dance		uya-
+F17 Yarawata        	dance		w-
+F18 Bilakura        	dance		guatana kwalag-
+F19 Parawen         	dance		uru in-
+F20 Ukuriguma       	dance		uw-
+F21 Amaimon         	dance		samuk-

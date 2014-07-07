@@ -1,0 +1,30 @@
+D1 Bargam           	hear		-hurit-
+E1 Dimir            	hear		(dom)sasa dom tatara
+E2 Malas            	hear		kambin is-
+E2 Malas            	hear		kambinand-
+E3 Bunabun          	hear		induandi-
+E4 Korak            	hear		-tɛwi-
+E4 Korak            	hear		-tɛri-
+E5 Waskia           	hear		-iki-
+F1 Pay              	hear		-unot-
+F2 Pila             	hear		-kandamas-
+F3 Maia             	hear		-dam-
+F4 Tani             	hear		-dam-
+F5 Mauwake          	hear		-mim-
+F6 Bepour           	hear		-ifañ-
+F7 Moere            	hear		-iwan-
+F8 Kowaki           	hear		-furuˀ-
+F9 Mawak            	hear		-furu-kɛw-
+F10 Hinihon         	hear		-fruk ow-
+F11 Musar           	hear		-huluw-
+F12 Wanambre        	hear		-luk-
+F13 Koguman         	hear		miŋgin-
+F14 Abasakur        	hear		migimat-
+F15 Usan            	hear		-igit-
+F15 Usan            	hear		-gɛt-
+F16 Yaben           	hear		-igw-
+F17 Yarawata        	hear		ig-
+F18 Bilakura        	hear		-ikum-
+F19 Parawen         	hear		igu-
+F20 Ukuriguma       	hear		ig-
+F21 Amaimon         	hear		igi-

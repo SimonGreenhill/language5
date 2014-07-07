@@ -1,0 +1,28 @@
+D1 Bargam           	left arm            	inaseran  	2645
+E1 Dimir            	left arm		kunɛt	
+E2 Malas            	left arm		mandeis
+E3 Bunabun          	left arm		ktiɛn	
+E4 Korak            	left arm		iokik
+E5 Waskia           	left arm            	ŋas       	2645,2073
+F1 Pay              	left arm		mamour
+F2 Pila             	left arm		kɛnayo
+F3 Maia             	left arm		kenai	
+F4 Tani             	left arm            	nase      	2645,2073
+F5 Mauwake		left arm		asɔwa
+F6 Bepour           	left arm            	fʌ        	2646
+F7 Moere            	left arm            	fa        	2646
+F8 Kowaki           	left arm            	faya      	2646
+F9 Mawak            	left arm            	feya      	2646
+F10 Hinihon         	left arm            	faik      	2646
+F11 Musar           	left arm            	fʌya      	2646
+F12 Wanambre        	left arm            	faya      	2646
+F13 Koguman         	left arm		nɛːŋk
+F13 Koguman         	left arm		ogigi
+F14 Abasakur        	left arm		okokɛ
+F15 Usan            	left arm		ʌːgi
+F16 Yaben           	left arm		dagan	
+F17 Yarawata        	left arm		konanɛ
+F18 Bilakura        	left arm		kaunon
+F19 Parawen         	left arm		konɛnɛ
+F20 Ukuriguma       	left arm		koanan
+F21 Amaimon         	left arm		kʌkʌkʌs

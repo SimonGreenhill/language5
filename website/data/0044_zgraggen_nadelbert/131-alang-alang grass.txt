@@ -1,0 +1,29 @@
+D1 Bargam           	kunai               	r̃ey      	
+E1 Dimir            	kunai               	neŋ       	
+E2 Malas            	kunai               	tumbaŋ    	2535
+E3 Bunabun          	kunai               	suk       	2533
+E4 Korak            	kunai               	kuak      	2533
+E5 Waskia           	kunai               	ma:r      	
+E5 Waskia           	kunai               	sua       	2533
+F1 Pay              	kunai               	kalip     	
+F2 Pila             	kunai               	lamin     	
+F3 Maia             	kunai               	wi:dra    	
+F4 Tani             	kunai               	r̃eb      	
+F5 Mauwake          	kunai               	era       	
+F5 Mauwake          	kunai               	fiki      	
+F6 Bepour           	kunai               	a:ʔ       	
+F7 Moere            	kunai               	seweb     	2534
+F8 Kowaki           	kunai               	sewab     	2534
+F9 Mawak            	kunai               	sewab     	2534
+F10 Hinihon         	kunai               	sewab     	2534
+F11 Musar           	kunai               	se:wap    	2534
+F12 Wanambre        	kunai               	sowap     	2534
+F13 Koguman         	kunai               	womum     	
+F14 Abasakur        	kunai               	emakara   	
+F15 Usan            	kunai               	tu:b      	2535
+F16 Yaben           	kunai               	ipazi     	
+F17 Yarawata        	kunai               	ipasia    	
+F18 Bilakura        	kunai               	tubag     	2535
+F19 Parawen         	kunai               	tu:ba     	2535
+F20 Ukuriguma       	kunai               	duba      	2535
+F21 Amaimon         	kunai               	upuku     	

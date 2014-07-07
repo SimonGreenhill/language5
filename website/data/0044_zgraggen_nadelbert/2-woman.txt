@@ -1,0 +1,30 @@
+D1 Bargam           	woman               	aw (sg)       	
+D1 Bargam           	woman               	əmet      	2240?
+D1 Bargam           	woman               	on
+E1 Dimir            	woman               	nip       	
+E2 Malas            	woman               	irum      	
+E3 Bunabun          	woman               	wambiem (sg)   
+E3 Bunabun          	woman               	simburupe	
+E4 Korak            	woman               	amir      	2240
+E5 Waskia           	woman               	imet      	2240
+F1 Pay              	woman               	nanana    	
+F2 Pila			woman			irimboʌb
+F3 Maia             	woman               	ŋanum     	2241
+F4 Tani             	woman               	nanum     	2241
+F5 Mauwake          	woman               	imeri-a   	2240
+F6 Bepour           	woman               	meʔem     	2242
+F7 Moere            	woman               	meŋkem    	2242
+F8 Kowaki           	woman               	mande meʔem	2242
+F9 Mawak            	woman               	mande  upiab	2244
+F10 Hinihon         	woman               	mande  epiop	2244
+F11 Musar           	woman               	mande meŋgem	2242
+F12 Wanambre        	woman               	naŋgalek  	2620
+F13 Koguman         	woman               	teme      	2243
+F14 Abasakur        	woman               	matama    	2243
+F15 Usan            	woman               	yamʌŋgr   	2620
+F16 Yaben           	woman               	wilubu    	2245
+F17 Yarawata        	woman               	ilub      	2245
+F18 Bilakura        	woman               	wilup     	2245
+F19 Parawen         	woman               	ilu:bu    	2245
+F20 Ukuriguma       	woman               	ilup      	2245
+F21 Amaimon         	woman               	keman     	

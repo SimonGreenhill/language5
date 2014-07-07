@@ -1,0 +1,28 @@
+D1 Bargam           	hungry			-gɛm mo-
+E1 Dimir            	hungry			
+E2 Malas            	hungry			urir umas- (v)
+E3 Bunabun          	hungry			anambor umuaᵬ
+E4 Korak            	hungry			nanok kwa-
+E5 Waskia           	hungry			nako kwɛ-
+F1 Pay              	hungry			omoas-
+F2 Pila             	hungry              	waŋ-       	2739
+F3 Maia             	hungry              	wanuwe-    	2739
+F4 Tani             	hungry              	wano-      	2739
+F5 Mauwake          	hungry              	wail-      	2739
+F6 Bepour           	hungry              	wahi-      	2739
+F7 Moere            	hungry              	waki-      	2739
+F8 Kowaki           	hungry			
+F9 Mawak            	hungry			uru m-
+F10 Hinihon         	hungry			ula umo-
+F11 Musar           	hungry			marɛ kam-
+F12 Wanambre        	hungry			ulamak-
+F13 Koguman         	hungry			minɛum-
+F14 Abasakur        	hungry			manja mu-
+F15 Usan            	hungry			minam-
+F16 Yaben           	hungry			irʌm tumum-
+F17 Yarawata        	hungry			umom
+F18 Bilakura        	hungry			iluam tum-
+F19 Parawen         	hungry			ilʌma iturumari(t)-
+F20 Ukuriguma       	hungry			umakam
+F21 Amaimon         	hungry			ikon ɛŋali-
+

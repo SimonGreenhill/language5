@@ -1,0 +1,27 @@
+D1 Bargam           	cooked			
+E1 Dimir            	cooked              	ba        	2730
+E2 Malas            	cooked			abɔ
+E3 Bunabun          	cooked			abuab
+E4 Korak            	cooked			adu
+E5 Waskia           	cooked			ir
+F1 Pay              	cooked              	bu        	2730
+F2 Pila             	cooked              	ŋambaw    	2730
+F3 Maia             	cooked              	ŋamba     	2730
+F4 Tani             	cooked              	ab        	2730
+F5 Mauwake          	cooked              	up        	2730
+F6 Bepour           	cooked              	epe       	2730
+F7 Moere            	cooked              	pe        	2730
+F8 Kowaki           	cooked              	epe       	2730
+F9 Mawak            	cooked              	epek      	2730
+F10 Hinihon         	cooked			ɛpɛk
+F11 Musar           	cooked			ow
+F12 Wanambre        	cooked			sɛmi
+F13 Koguman         	cooked			ogwʌ
+F14 Abasakur        	cooked			uwa
+F15 Usan            	cooked			
+F16 Yaben           	cooked			wob
+F17 Yarawata        	cooked			watar
+F18 Bilakura        	cooked			wowar
+F19 Parawen         	cooked			watara
+F20 Ukuriguma       	cooked			waik
+F21 Amaimon         	cooked              	wapwika   	2730

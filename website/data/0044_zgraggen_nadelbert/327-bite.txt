@@ -1,0 +1,33 @@
+D1 Bargam           	(bite)			-mug-
+E1 Dimir            	(bite)			-ŋganisa-
+E1 Dimir            	(bite)			gusu-
+E1 Dimir            	(bite)			ganara-
+E2 Malas            	(bite)              	gurew-    	1982
+E3 Bunabun          	(bite)              	gur-      	1982
+E3 Bunabun          	(bite)              	indugur-
+E4 Korak            	(bite)			-kan(ur̃)
+E5 Waskia           	(bite)			-(k)usi-
+F1 Pay              	(bite)			-ku-
+F2 Pila             	(bite)              	(a)ŋgui   	1982
+F3 Maia             	(bite)			-ged-
+F4 Tani             	(bite)			-guz-
+F5 Mauwake          	(bite)              	karaw     	1982
+F6 Bepour           	(bite)              	-(w)or-   	1982
+F7 Moere            	(bite)              	-wa-      	1982
+F7 Moere            	(bite)              	-or-
+F8 Kowaki           	(bite)			-in-
+F9 Mawak            	(bite)			naw-
+F9 Mawak            	(bite)			nauna-
+F10 Hinihon         	(bite)              	-war-     	1982
+F11 Musar           	(bite)			-pakɛn-
+F12 Wanambre        	(bite)			ŋgomun-
+F13 Koguman         	(bite)			-gumat-
+F14 Abasakur        	(bite)			-kukuma-
+F15 Usan            	(bite)              	go        	1982
+F16 Yaben           	(bite)              	gwa       	1982
+F17 Yarawata        	(bite)              	gua       	1982
+F18 Bilakura        	(bite)              	gwa       	1982
+F19 Parawen         	(bite)              	goa       	1982
+F20 Ukuriguma       	(bite)              	go        	1982
+F20 Ukuriguma       	(bite)              	gw
+F21 Amaimon         	(bite)              	gul-      	1982

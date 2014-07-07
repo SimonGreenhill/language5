@@ -1,0 +1,28 @@
+D1 Bargam           	(skin)		
+E1 Dimir            	(skin)		
+E2 Malas            	(skin)		
+E3 Bunabun          	(skin)              	kar       	2135
+E4 Korak            	(skin)              	kim       	2135
+E5 Waskia		(skin)			goaŋ
+F1 Pay              	(skin)              	ŋar       	2135
+F2 Pila             	(skin)			-ndia
+F3 Maia             	(skin)			-dia
+F4 Tani             	(skin)			-uka
+F5 Mauwake          	(skin)              	kanem(a)  	2135
+F6 Bepour           	(skin)              	hana      	2135
+F7 Moere            	(skin)              	ka:r      	2135
+F8 Kowaki           	(skin)			hupʌ fuˀu
+F9 Mawak            	(skin)			fuku
+F10 Hinihon         	(skin)			fuku
+F11 Musar           	(skin)			huku
+F12 Wanambre        	(skin)			uku
+F13 Koguman         	(skin)			ogu
+F14 Abasakur        	(skin)			gugu
+F15 Usan            	(skin)			goʌn
+F16 Yaben           	(skin)			guʌːnu
+F17 Yarawata        	(skin)			guana
+F18 Bilakura        	(skin)			guan
+F19 Parawen         	(skin)			goʌna
+F20 Ukuriguma       	(skin)			guʌːn
+F21 Amaimon         	(skin)			mura
+

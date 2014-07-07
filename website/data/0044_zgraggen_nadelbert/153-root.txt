@@ -1,0 +1,29 @@
+D1 Bargam           	root                	-ninin    	
+D1 Bargam           	root                	-titin    	
+E1 Dimir            	root                	ituŋ      	2689
+E2 Malas            	root                	mur̃ir̃iŋ 	2689
+E3 Bunabun          	root                	mumurin   	2350
+E4 Korak            	root                	uker      	2575,2690
+E5 Waskia           	root                	yʌger̃    	2690
+F1 Pay              	root                	ataper    	
+F2 Pila             	root                	uswikil   	2575
+F3 Maia             	root                	sukir     	2575,2690
+F4 Tani             	root                	sir       	2575,2690
+F5 Mauwake          	root                	fira      	
+F6 Bepour           	root                	hihir     	2575,2690
+F7 Moere            	root                	moakir    	2575
+F8 Kowaki           	root                	ir̃       	2575,2690
+F9 Mawak            	root                	wahir̃    	2575,2690
+F10 Hinihon         	root                	turu      	2576,2689
+F11 Musar           	root                	ʌkil      	2690
+F12 Wanambre        	root                	nduru     	2576,2689
+F13 Koguman         	root                	turum     	2576,2689
+F14 Abasakur        	root                	wail      	2575
+F14 Abasakur        	root                	wagir     	2575,2690
+F15 Usan            	root                	durun     	2576,2689
+F16 Yaben           	root                	durunu    	2576,2689
+F17 Yarawata        	root                	uduna     	2577,2689
+F18 Bilakura        	root                	urun      	2577,2689
+F19 Parawen         	root                	ur̃unu    	2577
+F20 Ukuriguma       	root                	udun      	2577,2689
+F21 Amaimon         	root                	rir̃em    	2350,2174

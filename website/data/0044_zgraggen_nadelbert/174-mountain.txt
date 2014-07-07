@@ -1,0 +1,29 @@
+D1 Bargam           	mountain            	garah     	
+E1 Dimir            	mountain            	tukeŋ     	
+E2 Malas            	mountain            	muni:m    	2706
+E3 Bunabun          	mountain            	karwan    	
+E3 Bunabun          	mountain            	mamun     	2706
+E4 Korak            	mountain            	iritam    	
+E5 Waskia           	mountain            	duruk     	
+F1 Pay              	mountain            	tapʌ      	2705
+F2 Pila             	mountain            	mundoa    	
+F3 Maia             	mountain            	umundʌ    	
+F4 Tani             	mountain            	ʌba muda  	
+F5 Mauwake          	mountain            	ema       	
+F6 Bepour           	mountain            	amare     	
+F6 Bepour           	mountain            	upin      	
+F7 Moere            	mountain            	mare      	
+F8 Kowaki           	mountain            	haupin    	
+F9 Mawak            	mountain            	araha     	
+F10 Hinihon         	mountain            	taeleha   	
+F11 Musar           	mountain            	hambin    	
+F12 Wanambre        	mountain            	kambin    	
+F13 Koguman         	mountain            	haboŋgoŋ  	
+F14 Abasakur        	mountain            	ikam      	
+F15 Usan            	mountain            	ayaur     	
+F16 Yaben           	mountain            	tabʌ:nu   	2705
+F17 Yarawata        	mountain            	tatʌpa    	2705
+F18 Bilakura        	mountain            	taban     	2705
+F19 Parawen         	mountain            	tʌtʌpa    	2705
+F20 Ukuriguma       	mountain            	tatpan    	2705
+F21 Amaimon         	mountain            	ku:laŋ    	

@@ -1,0 +1,30 @@
+D1 Bargam           	(back)			-bun
+E1 Dimir            	(back)			gabgor̃
+E1 Dimir            	(back)			miniŋko
+E2 Malas            	(back)              	mukur̃    	1968
+E3 Bunabun          	(back)              	makten    	1968
+E4 Korak            	(back)			birⁱnut
+E5 Waskia           	(back)			sisiru
+E5 Waskia           	(back)			susuru
+F1 Pay              	(back)			-pur
+F2 Pila             	(back)			-pur
+F2 Pila             	(back)			-moaŋar
+F3 Maia             	(back)			-pot
+F4 Tani             	(back)			-puri
+F5 Mauwake          	(back)			baret
+F6 Bepour           	(back)			imin
+F7 Moere            	(back)			inɛŋ
+F8 Kowaki           	(back)              	homote    	1968
+F9 Mawak            	(back)              	omote     	1968
+F10 Hinihon         	(back)              	mote      	1968
+F11 Musar           	(back)			mokotɛ
+F12 Wanambre        	(back)			tokoːli
+F13 Koguman         	(back)			musiŋgə
+F14 Abasakur        	(back)			musisi
+F15 Usan            	(back)              	mogir     	1968
+F16 Yaben           	(back)              	magutan   	1968
+F17 Yarawata        	(back)              	mikwata   	1968
+F18 Bilakura        	(back)              	magwatan  	1968
+F19 Parawen         	(back)              	mekwata   	1968
+F20 Ukuriguma       	(back)			mɛikubila
+F21 Amaimon         	(back)			tɛganaim

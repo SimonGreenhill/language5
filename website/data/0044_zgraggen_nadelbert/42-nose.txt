@@ -1,0 +1,31 @@
+D1 Bargam           	nose                	-motugu   	2280,2281
+E1 Dimir            	nose                	marikut   	2280,2281,2633
+E2 Malas            	nose                	munuŋgur  	2280,2281
+E3 Bunabun          	nose                	muŋgun    	2280,2281
+E4 Korak            	nose                	-kaŋum    	
+E5 Waskia           	nose                	kamuru    	
+F1 Pay              	nose                	-menebe   	
+F2 Pila             	nose                	-met      	2280
+F3 Maia             	nose                	-mir̃     	2280
+F4 Tani             	nose                	-igit     	
+F5 Mauwake          	nose                	mikapura  	2281
+F6 Bepour           	nose                	miibʔa    	2278,2281
+F7 Moere            	nose                	montkon   	2280,2281
+F8 Kowaki           	nose                	moʔasi    	2279
+F9 Mawak            	nose                	muŋgasik  	2279
+F10 Hinihon         	nose                	mesipik   	2279
+F11 Musar           	nose                	mbusik    	2279
+F12 Wanambre        	nose                	musiwik   	2279
+F13 Koguman         	nose                	metipe    	2279
+F14 Abasakur        	nose                	masape    	2279
+F15 Usan            	nose                	menuman   	2280
+F16 Yaben           	nose                	maduʔʌlu  	2633,2280,2281
+F17 Yarawata        	nose                	mʌragulo  	2633,2280,2281
+F17 Yarawata        	nose                	mʌrunʌna
+F18 Bilakura        	nose                	masilu    	
+F19 Parawen         	nose                	maruna:n  	2280
+F19 Parawen         	nose                	matagura  	2281,2633
+F20 Ukuriguma       	nose                	moroga:gur	2280,2281
+F20 Ukuriguma       	nose                	madagur   	2280,2281,2633
+F21 Amaimon         	nose                	metaŋglik 	2280,2281
+F21 Amaimon         	nose                	meta      	2280,2633

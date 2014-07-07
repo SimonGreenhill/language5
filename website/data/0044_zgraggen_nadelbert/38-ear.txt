@@ -1,0 +1,28 @@
+D1 Bargam           	ear                 	-deksan   	
+E1 Dimir            	ear                 	saŋken    	
+E2 Malas            	ear                 	indon     	2266
+E3 Bunabun          	ear                 	induan    	2266
+E4 Korak            	ear                 	-diwaŋ    	2266
+E5 Waskia           	ear                 	dogowa    	
+E5 Waskia           	ear                 	-duwe     	2266?
+F1 Pay              	ear                 	-suwat    	2266
+F2 Pila             	ear                 	-diwat    	2266
+F3 Maia             	ear                 	-duwat    	2266
+F4 Tani             	ear                 	-tiwat    	2266
+F5 Mauwake          	ear                 	ifana     	2267,2630
+F6 Bepour           	ear                 	ifʌn      	2630
+F7 Moere            	ear                 	iwan      	2267,2630
+F8 Kowaki           	ear                 	-mament   	2269
+F9 Mawak            	ear                 	iwament   	2630
+F10 Hinihon         	ear                 	pika      	2268
+F11 Musar           	ear                 	ima:men   	2269
+F12 Wanambre        	ear                 	damen     	
+F13 Koguman         	ear                 	aᵬa: ndum 	
+F14 Abasakur        	ear                 	pi:ga     	2268
+F15 Usan            	ear                 	i:rugos   	2271
+F16 Yaben           	ear                 	irasilu   	2271
+F17 Yarawata        	ear                 	kowʌnia   	2630
+F18 Bilakura        	ear                 	edasilu   	2271
+F19 Parawen         	ear                 	kʌgwʌ:ni  	2630
+F20 Ukuriguma       	ear                 	kauni     	2270,2630
+F21 Amaimon         	ear                 	zuar      	

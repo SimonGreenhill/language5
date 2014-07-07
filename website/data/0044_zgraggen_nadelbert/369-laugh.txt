@@ -1,0 +1,27 @@
+D1 Bargam           	laugh			yuuw-
+E1 Dimir            	laugh			saur̃a
+E2 Malas            	laugh			pisir-
+E3 Bunabun          	laugh			ɛkɛr-
+E4 Korak            	laugh			gusi-
+E5 Waskia           	laugh			gisi-
+F1 Pay              	laugh			negel-
+F2 Pila             	laugh			wɛl-
+F3 Maia             	laugh			wɛra-
+F4 Tani             	laugh			kasiw- bair-
+F5 Mauwake          	laugh               	nir-      	
+F6 Bepour           	laugh               	ner-      	
+F7 Moere            	laugh			sʌrku-
+F8 Kowaki           	laugh               	hiram-     	2774
+F9 Mawak            	laugh               	irami-     	2774
+F10 Hinihon         	laugh               	iramos-    	2774
+F11 Musar           	laugh               	hela/kal-  	2774
+F12 Wanambre        	laugh               	kiramay-   	2774
+F13 Koguman         	laugh			youror-
+F14 Abasakur        	laugh			repe-
+F15 Usan            	laugh               	igrig-     	2774
+F16 Yaben           	laugh               	igaligu-   	2774
+F17 Yarawata        	laugh               	igarik-    	2774
+F18 Bilakura        	laugh               	igaligw-   	2774
+F19 Parawen         	laugh               	igarigu-   	2774
+F20 Ukuriguma       	laugh               	egel-      	2774
+F21 Amaimon         	laugh			sakak-

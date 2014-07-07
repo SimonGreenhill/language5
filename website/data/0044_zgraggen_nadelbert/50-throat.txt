@@ -1,0 +1,31 @@
+D1 Bargam           	throat              	-bur̃wogin	
+D1 Bargam           	throat              	-zian  
+E1 Dimir		throat			mɛmbum   	
+E2 Malas            	throat              	bumu muririŋ	
+E3 Bunabun          	throat              	dagok niv 	
+E4 Korak            	throat              	-kuala dav	
+E5 Waskia           	throat              	pisi      	
+F1 Pay              	throat              	-pⁱr̃i adabi	
+F2 Pila             	throat              	-yaŋgosol 	
+F3 Maia             	throat              	-baro gwarum	
+F4 Tani             	throat              	-mati duna	
+F5 Mauwake          	throat              	iwakra    	
+F6 Bepour           	throat              	maniʔor era	2304
+F7 Moere		throat			
+F8 Kowaki           	throat              	hum       	
+F8 Kowaki           	throat              	yeb       	
+F9 Mawak            	throat              	opar  
+F9 Mawak		throat			taŋɛr    	
+F10 Hinihon         	throat              	uramu genap	2302
+F11 Musar           	throat              	daŋgel hena	2302
+F12 Wanambre        	throat              	daŋgel gena	2302
+F13 Koguman         	throat              	parem ugum	
+F14 Abasakur        	throat              	mutupe to 	
+F15 Usan            	throat              	mindiram  	2303
+F16 Yaben           	throat              	mandinam kala	2304
+F17 Yarawata        	throat              	malinama  	2303
+F18 Bilakura        	throat              	manilom kalag	2303,2304
+F19 Parawen         	throat              	marinama  	2303
+F20 Ukuriguma       	throat              	koimakur  	
+F20 Ukuriguma       	throat              	koiŋgoita 	
+F21 Amaimon         	throat              	agup      	

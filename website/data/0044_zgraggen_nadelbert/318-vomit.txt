@@ -1,0 +1,27 @@
+D1 Bargam           	(vomit)             	nil-      	2177
+E1 Dimir            	(vomit)             	miŋali-   	2177
+E2 Malas            	(vomit)             	mil-      	2177
+E3 Bunabun          	(vomit)             	miri-     	2177
+E4 Korak            	(vomit)			kukɛ-
+E5 Waskia           	(vomit)			kapi-
+F1 Pay              	(vomit)			ukat-
+F2 Pila             	(vomit)			ŋakas-
+F3 Maia             	(vomit)			ŋekate-
+F4 Tani             	(vomit)			ʌs-
+F5 Mauwake          	(vomit)			okʌkim-
+F6 Bepour           	(vomit)             	merir-    	2177
+F7 Moere            	(vomit)             	merir-    	2177
+F8 Kowaki           	(vomit)             	mirir(aw) 	2177
+F9 Mawak            	(vomit)             	mirir-    	2177
+F10 Hinihon         	(vomit)             	melil(ew) 	2177
+F11 Musar           	(vomit)             	milil-    	2177
+F12 Wanambre        	(vomit)             	meri-     	2177
+F13 Koguman         	(vomit)			ogomot-
+F14 Abasakur        	(vomit)			egome-
+F15 Usan            	(vomit)             	mendir-   	2177
+F16 Yaben           	(vomit)             	manil-    	2177
+F17 Yarawata        	(vomit)             	malil-    	2177
+F18 Bilakura        	(vomit)             	manil-    	2177
+F19 Parawen         	(vomit)             	maril(iam)	2177
+F20 Ukuriguma       	(vomit)             	malil-    	2177
+F21 Amaimon         	(vomit)             	miŋil-    	2177

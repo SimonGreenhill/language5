@@ -1,0 +1,28 @@
+D1 Bargam           	boy(male)           	(mat) min(min)	2082
+E1 Dimir		(male)			mɛrnɛ
+E2 Malas            	(male)              	munu      	2082
+E3 Bunabun          	(male)			nas
+E4 Korak            	(male)			kadiam
+E5 Waskia           	(male)              	(a)munaŋ  	2082
+F1 Pay              	(male)			mʌrʌ
+F2 Pila             	(male)			moarʌːka
+F3 Maia             	(male)			moando
+F4 Tani             	(male)			nɛna
+F5 Mauwake          	(male)			mɔʌ
+F6 Bepour           	(male)			afʌ
+F7 Moere            	(male)			miŋkua
+F8 Kowaki           	(male)			ˀʌb
+F9 Mawak            	(male)			mɔrʰʌn
+F10 Hinihon         	(male)			molohon
+F11 Musar           	(male)			ŋgʌp
+F12 Wanambre        	(male)			malokɔn
+F13 Koguman         	male(man)           	(mo)mure  	2083
+F14 Abasakur        	(male)			mɔmo
+F15 Usan            	(male)			mʌgʌt
+F16 Yaben           	(male)			ˀumagʌtu
+F17 Yarawata        	(male)              	munam     	2082
+F18 Bilakura		(male)			kumogwat
+F19 Parawen         	(male)              	muna:m    	2082
+F20 Ukuriguma       	(male)              	mun       	2082?
+F20 Ukuriguma       	male(man)           	mado(n)   	2083
+F21 Amaimon         	male(man)           	mare(ma)  	2083

@@ -1,0 +1,27 @@
+D1 Bargam           	(swallow)		titilon-
+E1 Dimir            	(swallow)		muma-
+E2 Malas            	(swallow)           	munew-    	2151
+E3 Bunabun          	(swallow)		akm-
+E4 Korak            	(swallow)		lulu-
+E5 Waskia           	(swallow)		lukum-
+F1 Pay              	(swallow)           	(g)mun-   	2151
+F2 Pila             	(swallow)		molokaind-
+F3 Maia             	(swallow)		morokanɛ-
+F4 Tani             	(swallow)           	mun(ag)   	2151
+F5 Mauwake          	(swallow)		(irina) m-
+F6 Bepour           	(swallow)		muh-
+F7 Moere            	(swallow)		piar-
+F8 Kowaki           	(swallow)		ɛnimpiarim-
+F9 Mawak            	(swallow)		mukuwi-
+F10 Hinihon         	(swallow)		anomb ɛkam-
+F11 Musar           	(swallow)		bikal (m)-
+F12 Wanambre        	(swallow)           	manu(mele)	2151
+F13 Koguman         	(swallow)		migerum-
+F14 Abasakur        	(swallow)		mukuru-
+F15 Usan            	(swallow)		mugim-
+F16 Yaben           	(swallow)		mugiam-
+F17 Yarawata        	(swallow)		muŋgiam-
+F18 Bilakura        	(swallow)		mugiam-
+F19 Parawen         	(swallow)		muŋgiam-
+F20 Ukuriguma       	(swallow)		ɛlim-
+F21 Amaimon         	(swallow)		gurukum-(ʔ)

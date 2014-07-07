@@ -1,0 +1,27 @@
+D1 Bargam           	(bow)			tun
+E1 Dimir            	(bow)			gano
+E2 Malas            	(bow)               	ki:mu     	1988
+E3 Bunabun          	(bow)     		kandim       	1988?
+E4 Korak            	(bow)			pit
+E5 Waskia		(bow)			dʌga
+F1 Pay              	(bow)               	mui       	1988
+F2 Pila             	(bow)               	kumui     	1988
+F3 Maia             	(bow)			kumu
+F4 Tani             	(bow)               	umuz      	1988
+F5 Mauwake          	(bow)			amiʌ
+F6 Bepour           	(bow)               	omi       	1988
+F7 Moere            	(bow)               	mui       	1988
+F8 Kowaki           	(bow)			ubina
+F9 Mawak            	(bow)			ubina
+F10 Hinihon         	(bow)			uwina
+F11 Musar           	(bow)			owina
+F12 Wanambre        	(bow)			una
+F13 Koguman         	(bow)               	em        	1988
+F14 Abasakur        	(bow)               	mi:ma     	1988
+F15 Usan            	(bow)               	emi       	1988
+F16 Yaben           	(bow)               	ʔa:mi     	1988
+F17 Yarawata        	(bow)               	kamia     	1988
+F18 Bilakura        	(bow)               	kami      	1988
+F19 Parawen         	(bow)               	kami      	1988
+F20 Ukuriguma       	(bow)               	komi      	1988
+F21 Amaimon         	(bow)               	ke:mi     	1988

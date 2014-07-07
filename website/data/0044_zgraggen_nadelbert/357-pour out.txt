@@ -1,0 +1,29 @@
+D1 Bargam           	pour out (liquid)		wazbal-
+E1 Dimir            	pour out (liquid)		urima-
+E1 Dimir            	pour out (liquid)		undima-
+E2 Malas            	pour out (liquid)		
+E3 Bunabun          	pour out (liquid)		piaktam-
+E4 Korak            	pour out (liquid)		bulut-
+E5 Waskia           	pour out (liquid)		wʌr̃u-
+F1 Pay              	pour out (liquid)		lʌkut-
+F2 Pila             	pour out (liquid)		wɛtɛt-
+F3 Maia             	pour out (liquid)		waketa-
+F4 Tani             	pour out (liquid)		rʌkut-
+F5 Mauwake          	pour out (liquid)		sawik-
+F6 Bepour           	pour out (liquid)		fapi-
+F7 Moere            	pour out (liquid)		pak-
+F8 Kowaki           	pour out (liquid)		musu-
+F9 Mawak            	pour out (liquid)		muw-
+F10 Hinihon         	pour out (liquid)		imɛsiri imo-
+F11 Musar           	pour out (liquid)		mosik-
+F12 Wanambre        	pour out (liquid)		mausi w-
+F13 Koguman         	pour out (liquid)		aburum-
+F14 Abasakur        	pour out (liquid)		nopuru-
+F15 Usan            	pour out (liquid)		biːgim-
+F16 Yaben           	pour out (liquid)		olɛgam-
+F17 Yarawata        	pour out (liquid)		ugiam-
+F18 Bilakura        	pour out (liquid)		bakagiam-
+F19 Parawen         	pour out (liquid)		kugiam-
+F20 Ukuriguma       	pour out (liquid)		ugiam-
+F21 Amaimon         	pour out (liquid)		wʌrak-
+F21 Amaimon         	pour out (liquid)		inikuzamu-

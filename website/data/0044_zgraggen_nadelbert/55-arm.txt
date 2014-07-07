@@ -1,0 +1,29 @@
+D1 Bargam           	arm                 	-ben      	2198
+E1 Dimir            	arm                 	aβen      	2198,2642
+E2 Malas            	arm                 	imben     	2198,2311,2642
+E3 Bunabun          	arm                 	omben     	2311,2642
+E4 Korak            	arm                 	-ere      	
+E5 Waskia           	arm                 	kutiŋ     	
+F1 Pay              	arm                 	-ba       	2198
+F2 Pila             	arm                 	-mey      	
+F2 Pila             	arm                 	-omo      	
+F3 Maia             	arm                 	-eme      	
+F3 Maia             	arm                 	-wabo     	2198,2311
+F4 Tani             	arm                 	-uapo     	2198,2311
+F5 Mauwake          	arm                 	wapena    	2198,2311,2642
+F6 Bepour           	arm                 	wapen     	2198,2311,2642
+F7 Moere            	arm                 	ampen     	2198,2311,2642
+F8 Kowaki           	arm                 	ʌpe       	2642
+F9 Mawak            	arm                 	ape       	2198,2311,2642
+F10 Hinihon         	arm                 	ape       	2311,2642
+F11 Musar           	arm                 	embe      	2198,2311,2642
+F12 Wanambre        	arm                 	ape       	2198,2311,2642
+F13 Koguman         	arm                 	abigum    	2311
+F14 Abasakur        	arm                 	okak      	
+F15 Usan            	arm                 	uben      	2198,2311,2642
+F16 Yaben           	arm                 	ubatu     	2312
+F17 Yarawata        	arm                 	ubata     	2312
+F18 Bilakura        	arm                 	uvan      	2311
+F19 Parawen         	arm                 	uvuta     	2312
+F20 Ukuriguma       	arm                 	ubɔn      	2642
+F21 Amaimon         	arm                 	bene      	2311,2642

@@ -1,0 +1,29 @@
+D1 Bargam           	long                	sisaʔta   	
+E1 Dimir            	long                	ku:ror    	2733
+E2 Malas            	long                	yumburet  	
+E3 Bunabun          	long                	dirur     	
+E3 Bunabun          	long                	muriek    	
+E4 Korak            	long                	kulel     	2733
+E5 Waskia           	long                	maya      	
+F1 Pay              	long                	orwua     	
+F2 Pila             	long                	weŋa      	
+F3 Maia             	long                	yaŋina    	
+F4 Tani             	long                	wanak     	
+F5 Mauwake          	long                	maya      	
+F6 Bepour           	long                	horia     	
+F7 Moere            	long                	yen       	
+F8 Kowaki           	long                	seʔat     	
+F9 Mawak            	long                	sekat     	
+F10 Hinihon         	long                	suan      	
+F11 Musar           	long                	enian     	
+F12 Wanambre        	long                	saŋgulen  	
+F12 Wanambre        	long                	soan      	
+F13 Koguman         	long                	urigog   	2733
+F14 Abasakur        	long                	karagoro 	2733
+F15 Usan            	long                	degen     	2734
+F16 Yaben           	long                	dagʌnu    	2734
+F17 Yarawata        	long                	dogʌna    	2734
+F18 Bilakura        	long                	dagʌn     	2734
+F19 Parawen         	long                	dʌgasiki  	2734
+F20 Ukuriguma       	long                	dogon     	2734
+F21 Amaimon         	long                	salasim   	

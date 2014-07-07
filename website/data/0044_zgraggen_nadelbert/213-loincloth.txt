@@ -1,0 +1,27 @@
+D1 Bargam           	loincloth		tubusan
+E1 Dimir            	loincloth		goŋmaŋ
+E2 Malas            	loincloth		kasa hunu
+E3 Bunabun          	loincloth		nasin kʌr
+E4 Korak            	loincloth		biʌr
+E5 Waskia           	loincloth		yʌmɛl
+F1 Pay              	loincloth		aŋar
+F2 Pila             	loincloth		undwia
+F3 Maia             	loincloth		udia
+F4 Tani             	loincloth		iːbi
+F5 Mauwake          	loincloth		konimʌ
+F6 Bepour           	loincloth		nasin hanʌ
+F7 Moere            	loincloth		kʌr
+F8 Kowaki           	loincloth		fuˀu
+F9 Mawak            	loincloth		(i)nasɛm fuku
+F10 Hinihon         	loincloth		pokom fuku
+F11 Musar           	loincloth		huku
+F12 Wanambre        	loincloth		uku
+F13 Koguman         	loincloth		ubi ogu
+F14 Abasakur        	loincloth		mukiñi gugu
+F15 Usan            	loincloth		miŋ goʌn
+F16 Yaben           	loincloth		muya goʌn
+F17 Yarawata        	loincloth		moya guana
+F18 Bilakura        	loincloth		bamɛa guan
+F19 Parawen         	loincloth		kibrugʌn
+F20 Ukuriguma       	loincloth		sarɛg
+F21 Amaimon         	loincloth		kiwramula

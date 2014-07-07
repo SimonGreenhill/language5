@@ -1,0 +1,27 @@
+D1 Bargam           	(hand drum)		iːtiː
+E1 Dimir            	(hand drum)		pʌbi
+E2 Malas            	(hand drum)         	ki:mbem   	2059
+E3 Bunabun          	(hand drum)         	kimbiem   	2059
+E4 Korak            	(hand drum)         	kib       	2059
+E5 Waskia           	(hand drum)		bʌwɛ
+F1 Pay              	(hand drum)		ʌk
+F2 Pila             	(hand drum)		waŋ woawarab
+F3 Maia             	(hand drum)		wʌŋ
+F4 Tani             	(hand drum)		ŋag
+F5 Mauwake          	(hand drum)		ɔːkʌ
+F6 Bepour           	(hand drum)		waˀa
+F7 Moere            	(hand drum)		upɛm
+F8 Kowaki           	(hand drum)		hunuʌ
+F9 Mawak            	(hand drum)		unuba
+F10 Hinihon         	(hand drum)		nuːba
+F11 Musar           	(hand drum)		anɔwʌ
+F12 Wanambre        	(hand drum)		umɔŋg
+F13 Koguman         	(hand drum)		ʌrugut
+F14 Abasakur        	(hand drum)		tʌːmal
+F15 Usan            	(hand drum)		siːbɛmi
+F16 Yaben           	(hand drum)		jiwʌmu
+F17 Yarawata        	(hand drum)         	kibama    	2059
+F18 Bilakura        	(hand drum)		siwam
+F19 Parawen         	(hand drum)         	kiboama   	2059
+F20 Ukuriguma       	(hand drum)         	kibom     	2059
+F21 Amaimon         	(hand drum)		tʌmʌl

@@ -1,0 +1,29 @@
+D1 Bargam           	bamboo              	kaduk     	
+E1 Dimir            	bamboo              	bimbuŋ    	
+E2 Malas            	bamboo              	suap      	
+E3 Bunabun          	bamboo              	bik       	2586
+E4 Korak            	bamboo              	dab       	
+E5 Waskia           	bamboo              	birak     	
+F1 Pay              	bamboo              	bu        	
+F2 Pila             	bamboo              	ŋa:mbuk   	2691
+F3 Maia             	bamboo              	ŋambu     	2691
+F4 Tani             	bamboo              	yabui     	
+F5 Mauwake          	bamboo              	pia       	2586
+F6 Bepour           	bamboo              	hate      	
+F6 Bepour           	bamboo              	piha      	2586
+F7 Moere            	bamboo              	pimer     	
+F7 Moere            	bamboo              	ter       	
+F8 Kowaki           	bamboo              	hereme    	
+F9 Mawak            	bamboo              	furu      	2587
+F10 Hinihon         	bamboo              	fulu      	2587
+F11 Musar           	bamboo              	maŋgia    	
+F12 Wanambre        	bamboo              	ulu       	2587
+F13 Koguman         	bamboo              	umi       	
+F14 Abasakur        	bamboo              	ye        	
+F15 Usan            	bamboo              	ain       	2589
+F16 Yaben           	bamboo              	kanu      	2588
+F17 Yarawata        	bamboo              	yakute    	
+F18 Bilakura        	bamboo              	a:n       	2588
+F19 Parawen         	bamboo              	yakuta    	
+F20 Ukuriguma       	bamboo              	yakan     	2588
+F21 Amaimon         	bamboo              	seŋi      	2589

@@ -1,0 +1,29 @@
+D1 Bargam           	stand			tur̃-
+E1 Dimir            	stand			sⁱka-
+E2 Malas            	stand			darɛm-
+E3 Bunabun          	stand			ditgiɛnar-
+E4 Korak            	stand			sikɛm-
+E5 Waskia           	stand			saŋam-
+F1 Pay              	stand			nesiw-
+F2 Pila             	stand			sinam-
+F3 Maia             	stand               	dogona-   	2207
+F4 Tani             	stand               	dogon-    	2207
+F5 Mauwake          	stand			imʌr-
+F6 Bepour           	stand			himar-
+F7 Moere            	stand			ŋkama-
+F8 Kowaki           	stand			hɛt(ɛw)-
+F9 Mawak            	stand			pait-
+F10 Hinihon         	stand			pahʌt-
+F11 Musar           	stand			gesi-
+F12 Wanambre        	stand			kɛtow-
+F13 Koguman         	stand			ese-
+F14 Abasakur        	stand			asa-
+F15 Usan            	stand			nʌg-
+F16 Yaben           	stand               	du        	2207?
+F16 Yaben           	stand               	nag-
+F17 Yarawata        	stand			nagabul-
+F18 Bilakura        	stand			naga-
+F19 Parawen         	stand			naga-
+F19 Parawen         	stand			buru-
+F20 Ukuriguma       	stand			nagabur-
+F21 Amaimon         	stand			zelabago(si)-

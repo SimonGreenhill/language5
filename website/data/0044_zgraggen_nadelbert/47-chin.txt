@@ -1,0 +1,28 @@
+D1 Bargam           	(chin)			-nog
+E1 Dimir            	(chin)			kawon
+E2 Malas            	(chin)			kambaŋam
+E3 Bunabun          	(chin)			anmoa
+E4 Korak            	(chin)              	(u)dagut  	2009
+E5 Waskia           	(chin)              	nodogen   	2009
+E5 Waskia		(chin)			nogɛr̃ɛn
+F1 Pay			(chin)			sit
+F2 Pila             	(chin)              	ndaŋu     	2009
+F3 Maia			(chin)			-dano
+F4 Tani             	(chin)              	danogar   	2009
+F5 Mauwake          	(chin)			ɛnan kuwa
+F6 Bepour           	(chin)			pɛtɛm
+F7 Moere            	(chin)			nɛŋiɛm
+F8 Kowaki           	(chin)			hanʌpʌr
+F9 Mawak            	(chin)			pʌtɛtʌ
+F10 Hinihon         	(chin)			naŋgupa
+F11 Musar           	(chin)			hɛnaŋ gumba
+F12 Wanambre        	(chin)			konogoman
+F13 Koguman         	(chin)			anabaɔt
+F14 Abasakur        	(chin)			nʌːkoto
+F15 Usan            	(chin)			nɛtɛr
+F16 Yaben           	(chin)			matʌla
+F17 Yarawata        	(chin)              	(pa)ragul(a)	2009
+F18 Bilakura        	(chin)			matʌlʌ
+F19 Parawen         	(chin)			kawu kunʌːm
+F20 Ukuriguma       	(chin)              	(ba)dagur 	2009
+F21 Amaimon         	(chin)			sɛmutagwa

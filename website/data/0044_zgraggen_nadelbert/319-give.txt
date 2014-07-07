@@ -1,0 +1,52 @@
+D1 Bargam           	(give)			-ug-
+E1 Dimir            	(give)              	-isi-		2050
+E1 Dimir            	(give)              	-nasa-
+E1 Dimir            	(give)              	-usu-
+E1 Dimir            	(give)              	-ida-
+E1 Dimir            	(give)              	-asa-
+E2 Malas            	(give)              	-s-       	2050
+E2 Malas            	(give)              	-d-
+E3 Bunabun          	(give)			-y-
+E3 Bunabun          	(give)			-nan-
+E3 Bunabun          	(give)			-w-
+E3 Bunabun          	(give)			-int-
+E4 Korak            	(give)              	-ti-      	2050
+E4 Korak            	(give)              	-ki-
+E4 Korak            	(give)              	-kis
+E5 Waskia           	(give)              	-is-      	2050
+E5 Waskia           	(give)              	-tu-
+E5 Waskia           	(give)              	-r-
+F1 Pay              	(give)              	-ut-      	2050
+F2 Pila             	(give)              	-us-      	2050
+F3 Maia             	(give)			-us-
+F4 Tani             	(give)			-nag-
+F5 Mauwake          	(give)              	-s-       	2050
+F5 Mauwake          	(give)              	-ny-
+F5 Mauwake          	(give)              	-iw-
+F6 Bepour           	(give)			-uw-
+F7 Moere            	(give)			-uw-
+F8 Kowaki           	(give)			-ay-
+F8 Kowaki           	(give)			-nuᵬu-
+F9 Mawak            	(give)			-ɛy-
+F9 Mawak            	(give)			-w-
+F9 Mawak            	(give)			-tupʌh-
+F10 Hinihon         	(give)              	-is-		2050
+F10 Hinihon         	(give)              	-us-		2050
+F11 Musar           	(give)			-wⁱ-
+F12 Wanambre        	(give)              	-t-       	2050
+F12 Wanambre        	(give)              	-wot-
+F13 Koguman         	(give)              	-si-		2050
+F13 Koguman         	(give)              	-utu-
+F14 Abasakur        	(give)			-uga-
+F15 Usan            	(give)              	-s-		2050
+F15 Usan            	(give)              	-ut-
+F15 Usan            	(give)              	-ar-
+F16 Yaben           	(give)              	-ut-      	2050
+F16 Yaben           	(give)              	-bugw-
+F17 Yarawata        	(give)			-ba-
+F18 Bilakura        	(give)              	-uta-     	2050
+F18 Bilakura        	(give)              	-ind-
+F18 Bilakura        	(give)              	-and-
+F19 Parawen         	(give)			bo-
+F20 Ukuriguma       	(give)			ba-
+F21 Amaimon         	(give)			

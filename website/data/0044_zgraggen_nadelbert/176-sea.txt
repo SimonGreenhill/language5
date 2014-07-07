@@ -1,0 +1,29 @@
+D1 Bargam           	sea                 	ipol      	2708
+E1 Dimir            	sea                 	mail      	
+E2 Malas            	sea                 	iber      	2708
+E3 Bunabun          	sea                 	biga      	
+E4 Korak            	sea                 	momar     	
+E5 Waskia		sea			gʌgi
+F1 Pay              	sea                 	iber      	2708
+F2 Pila             	sea                 	iwor      	2708
+F3 Maia             	sea                 	i:bor     	2708
+F4 Tani             	sea                 	i:bɔr     	2708
+F5 Mauwake          	sea                 	ifer̃ʌ    	2708
+F6 Bepour           	sea                 	ifer      	2708
+F7 Moere            	sea                 	pei       	
+F8 Kowaki           	sea                 	iwer opot 	2708
+F9 Mawak            	sea                 	iwir opet 	2708
+F10 Hinihon         	sea                 	iwel opet 	2708
+F11 Musar           	sea                 	beŋ       	
+F12 Wanambre        	sea                 	mbeŋg     	
+F13 Koguman         	sea                 	tomoŋ namar	
+F14 Abasakur        	sea                 	uñeak     	
+F15 Usan            	sea                 	wieria    	
+F16 Yaben           	sea                 	yar       	
+F17 Yarawata        	sea                 	ibol yaga 	
+F17 Yarawata        	sea                 	yuliaga   	
+F17 Yarawata        	sea                 	ibol yʌga 	2708
+F18 Bilakura        	sea                 	yal       	
+F19 Parawen         	sea                 	yoreaga   	
+F20 Ukuriguma       	sea                 	yolia:g   	
+F21 Amaimon         	sea                 	wel       	2708

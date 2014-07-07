@@ -1,0 +1,27 @@
+D1 Bargam           	blow			ulam-
+E1 Dimir            	blow			wosa-
+E2 Malas            	blow                	pis       	2761
+E3 Bunabun          	blow                	fi        	2761
+E4 Korak            	blow			itiugu-
+F1 Pay              	blow			itug-
+F2 Pila             	blow			wɛt-
+F3 Maia             	blow			wukus-
+F4 Tani             	blow			wɛrɛkat-
+F5 Mauwake          	blow                	fur       	2761
+F6 Bepour           	blow                	fi        	2761
+F7 Moere            	blow                	fiy       	2761
+F8 Kowaki           	blow                	fi        	2761
+F9 Mawak            	blow                	fit       	2761
+F10 Hinihon         	blow                	fi ok     	2761
+F10 Hinihon         	blow                	fi ke-
+F11 Musar           	blow			gumɛ fi-
+F12 Wanambre        	blow			fi k-
+F13 Koguman         	blow			uramb-
+F14 Abasakur        	blow			ñimbi-
+F15 Usan            	blow			gusim-
+F16 Yaben           	blow			gusat-
+F17 Yarawata        	blow			ugum-
+F18 Bilakura        	blow			sa-
+F19 Parawen         	blow			ikusam-
+F20 Ukuriguma       	blow			aguma-
+F21 Amaimon         	blow                	piam      	2761

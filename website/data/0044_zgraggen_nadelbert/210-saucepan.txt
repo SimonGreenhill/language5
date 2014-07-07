@@ -1,0 +1,26 @@
+D1 Bargam           	(clay pot)          	kagum     	2011
+E1 Dimir            	(clay pot)          	kamin     	2011
+E2 Malas            	(clay pot)          	kumun     	2011
+E3 Bunabun          	(clay pot)		buad
+E4 Korak            	(clay pot)          	koman     	2011
+F1 Pay              	(clay pot)          	(n)amun   	2011
+F2 Pila             	(clay pot)          	kwamun    	2011
+F3 Maia             	(clay pot)		kamuŋ
+F4 Tani             	(clay pot)          	amun      	2011
+F5 Mauwake          	(clay pot)          	amina     	2011
+F6 Bepour           	(clay pot)          	omin      	2011
+F7 Moere            	(clay pot)          	muin      	2011
+F8 Kowaki           	(clay pot)          	hamuna    	2011
+F9 Mawak            	(clay pot)		ʌkɛpʌ
+F10 Hinihon         	(clay pot)		kepʌ
+F11 Musar           	(clay pot)          	hamuna    	2011
+F12 Wanambre        	(clay pot)		yokowa
+F13 Koguman         	(clay pot)		uʌm(p)
+F14 Abasakur        	(clay pot)		tukur
+F15 Usan            	(clay pot)		ɛgi
+F16 Yaben           	(clay pot)		ʌgi
+F17 Yarawata        	(clay pot)		igia
+F18 Bilakura        	(clay pot)		ʌgi
+F19 Parawen         	(clay pot)		iːgi
+F20 Ukuriguma       	(clay pot)		igi
+F21 Amaimon         	(clay pot)		siːgi

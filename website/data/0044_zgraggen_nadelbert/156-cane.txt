@@ -1,0 +1,29 @@
+D1 Bargam           	cane                	yuk       	
+E1 Dimir            	cane                	sei       	
+E1 Dimir            	cane                	kriker    	2580
+E2 Malas            	cane                	mumin     	
+E3 Bunabun          	cane                	punam     	2578
+E4 Korak            	cane                	bun       	2578
+E5 Waskia           	cane                	kur       	2584
+F1 Pay              	cane                	maker     	2582
+F2 Pila             	cane                	bor       	
+F2 Pila             	cane                	sukusukum 	2583
+F3 Maia             	cane                	bunam     	2578
+F4 Tani             	cane                	mwager    	2582
+F5 Mauwake          	cane                	ufua      	
+F6 Bepour           	cane                	ufu       	
+F7 Moere            	cane                	sukarere  	
+F8 Kowaki           	cane                	ʔeheʔ     	2579
+F9 Mawak            	cane                	keri      	2580
+F10 Hinihon         	cane                	keli      	2580
+F11 Musar           	cane                	hekek     	2579
+F12 Wanambre        	cane                	geli      	2580
+F13 Koguman         	cane                	er̃       	2580
+F14 Abasakur        	cane                	muñoŋgur  	
+F15 Usan            	cane                	bunom     	2578
+F16 Yaben           	cane                	iluba     	2581
+F17 Yarawata        	cane                	iluba     	2581
+F18 Bilakura        	cane                	ilubak    	2581
+F19 Parawen         	cane                	iluba     	2581
+F20 Ukuriguma       	cane                	iluba     	2581
+F21 Amaimon         	cane                	saia      	

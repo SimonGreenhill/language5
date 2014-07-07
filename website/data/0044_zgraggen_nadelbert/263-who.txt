@@ -1,0 +1,28 @@
+D1 Bargam           	who?                	nok       	2203
+E1 Dimir            	who?			namiŋ
+E2 Malas            	who?			yune
+E3 Bunabun          	who?			yo
+E4 Korak            	who?			awu(ko)
+E5 Waskia           	who?			ʌᵬiri
+F1 Pay              	who?                	ano	  	2203
+F1 Pay              	who?                	aro
+F2 Pila             	who?			yau
+F3 Maia             	who?			yʌu
+F4 Tani             	who?			za-ni
+F5 Mauwake          	who?			nʌwkɛ
+F6 Bepour           	who?			yaˀurʌ
+F7 Moere            	who?                	yaŋon     	2203
+F8 Kowaki           	who?			auna
+F9 Mawak            	who?			mɛa
+F10 Hinihon         	who?			aya
+F11 Musar           	who?			miʌ
+F12 Wanambre        	who?			mɛndiaw
+F13 Koguman         	who?			mogom
+F14 Abasakur        	who?			moyo
+F15 Usan            	who?			yʌuro
+F16 Yaben           	who?			ya
+F17 Yarawata        	who?			unia
+F18 Bilakura        	who?			yʌ
+F19 Parawen         	who?                	uña       	2203
+F20 Ukuriguma       	who?			unia
+F21 Amaimon         	who?			yau

@@ -1,0 +1,28 @@
+D1 Bargam           	(name)			-nan
+E1 Dimir            	(name)			ᵬin
+E2 Malas            	(name)              	uni:m     	2090
+E3 Bunabun          	(name)              	unim      	2090
+E4 Korak		(name)			-mbɛ
+E4 Korak		(name)			-ndɛ
+E5 Waskia           	(name)              	nip       	2090
+F1 Pay              	(name)              	-num       	2090
+F2 Pila             	(name)              	-nim       	2090
+F3 Maia			(name)			-inim
+F4 Tani             	(name)              	-inum      	2090
+F5 Mauwake          	(name)              	unum(a)   	2090
+F6 Bepour           	(name)              	unum      	2090
+F7 Moere            	(name)              	onim      	2090
+F8 Kowaki           	(name)              	unim      	2090
+F9 Mawak            	(name)              	unim      	2090
+F10 Hinihon         	(name)              	unim      	2090
+F11 Musar           	(name)              	unim      	2090
+F12 Wanambre        	(name)              	unim      	2090
+F13 Koguman         	(name)              	unim      	2090
+F14 Abasakur        	(name)              	muɲi      	2090
+F15 Usan            	(name)              	unum      	2090
+F16 Yaben           	(name)              	uɲim(u)   	2090
+F17 Yarawata        	(name)              	unim(a)   	2090
+F18 Bilakura        	(name)              	uɲim      	2090
+F19 Parawen         	(name)              	u:nim(a)  	2090
+F20 Ukuriguma       	(name)              	unim      	2090
+F21 Amaimon         	(name)              	unim      	2090

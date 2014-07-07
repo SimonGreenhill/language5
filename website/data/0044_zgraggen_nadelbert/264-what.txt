@@ -1,0 +1,30 @@
+D1 Bargam           	(what)			eza
+D1 Bargam           	(what)			nagah
+E1 Dimir            	(what)			mɛmse
+E2 Malas            	(what)			masi
+E3 Bunabun          	(what)              	ma        	2183
+E4 Korak            	(what)			ama(ko)
+E5 Waskia           	(what)			aᵬuk
+E5 Waskia           	(what)			ʌnapɛ
+F1 Pay              	(what)			alʌm
+F1 Pay              	(what)			maino
+F2 Pila             	(what)              	maya      	2183
+F3 Maia             	(what)			maya
+F4 Tani             	(what)			miani
+F5 Mauwake          	(what)			mawake
+F6 Bepour           	(what)			mia
+F7 Moere            	(what)			namur
+F8 Kowaki           	(what)              	mea       	2183
+F9 Mawak            	(what)              	mamea     	2183
+F10 Hinihon         	(what)              	mea       	2183
+F11 Musar           	(what)              	miaya     	2183
+F12 Wanambre        	(what)			mɛmiya
+F13 Koguman         	(what)			megitɛme
+F14 Abasakur        	(what)              	may(andepi)	2183
+F15 Usan            	(what)              	meimi     	2183
+F16 Yaben           	(what)              	ma        	2183
+F17 Yarawata        	(what)              	mama      	2183
+F18 Bilakura        	(what)              	ma        	2183
+F19 Parawen         	(what)              	(u)ma     	2183
+F20 Ukuriguma       	(what)              	ma:       	2183
+F21 Amaimon         	(what)              	mama      	2183

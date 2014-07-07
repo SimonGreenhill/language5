@@ -1,0 +1,27 @@
+D1 Bargam           	pull			hure-
+E1 Dimir            	pull			tuŋa-
+E2 Malas            	pull			lɛram-
+E3 Bunabun          	pull			muw-
+E4 Korak            	pull			taki-
+E5 Waskia           	pull			tʌgi-
+F1 Pay              	pull                	muw-
+F2 Pila             	pull			sopos-
+F3 Maia             	pull			tote-
+F4 Tani             	pull                	tub-      	
+F5 Mauwake          	pull                	mufu-	
+F6 Bepour           	pull                	muw-	
+F7 Moere            	pull                	mufur-    	
+F8 Kowaki           	pull                	muβ-	
+F9 Mawak            	pull                	mub-	
+F10 Hinihon         	pull                	muβ-      	
+F11 Musar           	pull			puka- huw-
+F12 Wanambre        	pull                	awuke ndɛkɛ-t-
+F13 Koguman         	pull			mɛtɛ-
+F14 Abasakur        	pull			watete-
+F15 Usan            	pull			ubumim-
+F16 Yaben           	pull			paˀamad-
+F17 Yarawata        	pull			buka nad-
+F18 Bilakura        	pull			bakosinal-
+F19 Parawen         	pull			bukunar-
+F20 Ukuriguma       	pull			buknatabud-
+F21 Amaimon         	pull			bɛbɛs-

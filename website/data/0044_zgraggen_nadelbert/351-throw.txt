@@ -1,0 +1,29 @@
+D1 Bargam           	throw (stone)		huneg-
+E1 Dimir            	throw (stone)		para-
+E2 Malas            	throw (stone)		patapur-
+E3 Bunabun          	throw (stone)		avtatatam-
+E4 Korak            	throw (stone)		kutik-
+E5 Waskia           	throw (stone)		sapa-
+F1 Pay              	throw (stone)		iwin-
+F2 Pila             	throw (stone)		minai-
+F2 Pila             	throw (stone)		towor-
+F3 Maia             	throw (stone)		mina-
+F4 Tani             	throw (stone)		turuw-
+F5 Mauwake          	throw (stone)		wafur-
+F6 Bepour           	throw (stone)		ofor
+F7 Moere            	throw (stone)		pesar-
+F8 Kowaki           	throw (stone)		mintiw-
+F9 Mawak            	throw (stone)		mamɛtiw-
+F9 Mawak            	throw (stone)		wi-
+F10 Hinihon         	throw (stone)		mah itiw-
+F11 Musar           	throw (stone)		mandiw-
+F12 Wanambre        	throw (stone)		mami ndi-
+F13 Koguman         	throw (stone)		tor-
+F14 Abasakur        	throw (stone)		uja-
+F15 Usan            	throw (stone)		ʌririm-
+F16 Yaben           	throw (stone)		azilam-
+F17 Yarawata        	throw (stone)		araliñam-
+F18 Bilakura        	throw (stone)		islam-
+F19 Parawen         	throw (stone)		arinam-
+F20 Ukuriguma       	throw (stone)		bɛam-
+F21 Amaimon         	throw (stone)		kwazigʌmu-

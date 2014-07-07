@@ -1,0 +1,28 @@
+D1 Bargam           	(wing)			-bɛn gaik
+E1 Dimir            	(wing)			amɛr
+E2 Malas            	(wing)			maru
+E3 Bunabun          	(wing)			mar ib
+E3 Bunabun          	(wing)			mar̃
+E4 Korak            	(wing)			malsʌk
+E5 Waskia           	(wing)			lumʌl
+F1 Pay              	(wing)			amʌy
+F2 Pila             	(wing)			(w)esegagab
+F3 Maia             	(wing)			wɛtɛr
+F4 Tani             	(wing)			ɛmɛz
+F5 Mauwake          	(wing)			ɛba
+F6 Bepour           	(wing)			mʌn
+F7 Moere            	(wing)			mʌt
+F8 Kowaki           	(wing)			ʌpɛ mɛˀʌr
+F9 Mawak            	(wing)              	meŋgar    	2187
+F10 Hinihon         	(wing)              	meŋgal    	2187
+F11 Musar           	(wing)              	maŋgar    	2187
+F12 Wanambre        	(wing)              	maŋgal    	2187
+F13 Koguman         	(wing)              	ar        	2187
+F14 Abasakur        	(wing)			mɛloa
+F15 Usan            	(wing)			bu
+F16 Yaben           	(wing)			bu
+F17 Yarawata        	(wing)			bua
+F18 Bilakura        	(wing)			bu
+F19 Parawen         	(wing)			buːa
+F20 Ukuriguma       	(wing)			bu
+F21 Amaimon         	(wing)              	aŋar(im)  	2187

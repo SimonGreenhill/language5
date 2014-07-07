@@ -1,0 +1,31 @@
+D1 Bargam           	crocodile           	fay       	
+D1 Bargam           	crocodile           	tagum     	
+E1 Dimir            	crocodile           	ŋamsar    	
+E1 Dimir            	crocodile           	lulu      	2488
+E2 Malas            	crocodile           	tuar      	2487
+E3 Bunabun          	crocodile           	ruar      	2487
+E4 Korak            	crocodile           	muruker   	
+E5 Waskia           	crocodile           	ululu     	2488
+F1 Pay              	crocodile           	dar̃      	
+F2 Pila             	crocodile           	wʌkey     	2486
+F3 Maia             	crocodile           	makarem   	
+F3 Maia             	crocodile           	tagweya   	
+F3 Maia             	crocodile           	wake      	2486
+F4 Tani             	crocodile           	wʌke      	2486
+F5 Mauwake          	crocodile           	tuar      	2487
+F6 Bepour           	crocodile           	tuwar     	2487
+F7 Moere            	crocodile           	tuwar     	2487
+F8 Kowaki           	crocodile           	roar      	2487
+F9 Mawak            	crocodile           	duar      	2487
+F10 Hinihon         	crocodile           	asa       	
+F11 Musar           	crocodile           	tuan      	2487
+F12 Wanambre        	crocodile           	katuar    	2487
+F13 Koguman         	crocodile           	ninil     	2489
+F14 Abasakur        	crocodile           	sani      	
+F15 Usan            	crocodile           	yʌmʌy     	2680
+F16 Yaben           	crocodile           	niñilu    	2489
+F17 Yarawata        	crocodile           	yʌmʌy     	2680
+F18 Bilakura        	crocodile           	ni:ñe     	2489
+F19 Parawen         	crocodile           	emay      	2490,2680
+F20 Ukuriguma       	crocodile           	yamʌy     	2680
+F21 Amaimon         	crocodile           	ammail    	2490

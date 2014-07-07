@@ -1,0 +1,28 @@
+D1 Bargam           	talk (itr)		(gamug) bila-
+E1 Dimir            	talk (itr)		kɛwu-
+E2 Malas            	talk (itr)		matabur-
+E3 Bunabun          	talk (itr)		tanʌr̃-
+E4 Korak            	talk (itr)		bum-
+E5 Waskia           	talk (itr)		munaka-
+F1 Pay              	talk (itr)		pa-
+F2 Pila             	talk (itr)		pila(ŋ)-
+F3 Maia             	talk (itr)		saki-
+F4 Tani             	talk (itr)		tʌn-
+F5 Mauwake          	talk (itr)		akun-
+F6 Bepour           	talk (itr)		asup-
+F7 Moere            	talk (itr)		
+F8 Kowaki           	talk (itr)		hapaur-
+F9 Mawak            	talk (itr)		pok (ar)-
+F10 Hinihon         	talk (itr)		pokai-
+F11 Musar           	talk (itr)		hɛmbɛ kal-
+F12 Wanambre        	talk (itr)		kowo (k)-
+F13 Koguman         	talk (itr)		aᵬʌr am-
+F14 Abasakur        	talk (itr)		(pʌr) tʌga-
+F15 Usan            	talk (itr)		ur-
+F15 Usan            	talk (itr)		ɛmɛr-
+F16 Yaben           	talk (itr)		am-
+F17 Yarawata        	talk (itr)		kabuk-
+F18 Bilakura        	talk (itr)		kabukw-
+F19 Parawen         	talk (itr)		kaba kai-
+F20 Ukuriguma       	talk (itr)		komugʷal-
+F21 Amaimon         	talk (itr)		kɛᵬɛm-

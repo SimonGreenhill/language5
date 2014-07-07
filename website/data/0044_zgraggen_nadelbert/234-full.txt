@@ -1,0 +1,28 @@
+D1 Bargam           	full		a-te tu-gal-(v)
+E1 Dimir            	full		iriᵬɛr
+E2 Malas            	full		irumb-(v)
+E3 Bunabun          	full		irumbuab
+E4 Korak            	full		lau- (v)
+E5 Waskia           	full		kuriŋ ara- lai- (v)
+F1 Pay              	full		lɛki-(v)
+F2 Pila             	full		palʌk
+F3 Maia             	full		berekana
+F4 Tani             	full		diɛ-
+F5 Mauwake          	full		tʌn-
+F6 Bepour           	full		tʌnɛ
+F7 Moere            	full		tanɛˀ
+F8 Kowaki           	full		tʌne
+F9 Mawak            	full		tanbahʌk
+F10 Hinihon         	full		tɛtiwok
+F11 Musar           	full		tanɛk
+F12 Wanambre        	full		ira-
+F13 Koguman         	full		beseogɛ
+F13 Koguman         	full		iribigɛ
+F14 Abasakur        	full		iri-
+F15 Usan            	full		li-
+F16 Yaben           	full		ze-
+F17 Yarawata        	full		dikʌr
+F18 Bilakura        	full		sikʌr
+F19 Parawen         	full		kabaru garuk(?)
+F20 Ukuriguma       	full		dikaguʌrami
+F21 Amaimon         	full		siːkwa-

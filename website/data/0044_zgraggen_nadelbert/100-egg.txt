@@ -1,0 +1,28 @@
+D1 Bargam		egg			-kokin
+E1 Dimir            	egg                 	uŋam      	2409
+E2 Malas            	egg                 	nau       	2411
+E3 Bunabun          	egg                 	na        	2411
+E4 Korak            	egg                 	no        	2411
+E5 Waskia           	egg                 	niŋo      	2411
+F1 Pay              	egg                 	apasu     	
+F2 Pila             	egg                 	sabab     	
+F3 Maia             	egg                 	kunam     	2409
+F4 Tani             	egg                 	unam      	2409
+F5 Mauwake          	egg                 	muneka    	2410,2672
+F6 Bepour           	egg                 	muneʔ     	2410,2672
+F7 Moere            	egg                 	muno      	2410,2672
+F8 Kowaki           	egg                 	munʌʔ     	2672
+F9 Mawak            	egg                 	munaŋk    	2672
+F10 Hinihon         	egg                 	munaŋ     	2672
+F11 Musar           	egg                 	minaŋk    	2410,2672
+F12 Wanambre        	egg                 	munaŋg    	2410,2672
+F13 Koguman         	egg                 	num       	2410
+F14 Abasakur        	egg                 	no        	2411
+F15 Usan            	egg                 	inʌw      	2671
+F16 Yaben           	egg                 	ɲʌw       	2671
+F17 Yarawata        	egg                 	nia       	2411,2671
+F18 Bilakura        	egg                 	ño        	2411
+F18 Bilakura		egg			ñoa
+F19 Parawen         	egg                 	neʌ       	2671
+F20 Ukuriguma       	egg                 	na        	2671
+F21 Amaimon         	egg                 	ikwara    	

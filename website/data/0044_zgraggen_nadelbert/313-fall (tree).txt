@@ -1,0 +1,32 @@
+D1 Bargam           	(fall over )		wo-
+E1 Dimir            	(fall over )		baru-
+E2 Malas            	(fall over )		arumb-
+E3 Bunabun          	(fall over )		okor-
+E4 Korak            	(fall over )        	daŋu-     	2031
+E5 Waskia           	(fall over )        	dagulu-   	2031
+F1 Pay              	(fall over )		boa-
+F1 Pay              	(fall over )		bina-
+F2 Pila             	(fall over )		ŋarupwi-
+F2 Pila             	(fall over )		bɛrɛran-
+F3 Maia             	(fall over )		moake-
+F3 Maia             	(fall over )		wake-
+F4 Tani             	(fall over )		wʌi-
+F5 Mauwake          	(fall over )		wʌki-
+F6 Bepour           	(fall over )		oh-
+F7 Moere            	(fall over )		wʌk-
+F8 Kowaki           	(fall over )		positiw-
+F9 Mawak            	(fall over )		opirip-
+F10 Hinihon         	(fall over )		oh-
+F10 Hinihon         	(fall over )		owi-
+F11 Musar           	(fall over )		ok-
+F12 Wanambre        	(fall over )        	nduke lɛw-    	2031
+F13 Koguman         	(fall over )		ya-
+F14 Abasakur        	(fall over )        	duŋa-     	2031
+F15 Usan            	(fall over )		is-
+F16 Yaben           	(fall over )        	du-       	2031
+F17 Yarawata        	(fall over )        	dukwa(t)  	2031
+F18 Bilakura        	(fall over )		sikw-
+F19 Parawen         	(fall over )		ilikɛña lam-
+F19 Parawen         	(fall over )		wakita lam-
+F20 Ukuriguma       	(fall over )        	akwat     	2031
+F21 Amaimon         	(fall over )		ikoku-

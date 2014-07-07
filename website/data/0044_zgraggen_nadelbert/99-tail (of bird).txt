@@ -1,0 +1,28 @@
+D1 Bargam           	(bird's) tail       	-be karugan	2398
+E1 Dimir            	(bird's) tail       	ibgam     	2399
+E2 Malas            	(bird's) tail       	diru      	2401
+E3 Bunabun          	(bird's) tail       	daur ib   	
+E3 Bunabun          	(bird's) tail       	du:r̃     	2401
+E4 Korak            	(bird's, dog's) tail	mum       	
+E5 Waskia           	(bird's, dog's) tail	mo:m      	
+F1 Pay              	(bird's, dog's) tail	udur̃ak   	2401
+F2 Pila             	(bird's, dog's) tail	ndurua    	2401
+F3 Maia             	(bird's) tail       	bugam     	2399
+F4 Tani             	(bird's) tail       	wipukam   	2399
+F5 Mauwake          	(bird's, dog's) tail	alewa     	2403
+F6 Bepour           	(bird's) tail       	titum     	
+F7 Moere            	(bird's, dog's) tail	erpop     	2400
+F8 Kowaki           	(bird's) tail       	hor̃omba  	2398
+F9 Mawak            	(bird's) tail       	bitikur   	2400
+F10 Hinihon         	(bird's) tail       	imbueleb  	2400
+F11 Musar           	(bird's) tail       	titum     	
+F12 Wanambre        	(bird's, dog's) tail	kele      	2402
+F13 Koguman         	(bird's) tail       	isaimi    	
+F14 Abasakur        	(bird's, dog's) tail	iarot     	
+F15 Usan            	(bird's) tail       	burim     	2400
+F16 Yaben           	(bird's) tail       	ebitaim   	2400
+F17 Yarawata        	(bird's) tail       	ibita     	2400
+F18 Bilakura        	(bird's) tail       	ebitua    	2400
+F19 Parawen         	(bird's) tail       	ibi:ta    	2400
+F20 Ukuriguma       	(bird's) tail       	ibituk    	2400
+F21 Amaimon         	(bird's) tail       	ibatakum  	2400

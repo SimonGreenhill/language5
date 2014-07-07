@@ -1,0 +1,35 @@
+D1 Bargam           	younger s.s. sibling		-bab museran	
+E1 Dimir            	younger s.s. sibling		mageŋ     	2434
+E2 Malas            	younger s.s. sibling		maŋ       	2434
+E3 Bunabun          	younger s.s. sibling    	      imiek    	2625,2434
+E4 Korak            	younger s.s. sibling		-misiŋo   	2625
+E5 Waskia           	younger s.s. sibling		udia      	
+F1 Pay              	younger s.s. sibling    	      i:me      	2625
+F2 Pila             	younger s.s. sibling    	      yamun     	2625
+F3 Maia             	younger s.s. sibling    	      yamu      	2625
+F4 Tani             	younger s.s. sibling    	      zamun     	2625
+F5 Mauwake          	younger s.s. sibling    	      amun      	2625,2236
+F6 Bepour           	younger s.s. sibling    	      imetir    	2625,2434
+F7 Moere            	younger s.s. sibling    	      ime       	2625,2434
+F8 Kowaki           	younger s.s. sibling		-mamay    	
+F9 Mawak            	younger s.s. sibling		imbat     	
+F9 Mawak            	younger s.s. sibling    	      yimaha    	2625,2434
+F10 Hinihon         	younger s.s. sibling    	      imaha     	2625,2434
+F11 Musar           	younger s.s. sibling    	      imʌ       	2625
+F12 Wanambre        	younger s.s. sibling		-meka     	2434
+F13 Koguman         	1/2 younger s.s. sibling	sogu
+F13 Koguman		younger s.s. sibling		uŋge      	
+F14 Abasakur        	younger s.s. sibling		meak      	2434
+F15 Usan            	younger s.s. sibling    	      i:mʌ      	2625
+F16 Yaben           	younger s.s. sibling    	      imaʔa     	2625
+F16 Yaben		younger s.s. sibling		umoˀoda
+F17 Yarawata        	1/2 younger s.s. sibling	enamona   
+F17 Yarawata		younger s.s. sibling		umiʌk	
+F18 Bilakura        	1/2 younger s.s. sibling	emaka     	2434,2625
+F18 Bilakura		younger s.s. sibling		umakaman
+F19 Parawen         	younger s.s. sibling	imakini   	2625
+F19 Parawen		younger s.s. sibling		kᵃrʌy
+F19 Parawen		younger s.s. sibling		umik
+F20 Ukuriguma       	younger s.s. sibling	emakina   	2625
+F20 Ukuriguma		younger s.s. sibling		umiok
+F21 Amaimon         	younger s.s. sibling	emaŋ      	2625,2434

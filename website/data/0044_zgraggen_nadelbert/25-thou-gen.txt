@@ -1,0 +1,28 @@
+D1 Bargam           	thou (genitive)	   ni-
+E1 Dimir            	thou (genitive)	   
+E2 Malas            	thou (genitive)	   
+E3 Bunabun          	thou (genitive)	   
+E4 Korak            	thou (genitive)	   nur-
+E4 Korak            	thou (genitive)	   ni-
+E5 Waskia           	thou (genitive)	   
+F1 Pay              	thou (genitive)	   ni-
+F2 Pila             	thou (genitive)	   nV-
+F3 Maia             	thou (genitive)	   ni-
+F4 Tani             	thou (genitive)	   nV-
+F5 Mauwake          	thou (genitive)	   ni-
+F6 Bepour           	thou (genitive)	   
+F7 Moere            	thou (genitive)	   
+F8 Kowaki           	thou (genitive)	   nV-
+F9 Mawak            	thou (genitive)	   
+F10 Hinihon         	thou (genitive)	   
+F11 Musar           	thou (genitive)	   ne-
+F12 Wanambre        	thou (genitive)	   
+F13 Koguman         	thou (genitive)	   
+F14 Abasakur        	thou (genitive)	   
+F15 Usan            	thou (genitive)	   
+F16 Yaben           	thou (genitive)	   
+F17 Yarawata        	thou (genitive)	   
+F18 Bilakura        	thou (genitive)	   
+F19 Parawen         	thou (genitive)	   
+F20 Ukuriguma       	thou (genitive)	   
+F21 Amaimon         	thou (genitive)	   

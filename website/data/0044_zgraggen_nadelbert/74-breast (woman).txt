@@ -1,0 +1,28 @@
+D1 Bargam           	breast              	-sus 
+E1 Dimir            	breast			mɛnam
+E2 Malas            	breast			manu
+E3 Bunabun          	breast			minga
+E4 Korak            	breast			ʌm
+E5 Waskia           	breast			amin
+F1 Pay              	breast		     	mɛsɛk
+F2 Pila             	breast              	-sus      	
+F3 Maia             	breast              	-mek      	2346
+F4 Tani			breast			amɛ
+F5 Mauwake          	breast              	meseka    	2346
+F6 Bepour           	breast			mɛna
+F7 Moere            	breast			mɛna
+F8 Kowaki           	breast			mɛ
+F9 Mawak            	breast			mɛ
+F10 Hinihon         	breast			mɛ
+F11 Musar           	breast			mi
+F12 Wanambre        	breast			ɛmi
+F12 Wanambre        	breast			mɛ
+F13 Koguman         	breast			mʌːm
+F14 Abasakur        	breast			mɛŋ
+F15 Usan            	breast			iːnaw
+F16 Yaben           	breast              	ɲʌw       	2228
+F17 Yarawata        	breast              	niaw      	2228
+F18 Bilakura        	breast              	ɲoa       	2228
+F19 Parawen         	breast              	niʌ       	2228
+F20 Ukuriguma       	breast			na
+F21 Amaimon         	breast			amun

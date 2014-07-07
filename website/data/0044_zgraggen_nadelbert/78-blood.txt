@@ -1,0 +1,28 @@
+D1 Bargam           	blood               	-nedan    	
+E1 Dimir            	blood               	kʌkʌt     	2655
+E2 Malas            	blood               	yaŋembup  	
+E3 Bunabun          	blood               	sivi      	
+E4 Korak            	blood               	kakaras   	2565,2655
+E5 Waskia           	blood               	gue       	
+E5 Waskia           	blood               	kidi      	2655
+F1 Pay              	blood               	ɔd        	2655
+F2 Pila             	blood               	-masinab  	
+F3 Maia             	blood               	-ekoŋ     	2561
+F4 Tani             	blood               	od        	2655
+F5 Mauwake          	blood               	eka       	2347
+F6 Bepour           	blood               	eʔʌ       	2347
+F7 Moere            	blood               	eŋka      	2347
+F8 Kowaki           	blood               	hetu      	2655
+F9 Mawak            	blood               	mawor     	2348
+F10 Hinihon         	blood               	ma:wor    	2348
+F11 Musar           	blood               	he:tu     	2655
+F12 Wanambre        	blood               	miail     	2348
+F13 Koguman		blood			ɛs
+F14 Abasakur        	blood               	kʌnjira   	2655
+F15 Usan            	blood               	eru       	2655
+F16 Yaben           	blood               	ʔʌdu      	2655
+F17 Yarawata        	blood               	kʌda      	2655
+F18 Bilakura        	blood               	kʌ:r̃     	2655
+F19 Parawen         	blood               	kʌ:ra     	2655
+F20 Ukuriguma       	blood               	kɔd       	2655
+F21 Amaimon         	blood               	kese      	2655

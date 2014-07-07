@@ -1,0 +1,28 @@
+D1 Bargam           	head                	-fain     	
+D1 Bargam           	head                	-huain    	
+E1 Dimir            	head                	datom     	
+E2 Malas            	head                	kumu      	2262,2060
+E3 Bunabun          	head                	sa        	
+E4 Korak            	head                	-tino     	
+E5 Waskia           	head                	so:puliŋ  	
+F1 Pay              	head                	-moak     	
+F2 Pila             	head                	-kum      	2262
+F3 Maia             	head                	-kum      	2262
+F4 Tani             	head                	-pera     	
+F5 Mauwake          	head                	wosa      	
+F6 Bepour           	head                	humun     	2262,2060
+F7 Moere            	head                	eŋkeren   	
+F8 Kowaki           	head                	-haniʔen  	2259
+F9 Mawak            	head                	aniŋgen   	2259
+F10 Hinihon         	head                	aŋiŋgen   	2259
+F11 Musar           	head                	ikwak     	
+F12 Wanambre        	head                	gosoŋgan  	
+F13 Koguman         	head                	amoŋgot   	
+F14 Abasakur        	head                	kotokwar  	2261
+F15 Usan            	head                	tari      	2260
+F16 Yaben           	head                	ta:zi     	2260
+F17 Yarawata        	head                	tlikal-a  	2260
+F18 Bilakura        	head                	ta:zi     	2260
+F19 Parawen         	head                	tarikari  	2260,2261
+F20 Ukuriguma       	head                	tarikar   	2260,2261
+F21 Amaimon         	head                	gagaly    	2261

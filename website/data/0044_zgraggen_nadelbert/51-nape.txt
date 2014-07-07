@@ -1,0 +1,27 @@
+D1 Bargam           	nape                	-bun batan	
+E1 Dimir            	nape                	karemer   	
+E2 Malas            	nape                	kunibi    	2298,2091
+E3 Bunabun          	nape                	kuman     	2297,2093
+E4 Korak            	nape                	kumanduk  	2297
+E5 Waskia           	nape                	komaŋ     	2297,2093
+F1 Pay              	nape                	-imini    	2297
+F2 Pila             	nape                	-kumwa    	2297
+F3 Maia             	nape                	-kumwakot 	2297,2299
+F4 Tani             	nape                	-umuaiti  	2299
+F5 Mauwake          	nape                	emin      	2297
+F6 Bepour           	nape                	omoʔa     	2297
+F7 Moere            	nape                	mosen     	
+F8 Kowaki           	nape                	humaʔ     	2297,2093
+F9 Mawak            	nape                	uma kenab  	2298
+F10 Hinihon         	nape                	uma kapa  	2297
+F11 Musar           	nape                	huma      	2297,2093
+F12 Wanambre        	nape                	kumaŋgena 	2297,2298
+F13 Koguman         	nape                	ume ot    	2297
+F14 Abasakur        	nape                	munambut  	
+F15 Usan            	nape                	uŋgo      	
+F16 Yaben		bape			
+F17 Yarawata        	nape                	kuma kwata	2297
+F18 Bilakura        	nape                	kumwan    	2297
+F19 Parawen         	nape                	kuma:na   	2297,2093
+F20 Ukuriguma       	nape                	ikwoik    	
+F21 Amaimon         	nape                	ketakwa   	2300

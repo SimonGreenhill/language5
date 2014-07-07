@@ -1,0 +1,27 @@
+D1 Bargam           	(yam)               	zabel     	2191
+E1 Dimir            	(yam)               	dibil     	2191
+E2 Malas            	(yam)			kibinɛm
+E3 Bunabun          	(yam)			oran
+E4 Korak            	(yam)			wʌl
+E5 Waskia           	(yam)               	u:laŋ     	2191
+F1 Pay              	(yam)			ʌr̃ʌ
+F2 Pila             	(yam)			waŋay
+F3 Maia             	(yam)			waŋa
+F4 Tani             	(yam)			wanaz
+F5 Mauwake          	(yam)			ibokʌ
+F6 Bepour           	(yam)			ɔrɔˀ
+F7 Moere            	(yam)               	isieb     	2191
+F8 Kowaki		(yam)			mʌrɛb
+F9 Mawak            	(yam)               	(e)sab    	2191
+F10 Hinihon         	(yam)			mʌr
+F11 Musar           	(yam)			heʌp
+F12 Wanambre        	(yam)			kiya
+F13 Koguman         	(yam)			mɛna
+F14 Abasakur        	(yam)			mɛ
+F15 Usan            	(yam)			mʌni
+F16 Yaben           	(yam)               	mi		2191
+F17 Yarawata        	(yam)			kiʌ
+F18 Bilakura        	(yam)			mʌː
+F19 Parawen         	(yam)			kiʌ
+F20 Ukuriguma       	(yam)               	zaberam   	2191
+F21 Amaimon		(yam)			mʌ

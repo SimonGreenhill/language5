@@ -1,0 +1,27 @@
+D1 Bargam           	2 pl poss.		ne-
+E1 Dimir            	2 pl poss.		nɛ-n-
+E2 Malas            	2 pl poss.		na-n-
+E3 Bunabun          	2 pl poss.		a-na-
+E4 Korak            	2 pl poss.		ni-mta-
+E5 Waskia           	2 pl poss.		ni-na-
+F1 Pay              	2 pl poss.		n-
+F2 Pila             	2 pl poss.		nai-
+F3 Maia             	2 pl poss.		nai-
+F4 Tani             	2 pl poss.		ni-
+F5 Mauwake          	2 pl poss.		ni-
+F6 Bepour           	2 pl poss.		ni-
+F7 Moere            	2 pl poss.		nik-
+F8 Kowaki           	2 pl poss.		niˀɛ-
+F9 Mawak            	2 pl poss.		niŋgɛ-
+F10 Hinihon         	2 pl poss.		
+F11 Musar           	2 pl poss.		nik-
+F12 Wanambre        	2 pl poss.		ni-
+F13 Koguman         	2 pl poss.		yo-
+F14 Abasakur        	2 pl poss.		no-
+F15 Usan            	2 pl poss.		an-
+F16 Yaben           	2 pl poss.		an-
+F17 Yarawata        	2 pl poss.		an-
+F18 Bilakura        	2 pl poss.		añ-
+F19 Parawen         	2 pl poss.		aina-
+F20 Ukuriguma       	2 pl poss.		ano-
+F21 Amaimon         	2 pl poss.		ani-

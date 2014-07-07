@@ -1,0 +1,29 @@
+D1 Bargam           	(rat)			kudui
+E1 Dimir            	(rat)			umbam
+E2 Malas            	(rat)			munža
+E3 Bunabun          	(rat)			isiñar
+E4 Korak            	(rat)			musʌk
+E5 Waskia           	(rat)			dʌgor̃
+F1 Pay              	(rat)			sikir
+F2 Pila             	(rat)			sokob
+F3 Maia             	(rat)			monia
+F3 Maia             	(rat)			saboar
+F4 Tani             	(rat)			wewerɛ
+F5 Mauwake          	(rat)			sɛwa
+F6 Bepour           	(rat)			tinɛn
+F7 Moere            	(rat)			wokɛra
+F8 Kowaki           	(rat)               	aʔine     	2112
+F9 Mawak		(rat)			naŋgomu
+F10 Hinihon         	(rat)               	akineŋ    	2112
+F11 Musar           	(rat)               	aŋgi:neŋ  	2112
+F12 Wanambre        	(rat)               	ukine     	2112
+F13 Koguman         	(rat)			siŋʌtsim
+F14 Abasakur        	(rat)			usiŋʌrʌ
+F15 Usan            	(rat)			wʌis
+F16 Yaben           	(rat)			wʌdu
+F17 Yarawata        	(rat)			oidua
+F18 Bilakura        	(rat)			wiːl
+F19 Parawen         	(rat)			gorʌwu
+F20 Ukuriguma       	(rat)               	garan     	2112
+F20 Ukuriguma       	(rat)               	wɛta
+F21 Amaimon         	(rat)               	geleŋ     	2112

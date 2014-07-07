@@ -1,0 +1,30 @@
+D1 Bargam           	armpit              	-delot    	
+D1 Bargam           	armpit              	-deyain   	
+E1 Dimir            	armpit              	kamdemko  	
+E2 Malas            	armpit              	kasisi    	2449,1961
+E3 Bunabun          	armpit              	ki:k      	
+E4 Korak            	armpit              	kumitol   	
+E5 Waskia           	armpit              	lapitik   	
+F1 Pay              	armpit              	-kap      	
+F2 Pila             	armpit              	kalak     	
+F2 Pila             	armpit              	kaŋgalak  	
+F3 Maia             	armpit              	-etekerek 	
+F3 Maia             	armpit              	kasisik   	2449
+F4 Tani             	armpit              	-kekasi   	2449
+F5 Mauwake          	armpit              	eta       	
+F6 Bepour           	armpit              	ehibor < *ebihor < *emkihor	
+F7 Moere            	armpit              	kemkur    	
+F8 Kowaki           	armpit              	moʔar     	
+F9 Mawak            	armpit              	amgokar   	
+F10 Hinihon         	armpit              	mokar     	
+F11 Musar           	armpit              	makokar   	
+F12 Wanambre        	(armpit)            	ŋgeli:lik 	1961
+F13 Koguman         	armpit              	abas      	
+F14 Abasakur        	armpit              	ombekar   	
+F15 Usan            	armpit              	ipisen    	
+F16 Yaben           	armpit              	kasipanu  	2450
+F17 Yarawata        	armpit              	kaspina   	2450
+F18 Bilakura        	armpit              	kasiwan   	2450
+F19 Parawen         	armpit              	tagiligili	
+F20 Ukuriguma       	armpit              	kwosopun  	2450
+F21 Amaimon         	armpit              	kepina    	2450

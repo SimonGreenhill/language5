@@ -1,0 +1,29 @@
+D1 Bargam		calf			kokin
+E1 Dimir            	calf                	mu:met    
+E2 Malas		calf			kitu
+E3 Bunabun		calf			kit
+E4 Korak            	calf                	-doŋgamaŋ 	
+E5 Waskia           	calf                	doleŋ niŋo
+F1 Pay			calf			atamtam	
+F2 Pila             	calf                	-awaŋai   	
+F2 Pila             	calf                	-sakanu   	
+F3 Maia             	calf                	-taŋ      	
+F4 Tani             	calf                	-wasuma   	
+F5 Mauwake          	calf                	amun oposia	
+F6 Bepour           	calf                	ufa unu   	
+F7 Moere            	calf                	pesab siki	
+F8 Kowaki           	calf                	ane per   	2483
+F9 Mawak            	calf                	mbesafunu 	
+F10 Hinihon		calf			munaŋ
+F11 Musar 		calf			alumunaŋ
+F12 Wanambre        	calf                	kuramaŋg  	2339
+F13 Koguman         	calf                	noum      	
+F13 Koguman         	calf                	porʌːm
+F14 Abasakur		calf			iwam
+F15 Usan            	calf                	di:bur    	2338
+F16 Yaben           	calf                	ji:bulu   	2338
+F17 Yarawata        	calf                	kapa kuda 	2339
+F18 Bilakura        	calf                	sibul     	2338
+F19 Parawen         	calf                	kapa kura 	2339
+F20 Ukuriguma       	calf                	kapa kuda 	2339
+F21 Amaimon         	calf                	param nuaga	2483

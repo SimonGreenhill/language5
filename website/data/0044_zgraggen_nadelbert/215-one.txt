@@ -1,0 +1,28 @@
+D1 Bargam           	(one)			amuligmo
+E1 Dimir            	(one)			giːbki
+E2 Malas            	(one)			gɛmɛm
+E3 Bunabun          	(one)               	gagindie  	2103
+E4 Korak            	(one)			itamanuŋo
+E5 Waskia           	(one)			tikɛnta
+E5 Waskia           	(one)			suanta
+F1 Pay              	(one)			tuɛla
+F2 Pila             	(one)			ndoaka
+F3 Maia             	(one)			duʌka
+F4 Tani             	(one)			udua
+F5 Mauwake          	(one)			kusob
+F6 Bepour           	(one)			umaruma
+F7 Moere            	(one)			ŋkonmaŋɛm
+F8 Kowaki           	(one)			atatɛ
+F9 Mawak            	(one)               	katiga    	2103
+F10 Hinihon         	(one)               	tuku      	2103
+F11 Musar           	(one)               	tʌko:lik  	2103
+F12 Wanambre        	(one)               	golik     	2103
+F13 Koguman         	(one)			utʌm(p)
+F14 Abasakur        	(one)			utʌmʌt
+F15 Usan            	(one)               	gʌri      	2103
+F16 Yaben           	(one)			gawʌːd
+F17 Yarawata        	(one)               	kasika    	2103
+F18 Bilakura        	(one)			gasiba
+F19 Parawen         	(one)               	gasi:ka   	2103
+F20 Ukuriguma       	(one)			kapaika
+F21 Amaimon         	(one)               	gesikʌ(ka)	2103

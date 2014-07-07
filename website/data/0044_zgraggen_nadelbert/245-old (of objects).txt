@@ -1,0 +1,31 @@
+D1 Bargam           	(sg) old            	kwasi     	
+E1 Dimir            	(sg) old            	talonet   	
+E2 Malas            	(old(of objects))   	kuken     	2100
+E3 Bunabun          	(old(of objects))   	kon       	2100
+E4 Korak            	(sg) old            	iŋir      	
+E5 Waskia           	(sg) old            	tuwun     	
+F1 Pay              	(sg) old            	useir     	
+F2 Pila             	(sg) old            	kwiav     	
+F3 Maia             	(sg) old            	kuyab     	
+F4 Tani             	(sg) old            	okere     	
+F5 Mauwake          	(sg) old            	awona     	
+F6 Bepour           	(sg) old            	abon      	
+F7 Moere            	(sg) old            	won       	
+F8 Kowaki           	(sg) old            	aton      	
+F9 Mawak            	(sg) old            	ohi       	
+F10 Hinihon         	(sg) old            	ohim      	
+F11 Musar           	(sg) old            	hole      	
+F12 Wanambre        	(sg) old            	galen     	
+F12 Wanambre        	(sg) old            	iwele     	
+F13 Koguman         	(sg) old            	siŋgiriŋ  	
+F13 Koguman         	(sg) old            	uo        	
+F14 Abasakur        	(sg) old            	isi:gi    	
+F15 Usan            	(sg) old            	oa:n      	
+F16 Yaben           	(old(of objects))   	wakanu    	2100
+F17 Yarawata        	(sg) old            	kole      	
+F18 Bilakura        	(sg) old            	gigika    	
+F18 Bilakura        	(old(of objects))   	kwakan    	2100
+F19 Parawen         	(sg) old            	kura:     	
+F20 Ukuriguma       	(sg) old            	koron     	
+F21 Amaimon         	(sg) old            	penim     	
+F21 Amaimon         	(sg) old            	saŋan     	

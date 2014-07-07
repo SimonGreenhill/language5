@@ -1,0 +1,28 @@
+D1 Bargam           	(sweat)			-walin
+E1 Dimir            	(sweat)			giriwokom	
+E2 Malas            	(sweat)			karu guʌdɛp
+E3 Bunabun          	(sweat)             	er̃kan    	2152
+E4 Korak            	(sweat)			mulil
+E5 Waskia           	(sweat)			olaŋam
+E5 Waskia           	(sweat)			wɛlaŋam
+F1 Pay              	(sweat)			-tʌᵬ
+F2 Pila             	(sweat)			-sʌb
+F3 Maia             	(sweat)			-sap
+F4 Tani             	(sweat)			-masisaᵬ
+F5 Mauwake          	(sweat)			ospɔwʌ
+F6 Bepour           	(sweat)             	irirʌʔ    	2152
+F7 Moere            	(sweat)             	erir(eŋ)  	2152
+F8 Kowaki           	(sweat)             	eriha     	2152
+F9 Mawak            	(sweat)             	irŒia     	2152
+F10 Hinihon         	(sweat)             	iliha     	2152
+F11 Musar           	(sweat)             	aliŋga    	2152
+F12 Wanambre        	(sweat)             	irikʌ     	2152
+F13 Koguman         	(sweat)             	srig(ine) 	2152
+F14 Abasakur        	(sweat)			poposa
+F15 Usan            	(sweat)			oʌr
+F16 Yaben           	(sweat)			miˀwʌːli
+F17 Yarawata        	(sweat)			mikwʌla
+F18 Bilakura        	(sweat)			mikɔl
+F19 Parawen         	(sweat)			mai kwʌra
+F20 Ukuriguma       	(sweat)			guʌːr
+F21 Amaimon         	(sweat)			kwʌːlɛ

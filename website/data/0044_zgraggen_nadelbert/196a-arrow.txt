@@ -1,0 +1,27 @@
+D1 Bargam           	single-point arrow  	sabek     	
+E1 Dimir            	single-point arrow  	samer     	
+E2 Malas            	single-point arrow  	sareŋ daŋen	
+E3 Bunabun          	single-point arrow  	kumi      	
+E4 Korak            	single-point arrow  	samun     	
+E5 Waskia           	single-point arrow  	suantu titu	
+F1 Pay              	single-point arrow  	tawarak   	
+F2 Pila             	single-point arrow  	woanam    	
+F3 Maia             	single-point arrow  	karewaŋ   	
+F4 Tani             	single-point arrow  	pitor     	
+F5 Mauwake          	(arrow, single-point)	ariba     	1963
+F6 Bepour		single-point arrow
+F7 Moere            	single-point arrow  	mukarei   	1963
+F8 Kowaki           	single-point arrow  	pa:tot    	
+F9 Mawak            	single-point arrow  	pub       	
+F10 Hinihon		single-point arrow	
+F11 Musar           	single-point arrow  	gaful     	
+F12 Wanambre        	single-point arrow  	eriak     	
+F13 Koguman         	single-point arrow  	yeim      	
+F14 Abasakur        	single-point arrow  	yam       	
+F15 Usan            	(arrow, single-point)	urep      	1963
+F16 Yaben           	(arrow, single-point)	ʔulu      	1963
+F17 Yarawata        	single-point arrow  	galidiama 	1963
+F18 Bilakura        	single-point arrow  	kwapala   	
+F19 Parawen         	single-point arrow  	garidama  	1963
+F20 Ukuriguma       	single-point arrow  	makila    	
+F21 Amaimon         	single-point arrow  	sila      	

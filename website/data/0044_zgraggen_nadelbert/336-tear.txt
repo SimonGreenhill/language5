@@ -1,0 +1,28 @@
+D1 Bargam           	(tear)			hiksɛrɛ-
+E1 Dimir            	(tear)			uwuksa-
+E2 Malas            	(tear)              	paur      	2160
+E3 Bunabun          	(tear)			kiwik-
+E4 Korak            	(tear)			sᵃrak-
+E5 Waskia           	(tear)              	baruk(u)- 	2160
+F1 Pay              	(tear)              	parak(ut)-	2160
+F2 Pila             	(tear)			buroraind-
+F3 Maia             	(tear)			bɛrɛd-
+F4 Tani             	(tear)              	bereg     	2160
+F5 Mauwake          	(tear)              	prek-     	2160
+F6 Bepour           	(tear)              	per-      	2160
+F7 Moere            	(tear)			muŋp-
+F8 Kowaki           	(tear)			hɛmar-
+F9 Mawak            	(tear)			ɛmɛ-
+F10 Hinihon         	(tear)			pasik ɛlam
+F10 Hinihon         	(tear)			ɛma
+F11 Musar           	(tear)			saŋimbik-
+F12 Wanambre        	(tear)			saki nɛw-
+F13 Koguman         	(tear)			ɛbi-
+F14 Abasakur        	(tear)			wake-
+F15 Usan            	(tear)			bobrm-
+F16 Yaben           	(tear)			ulʌˀʌt-
+F17 Yarawata        	(tear)			sakiliam-
+F18 Bilakura        	(tear)			walaka-
+F19 Parawen         	(tear)			sɛkiliam-
+F20 Ukuriguma       	(tear)			akura-
+F21 Amaimon         	(tear)			garapa ɛr-

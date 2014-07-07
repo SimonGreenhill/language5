@@ -1,0 +1,35 @@
+D1 Bargam           	older cross-sibling 	-hi:      	
+E1 Dimir            	older cross-sibling 	imnak uimoŋet	2438
+E2 Malas            	older cross-sibling 	ememen    	2439
+E3 Bunabun          	older cross-sibling 	otav      	
+E4 Korak            	older cross-sibling 	-kekero   	2436
+E5 Waskia           	older cross-sibling 	koras     	2436
+F1 Pay              	older cross-sibling 	-babarat ibarab	2436
+F2 Pila             	older cross-sibling 	-mbaras   	2436
+F2 Pila             	older cross-sibling 	-manak    	2438
+F3 Maia             	older cross-sibling 	iribwab   	
+F4 Tani             	older cross-sibling 	-imina    	2438
+F5 Mauwake          	older cross-sibling 	ekera     	2436
+F5 Mauwake          	older cross-sibling 	maneka    	2438,2101
+F6 Bepour           	older cross-sibling 	sobi perep	
+F7 Moere            	older cross-sibling 	imnaʔ     	2438,2101
+F8 Kowaki           	older cross-sibling 	-sai      	2437
+F9 Mawak            	older cross-sibling 	sai karen 	2436
+F9 Mawak            	older cross-sibling 	ap heip   	2437
+F10 Hinihon         	older cross-sibling 	weip      	2437
+F11 Musar           	older cross-sibling 	bawem     	
+F12 Wanambre        	older cross-sibling 	-BB:SRP   	
+F13 Koguman         	older cross-sibling 	ibirout   	
+F14 Abasakur        	older cross-sibling 	masimi    	
+F15 Usan            	3 older cross-sibling	umemend   	2439
+F15 Usan		older cross-sibling 	baimɛnt
+F16 Yaben           	3 older cross-sibling	umayem  
+F16 Yaben		older cross-sibling 	baiñami  	
+F17 Yarawata        	older cross-sibling 	emenike wamete	2438
+F18 Bilakura        	(older cross-sex sib)	minik(a)  	2101
+F18 Bilakura        	3 older cross-sibling	umamida   	2439
+F19 Parawen         	older cross-sibling 	-minika   	2438
+F20 Ukuriguma       	3 older cross-sibling	umanaka   	
+F20 Ukuriguma       	(older cross-sex sib)	eminak(a) 	2101
+F20 Ukuriguma		older cross-sibling	nɜmanika
+F21 Amaimon         	older cross-sibling 	eŋumanak  	2101

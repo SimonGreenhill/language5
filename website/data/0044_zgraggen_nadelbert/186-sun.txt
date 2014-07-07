@@ -1,0 +1,29 @@
+D1 Bargam           	(sun)			zɛ
+E1 Dimir            	(sun)			kɛgin
+E1 Dimir            	(sun)			udimɛ
+E2 Malas            	(sun)               	kamu      	2150
+E3 Bunabun          	(sun)               	kam       	2150
+E4 Korak            	(sun)			ud
+E5 Waskia           	(sun)			wor̃ɛm
+F1 Pay              	(sun)			otɛm
+F2 Pila             	(sun)			poari
+F2 Pila             	(sun)			ondom
+F3 Maia             	(sun)			wɛdɛm
+F4 Tani             	(sun)			iːdʌm
+F5 Mauwake          	(sun)               	ama       	2150
+F6 Bepour           	(sun)               	amʌ       	2150
+F7 Moere            	(sun)               	moa       	2150
+F8 Kowaki           	(sun)               	hemari    	2150
+F9 Mawak            	(sun)               	ʌmʌri     	2150
+F10 Hinihon         	(sun)               	mʌ:li     	2150
+F11 Musar           	(sun)               	hʌmu      	2150
+F12 Wanambre        	(sun)               	mekʌli    	2150
+F13 Koguman         	(sun)			wʌniŋ
+F14 Abasakur        	(sun)               	mara      	2150
+F15 Usan            	(sun)			worom
+F16 Yaben           	(sun)			wayamu
+F17 Yarawata        	(sun)			udɛama
+F18 Bilakura        	(sun)			wazʌm
+F19 Parawen         	(sun)			warɛʌːma
+F20 Ukuriguma       	(sun)			odɛːmo
+F21 Amaimon         	(sun)			nua

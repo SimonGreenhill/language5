@@ -1,0 +1,33 @@
+D1 Bargam           	garden              	kabi      	
+D1 Bargam           	garden              	sagai     	
+E1 Dimir            	garden              	mamne     	
+E1 Dimir            	garden              	muli      	
+E2 Malas            	garden              	muri      	
+E3 Bunabun          	garden              	wa        	
+E3 Bunabun          	garden(ground)      	makib     	2055
+E4 Korak            	garden              	bi        	
+E5 Waskia           	garden              	niŋam     	
+F1 Pay              	garden              	masi      	
+F2 Pila             	garden              	wayway    	
+F3 Maia             	garden              	wau       	
+F4 Tani             	garden              	yabar     	
+F5 Mauwake          	garden              	manina    	
+F6 Bepour           	garden              	maperen   	
+F6 Bepour           	garden              	pohor     	
+F7 Moere            	garden              	mansin    	
+F8 Kowaki           	garden              	emehi     	2055
+F9 Mawak            	garden(ground)      	imhi      	2055
+F10 Hinihon         	garden(ground)      	mehi      	2055
+F11 Musar           	garden(ground)      	meki:v    	2055
+F12 Wanambre        	garden              	mewewi    	
+F12 Wanambre        	garden(ground)      	meki      	2055
+F13 Koguman         	garden              	mogut     	
+F14 Abasakur        	garden              	eta       	
+F15 Usan            	garden              	ma:n      	
+F16 Yaben           	garden              	ma:nu     	
+F17 Yarawata        	garden              	ma:na     	
+F18 Bilakura        	garden              	muon      	
+F19 Parawen         	garden              	ma:na     	
+F20 Ukuriguma       	garden              	ma:n      	
+F21 Amaimon         	garden              	ma:gei    	
+F21 Amaimon         	garden              	mare      	

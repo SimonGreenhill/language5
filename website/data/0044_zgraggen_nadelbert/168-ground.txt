@@ -1,0 +1,28 @@
+D1 Bargam           	(ground)		og
+E1 Dimir            	(ground)		m i
+E2 Malas            	(ground)            	mikip     	2055
+E3 Bunabun          	(ground)		makib
+E3 Bunabun          	(ground)		makimun
+E4 Korak            	(ground)		ʌːl
+E5 Waskia           	(ground)		ʌli
+F1 Pay              	(ground)            	misib     	2055
+F2 Pila             	(ground)		sʌb
+F3 Maia             	(ground)		idʌ
+F4 Tani             	(ground)		bereim
+F5 Mauwake          	(ground)		miwʌ
+F6 Bepour           	(ground)            	(ima)mehib	2055
+F7 Moere            	(ground)		tikɔb
+F8 Kowaki           	(ground)		hʌˀɛ mʌmun
+F9 Mawak            	(ground)		ʌk mʌmun
+F10 Hinihon         	(ground)		ahup
+F11 Musar           	(ground)		ʌlekʌ
+F12 Wanambre        	(ground)		siwʌku
+F13 Koguman         	(ground)		yabɔŋ
+F14 Abasakur        	(ground)		popar(a)
+F15 Usan            	(ground)		ʌy
+F16 Yaben           	(ground)		ʌːtu
+F17 Yarawata        	(ground)		yʌːko
+F18 Bilakura        	(ground)		ʌːt
+F19 Parawen         	(ground)		yakita
+F20 Ukuriguma       	(ground)		yakit
+F21 Amaimon         	(ground)            	me:ki     	2055

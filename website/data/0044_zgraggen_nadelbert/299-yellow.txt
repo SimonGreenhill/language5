@@ -1,0 +1,28 @@
+D1 Bargam           	(yellow)		mali
+E1 Dimir            	(yellow)		gugop
+E2 Malas            	(yellow)		
+E3 Bunabun          	(yellow)		isiɛk
+E4 Korak            	(yellow)            	alikam    	2192
+F1 Pay              	(yellow)            	likam     	2192
+F2 Pila             	(yellow)		karaŋgʌt
+F3 Maia             	(yellow)		karigam
+F4 Tani             	(yellow)		girigiri
+F5 Mauwake          	(yellow)            	likam     	2192
+F6 Bepour           	(yellow)		yanib
+F7 Moere            	(yellow)		anib
+F8 Kowaki           	(yellow)		anib
+F9 Mawak            	(yellow)		ʌnib
+F10 Hinihon         	(yellow)		ʌnib
+F11 Musar           	(yellow)		mɛsʌwʌl
+F12 Wanambre        	(yellow)		ŋgokowat
+F13 Koguman         	(yellow)		ʌsɔt
+F13 Koguman         	(yellow)		agwʌːb
+F14 Abasakur        	(yellow)		kogan
+F15 Usan            	(yellow)		gunʌy
+F16 Yaben           	(yellow)            	igam(nab) 	2192
+F17 Yarawata        	(yellow)		guʌla
+F18 Bilakura        	(yellow)		gawʌl
+F19 Parawen         	(yellow)		gunʌː
+F20 Ukuriguma       	(yellow)		gunɛ
+F20 Ukuriguma       	(yellow)		okwɛ inʌniam
+F21 Amaimon         	(yellow)		kogʌp

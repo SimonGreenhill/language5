@@ -1,0 +1,27 @@
+D1 Bargam           	afraid		rab
+E1 Dimir            	afraid		alal bay-
+E2 Malas            	afraid		urur-
+E3 Bunabun          	afraid		gamanar-
+E4 Korak            	afraid		brɛbrɛk-
+E5 Waskia           	afraid		ŋuʌŋa-
+F1 Pay              	afraid		paur-
+F2 Pila             	afraid		indiᵬ-
+F3 Maia             	afraid		biriŋe-
+F4 Tani             	afraid		biad-
+F5 Mauwake          	afraid		kɛkɛrop-
+F6 Bepour           	afraid		pɛp-
+F7 Moere            	afraid		pimpi-
+F8 Kowaki           	afraid		
+F9 Mawak            	afraid		pipi-
+F10 Hinihon         	afraid		pipi yeha-
+F11 Musar           	afraid		bimbik-
+F12 Wanambre        	afraid		mbɛwikɛh-
+F13 Koguman         	afraid		raga-
+F14 Abasakur        	afraid		wirʌ-
+F15 Usan            	afraid		yʌrim-
+F16 Yaben           	afraid		yaliʌm-
+F17 Yarawata        	afraid		apatae-
+F18 Bilakura        	afraid		yalam-
+F19 Parawen         	afraid		apatar-
+F20 Ukuriguma       	afraid		apatay-
+F21 Amaimon         	afraid		tɛrɛgʌl-

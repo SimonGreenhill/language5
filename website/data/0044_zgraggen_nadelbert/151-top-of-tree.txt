@@ -1,0 +1,28 @@
+D1 Bargam           	(tree) top          	ilon      	
+E1 Dimir            	(tree) top          	gugel     	
+E2 Malas            	(tree) top          	manamen   	
+E3 Bunabun          	(tree) top          	dour̃     	
+E4 Korak            	(tree) top          	ku        	2568
+E5 Waskia           	(tree) top          	kopana    	2568
+F1 Pay              	(tree) top          	umet      	
+F2 Pila             	(tree) top          	dabogo    	
+F3 Maia             	(tree) top          	omot      	
+F3 Maia             	(tree) top          	umundakobo	
+F4 Tani             	(tree) top          	wisob     	
+F5 Mauwake          	(tree) top          	mokoka    	
+F6 Bepour           	(tree) top          	opa       	2568
+F7 Moere            	(tree) top          	kopa      	2568
+F8 Kowaki           	(tree) top          	huma      	2569
+F9 Mawak            	(tree) top          	uma       	2569
+F10 Hinihon         	(tree) top          	uma       	2569
+F11 Musar           	(tree) top          	huma      	2569
+F12 Wanambre        	(tree) top          	kuma      	2569
+F13 Koguman         	(tree) top          	orom      	
+F14 Abasakur        	(tree) top          	kata kwata	
+F15 Usan            	(tree) top          	mer       	
+F16 Yaben           	(tree) top          	kaulu     	2570
+F17 Yarawata        	(tree) top          	kaulo     	2570
+F18 Bilakura        	(tree) top          	kaul      	2570
+F19 Parawen         	(tree) top          	merikauru 	2570
+F20 Ukuriguma       	(tree) top          	kaur      	2570
+F21 Amaimon         	(tree) top          	kwalap    	

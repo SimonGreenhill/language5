@@ -1,0 +1,30 @@
+D1 Bargam           	jump			sortuk-
+E1 Dimir            	jump			wipasi-
+E2 Malas            	jump			sɛrɛpur-
+E3 Bunabun          	jump			mamuniru-
+E4 Korak            	jump			paiŋo
+E5 Waskia           	jump			tiŋ-
+E5 Waskia           	jump			dagulu-
+F1 Pay              	jump			bikin-
+F2 Pila             	jump                	poteg-   
+F2 Pila             	jump                	sokan-   
+F3 Maia             	jump			tokan-
+F4 Tani             	jump			irosokan-
+F5 Mauwake          	jump			pikˀinɛ-
+F6 Bepour           	jump			iwar̃p
+F7 Moere            	jump			pʌn-
+F8 Kowaki           	jump			pitirip-
+F9 Mawak            	jump                	pitik irip-	2196
+F10 Hinihon         	jump			wiɛp itiw-
+F11 Musar           	jump			fik indiv
+F11 Musar           	jump			horak
+F12 Wanambre        	jump			wiwit-
+F13 Koguman         	jump			tumor-
+F14 Abasakur        	jump                	puruku na-	2196
+F15 Usan            	jump			arubrm-
+F16 Yaben           	jump			arubleam-
+F17 Yarawata        	jump			apula lam-
+F18 Bilakura        	jump			arabuliam-
+F19 Parawen         	jump			apu lam-
+F20 Ukuriguma       	jump			apuraram
+F21 Amaimon         	jump			pʌgimu-

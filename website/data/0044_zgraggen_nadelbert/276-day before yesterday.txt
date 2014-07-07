@@ -1,0 +1,27 @@
+D1 Bargam           	day before yesterday		irimo mɛnta
+E1 Dimir            	day before yesterday		inmɔːki
+E2 Malas            	day before yesterday		ziminaŋ
+E3 Bunabun          	day before yesterday		arimñaᵬ
+E4 Korak            	day before yesterday		iːka
+E5 Waskia           	day before yesterday		ulɛnkala
+F1 Pay              	day before yesterday		ᵬuete
+F2 Pila             	day before yesterday		yoto
+F3 Maia             	day before yesterday		nioto
+F4 Tani             	day before yesterday		niːwa nʌta
+F5 Mauwake          	day before yesterday		ɛrɛkmʌ
+F6 Bepour           	day before yesterday		ˀoniyɛn
+F7 Moere            	day before yesterday		ɛrkmnu
+F8 Kowaki           	day before yesterday		homʌr
+F9 Mawak            	day before yesterday		omʌr
+F10 Hinihon         	day before yesterday		omʌr
+F11 Musar           	day before yesterday		mindukʌnʌ
+F12 Wanambre        	day before yesterday		komar
+F13 Koguman         	day before yesterday		nɛtsir
+F14 Abasakur        	day before yesterday		arasirim
+F15 Usan            	day before yesterday		barim uriːgom
+F16 Yaben           	day before yesterday		balima anuˀulugialim
+F17 Yarawata        	day before yesterday		dapinan
+F18 Bilakura        	day before yesterday		gigika
+F19 Parawen         	day before yesterday		dapinan
+F20 Ukuriguma       	day before yesterday		madɛn
+F21 Amaimon         	day before yesterday		ɛriŋyemin

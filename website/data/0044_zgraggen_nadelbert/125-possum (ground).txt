@@ -1,0 +1,27 @@
+D1 Bargam           	wallaby, ground possum	waken     	2507
+E1 Dimir            	ground possum       	ukuŋne    	
+E2 Malas            	ground possum       	masu kurun	
+E3 Bunabun          	(ground possum)     	kanim     	2056
+E4 Korak            	ground possum       	mad       	
+E5 Waskia		ground possum		
+F1 Pay              	ground possum       	siwir     	
+F2 Pila             	ground possum       	sap ŋapar 	2506
+F3 Maia             	ground possum       	kinem     	
+F4 Tani             	ground possum       	tanopenam 	
+F5 Mauwake          	ground possum       	senima    	
+F6 Bepour           	ground possum       	oremen    	2511
+F7 Moere		ground possum		
+F8 Kowaki           	ground possum       	sopu oremen	2511
+F9 Mawak            	ground possum       	koremen   	2511
+F10 Hinihon         	ground possum       	koremen   	2511
+F11 Musar           	ground possum       	geremen   	2511
+F12 Wanambre		ground possum		
+F13 Koguman         	ground possum       	agaŋ      	
+F14 Abasakur        	ground possum       	amaŋat    	
+F15 Usan            	ground possum       	meniŋgi   	
+F16 Yaben           	ground possum       	atu  wai  	
+F17 Yarawata        	(ground possum)     	kanima    	2056
+F18 Bilakura        	ground possum       	wigalan   	
+F19 Parawen		ground possum		
+F20 Ukuriguma       	ground possum       	wekanemo  	2507
+F21 Amaimon         	ground possum       	sukway    	

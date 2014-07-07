@@ -1,0 +1,27 @@
+D1 Bargam           	(burn tr.)			mudɛr-
+E1 Dimir            	(burn tr.)              	bata      	1993
+E2 Malas            	(burn tr.)			usaw-
+E3 Bunabun          	(burn tr.)			tun-
+E4 Korak            	(burn tr.)			skur-
+E5 Waskia           	(burn tr.)			kai-
+F1 Pay              	(burn tr.)			ukiw-
+F2 Pila             	(burn tr.)			ŋaus-
+F3 Maia             	(burn tr.)			widime-
+F4 Tani             	(burn tr.)			ug-
+F5 Mauwake          	(burn tr.)			kum-
+F6 Bepour           	(burn tr.)			apirm-
+F7 Moere            	(burn tr.)			kamt-
+F8 Kowaki           	(burn tr.)			um-
+F9 Mawak            	(burn tr.)			kum-
+F10 Hinihon         	(burn tr.)			ikum(os)-
+F11 Musar           	(burn tr.)			gum-
+F12 Wanambre        	(burn tr.)			kum-
+F13 Koguman         	(burn tr.)			ɛtɛ-
+F14 Abasakur        	(burn tr.)			og-
+F15 Usan            	(burn tr.)			gum-
+F16 Yaben           	(burn tr.)			agumʌt-
+F17 Yarawata        	(burn tr.)              	bigiat-   	1993
+F18 Bilakura        	(burn tr.)			igum-
+F19 Parawen         	(burn tr.)              	bigiat-   	1993
+F20 Ukuriguma       	(burn tr.)              	biat-     	1993
+F21 Amaimon         	(burn tr.)			ʌkʌ-
