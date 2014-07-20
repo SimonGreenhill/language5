@@ -5,6 +5,7 @@
 # CAREFUL WITH:
 #   'palm' ==> palm-of-hand or the plant?
 #   'tear' ==> 'to tear' or 'tears'
+#       'spear': 'spear-n' or 'to-spear'
 
 SYNONYMS = {
     'bird fly': 'to-fly',
@@ -33,6 +34,7 @@ SYNONYMS = {
     'betelpepper': 'betelpepper',
     'blow on fire': 'to-blow',
     'blow on': 'to-blow',
+    'blunt': 'dull',
     'body-part affix': 'affix-body-part',
     'body-part suffix':'affix-body-part',
     'bowstr': 'bowstring',
@@ -93,6 +95,7 @@ SYNONYMS = {
     'leg-upper': 'thigh',
     'light of fire': 'firelight',
     'light weight': 'light',
+    'loin-cloth': 'loincloth',
     'look for': 'to-look',
     'lung': 'lungs',
     'make': 'to-do-make',
@@ -186,8 +189,10 @@ SYNONYMS = {
     'young boy': 'child',
     'young girl': 'child',
     'young person': 'child',
-    
+    'hill, mountain': 'hill',
     'breast woman': 'breast',
+    'wooden bowl': 'bowl',
+    
 }
 
 # VERBS
@@ -239,6 +244,10 @@ SYNONYMS.update({
     'stomach/guts': 'guts',
     'stomach-guts': 'guts',
     'stomach (guts)': 'guts',
+    'hair (head)': 'hair',
+    'smell (sg)': 'to-smell',
+    'feathers': 'feather',
+    
 })
 
 
@@ -327,6 +336,15 @@ SYNONYMS.update({
     '3pl free': 'they',
     '3pl.free': 'they',
     'd:3p': 'they',
+    
+    'they-dl': 'they-dual',
+    'we-dl': 'we-dual',
+    'you-dl': 'you-dual',
+    'he': 'he-she',
+    'they-pl': 'they',
+    'we-pl': 'we',
+    
+    
     
 })
 

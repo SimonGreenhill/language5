@@ -60,3 +60,6 @@ p:3p                   their (pronoun p:3p)                            - their
 p:3p dual              their (pronoun p:3p, dual)                      - their-dual
 
 
+
+NOTE: including "mine" in p:1s 'my'
+NOTE: including "yours" in p:2s 'your'
