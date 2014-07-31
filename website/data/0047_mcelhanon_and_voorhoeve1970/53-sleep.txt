@@ -1,0 +1,207 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   ete     1
+ASK b   ehe     1
+ASK c   isi es-     1
+ASK c   ese es-     1
+
+AWY a   kono re-    4
+AWY b   kunu re-    4
+AWY c   kunũ re-    4
+AWY d   kumun iN-   4
+AWY e   kinum ra-   4
+AWY f   kinum yan-  4
+
+OK  a   konyop eNge-    5
+OK  b   tunuk aNgee     5
+OK  c   
+OK  d   
+OK  e   ãra     6
+OK  f   akaan   6
+OK  g   akaal   6
+OK  h   akal    6
+OK  i   akar    6
+OK  j   
+
+APA a   
+APA b   ki)~-   1
+
+BED a   tia     1
+BED b   kia     1
+BED c   kia     1
+BED d   tia     1
+BED e   
+        
+FAS .   
+DUN .   
+MOM .   
+GOG .   tene    7
+SUK .   rapa
+KIW a   uwo     8
+KIW b   kuwo    8
+KIW c   uwo     8
+
+MIR .
+        
+MAR a   nu x- 
+MAR b   
+
+BOA a   
+BOA b   
+BOA c   
+
+YAQ a   
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   po      1
+WAR b   pi      1
+WAR c   per     1
+WAR d
+
+GUS a   wig-
+GUS b   Ng^r- 
+GUS c
+GUS d   kora
+GUS e   etio        1
+GUS f   EtE     1
+GUS g   wet)    1
+GUS g   were    1
+
+URU a   su      9
+URU b   ru      9
+URU c   tu      9
+URU d   du      9
+URU e   
+URU f
+URU g   du      9
+URU i   du      9
+URU i   pe      1
+URU j   pa      1
+
+YUP a   pok     1
+YUP b
+YUP c   pua     1
+YUP d   pa      1
+YUP e
+
+WAN a   awek    10
+WAN b   pek     1
+WAN c   pe      1
+WAN d   dopik   10
+WAN e   pak     1
+WAN f   pa      1
+WAN g   par     1
+
+ERA a   fa      1
+ERA b   dek
+ERA c   fir     1
+ERA d   kpa
+ERA e   fa      1
+ERA f   fɨ      1
+ERA g   fara    1
+ERA h   dau     9
+ERA i   pa      1
+ERA j   pa      1
+ERA k   d^mudu
+
+KOV .
+
+WHF a   fe      1
+WHF b
+WHF c
+WHF d   pa      1
+WHF e   wo      1
+WHF f   eko     1
+WHF g   eko     1
+WHF h   e       1
+WHF i   aǥ^     11
+WHF j   aǥ^     11
+WHF k   he      1
+WHF l   fe      1
+WHF m   ye      12
+WHF n   dzi     12
+WHF o   we      1
+WHF p   we      1
+WHF o   dzi     12
+
+EHF a
+EHF b
+EHF c
+EHF d   gone
+EHF e
+EHF f
+EHF g
+EHF h
+EHF i
+EHF j
+
+BIN a
+BIN b
+BIN c
+BIN d
+BIN e
+BIN f
+BIN g
+BIN h
+BIN i
+BIN j
+BIN k
+BIN l
+BIN m
+BIN n
+BIN o
+
+AWY a   kono maǥete fete-|to-dream
+AWY b   aǥatu fite-|to-dream
+AWY d   asü ete-oǥ|to-dream
+AWY e   ö iti-gio|to-dream
+AWY f   wi eto-|to-dream

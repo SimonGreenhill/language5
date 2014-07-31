@@ -1,0 +1,201 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   yaw     1
+ASK b   yowi    1
+ASK c   yow     1
+ASK c   zoe     1
+ASK c   yawi    1
+
+AWY a   sera    3
+AWY b   sera    3
+AWY c   sawe    1
+AWY d   sowo    1
+AWY e 
+AWY f 
+
+OK  a   aton    2
+OK  b   aton    2
+OK  c   adon    2
+OK  d   adon    2
+OK  e  
+OK  f   atan    2 
+OK  g   ataan   2
+OK  h   ataan   2
+OK  i   atan    2
+OK  j   
+
+APA a   toe     1
+APA b   gẽnE~
+
+BED a   ãsã     2
+BED b   ãsã     2
+BED c   ãs      2
+BED d   es)     2
+BED e   opo
+        
+FAS .   maĩya
+DUN .   
+MOM .   zawa
+GOG .   kadEpa      1x
+SUK .   kamgu
+KIW a   sa?i        4
+KIW b   sariki      4
+KIW c   hiwio
+
+MIR .
+        
+MAR a   katane      2x
+MAR b   
+
+BOA a   qawE        1x
+BOA b   
+BOA c   
+
+YAQ a   tapaq
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a   hu
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   )m      5
+WAR b   am^     5
+WAR c   i
+WAR d
+
+GUS a   ata     2
+GUS b   at^t    2
+GUS c   aat^    2
+GUS d   usau
+GUS e   )kisa   6
+GUS f   okisa   6
+GUS g   okisa   6
+
+URU a   yanep   1x
+URU b   kae
+URU c   sep     1
+URU d   iyep    1
+URU e   iyep    1
+URU f   yep     1
+URU g   sep     1
+URU h   sep     1
+URU i   gulam
+URU j   murum
+
+YUP a   g^i^t   7
+YUP b   doran
+YUP c   gendat  7
+YUP d   g^^t    7
+YUP e
+
+WAN a   Ngusit  8
+WAN b   Ngusit  8
+WAN c   Ngunzit     8
+WAN d   Ngunzit     8
+WAN e   Ngunzit     8
+WAN f   k)mi    9
+WAN g   k)mi    9
+
+ERA a   mErE?   10
+ERA b   m^y^m   10
+ERA c   mEre    10
+ERA d   sedap
+ERA e   n^ma
+ERA f   go
+ERA g   mEiE    10
+ERA h   m^re    10
+ERA i   maim    10
+ERA j   gonok
+ERA k   maim    10
+
+KOV .   sual        1
+
+WHF a   kaiwe       1x
+WHF b
+WHF c
+WHF d   karip       1x
+WHF e   kaiwe       1x
+WHF f   paNgat      11
+WHF g   paNgat      11
+WHF h   weeN        12
+WHF i   weǥ^n       12
+WHF j   weǥ^n       12
+WHF k   kaiƀe       1x
+WHF l
+WHF m   dewut)      14
+WHF n   dewut)      14
+WHF o   mir^siN 
+WHF p   k^sup       1x
+WHF q   k^su        1x
+
+EHF a   wena?       16
+EHF b   wego?       13
+EHF c   wago?       13
+EHF d   w)go        13
+EHF e   dziaN       1
+EHF f   dziaN       1
+EHF g   dzoaN       1
+EHF h   w)h)?       13
+EHF i   una?        16
+EHF j   wegi?       13
+    
+BIN a
+BIN b
+BIN c
+BIN d   i
+BIN e   izi
+BIN f   izi
+BIN g   iyi
+BIN h   izi
+BIN i   izi
+BIN j
+BIN k   izi
+BIN l   izi
+BIN m   izi
+BIN n   izi
+BIN o   iri

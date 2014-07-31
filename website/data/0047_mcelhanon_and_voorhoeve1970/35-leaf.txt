@@ -1,0 +1,202 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   ee      1
+ASK b   ye      1
+ASK c   e       1
+ASK c   esena   1
+ASK c   etan    1
+
+AWY a   anamo   4
+AWY b   anamo   4
+AWY c   rõ      2
+AWY d   õ       2
+AWY e   ron     2
+AWY f   ron     2
+
+OK  a   ot      5
+OK  b   oo      5
+OK  c   hoot    5
+OK  d   awutok
+OK  e   ãn      6
+OK  f   koon    6
+OK  g   koon    6
+OK  h   koon    6
+OK  i   koon    6
+OK  j   
+
+APA a   w)E
+APA b   osE
+
+BED a   dibi    7
+BED b   dibi    7
+BED c   gw):b
+BED d   rubi    7
+BED e   f)s
+        
+FAS .   kũ      6
+DUN .   
+MOM .   
+GOG .   ibagi       8
+SUK .   nigbagu     8
+KIW a   pasa        9
+KIW b   pasa        9
+KIW c   paha        9
+
+MIR .
+        
+MAR a   tetek   3
+MAR b   
+
+BOA a   esaqo   3
+BOA b   
+BOA c   
+
+YAQ a   iri
+YAQ b   iri
+YAQ c   iri
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   Ngon-
+WAR b   gur^k
+WAR c   3yag        3
+WAR d
+
+GUS a   s)      3
+GUS b   mi
+GUS c   sa      3
+GUS d   s^      3
+GUS d   k)mir   10
+GUS e   k)mir   10
+GUS g
+
+URU a   iɬoN     2a
+URU b   il^N     2a
+URU c
+URU d   saǥam   11
+URU e   haǥim   11
+URU f   haǥim   11
+URU g   sagem   11
+URU h   saim    11
+URU i   t)m)g   12
+URU j   t^m     12
+URU k   tam     12
+
+YUP a   kondzi
+YUP b   kwataN      13
+YUP c   tam     12
+YUP d   t^m     12
+YUP e
+
+WAN a   tam     12
+WAN b   tat)k   3
+WAN c   tat)k   3
+WAN d   puɨuk
+WAN e   kwat^n      13
+WAN f   tsen    1
+WAN g   eNe
+
+ERA a   sak     3
+ERA b   s^sa?   3
+ERA c   ser     3
+ERA d   sa      3
+ERA e   sese    3
+ERA f   t^mer   12
+ERA g   sap     3
+ERA h   sap     3
+ERA i   sap     3
+ERA j   endzi
+ERA k   sɨsa    3
+
+KOV .   lau     2
+
+WHF a   met     14
+WHF b
+WHF c
+WHF d   met     14
+WHF e   sewe
+WHF f   heo
+WHF g   endzel
+WHF h   siN     1
+WHF i   sin     1
+WHF j   sin     1
+WHF k   karem   16
+WHF l   hareN   16
+WHF m   esen    1
+WHF n   esen    1
+WHF o   isin    1
+WHF p   sin     1
+WHF q   sin     1
+
+EHF a   mari    15
+EHF b   more    15
+EHF c   me      15
+EHF d   yotu
+EHF e   more?   15
+EHF f   leha?   17
+EHF g   leha?   17
+EHF h   gïrï
+EHF i   leka?   17
+EHF j
+
+BIN a
+BIN b
+BIN c
+BIN d
+BIN e
+BIN f
+BIN g
+BIN h
+BIN i
+BIN j
+BIN k
+BIN l
+BIN m
+BIN n
+BIN o

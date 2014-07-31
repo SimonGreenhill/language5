@@ -1,0 +1,209 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   mame        3
+ASK b   manake      3
+ASK c   manmak      3
+
+AWY a   kir-o       1a,1b
+AWY b   kir-o       1a,1b
+AWY c   kiri-mogo   1a,1c
+AWY d   kio-mogo    1a,1c
+AWY e   ker-op      1a,1b
+AWY f   ker-op      1a,1b
+AWY c   mugo|egg
+AWY d   mügo|egg
+AWY a   ro|fruit
+AWY b   ro|fruit
+AWY e   rop|fruit
+AWY f   rop|fruit
+
+OK  a   tin-op      1a,1b
+OK  b   kon-yop     1a,1b
+OK  c   ti-op       1b
+OK  c   ki-op       1b
+OK  d   in-dop      1a,1b
+OK  e   kin         1a
+OK  f   tiin        1a
+OK  g   tiin        1a
+OK  h   kiin        1a
+OK  i   kiin        1a
+OK  j   
+OK  a   yop|fruit
+OK  b   yop|fruit
+
+APA a   krO-NE      1a
+APA b   kere-mo     1a,1c
+
+BED a   diəhã       1x
+BED b   hĩãwã       1x
+BED c   hĩãwã       1x
+BED d   
+BED e   
+        
+FAS .   hĩ          1
+DUN .   
+MOM .   
+GOG .   tao         1a
+SUK .   itumku
+KIW a   damari      1a
+KIW b   damari      1a
+KIW c   damare      1a
+
+MIR .
+        
+MAR a   ki:nd       1a
+MAR b   kind        1a
+
+BOA a   bei
+BOA b   bei
+BOA c   bei
+
+YAQ a   
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   dabəl   1a
+WAR b   daNa    1x
+WAR c   dəNe    1x
+WAR d
+
+GUS a   dE      1
+GUS b   de      1
+GUS c   ta      1
+GUS d   tE      1
+GUS e   d)Ni    1x
+GUS f   t)Ni    1x
+GUS g   t)Ne    1x
+
+URU a   tat
+URU b   raha
+URU c   dan     1a
+URU d   daar    1a
+URU e   tar     1a
+URU f   daar    1a
+URU g   dan     1a
+URU h   dar     1a
+URU i   dapul   1a
+URU j
+
+YUP a   daƀ^l   1a
+YUP b   daƀ^l   1a
+YUP c   daon    1a
+YUP d   daƀin   1a
+YUP b   buun|round
+
+WAN a   kai     4
+WAN b   kai     4
+WAN c   kai     4
+WAN d   ndaik
+WAN e   ndapu   1a
+WAN f   enz^ke
+WAN g   dapur   1a
+
+ERA a   da      1
+ERA b   de      1
+ERA c   d^fur   1a
+ERA d   dapur   1a
+ERA e
+ERA f
+ERA g   dau     1a
+ERA h   dawa    1a
+ERA i
+ERA j   daon    1a  
+ERA k   dae     1a
+
+KOV .   dziNo   1x
+
+WHF a   de      1
+WHF b
+WHF c
+WHF d   deN     1x
+WHF e   dzon    1a
+WHF f   dzilan  1x
+WHF g
+WHF h   dza     1
+WHF i   dze     1
+WHF j   dze     1
+WHF k   kip     1a
+WHF l   kiw     1a
+WHF m   dewun   1a
+WHF n   sen     1a
+WHF o   si      1
+WHF p   dzi     1
+WHF q   dzin    1a
+WHF n   puru|fruit      // cluster of fruit
+
+EHF a
+EHF b   dzoNo   1x
+EHF c   doNe    1x
+EHF d   dzeNe   1x
+EHF e   dzeNe   1x
+EHF f   dziN)   1x
+EHF g   dz)Ne   1x
+EHF h   dz)Na   1x
+EHF i   dziN)   1x
+EHF j   dziN)   1x
+
+BIN a   giti moka   1a
+BIN b   diti        1a
+BIN c   diti        1a
+BIN d   diti        1a
+BIN e   gisi moka   1a
+BIN f   hiri        1a
+BIN g   tihi        1a
+BIN h   titi        1a
+BIN i   tihi        1a
+BIN j   diti        1a
+BIN k   diti        1a
+BIN l   diti        1a
+BIN m   kiti        1a
+BIN n
+BIN o   diti        1a

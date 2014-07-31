@@ -1,0 +1,210 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   upao    1,2
+ASK b   oweke
+ASK c   kuwus   1,3
+ASK c   kuwis   1,3
+ASK c   fa|bone     2
+ASK c   kuwus fa        // skull
+
+AWY a   xeiba   1,2
+AWY b   xeiba   1,2
+AWY c   xaiba   1,2
+AWY d   xabã    1,2
+AWY e   kembian     1,2
+AWY f   Ngin
+
+OK  a   kotorok     4
+OK  b   kotorok     4
+OK  c   abokara
+OK  d   
+OK  e   gapam       1,2
+OK  f   daboom      1,2
+OK  g   duboom      1,2
+OK  h   guboom      1,2
+OK  i 
+OK  j   guu     1
+
+APA a   p)ƀe
+APA b   keba        1,2
+
+BED a   odiu        1a
+BED b   ukibi       1a
+BED c   ukib        1a
+BED a   diu|bone    1a
+BED b   kibi|bone   1b
+BED c   ki:b|bone   1b
+BED d   tiaruma
+BED e   pes^i
+        
+FAS .   wamo
+DUN .   
+MOM .   
+GOG .   ganabi
+SUK .   budu|bone   3
+SUK .   tibodu      1,3
+KIW a   epuru       1,3
+KIW b   kepuru      1,3
+KIW c   epuru       1,3
+
+MIR .
+        
+MAR a   pa      2
+MAR b   
+
+BOA a   kawa       1,2
+BOA b   
+BOA c   
+
+YAQ a   muku
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a   bun     3
+AGO a   bin     3
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   t^nam
+WAR b   ^m^     5
+WAR c   numE    5
+WAR d
+
+GUS a   t^bo    6
+GUS b   tapoN   6
+GUS c   pit     3
+GUS d   pit     3
+GUS e   tapa    6
+GUS f   kemba   1,2
+GUS g   tapa    6
+
+URU a   kaut    1,3
+URU b   yeil    7
+URU c   y^il    7
+URU d   big     3
+URU e   kuƀit   1,3
+URU f
+URU g   kuwit   1,3
+URU h   kuwit   1,3
+URU i   kubir   1,3
+URU j   mag^
+URU k   kubik   1,3
+
+YUP a   gaɬ^m
+YUP b   busuN^  8
+YUP c   bi^g^   8
+YUP d   buluN^    8
+YUP d   buun|round    3
+YUP d   da-bin|eye     3        // eye-ball
+YUP e
+
+WAN a   tapaN   6
+WAN b   kuhit   1,3
+WAN b   Ngwap^k     9
+WAN d   Ngwap^k     9
+WAN d   kusit   1,3
+WAN e   kusit   1,3
+WAN f   kay^    1,3
+WAN g   k^yi    1,3
+
+ERA a   k^i     1
+ERA b   kii     1
+ERA c   karagubaN   10
+ERA d   k^rum^n     10
+ERA e   kee     1
+ERA f   nEmbɨ       11
+ERA g   mebi        11
+ERA h   kubam     1,2
+ERA i   kambam      1,2
+ERA j   awu
+ERA k
+
+KOV .   buno    3
+
+WHF a   lewut      1,3
+WHF b
+WHF c
+WHF d   mam     12
+WHF e   mam     12
+WHF f   mam     12
+WHF g   mam     12
+WHF h   waN
+WHF i   n^rup   13
+WHF j   noruk   13
+WHF k   noruk   13
+WHF l   oruh    13
+WHF m   kaut        1,3
+WHF n   puru|fruit  3           // cluster of fruit
+WHF o   k^uk        1,3
+WHF n   kun
+WHF q   doNgon
+
+EHF a   fufu?   14
+EHF b   hodo?   14
+EHF c   hodo?   14
+EHF d   kum)    
+EHF e   kpidza?     1,3
+EHF f   kpidza?     1,3
+EHF g   kpitse?     1,3
+EHF h   w)t)?       14
+EHF i   kporu?      1,3
+EHF j   kporu?      1,3
+
+BIN a   ƀetu|bone   3
+BIN b   ƀetu|bone   3
+BIN c   hetu|bone   3
+BIN d   gibadza|head    1,2
+BIN e   kopuru|head     1,2
+BIN f
+BIN g   ꝑoꝑoru|head     1,2
+BIN h   hohoru|head     1,2
+BIN i
+BIN j   koꝑiri|head     1,2
+BIN k   kopiri|head     1,2
+BIN l
+BIN m
+BIN n

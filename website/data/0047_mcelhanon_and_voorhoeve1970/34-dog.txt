@@ -1,0 +1,202 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   uuri    1
+ASK b   iwiri   1
+ASK c   yuwur   1
+ASK c   zuwur   1
+
+AWY a   se      1
+AWY b   se      1
+AWY c   aNgi    2
+AWY d   yaNgi   2
+AWY e   aNga    2
+AWY f   aNgae   2
+
+OK  a   anon    5
+OK  b   anon    5
+OK  c   niNop
+OK  d   til
+OK  e   
+OK  f   miyaan      6
+OK  g   kayaam      3
+OK  h   mayan       6
+OK  i 
+OK  j   
+
+APA a   psane
+APA b   til
+
+BED a   s)      1
+BED b   s)fu        1
+BED c   s)f     1
+BED d   we:me
+BED e   kasa    4
+        
+FAS .   kasa    4
+DUN .   
+MOM .   
+GOG .   soke
+SUK .   ebme
+KIW a   sio     7
+KIW b   viko    7
+KIW c   so      7
+
+MIR .
+        
+MAR a   Ngat
+MAR b   
+
+BOA a   gaǥo    8
+BOA b   
+BOA c   
+
+YAQ a   qake    8
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a   kʰam
+GOL b
+GOL c   kam
+
+SEN a
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   um^t    9
+WAR b   ^man    9
+WAR c   um^     9
+WAR d
+
+GUS a   kom^    9
+GUS b   gone    10
+GUS c   gon^    10
+GUS d   p^t^w^N
+GUS e   isa     1
+GUS f   isa     1
+GUS g   se      1
+
+URU a   aN      2
+URU b   aN      2
+URU c   sap     1
+URU d   hap     1
+URU e   hap     1
+URU f   sap     1
+URU g   sap     1
+URU h   sap     1
+URU i   sap     1
+URU j   k^Nwen
+
+YUP a   paNan
+YUP b   noNkwak     11
+YUP c   nimgak      11
+YUP d   kamɨn   9
+YUP e
+
+WAN a   kamul   9
+WAN b   kamun   9
+WAN c   kamun   9
+WAN d   kamun   9
+WAN e   kam^n   9
+WAN f   aN      2
+WAN f   an      2
+WAN g   aN      2
+
+ERA a   k^moe   9
+ERA b   kug^N
+ERA c   sap     1
+ERA d   sap     1
+ERA e   sap     1
+ERA f   sap     1
+ERA f   kamo    9
+ERA i   kamot   9
+ERA h   sap     1
+ERA i   sap     1
+ERA j
+ERA k   sap     1
+
+KOV .   goun
+
+WHF a   kasi        3
+WHF b
+WHF c
+WHF d   wawa    12
+WHF e   wau     12
+WHF f   wa      12
+WHF g   wawa    12
+WHF h   kasu    4
+WHF i   kiam    3
+WHF j   kiam    3
+WHF k   kiam    3
+WHF l   katsu   4
+WHF m   doa
+WHF n   soso
+WHF o   bua
+WHF p   tam
+WHF q   tã
+
+EHF a   kasi    4
+EHF b   hoda    14
+EHF c   honta   14
+EHF d   kped)   14
+EHF e   kp)d)   14
+EHF f   kp)ndo  14
+EHF g   kp)t)   14
+EHF h   kp)r)   14
+EHF i   kporo   14
+EHF j   kpodo   14
+
+BIN a
+BIN b
+BIN c
+BIN d
+BIN e
+BIN f
+BIN g
+BIN h
+BIN i
+BIN j
+BIN k
+BIN l
+BIN m
+BIN n
+BIN o

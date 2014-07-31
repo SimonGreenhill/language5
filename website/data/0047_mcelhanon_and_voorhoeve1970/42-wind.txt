@@ -1,0 +1,200 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   kimiri      1
+ASK b   ifako
+ASK c   fo
+
+AWY a   kifi        1
+AWY b   kifi        1
+AWY c   kifi        1
+AWY d   kifi        1
+AWY e   kiou        1
+AWY f   kiwuy       1
+
+OK  a   uwarim      1
+OK  b 
+OK  c   hup
+OK  d   
+OK  e   goror       3
+OK  f   
+OK  g   dulul       3
+OK  h   yarul       3
+OK  i 
+OK  j   
+
+APA a   horE
+APA b   obasi
+
+BED a   wafu        4
+BED b   wafu        4
+BED c   wau         4
+BED d   fo          4
+BED e   
+        
+FAS .   fofo        4
+DUN .   
+MOM .   
+GOG .   iboa
+SUK .   ripipia
+KIW a   susuo       5
+KIW b   gawia
+KIW c   huhuo       5
+
+MIR .
+        
+MAR a   kiwar       1
+MAR b   yumbuk
+
+BOA a   ǥozaǥ       6
+BOA b   
+BOA c   
+
+YAQ a   qoq         6
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   NarEN       7
+WAR b   g^rEN       7
+WAR c   nan 
+WAR d
+
+GUS a   y^N
+GUS b   d^ok
+GUS c
+GUS d   kit^N
+GUS e   matun       8
+GUS f   matu        8
+GUS g   t)k)
+
+URU a   ilup        9
+URU b   iruk        9
+URU c   sum         9
+URU d   hum         9
+URU e   hum         9
+URU f   sum         9
+URU g   sum         9
+URU h   sum         9
+URU i   gupit       1
+URU j   sorup       9
+
+YUP a   mep
+YUP b   kaum
+YUP c   kasi
+YUP d   guup        1
+YUP e
+
+WAN a   Ngw^man
+WAN b   Ngot    1
+WAN c   Ngot    1
+WAN d   got     1
+WAN e   palak
+WAN f   m^nip       10
+WAN g   m^nit       10
+
+ERA a   yukyuk      11
+ERA b   gugubik     1
+ERA c   yukyuk      11
+ERA d   gupik       1
+ERA e   gufu        1
+ERA f   gufut       1
+ERA g   gufut       1
+ERA h   fifiN       12
+ERA i   fifiN       12
+ERA j   guk         1
+ERA j   sEsErE
+ERA k
+
+KOV .   zir         18
+
+WHF a   momo        13
+WHF b
+WHF c
+WHF d   momo        13
+WHF e   momo        13
+WHF f   pateN       14
+WHF g   pateN       14
+WHF h   haamo?      
+WHF i   luǥut       15
+WHF j
+WHF k   luǥut       15
+WHF l   lufu?       15
+WHF m   b)l)p       16
+WHF n   b)l)p       16
+WHF o   piƀ)
+WHF p   t)ǥ)        17
+WHF q   t^ǥ^        17
+
+EHF a   fiaN
+EHF b   gbeloN      1
+EHF c   abubu?
+EHF d   dzeru       18
+EHF e   moNeN       19
+EHF f   moNʉN       19
+EHF g   m)N)N       19
+EHF h   gbiN        1
+EHF i   gbiN        1
+EHF j   gbiN        1
+
+BIN a
+BIN b
+BIN c
+BIN d
+BIN e
+BIN f
+BIN g
+BIN h
+BIN i
+BIN j
+BIN k
+BIN l
+BIN m
+BIN n
+BIN o

@@ -1,0 +1,200 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   ikiki
+ASK b   imahi   2
+ASK c   yimas   2
+ASK c   yumus   2
+
+AWY a   mu-boge     3
+AWY b   tu-begi     3
+AWY c   gubɨ        4
+AWY d   Ngemben     4
+AWY e 
+AWY f 
+
+OK  a   ketek   1
+OK  b   ketek   1
+OK  c   kete    1
+OK  d   
+OK  e 
+OK  f   ditak   1
+OK  g   ditak   1
+OK  h   getak   1
+OK  i   ritak   1
+OK  j   
+
+APA a   keben   4
+APA b   kugumu
+
+BED a   mu      5
+BED b   mu      5
+BED c   musmar
+BED d   konomagi
+BED e   
+        
+FAS .   mawi
+DUN .   
+MOM .   
+GOG .   mada
+SUK .   kuni    1
+KIW a   ma?u    6
+KIW b   makakomu    6
+KIW c   ma?u    6
+
+MIR .
+        
+MAR a   mbaku       6
+MAR b   
+
+BOA a   konE    1
+BOA b   
+BOA c   
+
+YAQ a   rob
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   Ngel    7
+WAR b   g^l^    7
+WAR c   goldiN      7
+WAR d
+
+GUS a   buN     8
+GUS b   buNe    8
+GUS c   puntai      8
+GUS d   puNi        8
+GUS e
+GUS f   puNi        8
+GUS g   puNe        8
+
+URU a   buNa    8
+URU b   sala
+URU c   baNa    8
+URU d   baNa    8
+URU e   paNa    8
+URU e   dug)N
+URU f   baNa    8
+URU g   baNa    8
+URU h   paNa    8
+URU i   boNa    8
+URU j   tek     1
+
+YUP a   tek     1
+YUP b   t^Ek    1
+YUP c   tek     1
+YUP d   gw^y^k      9
+YUP e
+
+WAN a   Ngul^k      9
+WAN b   Ngul)k      9
+WAN c   Nguy^k      9
+WAN d   taw^k   1
+WAN e   tek     1
+WAN f   kat^k   1
+WAN g   k)t)k   1
+
+ERA a   kode    1
+ERA b   k^d^    1
+ERA c   wani
+ERA d   kunkun  1
+ERA e   bukNan
+ERA f   b^bor
+ERA g   kodi    1
+ERA h   kadi    1
+ERA i   bim     10
+ERA j   bim     10
+ERA k   buwut
+
+KOV .   Nalo
+
+WHF a   ebi     11
+WHF b
+WHF c
+WHF d   ubi     11
+WHF e   ebe     11
+WHF f   eme     11
+WHF g   eme     11
+WHF h   are
+WHF i   dz^l    13
+WHF j   dz^l    13
+WHF k   dz^l    13
+WHF l   ebi     11
+WHF m   imbe    11
+WHF n   ombe    11
+WHF o   gandu   1
+WHF p   gandu   1
+WHF q   toǥosaN
+
+EHF a   ube     11
+EHF b   ube     11
+EHF c   umpe    11
+EHF d   ube     11
+EHF e   uba     11
+EHF f   marï?   12
+EHF g   upe     11
+EHF h   mar)?   12
+EHF i   ube     11
+EHF j   ube     11
+
+BIN a
+BIN b
+BIN c
+BIN d
+BIN e
+BIN f
+BIN g
+BIN h
+BIN i
+BIN j
+BIN k
+BIN l
+BIN m
+BIN n

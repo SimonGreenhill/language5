@@ -1,0 +1,201 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   
+ASK b   
+ASK c 
+
+AWY a 
+AWY b 
+AWY c 
+AWY d 
+AWY e 
+AWY f 
+
+OK  a   
+OK  b 
+OK  c   
+OK  d   
+OK  e 
+OK  f   
+OK  g 
+OK  h   
+OK  i 
+OK  j   
+
+APA a   
+APA b   
+
+BED a   
+BED b   
+BED c   
+BED d   
+BED e   
+        
+FAS .   
+DUN .   
+MOM .   
+GOG . 
+SUK .   
+KIW a   
+KIW b   
+KIW c   
+
+MIR .
+        
+MAR a   
+MAR b   
+
+BOA a   
+BOA b   
+BOA c   
+
+YAQ a   
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a
+WAR b
+WAR c
+WAR d
+
+GUS a
+GUS b
+GUS c
+GUS d
+GUS e
+GUS f
+GUS g
+
+URU a
+URU b
+URU c
+URU d
+URU e
+URU f
+URU g
+URU h
+URU i
+URU j
+
+YUP a
+YUP b
+YUP c
+YUP d
+YUP e
+
+WAN a
+WAN b
+WAN c
+WAN d
+WAN e
+WAN f
+WAN g
+
+ERA a
+ERA b
+ERA c
+ERA d
+ERA e   kodo    1
+ERA f   kaoda   1
+ERA g   kawade  1
+ERA h   kawada  1
+ERA i   kawat   1
+ERA j   kawat   1
+ERA i   k)k)w)d^    1
+ERA j   k)k)w)d^    1
+
+KOV .
+
+WHF a   
+WHF b
+WHF c
+WHF d   kit     1
+WHF e   kot     1
+WHF f   kot     1
+WHF g   kot     1
+WHF h
+WHF i   k)t     1
+WHF j   k)t     1
+WHF k   
+WHF l      ho?     1
+WHF m   k)t     1
+WHF n   k)t     1
+WHF o   k)t     1
+WHF p
+WHF q
+
+EHF a   ho?     1
+EHF b   ho?     1
+EHF c   ho?     1
+EHF d
+EHF e
+EHF f
+EHF g
+EHF h   k)?     1
+EHF i
+EHF j
+
+BIN a
+BIN b
+BIN c
+BIN d
+BIN e
+BIN f   koro    1
+BIN g   kaluma  1
+BIN h   karu    1
+BIN h   koro    1
+BIN i   koro    1
+BIN i   kalu    1
+BIN k
+BIN l
+BIN m
+BIN n
+BIN o

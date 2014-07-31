@@ -1,0 +1,209 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   u       1
+ASK b   iwahe   1
+ASK c   yuwus   1
+ASK c   yuwas   1
+ASK c   zoas    1
+
+
+AWY a   fi       1
+AWY b   fi       1 
+AWY c    fi       1
+AWY d    fi       1
+AWY e   üp      1
+AWY f   ip      1
+
+OK  a   aniNgo      5
+OK  b   anyiNgo     5
+OK  c   duno
+OK  d   aniNko      5
+OK  e 
+OK  f   win     2
+OK  g   un      2
+OK  g   win     2
+OK  h   win     2
+OK  i   wiin    2
+OK  j   
+
+APA a   hi      6
+APA b   hi      6
+
+BED a   hũ      6
+BED b   hũ      6   
+BED c      hũ      6
+BED d   di)̃
+BED e   
+        
+FAS .   
+DUN .   
+MOM .   ur      2
+GOG .   gagi
+SUK .   yaka
+KIW a   paina   8
+KIW b   masira  8
+KIW c   paina   8
+
+MIR .
+        
+MAR a   
+MAR b   
+
+BOA a   
+BOA b   
+BOA c   
+
+YAQ a   
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a 
+SEN b 
+SEN c   
+
+# Finisterre-Huon
+WAR a   maNgi       9
+WAR b   ^w^num      2
+WAR c   m3na        9
+WAR d
+
+GUS a   w^n^        2
+GUS b   waw         1
+GUS c   
+GUS d   waw         1
+GUS e   obi         1
+GUS f   owe     1
+GUS g   ow)     1
+
+URU a   hut     1
+URU b   kut     1
+URU c   man     9
+URU d   maan    9
+URU e   man     9
+URU f   man     9
+URU g   man     9
+URU h   manug   9
+URU i   gin     10
+URU j   man     9
+
+YUP a   maN     9
+YUP b   mai     9
+YUP c   man     9
+YUP d   man     9
+YUP e
+
+WAN a   uman    9
+WAN a   Ngen    10
+WAN c   uman    9
+WAN d   man^    9
+WAN e
+WAN f   wop     1
+WAN g   wop     1
+
+ERA a   utaN    11
+ERA b   w^p     1
+ERA c   witaN   11
+ERA d   w)p     1
+ERA e   wup     1
+ERA f   yip     1
+ERA g   wow     1
+ERA h   kikiu 
+ERA i   koi
+ERA j   mane    9
+ERA k   wow     1
+
+KOV .
+
+WHF a   ENEt    12
+WHF b
+WHF d   aNara   12
+WHF e   kpet        1
+WHF f   kpot        1
+WHF g   kpor        1
+WHF h   kpat        1
+WHF i   kpet        1
+WHF j   kpet        1
+WHF k   kpat        1
+WHF l   kpar        1
+WHF m   k)t         1
+WHF n   kut         1
+WHF o   kut         1
+WHF p   kwit        1
+WHF q   k)t         1
+
+EHF a   kpar        1
+EHF b   dzoN)       13
+EHF c   doNe        13
+EHF d   dzeNe       13
+EHF e   dzeNo       13
+EHF f   dzïNo       13
+EHF g   dzoNe       13
+EHF h   dzoNa       13
+EHF i   dziNa       13
+EHF j   dziNa       13
+
+BIN a   dzadzo      1
+BIN b   yadzo       1
+BIN c
+BIN d
+BIN e   dao         1
+BIN e   dou         1
+BIN g
+BIN h
+BIN i
+BIN j
+BIN k
+BIN l
+BIN m
+BIN n
+
+
+.SHF a      yufat    1
+.SHF b      ovas     1
+.SHF c      wufa     1
+
+.Kewa   bi      1
+.Kewa   ibi     1

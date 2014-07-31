@@ -1,0 +1,219 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   are     1
+ASK b   aro     1
+ASK c   a       1
+ASK c   ar      1   // emph
+
+AWY a   e       1
+AWY b   e       1
+AWY c   e       1
+AWY d   e       1
+AWY e   e       1
+AWY f   ye      1
+
+OK  a   ye      1
+OK  b   ye      1
+OK  c   
+OK  d   
+OK  e   e       1
+OK  e   ere     1    // emph
+OK  f   a       1
+OK  f   ala     1   // emph
+OK  g   i       1
+OK  g   ila     1   // emph
+OK  h   a       1
+OK  i   e       1
+OK  j   
+
+APA a   
+APA b   y)      1
+
+BED a   yə̃      1
+BED b   yə̃      1
+BED c   y)̃      1
+BED d   ya      1
+BED d   e       1
+BED e   e       1
+        
+FAS .   
+DUN .   
+MOM .   
+GOG .   oba     2
+SUK .   u       2
+SUK .   ub      2
+KIW a   nou     2
+KIW b   nuabu   2
+KIW c   nou     2
+
+MIR .
+        
+MAR a   anep    3
+MAR b   
+
+BOA a   ndene
+BOA b   
+BOA c   
+
+YAQ a   arep     3
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   ow
+WAR b   go
+WAR c   yen     1
+WAR d
+
+GUS a   iN
+GUS b   Nat^
+GUS c
+GUS d   aiNo
+GUS e
+GUS f
+GUS g
+
+URU a   wa      4
+URU b   wa      4
+URU c   yu      1
+URU d   woro?       4
+URU e   woro?       4
+URU f   yu      1
+URU g   y)      1
+URU h   yu      1
+URU i   e       1
+URU j   e^k     1
+
+YUP a   uNun    5
+YUP b   uNun    5
+YUP c   no      2
+YUP d   nu      2
+YUP e
+
+WAN a   u       1
+WAN b
+WAN c   u       1
+WAN d
+WAN e   u       1
+WAN f   u       1
+WAN g   u       1
+
+ERA a   ado     1
+ERA b   adi     1
+ERA c   adi     1
+ERA d   in      1
+ERA e   Nandik  1
+ERA f   adi     1
+ERA g   adi     1
+ERA h   ande    1
+ERA i   En      1
+ERA j   En      1
+ERA k   ada     1
+ERA f   w^      4
+
+KOV .
+
+WHF a   eNe     1
+WHF b   eNe     1
+WHF c   eNe     1
+WHF d   yaNa    1
+WHF e   yok     1
+WHF f   yogo    1
+WHF g   yok     1
+WHF h   e       1
+WHF i   i       1
+WHF j   i       1
+WHF k   i       1
+WHF l   i       1
+WHF m   y)k     1
+WHF n   y)k     1
+WHF o   z)k     1
+WHF p   ^k      1
+WHF q   l^      1
+
+EHF a   ye      1
+EHF b   eNe     1
+EHF c   e       1
+EHF d   oe      1
+EHF e   e       1
+EHF f   e       1
+EHF g   e       1
+EHF h   y)Na    1
+EHF i   iNo     1
+EHF j   iNo     1
+
+BIN a   nu      2
+BIN b   nu      2
+BIN c   nu      2
+BIN d   nu      2
+BIN e   awa     2
+BIN e   owa     2
+BIN f
+BIN g
+BIN h
+BIN i
+BIN j
+BIN k   umo     2
+BIN l   nu      2
+BIN m   umo     2
+BIN n
+BIN o
+
+
+
+OK  a   yu      1       // she
+OK  b   yu      1       // she
+OK  e   o       1       // she
+OK  e   oro     1       // she (emph)
+OK  f   u       1       // she
+OK  g   u       1       // she
+OK  f   ulu     1       // she (emph)
+OK  g   ulu     1       // she (emph)
+

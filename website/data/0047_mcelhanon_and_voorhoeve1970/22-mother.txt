@@ -1,0 +1,205 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   enae        1
+ASK a   enea        1
+ASK b   wehe
+ASK c   enew        1 
+
+AWY a   wini        3
+AWY b   wini        3
+AWY c   ni      3
+AWY d   api
+AWY e   now     3
+AWY f   noi     3
+
+OK  a   naN     1
+OK  b   enaN        1
+OK  c   neN         1
+OK  d   ena         1
+OK  e   awok    4
+OK  f   awook   4
+OK  g   ook     4
+OK  h   neN     1
+OK  i   auk     4
+OK  j   
+
+APA a   mE      1
+APA b   ama     1
+
+BED a   dua     5
+BED b   uya     5
+BED c   uí      5
+BED d   ame     1
+BED e   ama         1
+        
+FAS .   ama     1
+DUN .   
+MOM .   
+GOG .   agi
+SUK .   amu     1
+KIW a   maramu      1
+KIW b   maramu      1
+KIW c   maramu      1
+
+MIR .
+        
+MAR a   vu      6
+MAR b   
+
+BOA a   vu      6
+BOA b   
+BOA c   
+
+YAQ a   vu      6
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a   mamu    2
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a   nake    1
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   mo      1
+WAR b   mo      1
+WAR c   mom     1
+WAR d
+
+GUS a   mam     1
+GUS b   m^m     1
+GUS c
+GUS d   na      1
+GUS e   name        1
+GUS f   nimi        1
+GUS g   namo        1
+
+URU a   ma      1
+URU b   ma      1
+URU c   ma?     1
+URU d   ma?     1
+URU e   meN     1
+URU f   ma?     1
+URU g   ma?     1
+URU h   mi)N        1
+URU i   mii     1
+URU j
+
+YUP a   meN     1
+YUP b   meN     1
+YUP c   nuuna       8
+YUP d   nuni        8
+YUP e
+
+WAN a   miN     1
+WAN b   miN     1
+WAN c   miN     1
+WAN d   meN     1
+WAN e   teny^
+WAN f   meN     1
+WAN g   miN     1
+
+ERA a   miaN        1
+ERA b   meN     1
+ERA c   mi      1
+ERA d   meN     1
+ERA e   miN     1
+ERA f   meN     1
+ERA g   miN     1
+ERA h   miN     1
+ERA i   meN     1
+ERA j   me      1
+ERA k   mĩ      1
+
+KOV .
+
+WHF a   naga    1
+WHF b
+WHF c
+WHF d   na      1
+WHF e   naN     1
+WHF f   naN     1
+WHF g   naN     1
+WHF h   namo    1
+WHF i   namNi   1
+WHF j   nam^n   1
+WHF k   naNgi   1
+WHF l   neNgia  1
+WHF m   meme    1
+WHF n   momo    1
+WHF o   mam     1
+WHF p   mam     1
+WHF q   mam     1
+
+EHF a   noNge?  1
+EHF b   neNga?  1
+EHF c   neNga?  1
+EHF d   neNgo?  1
+EHF e   neNgo?  1
+EHF f   neNgo?  1
+EHF g   neNgo?  1
+EHF h   neNgo?  1
+EHF i   maNgo?  1
+EHF j   maNgo?  1
+
+BIN a   mia     2
+BIN b
+BIN c
+BIN d
+BIN e
+BIN f
+BIN g
+BIN h
+BIN i
+BIN j
+BIN k
+BIN l
+BIN m
+BIN n
+BIN o
+
+SHF a   m^mEmit     2
+SHF b   maynja      2
+SHF c   tʰanmay     2
+SHF d   may         2

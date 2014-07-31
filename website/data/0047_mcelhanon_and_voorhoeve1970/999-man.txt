@@ -1,0 +1,50 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+
+BIN a   ema     1
+BIN b   emo     1
+BIN c   emo     1
+BIN d   emba        1
+BIN e   embo        1
+BIN f   embo        1
+BIN g   embo        1
+BIN h   embo        1
+BIN i   embo        1
+BIN j
+BIN k   embo        1
+BIN l   genembo     1
+BIN m   embo        1
+BIN n
+BIN o
+URU a   ama     1
+WAN f   ama     1
+WAN g   ama     1
+ERA d   ama     1
+ERA i   ama     1
+URU b   amna    1
+URU c   amna    1
+URU d   amna    1
+URU e   amna    1
+URU f   amna    1
+URU g   amna    1
+URU h   amna    1
+URU i   amna    1
+
+YUP b   amen    1
+YUP c   amen    1
+YUP d   amen    1
+WAN c   amin    1
+ERA b   ami     1
+ERA c   ama?    1
+ERA e   Nama    1
+ERA g   me      1
+ERA h   me      1
+ERA j   eme     1

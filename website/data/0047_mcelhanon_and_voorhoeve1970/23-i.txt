@@ -1,0 +1,212 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   noro    1
+ASK b   noro    1
+ASK c   no      1   
+ASK c   nor     1   // emph.
+
+AWY a   no      1
+AWY b   nu      1
+AWY c   nu      1 
+AWY d   nu      1
+AWY e   no      1
+AWY f   nu      1
+
+OK  a   ne      1
+OK  b   ne      1
+OK  c   ne      1
+OK  d   ne      1
+OK  e   ne      1
+OK  e   nere      1     // emph.
+OK  f   na      1
+OK  f   nila     1      // emph.
+OK  g   na      1
+OK  g   nala    1       // emph.
+OK  h   na      1
+OK  h   nala    1       // emph.
+OK  i   ne      1
+OK  j   
+
+APA a   no      1
+APA b   nõ      1
+
+BED a   ã       1
+BED b   ã       1
+BED c   ã       1
+BED d   na      1
+BED e   ne      1
+        
+FAS .   ano     1
+DUN .   
+MOM .   
+GOG .   nE      1
+SUK .   ne      1
+KIW a   mo
+KIW b   mo
+KIW c   mo
+
+MIR .
+        
+MAR a   nok     1
+MAR b   
+
+BOA a   no      1
+BOA b   
+BOA c   
+
+YAQ a   ano     1
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   nE      1
+WAR b   n^      1
+WAR c   na      1
+WAR d
+
+GUS a   na      1
+GUS b   n^we    1
+GUS c   n)      1
+GUS d   na      1
+GUS e
+GUS f   no      1
+GUS g   no      1
+
+URU a   n^k     1
+URU b   n^k     1
+URU c   n)?     1
+URU d   n)?     1
+URU e
+URU f   n)?     1
+URU g   n)?     1
+URU h   n)?     1
+URU i   n^k     1
+URU j   na      1
+URU g   n)k     1
+
+YUP a   nak     1
+YUP b   nak     1
+YUP c   nak     1
+YUP d   n^      1
+YUP e
+
+WAN a   n^      1
+WAN b
+WAN c   n^      1
+WAN d
+WAN e   n^      1
+WAN f   n^k     1
+WAN g   n^k     1
+
+ERA a   noǥo?   1
+ERA b   n^g^    1
+ERA b   na      1
+ERA c   nok     1
+ERA d   naN     1
+ERA e   n^k     1
+ERA f   n^k     1
+ERA g   nu      1
+ERA h   na      1
+ERA i   n^k     1
+ERA j   n^k     1
+ERA k   noǥo    1
+ERA h   naǥa    1
+
+KOV .
+
+WHF a   na      1
+WHF b   na      1
+WHF c   na      1
+WHF d   na      1
+WHF e   no      1
+WHF f   no      1
+WHF g   ni      1
+WHF h   ni      1
+WHF i   ni      1
+WHF j   ni      1
+WHF k   ni      1
+WHF l   ni      1
+WHF m   n)      1
+WHF n   n)      1
+WHF o   n^      1
+WHF p   n^N     1
+WHF q   n^      1
+
+EHF a   ni      1
+EHF b   na      1
+EHF c   nane    1
+EHF d   nani    1
+EHF e   no      1
+EHF f   no      1
+EHF g   no      1
+EHF h   noN     1
+EHF i
+EHF j
+
+BIN a   na      
+BIN b   na
+BIN c   na
+BIN d   na
+BIN e   na
+BIN f
+BIN g
+BIN h
+BIN i
+BIN j
+BIN k   na
+BIN l   na
+BIN m   na
+BIN n
+BIN o
+BIN a   nane
+BIN b   nane
+
+
+.Kewa   ni

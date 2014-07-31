@@ -1,0 +1,199 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   namo        1
+ASK b   
+ASK c   wombak
+
+AWY a   go      3
+AWY b   gu      3
+AWY c   aNgu    3
+AWY d   aNgu    3
+AWY e   Ngut    3
+AWY f   Ngut    3
+
+OK  a   tim     1
+OK  b   im      1
+OK  c   kwim    1
+OK  d   
+OK  e   kim     1
+OK  f   tim     1
+OK  g   tim     1
+OK  h   kim     1
+OK  i   kim     1
+OK  j   
+
+APA a   hu)lE
+APA b   )   4
+
+BED a   
+BED b   õw  4
+BED c   
+BED d   
+BED e   tekeape
+        
+FAS .   yapani      1
+DUN .   
+MOM .   
+GOG .   ami     1
+SUK .   daka
+KIW a   nimo        1
+KIW b   nimo        1
+KIW c   nimo        1
+
+MIR .
+        
+MAR a   mbamb
+MAR b   
+
+BOA a   wuNg
+BOA b   
+BOA c   
+
+YAQ a   nambun      1
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a   mi
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   im3N        1
+WAR b   yumun       1
+WAR c
+WAR d
+
+GUS a   im      1
+GUS b   imi     1
+GUS c   imiN    1
+GUS d   imiN    1
+GUS e   tomoN   1
+GUS f   imi     1
+GUS g   imi     1
+
+URU a   imon        1
+URU b   kuyamen     1a
+URU c   imon    1
+URU d   imon    1
+URU e   imon    1
+URU f   imon    1
+URU g   imon    1
+URU h   tam^n   1
+URU i   im^n    1
+URU j   t^m^n   1
+
+YUP a   iyet    5
+YUP b   iat     5
+YUP c   iat     5
+YUP d   ^yet    5
+YUP e
+
+WAN a   kaiyimbam     1a
+WAN b   t)mun   1
+WAN c   t^mun   1
+WAN d   t^mun   1
+WAN e   amun        1
+WAN f   im^n    1
+WAN g   im^n    1
+
+ERA a   yim     1
+ERA b   tumuN   1
+ERA c   yim     1
+ERA d   s^w^n
+ERA e   s)gum   6
+ERA f   s)gumeN     6
+ERA g   tumun   1
+ERA h   tumuN   1
+ERA i   tim     1
+ERA j   EmEn    1
+ERA k   mi      1
+
+KOV .   apalau
+
+WHF a   EmEn    1
+WHF b
+WHF c
+WHF d   yaman   1
+WHF e   
+WHF f   yomEn   1
+WHF g   imEn    1
+WHF h   im)N    1
+WHF i   imin    1
+WHF j   imin    1
+WHF k   imin    1
+WHF l   imiN    1
+WHF m   imen    1
+WHF n   imen    1
+WHF o   imen    1
+WHF p   emin    1
+WHF q   i^m     1
+
+EHF a   yomiN   1
+EHF b   y)mEN   1
+EHF c   y)mEN   1
+EHF d   ime     1
+EHF e   imaN    1
+EHF f   imaN    1
+EHF g   imeN    1
+EHF h   y)mEN   1
+EHF i   imaN    1
+EHF j   imaN    1
+
+BIN a   dzimi
+BIN b
+BIN c
+BIN d
+BIN e
+BIN f
+BIN g
+BIN h
+BIN i
+BIN j
+BIN k
+BIN l
+BIN m
+BIN n
+BIN o

@@ -1,0 +1,205 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   pura    3   // An. loan?
+ASK b   pira    3   // An. loan?
+ASK c   pir     3   // An. loan?
+
+AWY a   afe     5
+AWY b   are     5
+AWY c   bidĩ    4
+AWY d   bidĩ    4
+AWY e   ogo     6
+AWY f   wogoi   6
+
+OK  a   woot    7
+OK  b   woot    7
+OK  c   woo     7
+OK  d   wot     7
+OK  e 
+OK  f   kayoob      1
+OK  g   kayoob      1 
+OK  h      kayoob      1
+OK  i    kayoob      1
+OK  j   
+
+APA a   doarenE
+APA b   abi     8
+
+BED a   ugo     7
+BED b   ugo     7
+BED c   aib     8
+BED d   aubi    8
+BED e   
+        
+FAS .   oko     7
+DUN .   
+MOM .   
+GOG .   samoso      2x
+SUK .   tai
+KIW a   sagana      9
+KIW b   sogomi      9
+KIW c   ganome      9
+
+MIR .
+        
+MAR a   mandaw
+MAR b   
+
+BOA a   doveak
+BOA b   
+BOA c   
+
+YAQ a   kamo
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   dEp         10
+WAR b   y^Ng^p      1
+WAR c   Ep      10
+WAR d
+
+GUS a   alib^       11
+GUS b   ab^l        11
+GUS c   tapiN       12
+GUS d   tapuN       12
+GUS e   g)mbo       13
+GUS f   k)mbo       13
+GUS g   k)mbo       13
+
+URU a   yap     1
+URU b   yap     1
+URU c
+URU d   yar)p   1
+URU e
+URU f   yarop   1
+URU g   yaop    1
+URU h   yamon   14
+URU i   yamin   14
+URU j   karoNamEn   
+
+YUP a   sinaǥap
+YUP b   kenuk   15
+YUP c   kainok  15
+YUP d   yang^p  1
+YUP e
+
+WAN a   yek^p   1
+WAN b   yek)p   1
+WAN c   yek^p   1
+WAN d   yek^p   1
+WAN e   yek^p   1
+WAN f   yas^p   1
+WAN g   k)mepak
+
+ERA a   imak    16
+ERA b   
+ERA c   gima?   16
+ERA d   ema     16
+ERA e   Nem^k   16
+ERA e   muyep
+ERA g
+ERA h
+ERA i
+ERA j
+ERA k
+
+KOV .
+
+WHF a   boito
+WHF a   mEso    2
+WHF b   mEso    2
+WHF c   kowon   13
+WHF d   
+WHF e   kobon   13
+WHF f   kombon  13
+WHF g   kombon  13
+WHF h   koiN    15
+WHF i   k^in    15
+WHF j   kombol  13
+WHF k   kain    15
+WHF l   komoN   13
+WHF m   dewut)
+WHF n   k^in    15
+WHF n   emesenNe
+WHF o   
+WHF p   ayoNga  16
+WHF q   ayoNgo  16
+
+EHF a   afo     18
+EHF b   tama?ne
+EHF c   wayawe
+EHF d
+EHF e   maso    2
+EHF f   maso    2
+EHF g   mosa    2
+EHF h   ayoN    17
+EHF i   kaiN    15
+EHF j   ayoN    17
+
+BIN a
+BIN b
+BIN c
+BIN d
+BIN e
+BIN f
+BIN g
+BIN h
+BIN i
+BIN j
+BIN k
+BIN l
+BIN m
+BIN n
+BIN o
+
+.SHF a  yam^tʰ
+.SHF c  yamal
+.SHF d  yame?

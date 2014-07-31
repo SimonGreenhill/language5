@@ -1,0 +1,208 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ č
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   poka    3
+ASK b   pota    3
+ASK c   epuč    3
+ASK c   epeč    3
+
+AWY a   yaxe    4
+AWY b   yaxo    4
+AWY c   kapu
+AWY d   exo     4
+AWY e   anet    5
+AWY f   net     5
+
+OK  a   amba    1
+OK  b   ambaN   1
+OK  c   bap     1
+OK  d   
+OK  e   hek     3
+OK  f   abaab       1
+OK  g   baab        1
+OK  h   baabnak     1x
+OK  i 
+OK  j   
+OK  f   fik     3   // his elder brother
+OK  g   fik     3   // his elder brother   
+OK  h      fik     3   // his elder brother
+OK  i      fik     3   // his elder brother
+
+
+
+APA a   NgoE
+APA b   ãyã     6
+
+BED a   ãyã     6
+BED b   ãyã     6
+BED c   )̃Ẽ      7
+BED d   orE     7
+BED e   at^i
+        
+FAS .   mamania
+DUN .   
+MOM .   
+GOG .   kaka        2
+SUK .   awagani
+KIW a   naramu dubu    8
+KIW b   naramu dubu    8
+KIW c   naramu dubu    8
+KIW b   namu dubu
+
+MIR .
+        
+MAR a   namek
+MAR b   
+
+BOA a   za
+BOA b   
+BOA c   
+
+YAQ a   mön
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   t^tE
+WAR b   ^n^N^m      9
+WAR c   anem        9
+WAR d
+
+GUS a   k^k^i   2
+GUS b   kak     2
+GUS c   
+GUS d   kak     2
+GUS e   ^b^     1
+GUS e   apa     1
+GUS f   pa      1
+GUS g   pe      1
+
+URU a   tat     10
+URU b   tat     10
+URU c
+URU d
+URU e
+URU f
+URU g
+URU h
+URU i   dat     10
+URU j   dat     10
+
+YUP a   pe      1
+YUP b   pai     1
+YUP c   baN^    1
+YUP d   paam^   1
+YUP e
+
+WAN a   paiyE   1
+WAN b   paiyi   1
+WAN c   paa     1
+WAN d
+WAN e   samin
+WAN f   tuu     11
+WAN g   towa    11
+
+ERA a
+ERA b   gwiaN   12
+ERA c   wiak    12
+ERA d   towa    11
+ERA e   kuyaN   12
+ERA f   noru
+ERA g   dar     10
+ERA h   dar     10
+ERA i   dal     10
+ERA j   dal     10
+ERA k   dal     10
+
+KOV .   a
+
+WHF a   tat     10
+WHF b
+WHF c
+WHF d   ta      10
+WHF e   tat     10
+WHF f   tataN   10
+WHF g   tataN   10
+WHF h   dat     10
+WHF i   dat     10
+WHF j   dat     10
+WHF k   dat     10
+WHF l   dar     10
+WHF m   teu     11
+WHF n   ata     10
+WHF o   ^t^     10
+WHF p   dat     10
+WHF q   dat     10
+
+EHF a   dae     10
+EHF b   kaka?   2
+EHF c   kake    2
+EHF d   kpamu
+EHF e   oa
+EHF f   haha?   2
+EHF g   haha?   2
+EHF h   kaka?   2
+EHF i   kaka?   2
+EHF j   kaka?   2
+
+BIN a
+BIN b
+BIN c
+BIN d
+BIN e
+BIN f
+BIN g
+BIN h
+BIN i
+BIN j
+BIN k
+BIN l
+BIN m
+BIN n
+BIN o

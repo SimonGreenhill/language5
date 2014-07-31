@@ -1,0 +1,208 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   kee
+ASK b   te      5
+ASK c   te      5
+
+AWY a   a       6
+AWY b   a       6
+AWY c   aa      6
+AWY d   a       6
+AWY e   murup       7
+AWY f   murup       7
+
+OK  a   am      8
+OK  b   am      8
+OK  c   
+OK  d   am      8
+OK  e   sok     1
+OK  f   woom    2
+OK  g   weeb    2
+OK  h   waib    2
+OK  i   suuk    1
+OK  j   
+
+APA a   waE     2
+APA a   waE|water     2
+APA b   )m)E
+
+BED a   hũĩ         3
+BED a   hũĩ|water   3
+BED b   hũ          3
+BED b   hũ|water    3
+BED c   
+BED d   kibu
+BED e   hano
+        
+FAS .   yao
+DUN .   
+MOM .   
+GOG .   gui     3
+SUK .   goama   4
+KIW a   wiawia      9
+KIW b   wisare      9
+KIW c   wihare      9
+
+MIR .
+        
+MAR a   xe      3
+MAR a   hei     3   
+
+BOA a   ǥae     3
+BOA a   ǥaia     3
+BOA b   
+BOA c   
+
+YAQ a   aqaid
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   ag^     10
+WAR b   agu     10
+WAR c   a
+WAR d
+
+GUS a   wai     2
+GUS b   wai     2
+GUS c   wai     2
+GUS a   wai|water     2
+GUS b   wai|water     2
+GUS c   wai|water     2
+GUS d   tupuN
+GUS e   yaNgo       3
+GUS f   sono        11
+GUS g   sono        11
+
+URU a   )le         12
+URU b   ^le     12
+URU c   komo?   4a
+URU d   bip     2
+URU e   bip     2
+URU f   k)mu?   4a
+URU g   k)mu?   4a
+URU h   k)mu?   4a
+URU i   nebil
+URU j   kamok   4a
+URU c   peen
+URU d   tupu^
+
+YUP a   s^kok   1a
+YUP b   suwa        13
+YUP c
+YUP d
+YUP e
+
+WAN a   hop^    13
+WAN b   hop)    13
+WAN c   sop^    13
+WAN d   mbokN^
+WAN e   pimas^
+WAN f   iw^n    14
+WAN g   iw^n    14
+
+ERA a   wii?    3
+ERA b   gimak   4a
+ERA c   guri
+ERA d   iw^n    14
+ERA e   naNgi
+ERA f   gii     3
+ERA g   gwi     3
+ERA h   gwi     3
+ERA i   gwi     3
+ERA j   kan
+ERA k   gwi     3
+
+KOV .   ait
+
+WHF a   koya    3
+WHF b
+WHF c
+WHF d   sakorop
+WHF e   mErEm
+WHF f   oNgt
+WHF g   map     15
+WHF h   koN
+WHF i   kie     3
+WHF j   kie     3
+WHF k   kia     3
+WHF l   kia     3
+WHF m   t)n)k
+WHF n   gelok
+WHF o   map     15
+WHF p   map     15
+WHF q   ma      15
+
+EHF a   kia     3
+EHF b
+EHF c   hae     3
+EHF d   kio     3
+EHF e   )y)     3
+EHF f   h)w)
+EHF g   hoe     3
+EHF h   koe     3
+EHF i   kue     3
+EHF j   kue     3
+
+BIN a   wa
+BIN b   wa
+BIN c   wa
+BIN d   wa
+BIN e   wa
+BIN f   wa
+BIN g   ga
+BIN h   ga
+BIN i   ga
+BIN j
+BIN k   ga
+BIN l
+BIN m   ga
+BIN n
+BIN o

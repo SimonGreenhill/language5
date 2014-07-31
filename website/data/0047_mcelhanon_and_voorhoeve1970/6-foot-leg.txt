@@ -1,0 +1,236 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   maw     3
+ASK b   mawi    3
+ASK c   mai     3
+
+AWY a   kitu        1
+AWY b   kito        1
+AWY c   kito        1
+AWY d   kito        1
+AWY e   kondok      1
+AWY f   kondok      1
+
+OK  a   yon     4
+OK  c   don     4
+
+OK  a   kaN-tom|knee    1
+OK  b   kondo       1
+OK  c   
+OK  d   kono        1
+OK  e   sikir       2
+OK  e   sakar       2
+OK  f   
+OK  g   yaan        4
+OK  h   yaan        4
+OK  i   yaan        4
+OK  j   yaan        4
+
+APA a   kʰatikE     1
+APA b   tamakere
+
+BED a   abogã   5
+BED b   h)̃m)̃    5
+BED c   hãm     5
+BED d   emo     5
+BED e   
+        
+FAS .   
+DUN .   
+MOM .   kaNk        1
+GOG .   Ei
+SUK .   papəru
+KIW a   sairo       2
+KIW b   sakiro      2
+KIW c   haero       2
+
+MIR .
+        
+MAR a   ta:gu
+MAR b   
+
+BOA a   waǥaiap
+BOA b   
+BOA c   
+
+YAQ a   ramu
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a   odo     1
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   iꝑ^ꝑ)r̃
+WAR b   yomꝑ^r
+WAR c   Eꝑətʰ)
+WAR d
+
+GUS a   ar^     6
+GUS b   tar     6
+GUS c   tar     6
+GUS d   tar     6
+GUS e   kwaN|left-hand      1
+GUS e   kee     7
+GUS f   ki      7
+GUS g   ke      7
+
+URU a   k^lam   9
+URU b   haram   9
+URU c   )ru     10
+URU h   )ru     10
+URU d   et      11
+URU f   et      11
+URU g   et      11
+URU e   eet     11
+URU i   gat^ni
+URU j   kaiw^   12
+URU b   kand^k|left-hand    1
+URU c   kando?|left-hand    1
+URU d   kando?|left-hand    1
+URU e   kandoke|left-hand   1
+URU f   kando?|left-hand    1
+URU g
+URU h   kandoi|left-hand    1
+URU i   kwan|left-hand      1
+URU j   karaNa|arm-hand     1
+
+YUP a   kpand^|left-hand    1
+YUP b   kpand^|left-hand    1
+YUP b   kuluNa  1
+YUP c   k^man
+YUP d   tɨmɨn
+YUP d   kwaN|left-hand      1
+YUP a   kandap
+
+WAN a   katak|arm-hand      1
+WAN b   kaipu       12
+WAN c   kepi        12
+WAN c   katak|arm-hand      1
+WAN c   kwəne|left-hand     1
+WAN a   mb^r^N      13
+WAN e   kewin       12
+WAN d   y^ikN^ mbul^    13
+WAN f   k^ndeli seNi
+WAN g   k)n)m
+
+ERA a   kaN-kariN|knee      1
+ERA c   kaN-kariN|knee      1
+ERA d   kwan|left-hand      1
+ERA a   kwane   1
+ERA b   koyoN   1
+ERA c   koroN   1
+ERA d   koloN   1
+ERA e   kayoN   1
+ERA f   k)y)N   1
+ERA g   kayoN   1
+ERA h   kada    1
+ERA i   kisir   2
+ERA j   kesir   2
+ERA k   k^da    1
+
+KOV .   eǥ
+
+WHF a   kana|left-hand      1
+WHF a   ki      7
+WHF g   ki      7
+WHF o   ki      7
+WHF d   keg     7
+WHF e   kei     7
+WHF f   kei     7
+WHF m   kei     7
+WHF n   k)i     7
+WHF q   qat     7
+WHF d   kana|left-hand      1
+WHF e   kana|left-hand      1
+WHF f   kana|left-hand      1
+WHF g   kana|left-hand      1
+WHF h   kpani|left-hand     1
+WHF i   kwani|left-hand     1
+WHF j   kani|left-hand      1
+WHF p   kani|left-hand      1
+WHF h   kani    1
+WHF i   kana    1
+WHF j   k^na    1
+WHF j   k^n1    1
+WHF k   hɨni    1
+WHF l
+WHF m   kane|left-hand      1
+WHF n   kane|left-hand      1
+WHF o   set     8
+WHF i   kifu    
+WHF q
+
+EHF a   hani    1
+EHF b   kige    7
+EHF c   hiNke   7
+EHF d   kege    7
+EHF e   kigo    7
+EHF f   si?     8
+EHF g   kike    7
+EHF h   kiga    7
+EHF i
+EHF j
+
+BIN a
+BIN b
+BIN c
+BIN d
+BIN e
+BIN f
+BIN g
+BIN h
+BIN i
+BIN j
+BIN k
+BIN l
+BIN m
+BIN n
+
+
+.KIW_Kerewa kono    1
+.KIW_Goari  kwano   1

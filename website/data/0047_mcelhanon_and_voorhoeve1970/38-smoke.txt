@@ -1,0 +1,202 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   utimini     3
+ASK b   amini       3
+ASK c   jis amun    3
+
+AWY a   oru         1
+AWY b   aduwo       
+AWY c   aku         1x
+AWY d   yanüku      1a
+AWY e   aruk        1x
+AWY f   uruk        1x
+
+OK  a   amot-ten
+OK  b   amo-iip
+OK  c   arek    1b
+OK  d   
+OK  e   tum     4
+OK  f   aslak   1b
+OK  f   a-tum   4
+OK  g 
+OK  h   atlaik  1b
+OK  i   raik    1
+OK  j   
+
+APA a   tukE    1
+APA b   ogE     1
+
+BED a   dahãi   5
+BED b   dahãi   5
+BED c   dem     6
+BED d   ginã
+BED e   
+        
+FAS .   ira musu
+DUN .   
+MOM .   
+GOG .   wo
+SUK .   timkre
+KIW a   tema    6
+KIW b   tema    6
+KIW c   tema    6
+
+MIR .
+        
+MAR a   rak     1
+MAR b   
+
+BOA a   qaifa
+BOA b   
+BOA c   
+
+YAQ a   aku     1
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   g3bi
+WAR b   kigap
+WAR c   3pka
+WAR d
+
+GUS a   aita
+GUS b   os^     7
+GUS c   os^     7
+GUS d   os      7
+GUS e   w)r)    8
+GUS f   puka
+GUS g   w)r)    8
+
+URU a   toget       1
+URU b   towet       1
+URU c   b)r)?       1c
+URU d   b)r)?       1c
+URU e   b)r)k       1c
+URU f   bar)k       1c
+URU g   bou?        1c
+URU h   boru?       1c
+URU i   wom^k
+URU j   ne^kne^k
+
+YUP a   abulak|ashes      1
+YUP b   k^lak|ashes       1
+YUP c   k^rak|ashes       1
+YUP a   mukma
+YUP b   g^N
+YUP c   gwi
+YUP d   k^baat
+
+WAN a   Ngw^ha      9
+WAN b   Nguha       9
+WAN c   kup^n       10
+WAN d   Ngup^       10
+WAN e   kwanakat    
+WAN f   mupe
+WAN g   gupe        10
+
+ERA a   k^doo?      1d
+ERA b   kudugo      1d
+ERA c   k^dog)?     1d
+ERA d   gupe        10
+ERA e   kadigi      1d
+ERA f   kadigi      1d
+ERA g   kuduge      1d
+ERA h   gue         10
+ERA i   gue         10
+ERA j   seku
+ERA k   tafo
+
+KOV .   siau
+
+WHF a   Nauk        12
+WHF b   kopu        11
+WHF c   kopu        11
+WHF d   kasak       13
+WHF e   oup
+WHF f   NauN        12
+WHF g   kasat       13
+WHF h   kaaso?      13
+WHF i   k^ƀak       14
+WHF j   k^ƀak       14
+WHF k   k^ƀak       14
+WHF l   hofa?       14
+WHF m   d)ƀok       14
+WHF n   utun
+WHF o   kaƀak       14
+WHF p   k^s^k       13
+WHF q   dau
+
+EHF a   hosu?   13
+EHF b   haso?   13
+EHF c   haso?   13
+EHF d   modo?   13
+EHF e   oso?     13
+EHF f   hosï?    13
+EHF g   kos)?    13
+EHF h   dzu     13
+EHF i   dzu     13
+EHF j   dzu     13
+
+BIN a
+BIN b
+BIN c
+BIN d
+BIN e
+BIN f
+BIN g
+BIN h
+BIN i
+BIN j
+BIN k
+BIN l
+BIN m
+BIN n
+BIN o

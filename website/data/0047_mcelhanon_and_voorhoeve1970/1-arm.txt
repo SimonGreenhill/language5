@@ -1,0 +1,213 @@
+# à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+# ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø 
+# ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+# ^ = ʌ
+# ) = ɔ
+# N = ŋ
+# E = ɛ
+
+
+# Central and Southern New Guinea
+ASK a   maare       3
+ASK b   mafane      3
+ASK c   man         1
+         
+AWY a   bedo        1
+AWY b   bido        1
+AWY c   bide        1
+AWY d   bodo        1
+AWY e   it          1
+AWY f   wit         1
+         
+OK  a   tiniŋgung
+OK  b   ben
+OK  c   tani        4
+OK  d   tiŋki       4
+OK  e   pan   1     // forearm
+OK  e   koir|hand   2
+OK  e   het
+OK  e   sikir|foot
+OK  e   sakär|leg
+OK  f   feet    // forearm
+OK  g   teiŋ           4
+OK  g   ban    1  // forearm
+OK  g   feet        // forearm
+OK  g   kul|hand    2
+OK  f   siklil      2
+OK  g   siklil      2
+OK  g   sakaal      2
+OK  h   sikaal      2
+OK  h   teŋ|hand    4
+OK  i   ban   1     // forearm
+OK  g   tu    2       // upper arm
+OK  h   tai   2       // upper arm
+OK  i   taip  2       // upper arm
+OK  i   taiŋ|hand   4
+
+         
+APA a   kritɛ       2
+APA b   atowe   5
+         
+BED a   debe    5
+BED b   debe    5
+BED c   dob     5
+BED d   dabo    5
+BED e   tagi    4
+        
+FAS .   hokono
+FAS .   kita
+FAS .   fene|nail
+DUN .   
+MOM .   
+GOG .   mai     1
+SUK .   kapsa
+KIW a   tu-igiri-pitu|nail   2
+KIW a   sairo|leg-foot      2
+KIW b   sakiro|leg-foot     2
+KIW c   haero|leg-foot      2
+KIW c   igiri|nail   2
+KIW a   tu    2   // upper arm
+KIW c   tu    2   // upper arm
+KIW b   tuwo|arm    2
+KIW c   tuipi     2   // upper arm
+
+
+MIR .
+        
+MAR a   saŋga   2
+MAR b   
+
+BOA a   piŋgi
+BOA b   
+BOA c   
+
+YAQ a   marap-takere
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   or      7
+WAR b   kərʌ    7
+WAR c   ose     7
+WAR d
+
+GUS a   atyl    8
+GUS b   ati     8
+GUS c   ati     8
+GUS d   ati     8
+GUS e   kandi   8
+GUS f   kandi   8
+GUS g   kande   8
+
+URU a   kɛt 2
+URU b   kɛt 2
+URU c
+URU d
+URU e
+URU f
+URU g
+URU h
+URU i   kʌilba  2x
+URU j   karaŋa  9
+
+YUP a   kesit   2
+YUP b   kisir   2
+YUP c   kʌsit   2
+YUP d   kʌsit   2
+YUP e
+
+WAN a   katak   9
+WAN b   kahit   2
+WAN c   katak   9
+WAN d   kesil   2
+WAN e   kesil   2
+WAN f   kesi    2
+WAN g
+
+ERA a   kafe    10
+ERA b   kʌf)ŋ   10
+ERA c   kʌit    2
+ERA d   kʌyer   2
+ERA e   kir     2
+ERA f   kel     2
+ERA g   kaf)N   10
+ERA h   kafaN   10
+ERA i   kisir|foot  2
+ERA i   kʌi     2
+ERA j   ki      2
+ERA j   kesir|foot      2
+ERA k   kafuN   10
+
+KOV .   me      1
+
+WHF a   met     1
+WHF b
+WHF c
+WHF d   met     1
+WHF e   mɛtɛ    1
+WHF f   holip   11
+WHF g   suli    11
+WHF h   boro    1
+WHF i   bʌrʌ    1
+WHF j   biri    1
+WHF k   mʌri    1
+WHF l   mʌri    1
+WHF m   bɔt     1
+WHF n   bɔt     1
+WHF o
+WHF p   bet     1
+WHF q   bʌt     1
+
+EHF a   mari    1
+EHF b   more    1
+EHF c   me      1
+EHF d   me      1
+EHF e   me      1
+EHF f   me      1
+EHF g   me      1
+EHF h   me      1
+EHF i   me      1
+EHF j   me      1
+
+BIN f   iŋgere|arm  2
+BIN g   iŋgere|arm  2
+BIN h   igeni|arm   2
+BIN k   iŋgo|arm    2
+BIN l   uŋgo|arm    2
+

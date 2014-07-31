@@ -1,0 +1,202 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   maiku
+ASK b   inawako
+ASK c   kowe
+ASK c   yuruw       1
+ASK c   zirao       1
+ASK c   taoroa      1
+
+AWY a   pere        2
+AWY b   pisi        2
+AWY c 
+AWY d   pi          2
+AWY e   Nguruop     1
+AWY f   Ngurup      1
+
+OK  a   kataat      4
+OK  b   baNkau
+OK  c   gumtit
+OK  d   
+OK  e   teke
+OK  f   batbat      3
+OK  g   timitim     5
+OK  h   kimisim     5
+OK  i   tiyaakim
+OK  j   
+
+APA a   Ngawa
+APA b   
+
+BED a   kuga
+BED b   sago    6
+BED c   
+BED d   sada    6
+BED e   senapo
+        
+FAS .   
+DUN .   
+MOM .   
+GOG .   leobEga
+SUK .   katati      4
+KIW a   tuturo
+KIW b   
+KIW c   
+
+MIR .
+        
+MAR a   wagatok
+MAR b   
+
+BOA a   sekeǥapeg
+BOA b   
+BOA c   
+
+YAQ a   pearp
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   bunum^N
+WAR b   sunbEm      7
+WAR c   s^bai       7
+WAR d
+
+GUS a   lEoN^N      8
+GUS b   ^lo         8
+GUS c
+GUS d   siriN
+GUS e   pisaNga
+GUS f   piru        2
+GUS g   pEru        2
+
+URU a   mulaN
+URU b   h^s^k
+URU c   uparago
+URU d   wa?waǥo     3
+URU e   wakwaǥo     3
+URU f   wa?wa?o     3
+URU g   poupou?     3
+URU h   f)r)?f)r)?  3
+URU i   summi       9
+URU j   sumNi       9
+
+YUP a   duƀakNa     10
+YUP b   l))Na       
+YUP c   m^raaga
+YUP d   d^bw)kN     10
+YUP e
+
+WAN a   mbelakNe    11
+WAN b   
+WAN c   biakNe      11
+WAN d
+WAN e   NgasamY^
+WAN f   k^loNiw^    13
+WAN g   karoNi      13
+
+ERA a   biagaN      11
+ERA b
+ERA c
+ERA d   k^roNi      13
+ERA e
+ERA f
+ERA g   kwehiyaniN  
+ERA h   yomb^pm^    14
+ERA i   )mb^pm      14
+ERA j   atiri
+ERA k
+
+KOV .
+
+WHF a   kiro    1
+WHF b
+WHF c
+WHF d   kira    1
+WHF e   korep   1
+WHF f   korep   1
+WHF g   korep   1
+WHF h   koriga  1
+WHF i   k^rip   1
+WHF j   k^rip   1
+WHF k   k^rua   1
+WHF l   horua   1
+WHF m   k)lip   1
+WHF n   k)lip   1
+WHF o   k^rEp   1
+WHF p
+WHF q
+
+EHF a
+EHF b   dzari?  1
+EHF c   dari?   1
+EHF d   dari    1
+EHF e   dzori   1
+EHF f   dzori   1
+EHF g   dzori   1
+EHF h   dzori   1
+EHF i   dzora   1
+EHF j
+
+BIN a
+BIN b
+BIN c   gorebu      1
+BIN d
+BIN e
+BIN f
+BIN g
+BIN h
+BIN i
+BIN j
+BIN k
+BIN l
+BIN m
+BIN n
+BIN o

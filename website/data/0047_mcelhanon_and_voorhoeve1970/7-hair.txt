@@ -1,0 +1,207 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   wiri    1
+ASK b   fini    1
+ASK c   fin     1
+
+AWY a   moǥo    5
+AWY b   mo      5
+AWY c   ro      2
+AWY d   xabu-mu     5
+AWY e   ron     2
+AWY f   ron     2
+
+OK  a   ambo-topuN
+OK  b   ambo-kimi
+OK  c   
+OK  d   
+OK  e   
+OK  f   
+OK  g 
+OK  h   
+OK  i 
+OK  j   
+
+APA a   tEnE
+APA b   osE     6
+
+BED a   t)wE    3
+BED b   tawa    3
+BED c   tawa    3
+BED d   osa     6
+BED e   medaf)n
+        
+FAS .   iti     1
+DUN .   
+MOM .   
+GOG .   tita
+SUK .   nigbagu
+KIW a   muso    4
+KIW b   muho    4
+KIW c   muso    4
+
+MIR .
+        
+MAR a   izmi    7
+MAR b   
+
+BOA a   izim    7
+BOA b   
+BOA c   
+
+YAQ a   rumb    3,4
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   g)t     8
+WAR b   g^r^    8
+WAR c   ^y^
+WAR d
+
+GUS a   yEpyi
+GUS b   ui      1
+GUS c   amE     9
+GUS d   mi      9
+GUS e   wi      1
+GUS f   hu      3
+GUS g   u       3
+
+URU a   y^in
+URU b   rom     3,4
+URU c   dim     3,4
+URU d   diroN   3,2
+URU e   tiroN   3,2
+URU f   diroN   3,2
+URU g   dzioN   3,2
+URU h   dem     3,4
+URU i   dakam   10
+URU j   eroN    3,2
+
+YUP a   e^N     3,2
+YUP a   daNuan  10
+YUP b   daNwai  10
+YUP c
+YUP d   daNg^m      10
+YUP e
+
+WAN a   nd^Ng^m     10
+WAN b   ndaNgam     10
+WAN c   nd3Ngem     10
+WAN d   nd3Ng3m     10
+WAN e   nayi
+WAN f   n^met
+WAN g   pundzi      11
+
+ERA j   d^ǥ^m      10
+ERA a   sak         12
+ERA b   s^sa?       12
+ERA c   sesa?       12
+ERA k   sɨsa        12
+ERA d   pudzi       11
+ERA e   ambun
+ERA f   mimbitem
+ERA g   dumu    3,4
+ERA h   dumu    3,4
+ERA i   dom     3,4
+ERA j
+ERA k
+
+KOV .
+
+WHF a   dzou    3,4
+WHF b
+WHF c
+WHF d   dzo     3,4
+WHF e   dzup    3,4
+WHF f   dzup    3,4
+WHF g   dzomor      3,4
+WHF h   dzu     3,4
+WHF i   dzup    3,4
+WHF j   dzup    3,4
+WHF k   dzu     3,4
+WHF l   dzu     3,4
+WHF m   dumut   3,4
+WHF n   somot   3,4
+WHF o   s^mot   3,4
+WHF p   dzup    3,4
+WHF q   dzup    3,4
+WHF n   mot|vine    4
+
+EHF d meyo|vine     4
+EHF e mu?|vine      4
+EHF h mi?|vine      4
+
+WHF a   witi?|vine  1
+EHF a   dzoi        3
+EHF b   dzowe?      3
+EHF c   dofo?       3
+EHF d   s)k)di?     13
+EHF e   dz)we       3
+EHF f   dz)wu       3
+EHF g   dz)w)       3
+EHF h   hok)?       13
+EHF i   dzou        3
+EHF j   siki        13
+
+BIN a   tu      3
+BIN b   
+BIN c
+BIN d
+BIN e   tu      3
+BIN f   hu      3
+BIN g   hu      3
+BIN h   tu      3
+BIN i   hu      3
+BIN j
+BIN k
+BIN l
+BIN m
+BIN n

@@ -1,0 +1,201 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   
+ASK b   tor     1
+ASK c   cim     1
+ASK c   tum     1
+ASK c   to      1
+
+AWY a   piemo   3
+AWY b 
+AWY c   pemo    3
+AWY d   tĩ      1
+AWY e   teen    1
+AWY f   taem    1
+
+OK  a   yetpar aambe
+OK  b   mbataNge
+OK  c   
+OK  d   
+OK  e   pina    4
+OK  f   bina    4
+OK  g   binu    4
+OK  h   bina    4
+OK  i 
+OK  j   
+
+APA a   
+APA b   himE    1
+
+BED a   iano    4
+BED b   en)     4
+BED c   ina     4
+BED d   kare    
+BED e   
+        
+FAS .   
+DUN .   
+MOM .   
+GOG . 
+SUK .   
+KIW a   aro
+KIW b  
+KIW c   
+
+MIR .
+        
+MAR a   deh
+MAR b   
+
+BOA a   pasoa
+BOA b   
+BOA c   
+
+YAQ a   way
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   ut          
+WAR b   w^tn^       6
+WAR c   wor~n^      6
+WAR d
+
+GUS a   mulu        7
+GUS b   s^g^r^      8
+GUS c  
+GUS d   sabirE      8
+GUS e   mul)        7
+GUS f   mur)        7
+GUS g   mure        7
+
+URU a   t^raƀe      1
+URU b   t^raƀe      1
+URU c   tem)        1
+URU d   tem)        1
+URU e   tem)        1
+URU f   tem)        1
+URU g   tima        1
+URU h   wod     6
+URU i   tem^        1
+URU j   tawa        1
+
+YUP a   yam^        1
+YUP b   yama        1
+YUP c   taam^       1
+YUP d   imi^        1
+YUP e
+
+WAN a   mul)        7
+WAN b
+WAN c   tem         1
+WAN d
+WAN e
+WAN f
+WAN g   tama        1
+
+ERA a   sinsumtiNaN
+ERA b   yok
+ERA c   tamo    1
+ERA d   tama    1
+ERA e   lim     1
+ERA f   talama      1
+ERA g   tarama      1
+ERA h   terabu      1
+ERA i   terabu      1
+ERA j   t^lama      1
+ERA k   yoyo
+
+KOV .   so      10
+
+WHF a   yati    9
+WHF b
+WHF c
+WHF d   eta     9
+WHF e   yoto    9
+WHF f   ito     9
+WHF g   ito     9
+WHF h   ido     9
+WHF i   ere     9
+WHF j   ere     9
+WHF k   urut    9
+WHF l   wiri?   9
+WHF m   er)     9
+WHF n   yer)    9
+WHF o   zer     9
+WHF p   ele     9
+WHF q   osa     10
+
+EHF a   wede?       9
+EHF b   muru        7
+EHF c   muro        7
+EHF d   muru        7
+EHF e   muru        7
+EHF f   mïri        7
+EHF g   muru        7
+EHF h   m)r)        7
+EHF i   muru        7
+EHF j   muru        7
+
+BIN a
+BIN b
+BIN c
+BIN d
+BIN e
+BIN f
+BIN g
+BIN h
+BIN i
+BIN j
+BIN k
+BIN l
+BIN m
+BIN n
+BIN o

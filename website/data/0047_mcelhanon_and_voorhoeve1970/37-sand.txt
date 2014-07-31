@@ -1,0 +1,200 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   tiri    1
+ASK b   hini    1
+ASK c   misin   1a
+ASK c   ti      1
+
+AWY a   gete poporo     3
+AWY b   poporo          3
+AWY c   girĩ    1
+AWY d   giNe    1
+AWY e   Ngirim  1
+AWY f   ok yaman
+
+OK  a   yiiN    1
+OK  b   yerep   1
+OK  c   diin    1
+OK  d   ririn   1
+OK  e 
+OK  f   diniin  1
+OK  g 
+OK  h   
+OK  i   rinin   1
+OK  j   
+
+APA a   d3ni    1
+APA b   d3rina  1
+
+BED a   
+BED b   b)b)s)  3
+BED c   beb:s   3
+BED d   soi     2
+BED e   sai     2
+        
+FAS .   sakipu
+DUN .   
+MOM .   sir
+GOG .   sasasa      2
+SUK .   
+KIW a   wio     4
+KIW b   wio     4
+KIW c   wio     4
+
+MIR .
+        
+MAR a   sa:     2
+MAR b   
+
+BOA a   ⁿdivind
+BOA b   
+BOA c   
+
+YAQ a   gem aqaqai
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   numuN       5
+WAR b   n^m3n       5
+WAR c   m3lul^
+WAR d
+
+GUS a   namu    5
+GUS b   namu    5
+GUS c
+GUS d   s^kari
+GUS e   sodoma      6
+GUS f   sotama      6
+GUS g   kereti      
+
+URU a   son     7
+URU b   s^n     7
+URU c   son)ro?     7
+URU d   )s)n    7
+URU e   )k))l
+URU f   guro?       8
+URU g   o?bin
+URU h   kos)r)k     8
+URU i   mor^k
+URU j   kasir)k     8
+
+YUP a   katsogot    8
+YUP b   numan       5
+YUP c   namin       5
+YUP d   n^mu^n      5
+YUP e
+
+WAN a   haruharu
+WAN b   at)t)k      9
+WAN c   saisai      2
+WAN d   mumba p^ɬ^k
+WAN e   at^t^k      9
+WAN f   salu
+WAN g   upuN    
+
+ERA a   yuf     10
+ERA b   kiN     1
+ERA c   yufu?   10
+ERA d   efoN    10
+ERA e   NofuN   10
+ERA f   kɨnkɨn namuk
+ERA g   kiN     1
+ERA h   k^nasEk     11
+ERA i   kanandz^t   11
+ERA j   gamindok
+ERA k   kiiN        1
+
+KOV .   maǥ
+
+WHF a   kpalak
+WHF b
+WHF c
+WHF d   sok     12
+WHF e   sawet
+WHF f   nupi    13
+WHF g   nupi    13
+WHF h   sakasiN     12
+WHF i   sak         12
+WHF j   sakasak     12
+WHF k
+WHF l   sakesa?     12
+WHF m   nupi    13
+WHF n   sak     12
+WHF o   sak     12
+WHF p   gambibik
+WHF q   g^N^
+
+EHF a   ziNiN   1
+EHF b   dziN)N      1
+EHF c   diNiN   1
+EHF d   mage    14
+EHF e   meNgaN      14
+EHF f   moNgeN      14
+EHF g   moNgeN      14
+EHF h   mageN   15
+EHF i   mageN   15
+EHF j   mageN   15
+
+BIN a
+BIN b
+BIN c
+BIN d
+BIN e
+BIN f
+BIN g
+BIN h
+BIN i
+BIN j
+BIN k
+BIN l
+BIN m
+BIN n
+BIN o

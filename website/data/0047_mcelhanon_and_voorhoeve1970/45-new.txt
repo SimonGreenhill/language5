@@ -1,0 +1,217 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   ayku        1
+ASK b   ay          1
+ASK c   ay          1
+
+AWY a   afo         3
+AWY b   afo         3
+AWY c   kadaǥai     1
+AWY d   ǥaǥide
+AWY e   are         1
+AWY f   ariok       1
+
+OK  a   kuri        1
+OK  b   kiri        1
+OK  c   
+OK  d   
+OK  e 
+OK  f   aluk-soo    1x
+OK  g 
+OK  h   kiki-so     1x
+OK  i   kikis       1x
+OK  j   
+
+APA a   warmEnE
+APA b   koãrE~      1
+APA b   k)nE        1
+
+BED a   doaw        4
+BED b   doafi       4
+BED c   doaif       4
+BED d   
+BED e   hiriki      1
+        
+FAS .   kawe
+DUN .   
+MOM .   
+GOG .   kanikE      1
+SUK .   guargia|man     // young man
+KIW a   orio        1
+KIW b   korio       1
+KIW c   orio        1
+
+MIR .
+        
+MAR a   
+MAR b   
+
+BOA a   qandi       1
+BOA b   
+BOA c   
+
+YAQ a   noqok
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   uruN
+WAR b   ^nd^gum
+WAR c   mare
+WAR d
+
+GUS a   ger~N^N     5
+GUS b   gEm^N       5
+GUS c
+GUS d   kEN
+GUS e   kundziyoN
+GUS f   kEta        6
+GUS g   keta        6
+
+URU a   milak       7
+URU b   mirak       7
+URU c   weko        8
+URU d   uye?    1
+URU e   huyeǥ)  1
+URU f   uyeg)   1
+URU g   boin)       
+URU h   w)g)        8
+URU i   kweǥ^i  1
+URU j   kwarak  1
+
+YUP a   kalok   1
+YUP b   k)ndak  1
+YUP c   kwag    1
+YUP d   kwond^k     1
+YUP e
+
+WAN a   kaluk       1
+WAN b
+WAN c   kayuk       1
+WAN d
+WAN e   kw^lak      1
+WAN f   kondake     1
+WAN g   k)ndaki     1
+
+ERA a   ait
+ERA b   iNa?i
+ERA c   k^y^k       1
+ERA d   kay^k       1
+ERA e   kayak       1
+ERA f   koda        1
+ERA g   kaepmoN     9
+ERA h   kaipm       9
+ERA i   kaek        1
+ERA j   kaek        1
+ERA k   kubuli      1
+
+KOV .
+
+WHF a   musele
+WHF b   wisikap
+WHF c   usikap
+WHF d   gbali       1
+WHF e   pouNe       10
+WHF f   poyo        10
+WHF g   gbili       1
+WHF h   gbili       1
+WHF i   gb^l^       1
+WHF j   d^l^kNi
+WHF k   gbilik-gbilik       1
+WHF l   gbeli           1
+WHF m   irak        1
+WHF n   irak        1
+WHF o   irak        1
+WHF p   arak        1
+WHF q   alak        1
+
+EHF a   gbori       1
+EHF b   gberi?      1
+EHF c   gberi?      1
+EHF d   gbere?      1
+EHF e   gbari?      1
+EHF f   gbori?      1
+EHF g   gbori?      1
+EHF h   gari?       1
+EHF i   gari?       1
+EHF j   gari?       1
+
+BIN a
+BIN b
+BIN c
+BIN d
+BIN e
+BIN f
+BIN g
+BIN h
+BIN i
+BIN j
+BIN k
+BIN l
+BIN m
+BIN n
+BIN o
+
+
+YUP a   kalokkalokNa|green
+YUP b   pondakpondakNa|green
+YUP c   kwaktam|green
+YUP d   kw^nd^k^m|green
+WAN f   kondakondake|green
+ERA b   gi^N|green
+ERA d   goyaNi|green
+ERA e   gibukN|green
+ERA g   kaekaek|green
+ERA j   kaekaek|green
+WHF m   gol)gol)|green
+WHF n   gol)|green
+WHF o   gw^l^gw^l^|green
+
+

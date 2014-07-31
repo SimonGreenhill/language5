@@ -1,0 +1,210 @@
+## à á â ã ä å ạ ɐ æ è é ê ë ɛ ə ì í í î ï ɨ ị ɩ ḭ
+## ù ú û ü ụ ų ʉ ʋ ñ ṋ ɲ ŋ  ò ó ô õ ö ø  ǥ
+## ʌ ð ɔ þ 0̸ ʔ ř ɬ ɤ ƀ ꝑ š ʷ ᵘ · ʔ ˥ ˩ ě  γ ʰ ᵐ ḳ ɣ
+
+### ^ = ʌ
+### ) = ɔ
+### N = ŋ
+### E = ɛ
+### ? = ʔ
+
+# ([0:3])\s+(\w+)\s+(\w+)|(\slug)
+# .* -> extra
+
+# Central and Southern New Guinea
+ASK a   iripo   1,2
+ASK b   inipo   1,2
+ASK c   yina    1
+ASK c   zini    1
+ASK c   popu|to-swell    // bulge
+
+AWY a   bokin       4
+AWY b   bu-begi     4
+AWY c   bagi bũ     4
+AWY d   bũmo        4
+AWY e   wambũon     4
+AWY f   kerop       1,2
+
+OK  a   kaN tom     5
+OK  b   kondo tom   5
+OK  c   
+OK  d   
+OK  e 
+OK  f   
+OK  g   katuun      1
+OK  h   
+OK  i   katin       1
+OK  j   
+
+APA a   tama        5
+APA b   owgumu
+
+BED a   i3bu        6
+BED b   iburi       6
+BED c   ibili       6
+BED d   muguni
+BED e   kulau       1
+        
+FAS .   kakuna      1
+DUN .   
+MOM .   
+GOG .   asmisi
+SUK .   itumaregu
+KIW a   popu        2
+KIW b   popu        2
+KIW c   popu        2
+
+MIR .
+        
+MAR a   mig
+MAR b   
+
+BOA a   katuk       1
+BOA b   
+BOA c   
+
+YAQ a   tambu
+YAQ b   
+YAQ c   
+        
+ORI a
+ORI b
+ORI c
+
+TIR .
+
+AGO a
+AGO b
+
+MOR a
+MOR b
+MOR c
+
+BEN a
+BEN b
+
+YEY .
+MO. . 
+KAN .
+
+YEL a
+YEL b
+
+KIM a
+KIM b
+KIM c
+
+GOL a
+GOL b
+GOL c
+
+SEN a
+SEN b
+SEN c
+
+# Finisterre-Huon
+WAR a   imd3m
+WAR b   inm^
+WAR c   rame
+WAR d
+
+GUS a   anyi
+GUS b   daNgum^t    7
+GUS c   tarakum     7
+GUS d   takuma      7
+GUS e   poto        8
+GUS f   poto        8
+GUS g   p)t)        8
+
+URU a   turuk   1
+URU b   tul     1
+URU c   g)rug       1
+URU d   k)ndug  1
+URU e   tur     1
+URU f   tur     1
+URU g   gotu?   1
+URU h   gorug   1
+URU i   welg^ni
+URU j   muruk
+
+YUP a   tuku^l      9
+YUP b   tukwal      9
+YUP c   geruk   1
+YUP d   mu^k
+YUP e
+
+WAN a   sopi        10
+WAN b   sopi        10
+WAN c   mun     11
+WAN d   mun     11
+WAN e   top^k-
+WAN f   Ngukale     12
+WAN g   gukuri      12
+WAN b   m^ndamuN    13
+WAN d   munmemb^n   13
+WAN e   mund^n      13
+WAN f   mɨndan      13
+WAN g   muN         13
+WAN h   muN         13
+WAN i   mɨn         13
+WAN j   mɨn         13
+WAN k   k^datmu
+
+ERA a   kaNkariN    1a
+ERA b
+ERA c   kaNkariN    1a
+ERA d
+ERA e
+ERA f
+ERA g
+ERA h
+ERA i
+ERA j
+ERA k
+
+KOV .   pupo        2
+
+WHF a   wawEt       14
+WHF b
+WHF c
+WHF d   w)w)r       14
+WHF e   wawEt       14
+WHF f   hat         15
+WHF g   sat         15
+WHF h   simiN       16
+WHF i   simin       16
+WHF j   simin       16
+WHF k   simin       16
+WHF l   simiN       16
+WHF m   p)wut       14
+WHF n   pawut       14
+WHF o   simin       16
+WHF p   pet         14
+WHF q   pet         14
+
+EHF a   fakuruN     1x
+EHF b
+EHF c   fakuruN     1x
+EHF d   duke        17
+EHF e   dieN        17
+EHF f   tiri?       1
+EHF g   dieN        17
+EHF h   d)kaN       17
+EHF i   tiri?       1
+EHF i   turu?       1
+EHF j   dikaN       17
+
+BIN a
+BIN b
+BIN c
+BIN d
+BIN e
+BIN f
+BIN g
+BIN h
+BIN i
+BIN j
+BIN k
+BIN l
+BIN m
+BIN n
