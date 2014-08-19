@@ -1,6 +1,7 @@
 <span class="result">
     <p> <i class="icon-tag"></i>Lexical Item: 
-         &ldquo;<a href="{{result.url}}">{{result.object.entry}}</a>&rdquo;
-        in <a href="{% url "language-detail" result.object.language.slug %}"> {{ result.object.language }}</a>.
+         &ldquo;<a href="{{result.url}}">{{result.object.entry}}</a>&rdquo; 
+         meaning <a href="{% url "word-detail" result.object.word.slug %}"> {{ result.object.word }}</a> 
+         in <a href="{% url "language-detail" result.object.language.slug %}"> {{ result.object.language }}</a>.
     </p>
 </span>

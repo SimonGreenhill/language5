@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% load render_table from django_tables2 %}
 
 {% block title %} Active Data-Entry Tasks: {% endblock %}
@@ -15,7 +16,14 @@
     {% endif %}
     
     <div class="well">
-        <p>Quick Entry</p>
+        <h2>Quick Entry</h2>
+        
+        <a href="{% url "admin:core_language_add" %}" class="btn add-another" id="add_id_language" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon_addlink.gif" %}" alt="Add New Language"/> Add New Language</a>
+        <a href="{% url "admin:core_source_add" %}" class="btn add-another" id="add_id_source" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon_addlink.gif" %}" alt="Add New Source"/> Add New Source</a>
+        <a href="{% url "admin:lexicon_word_add" %}" class="btn add-another" id="add_id_word" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon_addlink.gif" %}" alt="Add New Word"/> Add New Word</a>
+        
+        <hr />
+        
         <form action="{% url "entry:quick" %}" method="post" class="form-inline">
             {% csrf_token %}
             {{ quickform }}
