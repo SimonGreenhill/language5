@@ -229,7 +229,9 @@ pre_save.connect(create_redirect, sender=Family, dispatch_uid="family:001")
 pre_save.connect(create_redirect, sender=Language, dispatch_uid="language:001")
 
 
-watson.register(Language, fields=('family', 'language', 'dialect', 'isocode', 'classification', 'information'))
+watson.register(Language, 
+    fields=('family', 'language', 'dialect', 'isocode', 'classification', 'information')
+)
 watson.register(Family, fields=('family',))
 watson.register(Source, fields=('author', 'year', 'reference'))
 watson.register(AlternateName, fields=('language', 'name'))
