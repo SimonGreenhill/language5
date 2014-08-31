@@ -5,7 +5,7 @@ Pronouns in TransNewGuinea.org
 ---
 
 d:1s                  I (pronoun d:1s)                                - i
-d:2s                  you (pronoun d:2s)                              - you
+d:2s                  you (pronoun d:2s) // thou                      - you
 d:2s dual             you (pronoun d:2s, dual)                        - you-dual
 d:3s                  he, she, it (pronoun d:3s)                      - he-she
                                                                       
