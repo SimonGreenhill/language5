@@ -45,7 +45,7 @@ class ABVDImporter(object):
             'bad-evil': 'bad',
             'left': 'left-hand',
             'to-cut-hack': 'to-cut',
-            'woodsforest': 'woods',
+            'woodsforest': 'forest',
             'to-know-be-knowledgeable': 'to-know',
             'to-live-be-alive': 'to-live',
             'to-pound-beat': 'to-pound',
@@ -63,8 +63,6 @@ class ABVDImporter(object):
             'to-stab-pierce': 'to-stab',
             'womanfemale': 'woman',
             'to-open-uncover': 'to-open',
-            'to-lie-down': 'to-lie',
-            
         }
         if w in translate:
             return translate[w]
