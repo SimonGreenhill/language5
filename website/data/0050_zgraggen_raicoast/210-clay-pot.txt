@@ -1,0 +1,29 @@
+B1 Sinsauru         	clay pot		somo
+B2 Asas             	clay pot		somu
+B3 Sausi            	clay pot		sama
+B4 Koromu           	clay pot		sema
+B5 Dumpu            	clay pot		som
+B6 Arawum           	clay pot            	wa:p      	1518,1709
+B7 Kolom            	clay pot            	wem       	1518,1709
+B8 Suroi            	clay pot            	waim      	1518,1709
+B9 Lemio            	clay pot            	wap       	1518,1709
+B10 Pulabu		clay pot		tʰibe
+B11 Yabong          	clay pot            	ubo       	1518,1709
+B12 Ganglau         	clay pot            	wup       	1518,1709
+B13 Saep		clay pot		opsisa
+B14 Usino           	clay pot		suma
+B15 Sumau           	clay pot		suma
+B16 Urigina         	clay pot		somo
+B17 Danaru          	clay pot		som
+B18 Usu             	clay pot		miːh
+B19 Erima           	clay pot		tau
+B20 Deduela         	clay pot		tʌu
+B21 Kwato           	clay pot		tʌːpi
+B22 Rerau           	clay pot		timbiɛŋ
+B23 Jilim           	clay pot		tʰubɛŋ
+B24 Yangulam        	clay pot		uroŋ
+B25 Bom             	clay pot            	web       	1518,1709
+B25 Bom             	clay pot            	tʌpi
+B26 Male            	clay pot            	wo:p      	1518,1709
+B27 Bongu           	clay pot            	wab       	1518,1709
+B28 Songum          	clay pot            	wob       	1518,1709

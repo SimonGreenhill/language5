@@ -1,0 +1,38 @@
+B1 Sinsauru         	shoot		fu-
+B1 Sinsauru         	shoot		fᵃrau-
+B2 Asas             	shoot		hu-
+B3 Sausi            	shoot          	wure      	1941
+B3 Sausi            	shoot          	fəsara-
+B4 Koromu           	shoot		ahu-
+B5 Dumpu            	shoot		ø-
+B6 Arawum           	shoot          	uli-       	1941
+B6 Arawum           	shoot          	poŋʌkɛ-
+B7 Kolom            	shoot		ge-
+B8 Suroi            	shoot		nduʷase-
+B9 Lemio            	shoot          	ur-        	1941
+B10 Pulabu          	shoot		ni-
+B11 Yabong          	shoot		lam-
+B11 Yabong          	shoot		pʰɛti
+B12 Ganglau         	shoot		psɛti-
+B13 Saep         	shoot		u-
+B13 Saep         	shoot		pasɛtɛ-
+B13 Saep         	shoot		lam-
+B14 Usino           	shoot   	 putuːot-
+B15 Sumau           	shoot          	orpit-
+B16 Urigina         	shoot		o-
+B17 Danaru          	shoot   	       	oru-       	1941
+B17 Danaru          	shoot   	       	du
+B18 Usu             	shoot   	       pasa-
+B19 Erima           	shoot   	       	wari      	1941
+B20 Deduela         	shoot   	       	ori       	1941
+B21 Kwato           	shoot   	       	oli       	1941
+B22 Rerau           	shoot   	       	wol       	1941
+B23 Jilim           	shoot   	       	wol       	1941
+B23 Jilim           	shoot   	       	kon-
+B24 Yangulam        	shoot   	       	hol       	1941
+B25 Bom             	shoot		bɔri-
+B26 Male            	shoot		wite-
+B27 Bongu           	shoot		le-
+B27 Bongu           	shoot		Gali-
+B28 Songum          	shoot		howid-
+B28 Songum          	shoot		alm-

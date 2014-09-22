@@ -1,0 +1,29 @@
+B1 Sinsauru         	spear (a)		
+B2 Asas             	spear (a)		origɛ
+B3 Sausi            	spear (a)		lou
+B4 Koromu           	spear (a)		
+B5 Dumpu            	spear (a)		
+B6 Arawum           	spear (a)		
+B7 Kolom            	spear (a)		jawab
+B8 Suroi		spear (a)		jawaf
+B8 Suroi		spear (a)		tui
+B9 Lemio            	spear (a)		
+B10 Pulabu		spear (a)		pʌnu
+B11 Yabong		spear (a)		wɔlo
+B12 Ganglau		spear (a)		soso
+B13 Saep		spear (a)		susoh
+B14 Usino           	spear (a)		mʌlʌi
+B15 Sumau           	spear (a)		ɔto
+B16 Urigina         	spear (a)		tokaw
+B17 Danaru          	spear (a)		dogʌr
+B18 Usu             	spear (a)		
+B19 Erima           	spear (a)		iʌriba
+B20 Deduela         	spear (a)		ǰariba
+B21 Kwato           	spear (a)		
+B22 Rerau           	spear (a)		rʌgu
+B23 Jilim           	spear (a)		banim
+B24 Yangulam        	spear (a)		
+B25 Bom             	spear (a)		kaǰa
+B26 Male            	spear (a)		kajag
+B27 Bongu           	spear (a)		kʌja
+B28 Songum          	spear (a)		palam

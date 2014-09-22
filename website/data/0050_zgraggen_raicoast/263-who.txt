@@ -1,0 +1,31 @@
+B1 Sinsauru         	who			numi
+B2 Asas             	who			miː
+B3 Sausi            	who			miyɛdɛ
+B4 Koromu           	who			mɛtei
+B5 Dumpu            	who			neme
+B5 Dumpu            	who			naŋi(me)
+B6 Arawum           	who			gimi
+B7 Kolom            	who			imaŋ
+B8 Suroi		who			ima
+B9 Lemio            	who			mi
+B10 Pulabu		who			gⁱle
+B11 Yabong		who			noda
+B12 Ganglau         	who?                	thʌneda   	
+B13 Saep		who			noda
+B14 Usino           	who?                	we-n      	1560
+B15 Sumau           	who			yu(na)
+B16 Urigina         	who			yauɛ
+B17 Danaru          	who			waye
+B18 Usu             	who			hujʌra
+B19 Erima           	who?                	wei       	1560
+B19 Erima           	who?                	faiwei
+B20 Deduela         	who?                	ei(ro)    	1560
+B21 Kwato           	who			ʌyu
+B22 Rerau           	who			may
+B23 Jilim           	who			mai
+B24 Yangulam        	who?                	aneda (pl)	
+B24 Yangulam        	who?                	imi (sg)
+B25 Bom             	who			yai
+B26 Male            	who			tumaye
+B27 Bongu           	who			jɛ
+B28 Songum          	who			yɛ

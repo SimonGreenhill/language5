@@ -1,0 +1,27 @@
+B1 Sinsauru         	sweat               	feitulu   	1551,1740
+B2 Asas             	sweat               	hedulu    	1551,1740
+B3 Sausi            	sweat               	misru     	1625,1802
+B4 Koromu           	sweat               	melsiri   	1625,1802
+B5 Dumpu            	sweat			ᵱeːgʌga
+B6 Arawum           	sweat			piɛ
+B7 Kolom            	sweat			gʌgere
+B8 Suroi		sweat			mundu
+B9 Lemio            	sweat			sewirdu
+B10 Pulabu          	sweat               	mgesu     	1625,1802
+B11 Yabong		sweat			lop-
+B12 Ganglau		sweat			akʌs
+B13 Saep		sweat			muŋka
+B14 Usino           	sweat			wɛgig
+B15 Sumau           	sweat               	nes       	1625,1802
+B16 Urigina         	sweat               	neisi     	1625,1802
+B17 Danaru          	sweat			səgʌg
+B18 Usu             	sweat               	nʌhi      	1625,1802
+B19 Erima           	sweat               	nisira-    	1625,1802
+B21 Kwato           	sweat               	ñesilolo 	1625,1802
+B22 Rerau           	sweat               	kunisi    	1625,1802
+B23 Jilim           	sweat			mipra
+B24 Yangulam        	sweat               	ŋise      	1625,1802
+B25 Bom             	sweat               	ŋes       	1625,1802
+B26 Male            	sweat               	ŋes       	1625,1802
+B27 Bongu           	sweat               	ŋis       	1625,1802
+B28 Songum          	sweat               	ŋies      	1625,1802

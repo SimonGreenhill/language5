@@ -1,0 +1,31 @@
+B1 Sinsauru         	fire                	hegeni    	1543,1733
+B1 Sinsauru         	fire                	fiæ       	1552,1741
+B2 Asas             	fire                	hegeni    	1543,1733
+B3 Sausi            	fire                	ʔebi      	1523,1714,1868
+B3 Sausi            	fire                	pegeni    	1543,1733
+B4 Koromu           	fire                	hegeni    	1543,1733
+B5 Dumpu            	fire                	ᵱe        	1552,1741
+B6 Arawum           	fire                	piye      	1552,1741
+B7 Kolom            	fire                	pai       	1552,1741
+B8 Suroi            	fire                	pa        	1552,1741
+B9 Lemio            	fire                	fie       	1552,1741
+B10 Pulabu		fire			lʌmu
+B11 Yabong          	fire                	fa        	1552,1741
+B12 Ganglau         	fire                	ipa       	1552,1741
+B13 Saep            	fire                	fah       	1552,1741
+B14 Usino           	fire                	ke:b      	1523,1714,1868
+B15 Sumau           	fire                	epi       	1523,1714,1868
+B16 Urigina         	fire                	e:mbi     	1523,1714,1868
+B17 Danaru          	fire                	kembi     	1523,1714,1868
+B18 Usu             	fire			waw
+B19 Erima           	fire			eya
+B20 Deduela         	fire			ɛya
+B21 Kwato           	fire                	e:pi      	1523,1714,1868
+B22 Rerau           	fire			kayaŋ
+B23 Jilim           	fire                	kim       	1523,1714,1868
+B24 Yangulam        	fire                	be    	
+B24 Yangulam        	fire                	he        	1552,1741
+B25 Bom             	fire			ŋam
+B26 Male            	fire			bɛlɛag
+B27 Bongu           	fire			bia
+B28 Songum          	fire			balaˀ

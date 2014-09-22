@@ -1,0 +1,28 @@
+B1 Sinsauru         	night               	kotiʌb    	1814
+B2 Asas             	night			sa inabu
+B3 Sausi            	night			s umoru
+B4 Koromu           	night			s mouru
+B5 Dumpu            	night               	s u:m     	1639,1814
+B6 Arawum           	night			aːŋgɛlɛ
+B7 Kolom            	night			bubur̃
+B7 Kolom            	night			nomɛ
+B8 Suroi		night			furir-
+B9 Lemio            	night			ŋariŋkiam
+B10 Pulabu          	night               	a:ndu     	1639,1814
+B11 Yabong		night			beisu
+B12 Ganglau         	night               	kudum     	1639,1814
+B13 Saep            	night               	hule      	1639,1814
+B14 Usino           	night               	gituo     	1814
+B15 Sumau           	night               	ukum      	1639,1814
+B16 Urigina         	night			ogus
+B17 Danaru          	night			sauŋgu
+B18 Usu             	night               	hap/tuma  	
+B19 Erima           	night               	oru       	1639,1814
+B20 Deduela         	night               	oru       	1639,1814
+B21 Kwato           	night			sapau
+B22 Rerau           	night               	kulu      	1639,1814
+B23 Jilim           	night               	kulub     	1639,1814
+B24 Yangulam        	night               	ʌlu       	1639,1814
+B26 Male            	night               	kuluigen  	1639,1814
+B27 Bongu           	night               	kʌlu      	1639,1814
+B28 Songum          	night               	koʔlui    	1639,1814

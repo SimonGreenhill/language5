@@ -1,0 +1,28 @@
+B1 Sinsauru         	excrement           	sipi      	1516
+B2 Asas             	excrement           	sipi      	1516
+B3 Sausi            	excrement           	sipi      	1516
+B4 Koromu           	excrement           	sipi      	1516
+B5 Dumpu            	excrement           	sipi      	1516
+B6 Arawum           	excrement           	simp      	1516
+B7 Kolom            	excrement           	simbi     	1516
+B8 Suroi            	excrement           	sumbi     	1516
+B9 Lemio            	excrement           	simp      	1516
+B10 Pulabu          	excrement           	subu      	1516
+B11 Yabong          	excrement           	sim       	1516
+B12 Ganglau         	excrement           	sim       	1516
+B13 Saep            	excrement           	sim       	1516
+B14 Usino           	excrement           	si:b      	1516
+B15 Sumau           	excrement           	sine      	1516
+B16 Urigina         	excrement           	si:mbi    	1516
+B17 Danaru          	excrement		ʌsi
+B18 Usu             	excrement           	hi:b      	1516
+B19 Erima           	excrement           	hewe      	1516
+B20 Deduela         	excrement           	siwi-		1516
+B21 Kwato           	excrement           	si:pu     	1516
+B22 Rerau           	excrement           	simbi     	1516
+B23 Jilim           	excrement		yagaŋ
+B24 Yangulam        	excrement           	simbi     	1516
+B25 Bom             	excrement           	bi        	1516
+B26 Male            	excrement           	bi        	1516
+B27 Bongu           	excrement           	bi        	1516
+B28 Songum          	excrement           	bi        	1516

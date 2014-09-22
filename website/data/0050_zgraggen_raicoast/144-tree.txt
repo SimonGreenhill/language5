@@ -1,0 +1,29 @@
+B1 Sinsauru         	tree                	a:li      	1638,1813
+B2 Asas             	tree                	are       	1638,1813
+B3 Sausi            	tree                	tiri      	
+B4 Koromu           	tree                	tr̃i      	
+B5 Dumpu            	tree			yɛn
+B6 Arawum           	tree                	a:l       	1638,1813
+B7 Kolom            	tree                	al        	1638,1813
+B8 Suroi            	tree                	ail       	1638,1813
+B9 Lemio            	tree                	a:r̃      	1638,1813
+B10 Pulabu          	tree                	a:li      	1638,1813
+B11 Yabong		tree			wi
+B12 Ganglau		tree			wi
+B13 Saep		tree			wi
+B14 Usino           	tree			au
+B15 Sumau           	tree			nʌ
+B16 Urigina         	tree			nau
+B16 Urigina         	tree			nusu
+B17 Danaru          	tree			na
+B18 Usu             	tree			nahap
+B19 Erima           	tree			nau
+B20 Deduela         	tree			nau
+B21 Kwato           	tree			eːpi
+B22 Rerau           	tree			wɪm
+B23 Jilim           	tree			yom
+B24 Yangulam        	tree			be
+B25 Bom             	tree			ŋam
+B26 Male            	tree			ŋam
+B27 Bongu           	tree			aŋam
+B28 Songum          	tree			wʌm

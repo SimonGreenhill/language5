@@ -1,0 +1,28 @@
+B1 Sinsauru         	take                	le-       	1584,1766
+B2 Asas             	take                	hipog-
+B3 Sausi            	take                	ta-       	1584,1766
+B4 Koromu           	take                	te-       	1584,1766
+B5 Dumpu            	take                	ra-       	1584,1766
+B6 Arawum           	take                	ta-       	1584,1766
+B7 Kolom            	take                	ta-       	1584,1766
+B8 Suroi            	take                	ta-       	1584,1766
+B9 Lemio            	take                	ta-       	1584,1766
+B10 Pulabu		take			pʰu-
+B11 Yabong          	take                	wo-       	1854
+B12 Ganglau         	take                	u-        	1854
+B13 Saep            	take                	o-        	1854
+B14 Usino           	take                	t-        	1584,1766
+B15 Sumau           	take                	ti-       	1584,1766
+B16 Urigina         	take                	ta-       	1584,1766
+B17 Danaru          	take                	te-       	1584,1766
+B18 Usu             	take			omo-
+B19 Erima           	take                	te-       	1584,1766
+B20 Deduela         	take                	te-       	1584,1766
+B21 Kwato           	take                	ti-       	1584,1766
+B22 Rerau           	take                	ti-       	1584,1766
+B23 Jilim           	take                	ti-       	1584,1766
+B24 Yangulam        	take                	t-        	1584,1766
+B25 Bom             	take                	o-        	1854
+B26 Male            	take			pɛ-
+B27 Bongu           	take                	aw-       	1854
+B28 Songum          	take			pɛ-

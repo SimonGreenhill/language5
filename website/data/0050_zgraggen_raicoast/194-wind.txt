@@ -1,0 +1,34 @@
+B1 Sinsauru         	wind			youpi
+B2 Asas             	wind			nobi
+B3 Sausi            	wind			sidau
+B3 Sausi            	wind			ᵬuᵬua
+B3 Sausi            	wind			sosoa
+B4 Koromu           	wind			sosowa
+B5 Dumpu            	wind			sekɛ
+B6 Arawum           	wind			sukuwai
+B7 Kolom            	wind	        	jag       	1916
+B7 Kolom            	wind	        	dɛr̃
+B8 Suroi		wind			bubre
+B9 Lemio            	wind			sogai
+B10 Pulabu          	wind	        	yʌgo      	1916
+B11 Yabong		wind			didiŋ
+B12 Ganglau         	wind	         	zigil     	1916
+B13 Saep		wind			litig
+B14 Usino           	wind			kibul
+B15 Sumau           	wind			upɛu
+B16 Urigina         	wind			sidau
+B17 Danaru          	wind	         	wagur     	1916
+B18 Usu             	wind	         	jour      	1916
+B19 Erima           	wind	         	jagui     	1916
+B19 Erima           	wind	         	obor̃ɛ
+B20 Deduela         	wind			ubur̃ɛ
+B20 Deduela         	wind			karʌk
+B21 Kwato           	wind	         	jagua     	1916
+B21 Kwato           	wind	         	yauka
+B22 Rerau           	wind	         	yagar     	1916
+B23 Jilim           	wind	         	yagar     	1916
+B24 Yangulam        	wind			tʰaduo
+B25 Bom             	wind			yowan
+B26 Male            	wind			roŋon
+B27 Bongu           	wind			temur̃
+B28 Songum          	wind			tumur

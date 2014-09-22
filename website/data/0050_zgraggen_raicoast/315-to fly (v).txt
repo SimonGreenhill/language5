@@ -1,0 +1,28 @@
+B1 Sinsauru         	fly (v)             	bret-     	1548,1737
+B2 Asas             	fly (v)             	pred-     	1548,1737
+B3 Sausi            	fly (v)             	bududu-   	1548,1737
+B4 Koromu           	fly (v)             	hert-     	1548,1737
+B5 Dumpu            	fly (v)			pi- na-
+B6 Arawum           	fly (v)             	bilti-    	1548,1737
+B7 Kolom            	fly (v)			reu(kʌ)-
+B8 Suroi		fly (v)			buŋga-
+B9 Lemio            	fly (v)             	friri-    	1548,1737
+B10 Pulabu		fly (v)			pʰe-
+B11 Yabong          	fly (v)             	puputi-   	1548,1737
+B12 Ganglau         	fly (v)             	pur̃urut- 	1548,1737
+B13 Saep            	fly (v)             	pupute-   	1548,1737
+B14 Usino           	fly (v)             	pululug-  	1548,1737
+B15 Sumau           	fly (v)             	pur̃pur̃ie	1548,1737
+B16 Urigina         	fly (v)			yabr̃o-
+B17 Danaru          	fly (v)             	bututuno- 	1548,1737
+B18 Usu             	fly (v)             	pururg-   	1548,1737
+B19 Erima           	fly (v)             	frie-     	1548,1737
+B20 Deduela         	fly (v)             	fududu-   	1548,1737
+B21 Kwato           	fly (v)             	pududu-   	1548,1737
+B22 Rerau           	fly (v)             	lalu      	1737
+B23 Jilim           	fly (v)             	lalu      	1737
+B24 Yangulam        	fly (v)			hah-
+B25 Bom             	fly (v)             	pur̃ur̃u- 	1548,1737
+B26 Male            	fly (v)             	pur̃ur̃ui-	1548,1737
+B27 Bongu           	fly (v)             	uru-      	1548,1737
+B28 Songum          	fly (v)             	ber̃eriŋ- 	1548,1737

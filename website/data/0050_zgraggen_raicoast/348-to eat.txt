@@ -1,0 +1,31 @@
+B1 Sinsauru         	eat                 	n-        	1940
+B2 Asas             	eat                 	n-        	1940
+B3 Sausi            	eat                 	ne-       	1940
+B4 Koromu           	eat                 	ne-       	1940
+B5 Dumpu            	eat                 	na-       	1940
+B6 Arawum           	eat                 	ɲi-       	1940
+B7 Kolom            	eat                 	ɲi-       	1940
+B8 Suroi            	eat                 	ɲa-       	1940
+B9 Lemio            	eat                 	ni-       	1940
+B10 Pulabu		eat			ya-
+B11 Yabong		eat			u-
+B12 Ganglau		eat			wi-
+B12 Ganglau		eat			bi-
+B12 Ganglau		eat			so-
+B13 Saep		eat			ø-
+B13 Saep		eat			u-
+B14 Usino           	eat                 	n-        	1940
+B15 Sumau           	eat                 	ne-       	1940
+B16 Urigina         	eat                 	na-       	1940
+B17 Danaru          	eat                 	ne-       	1940
+B18 Usu             	eat                 	ni-       	1940
+B19 Erima           	eat                 	ni-       	1940
+B20 Deduela         	eat                 	ɲi-       	1940
+B21 Kwato           	eat                 	ni-       	1940
+B22 Rerau           	eat                 	ɲi-       	1940
+B23 Jilim           	eat                 	ɲi-       	1940
+B24 Yangulam        	eat                 	ɲi-       	1940
+B25 Bom             	eat			uy-
+B26 Male            	eat			a-
+B27 Bongu           	eat			w(e)-
+B28 Songum          	eat			hɛ-

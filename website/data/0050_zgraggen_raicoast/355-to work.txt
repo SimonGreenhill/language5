@@ -1,0 +1,32 @@
+B1 Sinsauru         	work		pigini-
+B2 Asas             	work		wanu-
+B3 Sausi            	work		auno tɛ-
+B4 Koromu           	work		
+B5 Dumpu            	work		ur-
+B5 Dumpu            	work		sun-
+B6 Arawum           	work		kakɛ-
+B6 Arawum           	work		koi-
+B7 Kolom            	work		titi-
+B8 Suroi		work		wake-
+B9 Lemio            	work		
+B10 Pulabu		work		gɛr̃ɛ-
+B11 Yabong		work		wɛwɔ-
+B12 Ganglau		work		urʌt wai-
+B13 Saep		work		wɛo-
+B14 Usino           	work		sʌlᵬʌg-
+B15 Sumau           	work		saina tɛ-
+B16 Urigina         	work		agʌruŋg-
+B17 Danaru          	work		agʌru-
+B18 Usu             	work		om(se)-
+B19 Erima           	work		haruɛ-
+B20 Deduela         	work		saruwɛ-
+B20 Deduela         	work		agʌlu-
+B21 Kwato           	work		agʌluG-
+B22 Rerau           	work		
+B23 Jilim           	work		uŋgʌlu
+B23 Jilim           	work		ʂgɛru
+B24 Yangulam        	work		kalaŋ-
+B25 Bom             	work		waw-
+B26 Male            	work		kaŋgulɛ-
+B27 Bongu           	work		at-
+B28 Songum          	work		giŋgʌl pɛ-

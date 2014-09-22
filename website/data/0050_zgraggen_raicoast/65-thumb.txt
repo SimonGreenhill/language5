@@ -1,0 +1,28 @@
+B1 Sinsauru         	thumb               	maunum    	1870
+B2 Asas             	thumb               	maunumu   	1870
+B3 Sausi            	thumb			sɛrɛno
+B4 Koromu           	thumb			ahene
+B5 Dumpu            	thumb			pakʌu
+B6 Arawum           	thumb			eikⁱli
+B7 Kolom            	thumb			
+B8 Suroi		thumb			nyigiring-
+B9 Lemio            	thumb			nuŋu
+B10 Pulabu		thumb			ŋʌ
+B11 Yabong          	thumb               	munu      	1870
+B12 Ganglau		thumb			yʌiŋ
+B13 Saep		thumb			wam- yaːŋgo
+B14 Usino           	thumb			mugɛ
+B15 Sumau           	thumb			autʌpa
+B16 Urigina         	thumb			simbiobu
+B17 Danaru          	thumb			anʌm
+B18 Usu             	thumb			ɔːm
+B19 Erima           	thumb			tu
+B20 Deduela         	thumb               	animu     	1870
+B21 Kwato           	thumb			waga
+B22 Rerau           	thumb               	ñam       	1870
+B23 Jilim           	thumb               	ñam       	1870
+B24 Yangulam        	thumb               	enam      	1870
+B25 Bom             	thumb               	ani       	1870
+B26 Male            	thumb			Gɛli
+B27 Bongu           	thumb               	añi       	1870
+B28 Songum          	thumb			ɛlik

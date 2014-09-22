@@ -1,0 +1,32 @@
+B1 Sinsauru         	crayfish            	wasi      	1563,1750
+B2 Asas             	crayfish            	wasi      	1563,1750
+B3 Sausi            	crayfish            	wasie     	1563,1750
+B4 Koromu           	crayfish            	wasia     	1563,1750
+B5 Dumpu            	crayfish		rause
+B6 Arawum           	crayfish            	wali      	1563,1750
+B7 Kolom            	crayfish		gʌbuk
+B8 Suroi		crayfish		tue
+B9 Lemio            	crayfish            	wari      	1563,1750
+B10 Pulabu		crayfish		mʌsar̃ba
+B11 Yabong		crayfish		dɔpʰ
+B12 Ganglau		crayfish		kostan
+B13 Saep		crayfish		doːp
+B14 Usino           	crayfish		dɔbi
+B14 Usino           	crayfish		papas
+B15 Sumau           	crayfish		or̃ɛ
+B16 Urigina         	crayfish		sami
+B17 Danaru          	crayfish		samia
+B18 Usu             	crayfish		ʌbar
+B19 Erima           	crayfish            	yausi     	1563,1750
+B19 Erima           	crayfish            	gaua
+B20 Deduela         	crayfish            	yausi     	1563,1750
+B21 Kwato           	crayfish		kauwa
+B21 Kwato           	crayfish		aupara
+B22 Rerau           	crayfish		jɪŋgɛn
+B23 Jilim           	crayfish		simñam
+B24 Yangulam        	crayfish		
+B25 Bom             	crayfish            	wale      	1563,1750
+B25 Bom             	crayfish            	siñam
+B26 Male            	crayfish		nagali
+B27 Bongu           	crayfish		jagnam
+B28 Songum          	crayfish		

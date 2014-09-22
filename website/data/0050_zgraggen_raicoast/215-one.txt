@@ -1,0 +1,31 @@
+B1 Sinsauru         	one                 	atine     	1921
+B2 Asas             	one                 	adine     	1921
+B3 Sausi            	one			ʌdrai
+B4 Koromu           	one			atre
+B4 Koromu           	one			anemru
+B5 Dumpu            	one                 	atʰ       	1921
+B6 Arawum           	one			deikɛ
+B7 Kolom            	one			dʌima
+B8 Suroi		one			ndindo
+B9 Lemio            	one			ʌːndogo
+B10 Pulabu		one			hamba
+B11 Yabong		one			osʌb
+B12 Ganglau		one			ktʌpmʌn
+B13 Saep		one			halɛbɛ
+B14 Usino           	one			guranata
+B15 Sumau           	one                 	kiren     	1921
+B16 Urigina         	one			kɛgrʌːk
+B17 Danaru          	one                 	garan     	1921
+B17 Danaru          	one                 	grʌkut
+B18 Usu             	one			itigoːg
+B19 Erima           	one                 	eteŋa     	1921
+B20 Deduela         	one                 	itonoka   	1921
+B20 Deduela         	one                 	ititonoy
+B21 Kwato           	one                 	itono     	1921
+B22 Rerau           	one                 	gidei     	1922
+B23 Jilim           	one                 	gid       	1922
+B24 Yangulam        	one			alamalam
+B25 Bom             	one                 	gujai     	1922
+B26 Male            	one                 	gujega    	1922
+B27 Bongu           	one                 	kuji      	1922
+B28 Songum          	one                 	kuji      	1922

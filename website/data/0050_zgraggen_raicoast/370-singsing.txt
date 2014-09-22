@@ -1,0 +1,28 @@
+B1 Sinsauru         	singsing		sʌp lɛ-
+B2 Asas             	singsing		sʌb rair-
+B3 Sausi            	singsing		youᵬu dɛ-
+B4 Koromu           	singsing		mu tɛ-
+B5 Dumpu            	singsing		mu rag-
+B6 Arawum           	singsing		mutʰa-
+B7 Kolom            	singsing		muni-
+B8 Suroi		singsing		muneul-
+B9 Lemio            	singsing		
+B10 Pulabu		singsing		yaguno pʰu-
+B11 Yabong		singsing		yaumɔ-
+B12 Ganglau		singsing		wʌgŋ-
+B13 Saep		singsing		wagna gɛ-
+B14 Usino           	singsing		munt-
+B15 Sumau           	singsing		sir woro-
+B16 Urigina         	singsing		ɛgɛᵬ ta-
+B17 Danaru          	singsing		ɛgib ta-
+B18 Usu             	singsing		seg oˀ-
+B19 Erima           	singsing		monɛ te-
+B20 Deduela         	singsing		munɛ tɛ-
+B21 Kwato           	singsing		mas de-
+B22 Rerau           	singsing		monu ti-
+B23 Jilim           	singsing		sulum jigɛl-
+B24 Yangulam        	singsing		hais-
+B25 Bom             	singsing		low-
+B26 Male            	singsing		munɛ-
+B27 Bongu           	singsing		t-
+B28 Songum          	singsing		mundɛ-

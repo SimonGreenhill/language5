@@ -1,0 +1,28 @@
+B1 Sinsauru         	vine			hunoru
+B2 Asas             	vine                	muru      	1904
+B3 Sausi            	vine                	miay      	
+B4 Koromu           	vine			
+B5 Dumpu            	vine		
+B6 Arawum           	vine                	men       	
+B7 Kolom            	vine                	moli      	1904
+B8 Suroi            	vine                	muli      	1904
+B9 Lemio            	vine                	meine     	
+B10 Pulabu          	vine                	si        	
+B11 Yabong          	vine                	lumʌ      	1904
+B12 Ganglau		vine			wʌl
+B13 Saep            	vine                	luma      	1904
+B14 Usino           	vine                	muri      	1904
+B15 Sumau           	vine                	muri      	1904
+B16 Urigina         	vine			meːpu
+B17 Danaru          	vine			mugei
+B18 Usu             	vine                	mu:ri     	1904
+B19 Erima           	vine                	mʌ:lu     	1904
+B20 Deduela         	vine                	mʌ:lu     	1904
+B21 Kwato           	vine			meo
+B22 Rerau           	vine                	mul       	1904
+B23 Jilim           	vine                	mul       	1904
+B24 Yangulam        	vine                	muli      	1904
+B25 Bom             	vine                	sil       	
+B26 Male            	vine                	sila      	
+B27 Bongu           	vine			
+B28 Songum          	vine                	sila      	

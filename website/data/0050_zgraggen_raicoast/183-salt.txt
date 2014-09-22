@@ -1,0 +1,29 @@
+B1 Sinsauru         	salt                	se        	1617,1794
+B2 Asas             	salt                	se        	1617,1794
+B3 Sausi            	salt                	sei       	1617,1794
+B4 Koromu           	salt                	ʂkai      	1617,1794
+B5 Dumpu            	salt                	sike      	1617,1794
+B6 Arawum           	salt			bʌːt
+B7 Kolom            	salt			
+B8 Suroi		salt			yu
+B9 Lemio            	salt                	sigie     	1617,1794
+B10 Pulabu          	salt                	sagie     	1617,1794
+B11 Yabong		salt			suo
+B12 Ganglau		salt			siu
+B13 Saep		salt			bʌm
+B14 Usino           	salt                	sigai     	1617,1794
+B15 Sumau           	salt			iːwa
+B16 Urigina         	salt                	sigei     	1617,1794
+B17 Danaru          	salt                	sigi      	1617,1794
+B18 Usu             	salt			huː
+B19 Erima           	salt			hɛri
+B20 Deduela         	salt			bitei
+B21 Kwato           	salt			joi
+B22 Rerau           	salt                	sgai      	1617,1794
+B23 Jilim           	salt                	saga      	1617,1794
+B24 Yangulam        	salt			boadu
+B25 Bom             	salt			bʌr̃
+B26 Male            	salt			bar̃
+B27 Bongu           	salt			bor̃
+B27 Bongu           	salt			wal
+B28 Songum          	salt			biar

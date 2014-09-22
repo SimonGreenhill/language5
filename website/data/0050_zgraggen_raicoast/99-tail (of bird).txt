@@ -1,0 +1,30 @@
+B1 Sinsauru         	tail of bird		bʰai tʰonum
+B2 Asas             	tail of bird		sibduru
+B3 Sausi            	tail of bird		truːno
+B4 Koromu           	tail of bird		turunɛ
+B5 Dumpu            	tail of bird		sibi tunu
+B6 Arawum           	tail of bird		ndul
+B7 Kolom            	tail of bird		muŋga
+B8 Suroi		tail of bird		dadu
+B9 Lemio            	tail of bird		dur̃
+B10 Pulabu		tail of bird		dili
+B11 Yabong		tail of bird		diŋut
+B12 Ganglau		tail of bird		ziŋ
+B13 Saep		tail of bird		diŋgo
+B14 Usino           	tail of bird		bitib
+B14 Usino           	tail of bird		gom
+B15 Sumau           	tail of bird		sumbiru
+B16 Urigina         	tail of bird		muŋga-mu
+B17 Danaru          	tail of bird		muŋgom
+B18 Usu             	tail of bird		ʌro
+B19 Erima           	tail of bird		mʌla
+B20 Deduela         	tail of bird		mala
+B21 Kwato           	tail of bird		mala
+B22 Rerau           	tail of bird		seŋgi
+B23 Jilim           	tail of bird		sɛŋgi
+B24 Yangulam        	tail of bird		andam
+B25 Bom             	tail of bird		bisaŋga
+B25 Bom             	tail of bird		saŋga
+B26 Male            	tail of bird		magi
+B27 Bongu           	tail of bird		bisombr̃om
+B28 Songum          	tail of bird		bisɛŋgɛ

@@ -1,0 +1,28 @@
+B1 Sinsauru         	shore		kurutu
+B2 Asas             	shore		su
+B3 Sausi            	shore		usigri
+B4 Koromu           	shore		
+B5 Dumpu            	shore		yaudu-bo
+B6 Arawum           	shore		tuligili
+B7 Kolom            	shore		kode
+B8 Suroi		shore		beal
+B9 Lemio            	shore		
+B10 Pulabu		shore		
+B11 Yabong		shore		dabɛŋ
+B12 Ganglau		shore		
+B13 Saep		shore		
+B14 Usino           	shore		sʌːgu
+B15 Sumau           	shore		ɛnɛˀuru
+B16 Urigina         	shore		uːndim
+B17 Danaru          	shore		undum
+B18 Usu             	shore		ibin
+B19 Erima           	shore		lʌŋa
+B20 Deduela         	shore		lʌna
+B21 Kwato           	shore		alele
+B22 Rerau           	shore		alili
+B23 Jilim           	shore		wesan
+B24 Yangulam        	shore		wʌl maŋgɛm
+B25 Bom             	shore		alele
+B26 Male            	shore		yuwal agu
+B27 Bongu           	shore		ulɛu
+B28 Songum          	shore		

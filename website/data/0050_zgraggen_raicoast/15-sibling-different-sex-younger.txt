@@ -1,0 +1,29 @@
+B1 Sinsauru         	younger o.s. sibling		nagi failioro
+B1 Sinsauru         	younger o.s. sibling		nonu
+B2 Asas             	younger o.s. sibling		
+B3 Sausi            	younger o.s. sibling		
+B4 Koromu           	younger o.s. sibling		
+B5 Dumpu            	younger o.s. sibling		
+B6 Arawum           	younger o.s. sibling		
+B7 Kolom            	younger o.s. sibling		
+B8 Suroi		younger o.s. sibling		
+B9 Lemio            	younger o.s. sibling		
+B10 Pulabu		younger o.s. sibling		
+B11 Yabong		younger o.s. sibling		
+B12 Ganglau		younger o.s. sibling		nig niɛmɛbɛ
+B13 Saep		younger o.s. sibling		nɛg- ibulɛ
+B14 Usino           	younger o.s. sibling		ugi- panʌm
+B15 Sumau           	younger o.s. sibling		uku- ayaga
+B16 Urigina         	younger o.s. sibling		mamɔŋgo oraub
+B17 Danaru          	younger o.s. sibling		uŋgɛ abramai
+B18 Usu             	younger o.s. sibling		ugɛ- mʌgi
+B19 Erima           	younger o.s. sibling		ogo- mɛlkʌnɛ
+B20 Deduela         	younger o.s. sibling		
+B21 Kwato           	younger o.s. sibling		imamuko orepore
+B22 Rerau           	younger o.s. sibling		
+B23 Jilim           	younger o.s. sibling		-awaŋ koniŋgo
+B24 Yangulam        	younger o.s. sibling		maŋganam
+B25 Bom             	younger o.s. sibling		jaja kinʌla
+B26 Male            	younger o.s. sibling		waŋ kɛnɛŋga
+B27 Bongu           	younger o.s. sibling		
+B28 Songum          	younger o.s. sibling		

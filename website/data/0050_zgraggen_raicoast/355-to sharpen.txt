@@ -1,0 +1,29 @@
+B1 Sinsauru         	sharpen             	kili-
+B2 Asas             	sharpen			ᵱed       	1547,1736
+B3 Sausi            	sharpen             	fai-
+B4 Koromu           	sharpen             	hete      	1547,1736
+B5 Dumpu            	sharpen             	fat       	1547,1736
+B6 Arawum           	sharpen			pande     	1547,1736
+B7 Kolom            	sharpen			sambr̃i(ka)-
+B8 Suroi		sharpen			sama-
+B9 Lemio            	sharpen			
+B10 Pulabu		sharpen			ksʌ-
+B11 Yabong		sharpen			tʰʌk-
+B12 Ganglau		sharpen			pɛs-
+B13 Saep		sharpen			sag-
+B14 Usino           	sharpen			dɛdug-
+B15 Sumau           	sharpen			kɛsɛ-
+B16 Urigina         	sharpen			oro-
+B17 Danaru          	sharpen             	pend      	1547,1736
+B18 Usu             	sharpen			salu-
+B19 Erima           	sharpen			salu-
+B20 Deduela         	sharpen			užu-
+B20 Deduela         	sharpen			vaji-
+B21 Kwato           	sharpen			uli-
+B22 Rerau           	sharpen			kendi-
+B23 Jilim           	sharpen			kosau-
+B24 Yangulam        	sharpen             	handi     	1547,1736
+B25 Bom             	sharpen			arᵘg-
+B26 Male            	sharpen			nigʌr-
+B27 Bongu           	sharpen			aGr-
+B28 Songum          	sharpen			asʌˀ-

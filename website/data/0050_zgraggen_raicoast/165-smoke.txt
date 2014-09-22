@@ -1,0 +1,29 @@
+B1 Sinsauru         	smoke			ʌːnum
+B2 Asas             	smoke			hɛbɛrɛ
+B3 Sausi            	smoke               	ua        	
+B4 Koromu           	smoke			plʌ
+B5 Dumpu            	smoke               	fugu      	1501,1745
+B6 Arawum           	smoke               	mpoka     	1501,1745
+B7 Kolom            	smoke               	boka      	1501,1745
+B8 Suroi            	smoke               	bidu 'fog'	1557,1695
+B9 Lemio            	smoke               	mbaga     	1501,1745
+B10 Pulabu          	smoke               	puga      	1501,1745
+B11 Yabong          	smoke               	faek      	1501,1745
+B12 Ganglau		smoke			yik
+B13 Saep		smoke			yekʰ
+B14 Usino           	smoke               	bur       	1557,1695
+B15 Sumau           	smoke               	uki 	
+B15 Sumau           	smoke               	buru      	1557,1695
+B16 Urigina         	smoke               	pʰu:r      	1557,1695
+B17 Danaru          	smoke               	ur        	1557,1695
+B18 Usu             	smoke               	wʌgabut   	1557,1695
+B19 Erima           	smoke               	butu      	1557,1695
+B20 Deduela         	smoke               	bu:tu     	1557,1695
+B21 Kwato           	smoke               	putu      	1557,1695
+B22 Rerau           	smoke               	budu      	1557,1695
+B23 Jilim           	smoke			kumbur
+B24 Yangulam        	smoke			mboˀom
+B25 Bom             	smoke			kur̃ɛm
+B26 Male            	smoke               	ami       	
+B27 Bongu           	smoke               	kʌm       	
+B28 Songum          	smoke               	ami       	

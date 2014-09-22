@@ -1,0 +1,29 @@
+B1 Sinsauru         	1pl gen               	
+B2 Asas             	1pl gen               	-ø
+B3 Sausi            	1pl gen               	-sigamo
+B4 Koromu           	1pl gen               	-sigamo
+B5 Dumpu            	1pl gen               	
+B6 Arawum           	1pl gen               	ø-
+B7 Kolom            	1pl gen               	
+B8 Suroi            	1pl gen               	
+B9 Lemio            	1pl gen               	
+B10 Pulabu          	1pl gen               	
+B11 Yabong          	1pl gen               	-(n)ga
+B12 Ganglau         	1pl gen               	
+B13 Saep            	1pl gen               	-gɛ
+B14 Usino           	1pl gen               	-sig
+B15 Sumau           	1pl gen               	-sig
+B16 Urigina         	1pl gen               	-siŋgɛ
+B17 Danaru          	1pl gen               	ø-
+B18 Usu             	1pl gen               	-hin
+B19 Erima           	1pl gen               	-gɛ
+B20 Deduela         	1pl gen               	-sigɛ
+B21 Kwato           	1pl gen               	
+B22 Rerau           	1pl gen               	
+B23 Jilim           	1pl gen               	
+B24 Yangulam        	1pl gen               	
+B25 Bom             	1pl gen               	
+B26 Male            	1pl gen               	
+B27 Bongu           	1pl gen               	
+B27 Bongu           	1pl gen               	
+B28 Songum          	1pl gen               	

@@ -1,0 +1,33 @@
+B1 Sinsauru         	3sg free                 	nu        	1683
+B2 Asas             	3sg free                 	nene      	1683
+B2 Asas             	3sg free                 	egei
+B3 Sausi            	3sg free                 	nu        	1683
+B3 Sausi            	3sg free                 	ni
+B4 Koromu           	3sg free                 	eno       	1683
+B4 Koromu           	3sg free                 	ni
+B5 Dumpu            	3sg free                 	nu        	1683
+B5 Dumpu            	3sg free                 	ʌŋge
+B6 Arawum           	3sg free                 	nu        	1683
+B7 Kolom            	3sg free                 	no        	1683
+B8 Suroi            	3sg free                 	nu        	1683
+B9 Lemio            	3sg free                 	nu        	1683
+B10 Pulabu          	3sg free                 	no        	1683
+B11 Yabong          	3sg free                 	nuŋ       	1683
+B12 Ganglau		3sg free			ngu
+B13 Saep            	3sg free                 	naŋgo     	1683
+B14 Usino           	3sg free                 	nu        	1683
+B15 Sumau           	3sg free                 	nu        	1683
+B16 Urigina         	3sg free                 	no        	1683
+B17 Danaru          	3sg free                 	nu        	1683
+B18 Usu             	3sg free                 	no        	1683
+B19 Erima           	3sg free                 	no        	1683
+B20 Deduela         	3sg free                 	no        	1683
+B21 Kwato           	3sg free                 	nu        	1683
+B22 Rerau           	3sg free                 	nu        	1683
+B23 Jilim           	3sg free                 	nu        	1683
+B23 Jilim           	3sg free                 	no
+B24 Yangulam        	3sg free                 	no        	1683
+B25 Bom             	3sg free			ʌ
+B26 Male            	3sg free			ʌro
+B27 Bongu           	3sg free			andu
+B28 Songum          	3sg free			ʌdu

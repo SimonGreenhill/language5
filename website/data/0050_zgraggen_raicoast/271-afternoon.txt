@@ -1,0 +1,28 @@
+B1 Sinsauru         	afternoon		sa youbu
+B2 Asas             	afternoon		sa youbu
+B3 Sausi            	afternoon		aubo sa
+B4 Koromu           	afternoon		ʌs rʌbu
+B5 Dumpu            	afternoon		s ɔmop
+B6 Arawum           	afternoon		yambɛŋi
+B7 Kolom            	afternoon		yoai nomɛ
+B8 Suroi		afternoon		furiram
+B9 Lemio            	afternoon		yʌiyi
+B10 Pulabu		afternoon		kusimbi
+B11 Yabong		afternoon		ŋgamoŋku
+B12 Ganglau		afternoon		omok
+B13 Saep		afternoon		monɛalʌn
+B14 Usino           	afternoon		ututum
+B15 Sumau           	afternoon		oruʌt
+B16 Urigina         	afternoon		obgiu
+B17 Danaru          	afternoon		ogubiu
+B18 Usu             	afternoon		ajub
+B19 Erima           	afternoon		ɛsuʌ
+B20 Deduela         	afternoon		wɛsua
+B21 Kwato           	afternoon		wesuʌpa
+B22 Rerau           	afternoon		bilau dandu
+B23 Jilim           	afternoon		bilau
+B24 Yangulam        	afternoon		yʌsol
+B25 Bom             	afternoon		bilʌːg
+B26 Male            	afternoon		bilːʌ
+B27 Bongu           	afternoon		bulʌ
+B28 Songum          	afternoon		bula

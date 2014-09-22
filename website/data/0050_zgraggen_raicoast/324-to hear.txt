@@ -1,0 +1,29 @@
+B1 Sinsauru         	hear                	is-       	1622,1799
+B2 Asas             	hear                	is(io)-   	1622,1799
+B3 Sausi            	hear                	isen-     	1622,1799
+B4 Koromu           	hear                	es-       	1622,1799
+B5 Dumpu            	hear                	sa-       	1622,1799
+B6 Arawum           	hear			kaplɛsi-
+B7 Kolom            	hear                	si-       	1622,1799
+B8 Suroi            	hear                	is-       	1622,1799
+B8 Suroi            	hear                	isit-
+B9 Lemio            	hear                	wes-      	1622,1799
+B10 Pulabu		hear			yʌːgi-
+B11 Yabong          	hear                	iti-      	1622,1799
+B12 Ganglau         	hear                	iti-      	1622,1799
+B13 Saep            	hear                	ti-       	1622,1799
+B14 Usino           	hear                	es-       	1622,1799
+B15 Sumau           	hear                	es-       	1622,1799
+B16 Urigina         	hear                	ese-      	1622,1799
+B17 Danaru          	hear                	esi-      	1622,1799
+B18 Usu             	hear			hoh-
+B19 Erima           	hear                	isi-      	1622,1799
+B20 Deduela         	hear                	isi-      	1622,1799
+B21 Kwato           	hear                	esi-      	1622,1799
+B22 Rerau           	hear                	isi-      	1622,1799
+B23 Jilim           	hear                	isi-      	1622,1799
+B24 Yangulam        	hear                	emse-     	1622,1799
+B25 Bom             	hear			gu-
+B26 Male            	hear			kai-
+B27 Bongu           	hear			laG-
+B28 Songum          	hear			ˀ(ɛ)-

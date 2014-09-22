@@ -1,0 +1,29 @@
+B1 Sinsauru         	nape                	tumʌku    	1864
+B2 Asas             	nape                	dumʌgu    	1864
+B3 Sausi            	nape                	tamau     	1577,1864
+B4 Koromu           	nape                	tamau     	1577,1864
+B5 Dumpu            	nape			sɪsɪki
+B6 Arawum           	nape                	tukmaŋgu  	1577,1864
+B7 Kolom            	nape                	dugu      	1577,1864
+B8 Suroi            	nape                	duku      	1577,1864
+B9 Lemio            	nape                	du:k      	1577,1864
+B10 Pulabu          	nape                	tigimono  	1577,1864
+B11 Yabong		nape			sagʌ-
+B12 Ganglau		nape			siga
+B13 Saep            	nape                	sakʌn-		1864
+B14 Usino           	nape			midib
+B15 Sumau           	nape                	tu-        	1864
+B16 Urigina         	nape			mindi-
+B17 Danaru          	nape			-mindi-
+B18 Usu             	nape                	du-       	1577,1864
+B19 Erima           	nape                	dugu-      	1577,1864
+B20 Deduela         	nape                	du- sugu   	1864
+B21 Kwato           	nape                	tu:may    	1577,1864
+B22 Rerau           	nape                	tuGumur   	1864
+B23 Jilim           	nape                	dobmar    	1577,1864
+B24 Yangulam        	nape                	dugasi    	1577,1864
+B25 Bom             	nape                	domba     	1577,1864
+B26 Male            	nape                	dogo mnak 	1864
+B27 Bongu           	nape			kounɛ
+B27 Bongu           	nape			kor
+B28 Songum          	nape                	dou kulu  	1864

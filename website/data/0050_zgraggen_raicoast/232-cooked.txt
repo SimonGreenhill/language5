@@ -1,0 +1,28 @@
+B1 Sinsauru         	cooked              	we        	1924
+B2 Asas             	cooked              	we        	1924
+B3 Sausi            	cooked              	wi        	1924
+B4 Koromu           	cooked              	we        	1924
+B5 Dumpu            	cooked			o-
+B6 Arawum           	cooked              	yi        	1924
+B7 Kolom            	cooked			
+B8 Suroi		cooked			uʔ-
+B9 Lemio            	cooked			
+B10 Pulabu		cooked			
+B11 Yabong		cooked			lo-
+B12 Ganglau		cooked			lɛ-
+B13 Saep		cooked			la-
+B14 Usino           	cooked			fug-
+B15 Sumau           	cooked              	wu        	1924
+B16 Urigina         	cooked			oga-
+B17 Danaru          	cooked			ᵱugɛ-
+B18 Usu             	cooked			hu-
+B19 Erima           	cooked              	uwe       	1924
+B20 Deduela         	cooked              	ue        	1924
+B21 Kwato           	cooked              	wi        	1924
+B22 Rerau           	cooked			
+B23 Jilim           	cooked			uGʌn
+B24 Yangulam        	cooked		
+B25 Bom             	cooked              	yu        	1924
+B26 Male            	cooked              	yu        	1924
+B27 Bongu           	cooked              	yawa      	1924
+B28 Songum          	cooked              	yuw       	1924

@@ -1,0 +1,31 @@
+B1 Sinsauru         	knife               	hetege    	1601,1782
+B2 Asas             	knife               	hetege    	1601,1782
+B3 Sausi            	knife               	ti:ge     	1601,1782
+B4 Koromu           	knife               	di:ge     	1601,1782
+B5 Dumpu            	knife			ᵱekʰ
+B6 Arawum           	knife			pukɛ
+B7 Kolom            	knife			silʌi
+B8 Suroi		knife			baˀi
+B9 Lemio            	knife			ʂndʌgu
+B10 Pulabu		knife			hʌmi
+B11 Yabong		knife			su
+B11 Yabong		knife			daŋga
+B12 Ganglau		knife			su
+B13 Saep		knife			su
+B14 Usino           	knife			kweime
+B15 Sumau           	knife			eime
+B16 Urigina         	knife			mɛbi
+B17 Danaru          	knife               	deg       	1601,1782
+B18 Usu             	knife			banɛn
+B19 Erima           	knife			kesebu
+B20 Deduela         	knife			kɛsɛ
+B21 Kwato           	knife			kisi
+B22 Rerau           	knife			kisim
+B23 Jilim           	knife			gisim
+B23 Jilim           	knife			kabay
+B24 Yangulam        	knife			sare
+B25 Bom             	knife			serie
+B25 Bom             	knife			kisi
+B26 Male            	knife			sirɛ
+B27 Bongu           	knife			sir̃au
+B28 Songum          	knife			siŋgɛr̃

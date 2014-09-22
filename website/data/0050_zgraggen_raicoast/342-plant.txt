@@ -1,0 +1,28 @@
+B1 Sinsauru         	plant			tɛn-
+B2 Asas             	plant			hai-
+B3 Sausi            	plant			mɛli-
+B4 Koromu           	plant			po-
+B5 Dumpu            	plant			fan-
+B6 Arawum           	plant               	tombi-    	1530,1720
+B7 Kolom            	plant               	tamba-    	1530,1720
+B8 Suroi		plant			ŋgu(ka)-
+B9 Lemio            	plant			
+B10 Pulabu		plant			
+B11 Yabong		plant			lume-
+B12 Ganglau		plant			lumo-
+B13 Saep		plant			luma-
+B14 Usino           	plant			ɔr-
+B15 Sumau           	plant			woro-
+B16 Urigina         	plant			mori-
+B17 Danaru          	plant			marag-
+B18 Usu             	plant               	tob-      	1530,1720
+B19 Erima           	plant			tau-
+B20 Deduela         	plant               	teβe-     	1530,1720
+B21 Kwato           	plant               	tabe-     	1530,1720
+B22 Rerau           	plant               	tambu-    	1530,1720
+B23 Jilim           	plant               	teb-      	1530,1720
+B24 Yangulam        	plant			
+B25 Bom             	plant			yag-
+B26 Male            	plant			bo-
+B27 Bongu           	plant			bo-
+B28 Songum          	plant			bi-

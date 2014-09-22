@@ -1,0 +1,37 @@
+B1 Sinsauru         	father              	babu-      	1497,1948
+B2 Asas             	father              	babio     	
+B2 Asas             	father              	babu-     	1497,1948
+B3 Sausi            	father              	awi       	1948
+B4 Koromu           	father              	pa-        	1948
+B5 Dumpu            	father              	au        	1497,1948
+B6 Arawum           	father              	-apa       	1948
+B7 Kolom            	father			ʌijʌ
+B8 Suroi		father			mam
+B9 Lemio            	father              	bapa      	1948
+B10 Pulabu		father			mama
+B11 Yabong		father			di-
+B11 Yabong		father			dɔku
+B12 Ganglau		father			mʌm
+B13 Saep		father			mam-
+B14 Usino           	father              	awia      	1948
+B14 Usino           	father              	omu-
+B15 Sumau           	father              	awa       	1948
+B15 Sumau           	father              	ɛmi
+B16 Urigina         	father			auga
+B16 Urigina         	father			ɛmɛ-
+B17 Danaru          	father              	aw- 	
+B17 Danaru          	father              	awia      	1948
+B18 Usu             	father              	ʌw	
+B18 Usu             	father              	bubu-      	1497
+B18 Usu             	father              	ɛmɛ-
+B19 Erima           	father			mʌmu
+B20 Deduela         	father			iay
+B21 Kwato           	father              	awa       	1948
+B22 Rerau		father			amuŋ
+B23 Jilim		father			momo
+B23 Jilim		father			-amoŋ
+B24 Yangulam        	father              	ʌbu       	1948
+B25 Bom             	father              	abu       	1497,1948
+B26 Male            	father              	abu       	1497,1948
+B27 Bongu           	father              	ʌb        	1948
+B28 Songum          	father              	au        	1497,1948

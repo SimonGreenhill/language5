@@ -1,0 +1,28 @@
+B1 Sinsauru         	bird                	yene      	1679,1847
+B2 Asas             	bird                	yene      	1679,1847
+B3 Sausi            	bird                	yene      	1679,1847
+B4 Koromu           	bird                	yene      	1679,1847
+B5 Dumpu            	bird                	i:ni      	1679,1847
+B6 Arawum           	bird			su
+B7 Kolom            	bird                	yen       	1679,1847
+B8 Suroi		bird			omoŋ
+B9 Lemio            	bird                	yen       	1679,1847
+B10 Pulabu		bird			mʌːbulo
+B11 Yabong		bird			kwe
+B12 Ganglau		bird			kwɛ
+B13 Saep		bird			kwɛ
+B14 Usino           	bird			ay
+B15 Sumau           	bird                	ni        	1679,1847
+B16 Urigina         	bird                	nei       	1679,1847
+B17 Danaru          	bird			ʌi
+B18 Usu             	bird			oˀoi
+B19 Erima           	bird                	ne:i      	1679,1847
+B20 Deduela         	bird                	nei       	1679,1847
+B21 Kwato           	bird                	nei       	1679,1847
+B22 Rerau           	bird                	ñei      	1679,1847
+B23 Jilim           	bird                	ŋi        	1679,1847
+B24 Yangulam        	bird                	yanem     	1679,1847
+B25 Bom             	bird			kebar̃i
+B26 Male            	bird			as
+B27 Bongu           	bird			as
+B28 Songum          	bird			as

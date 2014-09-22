@@ -1,0 +1,28 @@
+B1 Sinsauru         	garden			hʌkulu
+B2 Asas             	garden			hagure
+B3 Sausi            	garden              	kua       	1648,1822
+B4 Koromu           	garden              	wʌ        	1905, 1648,1822
+B5 Dumpu            	garden              	kwa:      	1648,1822
+B6 Arawum           	garden			haguro
+B7 Kolom            	garden			kulʌm
+B8 Suroi		garden			piro
+B9 Lemio            	garden			kʰo
+B10 Pulabu		garden			kulugu
+B11 Yabong          	garden              	we        	1648,1822,1905
+B12 Ganglau         	garden              	weh       	1648,1822,1905
+B13 Saep            	garden              	weh       	1648,1822,1905
+B14 Usino           	garden			kim
+B15 Sumau           	garden			saina
+B16 Urigina         	garden			kir
+B17 Danaru          	garden			kiri
+B18 Usu             	garden			mɛ
+B19 Erima           	garden			haga
+B20 Deduela         	garden			saka
+B21 Kwato           	garden			kur̃i
+B22 Rerau           	garden              	wu        	1905
+B23 Jilim           	garden              	wu        	1905
+B24 Yangulam        	garden              	wai       	1905
+B25 Bom             	garden              	wau       	1905
+B26 Male            	garden              	iu        	1905
+B27 Bongu           	garden              	wau       	1905
+B28 Songum          	garden              	yu        	1905

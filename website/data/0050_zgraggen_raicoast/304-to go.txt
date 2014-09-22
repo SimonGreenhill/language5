@@ -1,0 +1,29 @@
+B1 Sinsauru         	go                  	ga-       	1663,1835
+B2 Asas             	go                  	ka-       	1663,1835
+B3 Sausi            	go			yarɛ-
+B4 Koromu           	go			yan-
+B5 Dumpu            	go                  	kanu-     	1663,1835
+B6 Arawum           	go                  	kane-     	1663,1835
+B7 Kolom            	go                  	ka-       	1663,1835
+B8 Suroi            	go                  	k(ini)-   	1663,1835
+B9 Lemio            	go                  	kana-     	1663,1835
+B10 Pulabu		go			pʰe-
+B11 Yabong		go			asi-
+B12 Ganglau		go			zo-
+B12 Ganglau		go			ʂpul-
+B13 Saep		go			ah-
+B14 Usino           	go			ut-
+B15 Sumau           	go			ou-
+B16 Urigina         	go			ɛya-
+B17 Danaru          	go			iru-
+B18 Usu             	go			oni-
+B19 Erima           	go			goi-
+B20 Deduela         	go			goi-
+B21 Kwato           	go			oi-
+B22 Rerau           	go			so-
+B23 Jilim           	go			so-
+B24 Yangulam        	go			ɛn-
+B25 Bom             	go                  	gil-      	1663,1835
+B26 Male            	go                  	gli-      	1663,1835
+B27 Bongu           	go			kw-
+B28 Songum          	go			minǰi-

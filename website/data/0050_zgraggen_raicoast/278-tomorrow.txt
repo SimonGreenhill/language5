@@ -1,0 +1,27 @@
+B1 Sinsauru         	tomorrow		idɔdi
+B2 Asas             	tomorrow		idodiɛt
+B3 Sausi            	tomorrow		ido
+B4 Koromu           	tomorrow		ɛdo
+B5 Dumpu            	tomorrow		litu
+B6 Arawum           	tomorrow            	yepilimbo 	1528,1718
+B7 Kolom            	tomorrow            	yambo     	1528,1718
+B8 Suroi		tomorrow		endole
+B9 Lemio            	tomorrow		wʌso
+B10 Pulabu		tomorrow		ʌbɪnan
+B11 Yabong		tomorrow		mandaŋna
+B12 Ganglau		tomorrow		vɪdiŋ
+B13 Saep		tomorrow		fɛkʌn
+B14 Usino           	tomorrow		kɛlisɛ
+B15 Sumau           	tomorrow		iʌt
+B16 Urigina         	tomorrow		wɛagʌr
+B17 Danaru          	tomorrow		ᵱigʌr
+B18 Usu             	tomorrow            	ibate     	1528,1718
+B19 Erima           	tomorrow		ira
+B20 Deduela         	tomorrow		ɛira
+B21 Kwato           	tomorrow            	ipoe      	1528,1718
+B22 Rerau           	tomorrow            	imbel     	1528,1718
+B23 Jilim           	tomorrow            	ibel      	1528,1718
+B24 Yangulam        	tomorrow            	amblem    	1528,1718
+B26 Male            	tomorrow            	yumba     	1528,1718
+B27 Bongu           	tomorrow            	yamba     	1528,1718
+B28 Songum          	tomorrow            	ibilam    	1528,1718

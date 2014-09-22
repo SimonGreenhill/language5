@@ -1,0 +1,29 @@
+B1 Sinsauru         	brains              	kum/aim   	
+B2 Asas             	brains              	nurunu    	1666,1838
+B3 Sausi            	brains			tuᵱu
+B4 Koromu           	brains              	muru      	1666,1838
+B5 Dumpu            	brains			tigri
+B6 Arawum           	brains			daŋa
+B7 Kolom            	brains			ŋunto
+B8 Suroi		brains			itilu
+B9 Lemio            	brains			ndʌŋʌ
+B10 Pulabu          	brains              	ŋo:ŋgulu  	1666,1838
+B11 Yabong          	brains              	mikiklum- 	
+B11 Yabong          	brains              	mikiklum  	1666,1838
+B12 Ganglau         	brains              	kikluŋ    	1666,1838
+B13 Saep            	brains              	meke kurub-	1838
+B14 Usino           	brains			hɛtim
+B15 Sumau           	brains			oromiam
+B16 Urigina         	brains			tʰɛni
+B17 Danaru          	brains			etuᵬ
+B18 Usu             	brains			waginau
+B19 Erima           	brains			bɛsolaso
+B20 Deduela         	brains			lalua
+B21 Kwato           	brains			itaːnu
+B22 Rerau           	brains              	gulaŋ     	1666,1838
+B23 Jilim           	brains              	gilaŋ     	1666,1838
+B24 Yangulam        	brains			juju
+B25 Bom             	brains              	ñalok    	1666,1838
+B26 Male            	brains              	ŋilaŋ     	1666,1838
+B27 Bongu           	brains              	ŋelik     	1666,1838
+B28 Songum          	brains              	ŋelaŋ     	1666,1838

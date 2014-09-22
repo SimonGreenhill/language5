@@ -1,0 +1,53 @@
+B1 Sinsauru         	possessive marker         	-ø
+B2 Asas             	possessive marker         	-ø
+B2 Asas             	possessive marker         	-io
+B3 Sausi            	possessive marker         	-ow
+B4 Koromu           	possessive marker         	-o
+B5 Dumpu            	possessive marker         	-ra
+B5 Dumpu            	possessive marker         	-ne(na)
+B6 Arawum           	possessive marker         	-ɛŋi
+B6 Arawum           	possessive marker         	-ɛmɛ
+B6 Arawum           	possessive marker         	-ɛmbɛ
+B6 Arawum           	possessive marker         	-ŋo
+B7 Kolom            	possessive marker         	-mɛ
+B8 Suroi            	possessive marker         	-tuku
+B9 Lemio            	possessive marker (sg)    	-ŋi
+B9 Lemio            	possessive marker (pl)    	-digi
+B10 Pulabu          	possessive marker         	-ø
+B11 Yabong          	possessive marker         	-ob
+B11 Yabong          	possessive marker         	-gob
+B11 Yabong          	possessive marker         	-gub
+B12 Ganglau         	possessive marker         	-b
+B12 Ganglau         	possessive marker         	-ø
+B12 Ganglau         	possessive marker         	-si
+B13 Saep            	possessive marker         	-b
+B13 Saep            	possessive marker         	-ø
+B14 Usino           	possessive marker         	-(i)b
+B15 Sumau           	possessive marker         	-w
+B15 Sumau           	possessive marker         	-b
+B16 Urigina         	possessive marker         	-(a)mbo
+B17 Danaru          	possessive marker (sg)    	-(a)mp
+B17 Danaru          	possessive marker (pl)    	-ŋk
+B18 Usu             	possessive marker (sg)    	-b
+B18 Usu             	possessive marker (pl)    	-eb
+B19 Erima           	possessive marker (sg)    	-mɛ
+B19 Erima           	possessive marker (pl)    	-bɛra
+B19 Erima           	possessive marker (dual)   	-irɛ
+B20 Deduela         	possessive marker (sg)    	-mɛ
+B20 Deduela         	possessive marker (pl)    	-bidɛ
+B20 Deduela         	possessive marker (dl)    	-birɛ
+B21 Kwato           	possessive marker         	-ey
+B22 Rerau           	possessive marker         	-mbi
+B22 Rerau           	possessive marker         	-ø
+B23 Jilim           	possessive marker         	-(a)bi
+B23 Jilim           	possessive marker         	-ø
+B24 Yangulam        	possessive marker (sg)    	-ø
+B24 Yangulam        	possessive marker (sg)    	-ŋi
+B24 Yangulam        	possessive marker (pl)    	-ˀane
+B24 Yangulam        	possessive marker (dl)    	-ˀale
+B25 Bom             	possessive marker         	-o
+B26 Male            	possessive marker         	-o
+B27 Bongu           	possessive marker         	-Vm
+B28 Songum          	possessive marker         	-o
+
+

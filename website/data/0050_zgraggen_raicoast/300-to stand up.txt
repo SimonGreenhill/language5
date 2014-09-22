@@ -1,0 +1,28 @@
+B1 Sinsauru         	stand up            	seil-     	1618,1795
+B2 Asas             	stand up            	sair-     	1618,1795
+B3 Sausi            	stand up		toubi-
+B4 Koromu           	stand up            	segi pe-  	1618,1795
+B5 Dumpu            	stand up            	sira-     	1618,1795
+B6 Arawum           	stand up            	sekile-   	1618,1795
+B7 Kolom            	stand up		padʌŋ(ka)
+B8 Suroi		stand up		tiŋga-
+B9 Lemio            	stand up		petiŋi-
+B10 Pulabu		stand up		tʰile-
+B11 Yabong		stand up		pusati-
+B12 Ganglau		stand up		dig-
+B13 Saep		stand up		dig-
+B14 Usino           	stand up            	selat-    	1618,1795
+B15 Sumau           	stand up            	saru-     	1618,1795
+B16 Urigina         	stand up            	saga(ta)- 	1618,1795
+B17 Danaru          	stand up            	segr̃t-   	1618,1795
+B18 Usu             	stand up		hoto-
+B19 Erima           	stand up            	jai-      	
+B20 Deduela         	stand up		ifa-
+B21 Kwato           	stand up		pata-
+B22 Rerau           	stand up		piden-
+B23 Jilim           	stand up		pidɛn-
+B24 Yangulam        	stand up		tɪŋ-
+B25 Bom             	stand up		tigɛl-
+B26 Male            	stand up		utui-
+B27 Bongu           	stand up		weip-
+B28 Songum          	stand up		dudu-

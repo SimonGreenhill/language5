@@ -1,0 +1,28 @@
+B1 Sinsauru         	singapore taro		dɔ sopaka
+B2 Asas             	singapore taro		tou sɛp
+B3 Sausi            	singapore taro		kogau
+B4 Koromu           	singapore taro		prʌsbʌg
+B5 Dumpu            	singapore taro		sipʌk
+B6 Arawum           	singapore taro		koŋkoŋ
+B7 Kolom            	singapore taro		dʌbir̃
+B8 Suroi		singapore taro		koŋkoŋ
+B9 Lemio            	singapore taro		ʂpʌ
+B10 Pulabu		singapore taro		simbaŋ
+B11 Yabong		singapore taro		gebli
+B12 Ganglau		singapore taro		
+B13 Saep		singapore taro		bɛˀbi
+B14 Usino           	singapore taro		komkom
+B15 Sumau           	singapore taro		pugɛri
+B16 Urigina         	singapore taro		bogɛri
+B17 Danaru          	singapore taro		gogo
+B18 Usu             	singapore taro		komkom
+B19 Erima           	singapore taro		bugɛr̃a
+B20 Deduela         	singapore taro		bugɛr̃
+B21 Kwato           	singapore taro		pugɛr̃i
+B22 Rerau           	singapore taro		simbaŋ
+B23 Jilim           	singapore taro		simbaŋ
+B24 Yangulam        	singapore taro		
+B25 Bom             	singapore taro		koŋkoŋ
+B26 Male            	singapore taro		simbaŋ
+B27 Bongu           	singapore taro		koŋkoŋ
+B28 Songum          	singapore taro		

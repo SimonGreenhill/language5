@@ -1,0 +1,29 @@
+B1 Sinsauru         	stone axe		lau
+B2 Asas             	stone axe		lau
+B3 Sausi            	stone axe		tau
+B4 Koromu           	stone axe		ɛko
+B5 Dumpu            	stone axe		sɔk
+B6 Arawum           	stone axe		tʰʌːkʰu
+B7 Kolom            	stone axe		palʌgis
+B8 Suroi		stone axe		dame taˀ
+B9 Lemio            	stone axe		brutʌg
+B10 Pulabu		stone axe		tʰuŋo
+B11 Yabong		stone axe		loŋ
+B12 Ganglau		stone axe		luŋ
+B13 Saep		stone axe		lɔŋ
+B14 Usino           	stone axe           	mʌn       	
+B15 Sumau           	stone axe           	mʌ:ni     	
+B16 Urigina         	stone axe           	mʌ:n 
+B16 Urigina         	stone axe           	poman
+B17 Danaru          	stone axe		pomʌn
+B18 Usu             	stone axe		is
+B19 Erima           	stone axe		yɛpi
+B20 Deduela         	stone axe		yepi
+B21 Kwato           	stone axe           	mʌ:nu     	
+B22 Rerau           	stone axe           	sab uimʌnu	
+B23 Jilim           	stone axe		məñaŋ
+B24 Yangulam        	stone axe		tʌːau
+B25 Bom             	stone axe		iŋga
+B26 Male            	stone axe		mɛnɛn
+B27 Bongu           	stone axe		pʌt
+B28 Songum          	stone axe		

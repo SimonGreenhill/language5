@@ -1,0 +1,28 @@
+B1 Sinsauru         	moon			geilɛ
+B2 Asas             	moon                	asi       	1908
+B3 Sausi            	moon                	asi       	1908
+B4 Koromu           	moon                	ʌsi       	1908
+B5 Dumpu            	moon                	esi       	1908
+B6 Arawum           	moon			ŋalu
+B7 Kolom            	moon			filei
+B8 Suroi            	moon                	tambun    	
+B9 Lemio            	moon			ŋair̃u
+B10 Pulabu          	moon                	ʌ:si      	1908
+B11 Yabong		moon			lʌbo
+B12 Ganglau		moon			lubu
+B13 Saep		moon			lʌbo
+B14 Usino           	moon                	esina     	1908
+B15 Sumau           	moon			poita
+B16 Urigina         	moon			paitɛ
+B17 Danaru          	moon			kaŋgu
+B18 Usu             	moon                	hegin     	
+B19 Erima           	moon                	ole       	1906
+B20 Deduela         	moon                	u:le      	1906
+B21 Kwato           	moon                	ilama     	1906
+B22 Rerau           	moon			kulukum
+B23 Jilim           	moon			kulogom
+B24 Yangulam        	moon			saˀem
+B25 Bom             	moon			bai
+B26 Male            	moon			kakam
+B27 Bongu           	moon                	kagam
+B28 Songum          	moon                	ʔɛlɛm     	

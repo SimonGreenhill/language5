@@ -1,0 +1,29 @@
+B1 Sinsauru         	tail of dog                	durum     	1589,1771
+B2 Asas             	tail of dog                	duru      	1589,1771
+B3 Sausi            	tail of dog                	tru:no    	1771
+B4 Koromu           	tail of dog                	tɔr̃un     	1589
+B5 Dumpu            	tail of dog			
+B6 Arawum           	tail of dog                	ndul      	1589,1771
+B7 Kolom            	tail of dog			muŋga
+B8 Suroi            	tail of dog                	dadu      	1771
+B9 Lemio            	tail of dog                	dur̃      	1589,1771
+B10 Pulabu          	tail of dog                	dili      	1589,1771
+B11 Yabong          	tail of dog                	diŋut     	1589,1771
+B12 Ganglau         	tail of dog                	ziŋ       	1589,1771
+B13 Saep            	tail of dog                	din       	1589,1771
+B14 Usino           	tail of dog			gom
+B14 Usino           	tail of dog			gɛnam
+B15 Sumau           	tail of dog			kɔm
+B16 Urigina         	tail of dog			muŋga-mu
+B17 Danaru          	tail of dog			muŋgom
+B18 Usu             	tail of dog			gʌː
+B19 Erima           	tail of dog			mʌla
+B20 Deduela         	tail of dog			mala
+B21 Kwato           	tail of dog			mala
+B22 Rerau           	tail of dog			seŋgi
+B23 Jilim           	tail of dog			sɛŋgi
+B24 Yangulam        	tail of dog                	dulum     	1771
+B25 Bom             	tail of dog			weru
+B26 Male            	tail of dog			magi
+B27 Bongu           	tail of dog                	or̃u      	1771
+B28 Songum          	tail of dog			mogi

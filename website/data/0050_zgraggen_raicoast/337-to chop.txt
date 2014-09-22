@@ -1,0 +1,33 @@
+B1 Sinsauru         	chop (with axe)				bɛr-
+B1 Sinsauru         	chop (with axe)				hotogli-
+B2 Asas             	chop (with axe)				(hi)bɛr-
+B3 Sausi            	chop (with axe)				fay-
+B4 Koromu           	chop (with axe)				hod-
+B5 Dumpu            	chop (with axe)				san-
+B6 Arawum           	chop (with axe)				pʰakɛ-
+B7 Kolom            	chop (with axe)				pau-
+B8 Suroi            	chop (with axe)                	kwer(ka)-  	1655,1829
+B9 Lemio            	chop (with axe)                	
+B10 Pulabu		chop (with axe)				tʰagu-
+B11 Yabong		chop (with axe)				sag-
+B12 Ganglau		chop (with axe)				sʌg-
+B13 Saep		chop (with axe)				sag-
+B14 Usino           	chop (with axe)				tʌy-
+B14 Usino           	chop (with axe)				katu-
+B15 Sumau           	chop (with axe)				tuga(wa)-
+B16 Urigina         	chop (with axe)                	kati-     	1655,1829
+B16 Urigina         	chop (with axe)                		geti-
+B17 Danaru          	chop (with axe)				ŋgo-
+B18 Usu             	chop (with axe)				bah-
+B19 Erima           	chop (with axe)				karu-
+B20 Deduela         	chop (with axe)                	kati-     	1655,1829
+B20 Deduela         	chop (with axe)                		lau-
+B21 Kwato           	chop (with axe)                	keti-     	1655,1829
+B21 Kwato           	chop (with axe)                		ti-
+B22 Rerau           	chop (with axe)				pʰo-
+B23 Jilim           	chop (with axe)				hai-
+B24 Yangulam        	chop (with axe)				pa-
+B25 Bom             	chop (with axe)                	gent-     	1655,1829
+B26 Male            	chop (with axe)				tuŋti-
+B27 Bongu           	chop (with axe)				Gur-
+B28 Songum          	chop (with axe)				anjʌŋ-

@@ -1,0 +1,28 @@
+B1 Sinsauru         	make		gogo-
+B2 Asas             	make		
+B3 Sausi            	make		
+B4 Koromu           	make		
+B5 Dumpu            	make		tika-
+B6 Arawum           	make		i-
+B7 Kolom            	make		
+B8 Suroi		make		nuŋw-
+B9 Lemio            	make		
+B10 Pulabu		make		
+B11 Yabong		make		noi-
+B12 Ganglau		make		dau-
+B13 Saep		make		fɛg-
+B14 Usino           	make		aminig-
+B15 Sumau           	make		kʌkɛ-
+B16 Urigina         	make		yonuŋg-
+B17 Danaru          	make		bagu-
+B18 Usu             	make		ʌkaˀ-
+B19 Erima           	make		ono-
+B20 Deduela         	make		
+B21 Kwato           	make		an-
+B22 Rerau           	make		tel-
+B23 Jilim           	make		
+B24 Yangulam        	make		
+B25 Bom             	make		
+B26 Male            	make		manɛnɛ-
+B27 Bongu           	make		at-
+B28 Songum          	make		yu-

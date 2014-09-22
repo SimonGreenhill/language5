@@ -1,0 +1,30 @@
+B1 Sinsauru         	fasten              	gitn-     	1608,1788
+B2 Asas             	fasten			hogi-
+B3 Sausi            	fasten			fɛdɛn-
+B4 Koromu           	fasten              	gidina-   	1608,1788
+B5 Dumpu            	fasten              	gudu(ŋ)-  	1608,1788
+B6 Arawum           	fasten			kwasi-
+B7 Kolom            	fasten			bʌdi-
+B8 Suroi		fasten			kusɛ-
+B9 Lemio            	fasten			yiᵱɛr-
+B10 Pulabu		fasten			
+B11 Yabong          	fasten              	gedi-     	1608,1788
+B12 Ganglau		fasten			vid-
+B13 Saep		fasten			wag-
+B14 Usino           	fasten			daw-
+B14 Usino           	fasten			wʌl-
+B15 Sumau           	fasten			tʰʌwo-
+B16 Urigina         	fasten			
+B17 Danaru          	fasten			wari-
+B18 Usu             	fasten              	wot-      	1608,1788
+B19 Erima           	fasten			dagi-
+B20 Deduela         	fasten			dʌgɛ-
+B21 Kwato           	fasten			tʌgi-
+B21 Kwato           	fasten			do-
+B22 Rerau           	fasten              	wadi-     	1608,1788
+B23 Jilim           	fasten              	wad-      	1608,1788
+B24 Yangulam        	fasten			us-
+B25 Bom             	fasten              	gos-      	1608,1788
+B26 Male            	fasten			griɛg-
+B27 Bongu           	fasten              	Gos-      	1608,1788
+B28 Songum          	fasten		

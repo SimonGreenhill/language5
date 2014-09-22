@@ -1,0 +1,28 @@
+B1 Sinsauru         	iron axe		figai
+B2 Asas             	iron axe		lau usurunum
+B3 Sausi            	iron axe		tamiˀou
+B4 Koromu           	iron axe		
+B5 Dumpu            	iron axe		sumbur
+B6 Arawum           	iron axe		sapol
+B7 Kolom            	iron axe		
+B8 Suroi		iron axe		sapor
+B9 Lemio            	iron axe		tʌːga
+B10 Pulabu		iron axe		tʰuŋo
+B11 Yabong		iron axe		pʰʌdgip
+B12 Ganglau		iron axe		plagis
+B13 Saep		iron axe		
+B14 Usino           	iron axe		
+B15 Sumau           	iron axe		ekʌi
+B16 Urigina         	iron axe		igei
+B17 Danaru          	iron axe		mʌn
+B18 Usu             	iron axe		mon
+B19 Erima           	iron axe		sabɔra
+B20 Deduela         	iron axe		tapora
+B21 Kwato           	iron axe		mʌːnu
+B22 Rerau           	iron axe		sabur
+B23 Jilim           	iron axe		sapor
+B24 Yangulam        	iron axe		tabor̃
+B25 Bom             	iron axe		tapor
+B26 Male            	iron axe		sapor̃
+B27 Bongu           	iron axe		tapor
+B28 Songum          	iron axe		tʌpor̃

@@ -1,0 +1,29 @@
+B1 Sinsauru         	tongue              	medet     	1861
+B2 Asas             	tongue			yabtalu
+B3 Sausi            	tongue			tama mɛa
+B4 Koromu           	tongue			tama mɛa
+B5 Dumpu            	tongue			sʌnᵘmun
+B6 Arawum           	tongue              	mele      	1861
+B7 Kolom            	tongue              	muni      	1861
+B8 Suroi            	tongue              	mane      	1861
+B9 Lemio            	tongue			kʰɛñɛ
+B10 Pulabu		tongue			ulɛlɛŋ
+B11 Yabong          	tongue              	meŋu-      	1861
+B12 Ganglau         	tongue              	mi        	1861
+B13 Saep            	tongue              	men-      	1861
+B14 Usino           	tongue			meimei
+B15 Sumau           	tongue              	mino-     	1861
+B16 Urigina         	tongue              	meknomo   	
+B17 Danaru          	tongue              	meme-     	
+B18 Usu             	tongue              	mino-      	1861
+B19 Erima           	tongue              	muñʌge    	1861
+B20 Deduela         	tongue              	muna      	1861
+B21 Kwato           	tongue              	me   
+B21 Kwato           	tongue              	sileya
+B22 Rerau           	tongue              	eŋ        	
+B23 Jilim           	tongue              	eŋ        	
+B24 Yangulam        	tongue              	muniaŋ    	1861
+B25 Bom             	tongue              	meŋ       	1861
+B26 Male            	tongue              	moin      	1861
+B27 Bongu           	tongue              	muin      	1861
+B28 Songum          	tongue              	mien      	1861

@@ -1,0 +1,36 @@
+B1 Sinsauru         	1SG (gen)		
+B2 Asas             	1SG (gen)		-ø
+B3 Sausi            	1SG (gen)		-(ma)mo
+B4 Koromu           	1SG (gen)		-(ma)mo
+B5 Dumpu            	1SG (gen)		
+B6 Arawum           	1SG (gen)		ø-
+B7 Kolom            	1SG (gen)		
+B7 Kolom            	1SG (gen)		
+B8 Suroi	        	1SG (gen)		
+B9 Lemio            	1SG (gen)		yi-
+B10 Pulabu	        	1SG (gen)		
+B11 Yabong	        	1SG (gen)		-(ɛ)m
+B11 Yabong	        	1SG (gen)		-ø
+B12 Ganglau	        	1SG (gen)		
+B13 Saep	        	1SG (gen)		-mɛ
+B14 Usino           	1SG (gen)		-ia
+B15 Sumau           	1SG (gen)		-y
+B15 Sumau           	1SG (gen)		-ika
+B16 Urigina         	1SG (gen)		-yɛ
+B16 Urigina         	1SG (gen)		-ika
+B17 Danaru          	1SG (gen)		yV-
+B18 Usu             	1SG (gen)		-i
+B18 Usu             	1SG (gen)		-y
+B19 Erima           	1SG (gen)		-fɛ
+B20 Deduela         	1SG (gen)		-ᵽi
+B20 Deduela         	1SG (gen)		-pi
+B20 Deduela         	1SG (gen)		-y
+B20 Deduela         	1SG (gen)		-ø
+B21 Kwato           	1SG (gen)		
+B22 Rerau           	1SG (gen)		
+B23 Jilim           	1SG (gen)		ya-
+B24 Yangulam        	1SG (gen)		
+B25 Bom             	1SG (gen)		
+B26 Male            	1SG (gen)		
+B27 Bongu           	1SG (gen)		
+B28 Songum          	1SG (gen)		

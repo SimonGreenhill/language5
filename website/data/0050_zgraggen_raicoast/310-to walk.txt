@@ -1,0 +1,28 @@
+B1 Sinsauru         	walk                	lei-      	1592,1774
+B2 Asas             	walk                	lei-      	1592,1774
+B3 Sausi            	walk                	dai-      	1592,1774
+B4 Koromu           	walk                	tehi-     	1592,1774
+B5 Dumpu            	walk			kʌnu-
+B6 Arawum           	walk			kɛnel-
+B7 Kolom            	walk			
+B8 Suroi		walk			lik-
+B9 Lemio            	walk			
+B10 Pulabu		walk			
+B11 Yabong		walk			asi-
+B12 Ganglau		walk			mondʌ-
+B13 Saep		walk			ya-
+B14 Usino           	walk                	deag-     	1592,1774
+B15 Sumau           	walk                	teʔe-     	1592,1774
+B16 Urigina         	walk                	tego-     	1592,1774
+B17 Danaru          	walk                	tago-     	1592,1774
+B18 Usu             	walk			haru-
+B19 Erima           	walk			gonɔ-
+B20 Deduela         	walk			goi-
+B21 Kwato           	walk			oi-
+B22 Rerau           	walk			so-
+B23 Jilim           	walk			so-
+B24 Yangulam        	walk                	ta-       	1592,1774
+B25 Bom             	walk			walwɛl-
+B26 Male            	walk			walwalɛ-
+B27 Bongu           	walk			ol-
+B28 Songum          	walk			and-

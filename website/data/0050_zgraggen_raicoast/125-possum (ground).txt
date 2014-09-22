@@ -1,0 +1,27 @@
+B1 Sinsauru         	possum (ground)		
+B2 Asas             	possum (ground)		usbɛ
+B3 Sausi            	possum (ground)     	katine    	
+B4 Koromu           	possum (ground)		nʌːkwa
+B5 Dumpu            	possum (ground)		
+B6 Arawum           	possum (ground)		kumbak
+B7 Kolom            	possum (ground)		dʌmɛl
+B8 Suroi		possum (ground)		damar̃
+B9 Lemio            	possum (ground)		kumbʌg
+B10 Pulabu		possum (ground)		
+B11 Yabong		possum (ground)		guŋdo
+B12 Ganglau		possum (ground)		ŋguay
+B13 Saep		possum (ground)		motna
+B14 Usino           	possum (ground)     	gadin     	
+B15 Sumau           	possum (ground)		tei
+B16 Urigina         	possum (ground)		kɛmin
+B17 Danaru          	possum (ground)     	garin     	
+B18 Usu             	possum (ground)		gosin
+B19 Erima           	possum (ground)		ŋewa
+B20 Deduela         	possum (ground)		poya
+B22 Rerau           	possum (ground)		
+B23 Jilim           	possum (ground)		jiŋgeni
+B24 Yangulam        	possum (ground)		gangur̃u
+B25 Bom             	possum (ground)		magumaǰ
+B26 Male            	possum (ground)     	ginim     	
+B27 Bongu           	possum (ground)     	genim     	
+B28 Songum          	possum (ground)		

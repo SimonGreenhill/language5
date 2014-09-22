@@ -1,0 +1,41 @@
+B1 Sinsauru         	pandanus            	kulou     	1640,1815
+B1 Sinsauru         	pandanus            	holleli
+B2 Asas             	pandanus            	horou     	1640,1815
+B3 Sausi            	pandanus            	koro      	1640,1815
+B3 Sausi            	pandanus            	peniwiwi
+B4 Koromu           	pandanus            	oro       	1640,1815
+B5 Dumpu            	pandanus		tiŋ
+B5 Dumpu            	pandanus		fᵘru
+B6 Arawum           	pandanus		mʌ
+B6 Arawum           	pandanus		panǰina
+B7 Kolom            	pandanus            	kod       	1640,1815
+B8 Suroi            	pandanus            	ŋgorʰ      	1640,1815
+B9 Lemio            	pandanus            	kro       	1640,1815
+B10 Pulabu		pandanus		mɛːsɪ
+B11 Yabong		pandanus		dʌgɛd
+B12 Ganglau         	pandanus            	kud       	1640,1815
+B12 Ganglau         	pandanus            	zigɛr
+B13 Saep            	pandanus            	kʰod       	1640,1815
+B13 Saep            	pandanus            	daga
+B13 Saep            	pandanus            	sawɛŋ
+B14 Usino           	pandanus            	korow     	1640,1815
+B15 Sumau           	pandanus            	oro       	1640,1815
+B15 Sumau           	pandanus            	saria
+B16 Urigina         	pandanus            	korou     	1640,1815
+B17 Danaru          	pandanus            	kuru      	1640,1815
+B18 Usu             	pandanus		pʌːu
+B19 Erima           	pandanus		dimau
+B20 Deduela         	pandanus            	oro       	1640,1815
+B21 Kwato           	pandanus            	orou      	1640,1815
+B21 Kwato           	pandanus            	jirau
+B21 Kwato           	pandanus            	iːmo
+B22 Rerau           	pandanus            	kur̃ow    	1640,1815
+B23 Jilim           	pandanus            	kur̃o     	1640,1815
+B24 Yangulam        	pandanus		moa
+B25 Bom             	pandanus		ǰir̃gu
+B25 Bom             	pandanus		kanai
+B26 Male            	pandanus		waku
+B27 Bongu           	pandanus		palim
+B27 Bongu           	pandanus		jiglain
+B27 Bongu           	pandanus		jiu
+B28 Songum          	pandanus		

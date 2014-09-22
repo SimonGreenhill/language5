@@ -1,0 +1,28 @@
+B1 Sinsauru         	sharp		hamon
+B2 Asas             	sharp		namu-(n)
+B3 Sausi            	sharp		wɛinɛ
+B4 Koromu           	sharp		
+B5 Dumpu            	sharp		mɛːgrom
+B6 Arawum           	sharp		maŋgɛmtʰou
+B7 Kolom            	sharp		
+B8 Suroi		sharp		aˀok(nu)
+B9 Lemio            	sharp		
+B10 Pulabu		sharp		
+B11 Yabong		sharp		giliŋ
+B12 Ganglau		sharp		ulikŋ
+B13 Saep		sharp		ulig-ŋgo
+B14 Usino           	sharp		mʌga
+B15 Sumau           	sharp		nɔtuku
+B16 Urigina         	sharp		mʌkip
+B17 Danaru          	sharp		maguᵱ
+B18 Usu             	sharp		mahɛrab
+B19 Erima           	sharp		mambagu
+B20 Deduela         	sharp		ma(bagu)
+B21 Kwato           	sharp		manʌː(pa)
+B22 Rerau           	sharp		
+B23 Jilim           	sharp		kom
+B24 Yangulam        	sharp		
+B25 Bom             	sharp		gʌla-
+B26 Male            	sharp		wiliko
+B27 Bongu           	sharp		alue
+B28 Songum          	sharp		ˀɛr̃ɛ

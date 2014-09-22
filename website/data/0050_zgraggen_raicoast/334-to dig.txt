@@ -1,0 +1,28 @@
+B1 Sinsauru         	dig                 	kiri-     	1634,1810
+B2 Asas             	dig                 	kri-      	1634,1810
+B3 Sausi            	dig                 	ore-      	1634,1810
+B4 Koromu           	dig			pɛdigɛ-
+B5 Dumpu            	dig                 	ra-       	1634,1810
+B6 Arawum           	dig                 	kuli-     	1634,1810
+B7 Kolom            	dig			
+B8 Suroi		dig			sar(ka)-
+B9 Lemio            	dig			
+B10 Pulabu		dig			bulo-
+B11 Yabong          	dig                 	sere-     	1634,1810
+B12 Ganglau         	dig                 	sel-      	1634,1810
+B13 Saep            	dig                 	se:-      	1634,1810
+B14 Usino           	dig                 	kul-      	1634,1810
+B15 Sumau           	dig                 	uru-      	1634,1810
+B16 Urigina         	dig                 	kure-     	1634,1810
+B17 Danaru          	dig                 	kure-     	1634,1810
+B18 Usu             	dig                 	uz-       	1634,1810
+B19 Erima           	dig			hunŋgul-
+B20 Deduela         	dig                 	ur̃e-     	1634,1810
+B21 Kwato           	dig                 	ol-       	1634,1810
+B22 Rerau           	dig                 	hor̃-     	1634,1810
+B23 Jilim           	dig                 	hol-      	1634,1810
+B24 Yangulam        	dig                 	or̃atu-   	1634,1810
+B25 Bom             	dig			bog-
+B26 Male            	dig			bol-
+B27 Bongu           	dig			sub uG-
+B28 Songum          	dig			d-

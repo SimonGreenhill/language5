@@ -1,0 +1,28 @@
+B1 Sinsauru         	tie			ilau-
+B2 Asas             	tie			irau-
+B3 Sausi            	tie			æbrɛ-
+B4 Koromu           	tie			ahartɛ-
+B5 Dumpu            	tie                 	barig    	1942
+B6 Arawum           	tie			pʰika-
+B7 Kolom            	tie                 	dud	  	1942
+B8 Suroi            	tie                 	didi(ka)  	1942
+B9 Lemio            	tie                 	pʌtiti   	1942
+B10 Pulabu          	tie                 	rigi      	1942
+B11 Yabong          	tie                 	diŋdiŋtʰi 	1942
+B12 Ganglau		tie			wis-
+B13 Saep		tie			wɛh-
+B14 Usino           	tie			ᵱiag-
+B15 Sumau           	tie			kɛwo-
+B16 Urigina         	tie			ku-
+B17 Danaru          	tie			aᵬro-
+B18 Usu             	tie                 	diru      	1942
+B19 Erima           	tie                 	di	   	1942
+B20 Deduela         	tie                 	di	  	1942
+B21 Kwato           	tie                 	gu-
+B22 Rerau           	tie			keuŋ-
+B23 Jilim           	tie			r̃ɛu-
+B24 Yangulam        	tie                 	diŋ       	1942
+B25 Bom             	tie                 	titə      	1942
+B26 Male            	tie			gus-
+B27 Bongu           	tie                 	baditi   	1942
+B28 Songum          	tie			gigig-

@@ -1,0 +1,31 @@
+B1 Sinsauru         	call out		yɛ-
+B2 Asas             	call out		iai-
+B3 Sausi            	call out		au-
+B4 Koromu           	call out		yo-
+B5 Dumpu            	call out		wari f-
+B6 Arawum           	call out		ŋgau ŋuka-
+B7 Kolom            	call out		mɛn da-
+B8 Suroi		call out		wi(ka)-
+B9 Lemio            	call out		ŋundug-
+B9 Lemio            	call out		ɔːg-
+B10 Pulabu		call out		bʌgo-
+B11 Yabong		call out		ʌbawɔ-
+B12 Ganglau		call out		igog-
+B13 Saep		call out		wɛː-
+B14 Usino           	call out		igiag-
+B15 Sumau           	call out		uru yaˀɛ-
+B16 Urigina         	call out		augu-
+B16 Urigina         	call out		aruga-
+B17 Danaru          	call out		ogugu-
+B18 Usu             	call out		oinu-
+B19 Erima           	call out		yaurɛ-
+B20 Deduela         	call out		yau-
+B21 Kwato           	call out		oːl-
+B22 Rerau           	call out		wo-
+B23 Jilim           	call out		wuo-
+B24 Yangulam        	call out		ɛmɛl-
+B25 Bom             	call out		lɛlɛŋ-
+B26 Male            	call out		mai-
+B27 Bongu           	call out		ma-
+B27 Bongu           	call out		wayaŋ-
+B28 Songum          	call out		mʌ-

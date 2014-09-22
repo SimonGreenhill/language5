@@ -1,0 +1,28 @@
+B1 Sinsauru         	daybreak		hoːle
+B2 Asas             	daybreak            	sa-biar   	1525,1715
+B3 Sausi            	daybreak		sa bida(mo)
+B4 Koromu           	daybreak		sa ura
+B5 Dumpu            	daybreak		sʌ pena
+B6 Arawum           	daybreak            	sembi     	1525,1715
+B7 Kolom            	daybreak            	yambat    	1525,1715
+B8 Suroi		daybreak		mafɛn
+B9 Lemio            	daybreak            	yampirga  	1525,1715
+B10 Pulabu          	daybreak            	sambilaŋ  	1525,1715
+B11 Yabong		daybreak		uti-
+B12 Ganglau		daybreak		fɛksis
+B13 Saep		daybreak		mosɛg-
+B14 Usino           	daybreak		suwayo
+B15 Sumau           	daybreak		umiˀina
+B16 Urigina         	daybreak            	sapembai  	1525,1715
+B17 Danaru          	daybreak            	jambejo   	1525,1715
+B18 Usu             	daybreak            	hapia     	1525,1715
+B19 Erima           	daybreak            	habana    	1525,1715
+B20 Deduela         	daybreak            	sabata    	1525,1715
+B21 Kwato           	daybreak		
+B22 Rerau           	daybreak            	semblendaŋ	1525,1715
+B23 Jilim           	daybreak            	simblan   	1525,1715
+B24 Yangulam        	daybreak		malɪŋadɛ
+B25 Bom             	daybreak		suaŋgo
+B26 Male            	daybreak		milɛnkɛn
+B27 Bongu           	daybreak		maliŋɛn
+B28 Songum          	daybreak		mɛlɛŋgi

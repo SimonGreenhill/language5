@@ -1,0 +1,28 @@
+B1 Sinsauru         	coconut             	otolo     	1602,1783
+B2 Asas             	coconut             	odolo     	1602,1783
+B3 Sausi            	coconut			nou
+B4 Koromu           	coconut			naw
+B5 Dumpu            	coconut			wɛk
+B6 Arawum           	coconut			topo
+B7 Kolom            	coconut             	adu       	1602,1783
+B8 Suroi            	coconut             	adu       	1602,1783
+B9 Lemio            	coconut             	enciru    	1602,1783
+B10 Pulabu          	coconut             	a:njilu   	1602,1783
+B11 Yabong		coconut			funu
+B12 Ganglau		coconut			lupu
+B13 Saep		coconut			oʌho
+B14 Usino           	coconut			nau
+B15 Sumau           	coconut			nau
+B16 Urigina         	coconut			nau
+B17 Danaru          	coconut			nau
+B18 Usu             	coconut			naw
+B19 Erima           	coconut             	ajuru     	1602,1783
+B20 Deduela         	coconut             	ajuru     	1602,1783
+B21 Kwato           	coconut             	ajuru     	1602,1783
+B22 Rerau           	coconut             	anjilim   	1602,1783
+B23 Jilim           	coconut             	aji       	1602,1783
+B24 Yangulam        	coconut			tʰʌuwo
+B25 Bom             	coconut			maŋgi
+B26 Male            	coconut			maŋgi
+B27 Bongu           	coconut			moŋgi
+B28 Songum          	coconut             	selem     	1602,1783

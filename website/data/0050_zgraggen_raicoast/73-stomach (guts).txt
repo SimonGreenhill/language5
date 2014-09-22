@@ -1,0 +1,30 @@
+B1 Sinsauru         	stomach (guts)		gobum
+B2 Asas             	stomach (guts)		kamo
+B3 Sausi            	stomach (guts)		sipi kʌːmuno
+B4 Koromu           	stomach (guts)		pʌri
+B5 Dumpu            	stomach (guts)		soŋgam
+B6 Arawum           	stomach (guts)		simbou
+B7 Kolom            	stomach (guts)		
+B8 Suroi		stomach (guts)		sina
+B9 Lemio            	stomach (guts)		kʰuŋk gʌm
+B10 Pulabu		stomach (guts)		sibi
+B11 Yabong		stomach (guts)		kaudoŋ
+B12 Ganglau		stomach (guts)		dumo walum
+B13 Saep		stomach (guts)		sim-
+B14 Usino           	stomach (guts)		sim
+B14 Usino           	stomach (guts)		sinɛm
+B15 Sumau           	stomach (guts)		koko mau
+B16 Urigina         	stomach (guts)		
+B17 Danaru          	stomach (guts)		simbim
+B18 Usu             	stomach (guts)		
+B19 Erima           	stomach (guts)		ogu- hu
+B20 Deduela         	stomach (guts)		si-
+B21 Kwato           	stomach (guts)		kamau
+B22 Rerau           	stomach (guts)		gomor̃
+B23 Jilim           	stomach (guts)		kumam
+B24 Yangulam        	stomach (guts)		lum
+B25 Bom             	stomach (guts)		miligi
+B26 Male            	stomach (guts)		magⁱli
+B27 Bongu           	stomach (guts)		magli
+B27 Bongu           	stomach (guts)		ugle
+B28 Songum          	stomach (guts)		bi

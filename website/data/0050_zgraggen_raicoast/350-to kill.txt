@@ -1,0 +1,29 @@
+B1 Sinsauru         	kill		pu-
+B2 Asas             	kill		pua hum-
+B3 Sausi            	kill		urɛ-
+B4 Koromu           	kill		sobo-
+B5 Dumpu            	kill		ø-
+B6 Arawum           	kill		bʌbɛ-
+B7 Kolom            	kill		ul-
+B8 Suroi		kill		bale-
+B9 Lemio            	kill		num pʌb-
+B10 Pulabu		kill		ni-
+B11 Yabong		kill		o-
+B12 Ganglau		kill		ina-
+B13 Saep		kill		gena mo-
+B14 Usino           	kill		ɔl-
+B15 Sumau           	kill		owɛ-
+B16 Urigina         	kill		o-
+B17 Danaru          	kill		oru-
+B18 Usu             	kill		wo-
+B19 Erima           	kill		wari-
+B20 Deduela         	kill		ori-
+B21 Kwato           	kill		oli-
+B22 Rerau           	kill		wol-
+B23 Jilim           	kill		wol-
+B24 Yangulam        	kill		hol-
+B25 Bom             	kill		gam-
+B26 Male            	kill		tʌl-
+B27 Bongu           	kill		le-
+B27 Bongu           	kill		kʌGɛl-
+B28 Songum          	kill		tʌl-

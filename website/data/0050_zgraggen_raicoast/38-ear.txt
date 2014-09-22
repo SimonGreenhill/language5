@@ -1,0 +1,28 @@
+B1 Sinsauru         	ear                 	hʌgu      	1858
+B2 Asas             	ear                 	hagu      	1647,1858
+B3 Sausi            	ear			kaᵱɛrɛ
+B4 Koromu           	ear			ahɛlɛ
+B5 Dumpu            	ear                 	kaun      	1647
+B5 Dumpu            	ear                 	kur
+B6 Arawum           	ear			kabluwaŋɛ
+B7 Kolom            	ear                 	kuŋgulʌ   	1858
+B8 Suroi		ear			kilba
+B9 Lemio            	ear                 	kʰʌ:ŋgu   	1858
+B10 Pulabu		ear			habna
+B11 Yabong		ear			sidɛ-
+B12 Ganglau		ear			iːb
+B13 Saep		ear			yɛb-
+B14 Usino           	ear                 	kagub     	1647,1858
+B15 Sumau           	ear                 	ʌkw(u)    	1858
+B16 Urigina         	ear                 	aŋgu      	1647
+B17 Danaru          	ear                 	gaŋgu     	1647,1858
+B18 Usu             	ear                 	ogu       	1647,1858
+B19 Erima           	ear                 	age       	1647,1858
+B21 Kwato           	ear                 	agi r̃aw  	1858
+B23 Jilim           	ear                 	kaŋ-sap   	1858
+B24 Yangulam        	ear			alam
+B25 Bom             	ear                 	dap 
+B25 Bom             	ear                 	kala   	   	
+B26 Male            	ear			damui
+B27 Bongu           	ear                 	dab       	
+B28 Songum          	ear			damoy

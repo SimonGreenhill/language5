@@ -1,0 +1,29 @@
+B1 Sinsauru         	stand               	bi-       	1529,1719
+B2 Asas             	stand               	pi-       	1529,1719
+B3 Sausi            	stand               	pi-       	1529,1719
+B4 Koromu           	stand               	pe-       	1529,1719
+B5 Dumpu            	stand               	tegi-     	1581,1763
+B6 Arawum           	stand			sɛkilɛ-
+B7 Kolom            	stand			padʌŋ(ka)-
+B8 Suroi            	stand               	tiŋga-    	1581,1763
+B9 Lemio            	stand               	bitiŋi-   	1529,1581,1719,1763
+B10 Pulabu		stand			tʰile-
+B11 Yabong          	stand               	dik-      	1581,1763
+B12 Ganglau         	stand               	dig-      	1581,1763
+B13 Saep            	stand               	dig-      	1581,1763
+B13 Saep            	stand               	paːndɛ-
+B14 Usino           	stand			biːbl-
+B15 Sumau           	stand			tumu-
+B16 Urigina         	stand               	embi-     	1529,1719
+B17 Danaru          	stand               	embi-     	1529,1719
+B18 Usu             	stand               	hoto-     	1619,1796
+B19 Erima           	stand               	oto-      	1619,1796
+B20 Deduela         	stand               	oto-      	1619,1796
+B21 Kwato           	stand               	oto-    	1619,1796
+B22 Rerau           	stand			konden-
+B23 Jilim           	stand			kondɛn-
+B24 Yangulam        	stand               	tiŋ-      	1581,1763
+B25 Bom             	stand               	tigel-    	1581,1763
+B26 Male            	stand               	tiŋe-     	1581,1763
+B27 Bongu           	stand			padiŋ-
+B28 Songum          	stand               	tʰiŋ-     	1581,1763

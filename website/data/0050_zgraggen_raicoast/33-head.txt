@@ -1,0 +1,28 @@
+B1 Sinsauru         	head			hotei
+B2 Asas             	head			hudei-
+B3 Sausi            	head			lobu-
+B4 Koromu           	head			tr̃ubu
+B5 Dumpu            	head			kwʌsu
+B6 Arawum           	head			wei
+B7 Kolom            	head			pasu
+B8 Suroi            	head                	gabat    	1857
+B9 Lemio            	head			wai
+B10 Pulabu		head			kindili
+B11 Yabong		head			bikiŋ-
+B12 Ganglau		head			pⁱkiŋ-
+B13 Saep		head			pikiŋ-
+B14 Usino           	head			taba-
+B15 Sumau           	head			tʌbu-
+B16 Urigina         	head			oro-
+B17 Danaru          	head			or̃o-
+B18 Usu             	head			siwi-
+B19 Erima           	head			mora-
+B20 Deduela         	head			mudʌr̃a-
+B21 Kwato           	head			itaw-
+B22 Rerau           	head			tumbam
+B23 Jilim           	head			ŋalub
+B24 Yangulam        	head			nali
+B25 Bom             	head                	gate      	1857
+B26 Male            	head                	gati      	1857
+B27 Bongu           	head                	gate      	1857
+B28 Songum          	head                	gade      	1857

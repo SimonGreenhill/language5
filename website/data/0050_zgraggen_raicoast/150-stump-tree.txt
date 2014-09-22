@@ -1,0 +1,31 @@
+B1 Sinsauru         	stump (tree)       	kinen     	1899
+B1 Sinsauru         	stump (tree)       	hutu paukon
+B2 Asas             	stump (tree)		lu-num
+B3 Sausi            	stump (tree)         	kini      	1899
+B3 Sausi            	stump (tree)          	tʌbono    	1900
+B4 Koromu           	stump (tree)          	kinine    	1899
+B5 Dumpu            	stump (tree)		luku
+B6 Arawum           	stump (tree)        	tuk       	1576,1760
+B7 Kolom            	stump (tree)        	dugu-to   	1576,1760
+B8 Suroi            	stump (tree)        	tuʔu      	1576,1760
+B9 Lemio            	stump (tree)        	tugu      	1576,1760
+B10 Pulabu          	stump (tree)         	hʌni      	1899
+B11 Yabong          	stump (tree)          	tʰofon   	1900
+B12 Ganglau		stump (tree)		ʂpan
+B13 Saep		stump (tree)		gɛdɛb-ŋgo
+B14 Usino           	stump (tree)           	tʌbʌ      	1900
+B15 Sumau           	stump (tree)          	tʌpʌ      	1900
+B16 Urigina         	stump (tree)		kata-mu
+B17 Danaru          	stump (tree)           	tamb      	1900
+B18 Usu             	stump (tree)		biːg
+B19 Erima           	stump (tree)        	hugu      	1576,1760
+B20 Deduela         	stump (tree)        	sugu      	1576,1760
+B21 Kwato           	stump (tree)		kata
+B21 Kwato           	stump (tree)		potura
+B22 Rerau           	stump (tree)		buru
+B23 Jilim           	stump (tree)        	dogori    	1576,1760
+B24 Yangulam        	stump (tree)		kʌsɪ
+B25 Bom             	stump (tree)		utr̃u
+B26 Male            	stump (tree)		kuli
+B27 Bongu           	stump (tree)		utr̃i
+B28 Songum          	stump (tree)		kulu

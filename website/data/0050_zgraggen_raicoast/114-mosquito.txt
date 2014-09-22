@@ -1,0 +1,28 @@
+B1 Sinsauru         	mosquito		kenʌgi
+B2 Asas             	mosquito		kɛnagi
+B3 Sausi            	mosquito		kenʌki
+B4 Koromu           	mosquito		kenʌki
+B5 Dumpu            	mosquito		kenɛŋ
+B6 Arawum           	mosquito		ŋgon
+B7 Kolom            	mosquito            	kasanan   	1623,1800
+B8 Suroi            	mosquito            	gisnain   	1623,1800
+B9 Lemio            	mosquito		kunu
+B10 Pulabu		mosquito		gunu
+B11 Yabong		mosquito		mbɛlɛŋsi
+B12 Ganglau		mosquito		ŋiŋ
+B13 Saep		mosquito		guniŋ
+B14 Usino           	mosquito            	ka:sin    	1623,1800
+B15 Sumau           	mosquito            	as        	1623,1800
+B16 Urigina         	mosquito		mumuki
+B17 Danaru          	mosquito		genʌŋg
+B18 Usu             	mosquito		ˀol
+B19 Erima           	mosquito            	a:ze      	1623,1800
+B20 Deduela         	mosquito            	aze       	1623,1800
+B21 Kwato           	mosquito            	a:si      	1623,1800
+B22 Rerau           	mosquito            	kaseŋ     	1623,1800
+B23 Jilim           	mosquito            	kasin     	1623,1800
+B24 Yangulam        	mosquito            	ñesem     	1800
+B25 Bom             	mosquito            	kaiŋ      	1623,1800
+B26 Male            	mosquito            	keŋ       	1623,1800
+B27 Bongu           	mosquito            	kain      	1623,1800
+B28 Songum          	mosquito            	en        	1623,1800

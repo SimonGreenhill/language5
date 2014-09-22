@@ -1,0 +1,31 @@
+B1 Sinsauru         	old (objects)		hɛrɛinɛma
+B2 Asas             	old (objects)		rɛinumu
+B3 Sausi            	old (objects)		sumurayo
+B3 Sausi            	old (objects)		idɛbau
+B4 Koromu           	old (objects)		ʂrumahau
+B5 Dumpu            	old (objects)		opulʌ
+B6 Arawum           	old (objects)		kɛrkʌm
+B7 Kolom            	old (objects)		ʌsɔ
+B8 Suroi		old (objects)		urfunu
+B9 Lemio            	old (objects)		kᵊregʌm
+B10 Pulabu		old (objects)		
+B11 Yabong		old (objects)		suoitik
+B12 Ganglau		old (objects)		kaitigŋ
+B13 Saep		old (objects)		dawɔg-ŋgo
+B14 Usino           	old (objects)		ɛgɛ menega
+B14 Usino           	old (objects)		ɛgimɛp
+B15 Sumau           	old (objects)		ibik
+B16 Urigina         	old (objects)		asaumbo
+B17 Danaru          	old (objects)		aŋgebɛᵱ
+B18 Usu             	old (objects)		anaᵃgɛb
+B19 Erima           	old (objects)		asari
+B20 Deduela         	old (objects)		ɛmitigai
+B21 Kwato           	old (objects)		ibigay
+B22 Rerau           	old (objects)		sɪlʌlum
+B23 Jilim           	old (objects)		ʂlʌlum
+B24 Yangulam        	old (objects)		urum
+B25 Bom             	old (objects)		namiǰ
+B26 Male            	old (objects)		zarik
+B27 Bongu           	old (objects)		sarɛ
+B27 Bongu           	old (objects)		nʌmediŋ
+B28 Songum          	old (objects)		ai

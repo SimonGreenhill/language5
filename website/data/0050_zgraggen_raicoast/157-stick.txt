@@ -1,0 +1,33 @@
+B1 Sinsauru         	stick			busu
+B2 Asas             	stick			bus
+B3 Sausi            	stick               	pede      	1542,1732
+B3 Sausi            	stick               	udu
+B3 Sausi            	stick               	koda
+B4 Koromu           	stick               	he:te     	1542,1732
+B5 Dumpu            	stick			puku
+B6 Arawum           	stick			mbuk
+B7 Kolom            	stick			bili
+B8 Suroi		stick			papani
+B9 Lemio            	stick			dik
+B10 Pulabu		stick			sunu
+B11 Yabong		stick			witkoŋ
+B11 Yabong		stick			pindim
+B12 Ganglau		stick			dud
+B13 Saep		stick			wi-tokoŋ
+B14 Usino           	stick			tum
+B15 Sumau           	stick			nʌwa
+B15 Sumau           	stick			nʌpʌkʌ
+B16 Urigina         	stick		
+B17 Danaru          	stick               	pe:nde    	1542,1732
+B17 Danaru          	stick               	dugu      	1673,1843
+B18 Usu             	stick			hib
+B19 Erima           	stick			dumuka
+B20 Deduela         	stick			
+B21 Kwato           	stick			bugan
+B22 Rerau           	stick               	taŋgal    	1673,1843
+B23 Jilim           	stick               	daŋgal    	1673,1843
+B24 Yangulam        	stick			pani
+B25 Bom             	stick			tokoŋ
+B26 Male            	stick               	gaŋgal    	1673,1843
+B27 Bongu           	stick               	deŋgal    	1673,1843
+B28 Songum          	stick               	daŋgal    	1673,1843

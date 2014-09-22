@@ -1,0 +1,28 @@
+B1 Sinsauru         	cry                 	fili-     	1539,1730
+B2 Asas             	cry                 	firi-     	1539,1730
+B3 Sausi            	cry                 	fili-     	1539,1730
+B4 Koromu           	cry                 	hiri-     	1539,1730
+B5 Dumpu            	cry			kwi-
+B6 Arawum           	cry			gwakɛ-
+B7 Kolom            	cry                 	mal-      	1629,1805
+B8 Suroi            	cry                 	malmbi-   	1629,1805
+B9 Lemio            	cry			ŋægi-
+B10 Pulabu		cry			muŋa-
+B11 Yabong          	cry                 	ami-      	1691,1855
+B12 Ganglau         	cry                 	amim-     	1691,1855
+B13 Saep            	cry                 	amim-     	1691,1855
+B14 Usino           	cry                 	mol       	1629,1805
+B15 Sumau           	cry                 	more-     	1629,1805
+B16 Urigina         	cry                 	mera-     	1629,1805
+B17 Danaru          	cry                 	meru-     	1629,1805
+B18 Usu             	cry                 	mel-      	1629,1805
+B19 Erima           	cry                 	mere-     	1629,1805
+B20 Deduela         	cry                 	mere-     	1629,1805
+B21 Kwato           	cry                 	meli      	1629,1805
+B22 Rerau           	cry                 	memel-    	1629,1805
+B23 Jilim           	cry                 	mel-      	1629,1805
+B24 Yangulam        	cry			soul-
+B25 Bom             	cry			akʌmᵊ-
+B26 Male            	cry                 	ware-     	1539,1730
+B27 Bongu           	cry			agam-
+B28 Songum          	cry                 	war-      	1539,1730

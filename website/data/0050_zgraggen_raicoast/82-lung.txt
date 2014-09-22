@@ -1,0 +1,29 @@
+B1 Sinsauru         	lung		sasaun-
+B2 Asas             	lung		oː-
+B3 Sausi            	lung		
+B4 Koromu           	lung		
+B5 Dumpu            	lung		monu
+B6 Arawum           	lung		
+B7 Kolom            	lung		
+B8 Suroi		lung		foro
+B9 Lemio            	lung		
+B10 Pulabu		lung		
+B11 Yabong		lung		dʌ- gibot
+B12 Ganglau		lung		dayyagŋan
+B13 Saep		lung		dʌkatɛko
+B14 Usino           	lung		
+B15 Sumau           	lung		yaysau
+B16 Urigina         	lung		sasam
+B17 Danaru          	lung		sasʌm
+B18 Usu             	lung		
+B19 Erima           	lung		au
+B20 Deduela         	lung		buso
+B21 Kwato           	lung		siwow
+B22 Rerau           	lung		
+B23 Jilim           	lung		
+B24 Yangulam        	lung		
+B25 Bom             	lung		
+B26 Male            	lung		
+B27 Bongu           	lung		or̃
+B27 Bongu           	lung		oror
+B28 Songum          	lung		mɛsɛl

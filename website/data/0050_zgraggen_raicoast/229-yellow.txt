@@ -1,0 +1,29 @@
+B1 Sinsauru         	yellow		kollib
+B2 Asas             	yellow		kogaire
+B3 Sausi            	yellow		
+B4 Koromu           	yellow		
+B5 Dumpu            	yellow		kururu
+B6 Arawum           	yellow		kau
+B7 Kolom            	yellow		kɛnke
+B7 Kolom            	yellow		panas
+B8 Suroi		yellow		kuloŋ
+B9 Lemio            	yellow		ŋiso
+B10 Pulabu		yellow		
+B11 Yabong		yellow		gawatu
+B12 Ganglau		yellow		klugŋ
+B13 Saep		yellow		gawa-ŋgo
+B14 Usino           	yellow		yoʌl
+B15 Sumau           	yellow		yanou
+B16 Urigina         	yellow		kabariaŋk
+B17 Danaru          	yellow		kabariaŋ
+B18 Usu             	yellow		inob
+B19 Erima           	yellow		bailu
+B20 Deduela         	yellow		asʌːle
+B21 Kwato           	yellow		laitʌba
+B22 Rerau           	yellow		
+B23 Jilim           	yellow		toŋgrɛn
+B24 Yangulam        	yellow		
+B25 Bom             	yellow		ar̃iʌr̃
+B26 Male            	yellow		yʌul
+B27 Bongu           	yellow		yaulbi
+B28 Songum          	yellow		

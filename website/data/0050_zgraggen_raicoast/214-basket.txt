@@ -1,0 +1,28 @@
+B1 Sinsauru         	basket			
+B2 Asas             	basket			fɛli
+B3 Sausi            	basket			ᵱeːri gonu
+B4 Koromu           	basket			
+B5 Dumpu            	basket			
+B6 Arawum           	basket			sambɛm
+B7 Kolom            	basket			sʌrɛŋ
+B8 Suroi		basket			sambe
+B9 Lemio            	basket			
+B10 Pulabu		basket			handi
+B11 Yabong		basket			songe
+B12 Ganglau		basket			pkoŋ
+B13 Saep		basket			pʰukoŋ
+B14 Usino           	basket			
+B15 Sumau           	basket			
+B16 Urigina         	basket			wʌːrɛ
+B17 Danaru          	basket			nau wim
+B18 Usu             	basket			karʌm
+B19 Erima           	basket			kɛkɛlɛ
+B20 Deduela         	basket              	kʌ:mo     	
+B21 Kwato           	basket			
+B22 Rerau           	basket              	komur     	
+B23 Jilim           	basket			mʌd
+B24 Yangulam        	basket			
+B25 Bom             	basket              	gumbʌ     	
+B26 Male            	basket			kɛklɛ
+B27 Bongu           	basket              	gambor̃   	
+B28 Songum          	basket			gɛgɛlɛ

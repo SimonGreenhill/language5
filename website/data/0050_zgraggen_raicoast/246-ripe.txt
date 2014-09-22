@@ -1,0 +1,30 @@
+B1 Sinsauru         	ripe		olou-
+B2 Asas             	ripe		oronum
+B3 Sausi            	ripe		ᵱuapᵘ
+B4 Koromu           	ripe		huhuaw
+B5 Dumpu            	ripe		oːbo
+B6 Arawum           	ripe		lukʌmu
+B6 Arawum           	ripe		ulim-
+B7 Kolom            	ripe		
+B8 Suroi		ripe		mandɛr̃(nu)
+B9 Lemio            	ripe		
+B10 Pulabu		ripe		
+B11 Yabong		ripe		mandʌt
+B12 Ganglau		ripe		dʌlŋ
+B13 Saep		ripe		mada-ŋgo
+B14 Usino           	ripe		obob-
+B15 Sumau           	ripe		ɛwowo-
+B15 Sumau           	ripe		ɛwo
+B16 Urigina         	ripe		abom-uŋgai
+B17 Danaru          	ripe		oᵬom
+B18 Usu             	ripe		au
+B19 Erima           	ripe		mumu
+B20 Deduela         	ripe		mumu
+B21 Kwato           	ripe		aw-
+B22 Rerau           	ripe		
+B23 Jilim           	ripe		kʌm
+B24 Yangulam        	ripe		ʌli
+B25 Bom             	ripe		mɛli
+B26 Male            	ripe		mali
+B27 Bongu           	ripe		ʌGɛlɛ
+B28 Songum          	ripe		ʌli

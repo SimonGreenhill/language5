@@ -1,0 +1,30 @@
+B1 Sinsauru         	woman               	ᵱen		1540
+B1 Sinsauru         	woman               	fendari		1944
+B2 Asas             	woman               	hendʌri   	1944
+B3 Sausi            	woman               	ᵱana      	1540
+B4 Koromu           	woman               	hena      	1540,1944
+B5 Dumpu            	woman               	ᵱan		1540
+B5 Dumpu            	woman               	hena	  	1944
+B6 Arawum           	woman               	naŋgau    	1684,1945
+B7 Kolom            	woman               	pʌno      	1944
+B8 Suroi            	woman               	pinom     	1540,1944
+B9 Lemio            	woman			nuŋogɛm
+B10 Pulabu		woman			pia
+B11 Yabong          	woman               	wone      	1944
+B12 Ganglau         	woman               	uni       	1944
+B13 Saep            	woman               	one       	1944
+B14 Usino           	woman			anaᵱʌrʌ
+B15 Sumau           	woman			ˀui
+B16 Urigina         	woman               	ene       	1944
+B17 Danaru          	woman               	fen       	1540,1944
+B18 Usu             	woman			ɛdza
+B19 Erima           	woman			aita
+B20 Deduela         	woman			ayaw
+B21 Kwato           	woman			oyow
+B22 Rerau           	woman			moñɛŋ
+B23 Jilim           	woman			muñoŋ
+B24 Yangulam        	woman               	hina-gom  	1944
+B25 Bom             	woman			uŋa
+B26 Male            	woman               	gali      	1684
+B27 Bongu           	woman               	ŋaŋᵉli    	1684
+B28 Songum          	woman               	aŋgili    	1684

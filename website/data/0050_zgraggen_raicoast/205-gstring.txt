@@ -1,0 +1,29 @@
+B1 Sinsauru         	G-string            	mʌ:l      	1919
+B2 Asas             	G-string		tʰobo
+B3 Sausi            	G-string		tɔːbo
+B4 Koromu           	G-string		doːbo
+B5 Dumpu            	G-string		kiːtʰ
+B6 Arawum           	G-string		kɛːnt
+B7 Kolom            	G-string            	mʌl       	1919
+B8 Suroi            	G-string            	mal       	1627,1919
+B9 Lemio            	G-string		kʰɛːnt
+B10 Pulabu          	G-string            	mal       	1627,1919
+B11 Yabong          	G-string            	me        	1627,1919
+B12 Ganglau         	G-string            	me        	1627,1919
+B13 Saep            	G-string            	meh       	1627,1919
+B14 Usino           	G-string            	mʌr       	1919
+B15 Sumau           	G-string            	mʌ:ri     	1919
+B16 Urigina         	G-string            	mʌ:rʰ     	1919
+B17 Danaru          	G-string            	mʌr       	1919
+B18 Usu             	G-string            	malbur    	1627		
+B19 Erima           	G-string            	mʌ:le     	1919
+B20 Deduela         	G-string            	ma:le     	1627,1919
+B21 Kwato           	G-string            	mʌ:le     	1919
+B22 Rerau           	G-string            	mʌlu      	1919
+B23 Jilim           	G-string            	mʌl       	1919
+B24 Yangulam        	G-string            	mal       	1627,1919
+B25 Bom             	G-string            	mal       	1627,1919
+B26 Male            	G-string            	mal       	1627,1919
+B27 Bongu           	G-string            	mal       	1627,1919
+B27 Bongu           	G-string            	tawi
+B28 Songum          	G-string            	mal       	1627

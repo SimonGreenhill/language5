@@ -1,0 +1,29 @@
+B1 Sinsauru         	day before yesterday	ayu       	1556,1744
+B2 Asas             	day before yesterday	ayu       	1556,1744
+B3 Sausi            	day before yesterday	ᵱian zain		
+B4 Koromu           	day before yesterday	aruhu     	1556,1744
+B5 Dumpu            	day before yesterday	ɔːnu
+B6 Arawum           	day before yesterday	wiel     	1556,1744
+B7 Kolom            	day before yesterday	albunde   	1556,1744
+B8 Suroi            	day before yesterday	ailfu     	1556,1744
+B9 Lemio            	day before yesterday	kuyɛ	
+B10 Pulabu		day before yesterday	isili	
+B11 Yabong		day before yesterday	deigo
+B12 Ganglau		day before yesterday	zig
+B13 Saep		day before yesterday	diga	
+B14 Usino           	day before yesterday	agəlg na
+B14 Usino           	day before yesterday	kolgəna
+B15 Sumau           	day before yesterday	kirɛ orisɛ
+B16 Urigina         	day before yesterday	eizi	
+B17 Danaru          	day before yesterday	ʌgrin	
+B18 Usu             	day before yesterday	a:ru      	1556,1744
+B19 Erima           	day before yesterday	nigomu
+B20 Deduela         	day before yesterday	a:yu      	1556,1744
+B21 Kwato           	day before yesterday	aike
+B22 Rerau           	day before yesterday	halu      	1556,1744
+B23 Jilim           	day before yesterday	luu       	1556,1744
+B24 Yangulam        	day before yesterday	aluhu     	1556,1744
+B25 Bom             	day before yesterday	alib      	1556,1744
+B26 Male            	day before yesterday	a:libi    	1556,1744
+B27 Bongu           	day before yesterday	aliu      	1556,1744
+B28 Songum          	day before yesterday		

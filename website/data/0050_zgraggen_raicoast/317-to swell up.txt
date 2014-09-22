@@ -1,0 +1,30 @@
+B1 Sinsauru         	swell up		yobi-
+B2 Asas             	swell up		yubi-
+B3 Sausi            	swell up		sairɛ-
+B4 Koromu           	swell up		tɛhɛt-
+B5 Dumpu            	swell up		fururug-
+B6 Arawum           	swell up		yʌmbɛ-
+B7 Kolom            	swell up		biy(ʌt)-
+B8 Suroi		swell up		fulil(ka)-
+B9 Lemio            	swell up		
+B10 Pulabu		swell up		
+B11 Yabong          	swell up            	sino-     	1620,1797
+B12 Ganglau         	swell up            	sum-      	1620,1797
+B13 Saep            	swell up            	suŋ-      	1620,1797
+B14 Usino           	swell up            	seglow-   	1620,1797
+B15 Sumau           	swell up		oreyɛ-
+B16 Urigina         	swell up            	saga-     	1620,1797
+B17 Danaru          	swell up            	sæg¹ro-   	1620
+B17 Danaru          	swell up            	sægπro-   	1797
+B18 Usu             	swell up            	se-       	1620,1797
+B19 Erima           	swell up		ŋasagɛ-
+B20 Deduela         	swell up		naru-
+B21 Kwato           	swell up		nʌlu-
+B22 Rerau           	swell up		ñɛsɛn-
+B23 Jilim           	swell up		kubu-
+B24 Yangulam        	swell up		
+B25 Bom             	swell up            	suŋi-     	1620,1797
+B26 Male            	swell up		kubugo-
+B27 Bongu           	swell up		bilau-
+B28 Songum          	swell up		logu-
+B28 Songum          	swell up		kob-

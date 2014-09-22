@@ -1,0 +1,29 @@
+B1 Sinsauru         	fat                 	kedʌnum   	1890
+B2 Asas             	fat                 	keda      	1597
+B3 Sausi            	fat                 	itamun    	1597,1890
+B4 Koromu           	fat                 	etam      	1597,1890
+B5 Dumpu            	fat			yɛŋ
+B6 Arawum           	fat                 	kinda     	1597,1890
+B7 Kolom            	fat			lonto
+B8 Suroi		fat			kuya-
+B9 Lemio            	fat                 	kenda     	1597
+B10 Pulabu		fat			koɪ
+B11 Yabong		fat			wɛlɛn
+B12 Ganglau		fat			oun
+B13 Saep		fat			gɛngo
+B14 Usino           	fat                 	kidem		1597
+B14 Usino           	fat                 	kiŋgiam		1890
+B15 Sumau           	fat                 	kaum      	1597,1890
+B16 Urigina         	fat                 	kindam    	1597,1890
+B17 Danaru          	fat                 	kindʌm    	1890
+B18 Usu             	fat			iraw
+B19 Erima           	fat			lalua
+B20 Deduela         	fat			lʌlua
+B21 Kwato           	fat			lalua
+B22 Rerau           	fat			namur
+B23 Jilim           	fat			kau
+B24 Yangulam        	fat			oya
+B25 Bom             	fat			namur̃
+B26 Male            	fat			namor̃
+B27 Bongu           	fat			namur̃
+B28 Songum          	fat			namur

@@ -1,0 +1,29 @@
+B1 Sinsauru         	fence               	ubu       	1514,1706
+B2 Asas             	fence               	ubu       	1514,1706
+B3 Sausi            	fence               	ubu       	1514,1706
+B4 Koromu           	fence			kri
+B5 Dumpu            	fence			bitini
+B6 Arawum           	fence			sukes
+B7 Kolom            	fence			dumu
+B8 Suroi		fence			fondɛ
+B9 Lemio            	fence			suges
+B10 Pulabu		fence			tʰubuna
+B11 Yabong		fence			foŋgo
+B12 Ganglau		fence			butʰ
+B13 Saep		fence			hɔg
+B14 Usino           	fence			gib
+B15 Sumau           	fence			sɛburi
+B16 Urigina         	fence               	umbu      	1514,1706
+B17 Danaru          	fence               	umbu      	1514,1706
+B18 Usu             	fence			ˀo
+B19 Erima           	fence			or̃ey
+B20 Deduela         	fence			kurei
+B21 Kwato           	fence			kelo
+B22 Rerau           	fence               	hombu     	1514,1706
+B23 Jilim           	fence               	hobob     	1514,1706
+B24 Yangulam        	fence			budol
+B25 Bom             	fence			ǰɛŋ
+B26 Male            	fence			bom
+B27 Bongu           	fence               	kar       	
+B28 Songum          	fence			mɛg
+B28 Songum          	fence			nieg

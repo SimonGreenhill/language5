@@ -1,0 +1,30 @@
+B1 Sinsauru         	throat		pesanum
+B2 Asas             	throat		pesanum
+B3 Sausi            	throat		pɛ kukroᵬu
+B4 Koromu           	throat		pɛ gorohu
+B5 Dumpu            	throat		kurugru
+B6 Arawum           	throat		bɛksɛ
+B7 Kolom            	throat		buseneo
+B8 Suroi		throat		kulɛŋinka
+B9 Lemio            	throat		
+B10 Pulabu		throat		pumbu
+B11 Yabong		throat		guloŋ-
+B12 Ganglau		throat		
+B13 Saep		throat		duŋ-
+B14 Usino           	throat		-- gulolob
+B15 Sumau           	throat		pʌru- kana
+B16 Urigina         	throat		guloloᵬ
+B17 Danaru          	throat		gr̃ruᵱ
+B18 Usu             	throat		gopsou
+B19 Erima           	throat		bor̃o
+B20 Deduela         	throat		bɛ- dudu
+B21 Kwato           	throat		keːr̃iu
+B22 Rerau           	throat		kumbu
+B23 Jilim           	throat		-- lam
+B23 Jilim           	throat		kumbu
+B24 Yangulam        	throat		aiŋ kʰor̃
+B25 Bom             	throat		kasmbum
+B26 Male            	throat		kokomboŋ
+B26 Male            	throat		yombar
+B27 Bongu           	throat		konnaw
+B28 Songum          	throat		anisoŋgɔr

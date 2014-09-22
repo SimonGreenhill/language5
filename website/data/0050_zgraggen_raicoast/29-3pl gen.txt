@@ -1,0 +1,28 @@
+B1 Sinsauru         	3pl gen		
+B2 Asas             	3pl gen		-ø
+B3 Sausi            	3pl gen		-naba
+B4 Koromu           	3pl gen		-naba
+B5 Dumpu            	3pl gen		
+B6 Arawum           	3pl gen		ø-
+B7 Kolom            	3pl gen		
+B8 Suroi            	3pl gen		
+B9 Lemio            	3pl gen		
+B10 Pulabu          	3pl gen		
+B11 Yabong          	3pl gen		-(n)ga
+B12 Ganglau         	3pl gen		
+B13 Saep            	3pl gen		-ga
+B14 Usino           	3pl gen		-nig
+B15 Sumau           	3pl gen		-nig
+B16 Urigina         	3pl gen		-nɛŋgɛ
+B17 Danaru          	3pl gen		ø-
+B18 Usu             	3pl gen		-nɛn
+B19 Erima           	3pl gen		-nɛgɛ
+B20 Deduela         	3pl gen		-nigɛ
+B21 Kwato           	3pl gen		
+B22 Rerau           	3pl gen		
+B23 Jilim           	3pl gen		
+B24 Yangulam        	3pl gen		
+B25 Bom             	3pl gen		
+B26 Male            	3pl gen		
+B27 Bongu           	3pl gen		
+B28 Songum          	3pl gen		

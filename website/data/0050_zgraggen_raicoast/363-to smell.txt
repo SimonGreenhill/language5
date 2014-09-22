@@ -1,0 +1,29 @@
+B1 Sinsauru         	smell		nigiru-
+B2 Asas             	smell		digru-
+B3 Sausi            	smell		diri-
+B4 Koromu           	smell		tigi-
+B5 Dumpu            	smell		kwe sa-   	
+B6 Arawum           	smell		mundoku-
+B7 Kolom            	smell		
+B8 Suroi		smell		mundur̃
+B9 Lemio            	smell		
+B10 Pulabu          	smell		kini      	
+B11 Yabong		smell		ikʰati-
+B12 Ganglau		smell		bʌmtɛ-
+B13 Saep		smell		ukʌtɛ-
+B14 Usino           	smell		kuligol-  	
+B15 Sumau           	smell		ur̃iɛ-
+B16 Urigina         	smell		kwi muŋg- 	
+B17 Danaru          	smell		kuri muŋgu-	
+B18 Usu             	smell		mura-
+B19 Erima           	smell		agia-
+B20 Deduela         	smell		jimiri-
+B21 Kwato           	smell		koi-      	
+B22 Rerau           	smell		kilim-    	
+B23 Jilim           	smell		kilim-    	
+B24 Yangulam        	smell		didiŋ-
+B24 Yangulam        	smell		himhɛl-
+B25 Bom             	smell		gulɛg atə-
+B26 Male            	smell		kulo-     	
+B27 Bongu           	smell		mosene at-
+B28 Songum          	smell		kulog-    	

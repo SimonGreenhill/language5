@@ -1,0 +1,30 @@
+B1 Sinsauru         	blood               	baitige   	1697
+B2 Asas             	blood               	baidig    	1697
+B3 Sausi            	blood               	batai     	1697
+B4 Koromu           	blood               	petai     	1697
+B5 Dumpu            	blood               	kaka      	
+B6 Arawum           	blood               	kəkai     	
+B7 Kolom            	blood			dʌle
+B8 Suroi		blood			dari
+B9 Lemio            	blood               	kəgai     	
+B10 Pulabu          	blood               	kʌga      	
+B11 Yabong		blood			dʌ
+B12 Ganglau		blood			dʌ
+B13 Saep		blood			dʌn-
+B14 Usino           	blood               	kʌ:g
+B14 Usino           	blood               	karia	
+B15 Sumau           	blood               	ʌria      	
+B15 Sumau           	blood			yaˀoi
+B16 Urigina         	blood               	butaŋgi   	1697
+B17 Danaru          	blood			kandi
+B18 Usu             	blood			asi-
+B19 Erima           	blood			gani-
+B20 Deduela         	blood               	eji-      	
+B21 Kwato           	blood               	ʌji  
+B22 Rerau           	blood			jigalu
+B23 Jilim           	blood			ǰigʌlub
+B24 Yangulam        	blood			dʌr̃a
+B25 Bom             	blood			lɛŋ
+B26 Male            	blood			kʰir
+B27 Bongu           	blood		     	Gaier
+B28 Songum          	blood               	ker       	

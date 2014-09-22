@@ -1,0 +1,29 @@
+B1 Sinsauru         	urine               	i:gi      	1674,1844
+B2 Asas             	urine               	i:gi      	1674,1844
+B3 Sausi            	urine			yainɛ
+B4 Koromu           	urine			yaine
+B5 Dumpu            	urine			uya
+B6 Arawum           	urine			uya
+B7 Kolom            	urine			kulʌŋ
+B8 Suroi		urine			ŋule
+B8 Suroi		urine			sʌroro
+B9 Lemio            	urine			uyʌ
+B10 Pulabu		urine			sʌbᵘlo
+B11 Yabong		urine			mini-
+B12 Ganglau		urine			suruyag
+B13 Saep		urine			susoh
+B14 Usino           	urine               	i:ŋgi     	1674,1844
+B15 Sumau           	urine               	iŋki      	1674,1844
+B16 Urigina         	urine               	e:ŋke     	1674,1844
+B17 Danaru          	urine               	eg        	1674,1844
+B18 Usu             	urine               	i:        	1674,1844
+B19 Erima           	urine			yowo-
+B20 Deduela         	urine			yowo-
+B21 Kwato           	urine			iyow
+B22 Rerau           	urine			keaŋgu
+B23 Jilim           	urine			yɛga
+B24 Yangulam        	urine               	sisil     	
+B25 Bom             	urine			yʌslibi
+B26 Male            	urine               	yagsil   	
+B27 Bongu           	urine               	websi    	
+B28 Songum          	urine               	usil      	

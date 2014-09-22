@@ -1,0 +1,30 @@
+B1 Sinsauru         	push                	sutu-     	1582,1764
+B2 Asas             	push			sinoru-
+B3 Sausi            	push			ɛzra-
+B4 Koromu           	push                	sutu-     	1582,1764
+B5 Dumpu            	push			paya kan-
+B6 Arawum           	push                	suŋa-     	1582,1764
+B7 Kolom            	push			gote-
+B8 Suroi		push			mbiti(w)-
+B9 Lemio            	push			
+B10 Pulabu		push			
+B11 Yabong		push			gibi-
+B12 Ganglau		push			yumpti-
+B13 Saep		push			wɛgɛb-
+B14 Usino           	push			sololoᵬ
+B15 Sumau           	push                	su-       	1582,1764
+B16 Urigina         	push                	su-       	1582,1764
+B17 Danaru          	push                	su-       	1582,1764
+B18 Usu             	push			ɛhɛlulu-
+B19 Erima           	push			nu-
+B19 Erima           	push			lu-
+B20 Deduela         	push			nu-
+B20 Deduela         	push			suru-
+B21 Kwato           	push                	su-       	1582,1764
+B22 Rerau           	push			
+B23 Jilim           	push			tʰayu-
+B24 Yangulam        	push                	atuutu-		1764
+B25 Bom             	push                	tutut-		1764
+B26 Male            	push                	sur-		1764
+B27 Bongu           	push                	tututi-   	1582,1764
+B28 Songum          	push			sinjuŋ-

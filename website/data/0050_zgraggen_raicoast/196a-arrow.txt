@@ -1,0 +1,28 @@
+B1 Sinsauru         	arrow (a)		toːti
+B2 Asas             	arrow (a)		pigo
+B3 Sausi            	arrow (a)		lou
+B4 Koromu           	arrow (a)		
+B5 Dumpu            	arrow (a)		uplɔŋ
+B6 Arawum           	arrow (a)		bumɛl
+B7 Kolom            	arrow (a)		fʌu
+B8 Suroi		arrow (a)		sailuŋ
+B9 Lemio            	arrow (a)		
+B10 Pulabu		arrow (a)		tʰudu mʌːgɪ
+B11 Yabong		arrow (a)		domuŋ
+B12 Ganglau		arrow (a)		wɔ
+B13 Saep		arrow (a)		wɔ
+B14 Usino           	arrow (a)		ɛr ilin
+B15 Sumau           	arrow (a)		siʌ
+B16 Urigina         	arrow (a)		si
+B17 Danaru          	arrow (a)		ᵱʉ
+B18 Usu             	arrow (a)		itʌd
+B19 Erima           	arrow (a)		aligi
+B20 Deduela         	arrow (a)		muːgu
+B21 Kwato           	arrow (a)		waya tono
+B22 Rerau           	arrow (a)		gim
+B23 Jilim           	arrow (a)		bʌŋgu
+B24 Yangulam        	arrow (a)		silim ulu
+B25 Bom             	arrow (a)		tutu
+B26 Male            	arrow (a)		aiŋge
+B27 Bongu           	arrow (a)		ge
+B28 Songum          	arrow (a)		

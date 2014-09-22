@@ -1,0 +1,30 @@
+B1 Sinsauru         	old (of humans)		sonima
+B2 Asas             	old (of humans)		sonim
+B3 Sausi            	old (of humans)		wawi(ra)
+B3 Sausi            	old (of humans)		nab
+B4 Koromu           	old (of humans)		wʌhi
+B5 Dumpu            	old (of humans)		one (m)
+B5 Dumpu            	old (of humans)		wɛnɛ (f)
+B6 Arawum           	old (of humans)		mandai
+B7 Kolom            	old (of humans)		mandʌr̃to
+B8 Suroi		old (of humans)		eibow
+B9 Lemio            	old (of humans)		wʌganau
+B10 Pulabu		old (of humans)		tʰowo
+B11 Yabong		old (of humans)		duʌku
+B12 Ganglau		old (of humans)		duokŋ
+B13 Saep		old (of humans)		doɔg
+B14 Usino           	old (of humans)		goayam
+B15 Sumau           	old (of humans)		sakʌu
+B16 Urigina         	old (of humans)		goyom
+B17 Danaru          	old (of humans)		faram
+B18 Usu             	old (of humans)		hʌgaw
+B19 Erima           	old (of humans)		omura
+B20 Deduela         	old (of humans)		daraupɛ
+B21 Kwato           	old (of humans)		imaːji
+B22 Rerau           	old (of humans)		lom
+B23 Jilim           	old (of humans)		tow
+B24 Yangulam        	old (of humans)		asɛm
+B25 Bom             	old (of humans)		geli
+B26 Male            	old (of humans)		kaway
+B27 Bongu           	old (of humans)		kawai
+B28 Songum          	old (of humans)		asɛm

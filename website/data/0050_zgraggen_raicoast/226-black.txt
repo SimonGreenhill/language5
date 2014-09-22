@@ -1,0 +1,30 @@
+B1 Sinsauru         	black			dugunma
+B2 Asas             	black			fiabidi
+B3 Sausi            	black               	umidi     	
+B4 Koromu           	black			umuit
+B5 Dumpu            	black               	gezɔbo    	1923
+B6 Arawum           	black               	gisʌm     	1923
+B7 Kolom            	black               	gugud     	1923
+B8 Suroi		black			dabukdabuk
+B9 Lemio            	black			huik
+B10 Pulabu		black			gʌgɪu
+B11 Yabong		black			suː
+B12 Ganglau         	black               	bukŋ
+B13 Saep		black			mbug-ŋgo
+B14 Usino           	black			kubua
+B14 Usino           	black			kumsa
+B14 Usino           	black			gunum
+B15 Sumau           	black               	upi       	
+B16 Urigina         	black               	kurumaŋga 	1923
+B17 Danaru          	black			kumukumu
+B18 Usu             	black               	uru       	1923
+B19 Erima           	black               	usuma     	1923
+B20 Deduela         	black               	usuma     	1923
+B21 Kwato           	black			jikʌpa
+B22 Rerau           	black			kumbulu
+B23 Jilim           	black               	sum       	1923
+B24 Yangulam        	black			kinjaŋ
+B25 Bom             	black			tulu
+B26 Male            	black			kumoːŋgo
+B27 Bongu           	black			kajirbi
+B28 Songum          	black			alugu

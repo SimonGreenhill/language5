@@ -1,0 +1,29 @@
+B1 Sinsauru         	louse			inɛ
+B2 Asas             	louse			ini
+B3 Sausi            	louse			pae
+B4 Koromu           	louse			pʌi
+B5 Dumpu            	louse               	mi        	1196
+B6 Arawum           	louse               	mi        	1196
+B7 Kolom            	louse			ŋeu
+B8 Suroi		louse			meu
+B9 Lemio            	louse               	miye      	1196
+B10 Pulabu          	louse               	ima       	396
+B11 Yabong          	louse               	imiŋ      	1196
+B12 Ganglau		louse			biːd
+B13 Saep            	louse               	miŋ       	1196
+B14 Usino           	louse               	mi        	1196
+B15 Sumau           	louse               	mi        	1196
+B16 Urigina         	louse               	mei       	1196
+B17 Danaru          	louse               	mei       	1196
+B18 Usu             	louse               	mi        	1196
+B19 Erima           	louse               	mi/ñou    	1196
+B20 Deduela         	louse			zizi
+B20 Deduela         	louse			uːtu
+B21 Kwato           	louse               	miɲow     	1196
+B22 Rerau           	louse               	muñi      	1196
+B23 Jilim           	louse               	miɲi      	1196
+B24 Yangulam        	louse			gʌtɪ
+B25 Bom             	louse               	mana      	
+B26 Male            	louse               	manak     	
+B27 Bongu           	louse               	mana      	
+B28 Songum          	louse               	manʌk     	

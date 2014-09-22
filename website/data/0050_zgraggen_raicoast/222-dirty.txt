@@ -1,0 +1,28 @@
+B1 Sinsauru         	dirty			feine
+B2 Asas             	dirty			idiabu
+B3 Sausi            	dirty			bitiura
+B4 Koromu           	dirty			
+B5 Dumpu            	dirty               	nuŋŋu     	
+B6 Arawum           	dirty			bukɔb
+B7 Kolom            	dirty			
+B8 Suroi		dirty			kutur(ŋak)
+B9 Lemio            	dirty			
+B10 Pulabu		dirty			
+B11 Yabong		dirty			gobuk
+B12 Ganglau         	dirty               	giga      	1604,1784
+B13 Saep            	dirty               	gega      	1604,1784
+B14 Usino           	dirty               	tig       	1604,1784
+B15 Sumau           	dirty               	unu       	
+B16 Urigina         	dirty               	tiŋgi     	1604,1784
+B17 Danaru          	dirty			tetu
+B18 Usu             	dirty               	ugun      	
+B19 Erima           	dirty               	didiga    	1604,1784
+B20 Deduela         	dirty               	gegena    	1604,1784
+B21 Kwato           	dirty               	jikapa    	1604,1784
+B22 Rerau           	dirty			
+B23 Jilim           	dirty               	kaji      	
+B24 Yangulam        	dirty			
+B25 Bom             	dirty               	jiga      	1604,1784
+B26 Male            	dirty               	gajʌ      	
+B27 Bongu           	dirty               	kajir     	
+B28 Songum          	dirty			soˀor̃o

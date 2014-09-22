@@ -1,0 +1,31 @@
+B1 Sinsauru         	ground			ɛgɛrɛ
+B2 Asas             	ground              	heme      	1652,1826
+B3 Sausi            	ground              	keme      	1652,1826
+B3 Sausi            	ground              	oᵬo
+B4 Koromu           	ground              	eme       	1652,1826
+B5 Dumpu            	ground			kɛtɛ
+B6 Arawum           	ground			kumbeki
+B7 Kolom            	ground			niʌr̃
+B7 Kolom            	ground			funi
+B8 Suroi		ground			kike
+B9 Lemio            	ground			kuᵬɛŋk
+B10 Pulabu		ground			meŋge
+B11 Yabong		ground			deli
+B12 Ganglau		ground			po
+B13 Saep		ground			po
+B14 Usino           	ground			ob
+B14 Usino           	ground			ɔbsum
+B15 Sumau           	ground			oːw
+B16 Urigina         	ground			hɔᵬ
+B17 Danaru          	ground              	kem       	1652,1826
+B18 Usu             	ground			bi
+B19 Erima           	ground			oula
+B20 Deduela         	ground			dei
+B21 Kwato           	ground			tei
+B22 Rerau           	ground			yimbeji
+B23 Jilim           	ground			yɛbɛnǰi
+B24 Yangulam        	ground			sale
+B25 Bom             	ground			mandam
+B26 Male            	ground			maŋdamu
+B27 Bongu           	ground			moŋdamu
+B28 Songum          	ground			mɛaŋ kaŋgo

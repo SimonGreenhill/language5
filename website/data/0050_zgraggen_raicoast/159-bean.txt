@@ -1,0 +1,29 @@
+B1 Sinsauru         	bean		boyɛ
+B1 Sinsauru         	bean		loluau
+B2 Asas             	bean		bɛsi
+B3 Sausi            	bean		pezie
+B4 Koromu           	bean		bisgei
+B5 Dumpu            	bean		kisigi
+B6 Arawum           	bean		gɛspɛl
+B7 Kolom            	bean		
+B8 Suroi		bean		kusilin
+B9 Lemio            	bean		kʌsigi
+B10 Pulabu		bean		
+B11 Yabong		bean		misei
+B12 Ganglau		bean		
+B13 Saep		bean		
+B14 Usino           	bean		omai
+B15 Sumau           	bean		papai
+B16 Urigina         	bean		waim
+B17 Danaru          	bean		wami
+B18 Usu             	bean		sʌːu
+B19 Erima           	bean		faimarta
+B20 Deduela         	bean		bonti
+B21 Kwato           	bean		pɔːniti
+B22 Rerau           	bean		bondus
+B23 Jilim           	bean		bondus
+B24 Yangulam        	bean		ber̃ɛ
+B25 Bom             	bean		bɔnt
+B26 Male            	bean		koanjɛm
+B27 Bongu           	bean		mogar
+B28 Songum          	bean		

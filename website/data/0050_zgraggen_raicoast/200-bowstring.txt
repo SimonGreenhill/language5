@@ -1,0 +1,29 @@
+B1 Sinsauru         	bowstring		hʌtin
+B2 Asas             	bowstring		hadini
+B3 Sausi            	bowstring		kisi
+B3 Sausi            	bowstring		yɛrigoro
+B4 Koromu           	bowstring		kisi
+B5 Dumpu            	bowstring		kisi
+B6 Arawum           	bowstring           	kulep     	1661,1833
+B7 Kolom            	bowstring           	guel      	1661,1833
+B8 Suroi            	bowstring           	ŋguel     	1661,1833
+B9 Lemio            	bowstring           	kureb     	
+B10 Pulabu          	bowstring           	kisi
+B11 Yabong		bowstring		wiliŋ
+B12 Ganglau		bowstring		r̃uŋ
+B13 Saep		bowstring		iluŋ
+B14 Usino           	bowstring		mul
+B15 Sumau           	bowstring		ɔr̃ɛna
+B16 Urigina         	bowstring		wɛːm
+B17 Danaru          	bowstring           	okor      	
+B18 Usu             	bowstring           	ʔorom     	
+B19 Erima           	bowstring           	olʌm      	
+B20 Deduela         	bowstring           	oromi     	
+B21 Kwato           	bowstring		buna
+B21 Kwato           	bowstring		tauno
+B22 Rerau           	bowstring           	kol       	1661,1833
+B23 Jilim           	bowstring           	kol       	1661,1833
+B24 Yangulam        	bowstring           	ʔoale     	1661,1833
+B26 Male            	bowstring           	kol       	1661,1833
+B27 Bongu           	bowstring           	kul       	1661,1833
+B28 Songum          	bowstring		sili

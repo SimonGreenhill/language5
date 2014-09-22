@@ -1,0 +1,30 @@
+B1 Sinsauru         	eye                 	amu       	1859
+B2 Asas             	eye                 	amu-       	1859
+B3 Sausi            	eye                 	ami       	1859
+B4 Koromu           	eye                 	ami       	1859
+B5 Dumpu            	eye                 	yem       	1859
+B6 Arawum           	eye                 	ʌm        	1859
+B7 Kolom            	eye                 	ʌm        	1859
+B8 Suroi            	eye                 	am        	1859
+B9 Lemio            	eye                 	aŋkam     	1672,1842
+B10 Pulabu          	eye                 	amu       	1859
+B11 Yabong          	eye                 	amʌ-       	1859
+B12 Ganglau         	eye                 	amu       	
+B13 Saep            	eye                 	aman-     	
+B14 Usino           	eye                 	eŋge		1672
+B14 Usino           	eye                 	ogo 		1842
+B15 Sumau           	eye                 	eki       	1672,1842
+B16 Urigina         	eye                 	aŋki-     	1672,1842
+B17 Danaru          	eye                 	-aŋg-     	1672,1842
+B18 Usu             	eye                 	ege-      	1672,1842
+B19 Erima           	eye                 	age-      	1672,1842
+B20 Deduela         	eye                 	agi-      	1672,1842
+B21 Kwato           	eye                 	oge:mu    	1672,1842
+B21 Kwato           	eye                 	ʌku	    	1672,1842
+B22 Rerau           	eye                 	aŋgim     	1672,1842
+B23 Jilim           	eye                 	agim      	1672,1842
+B24 Yangulam        	eye                 	ŋam       	1859
+B25 Bom             	eye                 	ŋam     	1859
+B26 Male            	eye                 	ŋamgi       	1859
+B27 Bongu           	eye                 	ŋam     	1859
+B28 Songum 		eye			ñamgɛ

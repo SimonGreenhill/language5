@@ -1,0 +1,30 @@
+B1 Sinsauru         	wash (tr)		oso-
+B2 Asas             	wash (tr)		oso-
+B3 Sausi            	wash (tr)		vəsəv-
+B4 Koromu           	wash (tr)		sehe-
+B5 Dumpu            	wash (tr)		ya fri-
+B6 Arawum           	wash (tr)		pisi-
+B7 Kolom            	wash (tr)		yaŋ-
+B8 Suroi		wash (tr)		pisne-
+B9 Lemio            	wash (tr)		fsi-
+B10 Pulabu		wash (tr)		kidiŋi-
+B11 Yabong		wash (tr)		mo-
+B12 Ganglau		wash (tr)		mɛ (sg)
+B12 Ganglau		wash (tr)		mɛti- (pl)
+B13 Saep		wash (tr)		dom-
+B14 Usino           	wash (tr)		fis-
+B15 Sumau           	wash (tr)		isiɛr- (sg)
+B15 Sumau           	wash (tr)		isɛr- (pl)
+B16 Urigina         	wash (tr)		usuri-
+B17 Danaru          	wash (tr)		ᵬisib-
+B18 Usu             	wash (tr)		bihi-
+B19 Erima           	wash (tr)		bisɛmi-
+B20 Deduela         	wash (tr)		fisomo-
+B21 Kwato           	wash (tr)		ɛsom-
+B22 Rerau           	wash (tr)		usu-
+B23 Jilim           	wash (tr)		usi-
+B24 Yangulam        	wash (tr)		ɛsɛ-
+B25 Bom             	wash (tr)		yal-
+B26 Male            	wash (tr)		ili-
+B27 Bongu           	wash (tr)		yilit(i)-
+B28 Songum          	wash (tr)		ildi-

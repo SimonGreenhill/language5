@@ -1,0 +1,33 @@
+B1 Sinsauru         	old sssib		ai moto
+B2 Asas             	old sssib		ai
+B3 Sausi            	old sssib		ai-
+B4 Koromu           	old sssib		ai-
+B5 Dumpu            	old sssib		ai
+B6 Arawum           	old sssib		ai
+B7 Kolom            	old sssib		ʌbʌ       	1951
+B8 Suroi            	old sssib           	ʌpʌ       	1951
+B9 Lemio            	old sssib		-ŋai
+B10 Pulabu		old sssib		wasi mugo
+B11 Yabong          	old sssib           	bʌba      	1951
+B11 Yabong          	old sssib           	aunu
+B12 Ganglau		old sssib		bʌba-
+B13 Saep		old sssib		kʌk
+B14 Usino           	old sssib           	awai      	1951
+B14 Usino           	old sssib           	ani-
+B15 Sumau           	old sssib           	awa       	1951
+B16 Urigina         	old sssib		awomu ai-
+B17 Danaru          	old sssib		aya
+B18 Usu             	old sssib           	awa       	1951
+B18 Usu             	old sssib           	yab
+B18 Usu             	old sssib           	owu-
+B19 Erima           	old sssib           	-babo     	1951
+B20 Deduela         	old sssib           	bʌbo      	1951
+B21 Kwato           	old sssib           	-pepe     	1951
+B21 Kwato           	old sssib           	waupe
+B22 Rerau           	old sssib		amuŋ kabu
+B23 Jilim           	old sssib		-amuŋ kabu
+B24 Yangulam        	old sssib           	awa       	1951
+B25 Bom             	old sssib           	babo      	1951
+B26 Male            	old sssib		amuŋ koᵬo
+B27 Bongu           	old sssib           	aba       	1951
+B28 Songum          	old sssib		au namʌn

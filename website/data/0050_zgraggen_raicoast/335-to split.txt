@@ -1,0 +1,29 @@
+B1 Sinsauru         	split		kiogiln-
+B2 Asas             	split		
+B3 Sausi            	split		tarau-
+B4 Koromu           	split		
+B5 Dumpu            	split		fifan-
+B6 Arawum           	split		dɛŋdɛŋɛ
+B7 Kolom            	split		
+B8 Suroi		split		fit(ka)
+B9 Lemio            	split		
+B10 Pulabu		split		kela-
+B11 Yabong		split		yotkokɔ-
+B12 Ganglau		split		wisug-
+B13 Saep		split		onapʰuŋtɛ-
+B14 Usino           	split		poku-
+B15 Sumau           	split		porporo-
+B16 Urigina         	split		mbuguru-
+B17 Danaru          	split		buku-
+B18 Usu             	split		mota-
+B18 Usu             	split		tɛm-
+B19 Erima           	split		fourɛ-
+B20 Deduela         	split		siga-
+B21 Kwato           	split		bididi-
+B22 Rerau           	split		
+B23 Jilim           	split		pupʌru-
+B24 Yangulam        	split		
+B25 Bom             	split		gɛnt-
+B26 Male            	split		bisirɛ-
+B27 Bongu           	split		(G)aGaglu-
+B28 Songum          	split		gobud-

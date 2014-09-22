@@ -1,0 +1,28 @@
+B1 Sinsauru         	pig                 	bo        	1499,1693
+B2 Asas             	pig                 	bo        	1499,1693
+B3 Sausi            	pig			usu
+B4 Koromu           	pig			usu
+B5 Dumpu            	pig                 	pu        	1499,1693
+B6 Arawum           	pig			kuñel
+B7 Kolom            	pig                 	boi       	1499,1693
+B8 Suroi            	pig                 	mbo       	1499,1693
+B9 Lemio            	pig                 	bu        	1499,1693
+B10 Pulabu          	pig                 	bod       	1499,1693
+B11 Yabong          	pig                 	bo        	1499,1693
+B12 Ganglau         	pig                 	bo        	1499,1693
+B13 Saep            	pig                 	bo        	1499,1693
+B14 Usino           	pig			daway
+B15 Sumau           	pig                 	pu        	1499,1693
+B16 Urigina         	pig                 	pa:u      	1499,1693
+B17 Danaru          	pig			kər̃
+B18 Usu             	pig                 	bu        	1499,1693
+B19 Erima           	pig                 	bua       	1499,1693
+B20 Deduela         	pig                 	bua       	1499,1693
+B21 Kwato           	pig                 	puo       	1499,1693
+B22 Rerau           	pig                 	bu        	1499,1693
+B23 Jilim           	pig                 	bu        	1499,1693
+B24 Yangulam        	pig                 	bo        	1499,1693
+B25 Bom             	pig			bɛl
+B26 Male            	pig			bol
+B27 Bongu           	pig			bul
+B28 Songum          	pig			bol

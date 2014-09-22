@@ -1,0 +1,29 @@
+B1 Sinsauru         	chicken (tame)		noːmo
+B2 Asas             	chicken (tame)		kogɛrɛrɛ
+B3 Sausi            	chicken (tame)		kokio
+B4 Koromu           	chicken (tame)		krokro
+B5 Dumpu            	chicken (tame)		kurugru
+B6 Arawum           	chicken (tame)		pe
+B7 Kolom            	chicken (tame)		tʌtʌr̃iɛk
+B8 Suroi		chicken (tame)		te
+B9 Lemio            	chicken (tame)		fɛ
+B10 Pulabu		chicken (tame)		tʰʌgi
+B11 Yabong		chicken (tame)		goaŋ kwe
+B12 Ganglau		chicken (tame)		guaŋ kwɛ
+B13 Saep		chicken (tame)		goaŋ kwɛ
+B14 Usino           	chicken (tame)		kwaida
+B15 Sumau           	chicken (tame)		kʌira kakarau
+B16 Urigina         	chicken (tame)		nɔːmɛ
+B17 Danaru          	chicken (tame)		gwʌrag
+B18 Usu             	chicken (tame)		kakarɛo
+B19 Erima           	chicken (tame)		tɛwɛ
+B20 Deduela         	chicken (tame)		tɛwɛ
+B21 Kwato           	chicken (tame)		tou
+B21 Kwato           	chicken (tame)		nomi
+B22 Rerau           	chicken (tame)		tuː
+B23 Jilim           	chicken (tame)		tu
+B24 Yangulam        	chicken (tame)		waˀɛr̃
+B25 Bom             	chicken (tame)		tuɛ
+B26 Male            	chicken (tame)		toː
+B27 Bongu           	chicken (tame)		tu
+B28 Songum          	chicken (tame)		muru

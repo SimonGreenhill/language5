@@ -1,0 +1,28 @@
+B1 Sinsauru         	netbag              	fe:li     	1541,1731
+B2 Asas             	netbag              	puli      	1541,1731
+B3 Sausi            	netbag              	pe:ri     	1541,1731
+B4 Koromu           	netbag              	he:ri     	1541,1731
+B5 Dumpu            	netbag			siŋ
+B6 Arawum           	netbag			sɛːŋk
+B7 Kolom            	netbag              	pale      	1541,1731
+B8 Suroi            	netbag              	pale      	1541,1731
+B9 Lemio            	netbag			sɛːŋk
+B10 Pulabu		netbag			handi
+B11 Yabong		netbag			kʰʌp
+B12 Ganglau		netbag			goʌd
+B13 Saep		netbag			goʌd
+B14 Usino           	netbag              	pal       	1541,1731
+B15 Sumau           	netbag              	a:li      	1541,1731
+B16 Urigina         	netbag              	wa:re     	1541,1731
+B17 Danaru          	netbag              	par       	1541,1731
+B18 Usu             	netbag              	par       	1541,1731
+B19 Erima           	netbag			aure
+B20 Deduela         	netbag			aure
+B21 Kwato           	netbag              	a:le      	1541,1731
+B22 Rerau           	netbag			kʌlou		
+B23 Jilim           	netbag			kul
+B24 Yangulam        	netbag              	hali      	1541,1731
+B25 Bom             	netbag			kuŋ
+B26 Male            	netbag			koloŋ
+B27 Bongu           	netbag			kun
+B28 Songum          	netbag			ˀoloŋ

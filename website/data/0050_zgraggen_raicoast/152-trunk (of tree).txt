@@ -1,0 +1,29 @@
+B1 Sinsauru         	trunk (tree)		hukmu-num
+B2 Asas             	trunk (tree)		hugu-num
+B3 Sausi            	trunk (tree)		nupuno
+B4 Koromu           	trunk (tree)		amkorn
+B5 Dumpu            	trunk (tree)        	a:ŋk      	1676,1846
+B6 Arawum           	trunk (tree)		ʌːŋk
+B7 Kolom            	trunk (tree)		pɛn
+B8 Suroi            	trunk (tree)        	aŋge-nu   	1676,1846
+B9 Lemio            	trunk (tree)        	a:ŋke     	1676,1846
+B10 Pulabu		trunk (tree)		mandag
+B11 Yabong		trunk (tree)		mogut
+B12 Ganglau		trunk (tree)		maŋ
+B13 Saep		trunk (tree)		mʌg-ŋgo
+B14 Usino           	trunk (tree)		nuːp
+B15 Sumau           	trunk (tree)		nu
+B16 Urigina         	trunk (tree)        	oŋgobu    	1676,1846
+B16 Urigina         	trunk (tree)        	gubu
+B17 Danaru          	trunk (tree)        	oŋgup     	1676,1846
+B18 Usu             	trunk (tree)		joaw
+B19 Erima           	trunk (tree)		numu
+B20 Deduela         	trunk (tree)		numu
+B21 Kwato           	trunk (tree)		kamuku
+B22 Rerau           	trunk (tree)        	hagu      	1676,1846
+B23 Jilim           	trunk (tree)        	agu       	1676,1846
+B24 Yangulam        	trunk (tree)        	aŋgum     	1676,1846
+B25 Bom             	trunk (tree)        	agu       	1676,1846
+B26 Male            	trunk (tree)        	agu       	1676,1846
+B27 Bongu           	trunk (tree)        	agu       	1676,1846
+B28 Songum          	trunk (tree)        	agu       	1676,1846

@@ -1,0 +1,30 @@
+B1 Sinsauru         	this		ga
+B2 Asas             	this		awai
+B3 Sausi            	this		mu(meɛ)
+B4 Koromu           	this		mo
+B5 Dumpu            	this		ame
+B6 Arawum           	this		ŋgu
+B7 Kolom            	this		eno
+B8 Suroi		this		de(ta)
+B9 Lemio            	this		ŋgu
+B10 Pulabu		this		
+B11 Yabong		this		inʌd
+B11 Yabong		this		ɛtʰɛ
+B12 Ganglau		this		ta
+B13 Saep		this		tʰe
+B14 Usino           	this		mɔmɔ
+B14 Usino           	this		siɛ
+B15 Sumau           	this		mu
+B16 Urigina         	this		mu
+B17 Danaru          	this		mo
+B18 Usu             	this		ɛbɛb
+B19 Erima           	this		bɛ
+B20 Deduela         	this		mo
+B21 Kwato           	this		mʌ
+B22 Rerau           	this		
+B23 Jilim           	this		mayo
+B24 Yangulam        	this		
+B25 Bom             	this		de
+B26 Male            	this		ge
+B27 Bongu           	this		ande
+B28 Songum          	this		du

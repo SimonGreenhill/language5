@@ -1,0 +1,29 @@
+B1 Sinsauru         	slowly		durɛnɛ
+B2 Asas             	slowly		bade(geda)
+B3 Sausi            	slowly		omuɛ
+B4 Koromu           	slowly		aiyoru
+B5 Dumpu            	slowly		kɛrɛ
+B6 Arawum           	slowly		yokombe
+B6 Arawum           	slowly		gebtembe
+B7 Kolom            	slowly		
+B8 Suroi		slowly		katekate
+B9 Lemio            	slowly		
+B10 Pulabu		slowly		
+B11 Yabong		slowly		youd
+B12 Ganglau		slowly		yauŋguk
+B13 Saep		slowly		yaːko
+B14 Usino           	slowly		goʌdʌ
+B15 Sumau           	slowly		pɛun
+B16 Urigina         	slowly		kom(orob)
+B17 Danaru          	slowly		komᵱramai
+B18 Usu             	slowly		sabʌg
+B19 Erima           	slowly		foi-du
+B20 Deduela         	slowly		ᵱoi
+B21 Kwato           	slowly		ɔrɛno
+B22 Rerau           	slowly		
+B23 Jilim           	slowly		yonduge
+B24 Yangulam        	slowly		
+B25 Bom             	slowly		jiŋgʌna
+B26 Male            	slowly		kakʌi
+B27 Bongu           	slowly		lalai
+B28 Songum          	slowly		goiǰɛmɛi

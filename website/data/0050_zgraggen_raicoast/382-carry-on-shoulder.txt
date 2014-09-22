@@ -1,0 +1,29 @@
+B1 Sinsauru         	carry (on shoulder)	kogu-	
+B2 Asas             	carry (on shoulder)	kougu-
+B3 Sausi            	carry (on shoulder)	kakau-	
+B4 Koromu           	carry (on shoulder)	kas-
+B5 Dumpu            	carry (on shoulder)	igi fanu-	
+B6 Arawum           	carry (on shoulder)	pɛli-
+B7 Kolom            	carry (on shoulder)	kud-      	1606,1786
+B8 Suroi            	carry (on shoulder) 	babo-
+B9 Lemio            	carry (on shoulder)	kʷʌmi-	
+B10 Pulabu		carry (on shoulder)	bagu-
+B11 Yabong		carry (on shoulder)	kuduŋ-    	1606,1786
+B12 Ganglau         	carry (on shoulder) 	kulu-     	1606,1786
+B13 Saep            	carry (on shoulder) 	sog-
+B14 Usino           	carry (on shoulder)	gas- (sg)
+B14 Usino           	carry (on shoulder)	gasia- (pl)
+B15 Sumau           	carry (on shoulder)	asia-	
+B16 Urigina         	carry (on shoulder)	kuku-
+B17 Danaru          	carry (on shoulder)	gaz(i)-	
+B18 Usu             	carry (on shoulder)	obor-
+B19 Erima           	carry (on shoulder) 	uru-      	1606,1786
+B20 Deduela         	carry (on shoulder) 	ur̃u-     	1606,1786
+B21 Kwato           	carry (on shoulder)	koko-
+B22 Rerau           	carry (on shoulder)	kasara-
+B23 Jilim           	carry (on shoulder)	kʌs(i)-
+B24 Yangulam        	carry (on shoulder) 	kanda-    	1606,1786
+B25 Bom             	carry (on shoulder)	koboi-	
+B26 Male            	carry (on shoulder)	kawar-
+B27 Bongu           	carry (on shoulder)	ɛlɛ-	
+B28 Songum          	carry (on shoulder)	kuba-	

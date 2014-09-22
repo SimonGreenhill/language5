@@ -1,0 +1,30 @@
+B1 Sinsauru         	turn (oneself)		bɛrgu-
+B2 Asas             	turn (oneself)		
+B3 Sausi            	turn (oneself)		wariɛ-
+B4 Koromu           	turn (oneself)		
+B5 Dumpu            	turn (oneself)		ifuru ga-
+B6 Arawum           	turn (oneself)		bɛlɛŋɛ-
+B7 Kolom            	turn (oneself)		mbuik(ʌt)
+B8 Suroi		turn (oneself)		mbil(ka)-
+B9 Lemio            	turn (oneself)		
+B10 Pulabu		turn (oneself)		
+B11 Yabong		turn (oneself)		wɔfi-
+B12 Ganglau		turn (oneself)		ouŋ-
+B13 Saep		turn (oneself)		wau-
+B13 Saep		turn (oneself)		fi-
+B14 Usino           	turn (oneself)		piliw-
+B14 Usino           	turn (oneself)		kwʌlgul-
+B15 Sumau           	turn (oneself)		piriˀɛ-
+B16 Urigina         	turn (oneself)		ᵱiri-
+B17 Danaru          	turn (oneself)		ɛbɛgarɪg-
+B18 Usu             	turn (oneself)		hezeni-
+B19 Erima           	turn (oneself)		ubulu-
+B20 Deduela         	turn (oneself)		buːlu-
+B21 Kwato           	turn (oneself)		pulge-
+B22 Rerau           	turn (oneself)		
+B23 Jilim           	turn (oneself)		koa-
+B24 Yangulam        	turn (oneself)		
+B25 Bom             	turn (oneself)		buli-
+B26 Male            	turn (oneself)		bul-
+B27 Bongu           	turn (oneself)		bulu-
+B28 Songum          	turn (oneself)		pʰɛbul-

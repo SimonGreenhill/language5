@@ -1,0 +1,32 @@
+B1 Sinsauru         	fall (tree)		habugʌt m-
+B2 Asas             	fall (tree)		habug-
+B3 Sausi            	fall (tree)		ɛrɛ-
+B4 Koromu           	fall (tree)		pɛlau-
+B5 Dumpu            	fall (tree)		budu g-
+B6 Arawum           	fall (tree)         	deŋe-     	1593,1775
+B7 Kolom            	fall (tree)		musukʰɔi
+B8 Suroi		fall (tree)		ŋguru-
+B8 Suroi		fall (tree)		bariŋga-
+B9 Lemio            	fall (tree)         	ndoŋ-     	1593,1775
+B10 Pulabu          	fall (tree)         	du-       	1593,1775
+B11 Yabong          	fall (tree)         	doko-     	1593,1775
+B12 Ganglau         	fall (tree)         	toko-     	1593,1775
+B13 Saep            	fall (tree)         	tako-     	1593,1775
+B13 Saep            	fall (tree)         	uli-
+B14 Usino           	fall (tree)		polᵬ-
+B14 Usino           	fall (tree)		mait-
+B15 Sumau           	fall (tree)		pawo-
+B16 Urigina         	fall (tree)         	tom-      	1593,1775
+B17 Danaru          	fall (tree)		bouzo-
+B18 Usu          	fall (tree)		botuŋ-
+B18 Usu             	fall (tree)		gawri-
+B19 Erima           	fall (tree)         	taume-    	1593,1775
+B20 Deduela         	fall (tree)		gou-
+B21 Kwato           	fall (tree)		pidi-
+B22 Rerau           	fall (tree)		ko-
+B23 Jilim           	fall (tree)		kulan-
+B24 Yangulam        	fall (tree)         	tuaŋ-     	1593,1775
+B25 Bom             	fall (tree)		ay-
+B26 Male            	fall (tree)		gurɛag-
+B27 Bongu           	fall (tree)         	doŋ-      	1593,1775
+B28 Songum          	fall (tree)		ko-

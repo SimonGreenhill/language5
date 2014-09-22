@@ -1,0 +1,30 @@
+B1 Sinsauru         	tree top		moku-num
+B2 Asas             	tree top		mugwʌ-num
+B3 Sausi            	tree top		mobun
+B3 Sausi            	tree top		turun
+B4 Koromu           	tree top		mohuno
+B5 Dumpu            	tree top		tuŋgu
+B6 Arawum           	tree top		kul
+B7 Kolom            	tree top		kun-to
+B8 Suroi		tree top		funu
+B9 Lemio            	tree top		kʰur
+B10 Pulabu		tree top		kundʌne
+B11 Yabong		tree top		nom dinom
+B12 Ganglau		tree top		buŋan ziŋ
+B13 Saep		tree top		tʰu-ŋgo
+B14 Usino           	tree top		kwatam
+B15 Sumau           	tree top		or̃om
+B16 Urigina         	tree top		poːrugu
+B17 Danaru          	tree top		məndob
+B18 Usu             	tree top		bosiu
+B19 Erima           	tree top		ǰaŋu
+B19 Erima           	tree top		mɔra
+B20 Deduela         	tree top		mohu
+B21 Kwato           	tree top		tura mou
+B22 Rerau           	tree top		kup
+B23 Jilim           	tree top		kup
+B24 Yangulam        	tree top		bugu
+B25 Bom             	tree top		bur̃bur̃
+B26 Male            	tree top		br̃ɛ
+B27 Bongu           	tree top		busenɛ
+B28 Songum          	tree top		gari

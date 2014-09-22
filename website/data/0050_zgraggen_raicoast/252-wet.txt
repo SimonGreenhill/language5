@@ -1,0 +1,29 @@
+B1 Sinsauru         	wet		yanʌn
+B2 Asas             	wet		osai-
+B3 Sausi            	wet		ozai-
+B4 Koromu           	wet		kɛsɛramo
+B5 Dumpu            	wet		kurgu
+B6 Arawum           	wet		sɔnɔto
+B7 Kolom            	wet		minkyɛ
+B8 Suroi		wet		bisuk
+B9 Lemio            	wet		yʌ tau-
+B10 Pulabu		wet		
+B11 Yabong		wet		yag didoŋ
+B12 Ganglau		wet		f̩taksi-
+B13 Saep		wet		mbug-ŋgo
+B14 Usino           	wet		kusa
+B14 Usino           	wet		yagtu
+B15 Sumau           	wet		ɛnɛtu
+B16 Urigina         	wet		mʌrimʌriᵬa
+B17 Danaru          	wet		kosamuŋgu
+B18 Usu             	wet		ɛnɛo
+B19 Erima           	wet		mumuduta
+B20 Deduela         	wet		mulu
+B21 Kwato           	wet		uyʌːjita
+B22 Rerau           	wet		
+B23 Jilim           	wet		gɛbiu-
+B24 Yangulam        	wet		
+B25 Bom             	wet		nuŋgu-
+B26 Male            	wet		yʌkogo
+B27 Bongu           	wet		kusawɛn
+B28 Songum          	wet		gusa

@@ -1,0 +1,29 @@
+B1 Sinsauru         	here                	awai      	
+B2 Asas             	here                	awai      	
+B3 Sausi            	here			mop
+B4 Koromu           	here			nopo(mo)
+B5 Dumpu            	here			ame
+B6 Arawum           	here			embo
+B7 Kolom            	here			
+B8 Suroi		here			tetaŋge
+B9 Lemio            	here			
+B10 Pulabu		here			hama
+B11 Yabong		here			inaŋ
+B12 Ganglau		here			ta-ug
+B13 Saep		here			ta-le
+B14 Usino           	here			mo
+B15 Sumau           	here			muro
+B16 Urigina         	here			muro
+B17 Danaru          	here			mono
+B18 Usu             	here			ɛi
+B19 Erima           	here			bɛla
+B20 Deduela         	here			mɛbɛ
+B20 Deduela         	here			monɛa
+B21 Kwato           	here			moi
+B22 Rerau           	here			
+B23 Jilim           	here			ho
+B24 Yangulam        	here		
+B25 Bom             	here                	endi      	
+B26 Male            	here			lɛ
+B27 Bongu           	here                	andi      	
+B28 Songum          	here                	wana      	

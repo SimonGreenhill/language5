@@ -1,0 +1,30 @@
+B1 Sinsauru         	piece of wood		hut mapiɛm
+B2 Asas             	piece of wood		bagɛ-num
+B3 Sausi            	piece of wood		tiri nupunomo
+B4 Koromu           	piece of wood		utuna
+B5 Dumpu            	piece of wood		pepotow
+B6 Arawum           	piece of wood		thumo
+B7 Kolom            	piece of wood		fɔ-to
+B8 Suroi		piece of wood		baˀar
+B9 Lemio            	piece of wood		
+B10 Pulabu		piece of wood		
+B11 Yabong		piece of wood		sikɛt
+B12 Ganglau		piece of wood		dʌmŋ
+B13 Saep		piece of wood		dam ŋgo
+B14 Usino           	piece of wood		ausiga
+B15 Sumau           	piece of wood		nʌ mʌsʌ
+B16 Urigina         	piece of wood		mʌːndi
+B17 Danaru          	piece of wood		nubnub
+B18 Usu             	piece of wood		ab
+B19 Erima           	piece of wood		mataw
+B19 Erima           	piece of wood		misikʌːgu
+B20 Deduela         	piece of wood		mutu
+B21 Kwato           	piece of wood		maja
+B22 Rerau           	piece of wood		sogu
+B23 Jilim           	piece of wood		nʌgi
+B24 Yangulam        	piece of wood		pʰʌŋ
+B25 Bom             	piece of wood		saraka
+B26 Male            	piece of wood		agu
+B27 Bongu           	piece of wood		sakɛrɛ
+B27 Bongu           	piece of wood		aŋam paŋ
+B28 Songum          	piece of wood		

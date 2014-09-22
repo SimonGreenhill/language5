@@ -1,0 +1,31 @@
+B1 Sinsauru         	stone               	waulo     	1913
+B2 Asas             	stone               	waulo     	1913
+B3 Sausi            	stone               	wauro     	1913
+B3 Sausi            	stone               	ibo
+B4 Koromu           	stone               	waulo     	1913
+B4 Koromu           	stone               	ɛbo
+B5 Dumpu            	stone               	mun       	1912
+B6 Arawum           	stone               	wɔl       	1913
+B7 Kolom            	stone			naŋge
+B8 Suroi		stone			ndame
+B9 Lemio            	stone			cʌbia
+B10 Pulabu		stone			haɪ
+B11 Yabong		stone			somo
+B12 Ganglau         	stone               	miŋ       	1912
+B13 Saep            	stone               	muŋ       	1912
+B14 Usino           	stone               	kegem     	
+B15 Sumau           	stone               	ʔe        	
+B16 Urigina         	stone			goimbo
+B17 Danaru          	stone			gwaib
+B18 Usu             	stone               	egam      	
+B19 Erima           	stone               	megemu    	
+B20 Deduela         	stone			aːbu
+B21 Kwato           	stone			naniba
+B22 Rerau           	stone               	mʌ:nu     	1912
+B23 Jilim           	stone               	mʌ:nu     	1912
+B24 Yangulam        	stone			dama
+B25 Bom             	stone               	meniŋ     	1912
+B26 Male            	stone               	meneŋ     	1912
+B27 Bongu           	stone			gitaŋ
+B27 Bongu           	stone			sakarum
+B28 Songum          	stone			duma

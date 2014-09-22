@@ -1,0 +1,32 @@
+B1 Sinsauru         	egg                 	silenem   	1615,1792
+B1 Sinsauru         	egg                 	rokum
+B2 Asas             	egg                 	sire      	1615,1792
+B3 Sausi            	egg                 	sreno     	1615,1792
+B4 Koromu           	egg                 	srene     	1615,1792
+B4 Koromu           	egg                 	obon
+B5 Dumpu            	egg			roŋ
+B6 Arawum           	egg                 	sal       	1615,1792
+B7 Kolom            	egg			pʌtun
+B8 Suroi		egg			tiŋ-no
+B9 Lemio            	egg                 	sra       	1615,1792
+B10 Pulabu		egg			sʌsi
+B11 Yabong		egg			guŋut
+B12 Ganglau		egg			yegŋan
+B13 Saep		egg			agʌŋgo
+B14 Usino           	egg			wagib
+B14 Usino           	egg			nag
+B15 Sumau           	egg			wʌy
+B16 Urigina         	egg                 	maŋgimu	
+B16 Urigina         	egg                 	gibu
+B17 Danaru          	egg			wagrif
+B18 Usu             	egg			gamu
+B19 Erima           	egg			pʌtu
+B20 Deduela         	egg			utu
+B21 Kwato           	egg			utu
+B22 Rerau           	egg			gɪm
+B23 Jilim           	egg			gim
+B24 Yangulam        	egg                 	silim     	1615,1792
+B25 Bom             	egg			tawɛl
+B26 Male            	egg			tuol
+B27 Bongu           	egg			taul
+B28 Songum          	egg			giɛ

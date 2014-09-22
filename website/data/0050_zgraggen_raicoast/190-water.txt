@@ -1,0 +1,29 @@
+B1 Sinsauru         	water               	ya        	1669,1914
+B2 Asas             	water               	ya        	1669,1914
+B3 Sausi            	water               	yʌ        	1914
+B4 Koromu           	water               	yʌ        	1914
+B5 Dumpu            	water               	yʌ        	1914
+B6 Arawum           	water			sono
+B7 Kolom            	water               	yʌŋ       	1914
+B8 Suroi		water			kule
+B9 Lemio            	water               	yʌ        	1914
+B10 Pulabu		water			yʌ
+B11 Yabong          	water               	yag       	1914
+B12 Ganglau         	water               	yag       	1669,1914
+B13 Saep            	water               	yʌg       	1914
+B14 Usino           	water               	yʌg       	1914
+B15 Sumau           	water               	yaki      	1669,1914
+B15 Sumau           	water               	ˀɛnɛ
+B16 Urigina         	water			kouyawa
+B17 Danaru          	water			ɛn
+B18 Usu             	water			ʌsi
+B19 Erima           	water               	yʌge      	1914
+B20 Deduela         	water               	yage      	1669,1914
+B21 Kwato           	water			uyay
+B22 Rerau           	water               	yag       	1669,1914
+B23 Jilim           	water               	yʌ        	1914
+B24 Yangulam        	water               	yi        	1914
+B25 Bom             	water               	yʌ        	1914
+B26 Male            	water               	yʌk       	1914
+B27 Bongu           	water               	yi:       	1914
+B28 Songum          	water               	yʌk       	1914

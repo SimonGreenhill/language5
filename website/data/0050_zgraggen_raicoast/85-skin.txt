@@ -1,0 +1,38 @@
+B1 Sinsauru         	skin                	me:te     	1879
+B1 Sinsauru         	skin                	teimonm
+B2 Asas             	skin                	mede      	1879
+B2 Asas             	skin                	meitʌron
+B3 Sausi            	skin                	mete      	1879
+B3 Sausi            	skin                	touno
+B4 Koromu           	skin                	mete      	1879
+B4 Koromu           	skin                	kueinɛ
+B5 Dumpu            	skin                	ŋgeri     	1878
+B5 Dumpu            	skin                	midi      	1879
+B6 Arawum           	skin                	njal      	1878
+B7 Kolom            	skin                	ŋʌroro    	1878
+B7 Kolom            	skin                	mande     	1879
+B8 Suroi            	skin                	garo      	1878
+B9 Lemio            	skin                	ger̃      	1878
+B10 Pulabu		skin			cinaway
+B11 Yabong		skin			gɔtʰoŋ-
+B12 Ganglau         	skin                	gulam     	1878
+B13 Saep            	skin                	gelʌŋ-     	1878
+B14 Usino           	skin			mubo
+B14 Usino           	skin			korɛa
+B15 Sumau           	skin			imusa mubu-
+B16 Urigina         	skin			mɛmbɛ-
+B17 Danaru          	skin                	ŋgurʌrif  	1878
+B18 Usu             	skin			gijʌ-
+B19 Erima           	skin                	kokola-    	1878
+B19 Erima           	skin                	skola-
+B20 Deduela         	skin                	kana-      	1878
+B21 Kwato           	skin                	kuakana  	1878
+B21 Kwato           	skin                	kozagau
+B22 Rerau           	skin			mujaGum
+B23 Jilim           	skin			kom
+B24 Yangulam        	skin                	jelam     	1878
+B25 Bom             	skin                	gar̃a     	1878
+B26 Male            	skin                	ko        	1878
+B26 Male            	skin                	todam
+B27 Bongu           	skin			dgtagu
+B28 Songum          	skin                	ʔo        	1878

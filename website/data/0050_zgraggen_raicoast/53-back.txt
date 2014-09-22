@@ -1,0 +1,33 @@
+B1 Sinsauru         	back			gweti
+B2 Asas             	back			godi
+B3 Sausi            	back			seti
+B3 Sausi            	back			mɛdɛ
+B4 Koromu           	back			torsiru
+B4 Koromu           	back			tora
+B5 Dumpu            	back			ibisu
+B6 Arawum           	back			sɛːndɛ
+B7 Kolom            	back			bʌdid
+B8 Suroi		back			saŋgil-
+B9 Lemio            	back			yump
+B10 Pulabu          	back                	kumbor̃e  	1519,1710
+B11 Yabong		back			ibu-
+B12 Ganglau		back			mɛːt
+B13 Saep		back			ibun-
+B14 Usino           	back			bigɛ
+B15 Sumau           	back			nigi gɛm
+B15 Sumau           	back			mubu
+B16 Urigina         	back			sɛndi-
+B17 Danaru          	back			mbim
+B18 Usu             	back			gas-
+B18 Usu             	back			gabi
+B19 Erima           	back			aula-
+B20 Deduela         	back			gomolo-
+B21 Kwato           	back			muku
+B21 Kwato           	back			kusa
+B22 Rerau           	back			muŋgom
+B23 Jilim           	back			muŋgom
+B24 Yangulam        	back                	kumbo     	1519,1710
+B25 Bom			back			gor̃ɛ
+B26 Male            	back                	kombor̃   	1519,1710
+B27 Bongu           	back			goro
+B28 Songum          	back                	gombor̃   	1519,1710

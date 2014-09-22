@@ -1,0 +1,29 @@
+B1 Sinsauru         	go.down		futin m-
+B2 Asas             	go.down		mu-
+B3 Sausi            	go.down		obasɛ yarɛ-
+B4 Koromu           	go.down		amɛ-
+B5 Dumpu            	go.down		mau-
+B6 Arawum           	go.down		ma-
+B7 Kolom            	go.down		balka-
+B8 Suroi		go.down		dɛk(ini)-
+B9 Lemio            	go.down		mo-
+B10 Pulabu		go.down		wa-
+B11 Yabong		go.down		wo-
+B12 Ganglau		go.down		a-
+B13 Saep		go.down		a-
+B14 Usino           	go.down		bau ut-
+B15 Sumau           	go.down		muna-
+B16 Urigina         	go.down		kande-
+B17 Danaru          	go.down		abun nɛg-
+B18 Usu             	go.down		muni-
+B19 Erima           	go.down		heige-
+B19 Erima           	go.down		heiye-
+B20 Deduela         	go.down		(kau) mogo-
+B21 Kwato           	go.down		kawɛ oi-
+B22 Rerau           	go.down		mid-
+B23 Jilim           	go.down		mi-
+B24 Yangulam        	go.down		hidi-
+B25 Bom             	go.down		ay-
+B26 Male            	go.down		kʌul-
+B27 Bongu           	go.down		Gul-
+B28 Songum          	go.down		kul-

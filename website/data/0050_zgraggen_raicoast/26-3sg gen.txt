@@ -1,0 +1,34 @@
+B1 Sinsauru         	3sg gen             	
+B2 Asas             	3sg gen             	-n
+B2 Asas             	3sg gen             	-nVmu
+B3 Sausi            	3sg gen             	-ine
+B4 Koromu           	3sg gen             	-ine
+B5 Dumpu            	3sg gen             	
+B6 Arawum           	3sg gen             	nu-
+B7 Kolom            	3sg gen             	
+B8 Suroi            	3sg gen             	-no
+B9 Lemio            	3sg gen             	nu-
+B10 Pulabu          	3sg gen             	
+B11 Yabong          	3sg gen             	-t(u)
+B11 Yabong          	3sg gen             	-ngu
+B12 Ganglau         	3sg gen             	
+B13 Saep            	3sg gen             	-go
+B14 Usino           	3sg gen             	-ø
+B15 Sumau           	3sg gen             	-ø
+B16 Urigina         	3sg gen             	-bu
+B16 Urigina         	3sg gen             	-mu
+B17 Danaru          	3sg gen             	-ᵽ
+B17 Danaru          	3sg gen             	-m
+B18 Usu             	3sg gen             	-ø
+B18 Usu             	3sg gen             	-w
+B19 Erima           	3sg gen             	-ø
+B19 Erima           	3sg gen             	-mɛ
+B20 Deduela         	3sg gen             	-ø
+B21 Kwato           	3sg gen             	
+B22 Rerau           	3sg gen             	
+B23 Jilim           	3sg gen             	ø-
+B24 Yangulam        	3sg gen             	
+B25 Bom             	3sg gen             	
+B26 Male            	3sg gen             	
+B27 Bongu           	3sg gen             	
+B28 Songum          	3sg gen             	

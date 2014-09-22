@@ -1,0 +1,29 @@
+B1 Sinsauru         	think		ursu-
+B2 Asas             	think		usu-
+B3 Sausi            	think		udunu-
+B4 Koromu           	think		
+B5 Dumpu            	think		
+B6 Arawum           	think		mundesi-
+B7 Kolom            	think		
+B8 Suroi		think		wam dus-
+B9 Lemio            	think		
+B10 Pulabu		think		tugɛr̃ɛ-
+B11 Yabong		think		manda yonŋɔ-
+B12 Ganglau		think		iluŋ-
+B13 Saep		think		iluŋko-
+B13 Saep		think		o-
+B14 Usino           	think		utunug-
+B15 Sumau           	think		nanʌnɛ-
+B16 Urigina         	think		utu nuŋg-
+B17 Danaru          	think		utun tɛ-
+B18 Usu             	think		oksi-
+B19 Erima           	think		ninau-
+B20 Deduela         	think		ninausi-
+B21 Kwato           	think		nanusi te-
+B22 Rerau           	think		
+B23 Jilim           	think		nɛan-
+B24 Yangulam        	think		lilu-
+B25 Bom             	think		arɛ gali-
+B26 Male            	think		munɛ-
+B27 Bongu           	think		are GaGal-
+B28 Songum          	think		udud-

@@ -1,0 +1,28 @@
+B1 Sinsauru         	vulva			popow
+B2 Asas             	vulva               	simi      	1613,1885
+B3 Sausi            	vulva               	simi      	1613,1885
+B4 Koromu           	vulva               	simi      	1613,1885
+B5 Dumpu            	vulva               	simi      	1613,1885
+B6 Arawum           	vulva               	simi      	1613,1885
+B7 Kolom            	vulva               	seme      	1613,1885
+B8 Suroi            	vulva               	sume      	1613,1885
+B9 Lemio            	vulva               	simi      	1613,1885
+B10 Pulabu		vulva			kubai
+B11 Yabong		vulva			ala-
+B12 Ganglau		vulva			la
+B13 Saep		vulva			alan-
+B14 Usino           	vulva			sᵘmɔg
+B15 Sumau           	vulva               	simi      	1613,1885
+B16 Urigina         	vulva               	si:mi     	1613,1885
+B17 Danaru          	vulva               	simiwi    	1613,1885
+B18 Usu             	vulva			kʌbay
+B19 Erima           	vulva			bitʌ
+B20 Deduela         	vulva			lombitʌ
+B21 Kwato           	vulva			oyonoy
+B22 Rerau           	vulva			huli
+B23 Jilim           	vulva			kujiˀ
+B24 Yangulam        	vulva               	sime      	1613,1885
+B25 Bom             	vulva			babau
+B26 Male            	vulva			ʌː
+B27 Bongu           	vulva			a
+B28 Songum          	vulva			idopin

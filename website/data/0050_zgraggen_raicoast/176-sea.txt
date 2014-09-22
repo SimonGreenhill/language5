@@ -1,0 +1,28 @@
+B1 Sinsauru         	sea                 	su        	1616,1793
+B2 Asas             	sea                 	su        	1616,1793
+B3 Sausi            	sea                 	ya        	1571,1755
+B4 Koromu           	sea			
+B5 Dumpu            	sea                 	yaudu     	1571,1755
+B6 Arawum           	sea			tul
+B7 Kolom            	sea                 	you       	1571,1755
+B8 Suroi            	sea                 	yu        	1571,1755
+B9 Lemio            	sea			sigiyɛya
+B10 Pulabu          	sea                 	yuwa, iwa 	1755
+B11 Yabong          	sea                 	suo		1793
+B12 Ganglau         	sea                 	siu 		1793
+B13 Saep            	sea                 	siu       	1616,1793
+B14 Usino           	sea			umiʌg
+B15 Sumau           	sea                 	iwa       	1571,1755
+B16 Urigina         	sea			wono
+B17 Danaru          	sea			omɛaŋg
+B18 Usu             	sea			mahai
+B19 Erima           	sea			hɛri
+B20 Deduela         	sea			ziri
+B21 Kwato           	sea			siri
+B22 Rerau           	sea                 	yiwɛl     	1571,1755
+B23 Jilim           	sea                 	iwel      	1571,1755
+B24 Yangulam        	sea                 	wali      	1571,1755
+B25 Bom             	sea                 	yuwal     	1571,1755
+B26 Male            	sea                 	yuwal     	1571,1755
+B27 Bongu           	sea                 	wal       	1571,1755
+B28 Songum          	sea                 	yuwal     	1571,1755

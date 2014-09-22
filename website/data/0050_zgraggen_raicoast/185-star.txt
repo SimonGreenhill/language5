@@ -1,0 +1,32 @@
+B1 Sinsauru         	star			solo
+B2 Asas             	star                	kunebi    	1559,1747
+B2 Asas             	star                	panege
+B3 Sausi            	star                	konobie   	1559,1747
+B4 Koromu           	star                	wanupe    	1559,1747
+B5 Dumpu            	star			gʌa
+B6 Arawum           	star			gasa
+B7 Kolom            	star                	buai      	1506,1698
+B8 Suroi            	star                	mbai      	1506,1698
+B9 Lemio            	star			sureb
+B9 Lemio            	star			ʂro
+B10 Pulabu          	star                	bie       	1506,1559,1698,1747
+B11 Yabong		star			gipʰʌ
+B12 Ganglau		star			gwip
+B13 Saep		star			kʰipa
+B14 Usino           	star                	kweneb    	1559,1747
+B14 Usino           	star                	kɛnɛm
+B15 Sumau           	star                	pai       	1506,1698
+B15 Sumau           	star                	enepi     	1559,1747
+B16 Urigina         	star                	konombe   	1559,1747
+B17 Danaru          	star                	konombe   	1559,1747
+B18 Usu             	star                	bai       	1506,1698
+B19 Erima           	star			barʌsigi
+B20 Deduela         	star                	pai       	1506,1698
+B21 Kwato           	star                	pay       	1506,1698
+B22 Rerau           	star			pinaŋgɛr
+B23 Jilim           	star			pinaŋgɛr
+B24 Yangulam        	star			gumaŋgr̃e
+B25 Bom             	star			bongʌr̃
+B26 Male            	star			br̃aŋar̃
+B27 Bongu           	star                	buain     	1506,1698
+B28 Songum          	star			bɛnaŋgal

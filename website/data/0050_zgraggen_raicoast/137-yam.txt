@@ -1,0 +1,28 @@
+B1 Sinsauru         	yam                 	hou       	1603,1820
+B2 Asas             	yam                 	hou       	1603,1820
+B3 Sausi            	yam                 	ou        	1603,1820
+B4 Koromu           	yam                 	ou        	1603,1820
+B5 Dumpu            	yam                 	ku        	1603,1820
+B6 Arawum           	yam			mulaŋk
+B7 Kolom            	yam			ñai
+B8 Suroi		yam			mar̃aŋ
+B9 Lemio            	yam                 	kou       	1603,1820
+B10 Pulabu          	yam                 	ka:mu     	1603,1820
+B11 Yabong		yam			muleg
+B12 Ganglau		yam			mleg
+B13 Saep		yam			malɛg
+B14 Usino           	yam			kibʌ
+B15 Sumau           	yam			iba
+B16 Urigina         	yam                 	ko:me     	1603,1820
+B17 Danaru          	yam                 	gou       	1603,1820
+B18 Usu             	yam			murʌk
+B19 Erima           	yam                 	ha:mbi    	1522,1713
+B20 Deduela         	yam                 	sa:bi     	1522,1713
+B21 Kwato           	yam			soira
+B22 Rerau           	yam                 	halim
+B23 Jilim           	yam			alim
+B24 Yangulam        	yam			bẽraŋ
+B25 Bom             	yam                 	sambi     	1522,1713
+B26 Male            	yam                 	sambi     	1522,1713
+B27 Bongu           	yam                 	sambi     	1522,1713
+B28 Songum          	yam                 	sambi     	1522,1713

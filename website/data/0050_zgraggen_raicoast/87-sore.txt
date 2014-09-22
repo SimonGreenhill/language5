@@ -1,0 +1,28 @@
+B1 Sinsauru         	sore                	we:li     	1565,1880
+B2 Asas             	sore                	wesi      	1565,1880
+B3 Sausi            	sore                	we:ri     	1565,1880
+B4 Koromu           	sore                	we:li     	1880
+B5 Dumpu            	sore                	wele      	1565,1880
+B6 Arawum           	sore                	wʌl       	1880
+B7 Kolom            	sore                	wei       	1565,1880
+B8 Suroi            	sore                	we        	1565,1880
+B9 Lemio            	sore                	wir       	1565,1880
+B10 Pulabu		sore			iyo
+B11 Yabong		sore			um-
+B12 Ganglau		sore			um
+B13 Saep		sore			um
+B14 Usino           	sore                	wes       	1565,1880
+B15 Sumau           	sore                	usi       	1565,1880
+B16 Urigina         	sore                	we:se     	1565,1880
+B17 Danaru          	sore                	wes       	1565,1880
+B18 Usu             	sore                	wʌ        	1880
+B19 Erima           	sore                	ju        	1565,1880
+B20 Deduela         	sore                	yu        	1565,1880
+B21 Kwato           	sore                	we:se     	1565,1880
+B22 Rerau           	sore                	wi        	1565,1880
+B23 Jilim           	sore                	wi        	1565
+B24 Yangulam        	sore                	wʌti      	1880
+B25 Bom             	sore                	yu        	1565,1880
+B26 Male            	sore                	wo        	1565,1880
+B27 Bongu           	sore                	ow        	1565,1880
+B28 Songum          	sore                	wo        	1565,1880
