@@ -19,9 +19,10 @@ def get_xy(label, get_latest=False):
     x = [format_time_struct(GRAPH_START_TIME.timetuple()),]
     y = [0,]
     
-    for row in StatisticalValue.objects.get_all_with_dates(label):
-        x.append(format_time_struct(row[1].timetuple()))
-        y.append(row[0])
+    for i, row in enumerate(StatisticalValue.objects.get_all_with_dates(label)):
+        if i % 7 == 0:
+            x.append(format_time_struct(row[1].timetuple()))
+            y.append(row[0])
     
     # get_latest
     if get_latest:
