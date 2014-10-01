@@ -260,3 +260,17 @@ SOUTH_TESTS_MIGRATE = False # just use syncdb
 STATICSITEMAPS_ROOT_SITEMAP = 'website.sitemap.sitemaps'
 
 
+OLAC_SETTINGS = {
+    'sitename': SITE_NAME,
+    'repositoryName': SITE_NAME,
+    'sitedomain': SITE_DOMAIN,
+    'description': SITE_DESCRIPTION,
+    'adminEmail': ADMINS, 
+    'admins': ADMINS,
+    'deletedRecord': 'no', # deletedRecord policy
+    'protocolVersion': '2.0', # the version of the OAI-PMH supported by the repository;
+    'depositor': ADMINS,
+    'institution': '',
+    'institutionURL': '',
+    'shortLocation': '',
+}
