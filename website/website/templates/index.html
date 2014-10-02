@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load staticfiles %}
+{% load staticfiles twitter_tag cache %}
 
 {% block title %} {{ SITE_NAME }} {% endblock %}
 
@@ -10,9 +10,9 @@
     </div>
     
     <div class="span8">
-        <p class="lead">
-            Welcome to the {{ SITE_NAME }}.
-        </p>
+        <div class="map">
+            <img src="{% static "img/map-600.png" %}" width="600" height="304" class="img-rounded" alt="Map of New Guinea" />
+        </div>
         
         <div class="alert alert-block">
           <h4>Warning!</h4> 
@@ -20,6 +20,10 @@
           <p>Please contact <a href="mailto:simon.greenhill@anu.edu.au">Simon Greenhill</a> for more information.</p>
         </div>
 
+        <p class="lead">
+            Welcome to {{ SITE_NAME }}.
+        </p>
+        
         <p>
             {{ SITE_NAME }} is a database of the Trans-New Guinea language family and
             friends. The Trans-New Guinea language family currently occupies most of 
@@ -33,7 +37,6 @@
             linguistic comparative method combined with novel
             computational phylogenetic methods. 
         </p>
-    
         <p>
             This website is run by Simon Greenhill in the
             <a href="http://chl.anu.edu.au/">School of Culture, History and Language</a> and 
@@ -47,11 +50,19 @@
             <em>Discovering Trans-New Guinea: Revealing the prehistory of New Guinea</em>
             (#DE120101954) to Simon Greenhill.
         </p>
-    
-        <div class="map">
-            <img src="{% static "img/map-600.png" %}" width="600" height="304" class="img-rounded" alt="Map of New Guinea" />
-            <p class="caption">Map of the Trans-New Guinea Languages.</p>
-        </div>
+        
+        <h2>News: </h2>
+        
+        {% cache 3600 tweets %}
+        {% get_tweets for settings.TWITTER_USERNAME as tweets exclude "replies, retweets" limit 10 %}
+            {% for tweet in tweets %}
+                <dl class="dl-horizontal">
+                    <dt>{{ tweet.datetime|date:"D d M Y" }}:</dt> 
+                    <dd>{{ tweet.html|safe }}</dd>
+                </dl>
+            {% endfor %}
+        {% endcache %}
+        
     </div>
 
     
