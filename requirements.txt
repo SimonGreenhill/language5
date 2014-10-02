@@ -16,6 +16,7 @@ IPython                                                     # for local work.
 django-static-sitemaps>=1.5.5                               # static sitemaps
 django_compressor                                           # for asset compression/cache busting
 django-tastypie                                             # API
+django-twitter-tag                                          # twitter integration
 requests                                                    # useful for data
 # searching:
 -e git://github.com/etianen/django-watson.git#egg=django-watson
