@@ -68,7 +68,7 @@ class TaskWordlistAdmin(TrackedModelAdmin, VersionAdmin):
     filter_horizontal = ('words',)
     inlines = [WordlistMembersInline,]
     
-    def queryset(self, request):
+    def get_queryset(self, request):
         return Wordlist.objects.annotate(words_count=Count("words"))
         
     def words_count(self, inst):
