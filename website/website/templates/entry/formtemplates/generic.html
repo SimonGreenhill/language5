@@ -34,24 +34,32 @@
             <tr>
                 {% for field in form %}
                     <td {% if field.errors %}class="error"{% endif %}>
+                        
                         {% ifequal field.name "word" %}
                             {% if form.initial.order_id %}
                                 {{ form.initial.order_id }}.
                             {% endif %}
                         {% endifequal %}
                         
-                        {{ field }}
-                        {% if field.errors %}
-                            <i class="tip icon-exclamation-sign" 
-                                data-toggle="tooltip" 
-                                data-placement="top" 
-                                data-container="td"
-                                title="
-                                {% for error in field.errors %}
-                                    {{ error|escape }} 
-                                {% endfor %}">
-                            </i>
+                        {% if field.name == "language" and task.language %} 
+                            {{ task.language }}
+                        {% elif field.name == "source" and task.source %}
+                            {{ task.source }}
+                        {% else %}
+                            {{ field }}
+                            {% if field.errors %}
+                                <i class="tip icon-exclamation-sign" 
+                                    data-toggle="tooltip" 
+                                    data-placement="top" 
+                                    data-container="td"
+                                    title="
+                                    {% for error in field.errors %}
+                                        {{ error|escape }} 
+                                    {% endfor %}">
+                                </i>
+                            {% endif %}
                         {% endif %}
+                    
                     </td>
                 {% endfor %}
             </tr>
