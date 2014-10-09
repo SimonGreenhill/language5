@@ -6,7 +6,7 @@ from django.core.management.base import BaseCommand
 
 from website.apps.entry.models import Task
 from website.apps.entry.views import decode_checkpoint, make_querydict
-from website.apps.entry.dataentry.generic import GenericFormSet
+from website.apps.entry.dataentry.generic import GenericFormset
 
 
 class Command(BaseCommand):
@@ -55,8 +55,8 @@ class Command(BaseCommand):
         
         return cp
         
-    def display_formset(self, checkpoint):
-        formset = GenericFormSet(checkpoint)
+    def display_formset(self, task, checkpoint):
+        formset = GenericFormset(checkpoint)
         print 'Formset:'.ljust(15), repr(formset)
         print 'is_valid:'.ljust(15), formset.is_valid()
         print
@@ -80,5 +80,5 @@ class Command(BaseCommand):
         else:
             print 'Form:'.ljust(15), '?'
         
-        self.display_formset(cp)
+        self.display_formset(task, cp)
             

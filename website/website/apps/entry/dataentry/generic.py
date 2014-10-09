@@ -1,3 +1,5 @@
+import copy
+
 from django.shortcuts import render_to_response
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
@@ -33,15 +35,22 @@ class GenericForm(forms.ModelForm):
         }
     # make sure to set editor, added, and loan if loan_source is specified
 
-
-GenericFormSet = formset_factory(GenericForm, extra=0)
+GenericFormset = formset_factory(GenericForm, extra=0)
 
 
 def process_post_and_save(request, task, formset):
     """Extracted common code to process a form."""
+    
     if 'refresh' in request.POST:
         task_log(request, task=task, message="Refreshed Task")
     elif 'submit' in request.POST:
+        # fill if necessary
+        for form in formset.forms:
+            if task.language and '%s-language' % form.prefix not in form.data:
+                form.data['%s-language' % form.prefix] = task.language.id
+            if task.source and '%s-source' % form.prefix not in form.data:
+                form.data['%s-source' % form.prefix] = task.source.id
+        
         if formset.is_valid():
             completed = []
             for form in formset:
@@ -100,25 +109,16 @@ def GenericView(request, task):
     template_name = "entry/formtemplates/generic.html"
     # process form
     if request.POST:
-        formset = GenericFormSet(request.POST)
+        formset = GenericFormset(request.POST)
         process_post_and_save(request, task, formset)
     else:
         # set up initial data
         initial = {}
-        the_form = GenericForm
         if task.language:
             initial['language'] = task.language
-            # fossilise and disallow editing these values
-            the_form.base_fields['language'].widget.attrs['readonly'] = True
-            the_form.base_fields['language'].widget.attrs['disabled'] = True
         if task.source:
             initial['source'] = task.source
-            # fossilise and disallow editing these values
-            the_form.base_fields['source'].widget.attrs['readonly'] = True
-            the_form.base_fields['source'].widget.attrs['disabled'] = True
-        
-        RevisedFormSet = formset_factory(the_form, extra=0)
-        formset = RevisedFormSet(initial=[initial for i in range(task.records)])
+        formset = GenericFormset(initial=[initial for i in range(task.records)])
     
     return render_to_response('entry/detail.html', {
         'task': task,

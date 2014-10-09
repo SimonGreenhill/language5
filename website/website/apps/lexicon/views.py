@@ -169,7 +169,6 @@ class LexiconEdit(UpdateView):
 
 @login_required()
 def word_edit(request, slug):
-    # because Class-Based Views suck for complex things
     w = get_object_or_404(Word, slug=slug)
     GenericFormSet = modelformset_factory(Lexicon, form=WordForm, extra=0)
     formset = GenericFormSet(request.POST or None, queryset=w.lexicon_set.all())

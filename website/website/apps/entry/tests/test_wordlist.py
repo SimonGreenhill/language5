@@ -219,11 +219,7 @@ class Test_WordlistView(WordlistMixin):
         assert Task.objects.get(pk=self.task.pk).checkpoint
         
         # come back again later.
-        del(self.client)
-        newclient = Client()
-        newclient.login(username="admin", password="test")
-        response = newclient.get(self.task.get_absolute_url())
-        
+        response = self.client.get(self.task.get_absolute_url())
         formdata = [f.clean() for f in response.context['formset'].forms]
         assert len(formdata) == 4, "Expected four forms in formset"
         
