@@ -2,14 +2,15 @@ syntax: glob
 *.DS_Store
 *.pyc
 *.pyo
-
 syntax: regexp
+
+dump.json.gz
 ^doc/_build
 ^website/website/database.db
 ^website/website/settings/local.py
-^thirdparty/bootstrap/bootstrap/
-^thirdparty/bootstrap/docs/assets/
-website/website/templates/revision.txt
+^website/website/templates/revision.txt
 ^website/django.log
 ^website/django-db.log
 ^static_root/
+^thirdparty/bootstrap/bootstrap/
+^thirdparty/bootstrap/docs/assets/
