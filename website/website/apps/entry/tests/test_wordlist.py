@@ -154,9 +154,12 @@ class Test_WordlistView(WordlistMixin):
     def test_wordlist_saves(self):
         """Test WordlistView saves correctly"""
         self.client.login(username="admin", password="test")
-        response = self.client.post(self.task.get_absolute_url(), self.form_data)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'entry/done.html')
+        response = self.client.post(self.task.get_absolute_url(), self.form_data, follow=True)
+        self.assertTemplateUsed(response, 'entry/complete.html')
+        self.assertRedirects(response, 
+            reverse('entry:complete', kwargs={'pk': task.id}), 
+            status_code=302, target_status_code=200
+        )
         # is task completed
         assert Task.objects.get(pk=self.task.pk).done
         
@@ -246,11 +249,13 @@ class Test_WordlistView(WordlistMixin):
         self.form_data['form-TOTAL_FORMS'] =  u'4'
         
         # post...
-        response = self.client.post(self.task.get_absolute_url(), self.form_data)
-        self.assertEqual(response.status_code, 200)
+        response = self.client.post(self.task.get_absolute_url(), self.form_data, follow=True)
 
-
-        self.assertTemplateUsed(response, 'entry/done.html')
+        self.assertTemplateUsed(response, 'entry/complete.html')
+        self.assertRedirects(response, 
+            reverse('entry:complete', kwargs={'pk': task.id}), 
+            status_code=302, target_status_code=200
+        )
         # is task completed
         assert Task.objects.get(pk=self.task.pk).done
         

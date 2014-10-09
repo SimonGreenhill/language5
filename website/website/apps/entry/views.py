@@ -4,11 +4,12 @@ from django.shortcuts import redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.http import HttpResponseServerError, QueryDict
+from django.views.generic import DetailView
 
-from django_tables2 import SingleTableView
+from django_tables2 import SingleTableView, RequestConfig
 
 from website.apps.entry.models import Task
-from website.apps.entry.tables import TaskIndexTable
+from website.apps.entry.tables import TaskIndexTable, TaskLexiconTable
 from website.apps.entry.forms import QuickEntryViewForm
 from website.apps.entry import dataentry
 from website.apps.entry.utils import task_log
@@ -68,7 +69,7 @@ def task_detail(request, task_id):
     t = get_object_or_404(Task, pk=task_id)
     # 2. check if task is complete
     if t.done:
-        return redirect('entry:index')
+        return redirect('entry:complete', pk=t.id)
     
     # 3. save checkpoint
     if request.POST:
@@ -123,3 +124,22 @@ def quick_entry(request):
     t.save()
     task_log(request, task=t, message="Created Quick Entry Task")
     return redirect('entry:detail', task_id=t.id)
+
+
+
+# task index
+class TaskComplete(DetailView):
+    """Task Index"""
+    model = Task
+    template_name = 'entry/complete.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super(TaskComplete, self).get_context_data(**kwargs)
+        context['lexicon'] = TaskLexiconTable(kwargs['object'].lexicon.select_related().all())
+        RequestConfig(self.request).configure(context['lexicon'])
+        return context
+        
+    # ensure logged in
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(TaskComplete, self).dispatch(*args, **kwargs)

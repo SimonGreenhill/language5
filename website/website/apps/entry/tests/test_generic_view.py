@@ -53,8 +53,11 @@ class Test_GenericView(DataMixin):
         self.task.done = True
         self.task.save()
         response = self.client.get(self.task.get_absolute_url())
-        self.assertRedirects(response, reverse('entry:index'), status_code=302, target_status_code=200)
-    
+        self.assertRedirects(response, 
+            reverse('entry:complete', kwargs={'pk': self.task.id}), 
+            status_code=302, target_status_code=200
+        )
+        
     def test_number_of_records(self):
         self.client.login(username="admin", password="test")
         response = self.client.get(self.task.get_absolute_url())
@@ -71,8 +74,6 @@ class Test_GenericView(DataMixin):
         self.task.completable = False
         self.task.save()
         response = self.client.post(self.task.get_absolute_url(), self.form_data)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'entry/done.html')
         assert not Task.objects.get(pk=self.task.id).done
     
     def test_post_sets_done_if_completable(self):
@@ -80,8 +81,6 @@ class Test_GenericView(DataMixin):
         self.task.completable = True
         self.task.save()
         response = self.client.post(self.task.get_absolute_url(), self.form_data)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'entry/done.html')
         assert Task.objects.get(pk=self.task.id).done
     
     def test_unfixed_language_in_template(self):
@@ -157,12 +156,16 @@ class Test_GenericView(DataMixin):
         )
         form_data = self.form_data.copy()
         del(form_data['form-0-language'])   # remove language
-        response = self.client.post(task.get_absolute_url(), form_data)
-        self.assertEqual(response.status_code, 200)
+        response = self.client.post(task.get_absolute_url(), form_data, follow=True)
         
         # no errors
-        assert response.context['formset'].is_valid(), "Formset is Invalid"
-        self.assertTemplateUsed(response, 'entry/done.html')
+        assert task.lexicon.count() == 1
+        self.assertRedirects(response, 
+            reverse('entry:complete', kwargs={'pk': task.id}), 
+            status_code=302, target_status_code=200
+        )
+        self.assertTemplateUsed(response, 'entry/complete.html')
+        
         assert Task.objects.get(pk=task.id).done
 
     def test_fixed_source_in_save(self):
@@ -179,12 +182,14 @@ class Test_GenericView(DataMixin):
         )
         form_data = self.form_data.copy()
         del(form_data['form-0-source'])   # remove source
-        response = self.client.post(task.get_absolute_url(), form_data)
-        self.assertEqual(response.status_code, 200)
-        
-        assert response.context['formset'].is_valid(), "Formset is Invalid"
-        # no errors 
-        self.assertTemplateUsed(response, 'entry/done.html')
+        response = self.client.post(task.get_absolute_url(), form_data, follow=True)
+        # no errors
+        assert task.lexicon.count() == 1
+        self.assertRedirects(response, 
+            reverse('entry:complete', kwargs={'pk': task.id}), 
+            status_code=302, target_status_code=200
+        )
+        self.assertTemplateUsed(response, 'entry/complete.html')
         assert Task.objects.get(pk=task.id).done
 
     def test_error_on_unfixed_language_in_save(self):
