@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 
@@ -31,7 +31,8 @@ def WordlistView(request, task):
     # process form
     if request.POST:
         formset = GenericFormset(request.POST, initial=initial)
-        process_post_and_save(request, task, formset)
+        if process_post_and_save(request, task, formset):
+            return redirect('entry:complete', pk=task.id)
     else:
         formset = GenericFormset(initial=initial)
     

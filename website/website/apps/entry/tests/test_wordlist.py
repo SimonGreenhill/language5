@@ -156,8 +156,8 @@ class Test_WordlistView(WordlistMixin):
         self.client.login(username="admin", password="test")
         response = self.client.post(self.task.get_absolute_url(), self.form_data, follow=True)
         self.assertTemplateUsed(response, 'entry/complete.html')
-        self.assertRedirects(response, 
-            reverse('entry:complete', kwargs={'pk': task.id}), 
+        self.assertRedirects(response,
+            reverse('entry:complete', kwargs={'pk': self.task.id}),
             status_code=302, target_status_code=200
         )
         # is task completed
@@ -253,7 +253,7 @@ class Test_WordlistView(WordlistMixin):
 
         self.assertTemplateUsed(response, 'entry/complete.html')
         self.assertRedirects(response, 
-            reverse('entry:complete', kwargs={'pk': task.id}), 
+            reverse('entry:complete', kwargs={'pk': self.task.id}), 
             status_code=302, target_status_code=200
         )
         # is task completed
