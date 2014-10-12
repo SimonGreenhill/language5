@@ -1,0 +1,17 @@
+G1 Silebi            	spear               	kɨsa:r    	2944,2945
+G2 Katiati              	spear               	kusa      	2944,2945
+G3 Osum			spear			ya-
+G4 Pondoma		spear			uya
+G4 Pondoma		spear			ugʌrʉmp
+G5 Ikundun		spear			uiyʌpa
+G6 Moresada		spear			uyap
+G7 Wadiginam		spear			uyap
+H1 Atemple		spear			wajə
+H2 Angaua		spear			nɨgʉr
+H3 Emerum            	spear               	kɨsʌl     	2944,2945
+H4 Musak		spear			bʌnɨ
+H5 Paynamar		spear			muŋʌnɨk
+I1 Isabi		spear			kɛŋgɛa
+I2 Biyom		spear			dua
+I3 Tauya		spear			isai
+I4 Faita           	spear               	kisari    	2944,2945

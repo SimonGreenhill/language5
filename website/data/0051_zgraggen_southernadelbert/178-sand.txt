@@ -1,0 +1,16 @@
+G1 Silebi            	sand                	kʌ:si     	2936
+G2 Katiati              	sand                	kʌ:s      	2936
+G3 Osum             	sand                	gasi-     	2936
+G4 Pondoma		sand			asʉmna
+G5 Ikundun		sand			munatɨkupa
+G6 Moresada         	sand                	aseŋʌmp   	2937
+G7 Wadiginam        	sand                	atɨŋamp   	2937
+H1 Atemple		sand			tinapr sakɨña
+H2 Angaua		sand			ŋkin
+H3 Emerum            	sand                	ka:sɨŋ    	2936
+H4 Musak		sand			opo
+H5 Paynamar            	sand                	gʌs       	2936
+I1 Isabi		sand			isoʷ
+I2 Biyom            	sand                	osu       	1910
+I3 Tauya            	sand                	wise      	1910
+I4 Faita		sand			usuwa

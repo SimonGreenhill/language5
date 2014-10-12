@@ -1,0 +1,19 @@
+G1 Silebi            	hear                	ndar-     	3099
+G2 Katiati              	hear                	indar-    	3099
+G2 Katiati              	hear                	ŋg-
+G3 Osum			hear			-tagrara-
+G4 Pondoma		hear			tatam-
+G5 Ikundun		hear			-gandʌr-
+G6 Moresada		hear			-indʌrʌ-
+G7 Wadiginam		hear			-indʌ-
+H1 Atemple		hear			asa-
+H2 Angaua		hear			cɨgam-
+H3 Emerum		hear			iŋgʌːkr-
+H3 Emerum		hear			kintsirʌːm-
+H4 Musak             	hear                	iri- 
+H5 Paynamar		hear			muŋatama-
+I1 Isabi		hear			-kreh-
+I2 Biyom            	hear                	-esi-     	1622,1799
+I3 Tauya            	hear                	ese-      	1622,1799
+I3 Tauya            	hear                	esi -pa-
+I4 Faita		hear			-(si)-areβi-

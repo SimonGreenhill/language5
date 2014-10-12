@@ -1,0 +1,16 @@
+G1 Silebi            	netbag              	paŋa      	2952
+G2 Katiati              	netbag              	paŋa      	2952
+G3 Osum			netbag			ruguru-
+G4 Pondoma         	netbag              	wagaŋ     	2952
+G5 Ikundun          	netbag              	waɣamba   	2952
+G6 Moresada         	netbag              	waɣʌnʌmp  	2952
+G7 Wadiginam        	netbag              	waɣanamp  	2952
+H1 Atemple          	netbag              	aŋan      	2952
+H2 Angaua             	netbag              	aŋʌn      	2952
+H3 Emerum            	netbag              	paŋa      	2952
+H4 Musak             	netbag              	waŋʉ      	2952
+H5 Paynamar		netbag			mutɛ
+I1 Isabi		netbag			koru
+I2 Biyom            	netbag              	wai       	1541,1731
+I3 Tauya            	netbag              	fai       	1541,1731
+I4 Faita           	netbag              	pʌŋa      	2952

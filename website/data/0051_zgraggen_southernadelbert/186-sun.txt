@@ -1,0 +1,16 @@
+G1 Silebi		sun			ina
+G2 Katiati		sun			ina
+G3 Osum			sun			ñiŋar-
+G4 Pondoma		sun			ina
+G5 Ikundun		sun			inʌpa
+G6 Moresada		sun			iːnʌp
+G7 Wadiginam		sun			andʌrʌmp
+H1 Atemple		sun			ɛnda
+H2 Angaua		sun			rʌpr̃
+H3 Emerum		sun			wayaŋ
+H4 Musak		sun			iŋʌr
+H5 Paynamar		sun			aŋgi
+I1 Isabi		sun			sinda
+I2 Biyom		sun			yeɛnimo
+I3 Tauya		sun			ʌrʌ
+I4 Faita		sun			

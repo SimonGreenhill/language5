@@ -1,0 +1,17 @@
+G1 Silebi		sea			añi manda
+G1 Silebi		sea			iru
+G2 Katiati		sea			añak
+G3 Osum			sea			unu-
+G4 Pondoma		sea			wundaŋ towuŋ
+G5 Ikundun		sea			toːgŋamba
+G6 Moresada		sea			towənʌmp
+G7 Wadiginam		sea			suwunʌmp
+H1 Atemple		sea			utɨmanda
+H2 Angaua		sea			yʌm bogorʌ
+H3 Emerum		sea			turum
+H4 Musak		sea			ʌŋ
+H5 Paynamar		sea			tɨmiamba
+I1 Isabi		sea			siʌʌ
+I2 Biyom		sea			sei noi
+I3 Tauya		sea			siai yaˀa
+I4 Faita		sea			

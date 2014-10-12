@@ -1,0 +1,16 @@
+G1 Silebi		all			sɨganzɨga
+G2 Katiati		all			suganzuga
+G3 Osum			all			okuŋu
+G4 Pondoma		all			akuŋ
+G5 Ikundun		all			
+G6 Moresada		all			
+G7 Wadiginam		all			
+H1 Atemple		all			ograna
+H2 Angaua		all			muŋʌmun
+H3 Emerum		all			andaŋgara
+H4 Musak		all			
+H5 Paynamar		all			gawarum
+I1 Isabi		all			sɛŋgite
+I2 Biyom		all			mindim
+I3 Tauya		all			moˀoto
+I4 Faita		all			ŋgapara

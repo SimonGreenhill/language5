@@ -1,0 +1,17 @@
+G1 Silebi		2 pl genitive			
+G2 Katiati		2 pl genitive			na-
+G3 Osum			2 pl genitive			a-
+G3 Osum			2 pl genitive			0-
+G4 Pondoma		2 pl genitive			na-ŋa-
+G5 Ikundun		2 pl genitive			na-ŋa-
+G6 Moresada		2 pl genitive			na-ŋa-
+G7 Wadiginam		2 pl genitive			na-ŋa-
+H1 Atemple		2 pl genitive			
+H2 Angaua		2 pl genitive			
+H3 Emerum		2 pl genitive			
+H4 Musak		2 pl genitive			
+H5 Paynamar		2 pl genitive			na-
+I1 Isabi		2 pl genitive			ti-
+I2 Biyom		2 pl genitive			ti-
+I3 Tauya		2 pl genitive			tV-(n)-
+I4 Faita		2 pl genitive			na-nʉ-

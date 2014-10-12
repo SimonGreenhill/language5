@@ -1,0 +1,16 @@
+G1 Silebi		full			mumur- (v)
+G2 Katiati		full			yawur
+G3 Osum			full			rku-
+G4 Pondoma		full			tukuri-
+G5 Ikundun		full			tuki-
+G6 Moresada		full			tiki-
+G7 Wadiginam		full			ipu- (v)
+H1 Atemple		full			tor- (v)
+H2 Angaua		full			tor- (v)
+H3 Emerum		full			iːmri
+H4 Musak		full			yakaratɛ
+H5 Paynamar		full			atram- (v)
+I1 Isabi		full			
+I2 Biyom		full			isowa
+I3 Tauya		full			isowa
+I4 Faita		full			mute

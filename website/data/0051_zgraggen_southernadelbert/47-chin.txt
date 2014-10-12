@@ -1,0 +1,16 @@
+G1 Silebi		chin			mugurumbu
+G2 Katiati		chin			mʉka ŋgiap
+G3 Osum			chin			kumunu-
+G4 Pondoma		chin			makŋgins
+G5 Ikundun		chin			-mukɨŋgindənamba
+G6 Moresada		chin			-gʌkʌŋk
+G7 Wadiginam		chin			-ukukʌmp
+H1 Atemple		chin			akunagun
+H2 Angaua		chin			karuk
+H3 Emerum		chin			agʌr
+H4 Musak		chin			kiːkᵊnɨŋ
+H5 Paynamar		chin			wayakatar
+I1 Isabi		chin			-ɛwɛtu
+I2 Biyom		chin			-ɛŋgoto watɛkɛ
+I3 Tauya		chin			-atɛmaɪ
+I4 Faita		chin			-kindʌ

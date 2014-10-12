@@ -1,0 +1,16 @@
+G1 Silebi		sap			kisi
+G2 Katiati              	‘sap’               	mɨrɨ      	3125
+G3 Osum			sap			mrʉ-
+G4 Pondoma		sap			mʉrʉŋ
+G5 Ikundun		sap			murŋamba
+G6 Moresada		sap			mɨrɨŋʌmp
+G7 Wadiginam		sap			nʌːŋgump
+H1 Atemple		sap			tɨ ugu
+H2 Angaua             	‘sap’               	nti
+H3 Emerum            	‘sap’               	mɨrɨm     	3125
+H4 Musak             	‘sap’               	mɨru       	3125
+H5 Paynamar            	‘sap’               	mus	   	3125
+I1 Isabi		sap			nui
+I2 Biyom		sap			nuʌine
+I3 Tauya		sap			mimo
+I4 Faita           	‘sap’               	murɨm     	3125

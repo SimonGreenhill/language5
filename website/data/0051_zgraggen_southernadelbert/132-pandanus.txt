@@ -1,0 +1,19 @@
+G1 Silebi            	pandanus            	mu:gu     	
+G2 Katiati            	pandanus            	tɨmbɨ     	3074
+G3 Osum			pandanus		wogiyi-	
+G4 Pondoma		pandanus		wəŋga
+G5 Ikundun		pandanus		wuŋgapa
+G6 Moresada		pandanus		wuŋgʌp	
+G7 Wadiginam		pandanus		wuŋgʌp
+H1 Atemple		pandanus		opombo
+H1 Atemple		pandanus		ukrɛrɨm
+H2 Angaua		pandanus		iŋgompʌ
+H2 Angaua		pandanus		wɛmun
+H3 Emerum		pandanus		tʉmbum
+H4 Musak             	pandanus            	koroŋ     	2796,2849,3012
+H5 Paynamar		pandanus		aβimɨn
+I1 Isabi		pandanus		siriwe
+I2 Biyom            	pandanus            	ŋgoru     	1640,1815
+I3 Tauya            	pandanus            	oro       	1640,1815
+I4 Faita           	pandanus            	kunu      	2796,2849,3012
+I4 Faita           	pandanus            	imbia

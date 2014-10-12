@@ -1,0 +1,16 @@
+G1 Silebi            	‘wing’              	ambɨ      	3097
+G2 Katiati              	‘wing’              	amb       	3097
+G3 Osum			wing			apʉŋ-
+G4 Pondoma		wing			ambuŋ
+G5 Ikundun		wing			ɣambaduŋ
+G6 Moresada		wing			nəwʌŋgʌk
+G7 Wadiginam		wing			umbutɨkʌmp
+H1 Atemple          	‘wing’              	apuɣɨ     	3097
+H2 Angaua             	‘wing’              	mpɨŋ      	3097
+H3 Emerum            	‘wing’              	ambɨŋ     	3097
+H4 Musak             	‘wing’              	ambɨŋ     	3097
+H5 Paynamar		wing			wambɨ
+I1 Isabi		wing			ambamɛa
+I2 Biyom		wing			nuawu
+I3 Tauya		wing			napomo
+I4 Faita		wing			aw

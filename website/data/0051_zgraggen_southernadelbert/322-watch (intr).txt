@@ -1,0 +1,16 @@
+G1 Silebi            	watch (itr)         	ŋg-       	2804,2857,3021
+G2 Katiati              	watch (intrans.)    	tʉgr̃-    	2972
+G3 Osum			watch			yegrʉ-
+G4 Pondoma		watch			igr-
+G5 Ikundun		watch			igraram
+G6 Moresada         	watch (intrans.)    	irəgə-    	2972
+G7 Wadiginam		watch			igi-
+H1 Atemple		watch			igra-
+H2 Angaua		watch			weːgr-
+H3 Emerum            	watch (itr)         	iŋgʌsʉr-      	2804,2857,3021
+H4 Musak		watch			tumbrɛ-
+H5 Paynamar            	watch (intrans.)    	ruku-     	2972
+I1 Isabi		watch			
+I2 Biyom		watch			u-
+I3 Tauya		watch			
+I4 Faita           	watch (intrans.)    	ruk-      	2972

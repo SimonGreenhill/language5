@@ -1,0 +1,17 @@
+G1 Silebi            	cloud               	kumbiŋgɨpa	2815,2822,2987
+G2 Katiati              	cloud               	igumbusa  	2815,2822,2987
+G3 Osum             	cloud               	igo       	2815,2822,2987
+G3 Osum             	cloud               	iŋambu-
+G4 Pondoma         	cloud               	igumbusa  	2815,2822,2987
+G5 Ikundun		cloud			waragʉnamp
+G6 Moresada		cloud			iŋguŋomp
+G7 Wadiginam		cloud			ʌpup
+H1 Atemple		cloud			aŋɪmbar
+H2 Angaua             	cloud               	okʌm      	2815,2822,2987
+H3 Emerum            	cloud               	kʌ:mu     	2815,2822,2987
+H4 Musak		cloud			urnomor
+H5 Paynamar		cloud			gaka
+I1 Isabi		cloud			
+I2 Biyom            	cloud               	kuvom     	1527,1717
+I3 Tauya		cloud			taˀuni
+I4 Faita		cloud			ɸio

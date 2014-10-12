@@ -1,0 +1,16 @@
+G1 Silebi            	fly (n)             	mumbu     	2901
+G2 Katiati              	fly (n)             	mo:mp     	2901
+G3 Osum			fly (n)			wundək-
+G4 Pondoma         	fly (n)             	mumb      	2901
+G5 Ikundun		fly (n)			wuɣundəpaŋ
+G6 Moresada		fly (n)			winzʌp
+G7 Wadiginam		fly (n)			ʌwiːndʉp
+H1 Atemple		fly (n)			ɛtuguarum
+H2 Angaua             	fly (n)             	ergomb   	2817,2824,2989
+H3 Emerum            	fly (n)             	mumʌl     	2901
+H4 Musak		fly (n)			uraŋɛm
+H5 Paynamar            	fly (n)             	tɨmumbu   	2901
+I1 Isabi		fly (n)			
+I2 Biyom            	fly (n)             	ŋgaıu     	1712
+I3 Tauya            	fly (n)             	aëo       	1712
+I4 Faita           	fly (n)             	korumba   	2901

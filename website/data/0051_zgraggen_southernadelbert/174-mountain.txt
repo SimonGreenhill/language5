@@ -1,0 +1,19 @@
+G1 Silebi		mountain		utugru
+G2 Katiati              	mountain            	ʌpu	  	2933
+G2 Katiati              	mountain            	pɨr kutu
+G3 Osum			mountain		rʉkə-
+G4 Pondoma         	mountain            	apuŋ      	2933
+G5 Ikundun		mountain		mɨgɨŋamba
+G5 Ikundun		mountain		trəkʌkʌ
+G6 Moresada		mountain		tɨŋgək
+G7 Wadiginam		mountain		pɨtɨkrʌːmp
+H1 Atemple          	mountain            	apʌr      	2933
+H2 Angaua             	mountain            	aparmʌ    	2933
+H3 Emerum		mountain		kʌːruŋ
+H4 Musak		mountain		wʌrɛ
+H5 Paynamar            	mountain            	apʌr      	2933
+I1 Isabi		mountain		hoe	
+I2 Biyom		mountain		nomuŋgu	
+I3 Tauya		mountain		iˀemo
+I3 Tauya		mountain		pei
+I4 Faita		mountain		ɸunda	

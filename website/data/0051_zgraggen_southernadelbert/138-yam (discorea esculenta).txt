@@ -1,0 +1,17 @@
+G1 Silebi		yam (discorea esculenta)		kuñi
+G2 Katiati		yam (discorea esculenta)		ñaña
+G2 Katiati		yam (discorea esculenta)		konzo
+G3 Osum			yam (discorea esculenta)		mo-
+G4 Pondoma		yam (discorea esculenta)		nuza
+G5 Ikundun		yam (discorea esculenta)		mumba	
+G6 Moresada		yam (discorea esculenta)		mɔmɔk
+G7 Wadiginam		yam (discorea esculenta)		naŋʌːŋgᵊpɨmp
+H1 Atemple		yam (discorea esculenta)		ma
+H2 Angaua		yam (discorea esculenta)		unʑa	
+H3 Emerum		yam (discorea esculenta)		kuni	
+H4 Musak		yam (discorea esculenta)		sabʌr	
+H5 Paynamar		yam (discorea esculenta)		agati
+I1 Isabi		yam (discorea esculenta)		nʌːmo	
+I2 Biyom		yam (discorea esculenta)		maŋgrʌi
+I3 Tauya		yam (discorea esculenta)		niomo
+I4 Faita		yam (discorea esculenta)		imba	

@@ -1,0 +1,15 @@
+G1 Silebi            	where               	ambi      	2963
+G2 Katiati              	where               	pambu     	2963
+G3 Osum             	where               	pʌka      	2963
+G4 Pondoma         	where               	ambʌki    	2963
+G6 Moresada         	where               	andə:ke   	2963
+G7 Wadiginam        	where               	kandi-    	2963
+H1 Atemple		where			ajo
+H2 Angaua		where			inzigandɨk
+H3 Emerum            	where               	ambʌni    	2963
+H4 Musak		where			wandɛ
+H5 Paynamar		where			baia
+I1 Isabi		where			
+I2 Biyom		where			amʌre
+I3 Tauya		where			mʌpi
+I4 Faita           	where               	mbʌʔ      	2963

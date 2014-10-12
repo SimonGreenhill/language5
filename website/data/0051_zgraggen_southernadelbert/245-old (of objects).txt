@@ -1,0 +1,16 @@
+G1 Silebi		old (objects)		kʌːtɨ	
+G2 Katiati		old (objects)		kugandu
+G3 Osum			old (objects)		gɔwɔ-
+G4 Pondoma		old (objects)		nunu-
+G5 Ikundun		old (objects)		nunu-
+G6 Moresada		old (objects)		nunɔ-
+G7 Wadiginam		old (objects)		upu-
+H1 Atemple		old (objects)		muicə	
+H2 Angaua		old (objects)		iprʌ
+H3 Emerum		old (objects)		kʌːsu	
+H4 Musak		old (objects)		kakisɨŋ
+H5 Paynamar		old (objects)		waind
+I1 Isabi		old (objects)		parai
+I2 Biyom		old (objects)		nikisɛm
+I3 Tauya		old (objects)		itirɛ
+I4 Faita		old (objects)		mindimis

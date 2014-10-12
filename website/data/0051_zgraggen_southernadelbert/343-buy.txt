@@ -1,0 +1,17 @@
+G1 Silebi		buy			tʌbug-
+G2 Katiati		buy			mot mʉŋ-
+G3 Osum			buy			mʌgə wiñi-
+G4 Pondoma		buy			mutndi-
+G4 Pondoma		buy			mawugᵊni-
+G5 Ikundun		buy			maiβ-
+G6 Moresada		buy			maiβ-
+G7 Wadiginam		buy			mʌgɨwɨ-
+H1 Atemple		buy			ubra-
+H2 Angaua		buy			ŋ-
+H3 Emerum		buy			dʌ:bg-
+H4 Musak		buy			tʌkw-
+H5 Paynamar		buy			wura-
+I1 Isabi		buy			meriˀhi-
+I2 Biyom		buy			iti tovi-
+I3 Tauya		buy			nɛritɛ-
+I4 Faita		buy			muruɸ-

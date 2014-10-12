@@ -1,0 +1,16 @@
+G1 Silebi		left (arm)			kwanan	
+G2 Katiati		left (arm)			kakag
+G3 Osum			left (arm)			wakebri
+G4 Pondoma		left (arm)			amakri
+G5 Ikundun		left (arm)			amʌpriŋ
+G6 Moresada		left (arm)			-mamepər
+G7 Wadiginam		left (arm)			-mamikandɨg
+H1 Atemple		left (arm)			owejɨndə
+H2 Angaua		left (arm)			uwijɨndə
+H3 Emerum		left (arm)			kake
+H4 Musak		left (arm)			sʌkʌr
+H5 Paynamar		left (arm)			wakʌy
+I1 Isabi		left (arm)			-tamaga
+I2 Biyom		left (arm)			fɛsa
+I3 Tauya		left (arm)			teimasas
+I4 Faita		left (arm)			pesa

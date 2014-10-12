@@ -1,0 +1,16 @@
+G1 Silebi            	name                	imbu      	2780,2833,2894,2996
+G2 Katiati              	name                	nimbi     	2780,2833,2894,2996
+G3 Osum             	name                	pi-       	2780,2833,2894,2996
+G4 Pondoma         	name                	numbi     	2780,2833,2894,2996
+G5 Ikundun          	name                	-numbi-   	2780,2833,2894,2996
+G6 Moresada         	name                	-mbep     	2780,2833,2894
+G7 Wadiginam        	name                	-nimbi:mp 	2833,2894
+H1 Atemple		name			epia
+H2 Angaua		name			ɛnsa
+H3 Emerum            	name                	imbi      	2780,2833,2894,2996
+H4 Musak             	name                	i:bu      	2780,2833,2894,2996
+H5 Paynamar		name			andʌwi
+I1 Isabi		name			-ŋguri
+I2 Biyom            	name                	wa:ni     	1566,1884
+I3 Tauya            	name                	wanimo    	1566,1884
+I4 Faita           	name                	ninimbe   	2780,2833,2894,2996

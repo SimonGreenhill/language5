@@ -1,0 +1,18 @@
+G1 Silebi		roast			kus-
+G2 Katiati              	roast               	kra-      	3105
+G3 Osum			roast			grʉ-
+G4 Pondoma		roast			gri-
+G5 Ikundun		roast			gɨr-
+G6 Moresada		roast			ir-
+G7 Wadiginam		roast			kɨr-
+H1 Atemple          	roast               	kra-      	3105
+H1 Atemple          	roast               	imbuiji-
+H2 Angaua             	roast               	kra-      	3105
+H2 Angaua             	roast               	mugr-
+H3 Emerum            	roast               	kr
+H4 Musak             	roast               	ʌbiŋ kru-
+H5 Paynamar            	roast               	ʉɣra-      	3105
+I1 Isabi		roast			ke-
+I2 Biyom            	roast               	wi-       	1537,1728
+I3 Tauya            	roast               	fi-       	1537,1728
+I4 Faita           	roast               	kira-     	3105

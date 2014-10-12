@@ -1,0 +1,16 @@
+G1 Silebi            	flying fox          	kaleb     	2907,2908,2909
+G2 Katiati              	flying fox          	ɣaraw-    	2908
+G3 Osum             	flying fox          	ɣaraw-    	2907,2909
+G4 Pondoma         	flying fox          	marambuŋ  	
+G5 Ikundun          	flying fox          	marambuŋaŋ	
+G6 Moresada         	flying fox          	ar̃ʌwänʌmp	2907,2908,2909
+G7 Wadiginam        	flying fox          	arʌwimp   	2907,2908,2909
+H1 Atemple		flying fox		urʉndə	
+H2 Angaua             	flying fox          	arʌs      	2907
+H3 Emerum            	flying fox          	kalabi    	2907,2908,2909
+H4 Musak             	flying fox          	kʌ:rep    	2907,2908,2909
+H5 Paynamar		flying fox		tʉkra
+I1 Isabi		flying fox		asɛbi
+I2 Biyom		flying fox		atitɛwi
+I3 Tauya		flying fox		taure
+I4 Faita           	flying fox          	karap     	2907,2908,2909

@@ -1,0 +1,23 @@
+G1 Silebi		mother			-manda
+G2 Katiati		mother			-maka
+G3 Osum			mother			-mak
+G3 Osum			mother			-mʉŋ
+G4 Pondoma		mother			-mna
+G5 Ikundun		mother			-amgina
+G6 Moresada         	mother              	-may      	2869
+G7 Wadiginam        	mother              	yamay     	2869
+G7 Wadiginam        	mother              	-mʉŋgayamp
+H1 Atemple		mother			ŋam
+H2 Angaua		mother			yaŋ
+H3 Emerum		mother			yamdi
+H4 Musak             	mother              	yama      	2869
+H5 Paynamar            	mother              	amɨŋ 
+H5 Paynamar            	mother              	-mʉnʉmp
+I1 Isabi		mother			aiyo
+I2 Biyom            	mother              	-ama      	
+I2 Biyom            	mother              	ama       	1949
+I2 Biyom            	mother              	-ainam
+I3 Tauya            	mother              	aëe       	1949
+I3 Tauya            	mother              	mɛmɛ
+I4 Faita           	mother              	-muŋgɛ    	
+I4 Faita           	mother              	aniya     	

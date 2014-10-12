@@ -1,0 +1,16 @@
+G1 Silebi		2pl free			na-ra
+G2 Katiati		2pl free			na-rʉ
+G3 Osum			2pl free			na-ŋ
+G4 Pondoma		2pl free			na-ŋ
+G5 Ikundun		2pl free			na-ŋ
+G6 Moresada		2pl free			na-ŋəɣ
+G7 Wadiginam		2pl free			na-ŋ
+H1 Atemple		2pl free			ambʉ
+H2 Angaua		2pl free			am
+H3 Emerum		2pl free			nama-raŋ
+H4 Musak		2pl free			na-rɨ
+H5 Paynamar		2pl free			na-ra-wan
+I1 Isabi		2pl free			ti-ŋgara
+I2 Biyom		2pl free			si
+I3 Tauya		2pl free			ti-(ni)
+I4 Faita		2pl free			na-nʉ

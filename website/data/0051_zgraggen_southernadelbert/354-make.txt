@@ -1,0 +1,16 @@
+G1 Silebi		make			and-
+G2 Katiati		make			and-
+G3 Osum			make			
+G4 Pondoma		make			uyandi-
+G5 Ikundun		make			uyand-
+G6 Moresada		make			tə-
+G7 Wadiginam		make			nɨgapɨ-
+H1 Atemple		make			krɛ-
+H2 Angaua		make			ra-
+H3 Emerum		make			maβ-
+H4 Musak		make			garβi-
+H5 Paynamar		make			muŋ-
+I1 Isabi		make			
+I2 Biyom		make			kit-
+I3 Tauya		make			ay-
+I4 Faita		make			ripi-

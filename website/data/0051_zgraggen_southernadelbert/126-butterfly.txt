@@ -1,0 +1,17 @@
+G1 Silebi            	butterfly           	apapara   	2914
+G2 Katiati              	butterfly           	apapura   	2914
+G3 Osum			butterfly			
+G4 Pondoma         	butterfly           	apapura   	2914
+G5 Ikundun          	butterfly           	apapura   	2914
+G6 Moresada         	butterfly           	apʌporʌp  	2914
+G7 Wadiginam        	butterfly           	apuparʌ:p 	2914
+H1 Atemple          	butterfly           	apopʌ:ə   	2914
+H2 Angaua             	butterfly           	awʌrpr    	2914
+H3 Emerum            	butterfly           	afafaŋ    	2914
+H4 Musak             	butterfly           	kʌːpu blɛblɛ
+H4 Musak             	butterfly           	kʌpu gogoŋ
+H5 Paynamar		butterfly		guanump
+I1 Isabi		butterfly		lɔˀ	
+I2 Biyom		butterfly		kumekame	
+I3 Tauya		butterfly		apapare
+I4 Faita		butterfly		apapure

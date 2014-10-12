@@ -1,0 +1,18 @@
+G1 Silebi            	fasten              	kʌg-      	2986
+G2 Katiati              	fasten              	ka:g-     	2986
+G3 Osum             	fasten              	ɣagañi-  	2986
+G4 Pondoma         	fasten              	ʌgi-      	2986
+G5 Ikundun		fasten			tumbu-
+G6 Moresada         	fasten              	ʌgə-      	2986
+G7 Wadiginam		fasten			tumbu-
+H1 Atemple		fasten			ampas
+H1 Atemple		fasten			voga-
+H2 Angaua             	fasten              	mp-
+H3 Emerum		fasten			tʉm bugʌːk-
+H4 Musak		fasten			kakram-
+H5 Paynamar		fasten			unzumuŋa-
+I1 Isabi		fasten			
+I2 Biyom            	fasten              	wati-      	1608,1788
+I3 Tauya            	fasten              	wate-     	1608,1788
+I3 Tauya            	fasten              	waneip-
+I4 Faita		fasten			wak(alam)-

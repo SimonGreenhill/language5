@@ -1,0 +1,17 @@
+G1 Silebi            	wind                	kunumbu   	2942
+G2 Katiati              	wind                	un
+G2 Katiati              	wind                	kʉn   	
+G3 Osum			wind			uñugasa-
+G4 Pondoma		wind			gwingasa
+G5 Ikundun		wind			woatʌr̃ŋamba
+G6 Moresada		wind			mənep
+G7 Wadiginam		wind			awuŋgundump
+H1 Atemple		wind			guːgum
+H2 Angaua		wind			uwigɨr̃b
+H3 Emerum		wind			guŋe
+H4 Musak             	wind                	kʉburu    	2942
+H5 Paynamar		wind			akabi
+I1 Isabi		wind			tɛrɛ
+I2 Biyom		wind			ʌkua
+I3 Tauya		wind			puɸɛ
+I4 Faita           	wind                	kunum     	2942

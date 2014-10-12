@@ -1,0 +1,16 @@
+G1 Silebi		how many			maburmar
+G2 Katiati		how many			pamata
+G3 Osum			how many			paɣitɨr
+G4 Pondoma		how many			ambʉgiŋ
+G5 Ikundun		how many			ambuɣambuɣe
+G6 Moresada		how many			ambowetandək
+G7 Wadiginam		how many			anaaduɣ
+H1 Atemple		how many			prɛri
+H2 Angaua		how many			nzɨganawe
+H3 Emerum		how many			ambʌman
+H4 Musak		how many			aira
+H5 Paynamar		how many			bañas
+I1 Isabi		how many			
+I2 Biyom		how many			garim
+I3 Tauya		how many			aimɛ
+I4 Faita		how many			aŋgap

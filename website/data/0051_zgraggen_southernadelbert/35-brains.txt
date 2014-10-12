@@ -1,0 +1,16 @@
+G1 Silebi            	brains              	miku      	
+G2 Katiati              	brains              	mekwi     	
+G3 Osum			brains			nipeko-
+G4 Pondoma		brains			nikuŋ
+G5 Ikundun		brains			ikəpa
+G6 Moresada		brains			-ikip
+G7 Wadiginam		brains			-guwutʌɣump
+H1 Atemple		brains			vɛːgu
+H2 Angaua		brains			zɨnzo
+H3 Emerum		brains			kʌne
+H4 Musak             	brains              	me:koŋ    	
+H5 Paynamar		brains			mimi
+I1 Isabi		brains			-mbinoru
+I2 Biyom		brains			
+I3 Tauya            	brains              	oru       	1666,1838
+I4 Faita		brains			nimi

@@ -1,0 +1,16 @@
+G1 Silebi            	talk (tr)     	amb-      	
+G2 Katiati              	talk (tr)     	amb-      	
+G3 Osum			talk (tr)	-gisugoru-		
+G4 Pondoma		talk (tr)	isigor-	
+G5 Ikundun		talk (tr)	-gituar-	
+G6 Moresada		talk (tr)	-mur̃u-	
+G7 Wadiginam		talk (tr)	-ga-	
+H1 Atemple		talk (tr)	ka-		
+H2 Angaua             	talk (tr)     	mbə ka-     	
+H3 Emerum            	talk (tr)     	amb-      	
+H4 Musak             	talk (tr)     	aβu-      	
+H5 Paynamar		talk (tr)	ŋara-	
+I1 Isabi		talk (tr)	-isimbe-	
+I2 Biyom		talk (tr)	kasuwa + 'give'	
+I3 Tauya		talk (tr)	atɪ -paˀ-	
+I4 Faita           	talk (tr)     	amba + 'give'	

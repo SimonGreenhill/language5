@@ -1,0 +1,16 @@
+G1 Silebi		excrement		su	
+G2 Katiati              	excrement           	soː     	3051
+G3 Osum			excrement		su-	
+G4 Pondoma		excrement		sugu	
+G5 Ikundun		excrement		-topaʘ	
+G6 Moresada		excrement		-sɔːp
+G7 Wadiginam		excrement		-tamuŋgump
+H1 Atemple		excrement		aka
+H2 Angaua		excrement		akʌ	
+H3 Emerum            	excrement           	su        	3051
+H4 Musak             	excrement           	su        	3051
+H5 Paynamar		excrement		gʌkʌ	
+I1 Isabi		excrement		ai	
+I2 Biyom            	excrement           	siwi      	1516
+I3 Tauya            	excrement           	simo      	1516
+I4 Faita		excrement		so	

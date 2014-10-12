@@ -1,0 +1,19 @@
+G1 Silebi		there			andanu
+G1 Silebi		there			taumu
+G2 Katiati		there			ndaːmbu
+G3 Osum			there			ak(moko)
+G4 Pondoma		there			akwi
+G4 Pondoma		there			akuŋga
+G5 Ikundun		there			akur
+G5 Ikundun		there			akuβi
+G6 Moresada		there			ʌkukeg
+G7 Wadiginam		there			kwanuku
+H1 Atemple		there			kumbɨgə
+H2 Angaua		there			mbuɣɔːg
+H3 Emerum		there			dimu
+H4 Musak		there			ganiŋ
+H5 Paynamar		there			tiumba
+I1 Isabi		there			
+I2 Biyom		there			mʌːri
+I3 Tauya		there			maˀae
+I4 Faita		there			

@@ -1,0 +1,16 @@
+G1 Silebi            	two                 	e:raŋ     	
+G2 Katiati              	two                 	arkita    	2801,2854,3017
+G3 Osum			two			aniɣay
+G4 Pondoma		two			aigay
+G5 Ikundun		two			aigai
+G6 Moresada         	two                 	e:rʌy     	2801,2854,3017
+G7 Wadiginam        	two                 	yʌ:kri    	2801,2854,3017
+H1 Atemple		two			otumʌr
+H2 Angaua		two			undəmajᵊ
+H3 Emerum            	two                 	akita     	2801,2854,3017
+H4 Musak		two			agrɛnda
+H5 Paynamar		two			añakay
+I1 Isabi            	two                 	teri      	
+I2 Biyom            	two                 	awi       	1657,1831
+I3 Tauya            	two                 	awi       	1657,1831
+I4 Faita           	two                 	ariŋga    	2801,2854,3017

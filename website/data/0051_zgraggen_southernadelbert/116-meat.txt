@@ -1,0 +1,17 @@
+G1 Silebi            	meat                	iguβu     	2785
+G2 Katiati		meat			kumʉr̃
+G3 Osum			meat			muru-
+G4 Pondoma		meat			muru
+G5 Ikundun		meat			muruka
+G5 Ikundun		meat			urpa
+G6 Moresada		meat			muruk
+G7 Wadiginam		meat			mɨrɨp
+H1 Atemple		meat			siu
+H2 Angaua		meat			ntu
+H3 Emerum		meat			krʉtʉ
+H4 Musak		meat			kʉsⁱkʉ
+H5 Paynamar            	meat                	tɨb       	2785,2838,3001
+I1 Isabi		meat			kombari
+I2 Biyom            	meat                	tʰavum    	
+I3 Tauya		meat			tapumo
+I4 Faita		meat			meat

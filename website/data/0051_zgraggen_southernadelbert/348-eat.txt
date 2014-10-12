@@ -1,0 +1,17 @@
+G1 Silebi            	eat                 	ni-       	2979
+G2 Katiati              	eat                 	ni-       	2979
+G3 Osum             	eat                 	ni-       	2979
+G4 Pondoma         	eat                 	ni-       	2979
+G5 Ikundun          	eat                 	n-        	2979
+G6 Moresada         	eat                 	yʌ-       	2979
+G7 Wadiginam        	eat                 	ni-       	2979
+H1 Atemple          	eat                 	nja-      	2979,3111
+H2 Angaua             	eat                 	na-       	2979,3111
+H3 Emerum            	eat                 	n-        	2979,3111
+H4 Musak             	eat                 	ni-       	2979
+H5 Paynamar            	eat                 	ña-       	3111
+I1 Isabi            	eat                 	ne-       	
+I2 Biyom            	eat                 	na-        	1940
+I3 Tauya            	eat                 	ni-       	
+I3 Tauya            	eat                 	ni        	1940
+I4 Faita           	eat                 	n-        	2979

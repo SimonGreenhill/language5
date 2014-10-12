@@ -1,0 +1,16 @@
+G1 Silebi            	nape                	na:ŋgu    	2874
+G2 Katiati		nape			
+G3 Osum			nape			niutumu-
+G4 Pondoma		nape			andəkuŋg
+G5 Ikundun		nape			-ituməka
+G6 Moresada		nape			-ikɨn
+G7 Wadiginam		nape			-nɨkamp
+H1 Atemple		nape			kum
+H2 Angaua		nape			kwanzɨŋ
+H3 Emerum		nape			sʌːkum
+H4 Musak		nape			nʌgum
+H5 Paynamar            	nape                	iŋgu      	2874
+I1 Isabi		nape			-igɛhɛak
+I2 Biyom		nape			
+I3 Tauya		nape			-tuɸo
+I4 Faita           	nape                	-inaŋgu

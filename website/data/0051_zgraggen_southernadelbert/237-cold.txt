@@ -1,0 +1,16 @@
+G1 Silebi		cold			turu
+G2 Katiati		cold			kʉmri
+G3 Osum			cold			muneːtʉ
+G4 Pondoma		cold			gurundi
+G5 Ikundun		cold			gurund-
+G6 Moresada		cold			rəŋ-
+G7 Wadiginam		cold			awuŋ-
+H1 Atemple		cold			oratə
+H2 Angaua		cold			imi
+H3 Emerum		cold			bumri
+H4 Musak		cold			kɨbr
+H5 Paynamar		cold			gumrir- (v)
+I1 Isabi		cold			tennai
+I2 Biyom		cold			fitaŋga
+I3 Tauya		cold			tororoˀa
+I4 Faita		cold			purmo

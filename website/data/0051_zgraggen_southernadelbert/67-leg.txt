@@ -1,0 +1,16 @@
+G1 Silebi            	‘leg’               	tanda     	3073
+G2 Katiati              	‘leg’               	tanda     	3073
+G3 Osum			leg			yikr-
+G4 Pondoma		leg			aiŋgr
+G5 Ikundun		leg			-iŋgrɨ-pa
+G6 Moresada		leg			-iŋgər
+G7 Wadiginam		leg			-niːɣənʌmp
+H1 Atemple          	‘leg’               	ndasɨm    	3073
+H2 Angaua             	‘leg’               	andam     	3073
+H3 Emerum            	‘leg’               	gɨtɨ    	
+H4 Musak		leg			aŋgʉ
+H5 Paynamar            	‘leg’               	andam     	3073
+I1 Isabi		leg			-asua
+I2 Biyom		leg			-uwʌka
+I3 Tauya		leg			-aɸʌmo
+I4 Faita		leg			-uya

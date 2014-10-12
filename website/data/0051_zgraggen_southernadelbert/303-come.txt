@@ -1,0 +1,18 @@
+G1 Silebi		come			pi-	
+G2 Katiati              	come                	pa-       	2778,2830,2994
+G3 Osum			come			we-
+G4 Pondoma         	come                	wa-       	2778,2830,2994
+G5 Ikundun		come			wi-
+G5 Ikundun		come			monda-
+G6 Moresada         	come                	we-       	2778,2830,2994
+G7 Wadiginam		come			wi-
+H1 Atemple		come			ay-
+H2 Angaua		come			ai-
+H3 Emerum		come			bɛ-
+H4 Musak             	come                	wa-       	2778,2830,2994
+H5 Paynamar		come			ai(g)-
+I1 Isabi		come			e-
+I1 Isabi		come			i-
+I2 Biyom            	come                	wa-       	1553,1935
+I3 Tauya            	come                	ɸoɸ-      	1553,1935
+I4 Faita           	come                	ɸ-        	2778,2830,2994

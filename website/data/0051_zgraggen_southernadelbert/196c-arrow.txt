@@ -1,0 +1,18 @@
+G1 Silebi		arrow 3			kɨŋa
+G1 Silebi		arrow 3			paŋga
+G2 Katiati		arrow 3			tubraŋgi
+G3 Osum			arrow 3			iwuɣoñi-
+G4 Pondoma		arrow 3			giːndə
+G4 Pondoma		arrow 3			tombraŋ
+G5 Ikundun		arrow 3			tumbraŋgipa
+G6 Moresada		arrow 3			
+G7 Wadiginam		arrow 3			sarwanamp
+H1 Atemple		arrow 3			aŋgɛm
+H2 Angaua		arrow 3			irinj
+H3 Emerum		arrow 3			kʉŋa
+H4 Musak		arrow 3			kʉŋʉ
+H5 Paynamar		arrow 3			aŋgayam
+I1 Isabi		arrow 3			hogo
+I2 Biyom		arrow 3			bainda
+I3 Tauya		arrow 3			waˀara
+I4 Faita		arrow 3			sɨgʌβu

@@ -1,0 +1,18 @@
+G1 Silebi		root			siki
+G1 Silebi		root			kɨndɨ
+G2 Katiati              	‘root’              	kɨndɨ     	3042
+G3 Osum			root			gɨndi
+G4 Pondoma		root			gʉndə
+G5 Ikundun		root			gundəpa
+G6 Moresada		root			ndək
+G7 Wadiginam		root			gɨntsirʌmp
+H1 Atemple          	‘root’              	trɨ       	3042
+H2 Angaua             	‘root’              	ntɨr      	3042
+H3 Emerum            	‘root’              	ɣɨndɨrɨ   	3042
+H4 Musak             	‘root’              	kɨrɨr     	3042
+H4 Musak             	‘root’              	pʉrʉ
+H5 Paynamar		root			rindɨm
+I1 Isabi		root			sipunu
+I2 Biyom		root			nikini
+I3 Tauya		root			niiti
+I4 Faita		root			nikini

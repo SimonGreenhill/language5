@@ -1,0 +1,17 @@
+G1 Silebi            	smoke               	amusu    	
+G2 Katiati		smoke			ubuŋ
+G3 Osum             	smoke               	mugsɨkwa  	
+G4 Pondoma         	smoke               	ugom      	
+G5 Ikundun          	smoke               	gumuŋamba 	
+G6 Moresada         	smoke               	umuŋʌmp   	
+G7 Wadiginam        	smoke               	upɨnɨmp   	
+H1 Atemple          	smoke               	ku        	
+H2 Angaua		smoke			prɨz
+H3 Emerum		smoke			iːtu
+H3 Emerum		smoke			mɨsɨ
+H4 Musak             	smoke               	ʉsʉ       	
+H5 Paynamar            	smoke               	gɨs       	
+I1 Isabi		smoke			anda
+I2 Biyom            	smoke               	butu      	1557,1695
+I3 Tauya            	smoke               	pute      	1557,1695
+I4 Faita		smoke			

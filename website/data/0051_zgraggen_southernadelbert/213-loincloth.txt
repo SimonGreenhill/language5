@@ -1,0 +1,16 @@
+G1 Silebi		loincloth		kʌːbrɨ	
+G2 Katiati		loincloth		mukura
+G3 Osum			loincloth		asimbisa-	
+G4 Pondoma		loincloth		asʉmpsa-
+G5 Ikundun		loincloth		atɨmbɨtʌpa
+G6 Moresada		loincloth		andə moŋʌk
+G7 Wadiginam		loincloth		ndɨŋʌndᵊwrɨmp
+H1 Atemple		loincloth		jej
+H2 Angaua		loincloth		imən	
+H3 Emerum		loincloth		kʌːbrʉ	
+H4 Musak		loincloth		iːgwʌ
+H5 Paynamar		loincloth		yimunɛ
+I1 Isabi		loincloth		taitai	
+I2 Biyom		loincloth		dulimbi
+I3 Tauya		loincloth		ɸuso
+I4 Faita		loincloth		wusa	

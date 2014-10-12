@@ -1,0 +1,18 @@
+G1 Silebi            	‘bite’              	isa-      	3036
+G2 Katiati              	‘bite’              	si-       	3036
+G3 Osum			bite			-kəku-
+G4 Pondoma		bite			tugi-
+G4 Pondoma		bite			nuŋgi-
+G5 Ikundun		bite			-kuŋg-
+G6 Moresada		bite			-kiŋgi-
+G7 Wadiginam		bite			-kɨŋgɨ-
+H1 Atemple		bite			ija-
+H2 Angaua		bite			ka-
+H3 Emerum		bite			iabᵘk-
+H4 Musak             	‘bite’              	isi-       	3036
+H5 Paynamar		bite			ʉgia-
+I1 Isabi		bite			-he-
+I2 Biyom		bite			-ku-
+I2 Biyom		bite			-kou-
+I3 Tauya		bite			-ˀow-
+I4 Faita           	‘bite’              	-is-      	3036

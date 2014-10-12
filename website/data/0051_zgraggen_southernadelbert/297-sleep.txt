@@ -1,0 +1,14 @@
+G3 Osum             	sleep               	ɣuɲi      	2797,2850,3013
+G4 Pondoma         	sleep               	gi-       	2797,2850,3013
+G5 Ikundun          	sleep               	gʉn       	2797,2850,2965,3013
+G6 Moresada         	sleep               	in-       	2797,2850,3013
+G7 Wadiginam        	sleep               	gɨnɨ-     	2797,2850,2965,3013
+H1 Atemple          	sleep               	(andə)ganji-	2965
+H2 Angaua             	sleep               	gaɲi- 		2850,3013
+H3 Emerum            	sleep               	ani-      	2965
+H4 Musak             	sleep               	aŋgin-    	2965
+H5 Paynamar            	sleep               	maŋgañ-  	2965
+I1 Isabi		sleep			one-
+I2 Biyom            	sleep               	akin      	1645,1821
+I3 Tauya            	sleep               	ini-       	1645,1821
+I4 Faita           	sleep               	akun-     	2797,2850,2965,3013

@@ -1,0 +1,16 @@
+G1 Silebi		right (arm)			iːmbɨ
+G2 Katiati		right (arm)			kund
+G3 Osum			right (arm)			atəbri
+G4 Pondoma		right (arm)			andɛkri
+G5 Ikundun		right (arm)			andəpriŋ
+G6 Moresada		right (arm)			-andəpər
+G7 Wadiginam		right (arm)			-kandəɣʌrd
+H1 Atemple		right (arm)			muŋɪndə
+H2 Angaua		right (arm)			maŋandə
+H3 Emerum		right (arm)			sɨmi
+H4 Musak		right (arm)			umɯ
+H5 Paynamar		right (arm)			gandɨ
+I1 Isabi		right (arm)			-sɛrɛa
+I2 Biyom		right (arm)			momobu
+I3 Tauya		right (arm)			amɸosa
+I4 Faita		right (arm)			kʌnda

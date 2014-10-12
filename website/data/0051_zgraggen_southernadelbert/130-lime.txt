@@ -1,0 +1,17 @@
+G1 Silebi		lime			kua
+G2 Katiati              	lime                	siguba    	2790,2843,3006
+G3 Osum             	lime                	iwanu-    	
+G4 Pondoma         	lime                	sugoŋ     	2790,2799,2843,2852,3006,3015
+G5 Ikundun		lime			tuwamba
+G6 Moresada         	lime                	sugwʌnʌmp 	2790,2799,2843,2852,3006,3015
+G7 Wadiginam		lime			tuwʌnamp
+H1 Atemple		lime			ikə
+H2 Angaua		lime			ikɨ
+H3 Emerum            	lime                	si:ku     	2790,2799,2843,2852,3006,3015
+H4 Musak             	lime                	kupuŋ     	2789,2842,3005
+H5 Paynamar            	lime                	iwan      	
+I1 Isabi		lime			kamba
+I2 Biyom            	lime                	nukubu    	1609,1789
+I2 Biyom            	lime                	sini
+I3 Tauya            	lime                	nuupu
+I4 Faita           	lime                	kupuʔ     	2789,2790,2842,2843,3005,3006

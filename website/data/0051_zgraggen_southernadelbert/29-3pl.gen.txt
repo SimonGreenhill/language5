@@ -1,0 +1,16 @@
+G1 Silebi		3pl genitive			
+G2 Katiati		3pl genitive			nuŋu-
+G3 Osum			3pl genitive			nʉ-
+G4 Pondoma		3pl genitive			nʉ-ŋa-
+G5 Ikundun		3pl genitive			nʉ-ŋa-
+G6 Moresada		3pl genitive			nɨ-ŋa-
+G7 Wadiginam		3pl genitive			nɨ-ŋa-
+H1 Atemple		3pl genitive			
+H2 Angaua		3pl genitive			
+H3 Emerum		3pl genitive			
+H4 Musak		3pl genitive			
+H5 Paynamar		3pl genitive			nʉ-
+I1 Isabi		3pl genitive			i-
+I2 Biyom		3pl genitive			nV-(n)-
+I3 Tauya		3pl genitive			nʉ-nʉ-
+I4 Faita		3pl genitive			nʉ-nʉ-

@@ -1,0 +1,16 @@
+G1 Silebi		coconut (green)			ñab
+G2 Katiati		coconut (green)			kupu
+G3 Osum			coconut (green)			munu-
+G4 Pondoma		coconut (green)			sʉpʉŋ
+G5 Ikundun		coconut (green)			awɨnɨpa
+G6 Moresada		coconut (green)			werɔk
+G7 Wadiginam		coconut (green)			umbip
+H1 Atemple		coconut (green)			anda
+H2 Angaua		coconut (green)			amkur̃
+H3 Emerum		coconut (green)			kopuŋ
+H4 Musak		coconut (green)			kikʉ
+H5 Paynamar		coconut (green)			gʌr
+I1 Isabi		coconut (green)			a
+I2 Biyom		coconut (green)			
+I3 Tauya		coconut (green)			surɨpo
+I4 Faita		coconut (green)			mbiru

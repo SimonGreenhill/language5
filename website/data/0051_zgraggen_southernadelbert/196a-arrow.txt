@@ -1,0 +1,17 @@
+G1 Silebi            	arrow               	si:a      	2943
+G2 Katiati              	arrow               	sia       	2943
+G3 Osum			arrow			gʌ(gay)
+G4 Pondoma         	arrow               	siʌŋ      	2943
+G5 Ikundun		arrow			inipa
+G5 Ikundun		arrow			witigipa
+G6 Moresada		arrow			wanʑʌb
+G7 Wadiginam		arrow			mɨndasukimp
+H1 Atemple		arrow			kurig
+H2 Angaua		arrow			nʉm
+H3 Emerum		arrow			siaŋ
+H3 Emerum            	arrow               	siaŋ      	2943
+H4 Musak             	arrow               	soŋ       	2943
+I1 Isabi            	arrow               	arekaw   	
+I2 Biyom            	arrow               	ai        	1630,1806
+I3 Tauya            	arrow               	aʔeri     	1630,1806
+I4 Faita           	arrow               	saŋgura   	2943

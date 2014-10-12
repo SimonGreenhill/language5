@@ -1,0 +1,16 @@
+G1 Silebi		G-string		usa kuraŋ
+G2 Katiati		G-string		ikʌ
+G3 Osum			G-string		wutu-	
+G4 Pondoma         	G-string            	usaŋ      	2949
+G5 Ikundun          	G-string            	utamba    	2949
+G6 Moresada         	G-string            	usʌmp     	2949
+G7 Wadiginam        	G-string            	utʌmp     	2949
+H1 Atemple		G-string		zamʉn
+H2 Angaua		G-string		ugʉs
+H3 Emerum            	G-string            	usaŋ      	2949
+H4 Musak		G-string		yigwo	
+H5 Paynamar		G-string		yimun
+I1 Isabi		G-string		kambara	
+I2 Biyom		G-string		towɛ
+I3 Tauya		G-string		pɨsamo	
+I4 Faita		G-string		kʌwara

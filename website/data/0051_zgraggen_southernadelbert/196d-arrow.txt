@@ -1,0 +1,16 @@
+G1 Silebi		arrow 2			sia kaŋgɨ
+G2 Katiati		arrow 2			sia mʉka
+G3 Osum			arrow 2			gitʌ-
+G4 Pondoma		arrow 2			siʌŋ kamkua
+G5 Ikundun		arrow 2			
+G6 Moresada		arrow 2			
+G7 Wadiginam		arrow 2			iːsimp
+H1 Atemple		arrow 2			okrandᵉ
+H2 Angaua		arrow 2			praŋki añandə
+H3 Emerum		arrow 2			kuniŋe
+H4 Musak		arrow 2			maripaŋ
+H5 Paynamar		arrow 2			gaŋraŋgam
+I1 Isabi		arrow 2			arekaw
+I2 Biyom		arrow 2			ai
+I3 Tauya		arrow 2			maaˀamo
+I4 Faita		arrow 2			makʌpʌra

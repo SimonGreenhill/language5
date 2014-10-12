@@ -1,0 +1,17 @@
+G1 Silebi		sit down			munzɛra-
+G2 Katiati		sit down			mʉnsʉ-
+G3 Osum			sit down			mʉsirʉ
+G4 Pondoma		sit down			mʉnzira
+G5 Ikundun		sit down			mʉndr-
+G6 Moresada		sit down			mdesi-
+G7 Wadiginam		sit down			mindra-
+H1 Atemple		sit down			kanj-
+H2 Angaua		sit down			kañi-
+H3 Emerum		sit down			muŋga-
+H4 Musak		sit down			kʉnɛgram-
+H5 Paynamar		sit down			pat-
+I1 Isabi		sit down			men-
+I1 Isabi		sit down			pe(me)-
+I2 Biyom		sit down			teki-
+I3 Tauya		sit down			momunɛ-
+I4 Faita		sit down			rumbram-

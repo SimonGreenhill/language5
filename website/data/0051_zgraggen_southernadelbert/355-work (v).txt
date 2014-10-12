@@ -1,0 +1,23 @@
+G1 Silebi		work (v)			sarakw muŋa-
+G2 Katiati		work (v)			muŋ-
+G2 Katiati		work (v)			pug-
+G3 Osum			work (v)			gʌmu-
+G4 Pondoma		work (v)			uyandi-
+G5 Ikundun		work (v)			muŋanamt-
+G5 Ikundun		work (v)			t-
+G6 Moresada		work (v)			tə-
+G7 Wadiginam		work (v)			kut-
+G7 Wadiginam		work (v)			tɨ-
+H1 Atemple		work (v)			tugusu-
+H2 Angaua		work (v)			təŋ-
+H2 Angaua		work (v)			asɨ-
+H3 Emerum		work (v)			bi-
+H4 Musak		work (v)			sʌβi-
+H4 Musak		work (v)			mar-
+H5 Paynamar		work (v)			muŋgu-
+H5 Paynamar		work (v)			apʉ-
+I1 Isabi		work (v)			toro he-
+I2 Biyom		work (v)			ko-
+I2 Biyom		work (v)			ɛ-
+I3 Tauya		work (v)			saniat-
+I4 Faita		work (v)			ripi-

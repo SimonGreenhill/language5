@@ -1,0 +1,16 @@
+G1 Silebi            	die?                	kumu-    	3120
+G2 Katiati              	die?                	kum-     	3120
+G3 Osum			die			prɨ
+G4 Pondoma		die			nʉmbr-
+G5 Ikundun		die			nʉmb-
+G6 Moresada		die			imbᵊ-
+G7 Wadiginam		die			nɨmb-
+H1 Atemple          	die?                	mbu-      	3120
+H2 Angaua             	die?                	ma-       	3120
+H3 Emerum            	die?                	ɣɨm-      	3120
+H4 Musak             	die?                	kum-      	3120
+H5 Paynamar		die			gum-
+I1 Isabi		die			pere-
+I2 Biyom		die			kum-
+I3 Tauya		die			umu-
+I4 Faita		die			kum-

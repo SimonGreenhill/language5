@@ -1,0 +1,18 @@
+G1 Silebi            	‘man’               	kura      	3045
+G2 Katiati		man			kuru	
+G3 Osum			man			uro-
+G4 Pondoma		man			kural
+G4 Pondoma		man			mindɛ
+G5 Ikundun		man			mundu
+G5 Ikundun		man			kurʌ
+G6 Moresada		man			urʌmp
+G7 Wadiginam		man			uramp
+H1 Atemple		man			kuram
+H2 Angaua             	‘man’               	wuram     	3045
+H3 Emerum            	‘man’               	ɣuraŋ     	3045
+H4 Musak             	‘man’               	kur      	3045
+H5 Paynamar            	‘man’               	rum       	3045
+I1 Isabi		man			ona
+I2 Biyom		man			kɔnda
+I3 Tauya		man			ɸanu
+I4 Faita           	‘man’               	kura      	3045

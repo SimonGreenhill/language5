@@ -1,0 +1,17 @@
+G1 Silebi		slowly			simʉr
+G2 Katiati		slowly			awiñam
+G3 Osum			slowly			anzikanziki
+G4 Pondoma		slowly			wuŋga
+G5 Ikundun		slowly			manɨŋgr
+G6 Moresada		slowly			mʉnəŋgər
+G7 Wadiginam		slowly			aŋgiŋk
+H1 Atemple		slowly			azanja
+H2 Angaua		slowly			kɨrɨkɨrɨm
+H2 Angaua		slowly			usiño
+H3 Emerum		slowly			simrsimri
+H4 Musak		slowly			keːsimɨnɛ
+H5 Paynamar		slowly			mʉndimint
+I1 Isabi		slowly			
+I2 Biyom		slowly			dɛmdɛm
+I3 Tauya		slowly			peymai
+I4 Faita		slowly			gwanda

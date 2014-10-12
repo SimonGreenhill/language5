@@ -1,0 +1,17 @@
+G1 Silebi            	ripe coconut        	kurña    	2920
+G2 Katiati              	ripe coconut        	kuriña   	2920
+G3 Osum			ripe coconut		goi-	
+G4 Pondoma		ripe coconut		ʌβʌŋ	
+G5 Ikundun		ripe coconut		uruŋaŋga	
+G6 Moresada		ripe coconut		nonɔk
+G7 Wadiginam		ripe coconut		iŋambayɨmp
+H1 Atemple		ripe coconut		tɨ
+H2 Angaua		ripe coconut		tə	
+H3 Emerum            	ripe coconut        	kurinaŋ   	2920
+H4 Musak		ripe coconut		grɛŋ
+H4 Musak		ripe coconut		gɛnaŋ
+H5 Paynamar		ripe coconut		tʌt
+I1 Isabi		ripe coconut		wie	
+I2 Biyom		ripe coconut			
+I3 Tauya		ripe coconut		satumo	
+I4 Faita           	ripe coconut        	ŋgrina    	2920

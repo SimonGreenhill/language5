@@ -1,0 +1,17 @@
+G1 Silebi		face (forehead)			munduma
+G2 Katiati		face (forehead)			kəpumka
+G3 Osum			face (forehead)			
+G4 Pondoma		face (forehead)			aguŋgrʉ
+G5 Ikundun		face (forehead)			tambuŋgənamba
+G6 Moresada		face (forehead)			-ŋgugər
+G7 Wadiginam		face (forehead)			
+H1 Atemple		face (forehead)			aŋgamam
+H2 Angaua		face (forehead)			emensəŋ
+H3 Emerum		face (forehead)			tʌmga
+H4 Musak		face (forehead)			migirum
+H5 Paynamar		face (forehead)			
+I1 Isabi		face (forehead)			-ŋgoro
+I1 Isabi		face (forehead)			-ehu
+I2 Biyom		face (forehead)			-utuati
+I3 Tauya		face (forehead)			
+I4 Faita		face (forehead)			

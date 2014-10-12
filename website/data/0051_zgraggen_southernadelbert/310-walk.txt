@@ -1,0 +1,18 @@
+G1 Silebi            	‘walk’              	kindi-    	3132
+G2 Katiati              	‘walk’              	kund-    	3132
+G3 Osum			walk			praŋgu
+G4 Pondoma		walk			u-
+G5 Ikundun		walk			wutaŋgu-
+G6 Moresada		walk			ində-
+G7 Wadiginam		walk			waai-
+H1 Atemple		walk			wo-
+H2 Angaua		walk			u-
+H3 Emerum            	‘walk’              	w-
+H3 Emerum            	‘walk’              	waw-
+H4 Musak		walk			u-
+H5 Paynamar            	‘walk’              	wu-
+I1 Isabi		walk			o-
+I1 Isabi		walk			u-
+I2 Biyom		walk			ka-
+I3 Tauya		walk			tɛmu-
+I4 Faita		walk			m-

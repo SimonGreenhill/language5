@@ -1,0 +1,21 @@
+G1 Silebi		boil			kwaŋg-
+G1 Silebi		boil			asrɛb-
+G2 Katiati		boil			kuŋgr̃-
+G2 Katiati		boil			pumpu taːm-
+G3 Osum			boil			ɣru-
+G4 Pondoma		boil			uŋgri-
+G5 Ikundun		boil			waŋg-
+G6 Moresada		boil			waŋgə-
+G7 Wadiginam		boil			waəgan-
+H1 Atemple		boil			imbu-
+H1 Atemple		boil			kra-
+H2 Angaua		boil			im-
+H3 Emerum		boil			guŋgr-
+H3 Emerum		boil			kogr-
+H4 Musak		boil			koβiyi-
+H5 Paynamar		boil			imu
+H5 Paynamar		boil			wariˀ ne-
+I1 Isabi		boil			wariˀ he-
+I2 Biyom		boil			sum-
+I3 Tauya		boil			ɸe-
+I4 Faita		boil			koŋgr-

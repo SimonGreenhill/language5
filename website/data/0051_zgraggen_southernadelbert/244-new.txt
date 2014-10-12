@@ -1,0 +1,16 @@
+G1 Silebi		new			kʉndəwᵘ
+G2 Katiati              	new                 	kʉgi      	2959
+G3 Osum             	new                 	rege-     	2959
+G4 Pondoma         	new                 	us-      	2958
+G5 Ikundun          	new                 	utu-      	2958
+G6 Moresada         	new                 	usu-       	2958
+G7 Wadiginam		new			su-
+H1 Atemple		new			eja
+H2 Angaua		new			ica
+H3 Emerum            	new                 	     kʉki	2959
+H4 Musak             	new                 	    kikɨ	2959,3131
+H5 Paynamar		new			iʌm
+I1 Isabi		new			koy
+I2 Biyom		new			kiki
+I3 Tauya            	new                 	amoʔo     	1678,1928
+I4 Faita           	new                 	omʌ       	2812,2863,3027

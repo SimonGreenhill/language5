@@ -1,0 +1,18 @@
+G1 Silebi            	tail (of dog)       	tʌ:m      	2900
+G2 Katiati		tail (of dog)		tiŋgi	
+G3 Osum			tail (of dog)		niŋa-
+G4 Pondoma		tail (of dog)		nʉŋaŋ	
+G5 Ikundun		tail (of dog)		uŋʉnamba
+G6 Moresada		tail (of dog)		ʌiŋʌŋk
+G7 Wadiginam		tail (of dog)		ɣinaŋgamp
+H1 Atemple          	tail (of dog)       	tʌm       	2900
+H1 Atemple          	tail (of dog)       	ŋgas
+H2 Angaua		tail (of dog)		wapʌ	
+H3 Emerum            	tail (of dog)       	tam       	2900
+H3 Emerum            	tail (of dog)       	dinsi
+H4 Musak		tail (of dog)		kwarʉ
+H5 Paynamar		tail (of dog)		awagamb	
+I1 Isabi		tail (of dog)		-agombɛa
+I2 Biyom		tail (of dog)		kiβa
+I3 Tauya		tail (of dog)		muˀamo	
+I4 Faita           	tail (of dog)       	-tam      	2900

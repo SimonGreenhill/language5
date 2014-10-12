@@ -1,0 +1,16 @@
+G1 Silebi            	head                	karma     	
+G2 Katiati		head			miːku
+G3 Osum			head			mʌːgapu
+G4 Pondoma		head			nɨmbuŋ
+G5 Ikundun		head			-nʉmbuŋguna
+G6 Moresada		head			-mbugun
+G7 Wadiginam		head			-uwukʌmp
+H1 Atemple		head			ɛksopɨgə
+H2 Angaua		head			sup
+H3 Emerum            	head                	kʌli      	
+H4 Musak             	head                	katam     	
+H5 Paynamar		head			mʌp
+I1 Isabi		head			-mbikoŋgo
+I2 Biyom            	head                	unuŋgare 	1857
+I3 Tauya		head			-nɛmɛ
+I4 Faita           	head                	-ŋata     	

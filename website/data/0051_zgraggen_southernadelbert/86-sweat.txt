@@ -1,0 +1,16 @@
+G1 Silebi            	sweat               	pumbu     	2891,2892
+G2 Katiati              	sweat               	pumbʉ     	2891,2892
+G3 Osum			sweat			sirŋi-
+G4 Pondoma         	sweat               	mur̃      	2792,2845,3008
+G5 Ikundun          	sweat               	mor̃pa    	2792,2845,3008
+G6 Moresada         	sweat               	-mor̃əp   	2792,2845,3008
+G7 Wadiginam        	sweat               	muyɨmp    	2792,2845,3008
+H1 Atemple          	sweat               	upugu     	2892
+H2 Angaua             	sweat               	mpɨŋ      	2892
+H3 Emerum            	sweat               	bumbuŋ    	2892
+H4 Musak             	sweat               	bumbuŋ    	2891
+H5 Paynamar            	sweat               	wumbɨ     	2892
+I1 Isabi		sweat			kogoi
+I2 Biyom		sweat			sondo
+I3 Tauya            	sweat               	menasi-ne 	1625,1802
+I4 Faita           	sweat               	wumbɨ     	2891

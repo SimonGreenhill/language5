@@ -1,0 +1,16 @@
+G1 Silebi		alang-alang grass			iːbu
+G2 Katiati		alang-alang grass			wña
+G3 Osum			alang-alang grass			una-
+G4 Pondoma		alang-alang grass			wnaŋ
+G5 Ikundun		alang-alang grass			wandamba
+G6 Moresada		alang-alang grass			wʌndʌp
+G7 Wadiginam		alang-alang grass			wʌndamp
+H1 Atemple		alang-alang grass			tʌ
+H2 Angaua		alang-alang grass			ntʌ
+H3 Emerum		alang-alang grass			mʉnda
+H4 Musak		alang-alang grass			due
+H5 Paynamar		alang-alang grass			igim
+I1 Isabi		alang-alang grass			ahono
+I2 Biyom		alang-alang grass			mbɛsuwu
+I3 Tauya		alang-alang grass			mita
+I4 Faita		alang-alang grass			mɨnda

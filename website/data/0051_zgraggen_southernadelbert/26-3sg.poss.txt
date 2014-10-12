@@ -1,0 +1,16 @@
+G1 Silebi		3sg possessive			nɨ-
+G2 Katiati		3sg possessive			nuŋa-
+G3 Osum			3sg possessive			nʉ-
+G4 Pondoma		3sg possessive			nʉ-
+G5 Ikundun		3sg possessive			nʉ-
+G6 Moresada		3sg possessive			nə-
+G7 Wadiginam		3sg possessive			nɨ-
+H1 Atemple		3sg possessive			krʉ
+H2 Angaua		3sg possessive			mbʉ-
+H3 Emerum		3sg possessive			nu-
+H4 Musak		3sg possessive			nu-
+H5 Paynamar		3sg possessive			mba-
+I1 Isabi		3sg possessive			agɛ
+I2 Biyom		3sg possessive			ni-
+I3 Tauya		3sg possessive			ni-
+I4 Faita		3sg possessive			nʉ-

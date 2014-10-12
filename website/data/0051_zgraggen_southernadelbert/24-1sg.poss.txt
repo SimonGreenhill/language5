@@ -1,0 +1,16 @@
+G1 Silebi		1sg poss			ya-
+G2 Katiati		1sg poss			ya-
+G3 Osum			1sg poss			yi-
+G4 Pondoma		1sg poss			ya-
+G5 Ikundun		1sg poss			ya-
+G6 Moresada		1sg poss			ya-
+G7 Wadiginam		1sg poss			ya-
+H1 Atemple		1sg poss			andu
+H2 Angaua		1sg poss			nsə-
+H3 Emerum		1sg poss			ya-
+H4 Musak		1sg poss			ya-
+H5 Paynamar		1sg poss			ya-
+I1 Isabi		1sg poss			ne
+I2 Biyom		1sg poss			ya-
+I3 Tauya		1sg poss			ya-
+I4 Faita		1sg poss			ya-

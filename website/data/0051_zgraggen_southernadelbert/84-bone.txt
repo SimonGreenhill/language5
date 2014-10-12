@@ -1,0 +1,17 @@
+G1 Silebi            	bone                	punz      	3071
+G2 Katiati              	bone                	punj      	3071
+G3 Osum             	bone                	ɣʌwa-     	2862,2889,3026
+G4 Pondoma         	bone                	awaŋ      	2809,2862,2889,3026
+G5 Ikundun          	bone                	-ɣawamba  	2809,2862,3026
+G6 Moresada         	bone                	-ɣʌwʌŋk   	2809,2862,2889,3026
+G7 Wadiginam        	bone                	-gʌwʌmp   	2809,2862,2889,3026
+H1 Atemple		bone			gʉije
+H2 Angaua             	bone                	unsɨŋ     	3071
+H3 Emerum            	bone                	gʌ:ne     	2809,2862,3026
+H4 Musak             	bone                	dʌgar     	2889
+H5 Paynamar		bone			gri
+I1 Isabi		bone			-sia
+I2 Biyom            	bone                	isi       	1624,1801
+I2 Biyom            	bone                	inasi
+I3 Tauya		bone			eseiɸi
+I4 Faita           	bone                	-kana     	2809,2862,3026

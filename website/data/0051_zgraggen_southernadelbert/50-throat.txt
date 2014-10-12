@@ -1,0 +1,19 @@
+G1 Silebi		throat			ana puŋgu
+G2 Katiati		throat			puŋgu
+G3 Osum			throat			
+G4 Pondoma		throat			-(g)ambuŋ
+G5 Ikundun		throat			anuŋumgumŋamba
+G6 Moresada		throat			-kupəkən
+G7 Wadiginam		throat			-wɨkɨp
+H1 Atemple		throat			entaŋeñe
+H1 Atemple		throat			erugwambɨn
+H2 Angaua		throat			aŋamaŋ nor
+H3 Emerum		throat			pukun
+H3 Emerum		throat			sigɛ
+H4 Musak		throat			ugʌm buŋ
+H5 Paynamar		throat			takuram
+H5 Paynamar		throat			grɨ
+I1 Isabi		throat			
+I2 Biyom		throat			
+I3 Tauya		throat			ɛyaˀɛ
+I4 Faita		throat			auŋgu

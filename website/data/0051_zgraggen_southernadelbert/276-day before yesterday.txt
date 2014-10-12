@@ -1,0 +1,16 @@
+G1 Silebi            	day before yesterday	anirʉ     	2964
+G2 Katiati		day before yesterday	aykuru	
+G3 Osum             	day before yesterday	añɨgu    	2964
+G4 Pondoma         	day before yesterday	ayuŋ      	2964
+G5 Ikundun          	day before yesterday	anuŋ      	2964
+G6 Moresada		day before yesterday	uwamɛt	
+G7 Wadiginam        	day before yesterday	anuŋk     	2964
+H1 Atemple          	day before yesterday	anjire    	2964
+H2 Angaua             	day before yesterday	ñir      	2964
+H3 Emerum            	day before yesterday	aniruŋ    	2964
+H4 Musak             	day before yesterday	aniriŋ    	2964
+H5 Paynamar            	day before yesterday	anigriŋ   	2964
+I1 Isabi		day before yesterday	orugai	
+I2 Biyom		day before yesterday	kɔsɛm	
+I3 Tauya            	day before yesterday	aipu      	1556,1744
+I4 Faita           	day before yesterday	ariŋgai   	2964

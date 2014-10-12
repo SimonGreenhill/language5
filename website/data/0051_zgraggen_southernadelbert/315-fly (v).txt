@@ -1,0 +1,16 @@
+G1 Silebi		fly (v)			pug-
+G2 Katiati		fly (v)			pumr̃-
+G3 Osum			fly (v)			rʉmrʉ-
+G4 Pondoma		fly (v)			gumᵉri-
+G5 Ikundun		fly (v)			bʉm-
+G6 Moresada		fly (v)			wumə-
+G7 Wadiginam        	fly (v)             	pr̃ɨr̃ɨtɨ-	2777,2829,2993
+H1 Atemple		fly (v)			vrag-
+H2 Angaua		fly (v)			ipɨndaga-
+H3 Emerum		fly (v)			bok-
+H4 Musak		fly (v)			pugɛ-
+H5 Paynamar		fly (v)			pugɛ-
+I1 Isabi		fly (v)			
+I2 Biyom		fly (v)			nuavut-
+I3 Tauya            	fly (v)             	pitit-    	1548,1737
+I4 Faita		fly (v)			ɸumr-

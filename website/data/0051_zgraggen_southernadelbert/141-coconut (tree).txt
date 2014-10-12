@@ -1,0 +1,16 @@
+G1 Silebi            	coconut tree        	kwima     	
+G2 Katiati              	coconut tree        	koima     	
+G3 Osum             	coconut tree        	goima-    	
+G4 Pondoma		coconut tree		ʌbrʉ	
+G5 Ikundun		coconut tree		waɨnɨpa	
+G6 Moresada		coconut tree		awənəp
+G7 Wadiginam		coconut tree		tɨmup
+H1 Atemple          	coconut tree        	aŋɨm koim 	
+H2 Angaua             	coconut tree        	aŋɨm      	
+H3 Emerum		coconut tree		siːmaŋ
+H4 Musak		coconut tree		kʌwaŋ
+H5 Paynamar            	coconut tree        	u:ma      	
+I1 Isabi		coconut tree		mɛgɪnɛ
+I2 Biyom		coconut tree		mɛkɛni
+I3 Tauya		coconut tree		mɛˀɛni
+I4 Faita		coconut tree		kuria

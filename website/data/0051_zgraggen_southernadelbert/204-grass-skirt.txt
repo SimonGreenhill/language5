@@ -1,0 +1,18 @@
+G1 Silebi            	grass skirt         	ane kumu  
+G1 Silebi            	grass skirt         	usʌ
+G2 Katiati              	grass skirt         	kumu  
+G2 Katiati              	grass skirt         	sugu
+G3 Osum             	grass skirt         	ma:m-      	
+G4 Pondoma		grass skirt		wand	
+G5 Ikundun		grass skirt		wandɨpa	
+G6 Moresada		grass skirt		mɔmp
+G7 Wadiginam		grass skirt		muŋgunʌmp	
+H1 Atemple		grass skirt		ekatᵊ			
+H2 Angaua		grass skirt		iŋkasɨŋ amprʌ
+H3 Emerum            	grass skirt         	kumu      	
+H4 Musak             	grass skirt         	kʌmam     	
+H5 Paynamar            	grass skirt         	mam       	
+I1 Isabi		grass skirt		maro
+I2 Biyom		grass skirt		ɛkɛ	
+I3 Tauya		grass skirt		ɛˀɛ	
+I4 Faita		grass skirt		ɸʌndə	

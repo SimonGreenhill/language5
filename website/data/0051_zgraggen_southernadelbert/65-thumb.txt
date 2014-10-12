@@ -1,0 +1,16 @@
+G1 Silebi            	thumb               	numu krɨsɨ	2879,2880,2881
+G2 Katiati              	thumb               	ndumba    	2879,2880,2881
+G3 Osum			thumb			maːpupmuka-
+G4 Pondoma         	thumb               	numbuŋ saki	2879,2880,2881
+G5 Ikundun          	thumb               	dambumba  	2879,2880
+G6 Moresada         	thumb               	imbubɔt   	2880
+G7 Wadiginam		thumb			
+H1 Atemple		thumb			jʌː
+H2 Angaua             	thumb               	gʌmbəpʌm  	2879,2880
+H3 Emerum		thumb			nuŋgantɨŋ
+H4 Musak		thumb			kʉsur katam
+H5 Paynamar		thumb			arumandɛ
+I1 Isabi		thumb			
+I2 Biyom            	thumb               	añʌm      	1870
+I3 Tauya            	thumb               	aniamo    	1870
+I4 Faita		thumb			kata

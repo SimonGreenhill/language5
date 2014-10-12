@@ -1,0 +1,16 @@
+G1 Silebi            	rat                 	siba      	2911
+G2 Katiati              	rat                 	siβasiβa  	2911
+G3 Osum			rat			sikow-
+G4 Pondoma		rat			skow
+G5 Ikundun		rat			təkɔːpa
+G6 Moresada		rat			woɣʌtəp
+G7 Wadiginam		rat			tukurump
+H1 Atemple		rat			priŋgri
+H2 Angaua		rat			eŋgandain
+H3 Emerum            	rat                 	siwa      	2820,2828,2911,2992
+H4 Musak		rat			kopʌr
+H5 Paynamar		rat			saŋa
+I1 Isabi		rat			sumi
+I2 Biyom		rat			kasi
+I3 Tauya		rat			turi
+I4 Faita		rat			mito

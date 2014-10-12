@@ -1,0 +1,16 @@
+G1 Silebi		1sg genitive			(ya)-
+G2 Katiati		1sg genitive			ya-
+G3 Osum			1sg genitive			yi-
+G4 Pondoma		1sg genitive			yV-
+G5 Ikundun		1sg genitive			ya-
+G6 Moresada		1sg genitive			ya-
+G7 Wadiginam		1sg genitive			ya-
+H1 Atemple		1sg genitive			
+H2 Angaua		1sg genitive			
+H3 Emerum		1sg genitive			
+H4 Musak		1sg genitive			
+H5 Paynamar		1sg genitive			sa-
+I1 Isabi		1sg genitive			ne-
+I2 Biyom		1sg genitive			ya-
+I3 Tauya		1sg genitive			ya-
+I4 Faita		1sg genitive			ya-

@@ -1,0 +1,16 @@
+G1 Silebi		go up			tʌi-
+G2 Katiati              	go up               	iaɣu-     	3056
+G3 Osum			go up			rakorigu-
+G4 Pondoma		go up			mundu-
+G5 Ikundun		go up			mundo-
+G6 Moresada		go up			mundo-
+G7 Wadiginam		go up			mundu-
+H1 Atemple		go up			akuɛrɛ-
+H2 Angaua             	go up               	ika-      	3056
+H3 Emerum            	go up               	iaɣu-     	3056
+H4 Musak             	go up               	iok-      	3056
+H5 Paynamar            	go up               	aku-      	3056
+I1 Isabi		go up			
+I2 Biyom		go up			maiva ka-
+I3 Tauya            	go up               	oma-      	1631,1807
+I4 Faita           	go up               	iak-      	3056

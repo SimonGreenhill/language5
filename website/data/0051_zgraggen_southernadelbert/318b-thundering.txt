@@ -1,0 +1,18 @@
+G1 Silebi		thundering			imʌːg-
+G2 Katiati		thundering			akurima iw-
+G3 Osum			thundering			iŋambumunt rugu-
+G4 Pondoma		thundering			nʉma tugu-
+G5 Ikundun		thundering			tumur
+G5 Ikundun		thundering			tugu-
+G6 Moresada		thundering			imʌp sumu-
+G6 Moresada		thundering			wʉŋgə-
+G7 Wadiginam		thundering			apup pariratɨ-
+H1 Atemple		thundering			aŋgambari vɛr-
+H2 Angaua		thundering			ɛmawu ŋkr-
+H3 Emerum		thundering			tʉbra if-
+H4 Musak		thundering			uwiyaŋ yo-
+H5 Paynamar		thundering			amuŋgra-
+I1 Isabi		thundering			
+I2 Biyom		thundering			tɛndugu-
+I3 Tauya		thundering			wiyane-
+I4 Faita		thundering			

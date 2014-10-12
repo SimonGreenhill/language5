@@ -1,0 +1,20 @@
+G1 Silebi		cut			yag-
+G1 Silebi		cut			i-
+G2 Katiati              	cut with knife      	mbuɣ-	
+G2 Katiati              	cut with knife      	ta:bug-   	2976
+G3 Osum             	cut with knife      	rʌbugu-   	2976
+G3 Osum             	cut with knife      	rʌbugu-
+G4 Pondoma         	cut with knife      	ta:wog-   	2976
+G5 Ikundun          	cut with knife      	taβʉg-    	2976
+G6 Moresada         	cut with knife      	tʌɣə-     	
+G7 Wadiginam        	cut with knife      	tʌw-      	2976
+H1 Atemple		cut			ɛvoka-
+H2 Angaua		cut			aka-
+H3 Emerum		cut			ik-
+H4 Musak		cut			tʌku-
+H5 Paynamar            	cut with knife      	aβuɣa-    	2976
+I1 Isabi		cut			ɛmbɛtɛ-
+I1 Isabi		cut			w-
+I2 Biyom		cut			uvi-
+I3 Tauya		cut			ɸaɪ-
+I4 Faita		cut			ikawak-

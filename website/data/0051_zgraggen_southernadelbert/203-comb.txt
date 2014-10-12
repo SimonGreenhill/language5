@@ -1,0 +1,18 @@
+G1 Silebi            	comb                	sarat     	2948
+G2 Katiati              	comb                	sarat     	2948
+G2 Katiati              	comb                	mandapi
+G3 Osum			comb			gʌkumbi-
+G4 Pondoma		comb			mandapiŋ
+G5 Ikundun		comb			mandapimba
+G6 Moresada		comb			mandʌpɛmp
+G7 Wadiginam		comb			mandʌːpim
+H1 Atemple		comb			
+H2 Angaua		comb			
+H3 Emerum            	comb                	sarʌt     	2841,2948,3004
+H3 Emerum            	comb                	sʉgetuŋga
+H4 Musak             	comb                	sʌrata    	2841,2948,3004
+H5 Paynamar		comb			prisisua
+I1 Isabi		comb			pasapasa
+I2 Biyom		comb			timaŋgu
+I3 Tauya            	comb                	sarata    	
+I4 Faita           	comb                	sarata    	2841,2948,3004

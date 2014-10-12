@@ -1,0 +1,16 @@
+G1 Silebi            	throw stone         	kapara-   	2980
+G2 Katiati              	throw stone         	kawar-    	2980
+G3 Osum             	throw stone         	ɣawari-   	2980
+G4 Pondoma         	throw stone         	yawur-    	2980
+G5 Ikundun		throw stone		munduɣu-
+G6 Moresada		throw stone		mandaɣu-
+G7 Wadiginam		throw stone		mundug-
+H1 Atemple		throw stone		aprjuo-
+H2 Angaua		throw stone		abzu-
+H3 Emerum            	throw stone         	kʌβal-    	2980
+H4 Musak             	throw stone         	kapr-     	2980
+H5 Paynamar            	throw stone         	apara-    	2980
+I1 Isabi		throw stone		karuhe-
+I2 Biyom		throw stone		utu-
+I3 Tauya		throw stone		ɸitau	
+I4 Faita		throw stone			keβi-

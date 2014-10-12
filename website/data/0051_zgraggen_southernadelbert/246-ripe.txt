@@ -1,0 +1,17 @@
+G1 Silebi            	ripe                	muŋu      	2961
+G2 Katiati              	ripe                	mʉndʉ     	2961
+G3 Osum             	ripe                	muŋu-     	2961
+G4 Pondoma         	ripe                	muŋu-     	2961
+G5 Ikundun          	ripe                	muŋu-     	2961
+G6 Moresada         	ripe                	muno-     	2961
+G7 Wadiginam        	ripe                	mugu-     	2961
+H1 Atemple		ripe			kamua- tɨ-
+H2 Angaua		ripe			ntə
+H3 Emerum            	ripe                	mʉndʉ     	2961
+H4 Musak		ripe			niːaŋ
+H5 Paynamar		ripe			ubᵉga
+I1 Isabi		ripe			puwi
+I2 Biyom            	ripe                	nunum     	
+I3 Tauya            	ripe                	nunuma    	
+I4 Faita		ripe			yaŋgumra
+I4 Faita		ripe			nuwaya

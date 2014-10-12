@@ -1,0 +1,18 @@
+G1 Silebi            	‘go’                	u-      	3116
+G2 Katiati              	‘go’                	u-        	3116
+G3 Osum			go			o-
+G4 Pondoma		go			u-
+G5 Ikundun		go			go-
+G6 Moresada		go			witʌŋgu-
+G7 Wadiginam		go			wʌ-
+G7 Wadiginam		go			wuna-
+H1 Atemple		go			wo-
+H2 Angaua             	‘go’                	w-        	3116
+H3 Emerum            	‘go’                	u-        	3116
+H4 Musak             	‘go’                	u(βia)-   	3116
+H5 Paynamar            	‘go’                	wu-       	3116
+I1 Isabi		go			o-
+I1 Isabi		go			u-
+I2 Biyom		go			ka-
+I3 Tauya		go			yat-
+I4 Faita		go			matam-

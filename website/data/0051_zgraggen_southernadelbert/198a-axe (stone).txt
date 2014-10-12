@@ -1,0 +1,17 @@
+G1 Silebi            	‘axe’               	kina      	3103
+G2 Katiati              	‘axe’               	kaɣri     	3058
+G3 Osum			axe (stone)		polopolo-	
+G4 Pondoma		axe (stone)		putu puru
+G5 Ikundun		axe (stone)		aiwotʌmp
+G6 Moresada		axe (stone)			
+G7 Wadiginam		axe (stone)		kʌmyaŋk
+H1 Atemple		axe (stone)		utʌkis
+H2 Angaua             	‘axe’               	aɣɨr      	3058
+H3 Emerum            	‘axe’               	cinaŋ     	3103
+H4 Musak             	‘axe’               	gwandɛ kinɨ   	3103
+H5 Paynamar		axe (stone)		akumans
+I1 Isabi		axe (stone)		tu
+I2 Biyom		axe (stone)		komboro manɛ
+I3 Tauya		axe (stone)		sau	
+I3 Tauya		axe (stone)		ɛko
+I4 Faita		axe (stone)		kunounu

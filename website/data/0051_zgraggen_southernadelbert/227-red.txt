@@ -1,0 +1,19 @@
+G1 Silebi            	red                 	ñaŋgu    	2954,2955
+G1 Silebi            	red                 	igʌm
+G2 Katiati              	red                 	ñaŋgu    	2954,2955
+G3 Osum             	red                 	ñaku-    	2954,2955
+G4 Pondoma         	red                 	naŋguŋg-  	2954,2955
+G5 Ikundun          	red                 	naŋgu-    	2954,2955
+G6 Moresada         	red                 	yaŋgu-    	2954,2955
+G7 Wadiginam        	red                 	naŋgu-    	2954,2955
+H1 Atemple		red			tɨ
+H2 Angaua		red			ntɨ
+H3 Emerum            	red                 	niaŋgu    	2954,2955
+H3 Emerum            	red                 	mʉndʉ
+H4 Musak		red			igam
+H5 Paynamar		red			amus
+I1 Isabi		red			pui
+I2 Biyom		red			fuluru
+I3 Tauya		red			inaumoamo
+I3 Tauya		red			nunumana
+I4 Faita           	red                 	yaŋgumra  	2954,2955

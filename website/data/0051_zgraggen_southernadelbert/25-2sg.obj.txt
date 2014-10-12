@@ -1,0 +1,16 @@
+G1 Silebi		2sg obj			na-
+G2 Katiati		2sg obj			na-
+G3 Osum			2sg obj			na-
+G4 Pondoma		2sg obj			na-
+G5 Ikundun		2sg obj			na-
+G6 Moresada		2sg obj			na-
+G7 Wadiginam		2sg obj			na-
+H1 Atemple		2sg obj			da-
+H2 Angaua		2sg obj			na-
+H3 Emerum		2sg obj			na
+H4 Musak		2sg obj			na
+H5 Paynamar		2sg obj			na-
+I1 Isabi		2sg obj			ke-
+I2 Biyom		2sg obj			na-
+I3 Tauya		2sg obj			na-
+I4 Faita		2sg obj			na-

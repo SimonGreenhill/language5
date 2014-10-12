@@ -1,0 +1,16 @@
+G1 Silebi		swallow			kundi-
+G2 Katiati		swallow			mʉr-
+G3 Osum			swallow			ñamuŋgʉ-
+G4 Pondoma		swallow			namuŋgu-
+G5 Ikundun		swallow			namŋg-
+G6 Moresada		swallow			yʌːmŋgə-
+G7 Wadiginam		swallow			namɣ-
+H1 Atemple		swallow			jurorjuni-
+H2 Angaua		swallow			narabzu-
+H3 Emerum		swallow			grəwar-
+H4 Musak		swallow			mugu-
+H5 Paynamar		swallow			niamirasuw-
+I1 Isabi		swallow			
+I2 Biyom		swallow			enisi-
+I3 Tauya		swallow			tuˀunɛɸ-
+I4 Faita		swallow			nerumb-

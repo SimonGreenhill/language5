@@ -1,0 +1,19 @@
+G1 Silebi            	‘cassowary’         	muia      	3069
+G2 Katiati              	‘cassowary’         	muia      	3069
+G3 Osum			cassowary		gamay-	
+G4 Pondoma		cassowary		muyaŋ
+G4 Pondoma		cassowary		masuguŋ
+G5 Ikundun		cassowary		matuŋumba
+G6 Moresada		cassowary		mʌsogump
+G7 Wadiginam		cassowary		mʌtsuɣump
+H1 Atemple          	‘cassowary’         	oiam      	3069
+H1 Atemple          	‘cassowary’         	kurʌːgurʉ
+H2 Angaua             	‘cassowary’         	oiam      	3069
+H3 Emerum            	‘cassowary’         	muiaŋ     	3069
+H4 Musak		cassowary		kumbukɛ
+H5 Paynamar		cassowary		nɨminda
+I1 Isabi		cassowary		tore
+I2 Biyom		cassowary		fumi
+I2 Biyom		cassowary		moyam
+I3 Tauya		cassowary		towe
+I4 Faita		cassowary		waiβa	

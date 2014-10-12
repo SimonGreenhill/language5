@@ -1,0 +1,17 @@
+G1 Silebi		basket			tua
+G2 Katiati		basket			sina
+G3 Osum			basket			tuwatuwata-
+G4 Pondoma		basket			tuga
+G5 Ikundun		basket			tuwap
+G6 Moresada		basket			tuɣuʌp
+G7 Wadiginam		basket			
+H1 Atemple		basket			gamʌmp
+H2 Angaua		basket			andʌgʌnt
+H3 Emerum		basket			paŋa
+H4 Musak		basket			bogis
+H4 Musak		basket			tʌrmar
+H5 Paynamar		basket			mukunambi
+I1 Isabi		basket			
+I2 Biyom		basket			wai
+I3 Tauya		basket			periperi
+I4 Faita		basket			

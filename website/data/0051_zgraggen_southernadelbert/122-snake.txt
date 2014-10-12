@@ -1,0 +1,17 @@
+G1 Silebi		snake			sanaŋgu
+G2 Katiati              	snake               	tʌβ       	2912
+G3 Osum             	snake               	ra:wu:-   	2912
+G4 Pondoma		snake			unzirʉŋ
+G5 Ikundun		snake			wandrɨŋamba
+G6 Moresada		snake			wanzᵊrᵊŋʌmp
+G7 Wadiginam        	snake               	tʌrɨnʌmp  	2912
+H1 Atemple		snake			ukri
+H2 Angaua             	snake               	aku       	2912
+H3 Emerum            	snake               	ta:gu     	2912
+H3 Emerum            	snake               	sanaŋgu
+H4 Musak		snake			geo
+H5 Paynamar		snake			akakɨrɨs
+I1 Isabi		snake			kʌnde
+I2 Biyom		snake			sʌːri
+I3 Tauya		snake			sai
+I4 Faita		snake			sʌr

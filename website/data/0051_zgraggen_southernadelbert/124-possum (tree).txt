@@ -1,0 +1,16 @@
+G1 Silebi            	possum (tree)              	muːkuru
+G2 Katiati              	possum (tree)              	mo:kr     	2913
+G3 Osum             	possum (tree)              	mokr-     	2913
+G4 Pondoma		possum (tree)			mukr̃     	2913
+G5 Ikundun		possum (tree)			mukr̃pa induwanamba
+G6 Moresada		possum (tree)			mɔkər̃əp
+G7 Wadiginam		possum (tree)			tʌpʌyʌp
+H1 Atemple		possum (tree)			mbɔrom bɛnd
+H2 Angaua		possum (tree)			aigw
+H3 Emerum            	possum (tree)              	kubusana
+H4 Musak		possum (tree)			murub     	2913
+H5 Paynamar            	possum (tree)              	kwaik
+I1 Isabi		possum (tree)			kea
+I2 Biyom		possum (tree)			kɔrʌm
+I3 Tauya		possum (tree)			kasine
+I4 Faita		possum (tree)			morobu    	2913

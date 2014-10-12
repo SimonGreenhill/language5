@@ -1,0 +1,18 @@
+G1 Silebi		empty			sagia
+G2 Katiati		empty			maŋgi
+G3 Osum			empty			iawasu-
+G3 Osum			empty			niʌtu
+G4 Pondoma		empty			utika
+G5 Ikundun		empty			iukatia
+G5 Ikundun		empty			sawaŋga
+G6 Moresada		empty			ikub-
+G7 Wadiginam		empty			ikiwə-
+H1 Atemple		empty			arivrana
+H2 Angaua		empty			
+H3 Emerum		empty			kumʌː
+H4 Musak		empty			kɛp gini
+H5 Paynamar		empty			akut
+I1 Isabi		empty			
+I2 Biyom		empty			kwɛaŋga
+I3 Tauya		empty			
+I4 Faita		empty			

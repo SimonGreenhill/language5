@@ -1,0 +1,17 @@
+G1 Silebi            	‘eye’               	tarɨma    	3135
+G2 Katiati              	‘eye’               	tamŋga    	3135
+G3 Osum			eye			gʌːmuŋgʌ-
+G4 Pondoma		eye			aŋgum
+G5 Ikundun		eye			-ŋgumurkwa
+G6 Moresada		eye			-ŋgumun
+G7 Wadiginam		eye			-niːŋgup
+H1 Atemple		eye			ambrʌmʉn
+H2 Angaua             	‘eye’               	ampɨn     	3135
+H3 Emerum            	‘eye’               	ramɨŋgaŋ  	3135
+H4 Musak             	‘eye’               	tamɨ      	3135
+H5 Paynamar            	‘eye’               	amɨŋgamɨñu   	3135
+I1 Isabi		eye			-okisa
+I1 Isabi		eye			-kusa
+I2 Biyom		eye			-ʌti
+I3 Tauya		eye			naˀɛ
+I4 Faita           	‘eye’               	-tama     	3135

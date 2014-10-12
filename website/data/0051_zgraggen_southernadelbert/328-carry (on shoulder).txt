@@ -1,0 +1,16 @@
+G1 Silebi            	carry (on shldr)    	kʉmba-    	2974
+G2 Katiati              	carry (on shldr)    	kaβ-      	2974
+G3 Osum             	carry (on shldr)    	-kam-     	2974
+G4 Pondoma         	carry (on shldr)    	amu-      	2974
+G5 Ikundun          	carry (on shldr)    	-kam-     	2974
+G6 Moresada		carry (on shoulder)	kakose-		
+G7 Wadiginam        	carry (on shldr)    	-kapu-    	2974
+H1 Atemple          	carry (on shldr)    	ama-      	2974
+H2 Angaua		carry (on shoulder)	akŋ-	
+H3 Emerum		carry (on shoulder)	gʌːb-	
+H4 Musak		carry (on shoulder)	kau-	
+H5 Paynamar		carry (on shoulder)	apmu-		
+I1 Isabi		carry (on shoulder)	wumɛ-	
+I2 Biyom		carry (on shoulder)	-nawati-	
+I3 Tauya		carry (on shoulder)	ɛmai(ta)-		
+I4 Faita           	carry (on shldr)    	-kap-     	2974

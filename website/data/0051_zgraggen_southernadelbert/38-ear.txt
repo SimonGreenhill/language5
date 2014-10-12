@@ -1,0 +1,17 @@
+G1 Silebi            	ear                 	kɨnzɨŋa  	
+G2 Katiati              	ear                 	kʉnsigi  	
+G3 Osum			ear			kowu-
+G4 Pondoma         	ear                 	ginsegiw 	
+G5 Ikundun          	ear                 	-ɣundegiwəpʌ	
+H1 Atemple		ear			-mʌkʌtər
+G6 Moresada		ear			-makəganamp
+G7 Wadiginam		ear			ciemʉn
+H2 Angaua		ear			njempɨŋ
+H3 Emerum            	ear                 	gɨnsi     	
+H4 Musak             	ear                 	kisag    
+H4 Musak             	ear                 	tuwʌg
+H5 Paynamar		ear			kuβ
+I1 Isabi		ear			-garikɛ
+I2 Biyom            	ear                 	ukwai     	1647,1858
+I3 Tauya            	ear                 	waʔe      	1647,1858
+I4 Faita           	ear                 	-kind     	

@@ -1,0 +1,16 @@
+G1 Silebi            	put                 	tam-     	3128
+G2 Katiati              	put                 	tam-     	3128
+G3 Osum			put			tam-
+G4 Pondoma		put			tam-
+G5 Ikundun		put			tʌm-
+G6 Moresada		put			tʌmə-
+G7 Wadiginam		put			tʌm-
+H1 Atemple          	put                 	amba-     	3128
+H2 Angaua		put			gam-
+H3 Emerum            	put                 	tam-      	3128
+H4 Musak             	put                 	tama-      	3128
+H5 Paynamar            	put                 	rama-     	3128
+I1 Isabi		put			mɛntɛ-
+I2 Biyom		put			ɛvi-
+I3 Tauya		put			tɛɸɛ-
+I4 Faita		put			sikr-

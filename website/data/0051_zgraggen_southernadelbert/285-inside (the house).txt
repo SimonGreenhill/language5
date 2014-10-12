@@ -1,0 +1,16 @@
+G1 Silebi		inside (the house)			araga(minji)
+G2 Katiati		inside (the house)			kumba
+G3 Osum			inside (the house)			kumba(ŋga)
+G4 Pondoma		inside (the house)			uya
+G5 Ikundun		inside (the house)			uyop
+G6 Moresada		inside (the house)			yoːk
+G7 Wadiginam		inside (the house)			
+H1 Atemple		inside (the house)			oja
+H2 Angaua		inside (the house)			incʌ
+H3 Emerum		inside (the house)			munsi
+H4 Musak		inside (the house)			uriŋ
+H5 Paynamar		inside (the house)			ugumur
+I1 Isabi		inside (the house)			
+I2 Biyom		inside (the house)			kisi
+I3 Tauya		inside (the house)			usa
+I4 Faita		inside (the house)			wam

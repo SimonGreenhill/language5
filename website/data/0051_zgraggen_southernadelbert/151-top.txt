@@ -1,0 +1,17 @@
+G1 Silebi		top			karma
+G2 Katiati		top			mʉrᵘ
+G3 Osum			top			muru-
+G4 Pondoma         	top                 	numbuŋ    	2922
+G5 Ikundun          	top                 	nʉmbuŋaŋga	2922
+G6 Moresada		top			sosɔk
+G7 Wadiginam		top			mukakawamp
+H1 Atemple		top			opan
+H2 Angaua		top			ompʌr
+H3 Emerum            	top                 	nʉmuru    	2922
+H4 Musak             	top                 	numol     	2922
+H5 Paynamar		top			mʌp
+I1 Isabi		top			ʌmbi
+I2 Biyom		top			otuʌsi
+I3 Tauya		top			mʌruɸo
+I3 Tauya		top			mouɸu
+I4 Faita           	top                 	nəmʌr     	2922

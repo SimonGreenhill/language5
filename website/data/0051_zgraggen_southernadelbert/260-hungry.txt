@@ -1,0 +1,16 @@
+G1 Silebi		hungry			mawu kwar
+G2 Katiati		hungry			awuga-tə
+G3 Osum			hungry			neketu-
+G4 Pondoma		hungry			nɨŋgi tugu-
+G5 Ikundun		hungry			niŋgenet-
+G6 Moresada		hungry			iŋgep te-
+G7 Wadiginam		hungry			niŋgimp -tɨ-
+H1 Atemple		hungry			ejandaka-
+H2 Angaua		hungry			unzandag-
+H3 Emerum		hungry			gumga ɛmbri
+H4 Musak		hungry			nɨmɛtia
+H5 Paynamar		hungry			yɛkamba-
+I1 Isabi		hungry			-ambate-
+I2 Biyom		hungry			unʌmu-
+I3 Tauya		hungry			onama-
+I4 Faita		hungry			

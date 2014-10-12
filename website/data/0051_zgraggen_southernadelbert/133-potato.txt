@@ -1,0 +1,16 @@
+G1 Silebi		potato			asinam
+G2 Katiati		potato			sugayap
+G3 Osum			potato			mormor-
+G4 Pondoma		potato			mormor
+G5 Ikundun		potato			magurimpa
+G6 Moresada		potato			mawurip
+G7 Wadiginam		potato			
+H1 Atemple		potato			atugɛmaŋ
+H2 Angaua		potato			aŋgraŋkur
+H3 Emerum		potato			murumuruŋ
+H4 Musak		potato			kubiaŋ
+H5 Paynamar		potato			gapisigɨnza
+I1 Isabi		potato			koya
+I2 Biyom		potato			oβi
+I3 Tauya		potato			uɸia
+I4 Faita		potato			ugʷai

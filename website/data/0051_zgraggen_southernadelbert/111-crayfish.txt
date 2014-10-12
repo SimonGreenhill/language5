@@ -1,0 +1,18 @@
+G1 Silebi            	crayfish            	gasi      	2902
+G1 Silebi            	crayfish            	nʌt
+G2 Katiati		crayfish			
+G3 Osum			crayfish		yʌːtu-	
+G4 Pondoma		crayfish		siv
+G5 Ikundun		crayfish		tiwəpu
+G6 Moresada		crayfish		asʌp	
+G7 Wadiginam		crayfish		sindɨŋmp	
+H1 Atemple		crayfish		vrʉndə
+H1 Atemple		crayfish		ŋɨn
+H2 Angaua		crayfish		ŋɨn	
+H3 Emerum            	crayfish            	agʌsi     	2902
+H4 Musak		crayfish		nʌːtɨ	
+H5 Paynamar		crayfish		aŋgɨnzra
+I1 Isabi		crayfish		
+I2 Biyom		crayfish			
+I3 Tauya            	crayfish            	wasei     	1563,1750
+I4 Faita		crayfish		papas	

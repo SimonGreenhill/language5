@@ -1,0 +1,17 @@
+G1 Silebi            	‘louse’             	ima       	3036
+G2 Katiati              	‘louse’             	ñima      	3036
+G3 Osum			louse			wutɛ-
+G3 Osum			louse			akiñɪ-
+G4 Pondoma		louse			nʉmaŋ
+G5 Ikundun		louse			nʉmamba
+G6 Moresada		louse			imʌmp
+G7 Wadiginam		louse			nimʌnamp
+H1 Atemple          	‘louse’             	eman      	3036
+H2 Angaua             	‘louse’             	eman      	3036
+H3 Emerum            	‘louse’             	tɨmbra      	3036
+H4 Musak             	‘louse’             	imu       	3036
+H5 Paynamar		louae			maŋg
+I1 Isabi		louse			nʌma
+I2 Biyom		louse			mi
+I3 Tauya		louse			mi
+I4 Faita           	‘louse’             	ima       	3036

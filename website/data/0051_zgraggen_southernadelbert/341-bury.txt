@@ -1,0 +1,18 @@
+G1 Silebi            	bury                	tʌm-      	
+G2 Katiati              	bury                	tam-      	
+G3 Osum             	bury                	tam-      	
+G4 Pondoma         	bury                	mama tam- 	
+G5 Ikundun          	bury                	tam-      	
+G6 Moresada         	bury                	kumi-     	
+G7 Wadiginam        	bury                	tʌm-      	
+H1 Atemple		bury			ujɛm-
+H2 Angaua		bury			awa-
+H3 Emerum		bury			saβu mʌw-
+H4 Musak             	bury                	atoniŋ tʌm-
+H4 Musak             	bury                	atoŋ unu-
+H5 Paynamar		bury			aniŋgura-
+H5 Paynamar		bury			aniŋga-
+I1 Isabi		bury			kesiwe-
+I2 Biyom            	bury                	amu-      	
+I3 Tauya		bury			sotouɸ-
+I4 Faita           	bury                	ʌkum kaur-	

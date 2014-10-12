@@ -1,0 +1,16 @@
+G1 Silebi		boy			karu
+G2 Katiati		boy			
+G3 Osum			boy			gɪñamini-
+G4 Pondoma		boy			mindɛ simbuŋ
+G5 Ikundun		boy			manduŋ kura
+G6 Moresada		boy			yamoŋgadzeb
+G7 Wadiginam		boy			
+H1 Atemple		boy			ñəntom
+H2 Angaua		boy			nor ŋər
+H3 Emerum		boy			grɛmuri
+H4 Musak		boy			kur urɛ
+H5 Paynamar		boy			urum kimbindɛ
+I1 Isabi		boy			nʌuri
+I2 Biyom		boy			nono mbakurio
+I3 Tauya		boy			nonai
+I4 Faita		boy			mogoi asam

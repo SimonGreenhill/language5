@@ -1,0 +1,16 @@
+G1 Silebi            	nose                	munduma  	
+G2 Katiati              	nose                	mondugu  	
+G3 Osum             	nose                	mutugu-  	
+G4 Pondoma		nose			skuar
+G5 Ikundun		nose			-tukwʌrpʌ
+G6 Moresada		nose			-sikumun
+G7 Wadiginam		nose			-nimrʌmp
+H1 Atemple		nose			ɛmbomʉn
+H2 Angaua		nose			emamin
+H3 Emerum		nose			muŋga hul
+H4 Musak		nose			mumu ragʌr
+H5 Paynamar		nose			manza
+I1 Isabi		nose			-oŋgoruh
+I2 Biyom            	nose                	utukare  	1860
+I3 Tauya            	nose                	ute       	1860
+I4 Faita           	nose                	mota      	

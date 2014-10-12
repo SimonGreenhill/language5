@@ -1,0 +1,16 @@
+G1 Silebi            	wash                	añi piram-	2973
+G2 Katiati		wash			yuwi-
+G3 Osum             	wash                	-piram-   	2973
+G4 Pondoma         	wash                	wiram-    	2973
+G5 Ikundun          	wash                	-pɨgram-  	2973
+G6 Moresada         	wash                	-pirʌma-  	2973
+G7 Wadiginam        	wash                	-pitam-   	2973
+H1 Atemple          	wash                	jiramb-   	2973
+H2 Angaua             	wash                	iram-     	2973
+H3 Emerum            	wash                	säram-    	2973
+H4 Musak             	wash                	uram-     	2973
+H5 Paynamar            	wash                	rama-     	2973
+I1 Isabi		wash			apre -ndɛ-
+I2 Biyom		wash			akiñi + give
+I3 Tauya		wash			
+I4 Faita           	wash                	-ram-     	2973

@@ -1,0 +1,19 @@
+G1 Silebi		lightning			mamandi-
+G1 Silebi		lightning			magi-
+G2 Katiati		lightning			mʉŋawugr̃-
+G3 Osum			lightning			igomʉnt womrʉ-
+G4 Pondoma		lightning			anamu itapar-
+G5 Ikundun		lightning			manand-
+G6 Moresada		lightning			umʌmʌnduaɣu-
+G6 Moresada		lightning			mɛrataŋgu-
+G7 Wadiginam		lightning			
+H1 Atemple		lightning			akwʌkra-
+H1 Atemple		lightning			ɛkarpi-
+H2 Angaua		lightning			ɛmawu ŋenduw-
+H3 Emerum		lightning			mʉŋas war-
+H4 Musak		lightning			
+H5 Paynamar		lightning			nakiak-
+I1 Isabi		lightning			
+I2 Biyom		lightning			awowat-
+I3 Tauya		lightning			wiyane faita-
+I4 Faita		lightning			

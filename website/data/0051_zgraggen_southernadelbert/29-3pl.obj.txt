@@ -1,0 +1,16 @@
+G1 Silebi		3pl object			bi-r-
+G2 Katiati		3pl object			nʉ-rʉ-
+G3 Osum			3pl object			nʉ-ŋi-
+G4 Pondoma		3pl object			nu-ŋə-
+G5 Ikundun		3pl object			nʉ-ŋ-
+G6 Moresada		3pl object			nɨ-ŋəŋ-
+G7 Wadiginam		3pl object			nɨ-ŋɨ-
+H1 Atemple		3pl object			na-
+H2 Angaua		3pl object			ndɨ-
+H3 Emerum		3pl object			nu-r-
+H4 Musak		3pl object			nʉ-
+H5 Paynamar		3pl object			tʉn(ipit)-
+I1 Isabi		3pl object			i-
+I2 Biyom		3pl object			nV-(n)-
+I3 Tauya		3pl object			nʉ-nʉ-
+I4 Faita		3pl object			nʉ-nʉ-

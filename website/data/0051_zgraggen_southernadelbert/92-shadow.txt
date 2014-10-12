@@ -1,0 +1,16 @@
+G1 Silebi            	shadow              	ina ururu 	
+G2 Katiati              	shadow              	oŋru      	
+G3 Osum             	shadow              	oguro-    	
+G4 Pondoma         	shadow              	oŋroŋ     	
+G5 Ikundun          	shadow              	-gurup    	
+G6 Moresada         	shadow              	-guruk    	
+G7 Wadiginam		shadow			-gɨnɨp
+H1 Atemple          	shadow              	aɲʌ:n     	
+H2 Angaua             	shadow              	andar     	3080
+H3 Emerum            	shadow              	urʉŋ      	
+H4 Musak		shadow			murᵘmurᵘ
+H5 Paynamar            	shadow              	wur       	
+I1 Isabi		shadow			-umumɛ
+I2 Biyom            	shadow              	-ukanene  	
+I3 Tauya            	shadow              	-wanene   	
+I4 Faita           	shadow              	-kwandim  	

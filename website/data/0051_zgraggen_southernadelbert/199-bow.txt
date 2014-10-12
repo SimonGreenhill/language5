@@ -1,0 +1,16 @@
+G1 Silebi            	‘bow’               	kimi      	3041
+G2 Katiati              	‘bow’               	kɨm       	3041
+G3 Osum			bow			gumu-
+G4 Pondoma		bow			gʉm
+G5 Ikundun		bow			gɨmupa
+G6 Moresada		bow			iːmip
+G7 Wadiginam		bow			ɣɨmikʌmp
+H1 Atemple		bow			irwᵊ
+H2 Angaua		bow			irəbə
+H3 Emerum            	‘bow’               	ɣɨmi      	3041
+H4 Musak             	‘bow’               	kim       	3041
+H5 Paynamar		bow			irɨp
+I1 Isabi		bow			tumbi
+I2 Biyom		bow			yɛti
+I3 Tauya		bow			ipaineamo
+I4 Faita           	‘bow’               	kim       	3041

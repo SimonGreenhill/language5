@@ -1,0 +1,16 @@
+G1 Silebi		1pl object			a-r-
+G2 Katiati		1pl object			a-r-
+G3 Osum			1pl object			a-ŋi-
+G4 Pondoma		1pl object			a-ŋᵊ-
+G5 Ikundun		1pl object			a-ŋ-
+G6 Moresada		1pl object			a-ŋəŋ-
+G7 Wadiginam		1pl object			a-ŋɨ-
+H1 Atemple		1pl object			aruɣu
+H2 Angaua		1pl object			arɨ-
+H3 Emerum		1pl object			a-r-
+H4 Musak		1pl object			anɨ-
+H5 Paynamar		1pl object			a-ra-
+I1 Isabi		1pl object			te-
+I2 Biyom		1pl object			sV-(n)-
+I3 Tauya		1pl object			sV-
+I4 Faita		1pl object			a-nʉ-
