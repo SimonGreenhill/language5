@@ -20,5 +20,6 @@ django-twitter-tag                                          # twitter integratio
 requests                                                    # useful for data
 # searching:
 -e git://github.com/etianen/django-watson.git#egg=django-watson
+-e git://github.com/LuminosoInsight/python-ftfy.git#egg=python-ftfy    # tidy up unicode
 xlrd                                                        # XLRD for parsing xls files
 
