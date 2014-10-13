@@ -18,8 +18,7 @@ django_compressor                                           # for asset compress
 django-tastypie                                             # API
 django-twitter-tag                                          # twitter integration
 requests                                                    # useful for data
-# searching:
--e git://github.com/etianen/django-watson.git#egg=django-watson
--e git://github.com/LuminosoInsight/python-ftfy.git#egg=python-ftfy    # tidy up unicode
 xlrd                                                        # XLRD for parsing xls files
+-e git://github.com/etianen/django-watson.git#egg=django-watson        # searching
+-e git://github.com/LuminosoInsight/python-ftfy.git#egg=python-ftfy    # tidy up unicode
 
