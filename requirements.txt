@@ -1,24 +1,23 @@
-django==1.6.7                                               # django framework
-django-extensions>=1.1.1                                    # useful tools
-fabric                                                      # deployment etc
-pillow                                                      # A better python imaging library
-psycopg2                                                    # database adaptor
-django-reversion>=1.8                                       # versioning
-South>=0.8.3                                                # database migrations
-pytz                                                        # timezone support
-django-secure                                               # security
-django-tables2                                              # better table handling
-django-dbbackup                                             # database & media backup
-simples3                                                    # Amazon S3 for backup
-django-nvd3                                                 # for graphing statistics
-python-Levenshtein                                          # for string similarity metrics
-IPython                                                     # for local work.
-django-static-sitemaps>=1.5.5                               # static sitemaps
-django_compressor                                           # for asset compression/cache busting
-django-tastypie                                             # API
-django-twitter-tag                                          # twitter integration
-requests                                                    # useful for data
-xlrd                                                        # XLRD for parsing xls files
--e git://github.com/etianen/django-watson.git#egg=django-watson        # searching
+django>=1.6                                                            # django framework
+django-extensions>=1.1.1                                               # useful tools
+fabric                                                                 # deployment etc
+pillow                                                                 # A better python imaging library
+psycopg2                                                               # database adaptor
+django-reversion>=1.8                                                  # versioning
+South>=0.8.3                                                           # database migrations
+pytz                                                                   # timezone support
+django-secure                                                          # security
+django-tables2                                                         # better table handling
+django-dbbackup                                                        # database & media backup
+simples3                                                               # Amazon S3 for backup
+django-nvd3                                                            # for graphing statistics
+python-Levenshtein                                                     # for string similarity metrics
+IPython                                                                # for local work.
+django-static-sitemaps>=1.5.5                                          # static sitemaps
+django_compressor                                                      # for asset compression/cache busting
+django-tastypie                                                        # API
+django-twitter-tag                                                     # twitter integration
+requests                                                               # useful for data
+xlrd                                                                   # XLRD for parsing xls files
+-e git://github.com/etianen/django-watson.git#egg=django-watson        # searching:
 -e git://github.com/LuminosoInsight/python-ftfy.git#egg=python-ftfy    # tidy up unicode
-
