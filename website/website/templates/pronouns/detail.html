@@ -40,24 +40,17 @@
             (<a href="{{ paradigm.language|link_ethnologue }}">{{ paradigm.language.isocode }}</a>) 
             <a href="{% url "language-detail" paradigm.language.slug %}">{{ paradigm.language }}</a>.
     </p>
-    
     {% if paradigm.label %}
         <p>
             <strong>Label: </strong> 
             {{ paradigm.label }}
         </p>
     {% endif %}
-    
     <p>
         <strong>Family: </strong> 
         {% for family in paradigm.language.family_set.all %}
             <a href="{% url "family-detail" family.slug %}">{{ family }}</a>.
         {% endfor %}
-    </p>
-
-    <p>
-        <strong>Classification: </strong>
-        {{ language.classification }}
     </p>
     
     <p>

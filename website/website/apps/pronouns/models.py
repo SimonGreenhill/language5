@@ -91,11 +91,6 @@ class PronounType(TrackedModel):
         return out
     
 
-SYSTEM_CHOICES = (
-    ('F', 'Free'),
-    ('B', 'Bound'),
-)    
-
 class Paradigm(TrackedModel):
     """Paradigm Details"""
     language = models.ForeignKey(Language)
