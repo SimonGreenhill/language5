@@ -41,10 +41,17 @@
                             {% endif %}
                         {% endifequal %}
                         
+                        {% comment %} 
+                        This is gross -- hand writing html because django's field.as_hidden 
+                        doesn't give the correct default/initial values for widgets.
+                        {% endcomment %}
+                        
                         {% if field.name == "language" and task.language %} 
                             {{ task.language }}
+                            <input id="id_{{ form.prefix }}-language" name="{{ form.prefix }}-language" type="hidden" value="{{ field.value }}" />
                         {% elif field.name == "source" and task.source %}
                             {{ task.source }}
+                            <input id="id_{{ form.prefix }}-source" name="{{ form.prefix }}-source" type="hidden" value="{{ field.value }}" />
                         {% else %}
                             {{ field }}
                             {% if field.errors %}

@@ -120,7 +120,10 @@ class Test_GenericView(DataMixin):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'entry/detail.html')
         self.assertTemplateUsed(response, 'entry/formtemplates/generic.html')
-        assert len(re.findall(r"<td\s+>\s+TEST LANGUAGE\s+</td>", response.content)) == 1
+        self.assertContains(response, 
+            '<input id="id_form-0-language" name="form-0-language" type="hidden" value="1" />', 
+            count=1
+        )
     
     def test_fixed_source_in_template(self):
         self.client.login(username="admin", password="test")
@@ -140,7 +143,10 @@ class Test_GenericView(DataMixin):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'entry/detail.html')
         self.assertTemplateUsed(response, 'entry/formtemplates/generic.html')
-        assert len(re.findall(r"<td\s+>\s+TEST SOURCE \(1991\)\s+</td>", response.content)) == 1
+        self.assertContains(response, 
+            '<input id="id_form-0-source" name="form-0-source" type="hidden" value="1" />', 
+            count=1
+        )
         
     def test_fixed_language_in_save(self):
         self.client.login(username="admin", password="test")
@@ -155,7 +161,6 @@ class Test_GenericView(DataMixin):
             records=1, # needed so we don't have too many empty forms to validate
         )
         form_data = self.form_data.copy()
-        del(form_data['form-0-language'])   # remove language
         response = self.client.post(task.get_absolute_url(), form_data, follow=True)
         
         # no errors
@@ -181,7 +186,6 @@ class Test_GenericView(DataMixin):
             records=1, # needed so we don't have too many empty forms to validate
         )
         form_data = self.form_data.copy()
-        del(form_data['form-0-source'])   # remove source
         response = self.client.post(task.get_absolute_url(), form_data, follow=True)
         # no errors
         assert task.lexicon.count() == 1
@@ -204,7 +208,7 @@ class Test_GenericView(DataMixin):
             records=1, # needed so we don't have too many empty forms to validate
         )
         form_data = self.form_data.copy()
-        del(form_data['form-0-language'])   # remove language
+        form_data['form-0-language'] =  ""  # remove language
 
         response = self.client.post(task.get_absolute_url(), form_data)
         self.assertEqual(response.status_code, 200)

@@ -44,13 +44,7 @@ def process_post_and_save(request, task, formset):
     if 'refresh' in request.POST:
         task_log(request, task=task, message="Refreshed Task")
     elif 'submit' in request.POST:
-        # fill if necessary
-        for form in formset.forms:
-            if task.language and '%s-language' % form.prefix not in form.data:
-                form.data['%s-language' % form.prefix] = task.language.id
-            if task.source and '%s-source' % form.prefix not in form.data:
-                form.data['%s-source' % form.prefix] = task.source.id
-        
+        # # fill if necessary
         if formset.is_valid():
             for form in formset:
                 if form.is_valid() and len(form.changed_data):
@@ -101,19 +95,24 @@ def process_post_and_save(request, task, formset):
 def GenericView(request, task):
     """Generic data entry task"""
     template_name = "entry/formtemplates/generic.html"
-    # process form
-    if request.POST:
-        formset = GenericFormset(request.POST)
-        if process_post_and_save(request, task, formset):
-            return redirect('entry:complete', pk=task.id)
-    else:
+    
+    def _get_initial(task):
         # set up initial data
         initial = {}
         if task.language:
             initial['language'] = task.language
         if task.source:
             initial['source'] = task.source
-        formset = GenericFormset(initial=[initial for i in range(task.records)])
+        return [initial for i in range(task.records)]
+    
+    # process form
+    if request.POST:
+        formset = GenericFormset(request.POST, initial=_get_initial(task))
+        if process_post_and_save(request, task, formset):
+            return redirect('entry:complete', pk=task.id)
+    else:
+        # set up initial data
+        formset = GenericFormset(initial=_get_initial(task))
     
     return render_to_response('entry/detail.html', {
         'task': task,

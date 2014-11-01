@@ -65,23 +65,23 @@ class TaskIndex(SingleTableView):
 @reversion.create_revision()
 def task_detail(request, task_id):
     "Handles routing of tasks"
-    # 1. check if task is valid
+    # check if task is valid
     t = get_object_or_404(Task, pk=task_id)
-    # 2. check if task is complete
+    # redirect away if task is complete
     if t.done:
         return redirect('entry:complete', pk=t.id)
     
-    # 3. save checkpoint
+    # If we've got POST data, then save checkpoint otherwise load the checkpoint
+    # if it exists.
     if request.POST:
+        task_log(request, task=t, message="Saved Checkpoint")
         t.checkpoint = encode_checkpoint(request.POST)
         t.save()
-        task_log(request, task=t, message="Saved Checkpoint")
-    # if there's no post data and a checkpoint, then try to load it...
     elif t.checkpoint not in (None, u""):
-        request.POST = make_querydict(decode_checkpoint(t.checkpoint))
         task_log(request, task=t, message="Loaded Checkpoint")
-        
-    # 4. send to correct view
+        request.POST = make_querydict(decode_checkpoint(t.checkpoint))
+    
+    # Finally send to correct view
     views = dict(dataentry.available_views)
     if t.view in views:
         viewfunc = getattr(dataentry, t.view)
@@ -126,8 +126,6 @@ def quick_entry(request):
     return redirect('entry:detail', task_id=t.id)
 
 
-
-# task index
 class TaskComplete(DetailView):
     """Task Index"""
     model = Task
