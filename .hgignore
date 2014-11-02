@@ -5,11 +5,13 @@ syntax: glob
 
 syntax: regexp
 ^doc/_build
+^static_root/
+^thirdparty/bootstrap/docs/assets/
+^thirdparty/bootstrap/bootstrap/
+^website/data/
 ^website/website/database.db
 ^website/website/settings/local.py
-^thirdparty/bootstrap/bootstrap/
-^thirdparty/bootstrap/docs/assets/
-website/website/templates/revision.txt
+^website/website/templates/revision.txt
 ^website/django.log
 ^website/django-db.log
-^static_root/
+dump.json.gz

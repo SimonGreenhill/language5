@@ -20,7 +20,7 @@ class AllMethodCachingQueryset(models.query.QuerySet):
 
 
 class AllMethodCachingManager(models.Manager):
-    def get_query_set(self):
+    def get_queryset(self):
         return AllMethodCachingQueryset(self.model, using=self._db)
 
 

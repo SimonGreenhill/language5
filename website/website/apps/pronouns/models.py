@@ -90,7 +90,6 @@ class PronounType(TrackedModel):
                 seen.append(p)
         return out
     
-    
 
 class Paradigm(TrackedModel):
     """Paradigm Details"""

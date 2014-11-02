@@ -1,4 +1,6 @@
-from django.shortcuts import render_to_response
+import copy
+
+from django.shortcuts import render_to_response, redirect
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 
@@ -33,16 +35,17 @@ class GenericForm(forms.ModelForm):
         }
     # make sure to set editor, added, and loan if loan_source is specified
 
-GenericFormSet = formset_factory(GenericForm, extra=0)
+GenericFormset = formset_factory(GenericForm, extra=0)
 
 
 def process_post_and_save(request, task, formset):
     """Extracted common code to process a form."""
+    
     if 'refresh' in request.POST:
         task_log(request, task=task, message="Refreshed Task")
     elif 'submit' in request.POST:
+        # # fill if necessary
         if formset.is_valid():
-            completed = []
             for form in formset:
                 if form.is_valid() and len(form.changed_data):
                     # if form is valid and some fields have changed
@@ -54,8 +57,6 @@ def process_post_and_save(request, task, formset):
                         
                     with reversion.create_revision():
                         task.lexicon.add(obj)
-                    
-                    completed.append(obj)
                     
             task_log(request, task=task, message="Submitted valid Task")
             
@@ -84,32 +85,34 @@ def process_post_and_save(request, task, formset):
                         source = task.source,
                         file = task.file
                     )
-            
-            return render_to_response('entry/done.html', {
-                'task': task,
-                'objects': completed,
-            }, context_instance=RequestContext(request))
-        else:
-            task_log(request, task=task, message="Submitted incomplete")
-            
+            return True
         
+        task_log(request, task=task, message="Submitted incomplete")
+        return False
+
 
 @login_required()
 def GenericView(request, task):
     """Generic data entry task"""
     template_name = "entry/formtemplates/generic.html"
-    # process form
-    if request.POST:
-        formset = GenericFormSet(request.POST)
-        process_post_and_save(request, task, formset)
-    else:
+    
+    def _get_initial(task):
         # set up initial data
         initial = {}
         if task.language:
             initial['language'] = task.language
         if task.source:
             initial['source'] = task.source
-        formset = GenericFormSet(initial=[initial for i in range(task.records)])
+        return [initial for i in range(task.records)]
+    
+    # process form
+    if request.POST:
+        formset = GenericFormset(request.POST, initial=_get_initial(task))
+        if process_post_and_save(request, task, formset):
+            return redirect('entry:complete', pk=task.id)
+    else:
+        # set up initial data
+        formset = GenericFormset(initial=_get_initial(task))
     
     return render_to_response('entry/detail.html', {
         'task': task,

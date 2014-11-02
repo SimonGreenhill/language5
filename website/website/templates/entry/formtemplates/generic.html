@@ -34,24 +34,39 @@
             <tr>
                 {% for field in form %}
                     <td {% if field.errors %}class="error"{% endif %}>
+                        
                         {% ifequal field.name "word" %}
                             {% if form.initial.order_id %}
                                 {{ form.initial.order_id }}.
                             {% endif %}
                         {% endifequal %}
                         
-                        {{ field }}
-                        {% if field.errors %}
-                            <i class="tip icon-exclamation-sign" 
-                                data-toggle="tooltip" 
-                                data-placement="top" 
-                                data-container="td"
-                                title="
-                                {% for error in field.errors %}
-                                    {{ error|escape }} 
-                                {% endfor %}">
-                            </i>
+                        {% comment %} 
+                        This is gross -- hand writing html because django's field.as_hidden 
+                        doesn't give the correct default/initial values for widgets.
+                        {% endcomment %}
+                        
+                        {% if field.name == "language" and task.language %} 
+                            {{ task.language }}
+                            <input id="id_{{ form.prefix }}-language" name="{{ form.prefix }}-language" type="hidden" value="{{ field.value }}" />
+                        {% elif field.name == "source" and task.source %}
+                            {{ task.source }}
+                            <input id="id_{{ form.prefix }}-source" name="{{ form.prefix }}-source" type="hidden" value="{{ field.value }}" />
+                        {% else %}
+                            {{ field }}
+                            {% if field.errors %}
+                                <i class="tip icon-exclamation-sign" 
+                                    data-toggle="tooltip" 
+                                    data-placement="top" 
+                                    data-container="td"
+                                    title="
+                                    {% for error in field.errors %}
+                                        {{ error|escape }} 
+                                    {% endfor %}">
+                                </i>
+                            {% endif %}
                         {% endif %}
+                    
                     </td>
                 {% endfor %}
             </tr>

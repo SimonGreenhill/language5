@@ -13,9 +13,12 @@ class Test_Task_Saved(DataMixin):
     """Tests the Task Saved List"""
     def test_save(self):
         self.client.login(username="admin", password="test")
-        response = self.client.post(self.task.get_absolute_url(), self.form_data)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'entry/done.html')
+        response = self.client.post(self.task.get_absolute_url(), self.form_data, follow=True)
+        self.assertRedirects(response,
+            reverse('entry:complete', kwargs={'pk': self.task.id}), 
+            status_code=302, target_status_code=200
+        )
+        self.assertTemplateUsed(response, 'entry/complete.html')
         
         the_task = Task.objects.get(pk=self.task.id)
         

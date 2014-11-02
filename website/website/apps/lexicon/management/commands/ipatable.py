@@ -31,4 +31,4 @@ class Command(BaseCommand):
         
         for char in sorted(chars):
             u = unicodedata.name(char)
-            print("\t".join([char, '%d' % chars[char], u.ljust(50), "?"]))
+            print(u"\t".join([char, '%d' % chars[char], u.ljust(50), u"?"]))
