@@ -21,3 +21,5 @@ requests                                                               # useful 
 xlrd                                                                   # XLRD for parsing xls files
 -e git://github.com/etianen/django-watson.git#egg=django-watson        # searching:
 -e git://github.com/LuminosoInsight/python-ftfy.git#egg=python-ftfy    # tidy up unicode
+numpy
+lingpy

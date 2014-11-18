@@ -126,6 +126,10 @@ if 'website.apps.lexicon' in settings.INSTALLED_APPS:
         # lexicon-edit: edit lexical item.
         url(r'^lexicon/(?P<pk>\d+)/edit$', LexiconEdit.as_view(), name="lexicon-edit"),
         url(r'^word/(?P<slug>[\w\d\-\.]+)/edit$', 'website.apps.lexicon.views.word_edit', name="word-edit"),
+        
+        url(r'^word/(?P<slug>[\w\d\-\.]+)/alignment$', 'website.apps.lexicon.views.word_alignment', name="word-alignment"),
+
+
     )
 
 # ------------------------------------------------------------------------ #
