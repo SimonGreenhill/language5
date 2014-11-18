@@ -25,8 +25,8 @@ class GenericForm(forms.ModelForm):
         widgets = {
             # over-ride Textarea for annotation
             'annotation': forms.widgets.TextInput(
-                    attrs={'class': 'input-medium'}),
-            
+                    attrs={'class': 'input-medium'}
+            ),
             # and set input size
             'entry': forms.widgets.TextInput(attrs={'class': 'input-medium'}),
             'language': forms.widgets.Select(attrs={'class': 'input-medium'}),
@@ -40,7 +40,6 @@ GenericFormset = formset_factory(GenericForm, extra=0)
 
 def process_post_and_save(request, task, formset):
     """Extracted common code to process a form."""
-    
     if 'refresh' in request.POST:
         task_log(request, task=task, message="Refreshed Task")
     elif 'submit' in request.POST:
