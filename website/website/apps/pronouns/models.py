@@ -140,7 +140,7 @@ class Paradigm(TrackedModel):
     
     @models.permalink
     def get_absolute_url(self):
-        return ('pronoun:edit', [self.slug])
+        return ('pronoun:detail', [self.id])
     
     class Meta:
         db_table = 'paradigms'
