@@ -160,7 +160,7 @@ INSTALLED_APPS = [
     'dbbackup',                          # backup
     'static_sitemaps',                   # static sitemaps.
     'compressor',                        # django-compressor for asset compression and versioning.
-    
+    'twitter_tag',                       # twitter tag
     # website
     'website.apps.core',                 # core functionality
     'website.apps.statistics',           # statistics
@@ -259,7 +259,6 @@ SOUTH_TESTS_MIGRATE = False # just use syncdb
 # Static Sitemaps
 STATICSITEMAPS_ROOT_SITEMAP = 'website.sitemap.sitemaps'
 
-
 OLAC_SETTINGS = {
     'sitename': SITE_NAME,
     'repositoryName': SITE_NAME,
@@ -274,3 +273,5 @@ OLAC_SETTINGS = {
     'institutionURL': '',
     'shortLocation': '',
 }
+
+TWITTER_OAUTH_TOKEN = TWITTER_OAUTH_SECRET = TWITTER_CONSUMER_KEY = TWITTER_CONSUMER_SECRET = None
