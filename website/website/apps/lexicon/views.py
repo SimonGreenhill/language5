@@ -1,11 +1,12 @@
+from django.core.cache import cache
+from django.core.paginator import EmptyPage, PageNotAnInteger
+from django.contrib.auth.decorators import login_required
 from django.db.models import Count
 from django.http import Http404
 from django.views.generic import DetailView
 from django.views.generic.edit import UpdateView
 from django.shortcuts import get_object_or_404, render_to_response, redirect
 from django.template import RequestContext
-from django.core.paginator import EmptyPage, PageNotAnInteger
-from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.utils import timezone
 
@@ -189,3 +190,41 @@ def word_edit(request, slug):
         return render_to_response('lexicon/word_edit.html', 
                                   {'word': w, 'formset': formset},
                                   context_instance=RequestContext(request))
+
+
+@login_required()
+def word_alignment(request, slug):
+    from lingpy import Multiple
+    from website.apps.lexicon.tables import AlignmentTable
+    w = get_object_or_404(Word, slug=slug)
+    entries = w.lexicon_set.select_related().all()
+    
+    # as MSA is seriously computationally expensive, we check if we can re-use a cached MSA.
+    # first -- we set a cache value to be the raw string of all the entries. If one
+    # entry is changed, then this cache_value will be different.
+    cache_value = "".join(sorted([e.entry for e in entries]))
+    
+    if cache.get("msa-check-%s" % slug) == cache_value:
+        # have not changed. Get cache value
+        records = cache.get("msa-%s" % slug)
+    else:
+        # ... regenerate..
+        # align....
+        msa = Multiple([e.entry for e in entries])
+        msa.prog_align()
+    
+        # tabulate....
+        records = []
+        for i, e in enumerate(entries):
+            e.alignment = "".join(msa.alm_matrix[i])
+            records.append(e)
+        
+        # update cache...
+        cache.set('msa-check-%s' % slug, cache_value, None)  # None = never expire
+        cache.set('msa-%s' % slug, records, None)  # None = never expire
+    
+    table = AlignmentTable(records)
+    
+    return render_to_response('lexicon/word_alignment.html', 
+                              {'object': w, 'lexicon': table},
+                              context_instance=RequestContext(request))
