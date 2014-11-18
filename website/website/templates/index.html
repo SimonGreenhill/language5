@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load staticfiles twitter_tag cache %}
+{% load staticfiles %}
 
 {% block title %} {{ SITE_NAME }} {% endblock %}
 
@@ -52,21 +52,6 @@
         </p>
         
         <h2>News: </h2>
-        
-        {% cache 3600 tweets %}
-        {% get_tweets for settings.TWITTER_USERNAME as tweets exclude "replies, retweets" limit 10 %}
-            {% for tweet in tweets %}
-                <dl class="dl-horizontal">
-                    <dt>{{ tweet.datetime|date:"D d M Y" }}:</dt> 
-                    <dd>{{ tweet.html|safe }}</dd>
-                </dl>
-            {% endfor %}
-        {% endcache %}
-        
     </div>
-
-    
-
-    
 
 {% endblock %}
