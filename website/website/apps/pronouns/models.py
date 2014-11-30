@@ -91,11 +91,6 @@ class PronounType(TrackedModel):
         return out
     
 
-SYSTEM_CHOICES = (
-    ('F', 'Free'),
-    ('B', 'Bound'),
-)    
-
 class Paradigm(TrackedModel):
     """Paradigm Details"""
     language = models.ForeignKey(Language)
@@ -145,7 +140,7 @@ class Paradigm(TrackedModel):
     
     @models.permalink
     def get_absolute_url(self):
-        return ('pronoun:edit', [self.slug])
+        return ('pronoun:detail', [self.id])
     
     class Meta:
         db_table = 'paradigms'

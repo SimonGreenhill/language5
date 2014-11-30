@@ -38,10 +38,11 @@ class LexiconForm(forms.ModelForm):
 
 
 # get all our formsets
+# BRUTALLY SLOW
 def create_pronoun_formset(paradigm, postdata=None):
     formsets = []
-    
-    for pronoun in paradigm.pronoun_set.all().select_related("pronountype"):
+    pset = paradigm.pronoun_set.all().select_related('pronountype').prefetch_related('entries')
+    for pronoun in pset:
         if pronoun.pronountype.active == False:
             continue
             

@@ -1,6 +1,5 @@
 from django.db import models
 from django.db.models.signals import pre_save
-from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from website.signals import create_redirect
 
@@ -8,11 +7,30 @@ import watson
 
 from website.apps.statistics import statistic
 
+# The AllMethodCachingQueryset and AllMethodCachingManager add cached querysets for 
+# use in formsets. This makes life much easier for the poor database. Have hooked
+# them into TrackedModel to enable them everywhere.
+# see: http://stackoverflow.com/questions/8176200/caching-queryset-choices-for-modelchoicefield-or-modelmultiplechoicefield-in-a-d
+class AllMethodCachingQueryset(models.query.QuerySet):
+    def all(self, get_from_cache=True):
+        if get_from_cache:
+            return self
+        else:
+            return self._clone()
+
+
+class AllMethodCachingManager(models.Manager):
+    def get_queryset(self):
+        return AllMethodCachingQueryset(self.model, using=self._db)
+
 
 class TrackedModel(models.Model):
     """Abstract base class containing editorial information"""
     editor = models.ForeignKey(User)
     added = models.DateTimeField(auto_now_add=True)
+    
+    objects = models.Manager()
+    cache_all_method = AllMethodCachingManager()
     
     class Meta:
         abstract = True
@@ -21,7 +39,8 @@ class TrackedModel(models.Model):
 
 class Source(TrackedModel):
     """Source Details"""
-    year = models.IntegerField(blank=True, null=True, db_index=True,
+    year = models.CharField(max_length=12, 
+        blank=True, null=True, db_index=True,
         help_text="Year published")
     author = models.CharField(max_length=255, db_index=True, 
         help_text="Short Author list e.g. (Smith et al.)")
@@ -36,7 +55,7 @@ class Source(TrackedModel):
     
     def __unicode__(self):
         if self.year is not None:
-            return "%s (%d)" % (self.author, self.year)
+            return "%s (%s)" % (self.author, self.year)
         else:
             return self.author
     
@@ -50,7 +69,6 @@ class Source(TrackedModel):
         index_together = [
             ["author", "year"],
         ]
-        unique_together = ['author', 'year']
 
 
 class Note(TrackedModel):
@@ -160,12 +178,12 @@ class Link(TrackedModel):
         
 
 class Location(TrackedModel):
-    language = models.ForeignKey('Language')
+    isocode = models.CharField(max_length=3, db_index=True)
     longitude = models.FloatField(help_text="Longitude")
     latitude = models.FloatField(help_text="Latitiude")
 
     def __unicode__(self):
-        return "%d %2.4f-%2.4f" % (self.language.id, self.longitude, self.latitude)
+        return "%s %2.4f-%2.4f" % (self.isocode, self.longitude, self.latitude)
 
     class Meta:
         verbose_name_plural = "Geographical Locations"
@@ -211,7 +229,9 @@ pre_save.connect(create_redirect, sender=Family, dispatch_uid="family:001")
 pre_save.connect(create_redirect, sender=Language, dispatch_uid="language:001")
 
 
-watson.register(Language, fields=('family', 'language', 'dialect', 'isocode', 'classification', 'information'))
+watson.register(Language, 
+    fields=('family', 'language', 'dialect', 'isocode', 'classification', 'information')
+)
 watson.register(Family, fields=('family',))
 watson.register(Source, fields=('author', 'year', 'reference'))
 watson.register(AlternateName, fields=('language', 'name'))

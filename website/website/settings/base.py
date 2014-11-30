@@ -48,7 +48,7 @@ TIME_ZONE = 'America/Chicago'
 LANGUAGE_CODE = 'en-us'
 
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/?logged-in"
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -160,18 +160,23 @@ INSTALLED_APPS = [
     'dbbackup',                          # backup
     'static_sitemaps',                   # static sitemaps.
     'compressor',                        # django-compressor for asset compression and versioning.
-    
+    'twitter_tag',                       # twitter tag
     # website
     'website.apps.core',                 # core functionality
     'website.apps.statistics',           # statistics
     'website.apps.lexicon',              # lexicon
     'website.apps.olac',                 # OLAC
+    'website.apps.maps',                 # maps
+    'tastypie',                          # API
     'django_nvd3',                       # for graphing statistics
     
     # NOTE: all other apps should be added to local.py
     # INSTALLED_APPS.append('website.apps.olac')      # OLAC utils
     # INSTALLED_APPS.append('website.apps.entry')     # Data Entry
 ]
+
+TEST_RUNNER = 'website.test_runner.InstalledAppsRunner'
+
 
 LOGGING = {
     'version': 1,
@@ -254,8 +259,6 @@ SOUTH_TESTS_MIGRATE = False # just use syncdb
 # Static Sitemaps
 STATICSITEMAPS_ROOT_SITEMAP = 'website.sitemap.sitemaps'
 
-
-# OLAC
 OLAC_SETTINGS = {
     'sitename': SITE_NAME,
     'repositoryName': SITE_NAME,
@@ -266,20 +269,9 @@ OLAC_SETTINGS = {
     'deletedRecord': 'no', # deletedRecord policy
     'protocolVersion': '2.0', # the version of the OAI-PMH supported by the repository;
     'depositor': ADMINS,
-    'institution': 'Australian National University',
-    'institutionURL': 'http://anu.edu.au',
-    'shortLocation': 'Canberra, Australia',
+    'institution': '',
+    'institutionURL': '',
+    'shortLocation': '',
 }
 
-
-# Set PIWIK ID
-PIWIK_ID = 1
-
-# Backup 
-DBBACKUP_STORAGE = 'dbbackup.storage.s3_storage'
-DBBACKUP_S3_BUCKET = 'sjg-transnewguinea.org'
-DBBACKUP_S3_ACCESS_KEY = 'AKIAI5L4FEQGKHXLZIEQ'
-DBBACKUP_S3_SECRET_KEY = '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'
-# no schema and use extended insert format
-DBBACKUP_POSTGRES_BACKUP_COMMANDS = "pg_dump --username={adminuser} --host={host} --port={port} --data-only --inserts {databasename}" 
-DBBACKUP_MEDIA_PATH = MEDIA_ROOT # see https://bitbucket.org/mjs7231/django-dbbackup/pull-request/13/multiple-big-fixes/
+TWITTER_OAUTH_TOKEN = TWITTER_OAUTH_SECRET = TWITTER_CONSUMER_KEY = TWITTER_CONSUMER_SECRET = None

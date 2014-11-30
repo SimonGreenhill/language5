@@ -4,16 +4,15 @@ from django.shortcuts import redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.http import HttpResponseServerError, QueryDict
+from django.views.generic import DetailView
 
-from django_tables2 import SingleTableView
+from django_tables2 import SingleTableView, RequestConfig
 
 from website.apps.entry.models import Task
-from website.apps.entry.tables import TaskIndexTable
+from website.apps.entry.tables import TaskIndexTable, TaskLexiconTable
 from website.apps.entry.forms import QuickEntryViewForm
 from website.apps.entry import dataentry
 from website.apps.entry.utils import task_log
-
-import reversion
 
 def encode_checkpoint(content):
     """Encodes a checkpoint (request.POST QueryDict) as database storable"""
@@ -42,7 +41,7 @@ class TaskIndex(SingleTableView):
     template_name = 'entry/index.html'
     table_class = TaskIndexTable
     table_pagination = {"per_page": 50}
-    order_by_field = 'added'
+    order_by = 'added'
     
     queryset = Task.objects.filter(done=False).select_related('source', 'wordlist', 'language')    
     
@@ -61,26 +60,25 @@ class TaskIndex(SingleTableView):
 
 
 @login_required()
-@reversion.create_revision()
 def task_detail(request, task_id):
     "Handles routing of tasks"
-    # 1. check if task is valid
+    # check if task is valid
     t = get_object_or_404(Task, pk=task_id)
-    # 2. check if task is complete
+    # redirect away if task is complete
     if t.done:
-        return redirect('entry:index')
+        return redirect('entry:complete', pk=t.id)
     
-    # 3. save checkpoint
+    # If we've got POST data, then save checkpoint otherwise load the checkpoint
+    # if it exists.
     if request.POST:
+        task_log(request, task=t, message="Saved Checkpoint")
         t.checkpoint = encode_checkpoint(request.POST)
         t.save()
-        task_log(request, task=t, message="Saved Checkpoint")
-    # if there's no post data and a checkpoint, then try to load it...
     elif t.checkpoint not in (None, u""):
-        request.POST = make_querydict(decode_checkpoint(t.checkpoint))
         task_log(request, task=t, message="Loaded Checkpoint")
-        
-    # 4. send to correct view
+        request.POST = make_querydict(decode_checkpoint(t.checkpoint))
+    
+    # Finally send to correct view
     views = dict(dataentry.available_views)
     if t.view in views:
         viewfunc = getattr(dataentry, t.view)
@@ -94,7 +92,6 @@ def task_detail(request, task_id):
     
 
 @login_required()
-@reversion.create_revision()
 def quick_entry(request):
     """Quick data entry"""
     form = QuickEntryViewForm(request.POST)
@@ -123,3 +120,20 @@ def quick_entry(request):
     t.save()
     task_log(request, task=t, message="Created Quick Entry Task")
     return redirect('entry:detail', task_id=t.id)
+
+
+class TaskComplete(DetailView):
+    """Task Index"""
+    model = Task
+    template_name = 'entry/complete.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super(TaskComplete, self).get_context_data(**kwargs)
+        context['lexicon'] = TaskLexiconTable(kwargs['object'].lexicon.select_related().all())
+        RequestConfig(self.request).configure(context['lexicon'])
+        return context
+        
+    # ensure logged in
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(TaskComplete, self).dispatch(*args, **kwargs)

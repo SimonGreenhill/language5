@@ -8,7 +8,7 @@ from website.apps.lexicon.models import Word
 
 
 class Command(BaseCommand):
-    args = 'mergeword word1 word2 --save'
+    args = 'mergeword destination source --save'
     help = 'Merges two words in the database'
     output_transaction = True
     option_list = BaseCommand.option_list + (
@@ -30,29 +30,39 @@ class Command(BaseCommand):
     
     def handle(self, *args, **options):
         if len(args) != 2:
-            raise IndexError("mergeword needs two slugs as arguments")
+            raise IndexError("mergeword needs two slugs as arguments: mergeword destination source")
+        
+        if 'save' in options and options['save']:
+            dryrun = False
+        else:
+            dryrun = True
+            self._print("*** DRY RUN! Use --save to save changes! ***")
         
         # try get word 1
         try:
-            w1 = Word.objects.get(slug=args[0])
+            dest = Word.objects.get(slug=args[0])
         except Word.DoesNotExist:
-            raise
+            raise Word.DoesNotExist(u"Unable to find {}".format(args[0]))
             
         # try get word 2
         try:
-            w2 = Word.objects.get(slug=args[1])
+            source = Word.objects.get(slug=args[1])
         except Word.DoesNotExist:
-            raise
+            raise Word.DoesNotExist(u"Unable to find {}".format(args[1]))
         
-        for obj in w2.lexicon_set.all():
-            self._print(obj)
-            if 'save' in options and options['save']:
+        for obj in source.lexicon_set.all():
+            self._print(u"Moving {} to {}".format(obj, dest))
+            if not dryrun:
                 with reversion.create_revision():
-                    obj.word = w1
+                    obj.word = dest
                     obj.save()
         
         # remove word 2
-        if 'save' in options and options['save']:
-            assert w2.lexicon_set.count() == 0
+        if not dryrun:
+            assert source.lexicon_set.count() == 0
             with reversion.create_revision():
-                w2.delete()
+                self._print(u"Deleting Word {}".format(source))
+                source.delete()
+        else:
+            self._print("*** DRY RUN! Use --save to save changes! ***")
+            

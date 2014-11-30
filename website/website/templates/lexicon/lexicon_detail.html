@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block extra_keywords %} {{object}} {% endblock %}
+
+{% block title %} Lexicon #{{ object }} | {{SITE_NAME }} {% endblock %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>
+            {{ object }}
+        </h1>
+    </div>
+    
+    <ul class="breadcrumb">
+      <li>
+          <a href="{% url "index" %}">Home</a> 
+          <span class="divider">/</span>
+      </li>
+    </ul>
+    
+    
+    <h2> Lexicon #{{ object.id }}:</h2>
+    
+    <div class="table-container">
+    
+        <table class="table table-bordered table-condensed" summary="Table of Lexical Item">
+            <tr>
+                <th>Language:</th>  
+                <td> <a href="{% url "language-detail" object.language.slug %}">{{ object.language }}</a></td>
+            </tr>
+            <tr>
+                <th>Source:</th>    
+                <td> <a href="{% url "source-detail" object.source.slug %}">{{ object.source }}</a></td>
+            </tr>
+            <tr>
+                <th>Word:</th>      
+                <td> <a href="{% url "word-detail" object.word.slug %}">{{ object.word }}</a></td>
+            </tr>
+            <tr>
+                <th>Entry:</th>     
+                <td>{{ object.entry }}</td>
+            </tr>
+            {% if object.phon_entry %}
+                <tr>
+                    <th>Phon. Entry:</th>     
+                    <td>{{ object.phon_entry }}</td>
+                </tr>
+            {% endif %}
+            <tr>
+                <th>Annotation:</th>     
+                <td>{{ object.annotation }}</td>
+            </tr>
+            <tr>
+                <th>Loan:</th>     
+                <td>{{ object.loan }}</td>
+            </tr>
+            <tr>
+                <th>Loan Source:</th>     
+                <td>{{ object.loan_source }}</td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}

@@ -61,9 +61,9 @@ class WordSubsetAdmin(TrackedModelAdmin, VersionAdmin):
 
 class LexiconAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
-    list_display = ('id', 'language', 'source', 'word', 'entry', 'annotation', 'loan')
+    list_display = ('id', 'language', 'source', 'word', 'entry', 'source_gloss', 'annotation', 'loan')
     list_filter = ('editor', 'language', 'word', 'source', 'loan')
-    search_fields = ('entry', 'word__word', 'annotation')
+    search_fields = ('entry', 'word__word', 'source_gloss', 'annotation')
     ordering = ('id',)
     
 
@@ -73,10 +73,9 @@ class CognateSetAdmin(TrackedModelAdmin, VersionAdmin):
     list_filter = ('editor', 'source', 'quality')
     ordering = ('id',)
     list_select_related = True
-    
     inlines = [CognatesInline]
     
-    def queryset(self, request):
+    def get_queryset(self, request):
         return super(CognateSetAdmin, self).queryset(request).select_related('source')
 
 
@@ -87,7 +86,7 @@ class CorrespondenceSetAdmin(TrackedModelAdmin, VersionAdmin):
     ordering = ('id',)
     inlines = [CorrespondenceInline]
     
-    def queryset(self, request):
+    def get_queryset(self, request):
         return super(CorrespondenceSetAdmin, self).queryset(request).select_related('source', 'language')
 
 
@@ -97,7 +96,7 @@ class CognateAdmin(TrackedModelAdmin, VersionAdmin):
     ordering = ('id',)
     list_select_related = True
     
-    def queryset(self, request):
+    def get_queryset(self, request):
         return super(CognateAdmin, self).queryset(request).select_related('lexicon', 'source', 'cognateset')
 
 

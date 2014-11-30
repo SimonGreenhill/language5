@@ -8,9 +8,10 @@ from django.core.paginator import EmptyPage, PageNotAnInteger
 
 from website.apps.core.models import Family, Language, AlternateName, Source
 
-from django_tables2 import SingleTableView
+from django_tables2 import SingleTableView, RequestConfig
 from website.apps.core.tables import LanguageIndexTable, SourceIndexTable, FamilyIndexTable
 from website.apps.lexicon.tables import LanguageLexiconTable, SourceLexiconTable
+from website.apps.lexicon.tables import LanguageLexiconEditTable, SourceLexiconEditTable
 
 class RobotsTxt(TemplateView):
     """simple robots.txt implementation"""
@@ -24,13 +25,23 @@ class LanguageIndex(SingleTableView):
     template_name = 'core/language_index.html'
     table_class = LanguageIndexTable
     table_pagination = {"per_page": 50}
-    order_by_field = 'language'
     
     def get_queryset(self):
+        qset = Language.objects.all()
+        if 'subset' in self.request.GET:
+            qset = qset.filter(language__istartswith=self.request.GET['subset'])
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
-            return Language.objects.annotate(count=Count('lexicon')).all()
+            qset = qset.annotate(count=Count('lexicon')).all()
+        return qset
+    
+    def get_context_data(self, **kwargs):
+        context = super(LanguageIndex, self).get_context_data(**kwargs)
+        if 'subset' in self.request.GET:
+            context['subset'] = self.request.GET['subset']
         else:
-            return Language.objects.all()
+            context['subset'] = None
+        context['subsets'] = [_ for _ in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
+        return context
     
     
 class SourceIndex(SingleTableView):
@@ -39,13 +50,23 @@ class SourceIndex(SingleTableView):
     template_name = 'core/source_index.html'
     table_class = SourceIndexTable
     table_pagination = {"per_page": 50}
-    order_by_field = 'slug'
     
     def get_queryset(self):
+        qset = Source.objects.all()
+        if 'subset' in self.request.GET:
+            qset = qset.filter(author__istartswith=self.request.GET['subset'])
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
-            return Source.objects.annotate(count=Count('lexicon')).all()
+            return qset.annotate(count=Count('lexicon')).all()
+        return qset
+
+    def get_context_data(self, **kwargs):
+        context = super(SourceIndex, self).get_context_data(**kwargs)
+        if 'subset' in self.request.GET:
+            context['subset'] = self.request.GET['subset']
         else:
-            return Source.objects.all()
+            context['subset'] = None
+        context['subsets'] = [_ for _ in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
+        return context
 
 
 class FamilyIndex(SingleTableView):
@@ -54,10 +75,21 @@ class FamilyIndex(SingleTableView):
     template_name = 'core/family_index.html'
     table_class = FamilyIndexTable
     table_pagination = {"per_page": 50}
-    order_by_field = 'family'
     
     def get_queryset(self):
-        return Family.objects.annotate(count=Count('language'))
+        qset = Family.objects.annotate(count=Count('language'))
+        if 'subset' in self.request.GET:
+            qset = qset.filter(family__istartswith=self.request.GET['subset'])
+        return qset
+
+    def get_context_data(self, **kwargs):
+        context = super(FamilyIndex, self).get_context_data(**kwargs)
+        if 'subset' in self.request.GET:
+            context['subset'] = self.request.GET['subset']
+        else:
+            context['subset'] = None
+        context['subsets'] = [_ for _ in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
+        return context
 
 
 class SourceDetail(DetailView):
@@ -69,7 +101,15 @@ class SourceDetail(DetailView):
         context = super(SourceDetail, self).get_context_data(**kwargs)
         context['attachments'] = kwargs['object'].attachment_set.all()
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
-            context['lexicon_table'] = SourceLexiconTable(kwargs['object'].lexicon_set.select_related().all())
+            
+            qset = kwargs['object'].lexicon_set.select_related().all()
+            if self.request.user.is_authenticated():
+                context['lexicon_table'] = SourceLexiconEditTable(qset)
+            else:
+                context['lexicon_table'] = SourceLexiconTable(qset)
+            
+            RequestConfig(self.request).configure(context['lexicon_table'])
+            
             try:
                 context['lexicon_table'].paginate(page=self.request.GET.get('page', 1), per_page=50)
             except EmptyPage: # 404 on a empty page
@@ -92,6 +132,7 @@ class FamilyDetail(DetailView):
                     ).annotate(count=Count('lexicon'))
         
         )
+        RequestConfig(self.request).configure(context['languages'])
         return context
 
 
@@ -120,7 +161,14 @@ def language_detail(request, language):
         
         # load lexicon if installed.
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
-            out['lexicon_table'] = LanguageLexiconTable(my_lang.lexicon_set.select_related().all())
+            qset = my_lang.lexicon_set.select_related().all()
+            if request.user.is_authenticated():
+                out['lexicon_table'] = LanguageLexiconEditTable(qset)
+            else:
+                out['lexicon_table'] = LanguageLexiconTable(qset)
+            
+            RequestConfig(request).configure(out['lexicon_table'])
+            
             try:
                 out['lexicon_table'].paginate(page=request.GET.get('page', 1), per_page=50)
             except EmptyPage: # 404 on a empty page

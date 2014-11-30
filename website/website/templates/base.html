@@ -35,6 +35,12 @@
                 </a>
               </div>
           {% endif %}
+          <div class="btn-group pull-right">
+             <a class="btn" href="http://twitter.com/transnewguinea" title="@transnewguinea">
+                 <img src="{% static "img/twitter.png" %}" width="50" height="41" alt="Transnewguinea.org on Twitter" />
+                 @transnewguinea
+             </a>
+          </div>
         </div>
       </div>
     </div>
@@ -58,6 +64,10 @@
                   </li>
                   <li{% active 'source-index' %}>
                       <a href="{% url "source-index" %}">Sources</a>
+                  </li>
+
+                  <li{% active 'maps:language-map' %}>
+                      <a href="{% url "maps:language-map" %}">Language Map</a>
                   </li>
                   
                   {% ifinstalled "website.apps.lexicon" %}
@@ -92,9 +102,14 @@
                           <a href="{% url "admin:index" %}">Admins</a>
                       </li>
                       {% ifinstalled "website.apps.entry" %}
-                      <li{% active 'entry:index' %}>
-                          <a href="{% url "entry:index" %}">Data Entry</a>
-                      </li>
+                          <li{% active 'entry:index' %}>
+                              <a href="{% url "entry:index" %}">Data Entry</a>
+                          </li>
+                      {% endifinstalled %}
+                      {% ifinstalled "website.apps.lexicon" %}
+                          <li{% active 'cognateset-index' %}>
+                              <a href="{% url "cognateset-index" %}">Cognates</a>
+                          </li>
                       {% endifinstalled %}
                   {% else %}
                       <li>
@@ -111,7 +126,7 @@
           </div>
           <div class="well arclogo">
               <a href="http://www.arc.gov.au/">
-                  <img src="{% static "img/arc.png" %}" width="150" height="93" alt = "Australian Research Council" />
+                  <img src="{% static "img/arc.png" %}" width="150" height="93" alt="Australian Research Council" />
               </a>
           </div>
         </div><!--/span-->

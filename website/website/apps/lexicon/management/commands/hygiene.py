@@ -6,9 +6,13 @@ from django.core.management.base import BaseCommand
 
 from website.apps.lexicon.models import Lexicon
 
+try:
+    from ftfy import fix_text
+except ImportError:
+    raise ImportError("Please install python-ftfy")
 
 class Command(BaseCommand):
-    args = 'hygiene [empty, dedupe] --save'
+    args = 'hygiene [empty, tidy, dedupe] --save'
     help = 'Cleans Data from Database'
     output_transaction = True
     option_list = BaseCommand.option_list + (
@@ -37,6 +41,14 @@ class Command(BaseCommand):
         empty.extend(Lexicon.objects.filter(entry="---"))
         return empty
     
+    def tidy(self):
+        tidied = []
+        for obj in Lexicon.objects.all():
+            new = fix_text(obj.entry.strip(), fix_entities=True, normalization="NFKC", uncurl_quotes=True)
+            if obj.entry != new:
+                tidied.append((obj, new))
+        return tidied
+    
     def find_duplicates(self):
         dupes = Lexicon.objects.values('language', 'source', 'word', 'entry'
                     ).annotate(count=Count('entry')
@@ -57,10 +69,19 @@ class Command(BaseCommand):
         for obj in items:
             with reversion.create_revision():
                 obj.delete()
-            
+    
     def handle(self, *args, **options):
         if len(args) == 0:
-            args = ('empty', 'dedupe')
+            args = ('empty', 'dedupe', 'tidy')
+        
+        if 't' in args or 'tidy' in args:
+            tidier = self.tidy()
+            for (obj, new) in tidier:
+                self._print('Tidied: %s (%r) - %s (%r)' % (obj.entry, obj.entry, new, new))
+                if 'save' in options and options['save']:
+                    with reversion.create_revision():
+                        obj.entry = new
+                        obj.save()
         
         if 'e' in args or 'empty' in args or 'empties' in args:
             empties = self.find_empty()

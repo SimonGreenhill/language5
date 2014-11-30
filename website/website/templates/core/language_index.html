@@ -20,11 +20,14 @@
       </li>
     </ul>
     
-    {% if message %}
-        <div class="alert">
-            <p>{{ message }}</p>
-        </div>
-    {% endif %}
+    
+    <div class="well">
+        <strong>Filter:</strong>
+        <a class="btn btn-mini{% ifequal subset None %} btn-success{% endifequal %}" href="{% url "language-index" %}"> (all) </a>
+        {% for s in subsets %}
+            <a class="btn btn-mini{% ifequal subset s %} btn-success{% endifequal %}" href="{% url "language-index-subset" s %}"> {{ s }} </a>
+        {% endfor %}
+    </div>
     
     {% if table %}
         {% render_table table "table.html" %}

@@ -65,7 +65,7 @@ class AlternateNameAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_filter = ('editor', 'language')
     ordering = ('name',)
-    search_fields = ('language', 'name')
+    search_fields = ('language__language', 'name')
     prepopulated_fields = {'slug': ('name', )}
     list_select_related = True
 
@@ -79,8 +79,8 @@ class LinkAdmin(TrackedModelAdmin, VersionAdmin):
 
 class LocationAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
-    list_display = ('language', 'latitude', 'longitude')
-    list_filter = ('editor', 'language', )
+    list_display = ('isocode', 'latitude', 'longitude')
+    list_filter = ('editor', 'isocode', )
 
 
 admin.site.register(Language, LanguageAdmin)

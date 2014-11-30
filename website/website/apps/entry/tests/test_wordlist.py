@@ -17,7 +17,7 @@ class WordlistMixin(TestCase):
         self.editor = User.objects.create_user('admin',
                                                'admin@example.com', "test")
         self.source = Source.objects.create(
-                year=1991,
+                year="1991",
                 author='Smith',
                 slug='Smith1991',
                 reference='S2',
@@ -100,9 +100,13 @@ class TestWordlist(WordlistMixin):
         assert self.task.records == len(self.wordlist.words.all())
 
 
-
 class Test_WordlistView(WordlistMixin):
     """Tests the WordlistView Detail Page"""
+    
+    def test_template_used(self):
+        self.client.login(username="admin", password="test")
+        response = self.client.get(self.task.get_absolute_url())
+        self.assertTemplateUsed(response, 'entry/detail.html')
     
     def test_wordlist_overrides_records(self):
         """
@@ -150,9 +154,12 @@ class Test_WordlistView(WordlistMixin):
     def test_wordlist_saves(self):
         """Test WordlistView saves correctly"""
         self.client.login(username="admin", password="test")
-        response = self.client.post(self.task.get_absolute_url(), self.form_data)
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'entry/done.html')
+        response = self.client.post(self.task.get_absolute_url(), self.form_data, follow=True)
+        self.assertTemplateUsed(response, 'entry/complete.html')
+        self.assertRedirects(response,
+            reverse('entry:complete', kwargs={'pk': self.task.id}),
+            status_code=302, target_status_code=200
+        )
         # is task completed
         assert Task.objects.get(pk=self.task.pk).done
         
@@ -215,11 +222,7 @@ class Test_WordlistView(WordlistMixin):
         assert Task.objects.get(pk=self.task.pk).checkpoint
         
         # come back again later.
-        del(self.client)
-        newclient = Client()
-        newclient.login(username="admin", password="test")
-        response = newclient.get(self.task.get_absolute_url())
-        
+        response = self.client.get(self.task.get_absolute_url())
         formdata = [f.clean() for f in response.context['formset'].forms]
         assert len(formdata) == 4, "Expected four forms in formset"
         
@@ -246,11 +249,13 @@ class Test_WordlistView(WordlistMixin):
         self.form_data['form-TOTAL_FORMS'] =  u'4'
         
         # post...
-        response = self.client.post(self.task.get_absolute_url(), self.form_data)
-        self.assertEqual(response.status_code, 200)
+        response = self.client.post(self.task.get_absolute_url(), self.form_data, follow=True)
 
-
-        self.assertTemplateUsed(response, 'entry/done.html')
+        self.assertTemplateUsed(response, 'entry/complete.html')
+        self.assertRedirects(response, 
+            reverse('entry:complete', kwargs={'pk': self.task.id}), 
+            status_code=302, target_status_code=200
+        )
         # is task completed
         assert Task.objects.get(pk=self.task.pk).done
         

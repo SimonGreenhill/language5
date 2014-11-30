@@ -5,15 +5,19 @@ from django.contrib.auth.models import User
 from website.apps.core.models import Language, Source, Attachment
 
 class DataMixin(TestCase):
-
-    fixtures = ['test_core.json']
-
     def setUp(self):
         self.client = Client()
         self.editor = User.objects.create_user('admin',
                                                'admin@example.com', "test")
-        self.language = Language.objects.get(pk=1)
-        self.source = Source.objects.create(year=1991, author='Smith', 
+        self.language = Language.objects.create(
+                    language='Language1', 
+                    slug='language1', 
+                    information='', 
+                    classification='Austronesian, Malayo-Polynesian, Bali-Sasak, Bali',
+                    isocode='aaa', 
+                    editor=self.editor
+        )
+        self.source = Source.objects.create(year="1991", author='Smith', 
                                     slug='smith1991', reference='S2',
                                     comment='c1', editor=self.editor)
         self.att = Attachment.objects.create(
@@ -28,7 +32,15 @@ class Test_Attachment_LanguageDetails(DataMixin):
     """Tests the Attachments on the LanguageDetails page"""
     
     def test_no_attachments(self):
-        response = self.client.get(Language.objects.get(pk=2).get_absolute_url())
+        language2 = Language.objects.create(
+                    language='Language2', 
+                    slug='language2', 
+                    information='', 
+                    classification='',
+                    isocode='bbb', 
+                    editor=self.editor
+        )
+        response = self.client.get(language2.get_absolute_url())
         self.assertEqual(response.status_code, 200)
         assert 'Files:' not in response.content
         

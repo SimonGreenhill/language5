@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load render_table from django_tables2 %}
+
+{% block extra_keywords %} {{object}} {% endblock %}
+
+{% block title %} Word Aligment &laquo;{{ object }}&raquo; | {{ SITE_NAME }} {% endblock %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>
+            Words meaning &laquo;
+            {{ object }}
+            {% if object.full %} {{ object.full }} {% endif %}
+            &raquo;
+        </h1>
+    </div>
+    
+    <ul class="breadcrumb">
+      <li>
+          <a href="{% url "index" %}">Home</a> 
+          <span class="divider">/</span>
+      </li>
+      <li class="active">
+          <a href="{% url "word-index" %}">Words</a>
+          <span class="divider">/</span>
+      </li>
+      <li>
+          <a href="{% url "word-detail" object.slug %}">{{ object }}</a>
+          <span class="divider">/</span>
+      </li>
+      {% if user.is_staff %}
+          <li>
+              <a href="{% url "word-edit" object.slug %}">edit</a>
+          </li>
+      {% endif %}
+    </ul>
+    
+    <h2> Words: </h2>
+    
+    {% if lexicon %}
+        {% render_table lexicon "table.html" %}
+    {% else %}
+        <p class="error">No results found!</p>
+    {% endif %}
+    
+    {% if user.is_staff %}
+        <p>
+            <a href="{% url "word-edit" object.slug %}">Edit this word</a>
+        </p>
+    {% endif %}
+    
+    
+{% endblock %}

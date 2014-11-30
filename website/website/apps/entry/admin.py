@@ -38,9 +38,9 @@ class CheckpointListFilter(admin.SimpleListFilter):
 
 class TaskAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
-    list_display = ('id', 'name', 'records', 'view', 'added', 'completable', 'done')
+    list_display = ('id', 'name', 'editor', 'records', 'completable', 'done')
     list_filter = ('editor', 'done', 'completable', CheckpointListFilter, 'source', 'language', 'view')
-    ordering = ('name',)
+    ordering = ('-id',)
     exclude = ('lexicon',)
     list_select_related = True
     
@@ -68,7 +68,7 @@ class TaskWordlistAdmin(TrackedModelAdmin, VersionAdmin):
     filter_horizontal = ('words',)
     inlines = [WordlistMembersInline,]
     
-    def queryset(self, request):
+    def get_queryset(self, request):
         return Wordlist.objects.annotate(words_count=Count("words"))
         
     def words_count(self, inst):

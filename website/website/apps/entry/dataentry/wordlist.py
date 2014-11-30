@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 
@@ -7,7 +7,7 @@ from django.forms.formsets import formset_factory
 
 from website.apps.core.models import Language, Source
 from website.apps.lexicon.models import Lexicon, Word
-from website.apps.entry.dataentry.generic import process_post_and_save, GenericFormSet
+from website.apps.entry.dataentry.generic import process_post_and_save, GenericFormset
 
 @login_required()
 def WordlistView(request, task):
@@ -30,10 +30,11 @@ def WordlistView(request, task):
     
     # process form
     if request.POST:
-        formset = GenericFormSet(request.POST, initial=initial)
-        process_post_and_save(request, task, formset)
+        formset = GenericFormset(request.POST, initial=initial)
+        if process_post_and_save(request, task, formset):
+            return redirect('entry:complete', pk=task.id)
     else:
-        formset = GenericFormSet(initial=initial)
+        formset = GenericFormset(initial=initial)
     
     return render_to_response('entry/detail.html', {
         'task': task,

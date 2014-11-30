@@ -95,15 +95,14 @@ class Lexicon(TrackedModel):
     language = models.ForeignKey('core.Language')
     source = models.ForeignKey('core.Source')
     word = models.ForeignKey('Word')
-    
     entry = models.CharField(max_length=128, db_index=True, 
         help_text="Entry from source")
     phon_entry = models.CharField(max_length=128, null=True, blank=True,
         help_text="Entry in Phonological format (in known)")
-    
+    source_gloss = models.CharField(max_length=128, null=True, blank=True,
+        help_text="Gloss in original source if it is semantically different")
     annotation = models.TextField(blank=True, null=True,
         help_text="Annotation for this item")
-    
     loan = models.BooleanField(default=False, db_index=True,
         help_text="Is a loan word?")
     loan_source = models.ForeignKey('core.Language', blank=True, null=True, 
@@ -113,7 +112,11 @@ class Lexicon(TrackedModel):
     
     def __unicode__(self):
         return u"%d-%s" % (self.id, self.entry)
-
+        
+    @models.permalink
+    def get_absolute_url(self):
+        return ('lexicon-detail', [self.pk])
+        
     class Meta:
         db_table = 'lexicon'
         verbose_name_plural = 'Lexical Items'
@@ -176,7 +179,7 @@ class Correspondence(TrackedModel):
     """Sound Correspondence Rules"""
     language = models.ForeignKey('core.Language')
     corrset = models.ForeignKey('CorrespondenceSet')
-    rule = models.CharField(max_length=5)
+    rule = models.CharField(max_length=32)
     
     def __unicode__(self):
         return u"Correspondence: %s /%s/" % (self.language.slug, self.rule)
