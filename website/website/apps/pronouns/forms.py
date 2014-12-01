@@ -98,6 +98,7 @@ def save_pronoun_formset(paradigm, pronoun, formset, user):
     >>>     saved = save_pronoun_formset(paradigm, pronoun, formset, request.user)
         
     """
+    pks = []
     instances = formset.save(commit=False)
     for lex in instances:
         # keep things with entries
@@ -107,14 +108,14 @@ def save_pronoun_formset(paradigm, pronoun, formset, user):
             lex.source = paradigm.source             # inject source
             lex.language = paradigm.language         # inject language
             lex.save()
-            
+            pks.append(lex.id)
             # and add to pronoun entries.
             pronoun.entries.add(lex)
             pronoun.save()
         # remove empty forms.
         else:
             lex.delete()
-    return
+    return pks
 
 def pronoun_formsets_are_valid(formsets):
     """Tests if all formsets are valid"""
