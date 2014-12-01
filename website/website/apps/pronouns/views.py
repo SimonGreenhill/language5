@@ -16,9 +16,10 @@ from website.apps.pronouns.forms import create_pronoun_formset
 from website.apps.pronouns.forms import save_pronoun_formset
 from website.apps.pronouns.forms import sort_formset
 
-
 from website.apps.pronouns.tools import add_pronoun_table, copy_paradigm
 from website.apps.pronouns.tools import find_identicals, extract_rule
+
+from website.utilities import expire_view_cache
 
 from django_tables2 import SingleTableView
 
@@ -76,22 +77,23 @@ def add(request):
 @login_required()
 @reversion.create_revision()
 def edit(request, paradigm_id):
-    p = get_object_or_404(Paradigm, pk=paradigm_id)
-    paradigm_form = ParadigmForm(request.POST or None, instance=p, prefix='pdm')
-    pronoun_form = create_pronoun_formset(p, request.POST or None)
+    pdm = get_object_or_404(Paradigm, pk=paradigm_id)
+    paradigm_form = ParadigmForm(request.POST or None, instance=pdm, prefix='pdm')
+    pronoun_form = create_pronoun_formset(pdm, request.POST or None)
     
     # save if valid.
     if pronoun_formsets_are_valid(pronoun_form) and paradigm_form.is_valid():
-        p = paradigm_form.save(commit=False)
-        p.editor = request.user
-        p.save()
+        pdm = paradigm_form.save(commit=False)
+        pdm.editor = request.user
+        pdm.save()
         for pronoun, formset in pronoun_form:
-            saved = save_pronoun_formset(p, pronoun, formset, request.user)
-        return redirect('pronouns:detail', p.id)
+            save_pronoun_formset(pdm, pronoun, formset, request.user)
+        expire_view_cache('pronouns:detail', args=[pdm.id])  # kill cache
+        return redirect('pronouns:detail', paradigm_id=pdm.id)
         
     # the initial view and the error view
     return render_to_response('pronouns/edit.html', {
-        'paradigm': p,
+        'paradigm': pdm,
         'paradigm_form': paradigm_form,
         'pronouns': sort_formset(pronoun_form),
     }, context_instance=RequestContext(request))
