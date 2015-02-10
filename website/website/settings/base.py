@@ -152,7 +152,6 @@ INSTALLED_APPS = [
     'django.contrib.admindocs',
     
     # third-party
-    'south',                             # south: database migrations
     'reversion',                         # reversion: object version control.
     'djangosecure',                      # django-secure: Security helper
     'django_tables2',                    # django-tables2: tables helper
