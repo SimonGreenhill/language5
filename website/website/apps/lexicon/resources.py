@@ -7,7 +7,6 @@ from website.apps.lexicon.models import Word, Lexicon
 
 
 class LexiconResource(ModelResource):
-    user = fields.ForeignKey(UserResource, 'user')
     class Meta:
         queryset = Lexicon.objects.all()
         allowed_methods = ['get']
