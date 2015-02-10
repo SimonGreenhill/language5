@@ -8,7 +8,7 @@ syntax: regexp
 ^static_root/
 ^thirdparty/bootstrap/docs/assets/
 ^thirdparty/bootstrap/bootstrap/
-^website/data/
+^website/data
 ^website/website/database.db
 ^website/website/settings/local.py
 ^website/website/templates/revision.txt

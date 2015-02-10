@@ -1,4 +1,4 @@
-django>=1.6                                                            # django framework
+django==1.6.10                                                         # django framework
 django-extensions>=1.1.1                                               # useful tools
 fabric                                                                 # deployment etc
 pillow                                                                 # A better python imaging library
