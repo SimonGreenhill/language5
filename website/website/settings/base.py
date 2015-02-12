@@ -165,6 +165,8 @@ INSTALLED_APPS = [
     'website.apps.statistics',           # statistics
     'website.apps.lexicon',              # lexicon
     'website.apps.olac',                 # OLAC
+    'website.apps.entry',                # Data Entry
+    'website.apps.pronouns',             # pronoun paradigm project
     'website.apps.maps',                 # maps
     'tastypie',                          # API
     'django_nvd3',                       # for graphing statistics
