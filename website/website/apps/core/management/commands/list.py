@@ -17,42 +17,44 @@ class Command(BaseCommand):
     output_transaction = True
     
     def list_languages(self):
+        print("\t".join(["ISO", "Slug", "Language", "Families", "NLexicon", "Classification"]))
         for o in Language.objects.all().order_by('slug'):
-            alt = ",".join([p.name for p in o.alternatename_set.all()])
-            if len(alt):
-                alt = "[%s]" % alt
-            
-            print " ".join([
-                '%3d' % o.id,
+            print "\t".join([
                 '%3s' % o.isocode,
-                o.slug.ljust(40),
+                o.slug,
                 unicode(o).ljust(20),
-                alt
+                ",".join([f.slug for f in o.family.all()]),
+                "%d" % o.lexicon_set.count(),
+                o.classification
             ]) 
     
     def list_families(self):
+        print("\t".join(["Slug", "Family", "NLanguages"]))
         for o in Family.objects.all().order_by('slug'):
-            print " ".join([
-                '%3d' % o.id,
-                o.slug.ljust(40),
-                unicode(o).ljust(20),
+            print "\t".join([
+                o.slug,
+                unicode(o),
+                '%d' % o.language_set.count()
             ]) 
             
     def list_sources(self):
+        print("\t".join(["Slug", "Source", "Year", "NLexicon", "NCognateSets"]))
         for o in Source.objects.all().order_by('slug'):
-            print " ".join([
-                '%3d' % o.id,
-                o.slug.ljust(40),
+            print "\t".join([
+                o.slug,
+                unicode(o),
+                unicode(o.year),
+                '%d' % o.lexicon_set.count(),
+                '%d' % o.cognate_set.count()
             ]) 
     
     def list_words(self):
-        if Word is None:
-            raise NotImplementedError("website.apps.lexicon not installed")
+        print("\t".join(["Slug", "Word", "NLexicon"]))
         for o in Word.objects.all().order_by('slug'):
-            print " ".join([
-                '%3d' % o.id,
-                o.slug.ljust(40),
-                unicode(o).ljust(20), 
+            print "\t".join([
+                o.slug,
+                unicode(o),
+                '%d' % o.lexicon_set.count()
             ])
             
     def handle(self, *args, **options):
