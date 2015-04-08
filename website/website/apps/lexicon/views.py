@@ -16,7 +16,7 @@ from website.apps.lexicon.forms import LexiconForm
 from django_tables2 import SingleTableView, RequestConfig
 from website.apps.lexicon.tables import WordIndexTable, WordLexiconTable
 from website.apps.lexicon.tables import WordLexiconEditTable
-from website.apps.lexicon.tables import CognateSetIndexTable, CognateSetDetailTable
+from website.apps.lexicon.tables import CognateSetIndexTable, CognateSetDetailTable, CognacyTable
 
 # for WordEdit
 from django.forms.models import modelformset_factory
@@ -227,4 +227,14 @@ def word_alignment(request, slug):
     
     return render_to_response('lexicon/word_alignment.html', 
                               {'object': w, 'lexicon': table},
+                              context_instance=RequestContext(request))
+
+
+
+@login_required()
+def word_cognacy(request, slug):
+    w = get_object_or_404(Word, slug=slug)
+    entries = w.lexicon_set.select_related().all()
+    return render_to_response('lexicon/word_cognacy.html', 
+                              {'object': w, 'lexicon': CognacyTable(entries)},
                               context_instance=RequestContext(request))

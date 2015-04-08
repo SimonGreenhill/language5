@@ -3,7 +3,7 @@
 
 {% block extra_keywords %} {{object}} {% endblock %}
 
-{% block title %} Words meaning &laquo;{{ object }}&raquo; | {{SITE_NAME }} {% endblock %}
+{% block title %} Word Cognacy &laquo;{{ object }}&raquo; | {{ SITE_NAME }} {% endblock %}
 
 {% block content %}
     <div class="page-header">
@@ -28,11 +28,15 @@
           <a href="{% url "word-detail" object.slug %}">{{ object }}</a>
           <span class="divider">/</span>
       </li>
+      {% if user.is_staff %}
+          <li>
+              <a href="{% url "word-edit" object.slug %}">edit</a>
+          </li>
+      {% endif %}
     </ul>
     
-    
     <h2> Words: </h2>
-    
+
     {% if user.is_staff %}
         <div class="btn-group">
             <button class="btn"><a href="{% url "word-detail" object.slug %}">View this word</a></button>
@@ -46,6 +50,12 @@
         {% render_table lexicon "table.html" %}
     {% else %}
         <p class="error">No results found!</p>
+    {% endif %}
+    
+    {% if user.is_staff %}
+        <p>
+            <a href="{% url "word-edit" object.slug %}">Edit this word</a>
+        </p>
     {% endif %}
     
 {% endblock %}
