@@ -138,6 +138,10 @@ class CognateSet(TrackedModel):
     def __unicode__(self):
         return "%d. %s '%s'" % (self.id, self.protoform, self.gloss)
     
+    @models.permalink
+    def get_absolute_url(self):
+        return ('cognateset-detail', [self.pk])
+    
     class Meta:
         db_table = 'cognatesets'
         verbose_name_plural = 'Cognate Sets'

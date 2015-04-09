@@ -46,16 +46,18 @@
         </div>
     {% endif %}
     
+    {% if inplay %}
+        <div class="well">
+            {% for c in inplay %}
+                {{ c }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    
     {% if lexicon %}
         {% render_table lexicon "table.html" %}
     {% else %}
         <p class="error">No results found!</p>
-    {% endif %}
-    
-    {% if user.is_staff %}
-        <p>
-            <a href="{% url "word-edit" object.slug %}">Edit this word</a>
-        </p>
     {% endif %}
     
 {% endblock %}

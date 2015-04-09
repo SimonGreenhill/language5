@@ -234,7 +234,31 @@ def word_alignment(request, slug):
 @login_required()
 def word_cognacy(request, slug):
     w = get_object_or_404(Word, slug=slug)
-    entries = w.lexicon_set.select_related().all()
+    lex_ids, entries = [], []
+    for e in w.lexicon_set.select_related('source', 'word', 'language').all():
+        lex_ids.append(e.id)
+        entries.append(e)
+    
+    # save us from one query for each cognateset -- select_related doesn't help us here so
+    # we do a rather ungainly merge.
+    from website.apps.lexicon.models import Cognate
+    print 'LEX', sorted(lex_ids)
+    print 'COG', Cognate.objects.filter(id__in=sorted(lex_ids))
+    cogs = [(c.lexicon.id, c.cognateset.id) for c in Cognate.objects.filter(id__in=lex_ids)]
+    entries_and_cogs = []
+    for e in entries:
+        e.cognacy = [c[1] for c in cogs if c[0] == e.id]
+        entries_and_cogs.append(e)
+    
+    inplay = set([c[1] for c in cogs])
+    # entries = []
+    # inplay = set()
+    # for e in w.lexicon_set.select_related('source', 'word', 'language').all():
+    #     #
+    #     # e.cognacy = set([c.cognateset.id for c in e.cognate_set.all()])
+    #     inplay.add(c.cognateset.id)
+    #     entries.append(e)
+
     return render_to_response('lexicon/word_cognacy.html', 
-                              {'object': w, 'lexicon': CognacyTable(entries)},
+                              {'object': w, 'lexicon': CognacyTable(entries_and_cogs), 'inplay': inplay},
                               context_instance=RequestContext(request))

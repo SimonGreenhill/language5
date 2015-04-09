@@ -70,3 +70,16 @@ class CognateSetMap(DetailView):
             kwargs['object'].cognate_set.select_related('language').all()
         ])
         return context
+
+class DataMap(DetailView):
+    """Data Quantity Visualisation Detail"""
+    model = Language
+    template_name = 'maps/data.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super(DataMap, self).get_context_data(**kwargs)
+        context['records'] = prepare_map_data([
+            _.lexicon for _ in 
+            kwargs['object'].cognate_set.select_related('language').all()
+        ])
+        return context

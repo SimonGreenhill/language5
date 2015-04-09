@@ -1,17 +1,7 @@
-{% extends "base.html" %}
+{% extends "maps/map.html" %}
 {% load staticfiles %}
 
 {% block title %} {{ SITE_NAME }} Word Map: {{ object }} {% endblock %}
-
-{% block head %}
-    <link media="all" href="{% static "css/leaflet.css" %}" type="text/css" rel="stylesheet" />
-    <link media="all" href="{% static "css/leaflet.label.css" %}" type="text/css" rel="stylesheet" />
-    <link media="all" href="{% static "css/leaflet.fullscreen.css" %}" type="text/css" rel="stylesheet" />
-    <script src="{% static "js/leaflet.js" %}" type="text/javascript"></script>
-    <script src="{% static "js/leaflet.label.js" %}" type="text/javascript"></script>
-    <script src="{% static "js/leaflet.fullscreen.js" %}" type="text/javascript"></script>
-    <script src="{% static "js/leaflet.oms.js" %}" type="text/javascript"></script>
-{% endblock %}
 
 {% block content %}
     <div class="page-header">

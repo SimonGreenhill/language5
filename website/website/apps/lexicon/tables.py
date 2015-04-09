@@ -1,5 +1,9 @@
+from django.utils.safestring import mark_safe
+from django.core.urlresolvers import reverse
+
 import django_tables2 as tables
 from django_tables2.utils import A  # alias for Accessor
+
 from website.apps.core.tables import DataTable
 
 from website.apps.lexicon.models import Word, WordSubset, Lexicon
@@ -215,6 +219,14 @@ class CognacyTable(WordLexiconTable):
         col = tables.LinkColumn('language-detail', args=[record.language.slug])
         return col.render(value=unicode(record.language), record=unicode(record.language), bound_column=None)
     
+    def render_cognacy(self, record):
+        template = '<a href="%(url)s"><span class="badge badge-info">%(id)d</span></a>'
+        return mark_safe(
+            " ".join(sorted([
+                template % {'id': c, 'url': reverse('cognateset-detail', kwargs={'pk': c})} for c in record.cognacy
+            ]))
+        )
+        
     class Meta(WordLexiconTable.Meta):
         model = Lexicon
         order_by = 'word' # default sorting
