@@ -10,8 +10,6 @@
         var markers = [];
         $.each(data.objects, function(i) {
             rec = data.objects[i];
-            rec.lat = rec.latitude;
-            rec.lon = rec.longitude;
             var m = L.marker([rec.latitude, rec.longitude], {icon: p, clickable: true}).bindLabel(rec.label, {noHide: true}).addTo(map);
             markers.push(m);
             oms.addMarker(m);
