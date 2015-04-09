@@ -3,36 +3,11 @@
 
 {% block title %} {{ SITE_NAME }} Cognate Set Map: {{ object }} {% endblock %}
 
-{% block content %}
-    <div class="page-header">
-        <h1>Map for {{ object }}</h1>
-    </div>
-    
-    <div id="map" style="width: 700px; height: 500px"></div>
-    
-    <script>
-        var map = L.map('map', {
-            fullscreenControl: true,
-            fullscreenControlOptions: {
-              position: 'topleft'
-          }
-        }).setView([-5.3, 141.0], 5);
-        var oms = new OverlappingMarkerSpiderfier(map);
-        var p = L.icon({
-            iconUrl: '{% static "img/orange-star.png" %}',
-            iconSize: [10, 10],
-            iconAnchor: [5, 5],
-            labelAnchor: [2, 0] // as I want the label to appear 2px past the icon (10 + 2 - 6)
-        });
-        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 18,
-            attribution: 'Language data &copy; <a href="http://transnewguinea.org">TransNewGuinea.org</a>, Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-        }).addTo(map);
-        
-        {% for rec in records %}
-            var m = L.marker([{{ rec.latitude }}, {{ rec.longitude }}], { icon: p, clickable: true }).bindLabel("{{ rec.label }}", { noHide: true }).addTo(map);
-            oms.addMarker(m);
-        {% endfor %}
-    </script>
-    
+{% block pageheader %}Map for {{ object }}{% endblock %}
+
+{% block records %}
+    {% for rec in records %}
+        var m = L.marker([{{ rec.latitude }}, {{ rec.longitude }}], { icon: p, clickable: true }).bindLabel("{{ rec.label }}", { noHide: true }).addTo(map);
+        oms.addMarker(m);
+    {% endfor %}
 {% endblock %}
