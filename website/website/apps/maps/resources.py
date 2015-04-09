@@ -57,6 +57,7 @@ class LanguageMapResource(Resource):
     latitude = fields.FloatField(attribute='latitude')
     longitude = fields.FloatField(attribute='longitude')
     url = fields.CharField(attribute='url')
+    count = fields.IntegerField(attribute='count')
     
     class Meta:
         limit = 0 # show all
@@ -77,6 +78,7 @@ class LanguageMapResource(Resource):
                     'language': L.language,
                     'label': L.language,
                     'url': reverse('language-detail', kwargs={'language': L.slug}),
+                    'count': L.count,
                 })
         return prepare_map_data(results)
 
