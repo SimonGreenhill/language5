@@ -4,9 +4,7 @@ from website.apps.core.templatetags.website_tags import link_ethnologue
 from website.apps.core.templatetags.website_tags import link_olac
 from website.apps.core.templatetags.website_tags import link_multitree
 from website.apps.core.templatetags.website_tags import link_glottolog
-from website.apps.core.templatetags.website_tags import link_llmap
 from website.apps.core.templatetags.website_tags import link_wikipedia
-from website.apps.core.templatetags.website_tags import language_map
 from website.apps.core.models import Language
 
 class LanguageMixin(object):
@@ -52,11 +50,6 @@ class Test_Link_Multitree(LanguageMixin, TestCase):
     expected = "http://multitree.org/codes/aaa"
 
 
-class Test_Link_LLMap(LanguageMixin, TestCase):
-    function = staticmethod(link_llmap)
-    expected = "http://llmap.org/languages/aaa.html"
-
-
 class Test_Link_Glottolog(LanguageMixin, TestCase):
     function = staticmethod(link_glottolog)
     expected = "http://glottolog.org/resource/languoid/iso/aaa"
@@ -65,10 +58,4 @@ class Test_Link_Glottolog(LanguageMixin, TestCase):
 class Test_Link_Wikipedia(LanguageMixin, TestCase):
     function = staticmethod(link_wikipedia)
     expected = "https://en.wikipedia.org/wiki/ISO_639:aaa"
-
-
-class Test_Language_Map(LanguageMixin, TestCase):
-    function = staticmethod(language_map)
-    expected = '<img src="http://llmap.org/language/aaa.png?width=400&height=300" alt="Map of A: courtesy of LL-MAP" />'
-
 
