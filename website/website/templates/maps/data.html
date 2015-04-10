@@ -1,0 +1,58 @@
+{% extends "maps/map.html" %}
+{% load staticfiles %}
+
+{% block title %} {{ SITE_NAME }} Languages: {% endblock %}
+
+{% block pageheader %}Map of Languages{% endblock %}
+
+{% block records %}
+    var size = 100;
+    
+    function getcolor(min, max, n){
+        var qt = max / 4;
+        if (n < qt * 1) { return "#fecc5c"; }
+        if (n < qt * 2) { return "#fd8d3c"; }
+        if (n < qt * 3) { return "#f03b20"; }
+        if (n >= qt * 3) { return "#bd0026"; }
+        return "#ffffb2";
+    }
+    function jitter(value) {
+        // jitters the datapoint by a small number
+        if (Math.random() >= 0.5) {
+            return value + (Math.random() / 20);
+        }
+        return value - (Math.random() / 20);
+    }
+    
+    $.getJSON('/api/v1/languagemap/?format=json', function(data){
+        var counts = [];
+        var markers = [];
+        $.each(data.objects, function(i) {
+            counts[counts.length] = parseInt(data.objects[i].count);
+        });
+        var max = counts[counts.length-1];
+        counts.sort(function(a, b){return a-b});
+        $.each(data.objects, function(i) {
+            rec = data.objects[i];
+            col = getcolor(counts[0], max, rec.count);
+            var m = L.circle([jitter(rec.latitude), jitter(rec.longitude)], size * rec.count, {
+                color: col, fillColor: col, fillOpacity: 0.8
+            }).addTo(map);
+            markers.push(m);
+            oms.addMarker(m);
+        });
+        var legend = L.control({position: 'bottomright'});
+        legend.onAdd = function(map) {
+            var div = L.DomUtil.create('div', 'legend'),
+                grades = [0, max/4, (max/4)*2, (max/4)*3];
+                labels = [];
+                for (var i = 0; i < grades.length; i++) {
+                    div.innerHTML +=
+                        '<i style="background:' + getcolor(0, max, grades[i]) + '"></i> ' +
+                        grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+                }
+            return div;
+        };
+        legend.addTo(map);
+    });
+{% endblock %}
