@@ -6,8 +6,6 @@
 {% block pageheader %}Map of Languages{% endblock %}
 
 {% block records %}
-    var size = 100;
-    
     function getcolor(min, max, n){
         var qt = max / 4;
         if (n < qt * 1) { return "#fecc5c"; }
@@ -34,9 +32,8 @@
         $.each(data.objects, function(i) {
             rec = data.objects[i];
             if (rec.count > 1) {
-                col = getcolor(counts[0], max, rec.count);
-                var m = L.circle([jitter(rec.latitude), jitter(rec.longitude)], size * rec.count, {
-                    color: col, fillColor: col, fillOpacity: 0.8
+                L.circleMarker([jitter(rec.latitude), jitter(rec.longitude)], {
+                    color: getcolor(counts[0], max, rec.count), fillOpacity: 0.6, radius: 5,
                 }).addTo(map);
             }
         });
