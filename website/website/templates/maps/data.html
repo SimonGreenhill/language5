@@ -26,7 +26,6 @@
     
     $.getJSON('/api/v1/languagemap/?format=json', function(data){
         var counts = [];
-        var markers = [];
         $.each(data.objects, function(i) {
             counts[counts.length] = parseInt(data.objects[i].count);
         });
@@ -34,12 +33,12 @@
         counts.sort(function(a, b){return a-b});
         $.each(data.objects, function(i) {
             rec = data.objects[i];
-            col = getcolor(counts[0], max, rec.count);
-            var m = L.circle([jitter(rec.latitude), jitter(rec.longitude)], size * rec.count, {
-                color: col, fillColor: col, fillOpacity: 0.8
-            }).addTo(map);
-            markers.push(m);
-            oms.addMarker(m);
+            if (rec.count > 1) {
+                col = getcolor(counts[0], max, rec.count);
+                var m = L.circle([jitter(rec.latitude), jitter(rec.longitude)], size * rec.count, {
+                    color: col, fillColor: col, fillOpacity: 0.8
+                }).addTo(map);
+            }
         });
         var legend = L.control({position: 'bottomright'});
         legend.onAdd = function(map) {

@@ -63,7 +63,7 @@ class LanguageMapResource(Resource):
         limit = 0 # show all
         include_resource_uri = False
         allowed_methods = ['get']
-        cache = SimpleCache(timeout=10)
+        cache = SimpleCache(timeout=60*24, public=True)
     
     def obj_get_list(self, bundle, **kwargs):
         # Filtering disabled for brevity...
