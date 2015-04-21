@@ -16,7 +16,7 @@ from website.apps.lexicon.forms import LexiconForm
 from django_tables2 import SingleTableView, RequestConfig
 from website.apps.lexicon.tables import WordIndexTable, WordLexiconTable
 from website.apps.lexicon.tables import WordLexiconEditTable
-from website.apps.lexicon.tables import CognateSetIndexTable, CognateSetDetailTable, CognacyTable
+from website.apps.lexicon.tables import CognateSetIndexTable, CognateSetDetailTable
 
 # for WordEdit
 from django.forms.models import modelformset_factory

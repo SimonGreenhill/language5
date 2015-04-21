@@ -206,31 +206,3 @@ class AlignmentTable(WordLexiconTable):
     Meta.attrs['summary'] = 'Table of Lexicon'
 
 
-class CognacyTable(WordLexiconTable):
-    id = tables.LinkColumn('lexicon-edit', args=[A('id')])
-    language = tables.LinkColumn('language-detail', args=[A('language.slug')])
-    source = tables.LinkColumn('source-detail', args=[A('source.slug')])
-    entry = tables.Column()
-    annotation = tables.Column()
-    loan = tables.BooleanColumn(null=False, yesno=('x', ''))
-    cognacy = tables.Column()
-    
-    def render_language(self, record):
-        col = tables.LinkColumn('language-detail', args=[record.language.slug])
-        return col.render(value=unicode(record.language), record=unicode(record.language), bound_column=None)
-    
-    def render_cognacy(self, record):
-        template = '<a href="%(url)s"><span class="badge badge-info">%(id)d</span></a>'
-        return mark_safe(
-            " ".join(sorted([
-                template % {'id': c, 'url': reverse('cognateset-detail', kwargs={'pk': c})} for c in record.cognacy
-            ]))
-        )
-        
-    class Meta(WordLexiconTable.Meta):
-        model = Lexicon
-        order_by = 'word' # default sorting
-        sequence = ('id', 'language', 'entry', 'annotation', 'loan',  'source', 'cognacy')
-        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'word', 'source_gloss')
-    Meta.attrs['summary'] = 'Table of Lexicon'
-

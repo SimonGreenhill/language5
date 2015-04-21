@@ -164,6 +164,7 @@ INSTALLED_APPS = [
     'website.apps.core',                 # core functionality
     'website.apps.statistics',           # statistics
     'website.apps.lexicon',              # lexicon
+    'website.apps.cognacy',              # lexicon -- cognacy
     'website.apps.olac',                 # OLAC
     'website.apps.entry',                # Data Entry
     'website.apps.pronouns',             # pronoun paradigm project
