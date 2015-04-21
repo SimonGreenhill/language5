@@ -6,6 +6,7 @@ from collections import Counter
 
 def get_clades(depth=3):
     clades = Counter()
+    total = 0
     for o in Language.objects.values('classification'):
         if len(o['classification']) < 2:
             continue
@@ -14,7 +15,11 @@ def get_clades(depth=3):
         for i in range(0, min([depth, len(classif)])):
             sub.append(classif[i])
             clades[", ".join(sub)] += 1
-    return sorted([(c, "%s (%d)" % (c, clades[c])) for c in clades])
+        total += 1
+        
+    choices = sorted([(c, "%s (%d)" % (c, clades[c])) for c in clades])
+    choices.insert(0, ('', 'ALL (%d)' % total))  # add default
+    return choices
     
 
 class DoCognateForm(forms.Form):
