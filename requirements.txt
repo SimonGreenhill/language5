@@ -4,6 +4,7 @@ pillow                                                                 # A bette
 psycopg2                                                               # database adaptor
 django-reversion>=1.8.5                                                # versioning
 pytz                                                                   # timezone support
+python-ftfy                                                            # for management command 'hygiene'
 django-secure                                                          # security
 django-tables2                                                         # better table handling
 django-dbbackup                                                        # database & media backup
