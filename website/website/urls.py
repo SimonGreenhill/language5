@@ -133,10 +133,9 @@ if 'website.apps.lexicon' in settings.INSTALLED_APPS:
             'website.apps.lexicon.views.word_alignment',
             name="word-alignment"
         ),
-        url(r'^word/(?P<slug>[\w\d\-\.]+)/cognacy$',
-            'website.apps.lexicon.views.word_cognacy', 
-            name="word-cognacy"
-        ),
+    )
+    urlpatterns += patterns("",
+        url(r"^cognacy/", include('website.apps.cognacy.urls', namespace='cognacy')),
     )
 
 # ------------------------------------------------------------------------ #
