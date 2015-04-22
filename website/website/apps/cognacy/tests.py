@@ -247,6 +247,7 @@ class Test_Save(DataMixin):
         assert len(lexica) == 1
         assert self.lex_a not in lexica
         assert self.lex_b in lexica
+        assert Lexicon.objects.count() == 2  # haven't deleted the lexical items have we?
         
     def test_empty_cognate_set_removed(self):
         assert self.cogset.lexicon.count() == 1
@@ -279,8 +280,11 @@ class Test_Save(DataMixin):
         form_data['c-%d' % self.lex_a.id] = "-%s" % self.cogset.id
         response = self.AuthenticatedClient.post(self.url, form_data, follow=True)
         
+        version_list = reversion.get_for_object(self.cogset)
+        assert len(version_list) == 1, "Cognate Version List Missing"
+        
         version_list = reversion.get_for_object(self.lex_b)
-        print version_list
-        import IPython; IPython.embed()
-        assert False
+        assert len(version_list) == 1, "Lex B Version List Missing"
+        
+        assert len(reversion.get_deleted(Cognate)) == 1
         

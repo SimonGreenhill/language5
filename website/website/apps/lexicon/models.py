@@ -91,7 +91,7 @@ class WordSubset(TrackedModel):
         ordering = ['slug', ]
 
 
-@reversion.register
+@reversion.register(follow=['cognate_set', 'cognateset_set'])
 class Lexicon(TrackedModel):
     """Lexicon Details"""
     language = models.ForeignKey('core.Language')
@@ -125,7 +125,7 @@ class Lexicon(TrackedModel):
         ordering = ['entry', ]
 
 
-@reversion.register
+@reversion.register(follow=["lexicon"])
 class CognateSet(TrackedModel):
     """Cognate Sets"""
     protoform = models.CharField(max_length=128, blank=True, null=True, db_index=True)
@@ -150,7 +150,7 @@ class CognateSet(TrackedModel):
         verbose_name_plural = 'Cognate Sets'
     
 
-@reversion.register
+@reversion.register(follow=["lexicon", "cognateset"])
 class Cognate(TrackedModel):
     """Cognacy Judgements"""
     lexicon = models.ForeignKey('Lexicon')
@@ -169,7 +169,7 @@ class Cognate(TrackedModel):
         db_table = 'cognates'
 
 
-@reversion.register
+@reversion.register(follow=["corrset_set"])
 class CorrespondenceSet(TrackedModel):
     """Sound Correspondence Sets"""
     language = models.ManyToManyField('core.Language', through='Correspondence')

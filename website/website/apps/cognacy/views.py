@@ -77,8 +77,6 @@ def do(request, word, clade=None):
 
 
 @login_required()
-@transaction.atomic()
-@reversion.create_revision()
 def save(request, word, clade=None):
     form = DoCognateForm(request.POST or None)
     if request.POST and form.is_valid():
@@ -168,6 +166,7 @@ def save(request, word, clade=None):
                 with reversion.create_revision():
                     m.delete()
             
+            # remove cognateset if it's empty
             if cog.cognate_set.count() == 0:
                 messages.add_message(request, messages.INFO,
                     'Removing empty cognate set %r' % cog,
