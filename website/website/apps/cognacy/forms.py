@@ -33,3 +33,10 @@ class DoCognateForm(forms.Form):
         widget=forms.widgets.Select(attrs={'class': 'input-xxlarge'}),
         required=False
     )
+    
+    def __init__(self, *args, **kwargs):
+        is_hidden = kwargs.pop('is_hidden', None)
+        super(DoCognateForm, self).__init__(*args, **kwargs)
+        if is_hidden:
+            self.fields['word'].widget = forms.HiddenInput()
+            self.fields['clade'].widget = forms.HiddenInput()
