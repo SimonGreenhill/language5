@@ -1,1 +1,1 @@
-<a href="{% url "cognateset-detail" pk=id %}"><span class="badge" style="background: {{ color }};">{{ id }}</span></a>
+{% if link %}<a href="{% url "cognateset-detail" pk=id %}">{% endif %}<span class="badge" style="background: {{ color }};">{{ id }}</span>{% if link %}</a>{% endif %}

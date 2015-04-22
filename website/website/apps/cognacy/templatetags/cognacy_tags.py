@@ -20,6 +20,6 @@ def get_color(n):
     return '#%s' % hash
 
 @register.inclusion_tag('cognacy/includes/button.html')
-def cognate_button(cog_id):
-    return {'id': cog_id, 'color': get_color(cog_id)}
+def cognate_button(cog_id, link=True):
+    return {'id': cog_id, 'color': get_color(cog_id), 'link': link}
 
