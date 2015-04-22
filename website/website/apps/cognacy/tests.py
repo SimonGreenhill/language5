@@ -274,14 +274,13 @@ class Test_Save(DataMixin):
     
     def test_creates_reversion(self):
         import reversion
-        import IPython; IPython.embed()
         form_data = self.form_data
         form_data['c-%d' % self.lex_b.id] = "%s" % self.cogset.id
         form_data['c-%d' % self.lex_a.id] = "-%s" % self.cogset.id
         response = self.AuthenticatedClient.post(self.url, form_data, follow=True)
         
-        import IPython; IPython.embed()
         version_list = reversion.get_for_object(self.lex_b)
         print version_list
+        import IPython; IPython.embed()
         assert False
         
