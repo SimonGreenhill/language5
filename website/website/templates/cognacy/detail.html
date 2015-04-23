@@ -26,28 +26,43 @@
             <strong>Cognate sets in-play:</strong>
             <ul>
                 
-            {% for cog_id, entries in inplay.items %}
-                <li>{% cognate_button cog_id %} {{ entries }} </li>
+            {% for cog, entries in inplay.items %}
+                <li>
+                    {% cognate_button cog.id %}
+                    {% if cog.source %} {{ cog.source }} {% else %} TNG {% endif %}
+                    : {{ entries }} 
+                </li>
             {% endfor %}
             </ul>
             
         </p>
+        <p><strong>Merge Cognate Sets: </strong>
+        <form action="{% url "cognacy:merge" word=word.slug clade=clade %}" method="post" class="form-inline">
+            {% csrf_token %}
+            {{ mergeform.old }} -&raquo;
+            {{ mergeform.new }}
+            <button type="submit" class="btn">Merge</button>
+        </form>
         
+    </div>
+    <div class="well">
         <p><strong>Next Cognate IDs:</strong> 
             {% for c in next_cognates %}
                 <span> &nbsp; {% cognate_button c False %} &nbsp; </span>
             {% endfor %}
-        </p>
+        </p>        
     </div>
-    
+
     {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-                <li>
-                     <span class="label label-{{ message.tags }}">{{ message.tags }}.</span> {{ message }}
-                </li>
-            {% endfor %}
-        </ul>
+        <div class="well">
+            <ul class="messages">
+                {% for message in messages %}
+                    <li>
+                         <span class="label label-{{ message.tags }}">{{ message.tags }}.</span> {{ message }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
     {% endif %}
     
     {% if user.is_staff %}

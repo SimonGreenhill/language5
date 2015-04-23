@@ -13,4 +13,8 @@ urlpatterns = patterns('',
         'website.apps.cognacy.views.save',
         name="save"
     ),
+    url(r'^merge/(?P<word>[\w\d\-\.]+)/(?P<clade>.*)$',
+        'website.apps.cognacy.views.merge',
+        name="merge"
+    ),
 )

@@ -1,6 +1,6 @@
 from django import forms
 from website.apps.core.models import Language
-from website.apps.lexicon.models import Word
+from website.apps.lexicon.models import Word, CognateSet
 
 from collections import Counter
 
@@ -40,3 +40,25 @@ class DoCognateForm(forms.Form):
         if is_hidden:
             self.fields['word'].widget = forms.HiddenInput()
             self.fields['clade'].widget = forms.HiddenInput()
+
+
+
+class MergeCognateForm(forms.Form):
+    old = forms.ModelChoiceField(
+        queryset=None,
+        #widget=forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'old'}),
+    )
+    new = forms.ModelChoiceField(
+        queryset=None,
+        #widget=forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'new'}),
+    )  
+    
+    def __init__(self, *args, **kwargs):
+        queryset = kwargs.pop('queryset', None)
+        super(MergeCognateForm, self).__init__(*args, **kwargs)
+        self.fields['old'].queryset = queryset
+        self.fields['new'].queryset = queryset
+            
+    class Meta:
+        model = CognateSet
+        

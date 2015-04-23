@@ -9,7 +9,7 @@ from django.template import RequestContext
 import reversion
 
 from website.apps.lexicon.models import Word, Lexicon, CognateSet, Cognate
-from website.apps.cognacy.forms import DoCognateForm
+from website.apps.cognacy.forms import DoCognateForm, MergeCognateForm
 from website.apps.cognacy.tables import CognacyTable
 
 
@@ -42,8 +42,8 @@ def do(request, word, clade=None):
     # save us from one query for each cognateset -- select_related doesn't help us here so
     # we do a rather ungainly merge.
     # 1. get a list of (lexicon.id, cognateset.id)
-    queryset = Cognate.objects.filter(lexicon_id__in=lex_ids).select_related('lexicon')
-    cogs = [(c.lexicon_id, c.cognateset_id) for c in queryset]
+    queryset = Cognate.objects.filter(lexicon_id__in=lex_ids).select_related('lexicon', 'cognateset', 'cognateset__source')
+    cogs = [(c.lexicon_id, c.cognateset_id, c.cognateset) for c in queryset]
     # 2. go through entries and attach a list of cognateset ids if needed, else empty list
     entries_and_cogs = []
     inplay = {}
@@ -52,17 +52,17 @@ def do(request, word, clade=None):
         e.edit = True  # dummy value so django-tables2 passes to render_edit()
         entries_and_cogs.append(e)
         
-        for cog in e.cognacy:
-            inplay[cog] = inplay.get(cog, set())
-            inplay[cog].add(e.entry)
-        
+        cogobjs = [_[2] for _ in cogs if _[1] in e.cognacy]
+        for o in cogobjs:
+            inplay[o] = inplay.get(o, set())
+            inplay[o].add(e.entry)
+    
     try:
         max_id = int(CognateSet.objects.all().aggregate(Max('id'))['id__max'])
     except TypeError:
         max_id = 1
     
     inplay = dict([(k, ", ".join(sorted(v)[0:10])) for (k, v) in inplay.items()])
-    
     form = DoCognateForm(initial={'word': w.id, 'clade': clade}, is_hidden=True)
     return render_to_response('cognacy/detail.html',
                               {
@@ -70,6 +70,10 @@ def do(request, word, clade=None):
                                   'lexicon': CognacyTable(entries_and_cogs),
                                   'inplay': inplay,
                                   'form': form,
+                                  'mergeform': MergeCognateForm(
+                                      prefix='merge', 
+                                      queryset=CognateSet.cache_all_method.filter(id__in=[c[1] for c in cogs])
+                                  ),
                                   'next_cognates': range(max_id + 1, max_id + 11),
                               },
                               context_instance=RequestContext(request))
@@ -182,3 +186,16 @@ def save(request, word, clade=None):
         return redirect(url)
     return redirect(reverse('cognacy:index'))  # go somewhere safe on form tamper.
     
+
+
+@login_required()
+def merge(request, word, clade=None):
+    form = MergeCognateForm(request.POST or None, prefix='merge')
+    if request.POST and form.is_valid():
+        print 'yay'
+    import IPython; IPython.embed()
+        
+        
+        
+    url = reverse('cognacy:do', kwargs={'word': word, 'clade': clade})
+    return redirect(url)
