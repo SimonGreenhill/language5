@@ -288,3 +288,103 @@ class Test_Save(DataMixin):
         
         assert len(reversion.get_deleted(Cognate)) == 1
         
+    
+class Test_Merge(DataMixin):
+    """Tests the Cognate Save View"""
+    url = reverse('cognacy:merge', kwargs={'word': 'hand', 'clade': ''})
+    
+    def setUp(self):
+        super(Test_Merge, self).setUp()
+        self.AuthenticatedClient = Client()
+        self.AuthenticatedClient.login(username="admin", password="test")
+        
+        # Setup = 
+        #   cogset_1 (lex_a)
+        #   cogset_2 (lex_b)
+        #   cogset_3 (lex_a, lex_b)
+        self.cogset_1 = CognateSet.objects.create(protoform='test-1', editor=self.editor)
+        self.cogset_2 = CognateSet.objects.create(protoform='test-2', editor=self.editor)
+        self.cogset_3 = CognateSet.objects.create(protoform='test-3', editor=self.editor)
+        self.expected_cogs_1 = [
+            Cognate.objects.create(lexicon=self.lex_a, cognateset=self.cogset_1, editor=self.editor),
+        ]
+        
+        self.expected_cogs_2 = [
+            Cognate.objects.create(lexicon=self.lex_b, cognateset=self.cogset_2, editor=self.editor),
+        ]
+        
+        self.expected_cogs_3 = [
+            Cognate.objects.create(lexicon=self.lex_a, cognateset=self.cogset_3, editor=self.editor),
+            Cognate.objects.create(lexicon=self.lex_b, cognateset=self.cogset_3, editor=self.editor),
+        ]
+        
+        
+        
+    def test_error_when_not_logged_in(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response,
+                             "/accounts/login/?next=%s" % self.url,
+                             status_code=302, target_status_code=200)
+        
+    def test_get_fails(self):
+        response = self.AuthenticatedClient.get(self.url)
+        # should just bounce back to when not POSTed
+        self.assertRedirects(response, 
+            reverse('cognacy:do', kwargs={'word': 'hand', 'clade': ''}),
+            status_code=302, target_status_code=200
+        )
+    
+    def test_merge_moves_cognates(self):
+        form_data = {
+            'merge-old': self.cogset_1.id, 
+            'merge-new': self.cogset_2.id, 
+        }
+        response = self.AuthenticatedClient.post(self.url, form_data)
+        # should now have nothing in cogset_1 = [],
+        assert self.cogset_1.lexicon.count() == 0
+        # should now have cogset_2 = [a,b]
+        assert self.lex_a in self.cogset_2.lexicon.all()
+        assert self.lex_b in self.cogset_2.lexicon.all()
+        # should now have an (UNCHANGED) cogset_3 =  [a,b] 
+        assert sorted(self.cogset_3.lexicon.all()) == sorted([_.lexicon for _ in self.expected_cogs_3])
+        
+    def test_merge_moves_multiple_cognates(self):
+        form_data = {
+            'merge-old': self.cogset_3.id, 
+            'merge-new': self.cogset_1.id, 
+        }
+        response = self.AuthenticatedClient.post(self.url, form_data)
+        # should now have a and b in cogset_1 = [],
+        assert self.cogset_1.lexicon.count() == 3       # WARNING -- this should be 2, lex_a is duplicated
+        assert self.lex_a in self.cogset_1.lexicon.all()
+        assert self.lex_b in self.cogset_2.lexicon.all()
+        
+        # should now have cogset_2 = [b] -- UNCHANGED
+        assert self.lex_a not in self.cogset_2.lexicon.all()
+        assert self.lex_b in self.cogset_2.lexicon.all()
+        # should now have an empty cogset_3 =  []
+        assert self.cogset_3.lexicon.count() == 0
+        
+    def test_merge_removes_cognateset(self):
+        form_data = {
+            'merge-old': self.cogset_1.id, 
+            'merge-new': self.cogset_2.id, 
+        }
+        response = self.AuthenticatedClient.post(self.url, form_data)
+        # cogset 1 should be dead.
+        with self.assertRaises(CognateSet.DoesNotExist):
+            CognateSet.objects.get(pk=self.cogset_1.pk)
+        assert CognateSet.objects.count() == 2
+        
+    def test_merge_doesnt_duplicate_cognates(self):
+        form_data = {
+            'merge-old': self.cogset_3.id, 
+            'merge-new': self.cogset_1.id, 
+        }
+        response = self.AuthenticatedClient.post(self.url, form_data)
+        # should now have a and b in cogset_1 = [],
+        assert self.cogset_1.lexicon.count() == 2, "Duplicate still present!"
+        assert self.lex_a in self.cogset_1.lexicon.all()
+        assert self.lex_b in self.cogset_2.lexicon.all()
+        

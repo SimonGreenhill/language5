@@ -190,12 +190,24 @@ def save(request, word, clade=None):
 
 @login_required()
 def merge(request, word, clade=None):
-    form = MergeCognateForm(request.POST or None, prefix='merge')
+    form = MergeCognateForm(request.POST or None, 
+        prefix='merge', 
+        queryset=CognateSet.objects.all()  # needed as we've explicitly set None in the form.
+    )
+    
     if request.POST and form.is_valid():
-        print 'yay'
-    import IPython; IPython.embed()
+        old = form.cleaned_data['old']
+        new = form.cleaned_data['new']
         
-        
+        messages.add_message(request, messages.INFO,
+            'Moving cognate set %r to %r' % (old, new),
+            extra_tags='warning'
+        )
+        with reversion.create_revision():
+            for cog in old.cognate_set.all():
+                cog.cognateset = new
+                cog.save()
+            old.delete()
         
     url = reverse('cognacy:do', kwargs={'word': word, 'clade': clade})
     return redirect(url)
