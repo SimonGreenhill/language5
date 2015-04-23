@@ -203,10 +203,16 @@ def merge(request, word, clade=None):
             'Moving cognate set %r to %r' % (old, new),
             extra_tags='warning'
         )
+        # get the lexical items already in this cognateset
+        already = [lex for lex in new.lexicon.all()]
+        
         with reversion.create_revision():
             for cog in old.cognate_set.all():
-                cog.cognateset = new
-                cog.save()
+                if cog.lexicon in already:
+                    cog.delete()  # already got it in this cognate set. Delete the cognate
+                else:
+                    cog.cognateset = new
+                    cog.save()
             old.delete()
         
     url = reverse('cognacy:do', kwargs={'word': word, 'clade': clade})

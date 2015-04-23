@@ -356,7 +356,7 @@ class Test_Merge(DataMixin):
         }
         response = self.AuthenticatedClient.post(self.url, form_data)
         # should now have a and b in cogset_1 = [],
-        assert self.cogset_1.lexicon.count() == 3       # WARNING -- this should be 2, lex_a is duplicated
+        assert self.cogset_1.lexicon.count() == 2
         assert self.lex_a in self.cogset_1.lexicon.all()
         assert self.lex_b in self.cogset_2.lexicon.all()
         
