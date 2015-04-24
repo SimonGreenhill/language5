@@ -96,7 +96,6 @@ def do(request, word, clade=None):
                               context_instance=RequestContext(request))
 
 
-
 @login_required()
 def save(request, word, clade=None):
     form = DoCognateForm(request.POST or None)
@@ -116,15 +115,32 @@ def save(request, word, clade=None):
         except ValueError:
             raise ValueError("Form tampering!")
         
-        # Special commands
-        commands = [(k, v) for (k, v) in changes if v.startswith("!")]
-        if len(commands):
-            "!DELETE"
-            import IPython; IPython.embed();
+        # pull out subsets of actions
+        commands = [
+            (k, v) for (k, v) in changes if v.startswith("!")
+        ]
+        additions = [
+            (k, v) for (k, v) in changes if v.startswith('-') == False and v.startswith("!") == False
+        ]
+        deletions = [
+            (k, v[1:]) for (k, v) in changes if v.startswith('-') and v.startswith("!") == False
+        ]
         
-        changes = [(k, v) for (k, v) in changes if v.startswith("!") == False]
-        # ADDITIONS
-        additions = [(k, v) for (k, v) in changes if v.startswith('-') == False]
+        
+        # 1. Special commands
+        for lex_id, command in commands:
+            L = Lexicon.objects.get(pk=lex_id)
+            if command == '!DELETE':
+                messages.add_message(request, messages.WARNING, 
+                    'Warning: DELETED lexicon %r' % L, 
+                    extra_tags='warning'
+                )
+                with reversion.create_revision():
+                    L.delete()
+                    reversion.set_user(request.user)
+                    reversion.set_comment("Deleted item")
+                    
+        # 2. Cognate Additions
         for lex_id, cogset in additions:
             L = Lexicon.objects.get(pk=lex_id)
             
@@ -164,8 +180,7 @@ def save(request, word, clade=None):
                     extra_tags='warning'
                 )
         
-        # DELETIONS
-        deletions = [(k, v[1:]) for (k, v) in changes if v.startswith('-')]
+        # 3. Cognate Deletions
         for lex_id, cogset in deletions:
             L = Lexicon.objects.get(pk=lex_id)
             cog = None
