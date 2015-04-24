@@ -91,7 +91,7 @@ class WordSubset(TrackedModel):
         ordering = ['slug', ]
 
 
-@reversion.register(follow=['cognate_set', 'cognateset_set', 'pronoun_set', 'task_set',])
+@reversion.register(follow=['cognate_set', 'cognateset_set', 'task_set',])
 class Lexicon(TrackedModel):
     """Lexicon Details"""
     language = models.ForeignKey('core.Language')
