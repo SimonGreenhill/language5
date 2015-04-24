@@ -116,7 +116,11 @@ class Test_Do(DataMixin):
     
     def test_has_next_cognate(self):
         assert 'next_cognates' in self.response.context
-        assert self.response.context['next_cognates'] == range(2, 12)
+        assert self.response.context['next_cognates'] == range(1, 10 + 1)
+        cogset = CognateSet.objects.create(protoform='test', editor=self.editor)
+        response = self.AuthenticatedClient.get(self.url)
+        assert response.context['next_cognates'] == range(2, 11 + 1)
+        assert cogset.id not in response.context['next_cognates']
     
     def test_has_lexicon(self):
         assert 'lexicon' in self.response.context

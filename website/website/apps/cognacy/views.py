@@ -16,12 +16,15 @@ from website.apps.cognacy.tables import CognacyTable
 
 def get_missing_cogids(limit=10):
     cogids = CognateSet.objects.all().values_list('id', flat=True)
-    max_cog_id = max(cogids)
-    missing = [i for i in range(1, max_cog_id) if i not in cogids][0:limit]
-    if len(missing) < limit:
-        for i in range(limit - len(missing)):
-            missing.append(max_cog_id + i)
-    return missing
+    # handle no cognate case.
+    if len(cogids) == 0:
+        return range(1, limit + 1)
+    
+    # find the maximum cognate id and adding limit to it -- this 
+    # means that we can iterate over things happily and always return
+    # $limit records
+    max_cog_id = max(cogids) + limit
+    return [i for i in range(1, max_cog_id + 1) if i not in cogids][0:limit]
 
 
 @login_required()
@@ -113,6 +116,13 @@ def save(request, word, clade=None):
         except ValueError:
             raise ValueError("Form tampering!")
         
+        # Special commands
+        commands = [(k, v) for (k, v) in changes if v.startswith("!")]
+        if len(commands):
+            "!DELETE"
+            import IPython; IPython.embed();
+        
+        changes = [(k, v) for (k, v) in changes if v.startswith("!") == False]
         # ADDITIONS
         additions = [(k, v) for (k, v) in changes if v.startswith('-') == False]
         for lex_id, cogset in additions:
