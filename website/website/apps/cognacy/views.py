@@ -5,6 +5,7 @@ from django.db import transaction
 from django.db.models import Max
 from django.shortcuts import get_object_or_404, render_to_response, redirect
 from django.template import RequestContext
+from django_tables2 import RequestConfig
 
 import reversion
 
@@ -50,6 +51,7 @@ def do(request, word, clade=None):
     for e in entries:
         e.cognacy = [c[1] for c in cogs if c[0] == e.id]
         e.edit = True  # dummy value so django-tables2 passes to render_edit()
+        e.classification = e.language.classification
         entries_and_cogs.append(e)
         
         cogobjs = [_[2] for _ in cogs if _[1] in e.cognacy]
@@ -62,18 +64,24 @@ def do(request, word, clade=None):
     except TypeError:
         max_id = 1
     
+    
     inplay = dict([(k, ", ".join(sorted(v)[0:10])) for (k, v) in inplay.items()])
+    
     form = DoCognateForm(initial={'word': w.id, 'clade': clade}, is_hidden=True)
+    
+    mergeform = MergeCognateForm(
+        prefix='merge', 
+        queryset=CognateSet.cache_all_method.filter(id__in=[c[1] for c in cogs]).order_by('id')
+    )
+    
+    table = CognacyTable(entries_and_cogs)
+    RequestConfig(request, paginate=False).configure(table)
+    
     return render_to_response('cognacy/detail.html',
                               {
-                                  'word': w, 'clade': clade,
-                                  'lexicon': CognacyTable(entries_and_cogs),
-                                  'inplay': inplay,
-                                  'form': form,
-                                  'mergeform': MergeCognateForm(
-                                      prefix='merge', 
-                                      queryset=CognateSet.cache_all_method.filter(id__in=[c[1] for c in cogs])
-                                  ),
+                                  'word': w, 'clade': clade, 'lexicon': table,
+                                  'inplay': inplay, 'form': form,
+                                  'mergeform': mergeform,
                                   'next_cognates': range(max_id + 1, max_id + 11),
                               },
                               context_instance=RequestContext(request))
