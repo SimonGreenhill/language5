@@ -14,6 +14,16 @@ from website.apps.cognacy.forms import DoCognateForm, MergeCognateForm
 from website.apps.cognacy.tables import CognacyTable
 
 
+def get_missing_cogids(limit=10):
+    cogids = CognateSet.objects.all().values_list('id', flat=True)
+    max_cog_id = max(cogids)
+    missing = [i for i in range(1, max_cog_id) if i not in cogids][0:limit]
+    if len(missing) < limit:
+        for i in range(limit - len(missing)):
+            missing.append(max_cog_id + i)
+    return missing
+
+
 @login_required()
 def index(request):
     form = DoCognateForm(request.POST or None)
@@ -59,13 +69,9 @@ def do(request, word, clade=None):
             inplay[o] = inplay.get(o, set())
             inplay[o].add(e.entry)
     
-    try:
-        max_id = int(CognateSet.objects.all().aggregate(Max('id'))['id__max'])
-    except TypeError:
-        max_id = 1
-    
-    
-    inplay = dict([(k, ", ".join(sorted(v)[0:10])) for (k, v) in inplay.items()])
+    inplay = dict([(k, ", ".join(sorted(v)[0:20])) for (k, v) in inplay.items()])
+    inplay = sorted([(k.id, k, v) for (k, v) in inplay.items()])
+    inplay = [(_[1], _[2]) for _ in inplay]
     
     form = DoCognateForm(initial={'word': w.id, 'clade': clade}, is_hidden=True)
     
@@ -82,7 +88,7 @@ def do(request, word, clade=None):
                                   'word': w, 'clade': clade, 'lexicon': table,
                                   'inplay': inplay, 'form': form,
                                   'mergeform': mergeform,
-                                  'next_cognates': range(max_id + 1, max_id + 11),
+                                  'next_cognates': get_missing_cogids(limit=10),
                               },
                               context_instance=RequestContext(request))
 
