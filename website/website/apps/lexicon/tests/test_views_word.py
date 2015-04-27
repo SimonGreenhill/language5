@@ -45,23 +45,35 @@ class Test_WordIndex(DataMixin, TestCase):
         # if a subset is requested...
         response = self.client.get(self.url, {'subset': 'numbers'})
         # ... then the var `subset` will be the same as the GET request
-        self.assertEquals(response.context['subset'].slug, 'numbers')
+        self.assertEquals(response.context['subset'], 'numbers')
         # ...and the number of words will change.
         assert 'table' in response.context
         self.assertEquals(len(response.context['table'].rows), 2)
+    
+    def test_get_letter(self):
+        # if a letter is requested...
+        response = self.client.get(self.url, {'subset': 'H'})
+        # ... then the var `subset` will be the same as the GET request
+        self.assertEquals(response.context['subset'], 'H')
+        # ...and the number of words will change.
+        assert 'table' in response.context
+        self.assertEquals(len(response.context['table'].rows), 1)
+        assert response.context['table'].rows[0].record == self.word1
         
     def test_get_empty_subset(self):
         # if a subset is requested...
         response = self.client.get(self.url, {'subset': 'nothing'})
         # ... then the var `subset` will be the same as the GET request
-        self.assertEquals(response.context['subset'].slug, 'nothing')
+        self.assertEquals(response.context['subset'], 'nothing')
         # ...and the number of words will change.
         assert 'table' in response.context
         self.assertEquals(len(response.context['table'].rows), 0)
         
-    def test_invalid_subset_raises_404(self):
+    def test_invalid_subset_is_empty(self):
         response = self.client.get(self.url, {'subset': 'fudge'})
-        self.assertEquals(response.status_code, 404)
+        self.assertEquals(response.context['subset'], 'fudge')
+        assert 'table' in response.context
+        self.assertEquals(len(response.context['table'].rows), 0)
     
     def test_sorting(self):
         response = self.client.get(self.url, {'sort': 'fullword'})

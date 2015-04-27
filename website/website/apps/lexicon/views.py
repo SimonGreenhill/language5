@@ -1,3 +1,5 @@
+from string import ascii_uppercase
+
 from django.core.cache import cache
 from django.core.paginator import EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
@@ -32,17 +34,22 @@ class WordIndex(SingleTableView):
     
     def get_queryset(self):
         # filter on subset if necessary
-        if 'subset' in self.request.GET:
-            self.subset = get_object_or_404(WordSubset, slug=self.request.GET['subset'])
-            return self.subset.words.all().annotate(count=Count("lexicon"))
+        self.subset = self.request.GET.get('subset', None)
+        if self.subset:
+            try:
+                qset = WordSubset.objects.get(slug=self.subset).words.all()
+            except WordSubset.DoesNotExist:
+                qset = Word.objects.all().filter(word__istartswith=self.subset)
         else:
-            self.subset = None
-            return Word.objects.annotate(count=Count('lexicon'))
-    
+            qset = Word.objects.all()
+        
+        return qset.annotate(count=Count("lexicon"))
+
     def get_context_data(self, **kwargs):
         context = super(WordIndex, self).get_context_data(**kwargs)
         context['subset'] = self.subset
         context['subsets'] = WordSubset.objects.all()
+        context['letters'] = [_ for _ in ascii_uppercase]
         return context
     
 
