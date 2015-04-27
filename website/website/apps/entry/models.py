@@ -9,7 +9,7 @@ class Task(TrackedModel):
     name = models.CharField(max_length=255, db_index=True,
         help_text="Name of Task")
     description = models.TextField(help_text="Task Description", blank=True, null=True)
-    source = models.ForeignKey('core.Source')
+    source = models.ForeignKey('core.Source', blank=True, null=True)
     wordlist = models.ForeignKey('Wordlist', blank=True, null=True)
     language = models.ForeignKey('core.Language', blank=True, null=True)
     records = models.IntegerField(blank=True, null=True, default=20)
