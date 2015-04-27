@@ -7,7 +7,9 @@
 
 {% block content %}
     <div class="page-header">
-        <h1>Do Cognacy: {{ word }}{% if clade %} (for {{ clade }}){% endif %}</h1>
+        <h1>Do Cognacy: {{ word }}</h1>
+        <h2><i class="icon-chevron-right"></i> Word: {{ word }}</h2>
+        {% if clade %}<h2><i class="icon-chevron-right"></i> Clade: {{ clade }} </h2>{% endif %}
     </div>
     
     <ul class="breadcrumb">
