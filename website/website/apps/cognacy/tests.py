@@ -10,6 +10,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from website.apps.core.models import Language, Source
 from website.apps.lexicon.models import Word, Lexicon, CognateSet, Cognate
+from website.apps.cognacy.forms import MergeCognateForm
 
 class DataMixin(TestCase):
     def setUp(self):
@@ -397,4 +398,35 @@ class Test_Merge(DataMixin):
         assert self.cogset_1.lexicon.count() == 2, "Duplicate still present!"
         assert self.lex_a in self.cogset_1.lexicon.all()
         assert self.lex_b in self.cogset_2.lexicon.all()
-        
+
+    def test_error_on_identical_cognate_sets(self):
+        form_data = {
+            'merge-old': self.cogset_1.id, 
+            'merge-new': self.cogset_1.id, 
+        }
+        response = self.AuthenticatedClient.post(self.url, form_data)
+        assert self.cogset_1.lexicon.count() == 1
+        assert self.cogset_2.lexicon.count() == 1
+        assert self.cogset_3.lexicon.count() == 2
+        # Expected no changes!
+
+
+class Test_Forms(DataMixin):
+    def test_ok(self):
+        cogset_1 = CognateSet.objects.create(protoform='test-1', editor=self.editor)
+        cogset_2 = CognateSet.objects.create(protoform='test-2', editor=self.editor)
+        form_data = {
+            'old': cogset_1.id, 
+            'new': cogset_2.id, 
+        }
+        f = MergeCognateForm(form_data, queryset=CognateSet.objects.all())
+        assert f.is_valid()
+    
+    def test_error_on_identical_cognate_sets(self):
+        cogset_1 = CognateSet.objects.create(protoform='test-1', editor=self.editor)
+        form_data = {
+            'old': cogset_1.id, 
+            'new': cogset_1.id, 
+        }
+        f = MergeCognateForm(form_data, queryset=CognateSet.objects.all())
+        assert not f.is_valid()

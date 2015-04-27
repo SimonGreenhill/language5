@@ -46,11 +46,9 @@ class DoCognateForm(forms.Form):
 class MergeCognateForm(forms.Form):
     old = forms.ModelChoiceField(
         queryset=None,
-        #widget=forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'old'}),
     )
     new = forms.ModelChoiceField(
         queryset=None,
-        #widget=forms.widgets.TextInput(attrs={'class': 'input-small', 'placeholder': 'new'}),
     )  
     
     def __init__(self, *args, **kwargs):
@@ -58,7 +56,13 @@ class MergeCognateForm(forms.Form):
         super(MergeCognateForm, self).__init__(*args, **kwargs)
         self.fields['old'].queryset = queryset
         self.fields['new'].queryset = queryset
-            
+    
+    def clean(self):
+        cleaned_data = super(MergeCognateForm, self).clean()
+        if cleaned_data.get('old', None) == cleaned_data.get('new', None):
+            raise forms.ValidationError('The cognate sets cannot be the same!')
+        return cleaned_data
+        
     class Meta:
         model = CognateSet
         

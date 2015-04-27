@@ -79,7 +79,8 @@ def do(request, word, clade=None):
     form = DoCognateForm(initial={'word': w.id, 'clade': clade}, is_hidden=True)
     
     mergeform = MergeCognateForm(
-        prefix='merge', 
+        request.POST or None,
+        prefix='merge',
         queryset=CognateSet.cache_all_method.filter(id__in=[c[1] for c in cogs]).order_by('id')
     )
     
@@ -229,7 +230,7 @@ def save(request, word, clade=None):
 
 @login_required()
 def merge(request, word, clade=None):
-    form = MergeCognateForm(request.POST or None, 
+    form = MergeCognateForm(request.POST or None,
         prefix='merge', 
         queryset=CognateSet.objects.all()  # needed as we've explicitly set None in the form.
     )
@@ -253,6 +254,5 @@ def merge(request, word, clade=None):
                     cog.cognateset = new
                     cog.save()
             old.delete()
-        
     url = reverse('cognacy:do', kwargs={'word': word, 'clade': clade})
     return redirect(url)

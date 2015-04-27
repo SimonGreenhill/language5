@@ -50,8 +50,12 @@
         <p><strong>Merge Cognate Sets: </strong>
         <form action="{% url "cognacy:merge" word=word.slug clade=clade %}" method="post" class="form-inline">
             {% csrf_token %}
-            {{ mergeform.old }} -&raquo;
+            {{ mergeform.old }}-&raquo;
             {{ mergeform.new }}
+            
+            {{ mergeform.non_field_errors }}
+            {{ mergeform.old.errors }}
+            {{ mergeform.new.errors }}
             <button type="submit" class="btn">Merge</button>
         </form>
     </div>
