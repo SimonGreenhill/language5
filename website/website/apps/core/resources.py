@@ -9,7 +9,8 @@ class LanguageResource(ModelResource):
         allowed_methods = ['get']
         excludes = ['comment', 'bibtex', ]
         cache = SimpleCache(timeout=10)
-        
+        detail_uri_name = 'slug'
+
 
 class SourceResource(ModelResource):
     class Meta:
@@ -17,5 +18,6 @@ class SourceResource(ModelResource):
         allowed_methods = ['get']
         excludes = ['information', ]
         cache = SimpleCache(timeout=10)
+        detail_uri_name = 'slug'
         
 

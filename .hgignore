@@ -10,6 +10,7 @@ syntax: regexp
 ^thirdparty/bootstrap/bootstrap/
 ^website/data/
 ^website/website/database.db
+^website/website/database*
 ^website/website/settings/local.py
 ^website/website/templates/revision.txt
 ^website/django.log

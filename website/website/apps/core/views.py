@@ -6,7 +6,7 @@ from django.views.generic import DetailView, TemplateView
 from django.core.urlresolvers import reverse
 from django.core.paginator import EmptyPage, PageNotAnInteger
 
-from website.apps.core.models import Family, Language, AlternateName, Source
+from website.apps.core.models import Family, Language, AlternateName, Source, Location
 
 from django_tables2 import SingleTableView, RequestConfig
 from website.apps.core.tables import LanguageIndexTable, SourceIndexTable, FamilyIndexTable
@@ -159,6 +159,15 @@ def language_detail(request, language):
         source_ids = [_['source_id'] for _ in my_lang.lexicon_set.values('source_id').distinct().all()]
         out['sources_used'] = Source.objects.filter(pk__in=source_ids)
         
+        # location
+        out['location'] = None
+        if my_lang.isocode:
+            try:
+                out['location'] = Location.objects.filter(isocode=my_lang.isocode)[0]
+            except (Location.DoesNotExist, IndexError):
+                pass  # keep out['location'] as None
+                
+            
         # load lexicon if installed.
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
             qset = my_lang.lexicon_set.select_related().all()

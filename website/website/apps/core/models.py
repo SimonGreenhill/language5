@@ -3,6 +3,7 @@ from django.db.models.signals import pre_save
 from django.contrib.auth.models import User
 from website.signals import create_redirect
 
+import reversion
 import watson
 
 from website.apps.statistics import statistic
@@ -37,6 +38,7 @@ class TrackedModel(models.Model):
         get_latest_by = 'added'
 
 
+@reversion.register
 class Source(TrackedModel):
     """Source Details"""
     year = models.CharField(max_length=12, 
@@ -71,6 +73,7 @@ class Source(TrackedModel):
         ]
 
 
+@reversion.register
 class Note(TrackedModel):
     """Notes/Information about a language"""
     language = models.ForeignKey('Language')
@@ -86,6 +89,7 @@ class Note(TrackedModel):
         db_table = 'notes'
 
 
+@reversion.register
 class Family(TrackedModel):
     """Language families/Subsets"""
     family = models.CharField(max_length=64, unique=True, db_index=True, 
@@ -106,6 +110,7 @@ class Family(TrackedModel):
         ordering = ['family', ]
     
 
+@reversion.register
 class Language(TrackedModel):
     """Stores language information"""
     family = models.ManyToManyField(Family, blank=True)
@@ -141,6 +146,7 @@ class Language(TrackedModel):
         ordering = ['language', 'dialect']
 
 
+@reversion.register
 class AlternateName(TrackedModel):
     """Handles languages with multiple names"""
     language = models.ForeignKey('Language')
@@ -162,6 +168,7 @@ class AlternateName(TrackedModel):
         ordering = ['name', ]
 
 
+@reversion.register
 class Link(TrackedModel):
     """Stores links to language appropriate resources"""
     language = models.ForeignKey('Language')
@@ -177,6 +184,7 @@ class Link(TrackedModel):
         unique_together = ['language', 'link']
         
 
+@reversion.register
 class Location(TrackedModel):
     isocode = models.CharField(max_length=3, db_index=True)
     longitude = models.FloatField(help_text="Longitude")
@@ -190,6 +198,7 @@ class Location(TrackedModel):
         db_table = 'locations'
 
 
+@reversion.register
 class Attachment(TrackedModel):
     """Attachments Details"""
     language = models.ForeignKey('Language')
@@ -210,6 +219,7 @@ class Attachment(TrackedModel):
         db_table = 'attachments'
 
 
+@reversion.register
 class PopulationSize(TrackedModel):
     """Population Size Details"""
     language = models.ForeignKey('Language')

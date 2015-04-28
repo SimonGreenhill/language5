@@ -23,14 +23,6 @@ def link_olac(lang):
         return ""
 
 @register.filter
-def link_llmap(lang):
-    """Links to LLMap"""
-    if isinstance(lang, Language) and lang.isocode:
-        return "http://llmap.org/languages/%s.html" % lang.isocode
-    else:
-        return ""
-
-@register.filter
 def link_multitree(lang):
     """Links to MultiTree"""
     if isinstance(lang, Language) and lang.isocode:
@@ -53,22 +45,15 @@ def link_wikipedia(lang):
         return "https://en.wikipedia.org/wiki/ISO_639:%s" % lang.isocode
     else:
         return ""
-        
 
-@register.filter
-def language_map(lang):
-    """Embeds a link to LLMap"""
-    WIDTH = 400
-    HEIGHT = 300
-    
-    if isinstance(lang, Language) and lang.isocode:
-        return mark_safe("""
-        <img src="http://llmap.org/language/%s.png?width=%d&height=%d" alt="Map of %s: courtesy of LL-MAP" />
-        """ % (lang.isocode, WIDTH, HEIGHT, unicode(lang))
-        )
-    else:
-        return ""
+@register.inclusion_tag('includes/condense_classification.html')
+def condense_classification(classification):
+    """Returns a condensed classification string"""
+    return { 'classif': [_.strip() for _ in classification.split(",")] }
 
+@register.inclusion_tag('includes/map.html')
+def show_map(location):
+    return {'latitude': location.latitude, 'longitude': location.longitude}
 
 def active(context, view):
     try:
@@ -80,8 +65,6 @@ def active(context, view):
         return ' class="active" '
     else:
         return ''
-
-
 
 register.simple_tag(takes_context=True)(active)
 register.tag('ifinstalled', do_ifinstalled)

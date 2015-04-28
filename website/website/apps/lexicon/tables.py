@@ -1,5 +1,9 @@
+from django.utils.safestring import mark_safe
+from django.core.urlresolvers import reverse
+
 import django_tables2 as tables
 from django_tables2.utils import A  # alias for Accessor
+
 from website.apps.core.tables import DataTable
 
 from website.apps.lexicon.models import Word, WordSubset, Lexicon
@@ -181,8 +185,6 @@ class SourceLexiconEditTable(SourceLexiconTable):
     Meta.attrs['summary'] = 'Table of Lexicon'
 
 
-
-
 class AlignmentTable(WordLexiconTable):
     id = tables.LinkColumn('lexicon-edit', args=[A('id')])
     language = tables.LinkColumn('language-detail', args=[A('language.slug')])
@@ -202,4 +204,5 @@ class AlignmentTable(WordLexiconTable):
         sequence = ('id', 'language', 'entry', 'alignment', 'annotation', 'loan',  'source')
         exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'word', 'source_gloss')
     Meta.attrs['summary'] = 'Table of Lexicon'
+
 

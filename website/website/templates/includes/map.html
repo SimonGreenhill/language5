@@ -1,0 +1,29 @@
+{% load staticfiles %}
+
+<div id="map" style="width: 400px; height: 200px"></div>
+
+<link media="all" href="{% static "css/leaflet.css" %}" type="text/css" rel="stylesheet" />
+<script src="{% static "js/jquery.js" %}" type="text/javascript"></script>
+<script src="{% static "js/leaflet.js" %}" type="text/javascript"></script>
+
+<script>
+    $(document).ready(function() {
+        var map = L.map('map', {
+            fullscreenControl: true,
+            minZoom: 1,
+            fullscreenControlOptions: {
+              position: 'topleft'
+          }
+        }).setView([{{ latitude }}, {{ longitude }}], 5);
+        var p = L.icon({
+            iconUrl: '{% static "img/orange-star.png" %}',
+            iconSize: [20, 20],
+            iconAnchor: [5, 5],
+        });
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: 'Language data &copy; <a href="http://transnewguinea.org">TransNewGuinea.org</a>, Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        L.marker([{{ latitude }}, {{ longitude }}], { icon: p, clickable: false }).addTo(map);
+    });
+</script>

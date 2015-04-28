@@ -19,7 +19,7 @@
     </ul>
     
     
-    {% if subsets %}
+    <div class="well">
         <h2>Word Subsets:</h2>
 
         <ul class="nav nav-pills">
@@ -31,8 +31,13 @@
                     <a href="{% url "subset-detail" w %}"><i class="icon-tags"></i> {{ w }} </a>
                 </li>
             {% endfor %}
+            {% for w in letters %}
+                <li{% ifequal subset w %} class="active" {% endifequal %}>
+                    <a href="{% url "subset-detail" w %}"><i class="icon-tags"></i> {{ w }} </a>
+                </li>
+            {% endfor %}
         </ul>
-    {% endif %}
+    </div>
     
     {% if subset %}
         <h2> Words in subset {{ subset|title }}</h2>

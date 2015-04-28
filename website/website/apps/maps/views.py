@@ -45,6 +45,12 @@ class LanguageMap(ListView):
     template_name = 'maps/language.html'
 
 
+class DataMap(ListView):
+    """Data Quantity Visualisation Detail"""
+    model = Language
+    template_name = 'maps/data.html'
+
+
 class WordMap(DetailView):
     """Word Map Detail"""
     model = Word
@@ -70,3 +76,4 @@ class CognateSetMap(DetailView):
             kwargs['object'].cognate_set.select_related('language').all()
         ])
         return context
+

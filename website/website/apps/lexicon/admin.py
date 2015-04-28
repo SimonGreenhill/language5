@@ -69,7 +69,7 @@ class LexiconAdmin(TrackedModelAdmin, VersionAdmin):
 
 class CognateSetAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
-    list_display = ('id', 'protoform', 'gloss', 'source', 'comment', 'quality')
+    list_display = ('id', 'protoform', 'gloss', 'source', 'quality')
     list_filter = ('editor', 'source', 'quality')
     ordering = ('id',)
     list_select_related = True
@@ -91,10 +91,11 @@ class CorrespondenceSetAdmin(TrackedModelAdmin, VersionAdmin):
 
 
 class CognateAdmin(TrackedModelAdmin, VersionAdmin):
-    list_display = ('cognateset', 'lexicon', 'source', 'comment', 'flag')
-    list_filter = ('editor', 'cognateset', 'source', 'lexicon')
+    list_display = ('cognateset', 'source', 'lexicon')
+    list_filter = ('editor', 'source',)
     ordering = ('id',)
     list_select_related = True
+    search_fields = ('cognateset__protoform', 'cognateset__gloss', 'source__slug', 'lexicon__entry', 'comment')
     
     def get_queryset(self, request):
         return super(CognateAdmin, self).queryset(request).select_related('lexicon', 'source', 'cognateset')
