@@ -36,9 +36,9 @@ STATIC_URL = 'http://assets.transnewguinea.org/tng/'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2'
-        'NAME': 'sjg_tng',
-        'USER': 'sjg_tng',
-        'PASSWORD': 'bab50905',
+        'NAME': '<EDIT>',
+        'USER': '<EDIT>',
+        'PASSWORD': '<EDIT>',
         'HOST': 'localhost',
         'PORT': '',
         'TEST_NAME': None,               # use SQLite in-memory for testing
@@ -47,12 +47,12 @@ DATABASES = {
 
 # EMAIL:
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.webfaction.com'
+EMAIL_HOST = '<EDIT>'
 EMAIL_PORT = '25'
-EMAIL_HOST_USER = 'sjg_local'
-EMAIL_HOST_PASSWORD = 'Rei4jieP'
-EMAIL_SUBJECT_PREFIX = '[tng.org]'
-SERVER_EMAIL = "admin@transnewguinea.org"
+EMAIL_HOST_USER = '<EDIT>'
+EMAIL_HOST_PASSWORD = '<EDIT>'
+EMAIL_SUBJECT_PREFIX = '<EDIT>'
+SERVER_EMAIL = "<EDIT>"
 
 
 # OLAC
