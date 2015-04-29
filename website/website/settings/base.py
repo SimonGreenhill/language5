@@ -177,9 +177,6 @@ INSTALLED_APPS = [
     # INSTALLED_APPS.append('website.apps.entry')     # Data Entry
 ]
 
-TEST_RUNNER = 'website.test_runner.InstalledAppsRunner'
-
-
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
