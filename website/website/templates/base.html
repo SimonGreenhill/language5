@@ -37,7 +37,6 @@
           {% endif %}
           <div class="btn-group pull-right">
              <a class="btn" href="http://twitter.com/transnewguinea" title="@transnewguinea">
-                 <img src="{% static "img/twitter.png" %}" width="50" height="41" alt="Transnewguinea.org on Twitter" />
                  @transnewguinea
              </a>
           </div>
@@ -109,6 +108,9 @@
                       {% ifinstalled "website.apps.lexicon" %}
                           <li{% active 'cognateset-index' %}>
                               <a href="{% url "cognateset-index" %}">Cognates</a>
+                          </li>
+                          <li{% active 'cognacy:index' %}>
+                              <a href="{% url "cognacy:index" %}">Do Cognacy</a>
                           </li>
                       {% endifinstalled %}
                   {% else %}

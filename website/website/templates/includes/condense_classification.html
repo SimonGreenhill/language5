@@ -1,0 +1,9 @@
+{% for node in classif %}
+    {% if forloop.last %}
+        <abbr title="{{ node }}" class="initialism">{{ node }}</abbr>
+    {% else %}
+        <abbr title="{{ node }}" class="initialism">{{ node|slice:"0:1" }}</abbr>, 
+    {% endif %}
+{% empty %}
+    ...
+{% endfor %}

@@ -3,6 +3,7 @@ from django.db.models.signals import pre_save
 from django.core.urlresolvers import reverse
 
 import watson
+import reversion
 
 from website.apps.core.models import TrackedModel
 from website.apps.statistics import statistic
@@ -33,6 +34,7 @@ WORD_QUALITY = (
     ('9', 'Highly unsuitable'),
 )
 
+@reversion.register
 class Word(TrackedModel):
     """Word Details"""
     word = models.CharField(max_length=64, db_index=True, unique=True,
@@ -65,8 +67,7 @@ class Word(TrackedModel):
         ordering = ['word', ]
 
 
-
-
+@reversion.register
 class WordSubset(TrackedModel):
     """Word Subset Details"""
     subset = models.CharField(max_length=64, db_index=True, unique=True, 
@@ -90,6 +91,7 @@ class WordSubset(TrackedModel):
         ordering = ['slug', ]
 
 
+@reversion.register(follow=['cognate_set', 'cognateset_set', 'task_set',])
 class Lexicon(TrackedModel):
     """Lexicon Details"""
     language = models.ForeignKey('core.Language')
@@ -123,6 +125,7 @@ class Lexicon(TrackedModel):
         ordering = ['entry', ]
 
 
+@reversion.register(follow=["lexicon"])
 class CognateSet(TrackedModel):
     """Cognate Sets"""
     protoform = models.CharField(max_length=128, blank=True, null=True, db_index=True)
@@ -138,11 +141,16 @@ class CognateSet(TrackedModel):
     def __unicode__(self):
         return "%d. %s '%s'" % (self.id, self.protoform, self.gloss)
     
+    @models.permalink
+    def get_absolute_url(self):
+        return ('cognateset-detail', [self.pk])
+    
     class Meta:
         db_table = 'cognatesets'
         verbose_name_plural = 'Cognate Sets'
     
 
+@reversion.register(follow=["lexicon", "cognateset"])
 class Cognate(TrackedModel):
     """Cognacy Judgements"""
     lexicon = models.ForeignKey('Lexicon')
@@ -161,6 +169,7 @@ class Cognate(TrackedModel):
         db_table = 'cognates'
 
 
+@reversion.register(follow=["corrset_set"])
 class CorrespondenceSet(TrackedModel):
     """Sound Correspondence Sets"""
     language = models.ManyToManyField('core.Language', through='Correspondence')
@@ -175,6 +184,7 @@ class CorrespondenceSet(TrackedModel):
         verbose_name_plural = 'Correspondence Sets'
         
 
+@reversion.register
 class Correspondence(TrackedModel):
     """Sound Correspondence Rules"""
     language = models.ForeignKey('core.Language')
@@ -192,11 +202,9 @@ class Correspondence(TrackedModel):
 pre_save.connect(create_redirect, sender=Word, dispatch_uid="word:001")
 pre_save.connect(create_redirect, sender=WordSubset, dispatch_uid="wordsubset:001")
 
-
 watson.register(Word, fields=('word', 'full'))
 watson.register(WordSubset, fields=('subset', 'description'))
 watson.register(Lexicon, fields=('entry', 'annotation'))
-
 
 statistic.register("Number of Words", Word, graph=3)
 statistic.register("Number of Word Sets", WordSubset)

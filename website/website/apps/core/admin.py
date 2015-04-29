@@ -40,6 +40,7 @@ class LanguageAdmin(TrackedModelAdmin, VersionAdmin):
 
 class SourceAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
+    list_display = ('slug', 'author', 'year', 'reference',)
     list_filter = ('editor', 'author', 'year')
     ordering = ('author', 'year')
     prepopulated_fields = {'slug': ('author', 'year')}

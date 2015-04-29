@@ -214,18 +214,3 @@ class Test_GenericView(DataMixin):
         self.assertEqual(response.status_code, 200)
         assert response.context['formset'].errors[0] == {'language': [u'This field is required.']}
     
-    def test_number_of_queries(self):
-        self.client.login(username="admin", password="test")
-        task = Task.objects.create(
-            editor=self.editor,
-            name="Test Task - Fixed Language",
-            description="",
-            source=self.source,
-            done=False,
-            view="GenericView",
-            records=1, # needed so we don't have too many empty forms to validate
-        )
-        form_data = self.form_data.copy()
-        with self.assertNumQueries(10):
-            response = self.client.post(task.get_absolute_url(), form_data)
-            

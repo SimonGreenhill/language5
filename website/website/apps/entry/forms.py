@@ -21,7 +21,8 @@ class QuickEntryViewForm(forms.Form):
     )
     source = forms.ModelChoiceField(
         queryset=Source.objects.order_by('slug'),
-        widget=forms.widgets.Select(attrs={'class': 'input-medium'})
+        widget=forms.widgets.Select(attrs={'class': 'input-medium'}),
+        required=False
     )
     
             

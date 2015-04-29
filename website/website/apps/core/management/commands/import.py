@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 import os
+import re
 import sys
 import reversion
 from optparse import make_option
 from django.conf import settings
 from django.db import transaction
 from django.core.management.base import BaseCommand
+
+is_script = re.compile(r"""^[\d|x]{4}_.*\.py$""")
 
 class Command(BaseCommand):
     args = '<filename ../path/to/file>'
@@ -22,10 +25,9 @@ class Command(BaseCommand):
     DATA_ROOT = os.path.join(os.path.split(settings.SITE_ROOT)[0], 'data')
     
     def list_datafiles(self):
-        files = sorted([_ for _ in os.listdir(self.DATA_ROOT)
-                                if os.path.splitext(_)[1] == '.py'
-                                and _.startswith("0")])
-        for filename in files:
+        files = [_ for _ in os.listdir(self.DATA_ROOT)]
+        files = [_ for _ in files if is_script.match(_)]
+        for filename in sorted(files):
             print(" - {0}".format(os.path.join('data', filename)))
         
     def load(self, filename, dryrun=True):

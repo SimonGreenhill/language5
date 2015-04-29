@@ -28,27 +28,24 @@
           <a href="{% url "word-detail" object.slug %}">{{ object }}</a>
           <span class="divider">/</span>
       </li>
-      {% if user.is_staff %}
-          <li>
-              <a href="{% url "word-edit" object.slug %}">edit</a>
-          </li>
-      {% endif %}
     </ul>
     
     
     <h2> Words: </h2>
+    
+    {% if user.is_staff %}
+        <div class="btn-group">
+            <button class="btn"><a href="{% url "word-detail" object.slug %}">View this word</a></button>
+            <button class="btn"><a href="{% url "word-edit" object.slug %}">Edit this word</a></button>
+            <button class="btn"><a href="{% url "word-alignment" object.slug %}">Show Alignment</a></button>
+            <button class="btn"><a href="{% url "cognacy:do" word=object.slug clade="" %}">Edit Cognacy</a></button>
+        </div>
+    {% endif %}
     
     {% if lexicon %}
         {% render_table lexicon "table.html" %}
     {% else %}
         <p class="error">No results found!</p>
     {% endif %}
-    
-    {% if user.is_staff %}
-        <p>
-            <a href="{% url "word-edit" object.slug %}">Edit this word</a>
-        </p>
-    {% endif %}
-    
     
 {% endblock %}

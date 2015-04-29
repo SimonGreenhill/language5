@@ -57,6 +57,16 @@
                 <h1>Editing: {{ word }}</h1>
             </div>
             
+             {% if user.is_staff %}
+                 <div class="btn-group">
+                     <button class="btn"><a href="{% url "word-detail" word.slug %}">View this word</a></button>
+                     <button class="btn"><a href="{% url "word-edit" word.slug %}">Edit this word</a></button>
+                     <button class="btn"><a href="{% url "word-alignment" word.slug %}">Show Alignment</a></button>
+                     <button class="btn"><a href="{% url "cognacy:do" word=word.slug clade="" %}">Edit Cognacy</a></button>
+                 </div>
+             {% endif %}
+            
+            
             <div class="row clearfix">
                 <p class="well well-small span8 offset2">
                     <span id="picker"></span>

@@ -59,35 +59,43 @@
         {{ language.classification }}
     </p>
     
-    <h2> Resources: </h2>
+    <div class="row-fluid">
+      <div class="span5">
+          <h2> Map: </h2>
+          {% if location %}
+              {% show_map location %}
+          {% else %}
+              <div class="alert alert-error">Location Not Stored</div>
+          {% endif %}
+      </div>
+      <div class="span5">
+          <h2> Resources: </h2>
+         
+          <ul>
+              {% if language.isocode %}
+                  <li><a href="{{ language|link_ethnologue }}">Ethnologue page for {{ language.language }}</a></li>
+                  <li><a href="{{ language|link_olac }}">Open Language Archives search for {{ language.language }}</a></li>
+                  <li><a href="{{ language|link_wikipedia }}">Wikipedia page for {{ language.language }}</a></li>
+                  {% comment %}
+                  <li><a href="{{ language|link_llmap }}">Linguist-List Map Project for {{ language.language }}</a></li>
+                  {% endcomment %}
+                  <li><a href="{{ language|link_multitree }}">Multitree language relationships for {{ language.language }}</a></li>
+                  <li><a href="{{ language|link_glottolog }}">Glottolog resources for {{ language.language }}</a></li>
+              {% endif %}
+        
+              {% if links %}
+                  {% for link in links %}
+                      <li><a href="{{ link.link }}">{{ link.description }}</a></li>
+                  {% endfor %}
+              {% endif %}
+              
+              {% if attachments %}
+                  {% include "includes/filelist.html" %}
+              {% endif %}
+          </ul>
+      </div>
+    </div>
     
-    <ul>
-        {% if language.isocode %}
-            <li><a href="{{ language|link_ethnologue }}">Ethnologue page for {{ language.language }}</a></li>
-            <li><a href="{{ language|link_olac }}">Open Language Archives search for {{ language.language }}</a></li>
-            <li><a href="{{ language|link_wikipedia }}">Wikipedia page for {{ language.language }}</a></li>
-            <li><a href="{{ language|link_llmap }}">Linguist-List Map Project for {{ language.language }}</a></li>
-            <li><a href="{{ language|link_multitree }}">Multitree language relationships for {{ language.language }}</a></li>
-            <li><a href="{{ language|link_glottolog }}">Glottolog resources for {{ language.language }}</a></li>
-        {% endif %}
-        
-        {% if links %}
-            {% for link in links %}
-                <li><a href="{{ link.link }}">{{ link.description }}</a></li>
-            {% endfor %}
-        {% endif %}
-    </ul>
-
-    {% if language.isocode %}
-        <h2> Map: </h2>
-        
-        {{ language|language_map }}
-        
-    {% endif %}
-    
-    {% if attachments %}
-        {% include "includes/filelist.html" %}
-    {% endif %}
 
     {% ifinstalled "website.apps.pronouns" %}
  	   	{% if pronoun %}

@@ -152,7 +152,6 @@ INSTALLED_APPS = [
     'django.contrib.admindocs',
     
     # third-party
-    'south',                             # south: database migrations
     'reversion',                         # reversion: object version control.
     'djangosecure',                      # django-secure: Security helper
     'django_tables2',                    # django-tables2: tables helper
@@ -165,7 +164,10 @@ INSTALLED_APPS = [
     'website.apps.core',                 # core functionality
     'website.apps.statistics',           # statistics
     'website.apps.lexicon',              # lexicon
+    'website.apps.cognacy',              # lexicon -- cognacy
     'website.apps.olac',                 # OLAC
+    'website.apps.entry',                # Data Entry
+    'website.apps.pronouns',             # pronoun paradigm project
     'website.apps.maps',                 # maps
     'tastypie',                          # API
     'django_nvd3',                       # for graphing statistics
@@ -174,9 +176,6 @@ INSTALLED_APPS = [
     # INSTALLED_APPS.append('website.apps.olac')      # OLAC utils
     # INSTALLED_APPS.append('website.apps.entry')     # Data Entry
 ]
-
-TEST_RUNNER = 'website.test_runner.InstalledAppsRunner'
-
 
 LOGGING = {
     'version': 1,

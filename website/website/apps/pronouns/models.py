@@ -2,6 +2,8 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 
+import reversion
+
 from website.apps.core.models import TrackedModel, Language, Source
 
 ALIGNMENT_CHOICES = (
@@ -43,6 +45,8 @@ class ActivePronounTypeManager(models.Manager):
         return super(ActivePronounTypeManager, self).get_queryset().filter(active=True)
 
     
+
+@reversion.register
 class PronounType(TrackedModel):
     """Types of Pronouns"""
     alignment = models.CharField(max_length=1, choices=ALIGNMENT_CHOICES,
@@ -91,6 +95,7 @@ class PronounType(TrackedModel):
         return out
     
 
+@reversion.register
 class Paradigm(TrackedModel):
     """Paradigm Details"""
     language = models.ForeignKey(Language)
@@ -147,6 +152,7 @@ class Paradigm(TrackedModel):
         
 
 
+@reversion.register
 class Pronoun(TrackedModel):
     """Pronoun Data"""
     paradigm = models.ForeignKey('Paradigm')
@@ -202,6 +208,7 @@ class PronounRelationshipManager(models.Manager):
             return False
 
 
+@reversion.register
 class Relationship(TrackedModel):
     """Relationships Data"""
     RELATIONSHIP_CHOICES = (
@@ -228,6 +235,7 @@ class Relationship(TrackedModel):
         db_table = 'pronoun_relationships'
         
 
+@reversion.register
 class Rule(TrackedModel):
     """Pronoun Relationship Rules"""
     paradigm = models.ForeignKey('Paradigm')

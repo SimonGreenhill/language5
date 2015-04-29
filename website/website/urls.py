@@ -7,17 +7,17 @@ admin.autodiscover()
 
 from tastypie.api import Api
 from website.apps.core.resources import LanguageResource, SourceResource
-from website.apps.lexicon.resources import WordResource
+from website.apps.lexicon.resources import WordResource, LexiconResource
 
 
 v1_api = Api(api_name='v1')
 v1_api.register(LanguageResource())
 v1_api.register(SourceResource())
 v1_api.register(WordResource())
+v1_api.register(LexiconResource())
 
 from website.apps.maps.resources import LanguageMapResource
 v1_api.register(LanguageMapResource())
-
 
 
 from website.apps.core.views import LanguageIndex, RobotsTxt
@@ -125,11 +125,17 @@ if 'website.apps.lexicon' in settings.INSTALLED_APPS:
         # Admin/Editor pages
         # lexicon-edit: edit lexical item.
         url(r'^lexicon/(?P<pk>\d+)/edit$', LexiconEdit.as_view(), name="lexicon-edit"),
-        url(r'^word/(?P<slug>[\w\d\-\.]+)/edit$', 'website.apps.lexicon.views.word_edit', name="word-edit"),
-        
-        url(r'^word/(?P<slug>[\w\d\-\.]+)/alignment$', 'website.apps.lexicon.views.word_alignment', name="word-alignment"),
-
-
+        url(r'^word/(?P<slug>[\w\d\-\.]+)/edit$',
+            'website.apps.lexicon.views.word_edit', 
+            name="word-edit"
+        ),
+        url(r'^word/(?P<slug>[\w\d\-\.]+)/alignment$',
+            'website.apps.lexicon.views.word_alignment',
+            name="word-alignment"
+        ),
+    )
+    urlpatterns += patterns("",
+        url(r"^cognacy/", include('website.apps.cognacy.urls', namespace='cognacy')),
     )
 
 # ------------------------------------------------------------------------ #
