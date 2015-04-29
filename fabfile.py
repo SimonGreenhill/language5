@@ -24,7 +24,6 @@ dump_ignores = [
     'watson.searchentry', 
     'admin.logentry',
     'sessions.session', 
-    'south.migrationhistory',
     'reversion.revision', 
     'reversion.version',
 ]
