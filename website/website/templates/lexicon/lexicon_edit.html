@@ -1,14 +1,33 @@
 {% extends "base.html" %}
+{% load static %}
+{% load compress %}
 
 {% block extra_keywords %} {{object}} {% endblock %}
 
 {% block title %} Lexicon #{{ object }} | {{SITE_NAME }} {% endblock %}
+
+{% block head %}
+    {% compress css %}
+        <link rel="stylesheet" type="text/css" href="{% static "css/jquery.keypad.css" %}" />
+    {% endcompress %}
+    {% compress js %}
+        <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/jquery.keypad.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/charpicker.js" %}"></script>
+    {% endcompress %}
+{% endblock %}
 
 {% block content %}
     <div class="page-header">
         <h1>
             Lexicon #{{ object.id }}:
         </h1>
+    </div>
+    
+    <div class="row clearfix">
+        <p class="well well-small span8 offset2">
+            <span id="picker"></span>
+        </p>
     </div>
     
     <form action="{% url "lexicon-edit" object.id %}" method="post">
