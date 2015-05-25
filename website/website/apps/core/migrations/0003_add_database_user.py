@@ -7,7 +7,9 @@ from django.db import models, migrations
 def add_db_user(apps, schema_editor):
     pw = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(32))
     User = apps.get_model("auth", "User")
-    User.objects.create_user('mr-database', 'admin@simon.net.nz', pw)
+    u = User.objects.create(username='mr-database')
+    u.set_password(pw)
+    u.save()
 
 class Migration(migrations.Migration):
     dependencies = [('core', '0002_fix_classification'),]
