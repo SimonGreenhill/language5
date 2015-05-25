@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 import string
 import random
-from __future__ import unicode_literals
 from django.db import models, migrations
 
 def add_db_user(apps, schema_editor):
