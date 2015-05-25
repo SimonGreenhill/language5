@@ -7392,6 +7392,6 @@ def install_isocodes(apps, schema_editor):
 
 
 class Migration(migrations.Migration):
-    dependencies = [('core', '0002_fix_classification'),]
+    dependencies = [('core', '0003_add_database_user'),]
     operations = [migrations.RunPython(install_isocodes),]
  
