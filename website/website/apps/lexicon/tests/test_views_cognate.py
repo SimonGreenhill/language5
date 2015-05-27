@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 
 from website.apps.lexicon.tests import DataMixin, DataMixinLexicon
 from website.apps.lexicon.models import Word, WordSubset, Lexicon
-from website.apps.lexicon.models import CognateSet, Cognate
+from website.apps.lexicon.models import CognateSet, Cognate, CognateNote
 
 
 class CognateSetMixin(object):
@@ -116,3 +116,12 @@ class Test_CognateSetDetail(DataMixin, CognateSetMixin, TestCase):
         assert 'sausage' in response.content
         assert 'wurst' in response.content
         assert 'banana' not in response.content
+        
+    def test_notes(self):
+        CognateNote.objects.create(cognateset=self.cogset1, note="I AM A NOTE", editor=self.editor)
+        self.client.login(username="admin", password="test")
+        response = self.client.get(self.url)
+        self.assertEquals(response.status_code, 200)
+        assert 'I AM A NOTE' in response.content
+        
+        

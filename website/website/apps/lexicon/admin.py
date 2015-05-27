@@ -4,7 +4,7 @@ from django.forms import Textarea
 from reversion.admin import VersionAdmin
 
 from website.apps.lexicon.models import Word, WordSubset, Lexicon
-from website.apps.lexicon.models import CognateSet, Cognate
+from website.apps.lexicon.models import CognateSet, Cognate, CognateNote
 from website.apps.lexicon.models import CorrespondenceSet, Correspondence
 
 from website.apps.core.admin import TrackedModelAdmin
@@ -101,6 +101,17 @@ class CognateAdmin(TrackedModelAdmin, VersionAdmin):
         return super(CognateAdmin, self).queryset(request).select_related('lexicon', 'source', 'cognateset')
 
 
+class CognateNoteAdmin(TrackedModelAdmin, VersionAdmin):
+    list_display = ('word', 'cognateset', 'editor', 'note')
+    list_filter = ('word', 'editor',)
+    ordering = ('id',)
+    list_select_related = True
+    search_fields = ('word', 'cognateset', 'editor', 'note')
+    
+    def get_queryset(self, request):
+        return super(CognateNoteAdmin, self).queryset(request).select_related('word', 'cognateset')
+
+
 class CorrespondenceAdmin(TrackedModelAdmin, VersionAdmin):
     pass
 
@@ -112,4 +123,5 @@ admin.site.register(Lexicon, LexiconAdmin)
 admin.site.register(CognateSet, CognateSetAdmin)
 admin.site.register(CorrespondenceSet, CorrespondenceSetAdmin)
 admin.site.register(Cognate, CognateAdmin)
+admin.site.register(CognateNote, CognateNoteAdmin)
 admin.site.register(Correspondence, CorrespondenceAdmin)

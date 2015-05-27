@@ -23,6 +23,23 @@
       </li>
     </ul>
     
+    {% if notes %}
+        <div class="well">
+        
+        <p><strong> Notes: </strong></p>
+            <ul>
+                {% for n in notes %}
+                    <li> 
+                        {% if n.word %} Word: <a href="{% url "word-detail" n.word.id %}">{{ n.word }}</a> {% endif %}
+                        {% if n.cognateset %}CognateSet: <a href="{% url "cognateset-detail" n.cognateset.id %}">{{ n.cognateset }}</a>  {% endif %}
+                        :{{ n.note }} - {{ n.editor }}.
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    
+    
     <div class="well">
         <p><strong>Cognate sets in-play:</strong></p>
         <ul class="unstyled">

@@ -23,6 +23,20 @@
       </li>
     </ul>
     
+    <h2> Notes: </h2>
+    
+    {% if notes %}
+    <ul>
+        {% for n in notes %}
+            <li> 
+                {% if n.word %} Word: <a href="{% url "word-detail" n.word.id %}">{{ n.word }}</a> {% endif %}
+                {% if n.cognateset %}CognateSet: <a href="{% url "cognateset-detail" n.cognateset.id %}">{{ n.cognateset }}</a>  {% endif %}
+                :{{ n.note }} - {{ n.editor }}
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    
     <h2> Members: </h2>
     
     <ul>

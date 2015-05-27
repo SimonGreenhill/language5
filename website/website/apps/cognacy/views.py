@@ -2,14 +2,14 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.db import transaction
-from django.db.models import Max
+from django.db.models import Max, Q
 from django.shortcuts import get_object_or_404, render_to_response, redirect
 from django.template import RequestContext
 from django_tables2 import RequestConfig
 
 import reversion
 
-from website.apps.lexicon.models import Word, Lexicon, CognateSet, Cognate
+from website.apps.lexicon.models import Word, Lexicon, CognateSet, Cognate, CognateNote
 from website.apps.cognacy.forms import DoCognateForm, MergeCognateForm
 from website.apps.cognacy.tables import CognacyTable
 
@@ -58,7 +58,10 @@ def do(request, word, clade=None):
     # 1. get a list of (lexicon.id, cognateset.id)
     queryset = Cognate.objects.filter(lexicon_id__in=lex_ids).select_related('lexicon', 'cognateset', 'cognateset__source')
     cogs = [(c.lexicon_id, c.cognateset_id, c.cognateset) for c in queryset]
-    # 2. go through entries and attach a list of cognateset ids if needed, else empty list
+    # 2. get notes
+    notes = CognateNote.objects.filter(Q(word=w) | Q(cognateset__in=[c[2] for c in cogs]))
+    
+    # 3. go through entries and attach a list of cognateset ids if needed, else empty list
     entries_and_cogs = []
     inplay = {}
     for e in entries:
@@ -93,6 +96,7 @@ def do(request, word, clade=None):
                                   'inplay': inplay, 'form': form,
                                   'mergeform': mergeform,
                                   'next_cognates': get_missing_cogids(limit=10),
+                                  'notes': notes
                               },
                               context_instance=RequestContext(request))
 

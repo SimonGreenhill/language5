@@ -9,7 +9,7 @@ from django.core.urlresolvers import reverse
 
 from django.contrib.auth.models import User
 from website.apps.core.models import Language, Source
-from website.apps.lexicon.models import Word, Lexicon, CognateSet, Cognate
+from website.apps.lexicon.models import Word, Lexicon, CognateSet, Cognate, CognateNote
 from website.apps.cognacy.forms import MergeCognateForm
 
 class DataMixin(TestCase):
@@ -169,6 +169,19 @@ class Test_Do(DataMixin):
         response = self.AuthenticatedClient.get(url)
         assert response.context['lexicon'].data.data == []
       
+    def test_note_show_on_word(self):
+        note = CognateNote.objects.create(word=self.word, editor=self.editor, note="WORD!")
+        response = self.AuthenticatedClient.get(self.url)
+        assert 'WORD!' in response.content
+        
+    def test_note_show_on_cogset(self):
+        cogset = CognateSet.objects.create(protoform='test', editor=self.editor)
+        Cognate.objects.create(lexicon=self.lex_a, cognateset=cogset, editor=self.editor)
+        note = CognateNote.objects.create(cognateset=cogset, editor=self.editor, note="COGSET!")
+        response = self.AuthenticatedClient.get(self.url)
+        assert 'COGSET!' in response.content
+        
+        
 
 
 class Test_Save(DataMixin):
@@ -430,3 +443,4 @@ class Test_Forms(DataMixin):
         }
         f = MergeCognateForm(form_data, queryset=CognateSet.objects.all())
         assert not f.is_valid()
+        

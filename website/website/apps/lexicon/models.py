@@ -169,6 +169,24 @@ class Cognate(TrackedModel):
         db_table = 'cognates'
 
 
+@reversion.register
+class CognateNote(TrackedModel):
+    """Notes/Information about a Cognate Set"""
+    word = models.ForeignKey(Word, blank=True, null=True)
+    cognateset = models.ForeignKey(CognateSet, blank=True, null=True)
+    note = models.TextField(help_text="Note")
+    
+    def __unicode__(self):
+        if self.cognateset:
+            return u'#%d-%d. %s...' % (self.id, self.cognateset_id, self.note[0:30])
+        else:
+            return u'#%d. %s...' % (self.id, self.note[0:30])
+    
+    class Meta:
+        db_table = 'cognacy_notes'
+
+
+
 @reversion.register(follow=["corrset_set"])
 class CorrespondenceSet(TrackedModel):
     """Sound Correspondence Sets"""
