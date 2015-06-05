@@ -92,13 +92,14 @@ class CorrespondenceSetAdmin(TrackedModelAdmin, VersionAdmin):
 
 class CognateAdmin(TrackedModelAdmin, VersionAdmin):
     list_display = ('cognateset', 'source', 'lexicon')
+    raw_id_fields = ('lexicon', 'cognateset', )
     list_filter = ('editor', 'source',)
     ordering = ('id',)
     list_select_related = True
     search_fields = ('cognateset__protoform', 'cognateset__gloss', 'source__slug', 'lexicon__entry', 'comment')
     
     def get_queryset(self, request):
-        return super(CognateAdmin, self).queryset(request).select_related('lexicon', 'source', 'cognateset')
+        return super(CognateAdmin, self).queryset(request).select_related('source', 'cognateset')
 
 
 class CognateNoteAdmin(TrackedModelAdmin, VersionAdmin):
