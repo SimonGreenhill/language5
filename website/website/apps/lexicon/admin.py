@@ -13,10 +13,12 @@ from website.apps.core.admin import TrackedModelAdmin
 # Inlines
 class CognatesInline(admin.TabularInline):
     model = Cognate
-    extra = 1
+    extra = 0
     formfield_overrides = {
         models.TextField: {'widget': Textarea(attrs={'rows':1}) },
     }
+    fields = ('lexicon', 'source', 'comment', 'flag', )
+    readonly_fields = ('lexicon', 'source', 'flag', 'comment', )
     
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == 'editor':
@@ -25,6 +27,9 @@ class CognatesInline(admin.TabularInline):
         return super(CognatesInline, self).formfield_for_foreignkey(
             db_field, request, **kwargs
         )
+
+    def get_queryset(self, request):
+        return super(CognatesInline, self).queryset(request).select_related('source', 'language')
 
 
 class CorrespondenceInline(admin.TabularInline):
@@ -76,7 +81,7 @@ class CognateSetAdmin(TrackedModelAdmin, VersionAdmin):
     inlines = [CognatesInline]
     
     def get_queryset(self, request):
-        return super(CognateSetAdmin, self).queryset(request).select_related('source')
+        return super(CognateSetAdmin, self).queryset(request).select_related('source', 'cognate')
 
 
 class CorrespondenceSetAdmin(TrackedModelAdmin, VersionAdmin):
