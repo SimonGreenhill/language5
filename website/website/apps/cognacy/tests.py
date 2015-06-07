@@ -318,6 +318,15 @@ class Test_Save(DataMixin):
         # and version?
         #  assert len(reversion.get_deleted(Lexicon)) == 1   ## FAILS!
     
+    def test_notes(self):
+        assert CognateNote.objects.count() == 0
+        form_data = self.form_data
+        form_data['comment-word'] = self.word.id
+        form_data['comment-comment'] = "this is a test"
+        response = self.AuthenticatedClient.post(self.url, form_data, follow=True)
+        assert CognateNote.objects.count() == 1
+        assert CognateNote.objects.get(pk=1).note == "this is a test"
+        
     
 class Test_Merge(DataMixin):
     """Tests the Cognate Save View"""
