@@ -23,23 +23,6 @@
       </li>
     </ul>
     
-    {% if notes %}
-        <div class="well">
-        
-        <p><strong> Notes: </strong></p>
-            <ul>
-                {% for n in notes %}
-                    <li> 
-                        {% if n.word %} Word: <a href="{% url "word-detail" n.word.id %}">{{ n.word }}</a> {% endif %}
-                        {% if n.cognateset %}CognateSet: <a href="{% url "cognateset-detail" n.cognateset.id %}">{{ n.cognateset }}</a>  {% endif %}
-                        :{{ n.note }} - {{ n.editor }}.
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
-    {% endif %}
-    
-    
     <div class="well">
         <p><strong>Cognate sets in-play:</strong></p>
         <ul class="unstyled">
@@ -77,28 +60,47 @@
         </form>
     </div>
 
-    {% if messages %}
-        <div class="well">
-            <ul class="messages">
-                {% for message in messages %}
-                    <li>
-                         <span class="label label-{{ message.tags }}">{{ message.tags }}.</span> {{ message }}
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
-    {% endif %}
+    <form action="{% url "cognacy:save" word=word.slug clade=clade %}" method="post" class="form-inline">
+        {% csrf_token %}
+
+        {% if notes %}
+            <div class="well">
+        
+            <p><strong> Notes: </strong></p>
+                <ul>
+                    {% for n in notes %}
+                        <li> 
+                            {% if n.word %} Word: <a href="{% url "word-detail" n.word.id %}">{{ n.word }}</a> {% endif %}
+                            {% if n.cognateset %}CognateSet: <a href="{% url "cognateset-detail" n.cognateset.id %}">{{ n.cognateset }}</a>  {% endif %}
+                            :{{ n.note }} - {{ n.editor }}.
+                        </li>
+                    {% endfor %}
+                </ul>
+        
+            {{ commentform }}
+        
+            </div>
+        {% endif %}
     
-    {% if user.is_staff %}
+
+        {% if messages %}
+            <div class="well">
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li>
+                             <span class="label label-{{ message.tags }}">{{ message.tags }}.</span> {{ message }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    
         <div class="btn-group">
             <button class="btn"><a href="{% url "word-detail" word.slug %}">View this word</a></button>
             <button class="btn"><a href="{% url "word-edit" word.slug %}">Edit this word</a></button>
             <button class="btn"><a href="{% url "word-alignment" word.slug %}">Show Alignment</a></button>
         </div>
-    {% endif %}
-    
-    <form action="{% url "cognacy:save" word=word.slug clade=clade %}" method="post" class="form-inline">
-        {% csrf_token %}
+        
         {{ form.as_p }}
         
         {% render_table lexicon "table.html" %}

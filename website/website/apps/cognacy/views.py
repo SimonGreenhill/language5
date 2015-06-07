@@ -10,7 +10,7 @@ from django_tables2 import RequestConfig
 import reversion
 
 from website.apps.lexicon.models import Word, Lexicon, CognateSet, Cognate, CognateNote
-from website.apps.cognacy.forms import DoCognateForm, MergeCognateForm
+from website.apps.cognacy.forms import DoCognateForm, MergeCognateForm, CognateNoteForm
 from website.apps.cognacy.tables import CognacyTable
 
 
@@ -81,10 +81,11 @@ def do(request, word, clade=None):
     
     form = DoCognateForm(initial={'word': w.id, 'clade': clade}, is_hidden=True)
     
-    mergeform = MergeCognateForm(
-        request.POST or None,
-        prefix='merge',
-        queryset=CognateSet.cache_all_method.filter(id__in=[c[1] for c in cogs]).order_by('id')
+    
+    CSQ = CognateSet.cache_all_method.filter(id__in=[c[1] for c in cogs]).order_by('id')
+    mergeform = MergeCognateForm(request.POST or None, prefix='merge', queryset=CSQ)
+    commentform = CognateNoteForm(request.POST or None, prefix='comment', 
+        queryset=CSQ, initial = {'word': w,}
     )
     
     table = CognacyTable(entries_and_cogs)
@@ -96,7 +97,8 @@ def do(request, word, clade=None):
                                   'inplay': inplay, 'form': form,
                                   'mergeform': mergeform,
                                   'next_cognates': get_missing_cogids(limit=10),
-                                  'notes': notes
+                                  'notes': notes,
+                                  'commentform': commentform,
                               },
                               context_instance=RequestContext(request))
 
@@ -104,6 +106,18 @@ def do(request, word, clade=None):
 @login_required()
 def save(request, word, clade=None):
     form = DoCognateForm(request.POST or None)
+    commentform = CognateNoteForm(request.POST or None, prefix='comment',
+        queryset=CognateSet.objects.all()
+    )
+    
+    if request.POST and commentform.is_valid():
+        CognateNote.objects.create(
+            word=commentform.cleaned_data['word'],
+            cognateset=commentform.cleaned_data['cogset'],
+            note=commentform.cleaned_data['comment'],
+            editor=request.user,
+        )
+    
     if request.POST and form.is_valid():
         word = form.cleaned_data['word']
         clade = form.cleaned_data['clade']

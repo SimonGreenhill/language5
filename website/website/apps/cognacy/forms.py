@@ -1,6 +1,6 @@
 from django import forms
 from website.apps.core.models import Language
-from website.apps.lexicon.models import Word, CognateSet
+from website.apps.lexicon.models import Word, CognateSet, CognateNote
 
 from collections import Counter
 
@@ -42,7 +42,6 @@ class DoCognateForm(forms.Form):
             self.fields['clade'].widget = forms.HiddenInput()
 
 
-
 class MergeCognateForm(forms.Form):
     old = forms.ModelChoiceField(
         queryset=None,
@@ -66,3 +65,20 @@ class MergeCognateForm(forms.Form):
     class Meta:
         model = CognateSet
         
+
+class CognateNoteForm(forms.Form):
+    word = forms.ModelChoiceField(
+        queryset=Word.objects.order_by('word'),
+        required=False
+    )
+    cogset = forms.ModelChoiceField(queryset=None, required=False)
+    comment = forms.CharField(required=True)
+    
+    def __init__(self, *args, **kwargs):
+        queryset = kwargs.pop('queryset', None)
+        super(CognateNoteForm, self).__init__(*args, **kwargs)
+        self.fields['cogset'].queryset = queryset
+
+    class Meta:
+        model = CognateNote
+
