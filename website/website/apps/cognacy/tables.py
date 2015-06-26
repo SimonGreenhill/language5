@@ -20,7 +20,6 @@ class CognateSetDetailTable(DataTable):
     word = tables.LinkColumn('word-detail', args=[A('word.slug')])
     source = tables.LinkColumn('source-detail', args=[A('source.slug')])
     entry = tables.Column()
-    source_gloss = tables.Column()
     annotation = tables.Column()
     loan = tables.BooleanColumn(null=False, yesno=('x', ''))
     
@@ -30,15 +29,16 @@ class CognateSetDetailTable(DataTable):
     
     def render_classification(self, record):
         return mark_safe(render_to_string(
-            'includes/condense_classification.html', condense_classification(record.language.classification)
+            'includes/condense_classification.html', 
+            condense_classification(record.language.classification)
         ))
     
     class Meta(DataTable.Meta):
         model = Lexicon
-        order_by = 'language' # default sorting
-        sequence = ('id', 'language', 'classification', 'word', 'entry', 'annotation', 'loan')
-        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'source',)
-    Meta.attrs['summary'] = 'Table of Lexicon'
+        order_by = 'classification' # default sorting
+        sequence = ('id', 'language', 'classification', 'word', 'entry', 'annotation', 'loan', 'source')
+        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'source_gloss', )
+    Meta.attrs['summary'] = 'Table of Cognates'
 
 
 class CognateSetIndexTable(DataTable):
@@ -55,8 +55,6 @@ class CognateSetIndexTable(DataTable):
         sequence = ('id', 'protoform', 'gloss', 'count', 'source', )
         exclude = ('editor', 'added', 'comment', 'lexicon', 'quality')
     Meta.attrs['summary'] = 'Table of Cognate Sets'
-
-
 
 
 class CognacyTable(DataTable):

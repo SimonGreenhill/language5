@@ -17,6 +17,22 @@ from website.apps.cognacy.tables import CognacyTable, CognateSetIndexTable, Cogn
 from website.apps.cognacy.utils import get_missing_cogids
 
 
+class CognateSetIndex(SingleTableView):
+    """Cognate Set Index"""
+    model = CognateSet
+    template_name = 'cognacy/index.html'
+    table_class = CognateSetIndexTable
+    table_pagination = {"per_page": 100}
+    
+    def get_queryset(self):
+        return CognateSet.objects.all().select_related('source').annotate(count=Count('lexicon'))
+    
+    @method_decorator(login_required) # ensure logged in
+    def dispatch(self, *args, **kwargs):
+        return super(CognateSetIndex, self).dispatch(*args, **kwargs)
+
+
+
 class CognateSetDetail(DetailView):
     """Cognate Set Detail"""
     model = CognateSet
@@ -25,7 +41,11 @@ class CognateSetDetail(DetailView):
     
     def get_context_data(self, **kwargs):
         context = super(CognateSetDetail, self).get_context_data(**kwargs)
-        qset = kwargs['object'].lexicon.select_related().all()
+        qset = []   # yuck
+        for o in kwargs['object'].lexicon.select_related('language', 'word', 'source').all():
+            o.classification = o.language.classification
+            qset.append(o)
+        
         context['lexicon'] = CognateSetDetailTable(qset)
         RequestConfig(self.request).configure(context['lexicon'])
         
@@ -42,21 +62,6 @@ class CognateSetDetail(DetailView):
     @method_decorator(login_required) # ensure logged in
     def dispatch(self, *args, **kwargs):
         return super(CognateSetDetail, self).dispatch(*args, **kwargs)
-
-
-class CognateSetIndex(SingleTableView):
-    """Cognate Set Index"""
-    model = CognateSet
-    template_name = 'cognacy/index.html'
-    table_class = CognateSetIndexTable
-    table_pagination = {"per_page": 100}
-    
-    def get_queryset(self):
-        return CognateSet.objects.all().annotate(count=Count('lexicon'))
-    
-    @method_decorator(login_required) # ensure logged in
-    def dispatch(self, *args, **kwargs):
-        return super(CognateSetIndex, self).dispatch(*args, **kwargs)
 
 
 @login_required()
