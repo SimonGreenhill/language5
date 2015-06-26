@@ -16,6 +16,7 @@ class CognateSetDetailTable(DataTable):
     """Cognate set detail table"""
     id = tables.Column()
     language = tables.LinkColumn('language-detail', args=[A('language.slug')])
+    classification = tables.Column()
     word = tables.LinkColumn('word-detail', args=[A('word.slug')])
     source = tables.LinkColumn('source-detail', args=[A('source.slug')])
     entry = tables.Column()
@@ -27,10 +28,15 @@ class CognateSetDetailTable(DataTable):
         col = tables.LinkColumn('language-detail', args=[record.language.slug])
         return col.render(value=unicode(record.language), record=unicode(record.language), bound_column=None)
     
+    def render_classification(self, record):
+        return mark_safe(render_to_string(
+            'includes/condense_classification.html', condense_classification(record.language.classification)
+        ))
+    
     class Meta(DataTable.Meta):
         model = Lexicon
         order_by = 'language' # default sorting
-        sequence = ('id', 'language', 'word', 'entry', 'source_gloss', 'annotation', 'loan')
+        sequence = ('id', 'language', 'classification', 'word', 'entry', 'annotation', 'loan')
         exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'source',)
     Meta.attrs['summary'] = 'Table of Lexicon'
 

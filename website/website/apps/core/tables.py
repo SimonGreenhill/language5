@@ -1,7 +1,10 @@
+from django.utils.safestring import mark_safe
 import django_tables2 as tables
 from django_tables2.utils import A  # alias for Accessor
+from django.template.loader import render_to_string
 
 from website.apps.core.models import Source, Language, Family
+from website.apps.core.templatetags.website_tags import condense_classification
 
 # Note, due to the current version of django_tables2 not merging in Meta classes
 # https://github.com/bradleyayers/django-tables2/issues/85
@@ -51,17 +54,22 @@ class LanguageIndexTable(DataTable):
     """Language Listing"""
     isocode = tables.LinkColumn('language-detail', args=[A('slug')])
     language = tables.LinkColumn('language-detail', args=[A('slug')])
+    classification = tables.Column()
     count = tables.LinkColumn('language-detail', args=[A('slug')])
     
     def render_language(self, record):
         col = tables.LinkColumn('language-detail', args=[record.slug])
         return col.render(value=unicode(record), record=unicode(record), bound_column=None)
-        
+    
+    def render_classification(self, record):
+        return mark_safe(render_to_string(
+            'includes/condense_classification.html', condense_classification(record.classification)
+        ))
         
     class Meta(DataTable.Meta):
         model = Language
         order_by = 'language' # default sorting
-        sequence = ('isocode', 'language', 'count', 'classification')
+        sequence = ('isocode', 'language', 'classification', 'count')
         exclude = ('id', 'editor', 'added', 'slug', 'information', 'dialect')
     Meta.attrs['summary'] = 'Table of Languages'
 
