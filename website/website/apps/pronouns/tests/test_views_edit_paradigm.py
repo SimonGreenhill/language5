@@ -604,7 +604,6 @@ class Test_EditParadigmView(TestCase):
                     assert "{}-entry".format(key) in self.response.content
                     assert "{}-annotation".format(key) in self.response.content
 
-
     def test_form_removes_empties(self):
         postdata = self._generate_post_data(self.fullpdm)
         
@@ -612,12 +611,12 @@ class Test_EditParadigmView(TestCase):
         null_id = '1_33-0-entry'
         postdata[empty_id] = u''
         del(postdata[null_id])
-        
         response = self.client.post(self.url, postdata)
         self.assertRedirects(response, 
             reverse('pronouns:detail', kwargs={'paradigm_id': self.fullpdm.id}))
         
         updatedpdm = Paradigm.objects.get(pk=self.fullpdm.id)
+        
         # find the updated lexical entries..
         for pronoun in updatedpdm.pronoun_set.all():
             if pronoun.id in (1, 33):

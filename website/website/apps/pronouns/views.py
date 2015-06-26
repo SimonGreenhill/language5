@@ -19,8 +19,6 @@ from website.apps.pronouns.forms import sort_formset
 from website.apps.pronouns.tools import add_pronoun_table, copy_paradigm
 from website.apps.pronouns.tools import find_identicals, extract_rule
 
-from website.utilities import expire_view_cache
-
 from django_tables2 import SingleTableView
 
 import reversion
@@ -88,7 +86,6 @@ def edit(request, paradigm_id):
         pdm.save()
         for pronoun, formset in pronoun_form:
             save_pronoun_formset(pdm, pronoun, formset, request.user)
-        expire_view_cache('pronouns:detail', args=[pdm.id])  # kill cache
         return redirect('pronouns:detail', paradigm_id=pdm.id)
         
     # the initial view and the error view

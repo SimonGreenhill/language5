@@ -1,7 +1,7 @@
 def expire_view_cache(view_name, args=[], namespace=None, key_prefix=None, method="GET"):
     """
     This function allows you to invalidate any view-level cache. 
-        view_name: view function you wish to invalidate or it's named url pattern
+        view_name: view function you wish to invalidate or its named url pattern
         args: any arguments passed to the view function
         namespace: optional, if an application namespace is needed
         key prefix: for the @cache_page decorator for the function (if any)
@@ -14,7 +14,7 @@ def expire_view_cache(view_name, args=[], namespace=None, key_prefix=None, metho
     from django.http import HttpRequest
     from django.utils.cache import get_cache_key
     from django.core.cache import cache
-
+    
     logger = logging.getLogger("utilities.expire_view_cache")
     
     # create a fake request object
