@@ -19,13 +19,11 @@ v1_api.register(LexiconResource())
 from website.apps.maps.resources import LanguageMapResource
 v1_api.register(LanguageMapResource())
 
-
 from website.apps.core.views import LanguageIndex, RobotsTxt
 from website.apps.core.views import SourceIndex, SourceDetail
 from website.apps.core.views import FamilyIndex, FamilyDetail
 
 from website.apps.lexicon.views import WordIndex, WordDetail
-from website.apps.lexicon.views import CognateSetIndex, CognateSetDetail
 from website.apps.lexicon.views import LexiconDetail, LexiconEdit
 
 from sitemap import sitemaps
@@ -115,12 +113,6 @@ if 'website.apps.lexicon' in settings.INSTALLED_APPS:
         
         # lexicon-detail: detail of lexical item.
         url(r'^lexicon/(?P<pk>\d+)$', LexiconDetail.as_view(), name="lexicon-detail"),
-        
-        # cognateset-index: List cognate Sets
-        url(r'^cognate/$', CognateSetIndex.as_view(), name="cognateset-index"),
-        
-        # cognateset-detail: details of cognate sets
-        url(r'^cognate/(?P<pk>\d+)$', CognateSetDetail.as_view(), name="cognateset-detail"),
         
         # Admin/Editor pages
         # lexicon-edit: edit lexical item.

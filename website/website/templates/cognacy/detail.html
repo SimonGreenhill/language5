@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 {% load render_table from django_tables2 %}
-{% load staticfiles %}
-{% load cognacy_tags %}
 
-{% block title %} Do Cognacy: {{ word }} {% endblock %}
+{% block extra_keywords %} {{object}} {% endblock %}
+
+{% block title %} Cognate Set: {{ object }} | {{SITE_NAME }} {% endblock %}
 
 {% block content %}
     <div class="page-header">
-        <h1>Do Cognacy: {{ word }}</h1>
-        <h2><i class="icon-chevron-right"></i> Word: {{ word }}</h2>
-        {% if clade %}<h2><i class="icon-chevron-right"></i> Clade: {{ clade }} </h2>{% endif %}
+        <h1>
+            Cognate Set: {{ object }} {% if object.source %}({{ object.source }}){% endif %}
+        </h1>
     </div>
     
     <ul class="breadcrumb">
@@ -17,94 +17,41 @@
           <a href="{% url "index" %}">Home</a> 
           <span class="divider">/</span>
       </li>
-      <li>
-          <a href="{% url "cognacy:index" %}">Cognacy</a> 
+      <li class="active">
+          <a href="{% url "cognacy:index" %}">Cognates</a>
           <span class="divider">/</span>
       </li>
     </ul>
     
-    <div class="well">
-        <p><strong>Cognate sets in-play:</strong></p>
-        <ul class="unstyled">
-            
-        {% for cog, entries in inplay %}
-            <li class="row-fluid">
-                <span class="span1">{% cognate_button cog.id %}</span>
-                <span class="span2">{% if cog.source %} {{ cog.source }} {% else %} TNG {% endif %}</span>
-                : {{ entries }} 
+    <h2> Notes: </h2>
+    
+    {% if notes %}
+    <ul>
+        {% for n in notes %}
+            <li> 
+                {% if n.word %} Word: <a href="{% url "word-detail" n.word.id %}">{{ n.word }}</a> {% endif %}
+                {% if n.cognateset %}CognateSet: <a href="{% url "cognacy:detail" n.cognateset.id %}">{{ n.cognateset }}</a>  {% endif %}
+                :{{ n.note }} - {{ n.editor }}
             </li>
         {% endfor %}
-        </ul>
-        
-        <hr />
-        
-        <p>
-            <strong>Next Cognate IDs:</strong>: 
-            {% for c in next_cognates %}
-                <span> &nbsp; {% cognate_button c False %} &nbsp; </span>
-            {% endfor %}
-        </p>
-    </div>
+    </ul>
+    {% endif %}
     
-    <div class="well">
-        <p><strong>Merge Cognate Sets: </strong>
-        <form action="{% url "cognacy:merge" word=word.slug clade=clade %}" method="post" class="form-inline">
-            {% csrf_token %}
-            {{ mergeform.old }}-&raquo;
-            {{ mergeform.new }}
-            
-            {{ mergeform.non_field_errors }}
-            {{ mergeform.old.errors }}
-            {{ mergeform.new.errors }}
-            <button type="submit" class="btn">Merge</button>
-        </form>
-    </div>
-
-    <form action="{% url "cognacy:save" word=word.slug clade=clade %}" method="post" class="form-inline">
-        {% csrf_token %}
-
-        {% if notes %}
-            <div class="well">
-        
-            <p><strong> Notes: </strong></p>
-                <ul>
-                    {% for n in notes %}
-                        <li> 
-                            {% if n.word %} Word: <a href="{% url "word-detail" n.word.id %}">{{ n.word }}</a> {% endif %}
-                            {% if n.cognateset %}CognateSet: <a href="{% url "cognateset-detail" n.cognateset.id %}">{{ n.cognateset }}</a>  {% endif %}
-                            :{{ n.note }} - {{ n.editor }}.
-                        </li>
-                    {% endfor %}
-                </ul>
-        
-            {{ commentform }}
-        
-            </div>
-        {% endif %}
+    <h2> Members: </h2>
     
-
-        {% if messages %}
-            <div class="well">
-                <ul class="messages">
-                    {% for message in messages %}
-                        <li>
-                             <span class="label label-{{ message.tags }}">{{ message.tags }}.</span> {{ message }}
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        {% endif %}
+    <ul>
+        <li>Protoform: {{ object.protoform }} </li>
+        <li>Gloss: {{ object.gloss }}</li>
+        <li>Comment: {{ object.comment }}</li>
+        <li>Source: {{ object.source}}</li>
+        <li>Quality: {{ object.quality}}</li>
+    </ul>
     
-        <div class="btn-group">
-            <button class="btn"><a href="{% url "word-detail" word.slug %}">View this word</a></button>
-            <button class="btn"><a href="{% url "word-edit" word.slug %}">Edit this word</a></button>
-            <button class="btn"><a href="{% url "word-alignment" word.slug %}">Show Alignment</a></button>
-        </div>
-        
-        {{ form.as_p }}
-        
+    {% if lexicon %}
         {% render_table lexicon "table.html" %}
-        <button type="submit" class="btn btn-large btn-primary pull-right">Save Changes</button>
-    </form>
+    {% else %}
+        <p class="error">No results found!</p>
+    {% endif %}
+    
     
 {% endblock %}

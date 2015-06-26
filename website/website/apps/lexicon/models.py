@@ -143,7 +143,7 @@ class CognateSet(TrackedModel):
     
     @models.permalink
     def get_absolute_url(self):
-        return ('cognateset-detail', [self.pk])
+        return ('cognacy:detail', [self.pk])
     
     class Meta:
         db_table = 'cognatesets'

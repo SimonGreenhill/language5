@@ -2,33 +2,66 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.db import transaction
-from django.db.models import Max, Q
+from django.db.models import Max, Q, Count
 from django.shortcuts import get_object_or_404, render_to_response, redirect
 from django.template import RequestContext
-from django_tables2 import RequestConfig
+from django.utils.decorators import method_decorator
+from django.views.generic import DetailView
+from django_tables2 import SingleTableView, RequestConfig
 
 import reversion
 
 from website.apps.lexicon.models import Word, Lexicon, CognateSet, Cognate, CognateNote
 from website.apps.cognacy.forms import DoCognateForm, MergeCognateForm, CognateNoteForm
-from website.apps.cognacy.tables import CognacyTable
+from website.apps.cognacy.tables import CognacyTable, CognateSetIndexTable, CognateSetDetailTable
+from website.apps.cognacy.utils import get_missing_cogids
 
 
-def get_missing_cogids(limit=10):
-    cogids = CognateSet.objects.all().values_list('id', flat=True)
-    # handle no cognate case.
-    if len(cogids) == 0:
-        return range(1, limit + 1)
+class CognateSetDetail(DetailView):
+    """Cognate Set Detail"""
+    model = CognateSet
+    template_name = 'cognacy/detail.html'
+    table_pagination = {"per_page": 100}
     
-    # find the maximum cognate id and adding limit to it -- this 
-    # means that we can iterate over things happily and always return
-    # $limit records
-    max_cog_id = max(cogids) + limit
-    return [i for i in range(1, max_cog_id + 1) if i not in cogids][0:limit]
+    def get_context_data(self, **kwargs):
+        context = super(CognateSetDetail, self).get_context_data(**kwargs)
+        qset = kwargs['object'].lexicon.select_related().all()
+        context['lexicon'] = CognateSetDetailTable(qset)
+        RequestConfig(self.request).configure(context['lexicon'])
+        
+        try:
+            context['lexicon'].paginate(page=self.request.GET.get('page', 1), per_page=50)
+        except EmptyPage: # 404 on a empty page
+            raise Http404
+        except PageNotAnInteger: # 404 on invalid page number
+            raise Http404
+        # get any notes for this cognate set.
+        context['notes'] = CognateNote.objects.filter(cognateset=kwargs['object'])
+        return context
+
+    @method_decorator(login_required) # ensure logged in
+    def dispatch(self, *args, **kwargs):
+        return super(CognateSetDetail, self).dispatch(*args, **kwargs)
+
+
+class CognateSetIndex(SingleTableView):
+    """Cognate Set Index"""
+    model = CognateSet
+    template_name = 'cognacy/index.html'
+    table_class = CognateSetIndexTable
+    table_pagination = {"per_page": 100}
+    
+    def get_queryset(self):
+        return CognateSet.objects.all().annotate(count=Count('lexicon'))
+    
+    @method_decorator(login_required) # ensure logged in
+    def dispatch(self, *args, **kwargs):
+        return super(CognateSetIndex, self).dispatch(*args, **kwargs)
 
 
 @login_required()
-def index(request):
+def do_index(request):
+    """Do cognacy index to help select subsets"""
     form = DoCognateForm(request.POST or None)
     if request.POST and form.is_valid():
         url = reverse('cognacy:do', kwargs={
@@ -36,13 +69,14 @@ def index(request):
             'clade': form.cleaned_data['clade']
         })
         return redirect(url)
-    return render_to_response('cognacy/index.html', {'form': form},
+    return render_to_response('cognacy/do_index.html', {'form': form},
         context_instance=RequestContext(request)
     )
 
 
 @login_required()
 def do(request, word, clade=None):
+    """Do cognacy"""
     w = get_object_or_404(Word, slug=word)
     lex_ids, entries = [], []
     lexica = w.lexicon_set.all()
@@ -91,7 +125,7 @@ def do(request, word, clade=None):
     table = CognacyTable(entries_and_cogs)
     RequestConfig(request, paginate=False).configure(table)
     
-    return render_to_response('cognacy/detail.html',
+    return render_to_response('cognacy/do_detail.html',
                               {
                                   'word': w, 'clade': clade, 'lexicon': table,
                                   'inplay': inplay, 'form': form,
@@ -242,7 +276,7 @@ def save(request, word, clade=None):
             'clade': form.cleaned_data['clade']
         })
         return redirect(url)
-    return redirect(reverse('cognacy:index'))  # go somewhere safe on form tamper.
+    return redirect(reverse('cognacy:do_index'))  # go somewhere safe on form tamper.
     
 
 

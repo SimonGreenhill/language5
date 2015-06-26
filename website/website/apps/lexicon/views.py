@@ -12,13 +12,12 @@ from django.template import RequestContext
 from django.utils.decorators import method_decorator
 from django.utils import timezone
 
-from website.apps.lexicon.models import Word, WordSubset, Lexicon, CognateSet, CognateNote
+from website.apps.lexicon.models import Word, WordSubset, Lexicon
 from website.apps.lexicon.forms import LexiconForm
 
 from django_tables2 import SingleTableView, RequestConfig
 from website.apps.lexicon.tables import WordIndexTable, WordLexiconTable
 from website.apps.lexicon.tables import WordLexiconEditTable
-from website.apps.lexicon.tables import CognateSetIndexTable, CognateSetDetailTable
 
 # for WordEdit
 from django.forms.models import modelformset_factory
@@ -83,48 +82,6 @@ class LexiconDetail(DetailView):
     """Lexicon Detail"""
     model = Lexicon
     template_name = 'lexicon/lexicon_detail.html'
-
-
-class CognateSetIndex(SingleTableView):
-    """Cognate Set Index"""
-    model = CognateSet
-    template_name = 'lexicon/cognateset_index.html'
-    table_class = CognateSetIndexTable
-    table_pagination = {"per_page": 100}
-    
-    def get_queryset(self):
-        return CognateSet.objects.all().annotate(count=Count('lexicon'))
-    
-    @method_decorator(login_required) # ensure logged in
-    def dispatch(self, *args, **kwargs):
-        return super(CognateSetIndex, self).dispatch(*args, **kwargs)
-
-
-class CognateSetDetail(DetailView):
-    """Cognate Set Detail"""
-    model = CognateSet
-    template_name = 'lexicon/cognateset_detail.html'
-    table_pagination = {"per_page": 100}
-    
-    def get_context_data(self, **kwargs):
-        context = super(CognateSetDetail, self).get_context_data(**kwargs)
-        qset = kwargs['object'].lexicon.select_related().all()
-        context['lexicon'] = CognateSetDetailTable(qset)
-        RequestConfig(self.request).configure(context['lexicon'])
-        
-        try:
-            context['lexicon'].paginate(page=self.request.GET.get('page', 1), per_page=50)
-        except EmptyPage: # 404 on a empty page
-            raise Http404
-        except PageNotAnInteger: # 404 on invalid page number
-            raise Http404
-        # get any notes for this cognate set.
-        context['notes'] = CognateNote.objects.filter(cognateset=kwargs['object'])
-        return context
-
-    @method_decorator(login_required) # ensure logged in
-    def dispatch(self, *args, **kwargs):
-        return super(CognateSetDetail, self).dispatch(*args, **kwargs)
 
 
 class LexiconEdit(UpdateView):

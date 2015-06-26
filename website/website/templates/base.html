@@ -106,11 +106,11 @@
                           </li>
                       {% endifinstalled %}
                       {% ifinstalled "website.apps.lexicon" %}
-                          <li{% active 'cognateset-index' %}>
-                              <a href="{% url "cognateset-index" %}">Cognates</a>
-                          </li>
                           <li{% active 'cognacy:index' %}>
-                              <a href="{% url "cognacy:index" %}">Do Cognacy</a>
+                              <a href="{% url "cognacy:index" %}">Browse Cognates</a>
+                          </li>
+                          <li{% active 'cognacy:do_index' %}>
+                              <a href="{% url "cognacy:do_index" %}">Do Cognacy</a>
                           </li>
                       {% endifinstalled %}
                   {% else %}

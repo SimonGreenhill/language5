@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load compress %}
+
+{% block title %} Do Cognacy: {% endblock %}
+
+
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="{% static "css/select2.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/select2-bootstrap.css" %}" />
+  {% compress js %}
+  <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/select2.min.js" %}"></script>
+  {% endcompress %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="page-header">
+        <h1>Do Cognacy:</h1>
+    </div>
+    
+    <ul class="breadcrumb">
+      <li>
+          <a href="{% url "index" %}">Home</a> 
+          <span class="divider">/</span>
+      </li>
+    </ul>
+    
+    <div class="well">
+        <h2>Do Cognacy</h2>
+        
+        <form action="{% url "cognacy:do_index" %}" method="post" class="form-inline">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" name="submit" class="btn"><i class="icon-ok"></i> Go </button>
+        </form>
+    </div>
+    
+    <script>
+        $(document).ready(function() {
+          $('select').each(function(i) {
+              $(this).select2({width:"element"});
+          });
+        });
+    </script>
+    
+{% endblock %}
