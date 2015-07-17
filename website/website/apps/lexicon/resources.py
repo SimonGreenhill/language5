@@ -7,6 +7,10 @@ from website.apps.lexicon.models import Word, Lexicon
 
 
 class LexiconResource(ModelResource):
+    
+    def determine_format(self, request):
+        return 'application/json'
+    
     class Meta:
         queryset = Lexicon.objects.all()
         allowed_methods = ['get']
@@ -16,6 +20,10 @@ class LexiconResource(ModelResource):
 
 
 class WordResource(ModelResource):
+    
+    def determine_format(self, request):
+        return 'application/json'
+    
     class Meta:
         queryset = Word.objects.all()
         allowed_methods = ['get']
