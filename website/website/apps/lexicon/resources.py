@@ -1,12 +1,10 @@
 from tastypie import fields
-from tastypie.resources import ModelResource
+from website.apps.api import UT8ModelResource
 from tastypie.authorization import DjangoAuthorization
 from tastypie.cache import SimpleCache
 from website.apps.lexicon.models import Word, Lexicon
 
-
-
-class LexiconResource(ModelResource):
+class LexiconResource(UT8ModelResource):
     
     def determine_format(self, request):
         return 'application/json'
@@ -19,7 +17,7 @@ class LexiconResource(ModelResource):
         authorization = DjangoAuthorization()
 
 
-class WordResource(ModelResource):
+class WordResource(UT8ModelResource):
     
     def determine_format(self, request):
         return 'application/json'
