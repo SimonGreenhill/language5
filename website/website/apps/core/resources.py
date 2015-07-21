@@ -1,21 +1,21 @@
-from tastypie.resources import ModelResource
+from website.apps.api import UT8ModelResource
 from tastypie.cache import SimpleCache
 from website.apps.core.models import Language, Source
 
-class LanguageResource(ModelResource):
-    
+class LanguageResource(UT8ModelResource):
+
     def determine_format(self, request):
         return 'application/json'
-    
+
     class Meta:
         queryset = Language.objects.all()
         allowed_methods = ['get']
         excludes = ['comment', 'bibtex', ]
-        #cache = SimpleCache(timeout=10)
+        cache = SimpleCache(timeout=10)
         detail_uri_name = 'slug'
 
 
-class SourceResource(ModelResource):
+class SourceResource(UT8ModelResource):
     
     def determine_format(self, request):
         return 'application/json'
