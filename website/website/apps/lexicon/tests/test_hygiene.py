@@ -35,8 +35,8 @@ class HygieneDataMixin(TestCase):
             editor=self.editor,
             entry="a word"
         )
-    
-    
+
+
 class Test_Empty(HygieneDataMixin):
     """Tests the hygiene management command - find-empty"""
     
@@ -102,7 +102,7 @@ class Test_Empty(HygieneDataMixin):
         assert len(Lexicon.objects.all()) == 2, "Expected 2 got: %d" % len(Lexicon.objects.all())
         assert Lexicon.objects.get(pk=self.good1.pk)
         assert Lexicon.objects.get(pk=self.good2.pk)
-        
+
 
 class Test_Duplicates(HygieneDataMixin):
     """Tests the hygiene management command - find-duplicates"""
@@ -182,3 +182,35 @@ class Test_Duplicates(HygieneDataMixin):
         cmd = hygiene.Command()
         dupes = cmd.find_duplicates()
         assert len(dupes) == 0
+
+
+class Test_FindUnstarred(HygieneDataMixin):
+    """Tests the hygiene management command - find_unstarred"""
+    def setUp(self):
+        super(Test_FindUnstarred, self).setUp()
+        self.ProtoLang = Language.objects.create(
+            language="Proto-World", slug="proto-world", editor=self.editor
+        )
+        self.star = Lexicon.objects.create(
+            language=self.ProtoLang, 
+            word=self.word,
+            source=self.source,
+            editor=self.editor,
+            entry="*lima"
+        )
+        self.unstarred = Lexicon.objects.create(
+            language=self.ProtoLang, 
+            word=self.word,
+            source=self.source,
+            editor=self.editor,
+            entry="rima"
+        )
+        
+    def test_find_unstarred(self):
+        cmd = hygiene.Command()
+        forms = cmd.find_unstarred()
+        assert len(forms) == 1
+        assert forms[0] == self.unstarred
+        
+        
+        

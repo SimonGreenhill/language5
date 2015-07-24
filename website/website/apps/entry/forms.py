@@ -5,13 +5,9 @@ from website.apps.entry.models import Wordlist
 
 
 class QuickEntryViewForm(forms.Form):
-    records = forms.IntegerField(
-        initial=5,
-        widget=forms.widgets.TextInput(attrs={'class': 'input-mini'})
-    )
     language = forms.ModelChoiceField(
         queryset=Language.objects.order_by('slug'),
-        widget=forms.widgets.Select(attrs={'class': 'input-medium'}),
+        widget=forms.widgets.Select(attrs={'class': 'input-large'}),
         required=False
     )
     wordlist = forms.ModelChoiceField(
@@ -24,5 +20,7 @@ class QuickEntryViewForm(forms.Form):
         widget=forms.widgets.Select(attrs={'class': 'input-medium'}),
         required=False
     )
-    
-            
+    records = forms.IntegerField(
+        initial=5,
+        widget=forms.widgets.TextInput(attrs={'class': 'input-mini'})
+    )

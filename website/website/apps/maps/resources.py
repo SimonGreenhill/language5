@@ -59,6 +59,9 @@ class LanguageMapResource(Resource):
     url = fields.CharField(attribute='url')
     count = fields.IntegerField(attribute='count')
     
+    def determine_format(self, request):
+        return 'application/json'
+    
     class Meta:
         limit = 0 # show all
         include_resource_uri = False

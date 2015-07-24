@@ -5,7 +5,7 @@ from django.core.management.base import BaseCommand
 from website.apps.core.models import Language, Family, Source
 
 try:
-    from website.apps.lexicon.models import Word
+    from website.apps.lexicon.models import Word, Cognate
 except ImportError:
     # not installed
     Word = None
@@ -56,7 +56,7 @@ class Command(BaseCommand):
                 unicode(o),
                 '%d' % o.lexicon_set.count()
             ])
-            
+     
     def handle(self, *args, **options):
         try:
             what = args[0]

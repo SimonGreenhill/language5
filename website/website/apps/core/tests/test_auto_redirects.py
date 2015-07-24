@@ -60,6 +60,7 @@ class RedirectionTestMixin(object):
         assert obj.get_absolute_url() != old_url, "URL hasn't changed!"
         
         response = self.client.get(old_url)
+        print(response.content)
         self.assertRedirects(response, obj.get_absolute_url(), status_code=301, target_status_code=200)
         
 

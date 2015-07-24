@@ -2,33 +2,71 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.db import transaction
-from django.db.models import Max
+from django.db.models import Max, Q, Count
 from django.shortcuts import get_object_or_404, render_to_response, redirect
 from django.template import RequestContext
-from django_tables2 import RequestConfig
+from django.utils.decorators import method_decorator
+from django.views.generic import DetailView
+from django_tables2 import SingleTableView, RequestConfig
 
 import reversion
 
-from website.apps.lexicon.models import Word, Lexicon, CognateSet, Cognate
-from website.apps.cognacy.forms import DoCognateForm, MergeCognateForm
-from website.apps.cognacy.tables import CognacyTable
+from website.apps.lexicon.models import Word, Lexicon, CognateSet, Cognate, CognateNote
+from website.apps.cognacy.forms import DoCognateForm, MergeCognateForm, CognateNoteForm
+from website.apps.cognacy.tables import CognacyTable, CognateSetIndexTable, CognateSetDetailTable
+from website.apps.cognacy.utils import get_missing_cogids
 
 
-def get_missing_cogids(limit=10):
-    cogids = CognateSet.objects.all().values_list('id', flat=True)
-    # handle no cognate case.
-    if len(cogids) == 0:
-        return range(1, limit + 1)
+class CognateSetIndex(SingleTableView):
+    """Cognate Set Index"""
+    model = CognateSet
+    template_name = 'cognacy/index.html'
+    table_class = CognateSetIndexTable
+    table_pagination = {"per_page": 100}
     
-    # find the maximum cognate id and adding limit to it -- this 
-    # means that we can iterate over things happily and always return
-    # $limit records
-    max_cog_id = max(cogids) + limit
-    return [i for i in range(1, max_cog_id + 1) if i not in cogids][0:limit]
+    def get_queryset(self):
+        return CognateSet.objects.all().select_related('source').annotate(count=Count('lexicon'))
+    
+    @method_decorator(login_required) # ensure logged in
+    def dispatch(self, *args, **kwargs):
+        return super(CognateSetIndex, self).dispatch(*args, **kwargs)
+
+
+
+class CognateSetDetail(DetailView):
+    """Cognate Set Detail"""
+    model = CognateSet
+    template_name = 'cognacy/detail.html'
+    table_pagination = {"per_page": 100}
+    
+    def get_context_data(self, **kwargs):
+        context = super(CognateSetDetail, self).get_context_data(**kwargs)
+        qset = []   # yuck
+        for o in kwargs['object'].lexicon.select_related('language', 'word', 'source').all():
+            o.classification = o.language.classification
+            qset.append(o)
+        
+        context['lexicon'] = CognateSetDetailTable(qset)
+        RequestConfig(self.request).configure(context['lexicon'])
+        
+        try:
+            context['lexicon'].paginate(page=self.request.GET.get('page', 1), per_page=50)
+        except EmptyPage: # 404 on a empty page
+            raise Http404
+        except PageNotAnInteger: # 404 on invalid page number
+            raise Http404
+        # get any notes for this cognate set.
+        context['notes'] = CognateNote.objects.filter(cognateset=kwargs['object'])
+        return context
+
+    @method_decorator(login_required) # ensure logged in
+    def dispatch(self, *args, **kwargs):
+        return super(CognateSetDetail, self).dispatch(*args, **kwargs)
 
 
 @login_required()
-def index(request):
+def do_index(request):
+    """Do cognacy index to help select subsets"""
     form = DoCognateForm(request.POST or None)
     if request.POST and form.is_valid():
         url = reverse('cognacy:do', kwargs={
@@ -36,13 +74,14 @@ def index(request):
             'clade': form.cleaned_data['clade']
         })
         return redirect(url)
-    return render_to_response('cognacy/index.html', {'form': form},
+    return render_to_response('cognacy/do_index.html', {'form': form},
         context_instance=RequestContext(request)
     )
 
 
 @login_required()
 def do(request, word, clade=None):
+    """Do cognacy"""
     w = get_object_or_404(Word, slug=word)
     lex_ids, entries = [], []
     lexica = w.lexicon_set.all()
@@ -58,7 +97,10 @@ def do(request, word, clade=None):
     # 1. get a list of (lexicon.id, cognateset.id)
     queryset = Cognate.objects.filter(lexicon_id__in=lex_ids).select_related('lexicon', 'cognateset', 'cognateset__source')
     cogs = [(c.lexicon_id, c.cognateset_id, c.cognateset) for c in queryset]
-    # 2. go through entries and attach a list of cognateset ids if needed, else empty list
+    # 2. get notes
+    notes = CognateNote.objects.filter(Q(word=w) | Q(cognateset__in=[c[2] for c in cogs]))
+    
+    # 3. go through entries and attach a list of cognateset ids if needed, else empty list
     entries_and_cogs = []
     inplay = {}
     for e in entries:
@@ -78,21 +120,24 @@ def do(request, word, clade=None):
     
     form = DoCognateForm(initial={'word': w.id, 'clade': clade}, is_hidden=True)
     
-    mergeform = MergeCognateForm(
-        request.POST or None,
-        prefix='merge',
-        queryset=CognateSet.cache_all_method.filter(id__in=[c[1] for c in cogs]).order_by('id')
+    
+    CSQ = CognateSet.cache_all_method.filter(id__in=[c[1] for c in cogs]).order_by('id')
+    mergeform = MergeCognateForm(request.POST or None, prefix='merge', queryset=CSQ)
+    commentform = CognateNoteForm(request.POST or None, prefix='comment', 
+        queryset=CSQ, initial = {'word': w,}
     )
     
     table = CognacyTable(entries_and_cogs)
     RequestConfig(request, paginate=False).configure(table)
     
-    return render_to_response('cognacy/detail.html',
+    return render_to_response('cognacy/do_detail.html',
                               {
                                   'word': w, 'clade': clade, 'lexicon': table,
                                   'inplay': inplay, 'form': form,
                                   'mergeform': mergeform,
                                   'next_cognates': get_missing_cogids(limit=10),
+                                  'notes': notes,
+                                  'commentform': commentform,
                               },
                               context_instance=RequestContext(request))
 
@@ -100,6 +145,18 @@ def do(request, word, clade=None):
 @login_required()
 def save(request, word, clade=None):
     form = DoCognateForm(request.POST or None)
+    commentform = CognateNoteForm(request.POST or None, prefix='comment',
+        queryset=CognateSet.objects.all()
+    )
+    
+    if request.POST and commentform.is_valid():
+        CognateNote.objects.create(
+            word=commentform.cleaned_data['word'],
+            cognateset=commentform.cleaned_data['cogset'],
+            note=commentform.cleaned_data['comment'],
+            editor=request.user,
+        )
+    
     if request.POST and form.is_valid():
         word = form.cleaned_data['word']
         clade = form.cleaned_data['clade']
@@ -224,7 +281,7 @@ def save(request, word, clade=None):
             'clade': form.cleaned_data['clade']
         })
         return redirect(url)
-    return redirect(reverse('cognacy:index'))  # go somewhere safe on form tamper.
+    return redirect(reverse('cognacy:do_index'))  # go somewhere safe on form tamper.
     
 
 

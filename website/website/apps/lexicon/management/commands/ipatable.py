@@ -30,5 +30,8 @@ class Command(BaseCommand):
         assert total == sum(chars.values())
         
         for char in sorted(chars):
-            u = unicodedata.name(char)
+            try:
+                u = unicodedata.name(char)
+            except:
+                u = "<UNKNOWN>"
             print(u"\t".join([char, '%d' % chars[char], u.ljust(50), u"?"]))

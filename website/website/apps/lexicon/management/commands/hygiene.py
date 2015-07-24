@@ -4,6 +4,7 @@ from django.db.models import Count
 from optparse import make_option
 from django.core.management.base import BaseCommand
 
+from website.apps.core.models import Language
 from website.apps.lexicon.models import Lexicon
 
 try:
@@ -12,7 +13,7 @@ except ImportError:
     raise ImportError("Please install python-ftfy")
 
 class Command(BaseCommand):
-    args = 'hygiene [empty, tidy, dedupe] --save'
+    args = 'hygiene [empty, tidy, dedupe, star] --save'
     help = 'Cleans Data from Database'
     output_transaction = True
     option_list = BaseCommand.option_list + (
@@ -40,6 +41,12 @@ class Command(BaseCommand):
         empty.extend(Lexicon.objects.filter(entry="--"))
         empty.extend(Lexicon.objects.filter(entry="---"))
         return empty
+    
+    def find_unstarred(self):
+        unstarred = []
+        for proto in Language.objects.filter(language__startswith='Proto'):
+            unstarred.extend(proto.lexicon_set.exclude(entry__startswith='*'))
+        return unstarred
     
     def tidy(self):
         tidied = []
@@ -72,7 +79,7 @@ class Command(BaseCommand):
     
     def handle(self, *args, **options):
         if len(args) == 0:
-            args = ('empty', 'dedupe', 'tidy')
+            args = ('empty', 'dedupe', 'tidy', 'star')
         
         if 't' in args or 'tidy' in args:
             tidier = self.tidy()
@@ -102,5 +109,14 @@ class Command(BaseCommand):
             
             if 'save' in options and options['save']:
                 self.delete(duplicates)
-            
-        
+                
+        if 's' in args or 'star' in args:
+            unstarred_forms = self.find_unstarred()
+            for obj in self.find_unstarred():
+                new = '*%s' % obj.entry
+                self._print('Starred: %s - %s (%r) - %s (%r)' % (obj.language, obj.entry, obj.entry, new, new))
+                if 'save' in options and options['save']:
+                    with reversion.create_revision():
+                        obj.entry = new
+                        obj.save()
+                
