@@ -51,20 +51,33 @@ class DataMixin(TestCase):
             editor=self.editor,
             entry='three'
         )
-        
+        # cognate sets
         self.cogset1 = CognateSet.objects.create(
             protoform = "*t*",
             gloss = "starts with t",
             editor=self.editor
         )
-        Cognate.objects.create(lexicon=self.lex_a, cognateset=self.cogset1, editor=self.editor)
-        
         self.cogset2 = CognateSet.objects.create(
             protoform = "*o???",
             gloss = "starts with o",
             editor=self.editor
         )
+        # cognates
+        self.cog_1_a = Cognate.objects.create(
+            lexicon=self.lex_a, cognateset=self.cogset1,
+            source=self.source,
+            editor=self.editor
+        )
         
-        Cognate.objects.create(lexicon=self.lex_b, cognateset=self.cogset2, editor=self.editor)
-        Cognate.objects.create(lexicon=self.lex_c, cognateset=self.cogset2, editor=self.editor)
+        
+        self.cog_2_b = Cognate.objects.create(
+            lexicon=self.lex_b, cognateset=self.cogset2,
+            source=self.source,
+            editor=self.editor
+        )
+        # note: no source on this cognate
+        self.cog_2_c = Cognate.objects.create(
+            lexicon=self.lex_c, cognateset=self.cogset2,
+            editor=self.editor
+        )
         

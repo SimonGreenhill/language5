@@ -11,25 +11,49 @@ from django_tables2 import SingleTableView, RequestConfig
 
 import reversion
 
+from website.apps.core.models import Source
 from website.apps.lexicon.models import Word, Lexicon, CognateSet, Cognate, CognateNote
 from website.apps.cognacy.forms import DoCognateForm, MergeCognateForm, CognateNoteForm
-from website.apps.cognacy.tables import CognacyTable, CognateSetIndexTable, CognateSetDetailTable
+from website.apps.cognacy.tables import CognateSourceIndexTable, CognateSourceDetailTable
+from website.apps.cognacy.tables import CognacyTable, CognateSetDetailTable 
+
 from website.apps.cognacy.utils import get_missing_cogids
 
 
-class CognateSetIndex(SingleTableView):
-    """Cognate Set Index"""
-    model = CognateSet
+class CognateSourceIndex(SingleTableView):
+    """Cognate Index By Source"""
+    model = Source
     template_name = 'cognacy/index.html'
-    table_class = CognateSetIndexTable
+    table_class = CognateSourceIndexTable
     table_pagination = {"per_page": 100}
     
     def get_queryset(self):
-        return CognateSet.objects.all().select_related('source').annotate(count=Count('lexicon'))
+        return Source.objects.all().annotate(count=Count('cognate')).filter(count__gt=0)
     
-    @method_decorator(login_required) # ensure logged in
-    def dispatch(self, *args, **kwargs):
-        return super(CognateSetIndex, self).dispatch(*args, **kwargs)
+
+class CognateSourceDetail(DetailView):
+    """Cognate Index By Source"""
+    model = Source
+    template_name = 'cognacy/detail.html'
+    table_pagination = {"per_page": 50}
+    
+    def get_context_data(self, **kwargs):
+        context = super(CognateSourceDetail, self).get_context_data(**kwargs)
+        qset = []
+        for o in kwargs['object'].cognate_set.select_related().all():
+            o.language = o.lexicon.language
+            o.word = o.lexicon.word
+            qset.append(o)
+        context['lexicon'] = CognateSourceDetailTable(qset)
+        RequestConfig(self.request).configure(context['lexicon'])
+            
+        try:
+            context['lexicon'].paginate(page=self.request.GET.get('page', 1), per_page=50)
+        except EmptyPage: # 404 on a empty page
+            raise Http404
+        except PageNotAnInteger: # 404 on invalid page number
+            raise Http404
+        return context
 
 
 

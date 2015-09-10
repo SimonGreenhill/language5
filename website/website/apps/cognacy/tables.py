@@ -7,9 +7,44 @@ from django_tables2.utils import A  # alias for Accessor
 
 from website.apps.core.tables import DataTable
 
+from website.apps.core.models import Source
 from website.apps.lexicon.models import Lexicon, CognateSet, Cognate
 from website.apps.cognacy.templatetags.cognacy_tags import cognate_button
 from website.apps.core.templatetags.website_tags import condense_classification
+
+
+class CognateSourceIndexTable(DataTable):
+    """Table of cognate sets by source"""
+    reference = tables.LinkColumn('cognacy:cognatesource_detail', args=[A('slug')])
+    count = tables.Column()
+    
+    class Meta(DataTable.Meta):
+        model = Source
+        order_by = 'author' # default sorting
+        sequence = ('reference', 'count',)
+        exclude = (
+            'id', 'editor', 'added', 'comment', 'quality', 'slug', 'bibtex', 'author', 'year'
+        )
+    Meta.attrs['summary'] = 'Table of Sources with Cognates'
+
+
+class CognateSourceDetailTable(DataTable):
+    """Table of cognate sets by source"""
+    cognateset = tables.LinkColumn('cognacy:detail', args=[A('cognateset_id')])
+    language = tables.LinkColumn('language-detail', args=[A('language.slug')])
+    word = tables.LinkColumn('word-detail', args=[A('word.slug')])
+    lexicon = tables.Column()
+    
+    def render_lexicon(self, record):
+        col = tables.Column()
+        return col.render(value=unicode(record.lexicon.entry))
+    
+    class Meta(DataTable.Meta):
+        model = Cognate
+        order_by = 'cognateset' # default sorting
+        sequence = ('cognateset', 'language', 'word', 'lexicon', )
+        exclude = ('id', 'editor', 'added', 'comment', 'quality', 'flag', 'source')
+    Meta.attrs['summary'] = 'Table of Cognate Sets by Source'
 
 
 class CognateSetDetailTable(DataTable):
@@ -40,21 +75,6 @@ class CognateSetDetailTable(DataTable):
         exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'source_gloss', )
     Meta.attrs['summary'] = 'Table of Cognates'
 
-
-class CognateSetIndexTable(DataTable):
-    """Table of cognate sets"""
-    id = tables.LinkColumn('cognacy:detail', args=[A('id')])
-    protoform = tables.LinkColumn('cognacy:detail', args=[A('id')])
-    gloss = tables.LinkColumn('cognacy:detail', args=[A('id')])
-    count = tables.Column()
-    source = tables.LinkColumn('source-detail', args=[A('source.slug')])
-    
-    class Meta(DataTable.Meta):
-        model = CognateSet
-        order_by = 'id' # default sorting
-        sequence = ('id', 'protoform', 'gloss', 'count', 'source', )
-        exclude = ('editor', 'added', 'comment', 'lexicon', 'quality')
-    Meta.attrs['summary'] = 'Table of Cognate Sets'
 
 
 class CognacyTable(DataTable):
