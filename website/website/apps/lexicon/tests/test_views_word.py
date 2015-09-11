@@ -5,8 +5,9 @@ from django.core.urlresolvers import reverse
 from website.apps.lexicon.tests import DataMixin, DataMixinLexicon
 from website.apps.lexicon.models import Word, WordSubset, Lexicon
 
+from website.apps.core.tests.utils import PaginatorTestMixin
 
-class Test_WordIndex(DataMixin, TestCase):
+class Test_WordIndex(DataMixin, PaginatorTestMixin, TestCase):
     """Tests the Word Index page"""
     def setUp(self):
         self.client = Client()
@@ -104,7 +105,13 @@ class Test_WordIndex(DataMixin, TestCase):
             assert response.context['table'].rows[i].record == obj
     
 
-class Test_WordDetail(DataMixinLexicon, TestCase):
+class Test_WordDetail(DataMixinLexicon, PaginatorTestMixin, TestCase):
+    
+    def setUp(self):
+        super(Test_WordDetail, self).setUp()
+        self.url = reverse('word-detail', kwargs={'slug': self.word1.slug})
+        
+    
     def test_200ok(self):
         response = self.client.get(reverse('word-detail', kwargs={'slug': self.word1.slug}))
         self.assertEqual(response.status_code, 200)

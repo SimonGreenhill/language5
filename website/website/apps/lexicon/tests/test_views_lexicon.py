@@ -6,7 +6,6 @@ from website.apps.lexicon.tests import DataMixin, DataMixinLexicon
 from website.apps.lexicon.models import Word, WordSubset, Lexicon
 from website.apps.lexicon.models import CognateSet, Cognate
 
-
 class Test_LexiconDetail(DataMixin, TestCase):
     def setUp(self):
         super(Test_LexiconDetail, self).setUp()
