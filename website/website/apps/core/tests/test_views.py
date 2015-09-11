@@ -11,43 +11,71 @@ class BaseMixin(object):
     def setUp(self):
         self.editor = User.objects.create(username='admin')
         self.language1 = Language.objects.create(
-                        language='Language1', 
-                        slug='language1', 
-                        information='', 
-                        classification='Austronesian, Malayo-Polynesian, Bali-Sasak, Bali',
-                        isocode='aaa', 
-                        editor=self.editor
+            language='Language1', 
+            slug='language1', 
+            information='', 
+            classification='Austronesian, Malayo-Polynesian, Bali-Sasak, Bali',
+            isocode='aaa', 
+            editor=self.editor
         )
         self.language2 = Language.objects.create(
-                        language='Language2', 
-                        slug='language2', 
-                        information='', 
-                        classification='Mayan, Huastecan',
-                        isocode='bbb', 
-                        editor=self.editor
+            language='Language2', 
+            slug='language2', 
+            information='', 
+            classification='Mayan, Huastecan',
+            isocode='bbb', 
+            editor=self.editor
         )
         self.language3 = Language.objects.create(
-                        language='Language3', 
-                        slug='language3', 
-                        information='', 
-                        classification='Mayan, Huastecan',
-                        isocode='bbb', 
-                        editor=self.editor
+            language='Language3', 
+            slug='language3', 
+            information='', 
+            classification='Mayan, Huastecan',
+            isocode='bbb', 
+            editor=self.editor
         )
         self.alt1 = AlternateName.objects.create(
-                        language=self.language1, name='Fudge', 
-                        slug='fudge',
-                        editor=self.editor
+            language=self.language1,
+            name='Fudge', 
+            slug='fudge',
+            editor=self.editor
         )
+        
+        self.source1 = Source.objects.create(
+            year="1991",
+            author='Smith',
+            slug='smith1991',
+            reference='...',
+            comment='...',
+            editor=self.editor
+        )
+        self.source2 = Source.objects.create(
+            year="2002",
+            author='Jones',
+            slug='jones2002',
+            reference='...',
+            comment='...',
+            editor=self.editor
+        )
+        
+        self.family1 = Family.objects.create(
+            family="Austronesian",
+            slug="austronesian",
+            editor=self.editor
+        )
+        self.family2 = Family.objects.create(
+            family="Mayan",
+            slug="mayan",
+            editor=self.editor
+        )
+        
         self.client = Client()
 
     
 class Test_LanguageIndex(BaseMixin, PaginatorTestMixin, TestCase):
     """Tests the Language Index page"""
     
-    def setUp(self):
-        super(Test_LanguageIndex, self).setUp()
-        self.url = reverse('language-index')
+    url = reverse('language-index')
     
     def test_200ok(self):
         response = self.client.get(self.url)
@@ -124,27 +152,32 @@ class Test_LanguageIndex(BaseMixin, PaginatorTestMixin, TestCase):
         self.assertContains(response, 'A Language')
         
 
-class Test_LanguageDetail(BaseMixin, TestCase):
+class Test_LanguageDetail(BaseMixin, PaginatorTestMixin, TestCase):
     """Tests the Language Detail Page"""
+    def setUp(self):
+        super(Test_LanguageDetail, self).setUp()
+        self.url = reverse('language-detail', kwargs={'language': self.language1.slug})
     
     def test_200ok(self):
-        response = self.client.get('/language/language1')
+        response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
     
     def test_template_used(self):
-        response = self.client.get('/language/language1')
+        response = self.client.get(self.url)
         self.assertTemplateUsed(response, 'core/language_detail.html')
     
     def test_redirect_on_alternate_names(self):
         "Test redirection to canonical URL when given an alternate name"
         # Check that response to an existing language is 200 OK.
-        response = self.client.get('/language/language1')
+        response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         
         # Check that response to ./fudge/ is 302 and redirected
         response = self.client.get('/language/fudge')
-        self.assertRedirects(response, '/language/language1', 
-                status_code=301, target_status_code=200)
+        self.assertRedirects(response, 
+            '/language/language1',
+            status_code=301, target_status_code=200
+        )
     
     def test_404_on_nonexistent_language(self):
         "Test that a non-existent language raises a 404"
@@ -154,7 +187,7 @@ class Test_LanguageDetail(BaseMixin, TestCase):
     
     def test_alternate_names_shown_in_details(self):
         "Test that the details view shows alternate names too"
-        response = self.client.get('/language/language1')
+        response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Also Known As:')
         self.assertContains(response, 'Fudge')
@@ -195,15 +228,10 @@ class Test_ISOLookup(BaseMixin, TestCase):
         self.assertEqual(response.status_code, 404)
 
 
-class Test_FamilyIndex(PaginatorTestMixin, TestCase):
+class Test_FamilyIndex(BaseMixin, PaginatorTestMixin, TestCase):
     """Tests the family_index view"""
-    def setUp(self):
-        self.client = Client()
-        self.url = reverse('family-index')
-        self.editor = User.objects.create(username='admin')
-        self.family1 = Family.objects.create(family="Austronesian", slug="austronesian", editor=self.editor)
-        self.family2 = Family.objects.create(family="Mayan", slug="mayan", editor=self.editor)
-        
+    url = reverse('family-index')
+            
     def test_200ok(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
@@ -262,19 +290,18 @@ class Test_FamilyIndex(PaginatorTestMixin, TestCase):
         self.assertNotContains(response, 'Mayan')
     
         
-class Test_FamilyDetail(BaseMixin, TestCase):
+class Test_FamilyDetail(BaseMixin, PaginatorTestMixin, TestCase):
     """Tests the family_detail view"""
     def setUp(self):
         super(Test_FamilyDetail, self).setUp()
         # 1 is Austronesian
         # 2 & 3 are Mayan
-        self.austr = Family.objects.create(family="Austronesian", slug="austronesian", editor=self.editor)
-        self.mayan = Family.objects.create(family="Mayan", slug="mayan", editor=self.editor)
-        self.austr.language_set.add(self.language1)
-        self.austr.save()
-        self.mayan.language_set.add(self.language2)
-        self.mayan.language_set.add(self.language3)
-        self.mayan.save()
+        self.family1.language_set.add(self.language1)
+        self.family1.save()
+        self.family2.language_set.add(self.language2)
+        self.family2.language_set.add(self.language3)
+        self.family2.save()
+        self.url = reverse('family-detail', kwargs={'slug': self.family1.slug})
         
     def test_200ok(self):
         response = self.client.get('/family/austronesian')
@@ -317,18 +344,9 @@ class Test_FamilyDetail(BaseMixin, TestCase):
             assert response.context['table'].rows[i].record == obj
 
 
-class Test_SourceIndex(PaginatorTestMixin, TestCase):
+class Test_SourceIndex(BaseMixin, PaginatorTestMixin, TestCase):
     """Tests the source_index view"""
-    def setUp(self):
-        self.client = Client()
-        self.url = reverse('source-index')
-        self.editor = User.objects.create(username='admin')
-        self.source1 = Source.objects.create(year="1991", author='Smith', 
-                                    slug='smith1991', reference='...',
-                                    comment='...', editor=self.editor)
-        self.source2 = Source.objects.create(year="2002", author='Jones', 
-                                    slug='jones2002', reference='...',
-                                    comment='...', editor=self.editor)
+    url = reverse('source-index')
     
     def test_200ok(self):
         response = self.client.get(self.url)
@@ -382,26 +400,12 @@ class Test_SourceIndex(PaginatorTestMixin, TestCase):
         self.assertContains(response, 'Jones')
         self.assertNotContains(response, 'Smith')
     
-    
-    
-    @unittest.skip("broken")
-    def test_sorting_invalid(self):
-        response = self.client.get("{}?sort=WTFFFFFFF".format(self.url))
-        # for the LIFE of me I can't work out why this test fails??
-        # ordering seems right when I view the page, but the 
-        for i, obj in enumerate([self.source2, self.source1]):
-            assert response.context['table'].rows[i].record == obj
-    
 
-class Test_SourceDetail(TestCase):
+class Test_SourceDetail(BaseMixin, PaginatorTestMixin):
     """Tests the source_detail view"""
     def setUp(self):
-        self.client = Client()
-        self.editor = User.objects.create(username='admin')
-        self.source = Source.objects.create(year="1991", author='Smith', 
-                                    slug='smith1991', reference='...',
-                                    comment='...', editor=self.editor)
-        self.url = reverse('source-detail', kwargs={'slug': self.source.slug})
+        super(Test_SourceDetail, self).setUp()
+        self.url = reverse('source-detail', kwargs={'slug': self.source1.slug})
         
     def test_200ok(self):
         response = self.client.get(self.url)
