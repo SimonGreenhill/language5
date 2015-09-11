@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, render_to_response, get_object_or
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 from django.db.models import Q, Count
+from django.core.paginator import EmptyPage, PageNotAnInteger
 
 from website.apps.core.models import Family, Language, Source
 from website.apps.pronouns.models import Paradigm, Pronoun, Relationship, Rule
@@ -19,7 +20,7 @@ from website.apps.pronouns.forms import sort_formset
 from website.apps.pronouns.tools import add_pronoun_table, copy_paradigm
 from website.apps.pronouns.tools import find_identicals, extract_rule
 
-from django_tables2 import SingleTableView
+from django_tables2 import SingleTableView, RequestConfig
 
 import reversion
 
@@ -34,7 +35,19 @@ class Index(SingleTableView):
     
     def get_queryset(self):
         return Paradigm.objects.select_related().all()
-
+    
+    def get_context_data(self, **kwargs):
+        context = super(Index, self).get_context_data(**kwargs)
+        RequestConfig(self.request).configure(context['table'])
+        
+        try:
+            context['table'].paginate(page=self.request.GET.get('page', 1), per_page=50)
+        except EmptyPage: # 404 on a empty page
+            raise Http404
+        except PageNotAnInteger: # 404 on invalid page number
+            raise Http404
+        
+        return context
 
 
 def detail(request, paradigm_id):
