@@ -39,6 +39,11 @@ class CognateSourceDetailTable(DataTable):
         col = tables.Column()
         return col.render(value=unicode(record.lexicon.entry))
     
+    def render_cognateset(self, record):
+        return mark_safe(
+            render_to_string('cognacy/includes/button.html', cognate_button(record.cognateset_id))
+        )
+    
     class Meta(DataTable.Meta):
         model = Cognate
         order_by = 'cognateset' # default sorting
