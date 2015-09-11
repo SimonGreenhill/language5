@@ -54,6 +54,8 @@ class CognateSourceDetail(DetailView):
             raise Http404
         except PageNotAnInteger: # 404 on invalid page number
             raise Http404
+        
+        context['type'] = 'Source'
         return context
 
 
@@ -81,6 +83,7 @@ class CognateSetDetail(DetailView):
             raise Http404
         # get any notes for this cognate set.
         context['notes'] = CognateNote.objects.filter(cognateset=kwargs['object'])
+        context['type'] = 'CognateSet'
         return context
 
     @method_decorator(login_required) # ensure logged in

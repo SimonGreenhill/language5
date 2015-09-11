@@ -46,7 +46,7 @@ class CognateSourceDetailTable(DataTable):
     
     class Meta(DataTable.Meta):
         model = Cognate
-        order_by = 'cognateset' # default sorting
+        order_by = 'cognateset_id' # default sorting
         sequence = ('cognateset', 'language', 'word', 'lexicon', )
         exclude = ('id', 'editor', 'added', 'comment', 'quality', 'flag', 'source')
     Meta.attrs['summary'] = 'Table of Cognate Sets by Source'

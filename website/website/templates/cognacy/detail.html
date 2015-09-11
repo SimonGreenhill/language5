@@ -8,7 +8,7 @@
 {% block content %}
     <div class="page-header">
         <h1>
-            Cognate Set: {{ object }} {% if object.source %}({{ object.source }}){% endif %}
+            Cognates
         </h1>
     </div>
     
@@ -23,29 +23,34 @@
       </li>
     </ul>
     
-    <h2> Notes: </h2>
-    
     {% if notes %}
-    <ul>
-        {% for n in notes %}
-            <li> 
-                {% if n.word %} Word: <a href="{% url "word-detail" n.word.id %}">{{ n.word }}</a> {% endif %}
-                {% if n.cognateset %}CognateSet: <a href="{% url "cognacy:detail" n.cognateset.id %}">{{ n.cognateset }}</a>  {% endif %}
-                :{{ n.note }} - {{ n.editor }}
-            </li>
-        {% endfor %}
-    </ul>
+        <h2> Notes: </h2>
+
+        <ul>
+            {% for n in notes %}
+                <li> 
+                    {% if n.word %} Word: <a href="{% url "word-detail" n.word.id %}">{{ n.word }}</a> {% endif %}
+                    {% if n.cognateset %}CognateSet: <a href="{% url "cognacy:detail" n.cognateset.id %}">{{ n.cognateset }}</a>  {% endif %}
+                    :{{ n.note }} - {{ n.editor }}
+                </li>
+            {% endfor %}
+        </ul>
     {% endif %}
     
-    <h2> Members: </h2>
     
-    <ul>
-        <li>Protoform: {{ object.protoform }} </li>
-        <li>Gloss: {{ object.gloss }}</li>
-        <li>Comment: {{ object.comment }}</li>
-        <li>Source: {{ object.source}}</li>
-        <li>Quality: {{ object.quality}}</li>
-    </ul>
+    {% if type == 'CognateSet' %}
+        <h2> Members: {{ object }}</h2>
+        
+        <ul>
+            <li>Protoform: {{ object.protoform }} </li>
+            <li>Gloss: {{ object.gloss }}</li>
+            <li>Comment: {{ object.comment }}</li>
+            <li>Source: {{ object.source}}</li>
+            <li>Quality: {{ object.quality}}</li>
+        </ul>
+    {% elif type ==  'Source' %}
+        <h2> Source: {{ object }} </h2>
+    {% endif %}
     
     {% if lexicon %}
         {% render_table lexicon "table.html" %}
