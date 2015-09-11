@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
 from website.apps.core.models import Source, Language, Family, AlternateName
+from website.apps.core.tests.utils import PaginatorTestMixin
 
 class BaseMixin(object):
     def setUp(self):
@@ -40,22 +41,6 @@ class BaseMixin(object):
         )
         self.client = Client()
 
-
-class PaginatorTestMixin(object):
-    """Mixin for running paginator tests. Needs self.url to be set."""
-    def test_paginator(self):
-        response = self.client.get('{}?page=1'.format(self.url))
-        self.assertEqual(response.status_code, 200)
-    
-    def test_bad_paginator(self):
-        # no errors, just give page1
-        response = self.client.get('{}?page=10000'.format(self.url))
-        self.assertEqual(response.status_code, 200)
-        response = self.client.get('{}?page=banana'.format(self.url))
-        self.assertEqual(response.status_code, 200)
-    
-    
-    
     
 class Test_LanguageIndex(BaseMixin, PaginatorTestMixin, TestCase):
     """Tests the Language Index page"""

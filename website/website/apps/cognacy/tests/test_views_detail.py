@@ -51,5 +51,20 @@ class Test_CognateSetDetail(DataMixin, TestCase):
         response = self.client.get(self.url)
         self.assertEquals(response.status_code, 200)
         assert 'I AM A NOTE' in response.content
+    
+    def test_paginator(self):
+        self.client.login(username="admin", password="test")
+        response = self.client.get('{}?page=1'.format(self.url))
+        self.assertEqual(response.status_code, 200)
+    
+    def test_bad_paginator_integer(self):
+        self.client.login(username="admin", password="test")
+        response = self.client.get('{}?page=10000'.format(self.url))
+        self.assertEqual(response.status_code, 404)
         
+    def test_bad_paginator_word(self):
+        self.client.login(username="admin", password="test")
+        response = self.client.get('{}?page=banana'.format(self.url))
+        self.assertEqual(response.status_code, 404)
+    
         

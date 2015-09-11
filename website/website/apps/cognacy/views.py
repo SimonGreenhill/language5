@@ -1,9 +1,10 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
+from django.core.paginator import EmptyPage, PageNotAnInteger
 from django.db import transaction
 from django.db.models import Max, Q, Count
-from django.shortcuts import get_object_or_404, render_to_response, redirect
+from django.shortcuts import get_object_or_404, Http404, render_to_response, redirect
 from django.template import RequestContext
 from django.utils.decorators import method_decorator
 from django.views.generic import DetailView
@@ -54,7 +55,6 @@ class CognateSourceDetail(DetailView):
         except PageNotAnInteger: # 404 on invalid page number
             raise Http404
         return context
-
 
 
 class CognateSetDetail(DetailView):

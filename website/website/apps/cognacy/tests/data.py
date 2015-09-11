@@ -68,8 +68,6 @@ class DataMixin(TestCase):
             source=self.source,
             editor=self.editor
         )
-        
-        
         self.cog_2_b = Cognate.objects.create(
             lexicon=self.lex_b, cognateset=self.cogset2,
             source=self.source,
