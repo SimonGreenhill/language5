@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
-import reversion
-from django.db.models import Count
 from optparse import make_option
 from django.core.management.base import BaseCommand
 
 from website.apps.core.models import Language, Source
-from website.apps.lexicon.models import Word, Lexicon, Cognate, CognateSet
+from website.apps.lexicon.models import Word, Lexicon
 
 
 def repr_cog(cog_id, source_id=None):
     if source_id:
-        return "%03d.%05d" % (source_id, cog_id)
+        return "%03d.%x" % (source_id, cog_id)
     else:
         return "{0:x}".format(cog_id)
 
@@ -48,27 +46,38 @@ class Command(BaseCommand):
     
         # filters
         if language:
-            lexica = lexica.filter(language=Language.objects.get(slug=language))
+            lexica = lexica.filter(
+                language=Language.objects.get(slug=language)
+            )
         if word:
-            lexica = lexica.filter(word=Word.objects.get(slug=word))
+            lexica = lexica.filter(
+                word=Word.objects.get(slug=word)
+            )
         if source:
-            lexica = lexica.filter(source=Source.objects.get(slug=source))
+            lexica = lexica.filter(
+                source=Source.objects.get(slug=source)
+            )
         if clade:
-            lexica = lexica.filter(language__in=
-                Language.objects.filter(classification__startswith=clade)
+            lexica = lexica.filter(
+                language__in=Language.objects.filter(
+                    classification__startswith=clade
+                )
             )
         return lexica
     
     def handle(self, *args, **options):
         lexica = self.get_entries(
             language=options.get('language', None),
-            word = options.get('word', None),
-            source = options.get('source', None),
-            clade = options.get('clade', None)
+            word=options.get('word', None),
+            source=options.get('source', None),
+            clade=options.get('clade', None)
         )
         
         for lex in lexica:
-            cogs = ",".join([repr_cog(_.id) for _ in lex.cognateset_set.all()])
+            cogs = ",".join([
+                repr_cog(_.id, _.source_id) for _ in lex.cognate_set.all()
+            ])
+            
             print(u"\t".join([
                 "%s" % lex.id,
                 lex.language.slug,
