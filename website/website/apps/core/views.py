@@ -36,11 +36,18 @@ class LanguageIndex(SingleTableView):
     
     def get_context_data(self, **kwargs):
         context = super(LanguageIndex, self).get_context_data(**kwargs)
-        if 'subset' in self.request.GET:
-            context['subset'] = self.request.GET['subset']
-        else:
-            context['subset'] = None
+        context['subset'] = self.request.GET.get('subset', None)
         context['subsets'] = [_ for _ in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
+        
+        RequestConfig(self.request).configure(context['table'])
+        
+        try:
+            context['table'].paginate(page=self.request.GET.get('page', 1), per_page=50)
+        except EmptyPage: # 404 on a empty page
+            raise Http404
+        except PageNotAnInteger: # 404 on invalid page number
+            raise Http404
+            
         return context
     
     
@@ -61,11 +68,18 @@ class SourceIndex(SingleTableView):
 
     def get_context_data(self, **kwargs):
         context = super(SourceIndex, self).get_context_data(**kwargs)
-        if 'subset' in self.request.GET:
-            context['subset'] = self.request.GET['subset']
-        else:
-            context['subset'] = None
+        context['subset'] = self.request.GET.get('subset', None)
         context['subsets'] = [_ for _ in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
+        
+        RequestConfig(self.request).configure(context['table'])
+        
+        try:
+            context['table'].paginate(page=self.request.GET.get('page', 1), per_page=50)
+        except EmptyPage: # 404 on a empty page
+            raise Http404
+        except PageNotAnInteger: # 404 on invalid page number
+            raise Http404
+        
         return context
 
 
@@ -84,11 +98,18 @@ class FamilyIndex(SingleTableView):
 
     def get_context_data(self, **kwargs):
         context = super(FamilyIndex, self).get_context_data(**kwargs)
-        if 'subset' in self.request.GET:
-            context['subset'] = self.request.GET['subset']
-        else:
-            context['subset'] = None
+        context['subset'] = self.request.GET.get('subset', None)
         context['subsets'] = [_ for _ in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
+        
+        RequestConfig(self.request).configure(context['table'])
+
+        try:
+            context['table'].paginate(page=self.request.GET.get('page', 1), per_page=50)
+        except EmptyPage: # 404 on a empty page
+            raise Http404
+        except PageNotAnInteger: # 404 on invalid page number
+            raise Http404
+        
         return context
 
 
@@ -133,6 +154,14 @@ class FamilyDetail(DetailView):
         
         )
         RequestConfig(self.request).configure(context['languages'])
+        
+        try:
+            context['languages'].paginate(page=self.request.GET.get('page', 1), per_page=50)
+        except EmptyPage: # 404 on a empty page
+            raise Http404
+        except PageNotAnInteger: # 404 on invalid page number
+            raise Http404
+        
         return context
 
 
@@ -156,7 +185,9 @@ def language_detail(request, language):
         }
         
         # sources used 
-        source_ids = [_['source_id'] for _ in my_lang.lexicon_set.values('source_id').distinct().all()]
+        source_ids = [
+            _['source_id'] for _ in my_lang.lexicon_set.values('source_id').distinct().all()
+        ]
         out['sources_used'] = Source.objects.filter(pk__in=source_ids)
         
         # location
@@ -221,13 +252,10 @@ def iso_lookup(request, iso):
     if len(languages) == 1:
         return redirect(languages[0], permanent=True)
     elif len(languages) > 1:
-        return render(request, 'core/language_index.html', 
-                                    {'table': LanguageIndexTable(languages),
-                                     'message': "Multiple Languages found for ISO code %s" % iso, 
-                                    })
+        return render(request, 'core/language_index.html', {
+            'table': LanguageIndexTable(languages),
+            'message': "Multiple Languages found for ISO code %s" % iso, 
+        })
     else:
         raise Http404
         
-
-
-

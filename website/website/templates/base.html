@@ -73,6 +73,9 @@
                   <li{% active 'word-index' %}>
                       <a href="{% url "word-index" %}">Words</a>
                   </li>
+                  <li{% active 'cognacy:index' %}>
+                      <a href="{% url "cognacy:index" %}">Cognates</a>
+                  </li>
                   {% endifinstalled %}
                   
                   {% ifinstalled "website.apps.pronouns" %}
@@ -106,9 +109,6 @@
                           </li>
                       {% endifinstalled %}
                       {% ifinstalled "website.apps.lexicon" %}
-                          <li{% active 'cognacy:index' %}>
-                              <a href="{% url "cognacy:index" %}">Browse Cognates</a>
-                          </li>
                           <li{% active 'cognacy:do_index' %}>
                               <a href="{% url "cognacy:do_index" %}">Do Cognacy</a>
                           </li>

@@ -7,7 +7,9 @@ from website.apps.pronouns.tools import full_repr_row
 from website.apps.pronouns.models import Paradigm, PronounType, Pronoun, Relationship
 from website.apps.pronouns.tests import DefaultSettingsMixin
 
-class Test_Index(DefaultSettingsMixin, TestCase):
+from website.apps.core.tests.utils import PaginatorTestMixin
+
+class Test_Index(DefaultSettingsMixin, PaginatorTestMixin, TestCase):
     def setUp(self):
         self.add_fixtures()
         self.url = reverse('pronouns:index')

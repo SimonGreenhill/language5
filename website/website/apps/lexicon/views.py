@@ -49,6 +49,16 @@ class WordIndex(SingleTableView):
         context['subset'] = self.subset
         context['subsets'] = WordSubset.objects.all()
         context['letters'] = [_ for _ in ascii_uppercase]
+        
+        RequestConfig(self.request).configure(context['table'])
+        
+        try:
+            context['table'].paginate(page=self.request.GET.get('page', 1), per_page=50)
+        except EmptyPage: # 404 on a empty page
+            raise Http404
+        except PageNotAnInteger: # 404 on invalid page number
+            raise Http404
+        
         return context
     
 
@@ -82,7 +92,7 @@ class LexiconDetail(DetailView):
     """Lexicon Detail"""
     model = Lexicon
     template_name = 'lexicon/lexicon_detail.html'
-
+        
 
 class LexiconEdit(UpdateView):
     """Lexicon Editor"""
