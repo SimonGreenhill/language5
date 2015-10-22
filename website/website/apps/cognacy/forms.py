@@ -29,18 +29,20 @@ class DoCognateForm(forms.Form):
         required=True
     )
     clade = forms.ChoiceField(
-        choices=get_clades(),
+        choices=[],
         widget=forms.widgets.Select(attrs={'class': 'input-xxlarge'}),
         required=False
     )
     
     def __init__(self, *args, **kwargs):
         is_hidden = kwargs.pop('is_hidden', None)
+        clades = kwargs.pop('clades', None)
         super(DoCognateForm, self).__init__(*args, **kwargs)
         if is_hidden:
             self.fields['word'].widget = forms.HiddenInput()
             self.fields['clade'].widget = forms.HiddenInput()
-
+        if clades:
+            self.fields['clade'].choices = clades
 
 class MergeCognateForm(forms.Form):
     old = forms.ModelChoiceField(
