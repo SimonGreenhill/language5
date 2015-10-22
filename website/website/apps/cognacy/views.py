@@ -14,7 +14,7 @@ import reversion
 
 from website.apps.core.models import Source
 from website.apps.lexicon.models import Word, Lexicon, CognateSet, Cognate, CognateNote
-from website.apps.cognacy.forms import DoCognateForm, MergeCognateForm, CognateNoteForm
+from website.apps.cognacy.forms import DoCognateForm, MergeCognateForm, CognateNoteForm, get_clades
 from website.apps.cognacy.tables import CognateSourceIndexTable, CognateSourceDetailTable
 from website.apps.cognacy.tables import CognacyTable, CognateSetDetailTable 
 
@@ -94,7 +94,7 @@ class CognateSetDetail(DetailView):
 @login_required()
 def do_index(request):
     """Do cognacy index to help select subsets"""
-    form = DoCognateForm(request.POST or None)
+    form = DoCognateForm(request.POST or None, clades=get_clades())
     if request.POST and form.is_valid():
         url = reverse('cognacy:do', kwargs={
             'word': form.cleaned_data['word'].slug, 
@@ -145,7 +145,7 @@ def do(request, word, clade=None):
     inplay = sorted([(k.id, k, v) for (k, v) in inplay.items()])
     inplay = [(_[1], _[2]) for _ in inplay]
     
-    form = DoCognateForm(initial={'word': w.id, 'clade': clade}, is_hidden=True)
+    form = DoCognateForm(initial={'word': w.id, 'clade': clade}, is_hidden=True, clades=get_clades())
     
     
     CSQ = CognateSet.cache_all_method.filter(id__in=[c[1] for c in cogs]).order_by('id')
@@ -171,7 +171,7 @@ def do(request, word, clade=None):
 
 @login_required()
 def save(request, word, clade=None):
-    form = DoCognateForm(request.POST or None)
+    form = DoCognateForm(request.POST or None, clades=get_clades())
     commentform = CognateNoteForm(request.POST or None, prefix='comment',
         queryset=CognateSet.objects.all()
     )
