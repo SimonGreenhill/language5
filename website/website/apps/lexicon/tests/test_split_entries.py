@@ -51,7 +51,7 @@ class Test_Split_Entries(HygieneDataMixin):
             entry="/hello"
         )
         with self.assertRaises(AssertionError):
-            cmd.split_and_replace(o)
+            cmd.split_and_replace(o, quiet=True)
         
     def test_fail_on_zero_length_component_comma(self):
         """Test split_and_replace fails with a zero length component"""
@@ -64,7 +64,7 @@ class Test_Split_Entries(HygieneDataMixin):
             entry=",hello"
         )
         with self.assertRaises(AssertionError):
-            cmd.split_and_replace(o)
+            cmd.split_and_replace(o, quiet=True)
         
     def test_fail_on_zero_length_component_trailing_slash(self):
         """Test split_and_replace fails with a zero length component"""
@@ -77,7 +77,7 @@ class Test_Split_Entries(HygieneDataMixin):
             entry="hello/"
         )
         with self.assertRaises(AssertionError):
-            cmd.split_and_replace(o)
+            cmd.split_and_replace(o, quiet=True)
 
     def test_fail_on_zero_length_component_trailing_comma(self):
         """Test split_and_replace fails with a zero length component"""
@@ -90,11 +90,11 @@ class Test_Split_Entries(HygieneDataMixin):
             entry="hello,"
         )
         with self.assertRaises(AssertionError):
-            cmd.split_and_replace(o)
+            cmd.split_and_replace(o, quiet=True)
             
     def test_split_and_replace_slash(self):
         cmd = split_entries.Command()
-        cmd.split_and_replace(self.combined['slash'])
+        cmd.split_and_replace(self.combined['slash'], quiet=True)
         one = Lexicon.objects.filter(entry="hello")
         two = Lexicon.objects.filter(entry="world")
         
@@ -108,7 +108,7 @@ class Test_Split_Entries(HygieneDataMixin):
         
     def test_split_and_replace_comma(self):
         cmd = split_entries.Command()
-        cmd.split_and_replace(self.combined['comma'])
+        cmd.split_and_replace(self.combined['comma'], quiet=True)
         one = Lexicon.objects.filter(entry="foo")
         two = Lexicon.objects.filter(entry="bar")
         
@@ -122,13 +122,13 @@ class Test_Split_Entries(HygieneDataMixin):
     
     def test_split_and_replace_slash_deletes(self):
         cmd = split_entries.Command()
-        cmd.split_and_replace(self.combined['slash'])
+        cmd.split_and_replace(self.combined['slash'], quiet=True)
         with self.assertRaises(Lexicon.DoesNotExist):
             assert Lexicon.objects.get(pk=self.combined['slash'].pk)
         
     def test_split_and_replace_comma_deletes(self):
         cmd = split_entries.Command()
-        cmd.split_and_replace(self.combined['comma'])
+        cmd.split_and_replace(self.combined['comma'], quiet=True)
         with self.assertRaises(Lexicon.DoesNotExist):
             assert Lexicon.objects.get(pk=self.combined['comma'].pk)
         
@@ -142,7 +142,7 @@ class Test_Split_Entries(HygieneDataMixin):
             editor=self.editor,
             entry="i have/ a space"
         ) 
-        cmd.split_and_replace(o)
+        cmd.split_and_replace(o, quiet=True)
         one = Lexicon.objects.filter(entry="i have")
         two = Lexicon.objects.filter(entry="a space")
         
@@ -293,7 +293,7 @@ class Test_Ignore_Protoforms(HygieneDataMixin):
     
     def test_correctly_split_protoform(self):
         cmd = split_entries.Command()
-        cmd.split_and_replace(self.pform3)
+        cmd.split_and_replace(self.pform3, quiet=True)
         one = Lexicon.objects.filter(entry="*neri")
         two = Lexicon.objects.filter(entry="*niri")
         

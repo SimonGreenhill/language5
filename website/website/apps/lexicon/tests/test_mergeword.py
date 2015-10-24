@@ -54,31 +54,31 @@ class TestMergeWordManagementCommand(TestCase):
     def test_error_on_invalid_args(self):
         cmd = mergeword.Command()
         with self.assertRaises(IndexError):
-            cmd.handle()
+            cmd.handle(quiet=True)
         with self.assertRaises(IndexError):
-            cmd.handle('hand')
+            cmd.handle('hand', quiet=True)
         with self.assertRaises(IndexError):
-            cmd.handle('hand', 'leg', 'foot')
+            cmd.handle('hand', 'leg', 'foot', quiet=True)
     
     def test_error_on_bad_slug_arg1(self):
         cmd = mergeword.Command()
         with self.assertRaises(Word.DoesNotExist):
-            cmd.handle('foot', 'hand')
+            cmd.handle('foot', 'hand', quiet=True)
             
     def test_error_on_bad_slug_arg2(self):
         cmd = mergeword.Command()
         with self.assertRaises(Word.DoesNotExist):
-            cmd.handle('hand', 'nose')
+            cmd.handle('hand', 'nose', quiet=True)
     
     def test_does_nothing_without_save_option(self):
         cmd = mergeword.Command()
-        cmd.handle('hand', 'leg')
+        cmd.handle('hand', 'leg', quiet=True)
         assert Lexicon.objects.get(pk=self.lex_2_1.pk).word == self.word2
         assert Lexicon.objects.get(pk=self.lex_2_2.pk).word == self.word2
         
     def test_works(self):
         cmd = mergeword.Command()
-        cmd.handle('hand', 'leg', save=True)
+        cmd.handle('hand', 'leg', save=True, quiet=True)
         assert Lexicon.objects.get(pk=self.lex_2_1.pk).word == self.word1
         assert Lexicon.objects.get(pk=self.lex_2_2.pk).word == self.word1
         
