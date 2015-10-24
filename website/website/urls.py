@@ -90,7 +90,7 @@ urlpatterns = patterns('',
         name="login"),
     url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', name="logout"),
     
-    url(r'^favicon\.ico$', RedirectView.as_view(url='%s/favicon.ico' % settings.STATIC_URL)),
+    url(r'^favicon\.ico$', RedirectView.as_view(url='%s/favicon.ico' % settings.STATIC_URL, permanent=True)),
     
     (r'^api/', include(v1_api.urls)),
 )
