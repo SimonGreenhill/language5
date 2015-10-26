@@ -2,13 +2,20 @@ import re
 from xml.dom import minidom
 from unittest import expectedFailure
 
-from django.test import TestCase
+from django.test import TestCase, TransactionTestCase, override_settings
 from django.test.client import Client
-from django.test.utils import override_settings
 
 from website.apps.core.models import Language
 
 from views import parse_time, check_ident
+
+# NOTE: as at Oct 2010, the override_settings decorator doesn't seem to
+# work if defined at the class level. 
+#
+# >>> @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
+#
+# It does seem to work if placed on the setUp() function
+
 
 TEST_DOMAIN = 'myolacsite.com'
 TEST_SITENAME = 'My Olac Site'
@@ -47,12 +54,12 @@ class TestDateTimeParsing(TestCase):
         assert t.day == 01
         
 
-@override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
 class TestSiteNameSetProperly(TestCase):
+    @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
     def setUp(self):
         self.client = Client()
         self.response = self.client.get('/oai/?verb=Identify')
-        
+    
     def test_sitename(self):
         self.assertEquals(TEST_SITENAME, self.response.context['OLAC']['sitename'])
         self.assertEquals(OLAC_SETTINGS['sitename'], self.response.context['OLAC']['sitename'])
@@ -62,8 +69,8 @@ class TestSiteNameSetProperly(TestCase):
         self.assertEquals(OLAC_SETTINGS['sitedomain'], self.response.context['OLAC']['sitedomain'])
 
 
-@override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
 class TestValidIdentifiers(TestCase):
+    @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
     def setUp(self):
         self.pattern = OLAC_SETTINGS.get('_identifier')
         
@@ -88,12 +95,10 @@ class TestValidIdentifiers(TestCase):
         assert check_ident('oai:%s:aaa.1' % TEST_DOMAIN).groups()[1] == '1'
 
 
-
-@override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
-class Test_Identify(TestCase):
+class Test_Identify(TransactionTestCase):
     #This verb takes no arguments and returns information about a repository 
     fixtures = ['test_core.json']
-    
+    @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
     def setUp(self):
         self.client = Client()
         self.response = self.client.get('/oai/?verb=Identify')
@@ -158,8 +163,7 @@ class Test_Identify(TestCase):
         assert '<error code="badArgument">' in response.content
 
 
-@override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
-class Test_ListIdentifiers(TestCase):
+class Test_ListIdentifiers(TransactionTestCase):
     # This verb is an abbreviated form of ListRecords, retrieving only headers 
     # rather than records. Optional arguments permit selective harvesting of 
     # headers based on set membership and/or datestamp. Depending on the 
@@ -168,6 +172,7 @@ class Test_ListIdentifiers(TestCase):
     # the request has been deleted.
     fixtures = ['test_core.json']
     
+    @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
     def setUp(self):
         self.client = Client()
     
@@ -306,7 +311,7 @@ class Test_ListIdentifiers(TestCase):
 
 
 @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
-class Test_ListSets(TestCase):
+class Test_ListSets(TransactionTestCase):
     # Not Implemented as no set hierarchy available.
     def test_listSets(self):
         # Identify should also be generated if no verb is given
@@ -319,11 +324,11 @@ class Test_ListSets(TestCase):
         xmldoc = minidom.parseString(response.content)
 
 
-@override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
-class Test_ListRecords(TestCase):
+class Test_ListRecords(TransactionTestCase):
     """General tests for ListRecords"""
     fixtures = ['test_core.json']
     
+    @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
     def setUp(self):
         self.client = Client()
         
@@ -389,11 +394,11 @@ class Test_ListRecords(TestCase):
         assert len(response.context['object_list']) == 2
 
 
-@override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
-class Test_ListRecords_metadataPrefix_oai_dc(TestCase):
+class Test_ListRecords_metadataPrefix_oai_dc(TransactionTestCase):
     """Test the metadata for the `ListRecords` command under the oai_dc mode"""
     fixtures = ['test_core.json']
     
+    @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
     def setUp(self):
         self.client = Client()
         self.response = self.client.get('/oai/?verb=ListRecords&metadataPrefix=oai_dc')
@@ -435,13 +440,13 @@ class Test_ListRecords_metadataPrefix_oai_dc(TestCase):
     
     def test_dc_type_dcterms(self):
         self.assertContains(self.response, '<dc:type xsi:type="dcterms:DCMIType">Text</dc:type>', count=3)
-        
 
-@override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
-class Test_ListRecords_metadataPrefix_olac(TestCase):
+
+class Test_ListRecords_metadataPrefix_olac(TransactionTestCase):
     """Test the metadata for the `ListRecords` command under the olac mode"""
     fixtures = ['test_core.json']
 
+    @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
     def setUp(self):
         self.client = Client()
         self.response = self.client.get('/oai/?verb=ListRecords&metadataPrefix=olac')
@@ -482,11 +487,11 @@ class Test_ListRecords_metadataPrefix_olac(TestCase):
         self.assertContains(self.response, '<dc:type xsi:type="olac:linguistic-type" olac:code="lexicon"/>', count=3)
     
     
-@override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
-class Test_GetRecord(TestCase):
+class Test_GetRecord(TransactionTestCase):
     """General tests for GetRecord"""
     fixtures = ['test_core.json']
 
+    @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
     def setUp(self):
         self.client = Client()
 
@@ -516,11 +521,11 @@ class Test_GetRecord(TestCase):
 
 
 
-@override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
-class Test_GetRecord_metadataPrefix_oai_dc(TestCase):
+class Test_GetRecord_metadataPrefix_oai_dc(TransactionTestCase):
     """Test the metadata for the `GetRecord` command under the oai_dc mode"""
     fixtures = ['test_core.json']
     
+    @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
     def setUp(self):
         self.client = Client()
         id = 'oai:%s:aaa.1' % TEST_DOMAIN
@@ -561,11 +566,11 @@ class Test_GetRecord_metadataPrefix_oai_dc(TestCase):
         self.assertContains(self.response, '<dc:description>Vocabulary for Language1', count=1)
     
  
-@override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
-class Test_GetRecord_metadataPrefix_olac(TestCase):
+class Test_GetRecord_metadataPrefix_olac(TransactionTestCase):
     """Test the metadata for the `GetRecord` command under the olac mode"""
     fixtures = ['test_core.json']
 
+    @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
     def setUp(self):
         self.client = Client()
         id = 'oai:%s:bbb.2' % TEST_DOMAIN
@@ -609,13 +614,13 @@ class Test_GetRecord_metadataPrefix_olac(TestCase):
         self.assertContains(self.response, '<dc:description>Vocabulary for Language2', count=1)
     
 
-@override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
-class TestNoHTML(TestCase):
+class TestNoHTML(TransactionTestCase):
     """Test that the XML output does not contain html entities."""
     # but it *should* in URLS.
     
     fixtures = ['test_core.json']
     
+    @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
     def test_one(self):
         l = Language.objects.get(pk=2)
         l.language = '<language2'
