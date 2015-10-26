@@ -99,11 +99,7 @@ class Test_Identify(TestCase):
         self.response = self.client.get('/oai/?verb=Identify')
     
     def test_valid_xml(self):
-        try:
-            xmldoc = minidom.parseString(self.response.content)
-        except:
-            print self.response.content
-            raise
+        xmldoc = minidom.parseString(self.response.content)
         
     def test_identify(self):
         assert "<Identify>" in self.response.content
@@ -177,10 +173,7 @@ class Test_ListIdentifiers(TestCase):
     
     def test_valid_xml(self):
         response = self.client.get('/oai/?verb=ListIdentifiers&metadataPrefix=olac')
-        try:
-            xmldoc = minidom.parseString(response.content)
-        except:
-            raise
+        xmldoc = minidom.parseString(response.content)
             
     def test_listidentifiers(self):
         # Identify should also be generated if no verb is given
@@ -323,11 +316,7 @@ class Test_ListSets(TestCase):
     
     def test_valid_xml(self):
         response = Client().get('/oai/?verb=ListSets')
-        try:
-            xmldoc = minidom.parseString(response.content)
-        except:
-            print response.content
-            raise
+        xmldoc = minidom.parseString(response.content)
 
 
 @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
@@ -340,11 +329,7 @@ class Test_ListRecords(TestCase):
         
     def test_valid_xml(self):
         response = self.client.get('/oai/?verb=ListRecords')
-        try:
-            xmldoc = minidom.parseString(response.content)
-        except:
-            print response.content
-            raise
+        xmldoc = minidom.parseString(response.content)
             
     def test_error_on_no_metadataPrefix(self):
         response = self.client.get('/oai/?verb=ListRecords')
@@ -414,11 +399,7 @@ class Test_ListRecords_metadataPrefix_oai_dc(TestCase):
         self.response = self.client.get('/oai/?verb=ListRecords&metadataPrefix=oai_dc')
     
     def test_valid_xml(self):
-        try:
-            xmldoc = minidom.parseString(self.response.content)
-        except:
-            print self.response.content
-            raise
+        xmldoc = minidom.parseString(self.response.content)
             
     def test_oai_dc(self):
         self.assertContains(self.response, '<oai_dc:dc', count=3)
@@ -466,11 +447,7 @@ class Test_ListRecords_metadataPrefix_olac(TestCase):
         self.response = self.client.get('/oai/?verb=ListRecords&metadataPrefix=olac')
     
     def test_valid_xml(self):
-        try:
-            xmldoc = minidom.parseString(self.response.content)
-        except:
-            print self.response.content
-            raise
+        xmldoc = minidom.parseString(self.response.content)
     
     def test_olac(self):
         self.assertContains(self.response, '<olac:olac', count=3)
@@ -515,11 +492,7 @@ class Test_GetRecord(TestCase):
 
     def test_valid_xml(self):
         response = self.client.get('/oai/?verb=GetRecord')
-        try:
-            xmldoc = minidom.parseString(response.content)
-        except:
-            print response.content
-            raise
+        xmldoc = minidom.parseString(response.content)
             
     def test_error_on_no_metadataPrefix(self):
         response = self.client.get('/oai/?verb=GetRecord')
@@ -554,11 +527,7 @@ class Test_GetRecord_metadataPrefix_oai_dc(TestCase):
         self.response = self.client.get('/oai/?verb=GetRecord&metadataPrefix=oai_dc&identifier=%s' % id)
     
     def test_valid_xml(self):
-        try:
-            xmldoc = minidom.parseString(self.response.content)
-        except:
-            print self.response.content
-            raise
+        xmldoc = minidom.parseString(self.response.content)
     
     def test_oai_dc(self):
         self.assertContains(self.response, '<oai_dc:dc', count=1)
@@ -603,11 +572,7 @@ class Test_GetRecord_metadataPrefix_olac(TestCase):
         self.response = self.client.get('/oai/?verb=GetRecord&metadataPrefix=olac&identifier=%s' % id)
     
     def test_valid_xml(self):
-        try:
-            xmldoc = minidom.parseString(self.response.content)
-        except:
-            print self.response.content
-            raise
+        xmldoc = minidom.parseString(self.response.content)
     
     def test_olac(self):
         self.assertContains(self.response, '<olac:olac', count=1)
