@@ -6,7 +6,7 @@ SITE_ROOT = os.path.split(os.path.dirname(os.path.abspath(__file__)))[0]
 DEBUG = TEMPLATE_DEBUG = False
 
 ADMINS = (
-    ('Simon J. Greenhill', 'simon@simon.net.nz'),
+    ('Simon J. Greenhill', 'test@example.com'),
 )
 
 INTERNAL_IPS = ('127.0.0.1',)

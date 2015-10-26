@@ -5,7 +5,7 @@
       "last_login": "2012-06-24T11:04:52.734Z", "groups": [], 
       "user_permissions": [], 
       "password": "pbkdf2_sha256$10000$ZLUvZNYJrvFV$ticrXPNcuqS91VqCzPhgZBYOiRNhSSwKJC/iCgSDiHc=", 
-      "email": "simon@simon.net.nz", 
+      "email": "test@example.com", 
       "date_joined": "2012-06-24T11:04:52.734Z"}},
 
 {"pk": 1, "model": "core.family", "fields": 
