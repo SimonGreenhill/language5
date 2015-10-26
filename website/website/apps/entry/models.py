@@ -27,7 +27,7 @@ class Task(TrackedModel):
     checkpoint = models.TextField(help_text="Saved Checkpoint Data", 
         blank=True, null=True)
     lexicon = models.ManyToManyField('lexicon.Lexicon',
-        help_text="Saved Lexical Items", blank=True, null=True)
+        help_text="Saved Lexical Items", blank=True)
     
     def __unicode__(self):
         return self.name
