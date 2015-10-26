@@ -159,7 +159,7 @@ class Pronoun(TrackedModel):
     pronountype = models.ForeignKey('PronounType')
     comment = models.TextField(blank=True, null=True,
         help_text="Comment on this paradigm")
-    entries = models.ManyToManyField('lexicon.Lexicon', null=True, blank=True)
+    entries = models.ManyToManyField('lexicon.Lexicon', blank=True)
     
     def __unicode__(self):
         return u'%s' % self.pronountype
@@ -240,7 +240,7 @@ class Rule(TrackedModel):
     """Pronoun Relationship Rules"""
     paradigm = models.ForeignKey('Paradigm')
     rule = models.CharField(max_length=64)
-    relationships = models.ManyToManyField('Relationship', blank=True, null=True)
+    relationships = models.ManyToManyField('Relationship', blank=True)
     
     def __unicode__(self):
         return '%d-%s' % (self.paradigm.id, self.rule)

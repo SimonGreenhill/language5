@@ -73,7 +73,7 @@ class CognateSetMap(DetailView):
         context = super(CognateSetMap, self).get_context_data(**kwargs)
         context['records'] = prepare_map_data([
             _.lexicon for _ in 
-            kwargs['object'].cognate_set.select_related('language').all()
+            kwargs['object'].cognate_set.select_related('lexicon__language').all()
         ])
         return context
 

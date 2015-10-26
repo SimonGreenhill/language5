@@ -76,7 +76,7 @@ class WordSubset(TrackedModel):
         help_text="`Slug` for subset (for use in URLS)")
     description = models.TextField(blank=True, null=True,
         help_text="Details of subset.")
-    words = models.ManyToManyField('Word', blank=True, null=True)
+    words = models.ManyToManyField('Word', blank=True)
     
     def __unicode__(self):
         return self.slug

@@ -41,21 +41,15 @@ class LexiconForm(forms.ModelForm):
 # BRUTALLY SLOW
 def create_pronoun_formset(paradigm, postdata=None):
     formsets = []
-    pset = paradigm.pronoun_set.all().select_related('pronountype').prefetch_related('entries')
+    pset = paradigm.pronoun_set.all().filter(pronountype__active=True)
+    pset = pset.select_related('pronountype').prefetch_related('entries')
     for pronoun in pset:
-        if pronoun.pronountype.active == False:
-            continue
-            
         qset = pronoun.entries.all()
-        if len(qset) == 0:
-            EntriesFormSet = modelformset_factory(Lexicon, form=LexiconForm, extra=1)
-        else:
-            EntriesFormSet = modelformset_factory(Lexicon, form=LexiconForm, extra=0)
-        
+        extra = 0 if len(qset) else 1
+        EntriesFormSet = modelformset_factory(Lexicon, form=LexiconForm, extra=extra)
         formset = EntriesFormSet(postdata,
                        queryset = qset,
                        prefix='%d_%d' % (pronoun.paradigm_id, pronoun.id))
-        
         formsets.append((pronoun, formset))
     return formsets
     

@@ -25,8 +25,11 @@ DATABASES = {
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-        'TEST_NAME': None,               # use SQLite in-memory for testing
-    }
+        'TEST': {
+            'NAME': None,  # SQLite in-memory test database
+        },
+    },
+    
 }
 
 # Site details

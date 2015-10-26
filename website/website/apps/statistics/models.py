@@ -26,3 +26,5 @@ class StatisticalValue(models.Model):
         db_table = 'statistics'
         ordering = ['date', ]
         get_latest_by = 'date'
+        app_label = 'statistics'
+        

@@ -59,7 +59,7 @@ def get_last_update():
 
 def oai(request):
     try:
-        verb = request.REQUEST['verb']
+        verb = request.GET['verb']
     except (KeyError, IndexError):
         return Identify(request) # No verb given!
 
@@ -135,7 +135,7 @@ def Identify(request):
         'sampleIdentifier': get_sample_identifier(),
     }
     
-    if len(request.REQUEST.keys()) > 1: # should take NO other arguments.
+    if len(request.GET.keys()) > 1: # should take NO other arguments.
         return Error(request, ['badArgument'], out)
 
     return render_to_response('olac/Identify.xml', out,
@@ -184,20 +184,20 @@ def ListIdentifiers(request):
     error_list = []
 
     # metadataPrefix is REQUIRED
-    if 'metadataPrefix' not in request.REQUEST:
+    if 'metadataPrefix' not in request.GET:
         error_list.append('badArgument')
-    elif request.REQUEST['metadataPrefix'] not in KNOWN_METADATA_PREFIXES:
-        out['metadataPrefix'] = request.REQUEST['metadataPrefix']
+    elif request.GET['metadataPrefix'] not in KNOWN_METADATA_PREFIXES:
+        out['metadataPrefix'] = request.GET['metadataPrefix']
         error_list.append('cannotDisseminateFormat')
     elif len(request.GET.getlist('metadataPrefix')) > 1:
         # should NOT handle cases when there are two or more metadataPrefix's
         error_list.append('badArgument')
     else:
-        out['metadataPrefix'] = request.REQUEST['metadataPrefix']
+        out['metadataPrefix'] = request.GET['metadataPrefix']
 
-    if 'set' in request.REQUEST:
+    if 'set' in request.GET:
         error_list.append('noSetHierarchy')
-    if 'resumptionToken' in request.REQUEST:
+    if 'resumptionToken' in request.GET:
         error_list.append('badResumptionToken')
 
     if len(error_list) > 0:
@@ -206,10 +206,10 @@ def ListIdentifiers(request):
 
     objects = Model.objects.all().exclude(isocode__exact="")
 
-    if 'from' in request.REQUEST:
-        out['from'] = request.REQUEST['from']
+    if 'from' in request.GET:
+        out['from'] = request.GET['from']
         try:
-            frm = parse_time(request.REQUEST['from'])
+            frm = parse_time(request.GET['from'])
         except (TypeError, ValueError):
             return Error(request, ['badArgument'], out)
         objects = objects.filter(added__gte=frm)
@@ -220,10 +220,10 @@ def ListIdentifiers(request):
             #                          datetime_published__month='03',
             #                          datetime_published__day='27')
 
-    if 'until' in request.REQUEST:
-        out['until'] = request.REQUEST['until']
+    if 'until' in request.GET:
+        out['until'] = request.GET['until']
         try:
-            until = parse_time(request.REQUEST['until'])
+            until = parse_time(request.GET['until'])
         except (TypeError, ValueError):
             return Error(request, ['badArgument'], out)
 
@@ -278,10 +278,10 @@ def ListMetadataFormats(request):
     `noMetadataFormats` - There are no metadata formats available for the specified item.
     """
     out = {'url': request.build_absolute_uri()}
-    if 'identifier' in request.REQUEST:
+    if 'identifier' in request.GET:
         # Check identifier:
-        out['identifier'] = request.REQUEST['identifier']
-        ident = check_ident(request.REQUEST['identifier'])
+        out['identifier'] = request.GET['identifier']
+        ident = check_ident(request.GET['identifier'])
         if ident is None:
             return Error(request, ['idDoesNotExist'], out)
 
@@ -345,21 +345,21 @@ def ListRecords(request):
     error_list = []
 
     # metadataPrefix is REQUIRED
-    if 'metadataPrefix' not in request.REQUEST:
+    if 'metadataPrefix' not in request.GET:
         error_list.append('badArgument')
-    elif request.REQUEST['metadataPrefix'] not in KNOWN_METADATA_PREFIXES:
+    elif request.GET['metadataPrefix'] not in KNOWN_METADATA_PREFIXES:
         error_list.append('cannotDisseminateFormat')
     elif len(request.GET.getlist('metadataPrefix')) > 1:
         # should NOT handle cases when there are two or more metadataPrefix's
         error_list.append('badArgument')
     else:
-        metadataPrefix = request.REQUEST['metadataPrefix']
+        metadataPrefix = request.GET['metadataPrefix']
         out['metadataPrefix'] = metadataPrefix
 
     # neither set nor resumptionToken are implemented
-    if 'set' in request.REQUEST:
+    if 'set' in request.GET:
         error_list.append('noSetHierarchy')
-    if 'resumptionToken' in request.REQUEST:
+    if 'resumptionToken' in request.GET:
         error_list.append('badResumptionToken')
 
     if len(error_list) > 0:
@@ -367,18 +367,18 @@ def ListRecords(request):
 
     objects = Model.objects.all().exclude(isocode__exact="")
 
-    if 'from' in request.REQUEST:
-        out['from'] = request.REQUEST['from']
+    if 'from' in request.GET:
+        out['from'] = request.GET['from']
         try:
-            frm = parse_time(request.REQUEST['from'])
+            frm = parse_time(request.GET['from'])
         except (TypeError, ValueError):
             return Error(request, ['badArgument'], out)
         objects = objects.filter(added__gte=frm)
 
-    if 'until' in request.REQUEST:
-        out['until'] = request.REQUEST['until']
+    if 'until' in request.GET:
+        out['until'] = request.GET['until']
         try:
-            until = parse_time(request.REQUEST['until'])
+            until = parse_time(request.GET['until'])
         except (TypeError, ValueError):
             return Error(request, ['badArgument'], out)
 
@@ -429,23 +429,23 @@ def GetRecord(request):
     error_list = []
 
     # metadataPrefix is REQUIRED
-    if 'metadataPrefix' not in request.REQUEST:
+    if 'metadataPrefix' not in request.GET:
         error_list.append('badArgument')
-    elif request.REQUEST['metadataPrefix'] not in KNOWN_METADATA_PREFIXES:
+    elif request.GET['metadataPrefix'] not in KNOWN_METADATA_PREFIXES:
         error_list.append('cannotDisseminateFormat')
     else:
-        out['metadataPrefix'] = request.REQUEST['metadataPrefix']
+        out['metadataPrefix'] = request.GET['metadataPrefix']
 
     # identifier is REQUIRED
-    if 'identifier' not in request.REQUEST:
+    if 'identifier' not in request.GET:
         error_list.append('badArgument')
 
     if len(error_list) > 0:
         return Error(request, error_list, out)
 
-    out['identifier'] = request.REQUEST['identifier'],
+    out['identifier'] = request.GET['identifier'],
     # Check identifier:
-    ident = check_ident(request.REQUEST['identifier'])
+    ident = check_ident(request.GET['identifier'])
     if ident is None:
         return Error(request, ['idDoesNotExist'], out)
 
