@@ -29,30 +29,20 @@ class Command(BaseCommand):
         files = [_ for _ in files if is_script.match(_)]
         for filename in sorted(files):
             print(" - {0}".format(os.path.join('data', filename)))
-        
+    
     def load(self, filename, dryrun=True):
         directory, module_name = os.path.split(filename)
         module_name = os.path.splitext(module_name)[0]
         sys.path.insert(0, directory)
         
-        try:
-            ac = transaction.get_autocommit()
-            transaction.set_autocommit(False)
+        with transaction.atomic():
             with reversion.create_revision():
-                try:
-                    __import__(module_name)
-                except Exception as e:
-                    raise ImportError(u"Failed to Import - Exception: %s" % e)
-        except ImportError, e:
-            raise
-        finally:
+                __import__(module_name)
             if dryrun:
-                print("\n>>> ROLLBACK\n")
-                transaction.rollback()
+                raise ValueError("No save -- Rollback") 
             else:
                 print("\n<<< COMMIT\n")
                 transaction.commit()
-            transaction.set_autocommit(ac)
     
     def handle(self, *args, **options):
         # set some environment variables;
