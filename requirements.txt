@@ -1,22 +1,33 @@
-django==1.8.5                                                          # django framework
+django==1.8.6                                                          # django framework
 fabric                                                                 # deployment etc
 pillow                                                                 # A better python imaging library
 psycopg2                                                               # database adaptor
 django-reversion>=1.9.3                                                # versioning
 django-secure                                                          # security
 django-tables2                                                         # better table handling
-django-dbbackup>=2.0.4                                                 # database & media backup
-simples3                                                               # Amazon S3 for backup
-django-nvd3                                                            # for graphing statistics
-IPython                                                                # for local work.
 django-static-sitemaps>=1.5.5                                          # static sitemaps
 django_compressor                                                      # for asset compression/cache busting
 django-twitter-tag                                                     # twitter integration
-requests                                                               # useful for data
-regex                                                                  # uncode regex
-xlrd                                                                   # XLRD for parsing xls files
--e git://github.com/etianen/django-watson.git#egg=django-watson        # searching:
+django-nvd3                                                            # for graphing statistics
+django-tastypie==0.12.2
+-e git://github.com/etianen/django-watson.git#egg=django-watson        # searching
+
+
+# backup
+django-dbbackup>=2.0.4
+simples3
+
+# test coverage
+coverage==4.0.3
+
+# data/import
+regex
+xlrd
+requests
 -e git://github.com/LuminosoInsight/python-ftfy.git#egg=python-ftfy    # tidy up unicode
--e git://github.com/django-tastypie/django-tastypie.git#egg=django-tastypie # API
+
+# development
+IPython
+
 numpy
 lingpy

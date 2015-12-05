@@ -125,7 +125,7 @@ class Paradigm(TrackedModel):
             self._prefill_pronouns() # Prefill Pronouns
     
     def _prefill_pronouns(self):
-        ed = User.objects.get(pk=1)
+        editor = User.objects.all().order_by('id')[0]
         # figure out the pronouns we already have
         existing_pronouns = []
         for e in self.pronoun_set.select_related().all():
@@ -137,9 +137,9 @@ class Paradigm(TrackedModel):
             token = (p.gender, p.number, p.person, p.alignment)
             if token not in existing_pronouns:
                 obj = Pronoun.objects.create(
-                    editor = ed,
-                    paradigm = self,
-                    pronountype = p,
+                    editor=editor,
+                    paradigm=self,
+                    pronountype=p,
                 )
                 obj.save()
     
