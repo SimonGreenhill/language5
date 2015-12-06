@@ -5,32 +5,18 @@ from django.shortcuts import render, redirect
 from django.views.generic import DetailView, TemplateView
 from django.core.paginator import EmptyPage, PageNotAnInteger
 
-from website.apps.core.models import Family, Language, AlternateName
-from website.apps.core.models import Source, Location
+from website.apps.core.models import Family, Language, AlternateName, Source
+from website.apps.core.models import Location
 
 from django_tables2 import SingleTableView, RequestConfig
-from website.apps.core.tables import FamilyIndexTable
 from website.apps.core.tables import LanguageIndexTable
 from website.apps.core.tables import SourceIndexTable
+from website.apps.core.tables import FamilyIndexTable
 from website.apps.lexicon.tables import LanguageLexiconTable
 from website.apps.lexicon.tables import SourceLexiconTable
 from website.apps.lexicon.tables import LanguageLexiconEditTable
 from website.apps.lexicon.tables import SourceLexiconEditTable
 
-def get_page(table, page_id, per_page=50):
-    """
-    Helper function to get paginated content
-    
-    Reduces boilerplate.
-    
-    """
-    try:
-        return table.paginate(page_id, per_page=per_page)
-    except EmptyPage:  # 404 on a empty page
-        raise Http404
-    except PageNotAnInteger:  # 404 on invalid page number
-        raise Http404
-     
 
 class RobotsTxt(TemplateView):
     """simple robots.txt implementation"""
@@ -62,9 +48,15 @@ class LanguageIndex(SingleTableView):
         
         RequestConfig(self.request).configure(context['table'])
         
-        context['table'] = get_page(
-            context['table'], self.request.GET.get('page', 1)
-        )
+        try:
+            context['table'].paginate(
+                page=self.request.GET.get('page', 1), per_page=50
+            )
+        except EmptyPage:  # 404 on a empty page
+            raise Http404
+        except PageNotAnInteger:  # 404 on invalid page number
+            raise Http404
+            
         return context
     
     
@@ -89,9 +81,16 @@ class SourceIndex(SingleTableView):
         context['subsets'] = [_ for _ in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
         
         RequestConfig(self.request).configure(context['table'])
-        context['table'] = get_page(
-            context['table'], self.request.GET.get('page', 1)
-        )
+        
+        try:
+            context['table'].paginate(
+                page=self.request.GET.get('page', 1), per_page=50
+            )
+        except EmptyPage:  # 404 on a empty page
+            raise Http404
+        except PageNotAnInteger:  # 404 on invalid page number
+            raise Http404
+        
         return context
 
 
@@ -114,10 +113,16 @@ class FamilyIndex(SingleTableView):
         context['subsets'] = [_ for _ in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
         
         RequestConfig(self.request).configure(context['table'])
+
+        try:
+            context['table'].paginate(
+                page=self.request.GET.get('page', 1), per_page=50
+            )
+        except EmptyPage:  # 404 on a empty page
+            raise Http404
+        except PageNotAnInteger:  # 404 on invalid page number
+            raise Http404
         
-        context['table'] = get_page(
-            context['table'], self.request.GET.get('page', 1)
-        )
         return context
 
 
@@ -139,27 +144,40 @@ class SourceDetail(DetailView):
             
             RequestConfig(self.request).configure(context['lexicon_table'])
             
-            context['lexicon_table'] = get_page(
-                context['lexicon_table'], self.request.GET.get('page', 1)
-            )
+            try:
+                context['lexicon_table'].paginate(
+                    page=self.request.GET.get('page', 1), per_page=50
+                )
+            except EmptyPage:  # 404 on a empty page
+                raise Http404
+            except PageNotAnInteger:  # 404 on invalid page number
+                raise Http404
+        
         return context
     
 
 class FamilyDetail(DetailView):
-    """Family FamilyDetail"""
+    """Family Detail"""
     model = Family
     template_name = 'core/family_detail.html'
     
     def get_context_data(self, **kwargs):
         context = super(FamilyDetail, self).get_context_data(**kwargs)
-        kwargs['object'] = kwargs['object'].language_set.all()
-        kwargs['object'] = kwargs['object'].annotate(count=Count('lexicon'))
-        context['languages'] = LanguageIndexTable(kwargs['object'])
+        records = kwargs['object'].language_set.all().annotate(
+            count=Count('lexicon')
+        )
+        context['languages'] = LanguageIndexTable(records)
         RequestConfig(self.request).configure(context['languages'])
         
-        context['languages'] = get_page(
-            context['languages'], self.request.GET.get('page', 1)
-        )
+        try:
+            context['languages'].paginate(
+                page=self.request.GET.get('page', 1), per_page=50
+            )
+        except EmptyPage:  # 404 on a empty page
+            raise Http404
+        except PageNotAnInteger:  # 404 on invalid page number
+            raise Http404
+        
         return context
 
 
@@ -168,8 +186,8 @@ def language_detail(request, language):
     Show Language Details
     
     Uses a slug to lookup. If the slug is the primary one in the languages
-    table, then the details page will be shown.
-
+    table, then the details page will be shown
+    
     If nothing is found in the languages table, then the AlternateNames table
     is checked for a match. If found, then this view will redirect to the
     canonical slug.
@@ -185,9 +203,8 @@ def language_detail(request, language):
         }
         
         # sources used
-        source_ids = [
-            _['source_id'] for _ in my_lang.lexicon_set.values('source_id').distinct().all()
-        ]
+        sources = my_lang.lexicon_set.values('source_id').distinct().all()
+        source_ids = [_['source_id'] for _ in sources]
         out['sources_used'] = Source.objects.filter(pk__in=source_ids)
         
         # location
@@ -200,6 +217,7 @@ def language_detail(request, language):
             except (Location.DoesNotExist, IndexError):
                 pass  # keep out['location'] as None
                 
+            
         # load lexicon if installed.
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
             qset = my_lang.lexicon_set.select_related().all()
@@ -209,10 +227,15 @@ def language_detail(request, language):
                 out['lexicon_table'] = LanguageLexiconTable(qset)
             
             RequestConfig(request).configure(out['lexicon_table'])
-            out['lexicon_table'] = get_page(
-                out['lexicon_table'], request.GET.get('page', 1)
-            )
             
+            try:
+                out['lexicon_table'].paginate(
+                    page=request.GET.get('page', 1), per_page=50
+                )
+            except EmptyPage:  # 404 on a empty page
+                raise Http404
+            except PageNotAnInteger:  # 404 on invalid page number
+                raise Http404
         
         # load pronouns
         if 'website.apps.pronouns' in settings.INSTALLED_APPS:
@@ -237,7 +260,7 @@ def language_detail(request, language):
         )
     except AlternateName.DoesNotExist:
         pass
-    # fail. Doesn't exist so raise a 404
+    # fail. Doesn't exist so pop out a 404
     raise Http404
         
     

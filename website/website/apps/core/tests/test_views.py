@@ -1,4 +1,3 @@
-import unittest
 from django.test import TestCase
 from django.test.client import Client
 from django.contrib.auth.models import User
@@ -11,32 +10,32 @@ class BaseMixin(object):
     def setUp(self):
         self.editor = User.objects.create(username='admin')
         self.language1 = Language.objects.create(
-            language='Language1', 
-            slug='language1', 
-            information='', 
+            language='Language1',
+            slug='language1',
+            information='',
             classification='Austronesian, Malayo-Polynesian, Bali-Sasak, Bali',
-            isocode='aaa', 
+            isocode='aaa',
             editor=self.editor
         )
         self.language2 = Language.objects.create(
-            language='Language2', 
-            slug='language2', 
-            information='', 
+            language='Language2',
+            slug='language2',
+            information='',
             classification='Mayan, Huastecan',
-            isocode='bbb', 
+            isocode='bbb',
             editor=self.editor
         )
         self.language3 = Language.objects.create(
-            language='Language3', 
-            slug='language3', 
-            information='', 
+            language='Language3',
+            slug='language3',
+            information='',
             classification='Mayan, Huastecan',
-            isocode='bbb', 
+            isocode='bbb',
             editor=self.editor
         )
         self.alt1 = AlternateName.objects.create(
             language=self.language1,
-            name='Fudge', 
+            name='Fudge',
             slug='fudge',
             editor=self.editor
         )
@@ -73,7 +72,6 @@ class BaseMixin(object):
 
     
 class Test_LanguageIndex(BaseMixin, PaginatorTestMixin, TestCase):
-    """Tests the Language Index page"""
     
     url = reverse('language-index')
     
@@ -88,7 +86,9 @@ class Test_LanguageIndex(BaseMixin, PaginatorTestMixin, TestCase):
     def test_missing_trailing_slash(self):
         """index pages should redirect to trailing slash"""
         response = self.client.get(self.url[0:-1])
-        self.assertRedirects(response, '/language/', status_code=301, target_status_code=200)
+        self.assertRedirects(
+            response, '/language/', status_code=301, target_status_code=200
+        )
         
     def test_content(self):
         "Test languages.index"
@@ -99,16 +99,16 @@ class Test_LanguageIndex(BaseMixin, PaginatorTestMixin, TestCase):
         self.assertContains(response, 'Language3')
     
     def test_sorting(self):
-        response = self.client.get('{}?sort=language'.format(self.url))
+        response = self.client.get('%s?sort=language' % self.url)
         for i, obj in enumerate(Language.objects.all().order_by('language')):
             assert response.context['table'].rows[i].record == obj
             
-        response = self.client.get('{}?sort=-language'.format(self.url))
+        response = self.client.get('%s?sort=-language' % self.url)
         for i, obj in enumerate(Language.objects.all().order_by('-language')):
             assert response.context['table'].rows[i].record == obj
     
     def test_sorting_invalid(self):
-        response = self.client.get("{}?sort=sausage".format(self.url))
+        response = self.client.get('%s?sort=sausage' % self.url)
         for i, obj in enumerate(Language.objects.all().order_by('language')):
             assert response.context['table'].rows[i].record == obj
     
@@ -120,7 +120,7 @@ class Test_LanguageIndex(BaseMixin, PaginatorTestMixin, TestCase):
     
     def test_filter_on_subset(self):
         # check we get an empty result
-        response = self.client.get('{}?subset=A'.format(self.url))
+        response = self.client.get('%s?subset=A' % self.url)
         self.assertEqual(response.status_code, 200)
         
         self.assertNotContains(response, 'Language1')
@@ -128,22 +128,22 @@ class Test_LanguageIndex(BaseMixin, PaginatorTestMixin, TestCase):
         self.assertNotContains(response, 'Language3')
         
         # check we get every with L*
-        response = self.client.get('{}?subset=L'.format(self.url))
+        response = self.client.get('%s?subset=L' % self.url)
         self.assertContains(response, 'Language1')
         self.assertContains(response, 'Language2')
         self.assertContains(response, 'Language3')
         
         # now create another language
-        A = Language.objects.create(
-                        language='A Language', 
-                        slug='language_a', 
-                        information='', 
-                        classification='',
-                        isocode='xyz', 
-                        editor=self.editor
+        Language.objects.create(
+            language='A Language',
+            slug='language_a',
+            information='',
+            classification='',
+            isocode='xyz',
+            editor=self.editor
         )
         
-        response = self.client.get('{}?subset=A'.format(self.url))
+        response = self.client.get('%s?subset=A' % self.url)
         self.assertEqual(response.status_code, 200)
         
         self.assertNotContains(response, 'Language1')
@@ -153,10 +153,11 @@ class Test_LanguageIndex(BaseMixin, PaginatorTestMixin, TestCase):
         
 
 class Test_LanguageDetail(BaseMixin, PaginatorTestMixin, TestCase):
-    """Tests the Language Detail Page"""
     def setUp(self):
         super(Test_LanguageDetail, self).setUp()
-        self.url = reverse('language-detail', kwargs={'language': self.language1.slug})
+        self.url = reverse(
+            'language-detail', kwargs={'language': self.language1.slug}
+        )
     
     def test_200ok(self):
         response = self.client.get(self.url)
@@ -167,26 +168,29 @@ class Test_LanguageDetail(BaseMixin, PaginatorTestMixin, TestCase):
         self.assertTemplateUsed(response, 'core/language_detail.html')
     
     def test_redirect_on_alternate_names(self):
-        "Test redirection to canonical URL when given an alternate name"
         # Check that response to an existing language is 200 OK.
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         
         # Check that response to ./fudge/ is 302 and redirected
-        response = self.client.get('/language/fudge')
-        self.assertRedirects(response, 
-            '/language/language1',
+        response = self.client.get(
+            reverse('language-detail', kwargs={'language': 'fudge'})
+        )
+        self.assertRedirects(
+            response,
+            reverse('language-detail', kwargs={'language': 'language1'}),
             status_code=301, target_status_code=200
         )
     
     def test_404_on_nonexistent_language(self):
-        "Test that a non-existent language raises a 404"
         # Check that response to ./nonexistentlanguage/ is 404 NotFound
-        response = self.client.get('/language/nonexistentlanguage')
+        url = reverse(
+            'language-detail', kwargs={'language': 'nonexistentlanguage'}
+        )
+        response = self.client.get(url)
         self.assertEqual(response.status_code, 404)
     
     def test_alternate_names_shown_in_details(self):
-        "Test that the details view shows alternate names too"
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Also Known As:')
@@ -194,18 +198,14 @@ class Test_LanguageDetail(BaseMixin, PaginatorTestMixin, TestCase):
     
 
 class Test_ISOLookup(BaseMixin, TestCase):
-    """
-    Tests the differential output under the ISO lookup `isolookup`.
-    
-    Logic:
-        No matching entries - raise 404
-        1 Matching entry - redirect to languages.details page
-        >1 Matching entries - show a list of the languages
-    """
+    #Logic:
+    #    No matching entries - raise 404
+    #    1 Matching entry - redirect to languages.details page
+    #    >1 Matching entries - show a list of the languages
     def test_multiple_iso_entries(self):
-        "Test that ISO codes with multiple languages returns a list"
         # check that /iso/bbb/ is sent to a list of pages.
-        response = self.client.get('/iso/bbb')
+        url = reverse('iso-lookup', kwargs={'iso': 'bbb'})
+        response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'core/language_index.html')
         self.assertContains(response, 'Language2')
@@ -213,18 +213,25 @@ class Test_ISOLookup(BaseMixin, TestCase):
         self.assertNotContains(response, 'Language1')
     
     def test_redirect_on_unique_iso(self):
-        "Test that a request for a unique ISO is redirected to the languages.details page"
-        response = self.client.get('/iso/aaa')
-        self.assertRedirects(response, '/language/language1', status_code=301, target_status_code=200)
+        iso_url = reverse('iso-lookup', kwargs={'iso': 'aaa'})
+        real_url = reverse(
+            'language-detail', kwargs={'language': 'language1'}
+        )
+        
+        response = self.client.get(iso_url)
+        
+        self.assertRedirects(
+            response, real_url, status_code=301, target_status_code=200
+        )
         # ...and check the redirected-to page..
-        response = self.client.get('/language/language1')
+        response = self.client.get(real_url)
         self.assertContains(response, 'Language1')
         self.assertNotContains(response, 'Language2')
         self.assertNotContains(response, 'Language3')
     
     def test_iso_notfound(self):
-        "Test that a non-existant ISO code returns 404 Not Found"
-        response = self.client.get('/iso/zzz')
+        url = reverse('iso-lookup', kwargs={'iso': 'zzz'})
+        response = self.client.get(url)
         self.assertEqual(response.status_code, 404)
 
 
@@ -243,7 +250,9 @@ class Test_FamilyIndex(BaseMixin, PaginatorTestMixin, TestCase):
     def test_missing_trailing_slash(self):
         """index pages should redirect to trailing slash"""
         response = self.client.get(self.url[0:-1])
-        self.assertRedirects(response, self.url, status_code=301, target_status_code=200)
+        self.assertRedirects(
+            response, self.url, status_code=301, target_status_code=200
+        )
     
     def test_content(self):
         response = self.client.get(self.url)
@@ -251,16 +260,16 @@ class Test_FamilyIndex(BaseMixin, PaginatorTestMixin, TestCase):
         self.assertContains(response, 'Mayan')
     
     def test_sorting(self):
-        response = self.client.get('{}?sort=family'.format(self.url))
+        response = self.client.get('%s?sort=family' % self.url)
         for i, obj in enumerate(Family.objects.all().order_by('family')):
             assert response.context['table'].rows[i].record == obj
             
-        response = self.client.get('{}?sort=-family'.format(self.url))
+        response = self.client.get('%s?sort=-family' % self.url)
         for i, obj in enumerate(Family.objects.all().order_by('-family')):
             assert response.context['table'].rows[i].record == obj
     
     def test_sorting_invalid(self):
-        response = self.client.get("{}?sort=sausage".format(self.url))
+        response = self.client.get("%s?sort=sausage" % self.url)
         for i, obj in enumerate(Family.objects.all().order_by('family')):
             assert response.context['table'].rows[i].record == obj
         
@@ -272,19 +281,19 @@ class Test_FamilyIndex(BaseMixin, PaginatorTestMixin, TestCase):
     
     def test_filter_on_subset(self):
         # check we get an empty result
-        response = self.client.get('{}?subset=X'.format(self.url))
+        response = self.client.get('%s?subset=X' % self.url)
         self.assertEqual(response.status_code, 200)
         
         self.assertNotContains(response, 'Mayan')
         self.assertNotContains(response, 'Austronesian')
         
         # check M* but not A*
-        response = self.client.get('{}?subset=M'.format(self.url))
+        response = self.client.get('%s?subset=M' % self.url)
         self.assertContains(response, 'Mayan')
         self.assertNotContains(response, 'Austronesian')
         
         # and A but not M
-        response = self.client.get('{}?subset=A'.format(self.url))
+        response = self.client.get('%s?subset=A' % self.url)
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Austronesian')
         self.assertNotContains(response, 'Mayan')
@@ -304,44 +313,49 @@ class Test_FamilyDetail(BaseMixin, PaginatorTestMixin, TestCase):
         self.url = reverse('family-detail', kwargs={'slug': self.family1.slug})
         
     def test_200ok(self):
-        response = self.client.get('/family/austronesian')
+        response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
     
     def test_template_used(self):
-        response = self.client.get('/family/austronesian')
+        response = self.client.get(self.url)
         self.assertTemplateUsed(response, 'core/family_detail.html')
         
     def test_404_on_missing_family(self):
-        response = self.client.get('/family/basque')
+        url = reverse('family-detail', kwargs={'slug': 'basque'})
+        response = self.client.get(url)
         self.assertEqual(response.status_code, 404)
         
     def test_family_detail_1(self):
-        response = self.client.get('/family/austronesian')
+        url = reverse('family-detail', kwargs={'slug': 'austronesian'})
+        response = self.client.get(url)
         self.assertContains(response, 'Austronesian')
         self.assertContains(response, 'Language1')
         self.assertNotContains(response, 'Language2')
         self.assertNotContains(response, 'Language3')
         
     def test_family_detail_2(self):
-        response = self.client.get('/family/mayan')
+        url = reverse('family-detail', kwargs={'slug': 'mayan'})
+        response = self.client.get(url)
         self.assertContains(response, 'Mayan')
         self.assertNotContains(response, 'Language1')
         self.assertContains(response, 'Language2')
         self.assertContains(response, 'Language3')
-
+        
     def test_sorting(self):
-        response = self.client.get('/family/mayan?sort=language')
+        url = reverse('family-detail', kwargs={'slug': 'mayan'})
+        response = self.client.get('%s?sort=language' % url)
         for i, obj in enumerate([self.language2, self.language3]):
-            assert response.context['table'].rows[i].record == obj
+            assert response.context['languages'].rows[i].record == obj
             
-        response = self.client.get('/family/mayan?sort=-language')
+        response = self.client.get('%s?sort=-language' % url)
         for i, obj in enumerate([self.language3, self.language2]):
-            assert response.context['table'].rows[i].record == obj
+            assert response.context['languages'].rows[i].record == obj
     
     def test_sorting_invalid(self):
-        response = self.client.get("/family/mayan?sort=sausage")
+        url = reverse('family-detail', kwargs={'slug': 'mayan'})
+        response = self.client.get("%s?sort=sausage" % url)
         for i, obj in enumerate([self.language2, self.language3]):
-            assert response.context['table'].rows[i].record == obj
+            assert response.context['languages'].rows[i].record == obj
 
 
 class Test_SourceIndex(BaseMixin, PaginatorTestMixin, TestCase):
@@ -359,7 +373,9 @@ class Test_SourceIndex(BaseMixin, PaginatorTestMixin, TestCase):
     def test_missing_trailing_slash(self):
         """index pages should redirect to trailing slash"""
         response = self.client.get(self.url[0:-1])
-        self.assertRedirects(response, self.url, status_code=301, target_status_code=200)
+        self.assertRedirects(
+            response, self.url, status_code=301, target_status_code=200
+        )
     
     def test_content(self):
         response = self.client.get(self.url)
@@ -367,11 +383,11 @@ class Test_SourceIndex(BaseMixin, PaginatorTestMixin, TestCase):
         self.assertContains(response, 'Jones')
      
     def test_sorting(self):
-        response = self.client.get('{}?sort=year'.format(self.url))
+        response = self.client.get('%s?sort=year' % self.url)
         for i, obj in enumerate([self.source1, self.source2]):
             assert response.context['table'].data.data[i] == obj
             
-        response = self.client.get('{}?sort=author'.format(self.url))
+        response = self.client.get('%s?sort=author' % self.url)
         for i, obj in enumerate([self.source2, self.source1]):
             assert response.context['table'].data.data[i] == obj
     
@@ -383,19 +399,19 @@ class Test_SourceIndex(BaseMixin, PaginatorTestMixin, TestCase):
     
     def test_filter_on_subset(self):
         # check we get an empty result
-        response = self.client.get('{}?subset=A'.format(self.url))
+        response = self.client.get('%s?subset=A' % self.url)
         self.assertEqual(response.status_code, 200)
         
         self.assertNotContains(response, 'Smith')
         self.assertNotContains(response, 'Jones')
         
         # check S* but not J*
-        response = self.client.get('{}?subset=S'.format(self.url))
+        response = self.client.get('%s?subset=S' % self.url)
         self.assertContains(response, 'Smith')
         self.assertNotContains(response, 'Jones')
         
         # and J but not S
-        response = self.client.get('{}?subset=J'.format(self.url))
+        response = self.client.get('%s?subset=J' % self.url)
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Jones')
         self.assertNotContains(response, 'Smith')
@@ -416,7 +432,8 @@ class Test_SourceDetail(BaseMixin, PaginatorTestMixin):
         self.assertTemplateUsed(response, 'core/source_detail.html')
     
     def test_404_on_missing_source(self):
-        response = self.client.get('/source/fudge')
+        url = reverse('source-detail', kwargs={'slug': 'fudge'})
+        response = self.client.get(url)
         self.assertEqual(response.status_code, 404)
     
     def test_find_valid_source(self):
