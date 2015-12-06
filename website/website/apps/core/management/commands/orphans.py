@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.db.models import Count
-from optparse import make_option
 from django.core.management.base import BaseCommand
 
-from website.apps.core.models import Language, Family, Source
+from website.apps.core.models import Language, Source
 from website.apps.lexicon.models import Word
 
 class Command(BaseCommand):
@@ -12,28 +11,31 @@ class Command(BaseCommand):
     output_transaction = True
     
     def handle(self, *args, **options):
-        print 'Languages not in a family:'
+        print('Languages not in a family:')
         for o in Language.objects.all().order_by('slug'):
             if len(o.family.all()) == 0:
-                print " - ", o.slug
-        print
+                print(" - %s" % o.slug)
+        print("")
         
-        print 'Languages with zero entries:'
-        for o in Language.objects.annotate(count=Count('lexicon')).all().order_by('slug'):
+        print('Languages with zero entries:')
+        languages = Language.objects.annotate(count=Count('lexicon')).all()
+        for o in languages.order_by('slug'):
             if o.count == 0:
-                print " - ", o.slug
-        print
+                print(" - %s" % o.slug)
+        print("")
         
-        print 'Sources with zero entries:'
-        for o in Source.objects.annotate(count=Count('lexicon')).all().order_by('slug'):
+        print('Sources with zero entries:')
+        sources = Source.objects.annotate(count=Count('lexicon')).all()
+        for o in sources.order_by('slug'):
             if o.count == 0:
-                print " - ", o.slug
-        print
-
-        print 'Words with zero entries:'
-        for o in Word.objects.annotate(count=Count('lexicon')).all().order_by('slug'):
+                print(" - %s" % o.slug)
+        print("")
+        
+        print('Words with zero entries:')
+        words = Word.objects.annotate(count=Count('lexicon')).all()
+        for o in words.order_by('slug'):
             if o.count == 0:
-                print " - ", o.slug
-        print
+                print(" - %s" % o.slug)
+        print("")
         
         

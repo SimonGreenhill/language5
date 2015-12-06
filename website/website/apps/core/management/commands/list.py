@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
-from optparse import make_option
 from django.core.management.base import BaseCommand
 
 from website.apps.core.models import Language, Family, Source
 
 try:
-    from website.apps.lexicon.models import Word, Cognate
+    from website.apps.lexicon.models import Word
 except ImportError:
     # not installed
     Word = None
@@ -17,16 +16,18 @@ class Command(BaseCommand):
     output_transaction = True
     
     def list_languages(self):
-        print("\t".join(["ISO", "Slug", "Language", "Families", "NLexicon", "Classification"]))
+        print("\t".join([
+            "ISO", "Slug", "Language", "Families", "NLexicon", "Classification"
+        ]))
         for o in Language.objects.all().order_by('slug'):
-            print "\t".join([
+            print("\t".join([
                 '%3s' % o.isocode,
                 o.slug,
                 unicode(o).ljust(20),
                 ",".join([f.slug for f in o.family.all()]),
                 "%d" % o.lexicon_set.count(),
                 o.classification
-            ]) 
+            ]))
     
     def list_families(self):
         print("\t".join(["Slug", "Family", "NLanguages"]))
@@ -35,33 +36,34 @@ class Command(BaseCommand):
                 o.slug,
                 unicode(o),
                 '%d' % o.language_set.count()
-            ]) 
+            ])
             
     def list_sources(self):
-        print("\t".join(["Slug", "Source", "Year", "NLexicon", "NCognateSets"]))
+        print("\t".join([
+            "Slug", "Source", "Year", "NLexicon", "NCognateSets"
+        ]))
         for o in Source.objects.all().order_by('slug'):
-            print "\t".join([
+            print("\t".join([
                 o.slug,
                 unicode(o),
                 unicode(o.year),
                 '%d' % o.lexicon_set.count(),
                 '%d' % o.cognate_set.count()
-            ]) 
+            ]))
     
     def list_words(self):
         print("\t".join(["Slug", "Word", "NLexicon"]))
         for o in Word.objects.all().order_by('slug'):
-            print "\t".join([
+            print("\t".join([
                 o.slug,
                 unicode(o),
                 '%d' % o.lexicon_set.count()
-            ])
+            ]))
      
     def handle(self, *args, **options):
         try:
             what = args[0]
         except ValueError:
-            print self.args
             quit()
         
         if what in ('languages', 'language', 'lang', 'l'):
