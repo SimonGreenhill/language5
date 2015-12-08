@@ -2,16 +2,15 @@ django==1.8.6                                                          # django 
 fabric                                                                 # deployment etc
 pillow                                                                 # A better python imaging library
 psycopg2                                                               # database adaptor
-django-reversion>=1.9.3                                                # versioning
+django-reversion>=1.10.0                                               # versioning
 django-secure                                                          # security
 django-tables2                                                         # better table handling
 django-static-sitemaps>=1.5.5                                          # static sitemaps
 django_compressor                                                      # for asset compression/cache busting
 django-twitter-tag                                                     # twitter integration
 django-nvd3                                                            # for graphing statistics
-django-tastypie==0.12.2
--e git://github.com/etianen/django-watson.git#egg=django-watson        # searching
-
+django-tastypie==0.12.2                                                # API
+django-watson==1.2.0                                                   # searching
 
 # backup
 django-dbbackup>=2.0.4
