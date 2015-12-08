@@ -8,11 +8,11 @@ def form_fielderror_hint(field):
         errs = []
         for error in field.errors:
             errs.append(escape(error))
-        
+
         return mark_safe("""
-        <i class="tip icon-exclamation-sign" 
-            data-toggle="tooltip" 
-            data-placement="top" 
+        <i class="tip icon-exclamation-sign"
+            data-toggle="tooltip"
+            data-placement="top"
             data-container="td"
             title="%s">
         </i>

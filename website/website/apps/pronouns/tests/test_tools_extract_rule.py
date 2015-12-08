@@ -1,8 +1,6 @@
 from django.test import TestCase
 
-from website.apps.pronouns.models import Paradigm, Pronoun
 from website.apps.pronouns.tools import extract_rule
-from website.apps.pronouns.tests import DefaultSettingsMixin
 
 
 class TestExtractRule(TestCase):
@@ -26,7 +24,7 @@ class TestExtractRule(TestCase):
     def test_error_on_no_relationship_value(self):
         "ValueError on no relationship value"
         with self.assertRaises(ValueError):
-            rules = extract_rule({
+            extract_rule({
                 'person_one': u'1',
                 'person_two': u'12',
             })
@@ -34,7 +32,7 @@ class TestExtractRule(TestCase):
     def test_error_on_no_operand_one(self):
         "ValueError on no operand (i.e. nothing in rule[1] or rule[2])"
         with self.assertRaises(ValueError):
-            rules = extract_rule({
+            extract_rule({
                 'person_two': u'12',
                 'relationship': u'---'
             })
@@ -42,7 +40,7 @@ class TestExtractRule(TestCase):
     def test_error_on_no_operand_two(self):
         "ValueError on no operand (i.e. nothing in rule[1] or rule[2])"
         with self.assertRaises(ValueError):
-            rules = extract_rule({
+            extract_rule({
                 'person_one': u'12',
                 'relationship': u'---'
             })

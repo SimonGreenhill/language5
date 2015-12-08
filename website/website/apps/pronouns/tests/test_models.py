@@ -1,24 +1,30 @@
 from django.test import TestCase
-from django.test.client import Client
 from django.contrib.auth.models import User
-from django.core.urlresolvers import reverse
 
 from website.apps.core.models import Language, Source
-from website.apps.lexicon.models import Word, Lexicon
+from website.apps.lexicon.models import Word
 from website.apps.pronouns.models import Paradigm, PronounType, Pronoun
 
 class Test_PronounType(TestCase):
     def setUp(self):
-        self.editor = User.objects.create_user('admin', 'admin@admin.com', "test")
-        self.lang = Language.objects.create(language='A', slug='langa', 
-                                             information='i.1', 
-                                             classification='a, b',
-                                             isocode='aaa', editor=self.editor)
-        self.source = Source.objects.create(year="1991", author='Smith', 
-                                 slug='Smith1991', reference='S2',
-                                 comment='c1', editor=self.editor)
-        self.word = Word.objects.create(word='Pronoun', slug='apronoun', 
-                                        full='pronoun', editor=self.editor)
+        self.editor = User.objects.create_user(
+            'admin', 'admin@admin.com', "test"
+        )
+        self.lang = Language.objects.create(
+            language='A', slug='langa',
+            information='i.1',
+            classification='a, b',
+            isocode='aaa', editor=self.editor
+        )
+        self.source = Source.objects.create(
+            year="1991", author='Smith',
+            slug='Smith1991', reference='S2',
+            comment='c1', editor=self.editor
+        )
+        self.word = Word.objects.create(
+            word='Pronoun', slug='apronoun',
+            full='pronoun', editor=self.editor
+        )
                                         
         # add some pronoun types
         for person in [1, 2, 3]:
@@ -29,12 +35,12 @@ class Test_PronounType(TestCase):
             )
             w.save()
             p = PronounType.objects.create(
-                word=w, 
+                word=w,
                 alignment='A', person=person, number='sg',
-                sequence = person, # dummy
+                sequence=person,  # dummy
                 editor=self.editor
             )
-            if person == 2: # PERSON 2 should be hidden!
+            if person == 2:  # PERSON 2 should be hidden!
                 p.active = False
             else:
                 p.active = True
@@ -49,10 +55,12 @@ class Test_PronounType(TestCase):
         assert combinations[1] == PronounType.objects.filter(person=3).get()
     
     def test_paradigm_create(self):
-        pdm = Paradigm.objects.create(language=self.lang, 
-                                 source=self.source, 
-                                 editor=self.editor,
-                                 comment="test")
+        pdm = Paradigm.objects.create(
+            language=self.lang,
+            source=self.source,
+            editor=self.editor,
+            comment="test"
+        )
         pdm._prefill_pronouns()
         
         # make sure the correct number of pronouns is there..
