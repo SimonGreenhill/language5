@@ -7,19 +7,21 @@ from website.apps.statistics import statistic
 
 from website.apps.core.models import Family
 
-
-GRAPH_START_TIME = datetime.strptime("01 Apr 2013 00:00:00", "%d %b %Y %H:%M:%S")
+GRAPH_START = datetime.strptime(
+    "01 Apr 2013 00:00:00", "%d %b %Y %H:%M:%S"
+)
 
 
 def format_time_struct(date):
-    return int(mktime(date)) * 1000 # I have no idea why * 1000 is needed
-
+    return int(mktime(date)) * 1000
 
 def get_xy(label, get_latest=False):
-    x = [format_time_struct(GRAPH_START_TIME.timetuple()),]
-    y = [0,]
+    x = [format_time_struct(GRAPH_START.timetuple()), ]
+    y = [0, ]
     
-    for i, row in enumerate(StatisticalValue.objects.get_all_with_dates(label)):
+    for i, row in enumerate(
+        StatisticalValue.objects.get_all_with_dates(label)
+    ):
         if i % 7 == 0:
             x.append(format_time_struct(row[1].timetuple()))
             y.append(row[0])
@@ -32,15 +34,18 @@ def get_xy(label, get_latest=False):
 
 
 def make_family_chart():
-    x, y = [], [] 
+    x, y = [], []
     for f in Family.objects.annotate(count=Count('language')):
         x.append(f.family)
         y.append(f.count)
         
     return {
-        'label': 'Language Families', 'type': "pieChart", 'extra': {},
-        'id': 'chart_id_family', 'data': {'x': x, 'y': y}, 
-    }    
+        'label': 'Language Families',
+        'type': "pieChart",
+        'extra': {},
+        'id': 'chart_id_family',
+        'data': {'x': x, 'y': y},
+    }
     
     
 
