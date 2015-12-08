@@ -19,17 +19,18 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(SITE_ROOT, 'database.db'),
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
         'TEST': {
             'NAME': None,  # SQLite in-memory test database
         },
     },
-    
+
 }
 
 # Site details
@@ -70,7 +71,9 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.abspath(os.path.join(os.path.split(SITE_ROOT)[0], 'media'))
+MEDIA_ROOT = os.path.abspath(
+    os.path.join(os.path.split(SITE_ROOT)[0], 'media')
+)
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -122,7 +125,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
-]    
+]
 
 ROOT_URLCONF = 'website.urls'
 
@@ -154,19 +157,11 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'django.contrib.humanize',
     'django.contrib.redirects',
+
     # Admin site
     'django.contrib.admin',
     'django.contrib.admindocs',
-    
-    # third-party
-    'reversion',                         # reversion: object version control.
-    'djangosecure',                      # django-secure: Security helper
-    'django_tables2',                    # django-tables2: tables helper
-    'watson',                            # search
-    'dbbackup',                          # backup
-    'static_sitemaps',                   # static sitemaps.
-    'compressor',                        # django-compressor for asset compression and versioning.
-    'twitter_tag',                       # twitter tag
+
     # website
     'website.apps.core',                 # core functionality
     'website.apps.statistics',           # statistics
@@ -176,25 +171,32 @@ INSTALLED_APPS = [
     'website.apps.entry',                # Data Entry
     'website.apps.pronouns',             # pronoun paradigm project
     'website.apps.maps',                 # maps
+
+    # third-party
+    'reversion',                         # reversion: object version control.
+    'djangosecure',                      # django-secure: Security helper
+    'django_tables2',                    # django-tables2: tables helper
+    'watson',                            # search
+    'dbbackup',                          # backup
+    'static_sitemaps',                   # static sitemaps.
+    'compressor',                        # django-compressor
+    'twitter_tag',                       # twitter tag
     'tastypie',                          # API
     'django_nvd3',                       # for graphing statistics
-    
-    # NOTE: all other apps should be added to local.py
-    # INSTALLED_APPS.append('website.apps.olac')      # OLAC utils
-    # INSTALLED_APPS.append('website.apps.entry')     # Data Entry
+
 ]
 
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'formatters': {
-            'verbose': {
-                'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
-            },
-            'simple': {
-                'format': '%(levelname)s %(message)s'
-            },
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
         },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
     'filters': {
         'require_debug_false': {
             '()': 'django.utils.log.RequireDebugFalse',
@@ -202,17 +204,17 @@ LOGGING = {
     },
     'handlers': {
         'file_logging': {
-            'level' : 'DEBUG',
-            'class' : 'logging.handlers.RotatingFileHandler',
-            'backupCount' : 0,
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'backupCount': 0,
             'maxBytes': 5000000,
             'filename': 'django.log',
             'filters': ['require_debug_false'],
         },
         'db_logging': {
-            'level' : 'DEBUG',
-            'class' : 'logging.handlers.RotatingFileHandler',
-            'backupCount' : 0,
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'backupCount': 0,
             'maxBytes': 5000000,
             'filename': 'django-db.log',
             'filters': ['require_debug_false'],
@@ -223,40 +225,37 @@ LOGGING = {
             'class': 'django.utils.log.AdminEmailHandler',
         },
     },
-        
+
     'loggers': {
-        'django' : {
+        'django': {
             'handlers': ['file_logging'],
-            'level' : 'DEBUG',
-            'propagate' : False,
+            'level': 'DEBUG',
+            'propagate': False,
         },
         'django.request': {
             'handlers': ['mail_admins'],
             'level': 'ERROR',
             'propagate': False,
         },
-        'django.db' : {
-            'handlers' : ['db_logging'],
-            'level' : 'DEBUG',
+        'django.db': {
+            'handlers': ['db_logging'],
+            'level': 'DEBUG',
             'propagate': False,
         },
     }
 }
 
 # maximum age of persistent database connection
-CONN_MAX_AGE = 64 
+CONN_MAX_AGE = 64
 
 # THIRD-PARTY SETTINGS ==========================================
 
 # Django-Security settings
-SECURE_FRAME_DENY = True         # prevent framing of pages.
-SECURE_BROWSER_XSS_FILTER = True # enable XSS protection
-SESSION_COOKIE_SECURE = False    # can't login with True? 
-SESSION_COOKIE_HTTPONLY = False  # can't login with True?
+SECURE_FRAME_DENY = True          # prevent framing of pages.
+SECURE_BROWSER_XSS_FILTER = True  # enable XSS protection
+SESSION_COOKIE_SECURE = False     # can't login with True?
+SESSION_COOKIE_HTTPONLY = False   # can't login with True?
 SECURE_CONTENT_TYPE_NOSNIFF = True
-
-# South
-SOUTH_TESTS_MIGRATE = False # just use syncdb
 
 # Static Sitemaps
 STATICSITEMAPS_ROOT_SITEMAP = 'website.sitemap.sitemaps'
@@ -266,14 +265,19 @@ OLAC_SETTINGS = {
     'repositoryName': SITE_NAME,
     'sitedomain': SITE_DOMAIN,
     'description': SITE_DESCRIPTION,
-    'adminEmail': ADMINS, 
+    'adminEmail': ADMINS,
     'admins': ADMINS,
-    'deletedRecord': 'no', # deletedRecord policy
-    'protocolVersion': '2.0', # the version of the OAI-PMH supported by the repository;
+    'deletedRecord': 'no',
+    'protocolVersion': '2.0',
     'depositor': ADMINS,
     'institution': '',
     'institutionURL': '',
     'shortLocation': '',
 }
 
-TWITTER_OAUTH_TOKEN = TWITTER_OAUTH_SECRET = TWITTER_CONSUMER_KEY = TWITTER_CONSUMER_SECRET = None
+# override in local.py
+TWITTER_OAUTH_TOKEN = None
+TWITTER_OAUTH_SECRET = None
+TWITTER_CONSUMER_KEY = None
+TWITTER_CONSUMER_SECRET = None
+
