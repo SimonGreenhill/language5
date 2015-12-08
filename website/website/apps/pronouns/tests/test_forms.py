@@ -1,8 +1,7 @@
 from django.test import TestCase
 
 from website.apps.lexicon.models import Lexicon
-from website.apps.pronouns.tools import full_repr_row
-from website.apps.pronouns.models import Paradigm, PronounType, Pronoun
+from website.apps.pronouns.models import Pronoun
 from website.apps.pronouns.tests import DefaultSettingsMixin
 from website.apps.pronouns.forms import create_pronoun_formset
 from website.apps.pronouns.forms import save_pronoun_formset
@@ -10,16 +9,16 @@ from website.apps.pronouns.forms import pronoun_formsets_are_valid
 from website.apps.pronouns.forms import sort_formset
 
 
-class FormsetSettingsMixin(object):
+class FormsetMixin(object):
     """
     Extra Settings Mixin for Formsets Test
     
-    Adds a `Lexicon` entry to each pronoun, with the `entry` and 
+    Adds a `Lexicon` entry to each pronoun, with the `entry` and
     `annotation` fields set to:
         entry = 'pron-%d' % pronoun.id
         annotation = 'ann-%d' % pronoun.id
     
-    ...and adds the helper function `_generate_post_data` to fake up 
+    ...and adds the helper function `_generate_post_data` to fake up
     some dummy POST data for a given `Paradigm` object.
     
     ...and the helper function `_add_extra_entry` which just creates
@@ -34,7 +33,7 @@ class FormsetSettingsMixin(object):
         for pron in self.pdm.pronoun_set.all():
             # modify the stored entries so we can identify them later.
             pron.entries.add(Lexicon.objects.create(
-                editor=self.editor, 
+                editor=self.editor,
                 source=self.source,
                 language=self.lang,
                 word=self.word,
@@ -63,7 +62,7 @@ class FormsetSettingsMixin(object):
         # pick one pronoun to add an extra entry to.
         pron_with_extra = self.pdm.pronoun_set.all()[0]
         pron_with_extra.entries.add(Lexicon.objects.create(
-            editor=self.editor, 
+            editor=self.editor,
             source=self.source,
             language=self.lang,
             word=self.word,
@@ -74,31 +73,35 @@ class FormsetSettingsMixin(object):
         return pron_with_extra
     
 
-class TestFormsetValidity(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
+class TestFormsetValidity(DefaultSettingsMixin, FormsetMixin, TestCase):
     def test_valid(self):
-        formsets = create_pronoun_formset(self.pdm, self._generate_post_data(self.pdm))
+        formsets = create_pronoun_formset(
+            self.pdm, self._generate_post_data(self.pdm)
+        )
         assert pronoun_formsets_are_valid(formsets)
     
     def test_add_valid(self):
         self._add_extra_entry()
-        formsets = create_pronoun_formset(self.pdm, self._generate_post_data(self.pdm))
+        formsets = create_pronoun_formset(
+            self.pdm, self._generate_post_data(self.pdm)
+        )
         assert pronoun_formsets_are_valid(formsets)
     
     def test_change_is_valid(self):
         postdata = self._generate_post_data(self.pdm)
-        postdata['1_1-0-entry'] = 'testing' # change something
+        postdata['1_1-0-entry'] = 'testing'  # change something
         formsets = create_pronoun_formset(self.pdm, postdata)
         assert pronoun_formsets_are_valid(formsets)
     
     def test_is_valid_with_addition(self):
         postdata = self._generate_post_data(self.pdm)
-        postdata['1_1-1-entry'] = 'testing' # change something
+        postdata['1_1-1-entry'] = 'testing'  # change something
         postdata['1_1-TOTAL_FORMS'] = u'2'
         formsets = create_pronoun_formset(self.pdm, postdata)
         assert pronoun_formsets_are_valid(formsets)
 
 
-class TestFormsetCreator(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
+class TestFormsetCreator(DefaultSettingsMixin, FormsetMixin, TestCase):
     def test_all_forms_get_created(self):
         """Do we get the right number of forms?"""
         formsets = create_pronoun_formset(self.pdm)
@@ -106,12 +109,19 @@ class TestFormsetCreator(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
     
     def test_all_forms_are_valid(self):
         """All created formsets with these data should be valid"""
-        formsets = create_pronoun_formset(self.pdm, self._generate_post_data(self.pdm))
+        formsets = create_pronoun_formset(
+            self.pdm, self._generate_post_data(self.pdm)
+        )
         for formid, formset in formsets:
             for form in formset.forms:
                 if not form.is_valid():
-                    raise AssertionError("Form should be valid. Errors are: %r" % form.errors)
-            assert formset.is_valid(), "Formset should be valid. Errors are: %r" % formset.errors
+                    raise AssertionError(
+                        "Form should be valid. Errors are: %r" % form.errors
+                    )
+            if not formset.is_valid():
+                raise AssertionError(
+                    "Formset should be valid. Errors are: %r" % formset.errors
+                )
             
     def test_each_formset_gets_the_right_entry(self):
         """Does each formset have the correct entry?"""
@@ -119,7 +129,8 @@ class TestFormsetCreator(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
         for formid, form in formsets:
             assert len(form.forms) == formid.entries.count() == 1
             # is PK correct?
-            assert form.forms[0].initial['entry'] == 'pron-%d' % formid.entries.all()[0].pk
+            expected = 'pron-%d' % formid.entries.all()[0].pk
+            assert form.forms[0].initial['entry'] == expected
     
     def test_each_formset_gets_the_right_values(self):
         """Is the value of each form field set correctly?"""
@@ -129,9 +140,11 @@ class TestFormsetCreator(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
             initial = form.forms[0].initial
             expected = formid.entries.all()[0]
             for key in initial:
-                assert getattr(expected, key) == initial[key], \
-                    'Expected %s to be %r not %r' % (key, expected, initial[key])
-    
+                obtained = initial[key]
+                if getattr(expected, key) != obtained:
+                    e = 'Expected %s = %r not %r' % (key, expected, obtained)
+                    raise AssertionError(e)
+                
     def test_formset_with_multiple_entries(self):
         pron_with_extra = self._add_extra_entry()
         # test formset
@@ -152,44 +165,48 @@ class TestFormsetCreator(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
     
     def test_formset_submission_with_update(self):
         postdata = self._generate_post_data(self.pdm)
-        postdata['1_1-0-entry'] = 'testing' # change something
+        postdata['1_1-0-entry'] = 'testing'  # change something
         
         formsets = create_pronoun_formset(self.pdm, postdata)
         
-        for f in formsets: 
+        for f in formsets:
             assert f[1].is_valid(), "Formset should be valid!"
             if f[0].id == 1:
-                assert f[1].has_changed(), "This one formset should have changed!"
+                assert f[1].has_changed(), \
+                    "This formset should have changed!"
             else:
-                assert not f[1].has_changed(), "This formset should not have changed!"
+                assert not f[1].has_changed(), \
+                    "This formset shouldn't have changed!"
     
     def test_formset_submission_with_create(self):
         postdata = self._generate_post_data(self.pdm)
-        postdata['1_1-1-entry'] = 'testing' # change something
+        postdata['1_1-1-entry'] = 'testing'  # change something
         postdata['1_1-TOTAL_FORMS'] = u'2'
         formsets = create_pronoun_formset(self.pdm, postdata)
         
-        for f in formsets: 
+        for f in formsets:
             assert f[1].is_valid(), "Formset should be valid!"
             if f[0].id == 1:
-                assert f[1].has_changed(), "This one formset should have changed!"
+                assert f[1].has_changed(), \
+                    "This one formset should have changed!"
             else:
-                assert not f[1].has_changed(), "This formset should not have changed!"
+                assert not f[1].has_changed(), \
+                    "This formset should not have changed!"
             
     def test_save(self):
         postdata = self._generate_post_data(self.pdm)
         
         for pronoun, formset in create_pronoun_formset(self.pdm, postdata):
-            saved = save_pronoun_formset(self.pdm, pronoun, formset, self.editor)
+            save_pronoun_formset(self.pdm, pronoun, formset, self.editor)
         
         assert Lexicon.objects.count() == 3, "expecting 3"
         
     def test_save_with_update(self):
         postdata = self._generate_post_data(self.pdm)
-        postdata['1_1-0-entry'] = 'testing' # change something
+        postdata['1_1-0-entry'] = 'testing'  # change something
         
         for pronoun, formset in create_pronoun_formset(self.pdm, postdata):
-            saved = save_pronoun_formset(self.pdm, pronoun, formset, self.editor)
+            save_pronoun_formset(self.pdm, pronoun, formset, self.editor)
         
         # should still only have 3 lexical items
         assert Lexicon.objects.count() == 3, "expecting 3"
@@ -200,11 +217,11 @@ class TestFormsetCreator(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
         
     def test_save_with_addition(self):
         postdata = self._generate_post_data(self.pdm)
-        postdata['1_1-1-entry'] = 'testing' # change something
+        postdata['1_1-1-entry'] = 'testing'  # change something
         postdata['1_1-TOTAL_FORMS'] = u'2'
         
         for pronoun, formset in create_pronoun_formset(self.pdm, postdata):
-            saved = save_pronoun_formset(self.pdm, pronoun, formset, self.editor)
+            save_pronoun_formset(self.pdm, pronoun, formset, self.editor)
         
         # should now have 4 lexical items
         assert Lexicon.objects.count() == 4, "expecting 4"
@@ -226,16 +243,17 @@ class TestFormsetCreator(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
                 assert entries[0].annotation == 'ann-{0}'.format(pron.id)
                 
     def test_repeated_saves_dont_explode(self):
-        # saving the same data multiple times should not increase the size of the set.
+        # saving the same data multiple times should not increase the size of
+        # the set.
         
         postdata = self._generate_post_data(self.pdm)
-        postdata['1_1-1-entry'] = 'testing' # change something
+        postdata['1_1-1-entry'] = 'testing'  # change something
         postdata['1_1-TOTAL_FORMS'] = u'2'
         
         for pronoun, formset in create_pronoun_formset(self.pdm, postdata):
-            saved = save_pronoun_formset(self.pdm, pronoun, formset, self.editor)
-            saved = save_pronoun_formset(self.pdm, pronoun, formset, self.editor)
-            saved = save_pronoun_formset(self.pdm, pronoun, formset, self.editor)
+            save_pronoun_formset(self.pdm, pronoun, formset, self.editor)
+            save_pronoun_formset(self.pdm, pronoun, formset, self.editor)
+            save_pronoun_formset(self.pdm, pronoun, formset, self.editor)
         
         # should now have 4 lexical items
         assert Lexicon.objects.count() == 4, "expecting 4"
@@ -261,7 +279,7 @@ class TestFormsetCreator(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
         postdata['1_1-0-entry'] = u''
         
         for pronoun, formset in create_pronoun_formset(self.pdm, postdata):
-            saved = save_pronoun_formset(self.pdm, pronoun, formset, self.editor)
+            save_pronoun_formset(self.pdm, pronoun, formset, self.editor)
             
         # should now have 2 lexical items
         assert Lexicon.objects.count() == 2, "expecting 2"
@@ -272,22 +290,27 @@ class TestFormsetCreator(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
             assert Lexicon.objects.get(pk=1)
             
 
-
-class TestFormsetSorter(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
+class TestFormsetSorter(DefaultSettingsMixin, FormsetMixin, TestCase):
     def test_number_of_rows(self):
-        formsets = create_pronoun_formset(self.pdm, self._generate_post_data(self.pdm))
+        formsets = create_pronoun_formset(
+            self.pdm, self._generate_post_data(self.pdm)
+        )
         sortf = sort_formset(formsets)
         assert len(sortf) == 3
     
     def test_tokens(self):
-        formsets = create_pronoun_formset(self.pdm, self._generate_post_data(self.pdm))
+        formsets = create_pronoun_formset(
+            self.pdm, self._generate_post_data(self.pdm)
+        )
         rows = sort_formset(formsets)
         assert rows[0][0] == u'1st (excl) Person Singular'
         assert rows[1][0] == u'2nd Person Singular'
         assert rows[2][0] == u'3rd Person Singular'
     
     def test_four_per_row(self):
-        formsets = create_pronoun_formset(self.pdm, self._generate_post_data(self.pdm))
+        formsets = create_pronoun_formset(
+            self.pdm, self._generate_post_data(self.pdm)
+        )
         for row in sort_formset(formsets):
             assert len(row[1]) == 4
             assert 'A' in row[1]
@@ -296,7 +319,9 @@ class TestFormsetSorter(DefaultSettingsMixin, FormsetSettingsMixin, TestCase):
             assert 'P' in row[1]
     
     def test_row_formsets(self):
-        formsets = create_pronoun_formset(self.pdm, self._generate_post_data(self.pdm))
+        formsets = create_pronoun_formset(
+            self.pdm, self._generate_post_data(self.pdm)
+        )
         for row in sort_formset(formsets):
             assert row[1]['A'] is not None
             assert row[1]['S'] is None

@@ -4,7 +4,8 @@ from django.core.urlresolvers import reverse
 
 from website.apps.lexicon.models import Lexicon
 from website.apps.pronouns.tools import full_repr_row
-from website.apps.pronouns.models import Paradigm, PronounType, Pronoun, Relationship
+from website.apps.pronouns.models import Paradigm, PronounType, Pronoun
+from website.apps.pronouns.models import Relationship
 from website.apps.pronouns.tests import DefaultSettingsMixin
 
 from website.apps.core.tests.utils import PaginatorTestMixin
@@ -100,7 +101,9 @@ class Test_Detail(DefaultSettingsMixin, TestCase):
         self.assertEqual(self.response.status_code, 200)
         self.assertContains(self.response, unicode(self.pdm))
         self.assertContains(self.response, 'sausage')
-        self.assertContains(self.response, '<h1>Pronoun Paradigm: A: sausage</h1>')
+        self.assertContains(
+            self.response, '<h1>Pronoun Paradigm: A: sausage</h1>'
+        )
         
     def test_content_rows(self):
         for p in self.pdm.pronoun_set.all():
@@ -129,7 +132,7 @@ class Test_Detail(DefaultSettingsMixin, TestCase):
     
     def test_shows_relationships(self):
         """Should show defined relationships if present"""
-        rel = self._create_relationship()
+        self._create_relationship()
         assert self.pdm.relationship_set.count() == 1, \
             "I was expecting one relationship to be defined!"
         
@@ -180,29 +183,40 @@ class Test_AddParadigmView(DefaultSettingsMixin, TestCase):
         self.client.logout()
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, "%s?next=%s" % (reverse('login'), reverse("pronouns:add")))
+        self.assertRedirects(
+            response,
+            "%s?next=%s" % (reverse('login'), reverse("pronouns:add"))
+        )
         
     def test_paradigm_save(self):
         count = Paradigm.objects.count()
-        response = self.client.post(self.url, {
-            'language': self.lang.id, 'source': self.source.id, 'comment': 'foo'
-        }, follow=True)
-        self.assertEqual(Paradigm.objects.count(), count+1)
-        self.assertContains(response, 'foo')
-        
-    def test_paradigm_creates_pronouns(self):
-        count = Pronoun.objects.count()
         response = self.client.post(self.url, {
             'language': self.lang.id,
             'source': self.source.id,
             'comment': 'foo'
         }, follow=True)
-        self.assertEqual(Pronoun.objects.count(), count+len(PronounType._generate_all_combinations()))
+        self.assertEqual(Paradigm.objects.count(), count + 1)
+        self.assertContains(response, 'foo')
+        
+    def test_paradigm_creates_pronouns(self):
+        count = Pronoun.objects.count()
+        self.client.post(self.url, {
+            'language': self.lang.id,
+            'source': self.source.id,
+            'comment': 'foo'
+        }, follow=True)
+        self.assertEqual(
+            Pronoun.objects.count(),
+            count + len(PronounType._generate_all_combinations())
+        )
         
     def test_paradigm_save_with_label(self):
         count = Paradigm.objects.count()
         response = self.client.post(self.url, {
-            'language': self.lang.id, 'source': self.source.id, 'comment': 'foo', 'label': 'xxx'
+            'language': self.lang.id,
+            'source': self.source.id,
+            'comment': 'foo',
+            'label': 'xxx'
         }, follow=True)
-        self.assertEqual(Paradigm.objects.count(), count+1)
+        self.assertEqual(Paradigm.objects.count(), count + 1)
         self.assertContains(response, 'xxx')

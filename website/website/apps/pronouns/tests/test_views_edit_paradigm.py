@@ -577,7 +577,7 @@ class Test_EditParadigmView(TransactionTestCase):
                 postdata[p] = int(postdata[p]) + 10000
         
         response = self.client.post(self.url, postdata)
-        self.assertRedirects(response, self.deail_url)
+        self.assertRedirects(response, self.detail_url)
         
         updatedpdm = Paradigm.objects.get(pk=self.fullpdm.id)
         # find the updated lexical entries..
