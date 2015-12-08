@@ -31,7 +31,7 @@ def prepare_map_data(records):
         if r.get('isocode', None) and len(r.get('isocode', "")) == 3:
             obj = MapObj(r)
             entries.append(obj)
-            isos.add(obj.isocode) # save isocode
+            isos.add(obj.isocode)
     
     # 2. get locations for the isocodes we've seen and store in a lookup table
     locations = {}
@@ -63,10 +63,10 @@ class LanguageMapResource(Resource):
         return 'application/json'
     
     class Meta:
-        limit = 0 # show all
+        limit = 0  # show all
         include_resource_uri = False
         allowed_methods = ['get']
-        cache = SimpleCache(timeout=60*24, public=True)
+        cache = SimpleCache(timeout=60 * 24, public=True)
     
     def obj_get_list(self, bundle, **kwargs):
         # Filtering disabled for brevity...
@@ -80,7 +80,9 @@ class LanguageMapResource(Resource):
                     'isocode': L.isocode,
                     'language': L.language,
                     'label': L.language,
-                    'url': reverse('language-detail', kwargs={'language': L.slug}),
+                    'url': reverse(
+                        'language-detail', kwargs={'language': L.slug}
+                    ),
                     'count': L.count,
                 })
         return prepare_map_data(results)
