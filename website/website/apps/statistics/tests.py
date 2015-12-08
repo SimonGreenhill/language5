@@ -101,15 +101,11 @@ class Test_StatisticView(StatisticMixin, TestCase):
         super(Test_StatisticView, self).setUp()
         self.client = Client()
         self.response = self.client.get('/statistics/')
-
+    
     def test_200ok(self):
-        response = self.client.get('/statistics/')
-        self.assertEqual(response.status_code, 200)
-
+        self.assertEquals(self.response.status_code, 200)
+    
     def test_template(self):
         self.assertTemplateUsed(self.response, 'statistics/details.html')
-
-    def test_graphing(self):
-        "Test that statistics marked as graph=True are indeed graphed"
-        self.assertContains(self.response.content, 'Languages')
+    
 
