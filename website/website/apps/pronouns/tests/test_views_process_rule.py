@@ -70,7 +70,8 @@ class Test_ProcessRuleView_process_identicals(ProcessRuleMixin, TestCase):
             reverse('pronouns:edit_relationships', kwargs={'paradigm_id': 1})
         )
         
-        Rule.objects.all()[0]
+        assert Rule.objects.count() == 1, "should have saved a rule"
+        
         for p in self.expected_identicals:
             rel = Relationship.objects.filter(Q(pronoun1=p) | Q(pronoun2=p))
             

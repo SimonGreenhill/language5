@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.core.management.base import BaseCommand
 
-from website.apps.core.models import Language
 from website.apps.pronouns.models import Paradigm
 
 class Command(BaseCommand):

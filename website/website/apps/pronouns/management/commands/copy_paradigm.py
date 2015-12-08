@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
-import os
-import codecs
 from reversion import revisions as reversion
-from django.db import transaction
 from django.core.management.base import BaseCommand
 
 from website.apps.core.models import Language
@@ -11,7 +8,7 @@ from website.apps.pronouns.tools import copy_paradigm
 
 class Command(BaseCommand):
     args = '<paradigm_id language_id>'
-    help = 'Copies the paradigm `paradigm_id` to a new paradigm for `language_id'
+    help = 'Copies `paradigm_id` to a new paradigm for `language_id'
     
     @reversion.create_revision()
     def handle(self, *args, **options):

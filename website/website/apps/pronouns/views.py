@@ -176,7 +176,7 @@ def process_rule(request, paradigm_id):
             for m1, m2 in members:
                 # Ignore anything we've already set
                 args = (m1[0], m2[0])
-                if not Relationship.objects.has_relationship_between(args):
+                if not Relationship.objects.has_relationship_between(*args):
                     rel = Relationship.objects.create(
                         paradigm=p,
                         pronoun1_id=m1[0],

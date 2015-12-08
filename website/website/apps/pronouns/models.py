@@ -1,5 +1,4 @@
 from django.db import models
-from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 
 from reversion import revisions as reversion
@@ -24,7 +23,7 @@ NUMBER_CHOICES = (
     ('sg', 'Singular'),
     ('du', 'Dual'),
     ('pl', 'Plural'),
-   # ('tr', 'Trial'),
+    # ('tr', 'Trial'),
 )
 
 GENDER_CHOICES = (
@@ -42,9 +41,10 @@ ANALECT_TYPES = (
 class ActivePronounTypeManager(models.Manager):
     """Hides inactive pronouns"""
     def get_queryset(self):
-        return super(ActivePronounTypeManager, self).get_queryset().filter(active=True)
+        return super(
+            ActivePronounTypeManager, self
+        ).get_queryset().filter(active=True)
 
-    
 
 @reversion.register
 class PronounType(TrackedModel):
@@ -58,18 +58,22 @@ class PronounType(TrackedModel):
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES,
         blank=True, null=True,
         help_text="Gender")
-    active = models.BooleanField(default=True, db_index=True, help_text="Show on website?")
+    active = models.BooleanField(
+        default=True, db_index=True,
+        help_text="Show on website?"
+    )
     sequence = models.PositiveSmallIntegerField(db_index=True, unique=True)
     word = models.ForeignKey('lexicon.Word')
     
-    objects = ActivePronounTypeManager() # manager
+    objects = ActivePronounTypeManager()
     
     def __unicode__(self):
         return '%s%s %s' % (self.person, self.number, self.alignment)
     
     @staticmethod
     def _generate_all_combinations():
-        return PronounType.objects.all().filter(active=True).order_by("sequence")
+        qset = PronounType.objects.all()
+        return qset.filter(active=True).order_by("sequence")
     
     @staticmethod
     def _get_row_size():
@@ -100,13 +104,20 @@ class Paradigm(TrackedModel):
     """Paradigm Details"""
     language = models.ForeignKey(Language)
     source = models.ForeignKey(Source)
-    comment = models.TextField(blank=True, null=True,
-        help_text="Comment on this paradigm")
-    analect = models.CharField(max_length=1, choices=ANALECT_TYPES, blank=True, null=True,
-        help_text="System Type")
-    label = models.CharField(max_length=32, 
-        blank=True, null=True, 
-        help_text="Short label")
+    comment = models.TextField(
+        blank=True, null=True,
+        help_text="Comment on this paradigm"
+    )
+    analect = models.CharField(
+        max_length=1, choices=ANALECT_TYPES,
+        blank=True, null=True,
+        help_text="System Type"
+    )
+    label = models.CharField(
+        max_length=32,
+        blank=True, null=True,
+        help_text="Short label"
+    )
     
     def __unicode__(self):
         if self.label:
@@ -122,14 +133,14 @@ class Paradigm(TrackedModel):
         super(Paradigm, self).save(*args, **kwargs)
         
         if do_prefill:
-            self._prefill_pronouns() # Prefill Pronouns
+            self._prefill_pronouns()
     
     def _prefill_pronouns(self):
         editor = User.objects.all().order_by('id')[0]
         # figure out the pronouns we already have
         existing_pronouns = []
         for e in self.pronoun_set.select_related().all():
-            token = (e.pronountype.gender, e.pronountype.number, 
+            token = (e.pronountype.gender, e.pronountype.number,
                      e.pronountype.person, e.pronountype.alignment)
             existing_pronouns.append(token)
         
@@ -192,7 +203,7 @@ class PronounRelationshipManager(models.Manager):
     
     def get_relationships_for_pronoun(self, pronoun):
         return self.filter(
-            models.Q(pronoun1_id=self._get_pk(pronoun)) | 
+            models.Q(pronoun1_id=self._get_pk(pronoun)) |
             models.Q(pronoun2_id=self._get_pk(pronoun))
         )
     

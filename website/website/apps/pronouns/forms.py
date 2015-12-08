@@ -1,14 +1,15 @@
 from django import forms
-from django.forms.formsets import formset_factory
-from django.forms.models import BaseModelFormSet
 from django.forms.models import modelformset_factory, inlineformset_factory
 
 from website.apps.lexicon.models import Lexicon
-from website.apps.pronouns.models import Paradigm, PronounType, Pronoun, Relationship
+from website.apps.pronouns.models import Paradigm, PronounType, Relationship
 from website.apps.pronouns.models import PERSON_CHOICES, NUMBER_CHOICES
 from website.apps.pronouns.models import GENDER_CHOICES, ALIGNMENT_CHOICES
 
 from website.apps.pronouns.tools import full_repr_row
+
+INPUT_SMALL = {'class': 'input-small', }
+INPUT_TINY = {'class': 'input-tiny', }
 
 class CopyForm(forms.Form):
     pass
@@ -19,7 +20,9 @@ class ParadigmForm(forms.ModelForm):
         model = Paradigm
         fields = ['language', 'label', 'source', 'analect', 'comment']
         widgets = {
-            'comment': forms.widgets.Textarea(attrs={'cols':60, 'rows':5, 'class': 'field span12'}),
+            'comment': forms.widgets.Textarea(attrs={
+                'cols': 60, 'rows': 5, 'class': 'field span12'}
+            ),
         }
 
 #-----------------------------------------------------------------
@@ -27,13 +30,16 @@ class ParadigmForm(forms.ModelForm):
 
 class LexiconForm(forms.ModelForm):
     entry = forms.CharField(required=False)
+    
     class Meta:
         model = Lexicon
         hidden = ('id',)
         fields = ['entry', 'annotation']
         widgets = {
-            'entry': forms.widgets.TextInput(attrs={'class': 'input-small',}),
-            'annotation': forms.widgets.TextInput(attrs={'class': 'input-small hide', 'placeholder': 'comment'}),
+            'entry': forms.widgets.TextInput(attrs=INPUT_SMALL),
+            'annotation': forms.widgets.TextInput(attrs={
+                'class': 'input-small hide', 'placeholder': 'comment'
+            }),
         }
 
 
@@ -46,16 +52,20 @@ def create_pronoun_formset(paradigm, postdata=None):
     for pronoun in pset:
         qset = pronoun.entries.all()
         extra = 0 if len(qset) else 1
-        EntriesFormSet = modelformset_factory(Lexicon, form=LexiconForm, extra=extra)
-        formset = EntriesFormSet(postdata,
-                       queryset = qset,
-                       prefix='%d_%d' % (pronoun.paradigm_id, pronoun.id))
+        EntriesFormSet = modelformset_factory(
+            Lexicon, form=LexiconForm, extra=extra
+        )
+        formset = EntriesFormSet(
+            postdata,
+            queryset=qset,
+            prefix='%d_%d' % (pronoun.paradigm_id, pronoun.id)
+        )
         formsets.append((pronoun, formset))
     return formsets
     
 def sort_formset(formsets):
     """
-    Sort formset for template view appropriately. 
+    Sort formset for template view appropriately.
     
     Returns a list of dicts
     
@@ -65,15 +75,18 @@ def sort_formset(formsets):
         (rowname, {A:.., S:...}),
     ]
     """
-    ptypes = dict([(p['sequence'], p) for p in PronounType.objects.all().values()])
+    ptypes = dict([
+        (p['sequence'], p) for p in PronounType.objects.all().values()
+    ])
     rows = {}
     
-    empty = dict(zip([x[0] for x in ALIGNMENT_CHOICES], 
-                     [None for x in ALIGNMENT_CHOICES])
-    )
+    empty = dict(zip(
+        [x[0] for x in ALIGNMENT_CHOICES],
+        [None for x in ALIGNMENT_CHOICES]
+    ))
     
     # use decorate-sort-undecorate pattern to loop over pronoun and formset
-    # in formsets. The sort key is the pronountype.sequence + 3 / 4 
+    # in formsets. The sort key is the pronountype.sequence + 3 / 4
     # add three to get the grouping right (1-4), (5-8), (9-12) etc
     for pronoun, formset in formsets:
         pt = ptypes[pronoun.pronountype.sequence]
@@ -87,10 +100,8 @@ def sort_formset(formsets):
 
 def save_pronoun_formset(paradigm, pronoun, formset, user):
     """
-    
     >>> for pronoun, formset in create_pronoun_formset(paradigm, postdata):
-    >>>     saved = save_pronoun_formset(paradigm, pronoun, formset, request.user)
-        
+    >>>     saved = save_pronoun_formset(paradigm, pronoun, formset, user)
     """
     pks = []
     instances = formset.save(commit=False)
@@ -119,9 +130,6 @@ def pronoun_formsets_are_valid(formsets):
     return True
 
 
-
-
-
 #-----------------------------------------------------------------
 # RELATIONSHIPS
 class RelationshipForm(forms.ModelForm):
@@ -133,12 +141,15 @@ class RelationshipForm(forms.ModelForm):
         exclude = ('editor', 'added', 'paradigm')
         hidden = ('id', 'paradigm')
         widgets = {
-            'comment': forms.widgets.TextInput(attrs={'class': 'input-medium'}),
+            'comment': forms.widgets.TextInput(attrs={
+                'class': 'input-medium'
+            }),
         }
 
 
-RelationshipFormSet = inlineformset_factory(Paradigm, Relationship,
-                            can_delete=True, extra=1, form=RelationshipForm)
+RelationshipFormSet = inlineformset_factory(
+    Paradigm, Relationship, can_delete=True, extra=1, form=RelationshipForm
+)
 
 
 
@@ -156,6 +167,8 @@ gender_choices.extend(GENDER_CHOICES)
 relationship_choices = [("---", "-")]
 relationship_choices.extend(Relationship.RELATIONSHIP_CHOICES)
 
+
+
 class RuleForm(forms.Form):
     alignment_one = forms.ChoiceField(alignment_choices)
     person_one = forms.ChoiceField(person_choices)
@@ -169,12 +182,12 @@ class RuleForm(forms.Form):
     
     class Meta:
         widgets = {
-            'alignment_one': forms.widgets.Select(attrs={'class': 'input-tiny'}),
-            'person_one': forms.widgets.Select(attrs={'class': 'input-small'}),
-            'number_one': forms.widgets.Select(attrs={'class': 'input-small'}),
-            'gender_one': forms.widgets.Select(attrs={'class': 'input-small'}),
-            'alignment_two': forms.widgets.Select(attrs={'class': 'input-small'}),
-            'person_two': forms.widgets.Select(attrs={'class': 'input-small'}),
-            'number_two': forms.widgets.Select(attrs={'class': 'input-small'}),
-            'gender_two': forms.widgets.Select(attrs={'class': 'input-small'}),
+            'alignment_one': forms.widgets.Select(INPUT_TINY),
+            'person_one': forms.widgets.Select(INPUT_SMALL),
+            'number_one': forms.widgets.Select(INPUT_SMALL),
+            'gender_one': forms.widgets.Select(INPUT_SMALL),
+            'alignment_two': forms.widgets.Select(INPUT_SMALL),
+            'person_two': forms.widgets.Select(INPUT_SMALL),
+            'number_two': forms.widgets.Select(INPUT_SMALL),
+            'gender_two': forms.widgets.Select(INPUT_SMALL),
         }
