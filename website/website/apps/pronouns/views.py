@@ -22,7 +22,7 @@ from website.apps.pronouns.tools import find_identicals, extract_rule
 
 from django_tables2 import SingleTableView, RequestConfig
 
-import reversion
+from reversion import revisions as reversion
 
 
 class Index(SingleTableView):

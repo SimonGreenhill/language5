@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import codecs
-import reversion
+from reversion import revisions as reversion
 from django.db import transaction
 from django.core.management.base import BaseCommand
 

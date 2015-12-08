@@ -2,8 +2,8 @@ from django.db import models
 from django.db.models.signals import pre_save
 from django.core.urlresolvers import reverse
 
-import watson
-import reversion
+from watson import search as watson
+from reversion import revisions as reversion
 
 from website.apps.core.models import TrackedModel
 from website.apps.statistics import statistic

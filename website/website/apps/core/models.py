@@ -3,8 +3,8 @@ from django.db.models.signals import pre_save
 from django.contrib.auth.models import User
 from website.signals import create_redirect
 
-import reversion
-import watson
+from reversion import revisions as reversion
+from watson import search as watson
 
 from website.apps.statistics import statistic
 

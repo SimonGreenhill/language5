@@ -1,4 +1,4 @@
-import reversion
+from reversion import revisions as reversion
 from django.test import TestCase
 from django.test.client import Client
 from django.forms import ValidationError

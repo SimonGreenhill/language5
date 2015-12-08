@@ -10,7 +10,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import DetailView
 from django_tables2 import SingleTableView, RequestConfig
 
-import reversion
+from reversion import revisions as reversion
 
 from website.apps.core.models import Source
 from website.apps.lexicon.models import Word, Lexicon, CognateSet, Cognate, CognateNote

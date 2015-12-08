@@ -2,7 +2,7 @@
 import os
 import re
 import sys
-import reversion
+from reversion import revisions as reversion
 from optparse import make_option
 from django.conf import settings
 from django.db import transaction

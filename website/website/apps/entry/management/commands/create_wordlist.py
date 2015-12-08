@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys
-import reversion
+from reversion import revisions as reversion
 from optparse import make_option
 from django.db import transaction
 from django.core.management.base import BaseCommand

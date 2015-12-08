@@ -2,7 +2,7 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 
-import reversion
+from reversion import revisions as reversion
 
 from website.apps.core.models import TrackedModel, Language, Source
 
