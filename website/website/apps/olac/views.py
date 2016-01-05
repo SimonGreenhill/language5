@@ -34,26 +34,34 @@ def get_sample_identifier():
     template = 'oai:%s:%s.%d'
     try:
         obj = Model.objects.all()[0]
-        return template % (settings.OLAC_SETTINGS['repositoryName'], obj.isocode, obj.id)
+        return template % (
+            settings.OLAC_SETTINGS['repositoryName'], obj.isocode, obj.id
+        )
     except:
         # no entries stored. Return a dummy
-        return template % (settings.OLAC_SETTINGS['repositoryName'], 'aaa', 1)
-        
-    
+        return template % (
+            settings.OLAC_SETTINGS['repositoryName'], 'aaa', 1
+        )
+
+
 def parse_time(timestamp):
     if hasattr(datetime, "strptime"):
         d = datetime.strptime('%s UTC' % timestamp, "%Y-%m-%d %Z")
     else:
         # damn you python 2.4 on Centos!
-        d = datetime.fromtimestamp(time.mktime(time.strptime(timestamp, "%Y-%m-%d")))
+        d = datetime.fromtimestamp(
+            time.mktime(time.strptime(timestamp, "%Y-%m-%d"))
+        )
     d = d.replace(tzinfo=utc)
     return d
 
 
 def get_last_update():
     try:
-        return Revision.objects.order_by('-id').only('date_created')[0].date_created
-    except IndexError: # no Revision's (i.e. when running tests), return current time
+        qset = Revision.objects.order_by('-id')
+        return qset.only('date_created')[0].date_created
+    except IndexError:
+        # no Revisions (i.e. when running tests), return current time
         return datetime.utcnow().replace(tzinfo=utc)
 
 
@@ -61,7 +69,7 @@ def oai(request):
     try:
         verb = request.GET['verb']
     except (KeyError, IndexError):
-        return Identify(request) # No verb given!
+        return Identify(request)  # No verb given!
 
     if verb == 'Identify':
         return Identify(request)
@@ -117,30 +125,35 @@ def Identify(request):
 
     `adminEmail` : the e-mail address of an administrator of the repository.
 
-    The response may include multiple instances of the following optional elements:
+    The response may include multiple instances of the following optional
+    elements:
 
     `compression` :     a compression encoding supported by the repository.
-        The recommended values are those defined for the Content-Encoding header
-        in Section 14.11 of RFC 2616 describing HTTP 1.1. A compression element
-        should not be included for the identity encoding, which is implied.
+        The recommended values are those defined for the Content-Encoding
+        header in Section 14.11 of RFC 2616 describing HTTP 1.1. A compression
+        element should not be included for the identity encoding, which is
+        implied.
     `description` : an extensible mechanism for communities to describe their
         repositories. For example, the description container could be used to
-        include collection-level metadata in the response to the Identify request.
-        Implementation Guidelines are available to give directions with this respect.
-        Each description container must be accompanied by the URL of an XML schema
-        describing the structure of the description container.
+        include collection-level metadata in the response to the Identify
+        request.  Implementation Guidelines are available to give directions
+        with this respect.  Each description container must be accompanied by
+        the URL of an XML schema describing the structure of the description
+        container.
     """
     out = {
         'url': request.build_absolute_uri(),
         'sampleIdentifier': get_sample_identifier(),
     }
-    
-    if len(request.GET.keys()) > 1: # should take NO other arguments.
+
+    if len(request.GET.keys()) > 1:  # should take NO other arguments.
         return Error(request, ['badArgument'], out)
 
-    return render_to_response('olac/Identify.xml', out,
+    return render_to_response(
+        'olac/Identify.xml', out,
         context_instance=RequestContext(request),
-            content_type="application/xhtml+xml")
+        content_type="application/xhtml+xml"
+    )
 
 
 def ListIdentifiers(request):
@@ -153,34 +166,50 @@ def ListIdentifiers(request):
     the request has been deleted.
 
     Arguments::
-        `from`:      an optional argument with a UTCdatetime value, which specifies
-                        a lower bound for datestamp-based selective harvesting.
-        `until`:     an optional argument with a UTCdatetime value, which specifies
-                        a upper bound for datestamp-based selective harvesting.
-        `metadataPrefix`:   a required argument, which specifies that headers should
-                        be returned only if the metadata format matching the supplied
-                        metadataPrefix is available or, depending on the repository's
-                        support for deletions, has been deleted. The metadata formats
-                        supported by a repository and for a particular item can be
-                        retrieved using the ListMetadataFormats request.
-        `set`:      an optional argument with a setSpec value, which specifies set
-                        criteria for selective harvesting.
-        `resumptionToken`:   an exclusive argument with a value that is the flow
-                    control token returned by a previous ListIdentifiers request
-                    that issued an incomplete list.
+        `from`:      an optional argument with a UTCdatetime value, which
+                     specifies a lower bound for datestamp-based selective
+                     harvesting.
+        
+        `until`:     an optional argument with a UTCdatetime value, which
+                     specifies a upper bound for datestamp-based selective
+                     harvesting.
+        
+        `metadataPrefix`:
+                     a required argument, which specifies that headers should
+                     be returned only if the metadata format matching the
+                     supplied metadataPrefix is available or, depending on the
+                     repository's support for deletions, has been deleted. The
+                     metadata formats supported by a repository and for a
+                     particular item can be retrieved using the
+                     ListMetadataFormats request.
+        
+        `set`:      an optional argument with a setSpec value, which specifies
+                    set criteria for selective harvesting.
+        
+        `resumptionToken`:
+                    an exclusive argument with a value that is the flow control
+                    token returned by a previous ListIdentifiers request that
+                    issued an incomplete list.
 
     Error and Exception Conditions::
-        `badArgument` - The request includes illegal arguments or is missing required
+        `badArgument`:
+            The request includes illegal arguments or is missing required
             arguments.
-        `badResumptionToken` - The value of the resumptionToken argument is invalid or
-            expired.
-        `cannotDisseminateFormat` - The value of the metadataPrefix argument is not
-            supported by the repository.
-        `noRecordsMatch` - The combination of the values of the from, until, and set
+        `badResumptionToken`:
+            The value of the resumptionToken argument is invalid or expired.
+        `cannotDisseminateFormat`:
+            The value of the metadataPrefix argument is not supported by the
+            repository.
+        `noRecordsMatch`:
+            The combination of the values of the from, until, and set
             arguments results in an empty list.
-        `noSetHierarchy` - The repository does not support sets.
+        `noSetHierarchy`:
+            The repository does not support sets.
     """
-    out = {'url': request.build_absolute_uri(), 'last_update': get_last_update()}
+    out = {
+        'url': request.build_absolute_uri(),
+        'last_update': get_last_update()
+    }
     error_list = []
 
     # metadataPrefix is REQUIRED
@@ -213,12 +242,6 @@ def ListIdentifiers(request):
         except (TypeError, ValueError):
             return Error(request, ['badArgument'], out)
         objects = objects.filter(added__gte=frm)
-            #
-            #
-            # datetime_published__year=
-            # datetime_published__year='2008',
-            #                          datetime_published__month='03',
-            #                          datetime_published__day='27')
 
     if 'until' in request.GET:
         out['until'] = request.GET['until']
@@ -261,21 +284,27 @@ def ListSets(request):
 
 def ListMetadataFormats(request):
     """
-    This verb is used to retrieve the metadata formats available from a repository.
-    An optional argument restricts the request to the formats available for a specific item.
+    This verb is used to retrieve the metadata formats available from a
+    repository.  An optional argument restricts the request to the formats
+    available for a specific item.
 
     Arguments::
     `identifier`:    an optional argument that specifies the unique identifier
-            of the item for which available metadata formats are being requested.
-            If this argument is omitted, then the response includes all metadata
-            formats supported by this repository. Note that the fact that a
-            metadata format is supported by a repository does not mean that it
-            can be disseminated from all items in the repository.
+            of the item for which available metadata formats are being
+            requested.  If this argument is omitted, then the response includes
+            all metadata formats supported by this repository. Note that the
+            fact that a metadata format is supported by a repository does not
+            mean that it can be disseminated from all items in the repository.
 
     Error and Exception Conditions::
-    `badArgument` - The request includes illegal arguments or is missing required arguments.
-    `idDoesNotExist` - The value of the identifier argument is unknown or illegal in this repository.
-    `noMetadataFormats` - There are no metadata formats available for the specified item.
+        `badArgument`:
+            The request includes illegal arguments or is missing required
+            arguments.
+        `idDoesNotExist`:
+            The value of the identifier argument is unknown or illegal in this
+            repository.
+        `noMetadataFormats`:
+            There are no metadata formats available for the specified item.
     """
     out = {'url': request.build_absolute_uri()}
     if 'identifier' in request.GET:
@@ -290,13 +319,17 @@ def ListMetadataFormats(request):
             Model.objects.get(pk=language_id)
         except Model.DoesNotExist:
             return Error(request, ['idDoesNotExist'], out)
-        return render_to_response('olac/ListMetadataFormats.xml', out,
-                    context_instance=RequestContext(request),
-                                        content_type="application/xhtml+xml")
+        return render_to_response(
+            'olac/ListMetadataFormats.xml', out,
+            context_instance=RequestContext(request),
+            content_type="application/xhtml+xml"
+        )
 
-    return render_to_response('olac/ListMetadataFormats.xml', out,
-                    context_instance=RequestContext(request),
-                                        content_type="application/xhtml+xml")
+    return render_to_response(
+        'olac/ListMetadataFormats.xml', out,
+        context_instance=RequestContext(request),
+        content_type="application/xhtml+xml"
+    )
 
 
 def ListRecords(request):
@@ -305,8 +338,9 @@ def ListRecords(request):
 
     Optional arguments permit selective harvesting of records based on set
     membership and/or datestamp. Depending on the repository's support for
-    deletions, a returned header may have a status attribute of "deleted"
-    if a record matching the arguments specified in the request has been deleted.
+    deletions, a returned header may have a status attribute of "deleted" if a
+    record matching the arguments specified in the request has been deleted.
+    
     No metadata will be present for records with deleted status.
 
     Arguments::
@@ -319,8 +353,8 @@ def ListRecords(request):
         criteria for selective harvesting.
     `resumptionToken`
             - an exclusive argument with a value that is the flow control token
-            returned by a previous ListRecords request that issued an incomplete
-            list.
+            returned by a previous ListRecords request that issued an
+            incomplete list.
     `metadataPrefix` - a required argument (unless the exclusive argument
         resumptionToken is used) that specifies the metadataPrefix of the
         format that should be included in the metadata part of the returned
@@ -341,7 +375,10 @@ def ListRecords(request):
         set and metadataPrefix arguments results in an empty list.
     `noSetHierarchy` - The repository does not support sets.
     """
-    out = {'url': request.build_absolute_uri(), 'last_update': get_last_update()}
+    out = {
+        'url': request.build_absolute_uri(),
+        'last_update': get_last_update()
+    }
     error_list = []
 
     # metadataPrefix is REQUIRED
@@ -395,7 +432,8 @@ def ListRecords(request):
 
 def GetRecord(request):
     """
-    This verb is used to retrieve an individual metadata record from a repository.
+    This verb is used to retrieve an individual metadata record from a
+    repository.
 
     Required arguments specify the identifier of the item from which the record
     is requested and the format of the metadata that should be included in the
@@ -418,14 +456,18 @@ def GetRecord(request):
 
     Error and Exception Conditions::
 
-    `badArgument` - The request includes illegal arguments or is missing required
-        arguments.
+    `badArgument` - The request includes illegal arguments or is missing
+        required arguments.
     `cannotDisseminateFormat` - The value of the metadataPrefix argument is not
-        supported by the item identified by the value of the identifier argument.
-    `idDoesNotExist` - The value of the identifier argument is unknown or
-        illegal in this repository.
+        supported by the item identified by the value of the identifier
+        argument.
+    `idDoesNotExist` - The value of the identifier argument is
+        unknown or illegal in this repository.
     """
-    out = {'url': request.build_absolute_uri(), 'last_update': get_last_update()}
+    out = {
+        'url': request.build_absolute_uri(),
+        'last_update': get_last_update()
+    }
     error_list = []
 
     # metadataPrefix is REQUIRED
