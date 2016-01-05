@@ -53,10 +53,12 @@ class WordIndex(SingleTableView):
         RequestConfig(self.request).configure(context['table'])
         
         try:
-            context['table'].paginate(page=self.request.GET.get('page', 1), per_page=50)
-        except EmptyPage: # 404 on a empty page
+            context['table'].paginate(
+                page=self.request.GET.get('page', 1), per_page=50
+            )
+        except EmptyPage:  # 404 on a empty page
             raise Http404
-        except PageNotAnInteger: # 404 on invalid page number
+        except PageNotAnInteger:  # 404 on invalid page number
             raise Http404
         
         return context
@@ -80,10 +82,12 @@ class WordDetail(DetailView):
         RequestConfig(self.request).configure(context['lexicon'])
             
         try:
-            context['lexicon'].paginate(page=self.request.GET.get('page', 1), per_page=50)
-        except EmptyPage: # 404 on a empty page
+            context['lexicon'].paginate(
+                page=self.request.GET.get('page', 1), per_page=50
+            )
+        except EmptyPage:  # 404 on a empty page
             raise Http404
-        except PageNotAnInteger: # 404 on invalid page number
+        except PageNotAnInteger:  # 404 on invalid page number
             raise Http404
         return context
 
@@ -102,14 +106,14 @@ class LexiconEdit(UpdateView):
     
     def form_valid(self, form):
         from django.utils import timezone
-        import reversion
+        from reversion import revisions as reversion
         form.instance.editor = self.request.user
         form.instance.added = timezone.now()
         with reversion.create_revision():
             form.save()
         return super(LexiconEdit, self).form_valid(form)
     
-    @method_decorator(login_required) # ensure logged in
+    @method_decorator(login_required)  # ensure logged in
     def dispatch(self, *args, **kwargs):
         return super(LexiconEdit, self).dispatch(*args, **kwargs)
 
@@ -120,10 +124,12 @@ class LexiconEdit(UpdateView):
 def word_edit(request, slug):
     w = get_object_or_404(Word, slug=slug)
     GenericFormSet = modelformset_factory(Lexicon, form=WordForm, extra=0)
-    formset = GenericFormSet(request.POST or None, queryset=w.lexicon_set.all())
+    formset = GenericFormSet(
+        request.POST or None, queryset=w.lexicon_set.all()
+    )
     
     if request.POST and formset.is_valid():
-        import reversion
+        from reversion import revisions as reversion
         for form in formset:
             if form.is_valid() and len(form.changed_data):
                 # if form is valid and some fields have changed
@@ -135,7 +141,7 @@ def word_edit(request, slug):
                     obj.save()
         return redirect(w)
     else:
-        return render_to_response('lexicon/word_edit.html', 
+        return render_to_response('lexicon/word_edit.html',
                                   {'word': w, 'formset': formset},
                                   context_instance=RequestContext(request))
 
@@ -147,9 +153,10 @@ def word_alignment(request, slug):
     w = get_object_or_404(Word, slug=slug)
     entries = w.lexicon_set.select_related().all()
     
-    # as MSA is seriously computationally expensive, we check if we can re-use a cached MSA.
-    # first -- we set a cache value to be the raw string of all the entries. If one
-    # entry is changed, then this cache_value will be different.
+    # as MSA is seriously computationally expensive, we check if we can re-use
+    # a cached MSA.  first -- we set a cache value to be the raw string of all
+    # the entries. If one entry is changed, then this cache_value will be
+    # different.
     cache_value = "".join(sorted([e.entry for e in entries]))
     
     if cache.get("msa-check-%s" % slug) == cache_value:
@@ -168,11 +175,11 @@ def word_alignment(request, slug):
             records.append(e)
         
         # update cache...
-        cache.set('msa-check-%s' % slug, cache_value, None)  # None = never expire
-        cache.set('msa-%s' % slug, records, None)  # None = never expire
+        cache.set('msa-check-%s' % slug, cache_value, None)
+        cache.set('msa-%s' % slug, records, None)
     
     table = AlignmentTable(records)
     
-    return render_to_response('lexicon/word_alignment.html', 
+    return render_to_response('lexicon/word_alignment.html',
                               {'object': w, 'lexicon': table},
                               context_instance=RequestContext(request))

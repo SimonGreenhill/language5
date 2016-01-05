@@ -287,7 +287,7 @@ class Test_WordEdit(DataMixin, TestCase):
         assert now > added, "%r is not larger than %r" % (now, added)
 
     def test_create_revision(self):
-        import reversion
+        from reversion import revisions as reversion
         version_list = reversion.get_for_object(self.lex1)
         assert len(version_list) == 0
         self.client.login(username="admin", password="test")

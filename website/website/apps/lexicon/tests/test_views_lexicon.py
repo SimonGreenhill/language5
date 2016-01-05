@@ -1,16 +1,15 @@
 from django.test import TestCase
-from django.test.client import Client
 from django.core.urlresolvers import reverse
 
-from website.apps.lexicon.tests import DataMixin, DataMixinLexicon
-from website.apps.lexicon.models import Word, WordSubset, Lexicon
-from website.apps.lexicon.models import CognateSet, Cognate
+from website.apps.lexicon.tests import DataMixin
+from website.apps.lexicon.models import Lexicon
+
 
 class Test_LexiconDetail(DataMixin, TestCase):
     def setUp(self):
         super(Test_LexiconDetail, self).setUp()
         self.lex = Lexicon.objects.create(
-            language=self.lang1, 
+            language=self.lang1,
             word=self.word1,
             source=self.source1,
             editor=self.editor,
@@ -42,7 +41,7 @@ class Test_LexiconEdit(DataMixin, TestCase):
     def setUp(self):
         super(Test_LexiconEdit, self).setUp()
         self.lex = Lexicon.objects.create(
-            language=self.lang1, 
+            language=self.lang1,
             word=self.word1,
             source=self.source1,
             editor=self.editor,
@@ -52,17 +51,16 @@ class Test_LexiconEdit(DataMixin, TestCase):
         self.url = reverse('lexicon-edit', kwargs={'pk': self.lex.id})
     
     def get_post_data(self, obj):
-        return dict(
-            [(k.replace("_id", ""),v) for k,v in obj.__dict__.items() \
-                if not k.startswith("_") and k not in ('added', 'editor_id', 'loan_source_id', 'loan')
-            ]
-        )
-        
+        skip = ('added', 'editor_id', 'loan_source_id', 'loan')
+        return dict([
+            (k.replace("_id", ""), v) for k, v in obj.__dict__.items()
+            if not k.startswith("_") and k not in skip
+        ])
     
     def test_error_on_notlogged_in(self):
         response = self.client.get(self.url)
         self.assertEquals(response.status_code, 302)
-        self.assertRedirects(response, "/accounts/login/?next=%s" % self.url, 
+        self.assertRedirects(response, "/accounts/login/?next=%s" % self.url,
                                     status_code=302, target_status_code=200)
         
     def test_200ok_logged_in(self):
@@ -100,25 +98,28 @@ class Test_LexiconEdit(DataMixin, TestCase):
     def test_update_editor(self):
         from django.contrib.auth.models import User
         assert self.lex.editor == self.editor
-        newuser = User.objects.create_user('dave', 'dave@example.com', 'secret')
+        newuser = User.objects.create_user('dave', 'dave@dave.com', 'secret')
         self.client.login(username="dave", password="secret")
-        response = self.client.post(self.url, self.get_post_data(self.lex), follow=True)
+        response = self.client.post(
+            self.url, self.get_post_data(self.lex), follow=True
+        )
         self.assertEquals(response.status_code, 200)
-        assert Lexicon.objects.get(pk=self.lex.id).editor == newuser, "Have not updated editor!"
+        if Lexicon.objects.get(pk=self.lex.id).editor != newuser:
+            raise AssertionError("Have not updated editor!")
         
     def test_update_added(self):
         added = self.lex.added
         self.client.login(username="admin", password="test")
-        response = self.client.post(self.url, self.get_post_data(self.lex), follow=True)
+        self.client.post(self.url, self.get_post_data(self.lex), follow=True)
         now = Lexicon.objects.get(pk=self.lex.id).added
         assert now > added, "%r is not larger than %r" % (now, added)
         
     def test_create_revision(self):
-        import reversion
+        from reversion import revisions as reversion
         version_list = reversion.get_for_object(self.lex)
         assert len(version_list) == 0
         self.client.login(username="admin", password="test")
-        response = self.client.post(self.url, self.get_post_data(self.lex), follow=True)
+        self.client.post(self.url, self.get_post_data(self.lex), follow=True)
         version_list = reversion.get_for_object(self.lex)
         assert len(version_list) == 1
     
