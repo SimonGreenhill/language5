@@ -14,7 +14,6 @@ INTERNAL_IPS = ('127.0.0.1',)
 # Set in local.py
 # ALLOWED_HOSTS = ['.transnewguinea.org', 'www.transnewguinea.org']
 
-
 MANAGERS = ADMINS
 
 DATABASES = {
@@ -106,15 +105,6 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '=_1)@n652y5qic+)1sj)7!#p##kn0#!k2@yr&amp;e)!019$0tynt2'
 
-# List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (
-    ('django.template.loaders.cached.Loader', (
-        'django.template.loaders.filesystem.Loader',
-        'django.template.loaders.app_directories.Loader',
-        'django.template.loaders.eggs.Loader'
-    )),
-)
-
 MIDDLEWARE_CLASSES = [
     'djangosecure.middleware.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -132,20 +122,26 @@ ROOT_URLCONF = 'website.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'website.wsgi.application'
 
-TEMPLATE_DIRS = (
-    os.path.join(SITE_ROOT, 'templates'),
-)
-
-TEMPLATE_CONTEXT_PROCESSORS = [
-    "django.core.context_processors.request",
-    "django.core.context_processors.media",
-    "django.core.context_processors.static",
-    "django.contrib.auth.context_processors.auth",
-    "django.contrib.messages.context_processors.messages",
-    "website.apps.core.context_processors.InjectSettings",
-    "website.apps.olac.context_processors.InjectOLACSettings",
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+             os.path.join(SITE_ROOT, 'templates'),
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.contrib.messages.context_processors.messages',
+                'website.apps.core.context_processors.InjectSettings',
+                'website.apps.olac.context_processors.InjectOLACSettings',
+            ],
+        },
+    },
 ]
-
 
 INSTALLED_APPS = [
     'django.contrib.auth',
@@ -164,7 +160,7 @@ INSTALLED_APPS = [
 
     # website
     'website.apps.core',                 # core functionality
-    #'website.apps.statistics',           # statistics
+    'website.apps.statistics',           # statistics
     'website.apps.lexicon',              # lexicon
     'website.apps.cognacy',              # lexicon -- cognacy
     'website.apps.olac',                 # OLAC

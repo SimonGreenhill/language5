@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from website.apps.core.models import TrackedModel
 from website.apps.entry.dataentry import available_views
-from website.apps.statistics import statistic
+from website.apps.statistics.models import statistic
 
 class Task(TrackedModel):
     """Data Entry Tasks"""

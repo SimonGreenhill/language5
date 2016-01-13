@@ -2,8 +2,7 @@ from time import mktime
 from datetime import datetime
 from django.shortcuts import render
 from django.db.models import Count
-from website.apps.statistics.models import StatisticalValue
-from website.apps.statistics import statistic
+from website.apps.statistics.models import StatisticalValue, statistic
 
 from website.apps.core.models import Family
 

@@ -6,10 +6,10 @@ from django.test.client import Client
 from django.contrib.auth.models import User
 from website.apps.core.models import Language, Family, Source
 
-from website.apps.statistics import Statistic
-from website.apps.statistics import AlreadyRegistered
-from website.apps.statistics import InvalidMethod, InvalidField
-from website.apps.statistics.models import StatisticalValue
+from website.apps.statistics.models import Statistic, StatisticalValue
+from website.apps.statistics.models import AlreadyRegistered
+from website.apps.statistics.models import InvalidMethod, InvalidField
+
 
 class StatisticMixin(object):
     """Mixin for Statistic Tests"""

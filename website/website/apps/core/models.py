@@ -6,7 +6,7 @@ from website.signals import create_redirect
 from reversion import revisions as reversion
 from watson import search as watson
 
-from website.apps.statistics import statistic
+from website.apps.statistics.models import statistic
 
 # The AllMethodCachingQueryset and AllMethodCachingManager add cached querysets for 
 # use in formsets. This makes life much easier for the poor database. Have hooked

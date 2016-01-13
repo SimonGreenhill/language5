@@ -6,7 +6,7 @@ from watson import search as watson
 from reversion import revisions as reversion
 
 from website.apps.core.models import TrackedModel
-from website.apps.statistics import statistic
+from website.apps.statistics.models import statistic
 from website.signals import create_redirect
 
 
