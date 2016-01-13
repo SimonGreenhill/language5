@@ -2,7 +2,7 @@ from django.conf.urls import *
 
 from website.apps.cognacy import views as v
 
-urlpatterns = patterns('',
+urlpatterns = [
     # PUBLIC
     
     # index page -- two names, index/source_index to allow later respecification
@@ -21,4 +21,4 @@ urlpatterns = patterns('',
     url(r'^do/(?P<word>[\w\d\-\.]+)/(?P<clade>.*)$', v.do, name="do"),
     url(r'^save/(?P<word>[\w\d\-\.]+)/(?P<clade>.*)$', v.save, name="save"),
     url(r'^merge/(?P<word>[\w\d\-\.]+)/(?P<clade>.*)$', v.merge, name="merge"),
-)
+]

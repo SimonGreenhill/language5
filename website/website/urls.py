@@ -31,7 +31,7 @@ from website.apps.lexicon.views import word_edit, word_alignment
 
 from sitemap import sitemaps
 
-urlpatterns = patterns('',
+urlpatterns = [
     # Main Page / Home
     url(r'^$', TemplateView.as_view(template_name="index.html"), name="index"),
     
@@ -89,8 +89,8 @@ urlpatterns = patterns('',
     
     url(r'^favicon\.ico$', RedirectView.as_view(url='%s/favicon.ico' % settings.STATIC_URL, permanent=True)),
     
-    (r'^api/', include(v1_api.urls)),
-)
+    url(r'^api/', include(v1_api.urls)),
+]
 
 
 
@@ -98,7 +98,7 @@ urlpatterns = patterns('',
 # Lexicon
 # ------------------------------------------------------------------------ #
 if 'website.apps.lexicon' in settings.INSTALLED_APPS:
-    urlpatterns += patterns("",
+    urlpatterns.extend([
         # Word-Index: Show all words
         url(r'^word/$', WordIndex.as_view(), name="word-index"),
         
@@ -116,33 +116,33 @@ if 'website.apps.lexicon' in settings.INSTALLED_APPS:
         url(r'^lexicon/(?P<pk>\d+)/edit$', LexiconEdit.as_view(), name="lexicon-edit"),
         url(r'^word/(?P<slug>[\w\d\-\.]+)/edit$', word_edit, name="word-edit"),
         url(r'^word/(?P<slug>[\w\d\-\.]+)/alignment$', word_alignment, name="word-alignment"),
-    )
-    urlpatterns += patterns("",
+    ])
+    urlpatterns.extend([
         url(r"^cognacy/", include('website.apps.cognacy.urls', namespace='cognacy')),
-    )
+    ])
 
 # ------------------------------------------------------------------------ #
 # Pronouns
 # ------------------------------------------------------------------------ #
 if 'website.apps.pronouns' in settings.INSTALLED_APPS:
-    urlpatterns += patterns("",
-        url(r"^pronouns/", include('website.apps.pronouns.urls', namespace='pronouns')),
+    urlpatterns.append(
+        url(r"^pronouns/", include('website.apps.pronouns.urls', namespace='pronouns'))
     )
 
 # ------------------------------------------------------------------------ #
 # Data Entry
 # ------------------------------------------------------------------------ #
 if 'website.apps.entry' in settings.INSTALLED_APPS:
-    urlpatterns += patterns("",
-        url(r"^entry/", include('website.apps.entry.urls', namespace='entry')),
+    urlpatterns.append(
+        url(r"^entry/", include('website.apps.entry.urls', namespace='entry'))
     )
 
 # ------------------------------------------------------------------------ #
 # Statistics                                                               #
 # ------------------------------------------------------------------------ #
 if 'website.apps.statistics' in settings.INSTALLED_APPS:
-    urlpatterns += patterns("",
-        url(r"^statistics/", include('website.apps.statistics.urls', namespace='statistics')),
+    urlpatterns.append(
+        url(r"^statistics/", include('website.apps.statistics.urls', namespace='statistics'))
     )
 
 
@@ -150,8 +150,8 @@ if 'website.apps.statistics' in settings.INSTALLED_APPS:
 # Maps                                                                     #
 # ------------------------------------------------------------------------ #
 if 'website.apps.maps' in settings.INSTALLED_APPS:
-    urlpatterns += patterns("",
-        url(r"^maps/", include('website.apps.maps.urls', namespace='maps')),
+    urlpatterns.append(
+        url(r"^maps/", include('website.apps.maps.urls', namespace='maps'))
     )
 
 
@@ -161,7 +161,7 @@ if 'website.apps.maps' in settings.INSTALLED_APPS:
 # ------------------------------------------------------------------------ #
 if settings.DEBUG:
     from django.views.static import serve
-    urlpatterns += patterns('',
-        (r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+    urlpatterns.append(
+        url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT})
     )
     
