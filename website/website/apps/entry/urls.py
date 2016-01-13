@@ -1,12 +1,10 @@
 from django.conf.urls import *
 
-from website.apps.entry.views import TaskIndex, TaskComplete
+from website.apps.entry.views import views as v
 
 urlpatterns = patterns('',
-    url(r'^$', TaskIndex.as_view(), name="index"),
-    url(r'^task/quick$', 
-        'website.apps.entry.views.quick_entry', name="quick"),
-    url(r'^task/(?P<task_id>\d+)$', 
-        'website.apps.entry.views.task_detail', name="detail"),
-    url(r'^task/(?P<pk>\d+)/done$', TaskComplete.as_view(), name="complete"),
+    url(r'^$', v.TaskIndex.as_view(), name="index"),
+    url(r'^task/quick$', v.quick_entry, name="quick"),
+    url(r'^task/(?P<task_id>\d+)$', v.task_detail, name="detail"),
+    url(r'^task/(?P<pk>\d+)/done$', v.TaskComplete.as_view(), name="complete"),
 )

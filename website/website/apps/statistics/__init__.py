@@ -1,3 +1,6 @@
+# import django
+# django.setup()
+
 from .models import StatisticalValue
 
 class AlreadyRegistered(Exception):

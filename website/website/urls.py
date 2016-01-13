@@ -5,10 +5,11 @@ from django.views.generic import TemplateView, RedirectView
 from django.contrib import admin
 admin.autodiscover()
 
+from django.contrib.auth.views import login, logout
+
 from tastypie.api import Api
 from website.apps.core.resources import LanguageResource, SourceResource
 from website.apps.lexicon.resources import WordResource, LexiconResource
-
 
 v1_api = Api(api_name='v1')
 v1_api.register(LanguageResource())
@@ -22,9 +23,11 @@ v1_api.register(LanguageMapResource())
 from website.apps.core.views import LanguageIndex, RobotsTxt
 from website.apps.core.views import SourceIndex, SourceDetail
 from website.apps.core.views import FamilyIndex, FamilyDetail
+from website.apps.core.views import language_detail, iso_lookup
 
 from website.apps.lexicon.views import WordIndex, WordDetail
 from website.apps.lexicon.views import LexiconDetail, LexiconEdit
+from website.apps.lexicon.views import word_edit, word_alignment
 
 from sitemap import sitemaps
 
@@ -52,10 +55,7 @@ urlpatterns = patterns('',
     url(r'^family/\?subset=(?P<subset>[\w]+)$', FamilyIndex.as_view(), name="family-index-subset"),
     
     # Language-Detail: Show the given language
-    url(r'^language/(?P<language>[\w\d\-\.]+)$', 
-        'website.apps.core.views.language_detail', 
-        name="language-detail"
-    ),
+    url(r'^language/(?P<language>[\w\d\-\.]+)$', language_detail, name="language-detail"),
     
     # Source-Detail: Show the given source
     url(r'^source/(?P<slug>[\w\d\-\.]+)$', SourceDetail.as_view(), name="source-detail"),
@@ -64,10 +64,7 @@ urlpatterns = patterns('',
     url(r'^family/(?P<slug>[\w\d\-\.]+)$', FamilyDetail.as_view(), name="family-detail"),
 
     # ISO Lookup: redirects to the language page
-    url(r'^iso/(?P<iso>\w{3})$', 
-        'website.apps.core.views.iso_lookup', 
-        name="iso-lookup"
-    ),
+    url(r'^iso/(?P<iso>\w{3})$', iso_lookup, name="iso-lookup"),
 
     # search page
     url(r"^search/", include('watson.urls', namespace='watson'), {'paginate_by': 50, }),
@@ -85,10 +82,10 @@ urlpatterns = patterns('',
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
     
-    url(r'^accounts/login/$', 'django.contrib.auth.views.login', 
+    url(r'^accounts/login/$', login, 
         {'template_name': 'login.html'}, 
         name="login"),
-    url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', name="logout"),
+    url(r'^accounts/logout/$', logout, name="logout"),
     
     url(r'^favicon\.ico$', RedirectView.as_view(url='%s/favicon.ico' % settings.STATIC_URL, permanent=True)),
     
@@ -117,14 +114,8 @@ if 'website.apps.lexicon' in settings.INSTALLED_APPS:
         # Admin/Editor pages
         # lexicon-edit: edit lexical item.
         url(r'^lexicon/(?P<pk>\d+)/edit$', LexiconEdit.as_view(), name="lexicon-edit"),
-        url(r'^word/(?P<slug>[\w\d\-\.]+)/edit$',
-            'website.apps.lexicon.views.word_edit', 
-            name="word-edit"
-        ),
-        url(r'^word/(?P<slug>[\w\d\-\.]+)/alignment$',
-            'website.apps.lexicon.views.word_alignment',
-            name="word-alignment"
-        ),
+        url(r'^word/(?P<slug>[\w\d\-\.]+)/edit$', word_edit, name="word-edit"),
+        url(r'^word/(?P<slug>[\w\d\-\.]+)/alignment$', word_alignment, name="word-alignment"),
     )
     urlpatterns += patterns("",
         url(r"^cognacy/", include('website.apps.cognacy.urls', namespace='cognacy')),
@@ -169,7 +160,8 @@ if 'website.apps.maps' in settings.INSTALLED_APPS:
 # Debug Media...
 # ------------------------------------------------------------------------ #
 if settings.DEBUG:
+    from django.views.static import serve
     urlpatterns += patterns('',
-        (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+        (r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     )
     

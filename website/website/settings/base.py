@@ -164,7 +164,7 @@ INSTALLED_APPS = [
 
     # website
     'website.apps.core',                 # core functionality
-    'website.apps.statistics',           # statistics
+    #'website.apps.statistics',           # statistics
     'website.apps.lexicon',              # lexicon
     'website.apps.cognacy',              # lexicon -- cognacy
     'website.apps.olac',                 # OLAC

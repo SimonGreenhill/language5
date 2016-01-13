@@ -1,5 +1,7 @@
 from django.conf.urls import patterns, url
 
+from website.apps.statistics.views import statistics
+
 urlpatterns = patterns('',
-    url(r'^$', 'website.apps.statistics.views.statistics', name="statistics"),
+    url(r'^$', statistics, name="statistics"),
 )
