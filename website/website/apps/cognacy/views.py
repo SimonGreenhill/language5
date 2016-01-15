@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 from django.core.paginator import EmptyPage, PageNotAnInteger
 from django.db import transaction
 from django.db.models import Max, Q, Count
-from django.shortcuts import get_object_or_404, Http404, render_to_response, redirect
+from django.shortcuts import get_object_or_404, Http404, render, redirect
 from django.template import RequestContext
 from django.utils.decorators import method_decorator
 from django.views.generic import DetailView
@@ -101,9 +101,7 @@ def do_index(request):
             'clade': form.cleaned_data['clade']
         })
         return redirect(url)
-    return render_to_response('cognacy/do_index.html', {'form': form},
-        context_instance=RequestContext(request)
-    )
+    return render('cognacy/do_index.html', {'form': form})
 
 
 @login_required()
@@ -157,16 +155,14 @@ def do(request, word, clade=None):
     table = CognacyTable(entries_and_cogs)
     RequestConfig(request, paginate=False).configure(table)
     
-    return render_to_response('cognacy/do_detail.html',
-                              {
-                                  'word': w, 'clade': clade, 'lexicon': table,
-                                  'inplay': inplay, 'form': form,
-                                  'mergeform': mergeform,
-                                  'next_cognates': get_missing_cogids(limit=10),
-                                  'notes': notes,
-                                  'commentform': commentform,
-                              },
-                              context_instance=RequestContext(request))
+    return render('cognacy/do_detail.html', {
+        'word': w, 'clade': clade, 'lexicon': table,
+        'inplay': inplay, 'form': form,
+        'mergeform': mergeform,
+        'next_cognates': get_missing_cogids(limit=10),
+        'notes': notes,
+        'commentform': commentform,
+    })
 
 
 @login_required()

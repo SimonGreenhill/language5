@@ -1,7 +1,7 @@
 django==1.9.1                                                          # django framework
 fabric                                                                 # deployment etc
 pillow                                                                 # A better python imaging library
-psycopg2                                                               # database adaptor
+#psycopg2                                                               # database adaptor
 django-reversion==1.10.0                                               # versioning
 django-secure                                                          # security
 django-tables2==1.0.7                                                  # better table handling
@@ -10,7 +10,7 @@ django_compressor==2.0                                                 # for ass
 django-twitter-tag                                                     # twitter integration
 django-nvd3                                                            # for graphing statistics
 django-tastypie==0.13.0                                                # API
-django-watson==1.2.0                                                   # searching
+#django-watson==1.2.0                                                   # searching
 
 # backup
 django-dbbackup>=2.0.4
@@ -29,4 +29,4 @@ requests
 IPython
 
 numpy
-lingpy
+#lingpy

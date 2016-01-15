@@ -9,7 +9,7 @@ from website.apps.pronouns.forms import pronoun_formsets_are_valid
 from website.apps.pronouns.forms import sort_formset
 
 
-class FormsetMixin(object):
+class FormsetMixin(DefaultSettingsMixin):
     """
     Extra Settings Mixin for Formsets Test
     
@@ -73,7 +73,7 @@ class FormsetMixin(object):
         return pron_with_extra
     
 
-class TestFormsetValidity(DefaultSettingsMixin, FormsetMixin, TestCase):
+class TestFormsetValidity(FormsetMixin, TestCase):
     def test_valid(self):
         formsets = create_pronoun_formset(
             self.pdm, self._generate_post_data(self.pdm)
@@ -101,7 +101,7 @@ class TestFormsetValidity(DefaultSettingsMixin, FormsetMixin, TestCase):
         assert pronoun_formsets_are_valid(formsets)
 
 
-class TestFormsetCreator(DefaultSettingsMixin, FormsetMixin, TestCase):
+class TestFormsetCreator(FormsetMixin, TestCase):
     def test_all_forms_get_created(self):
         """Do we get the right number of forms?"""
         formsets = create_pronoun_formset(self.pdm)
@@ -280,7 +280,7 @@ class TestFormsetCreator(DefaultSettingsMixin, FormsetMixin, TestCase):
         
         for pronoun, formset in create_pronoun_formset(self.pdm, postdata):
             save_pronoun_formset(self.pdm, pronoun, formset, self.editor)
-            
+        
         # should now have 2 lexical items
         assert Lexicon.objects.count() == 2, "expecting 2"
         # should have an empty pronoun set for pronoun 1
@@ -290,7 +290,7 @@ class TestFormsetCreator(DefaultSettingsMixin, FormsetMixin, TestCase):
             assert Lexicon.objects.get(pk=1)
             
 
-class TestFormsetSorter(DefaultSettingsMixin, FormsetMixin, TestCase):
+class TestFormsetSorter(FormsetMixin, TestCase):
     def test_number_of_rows(self):
         formsets = create_pronoun_formset(
             self.pdm, self._generate_post_data(self.pdm)

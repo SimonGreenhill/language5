@@ -7,7 +7,7 @@ from django.db.models import Count
 from django.http import Http404
 from django.views.generic import DetailView
 from django.views.generic.edit import UpdateView
-from django.shortcuts import get_object_or_404, render_to_response, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.template import RequestContext
 from django.utils.decorators import method_decorator
 from django.utils import timezone
@@ -141,9 +141,9 @@ def word_edit(request, slug):
                     obj.save()
         return redirect(w)
     else:
-        return render_to_response('lexicon/word_edit.html',
-                                  {'word': w, 'formset': formset},
-                                  context_instance=RequestContext(request))
+        return render(request, 'lexicon/word_edit.html', {
+            'word': w, 'formset': formset
+        })
 
 
 @login_required()
@@ -180,6 +180,6 @@ def word_alignment(request, slug):
     
     table = AlignmentTable(records)
     
-    return render_to_response('lexicon/word_alignment.html',
-                              {'object': w, 'lexicon': table},
-                              context_instance=RequestContext(request))
+    return render(request, 'lexicon/word_alignment.html', {
+        'object': w, 'lexicon': table
+    })

@@ -7,11 +7,6 @@ from django.core.management.base import BaseCommand
 from website.apps.core.models import Language
 from website.apps.lexicon.models import Lexicon
 
-try:
-    from ftfy import fix_text
-except ImportError:
-    raise ImportError("Please install python-ftfy")
-
 class Command(BaseCommand):
     args = 'hygiene [empty, tidy, dedupe, star] --save [--quiet]'
     help = 'Cleans Data from Database'
@@ -54,6 +49,11 @@ class Command(BaseCommand):
         return unstarred
     
     def tidy(self):
+        try:
+            from ftfy import fix_text
+        except ImportError:
+            raise ImportError("Please install python-ftfy")
+        
         tidied = []
         for obj in Lexicon.objects.all():
             new = fix_text(obj.entry.strip(), fix_entities=True, normalization="NFKC", uncurl_quotes=True)

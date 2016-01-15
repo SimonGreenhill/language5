@@ -5,7 +5,7 @@ from datetime import datetime
 
 from django.conf import settings
 from django.template import RequestContext
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from django.utils.timezone import utc
 
 from reversion.models import Revision
@@ -93,8 +93,7 @@ def Error(request, error_list, extra_kwargs={}):
         'url': request.build_absolute_uri()
     }
     out.update(extra_kwargs)
-    return render_to_response('olac/Error.xml', out,
-        context_instance=RequestContext(request),
+    return render(request, 'olac/Error.xml', out,
         content_type="application/xhtml+xml")
 
 
@@ -149,9 +148,8 @@ def Identify(request):
     if len(request.GET.keys()) > 1:  # should take NO other arguments.
         return Error(request, ['badArgument'], out)
 
-    return render_to_response(
-        'olac/Identify.xml', out,
-        context_instance=RequestContext(request),
+    return render(
+        request, 'olac/Identify.xml', out,
         content_type="application/xhtml+xml"
     )
 
@@ -256,9 +254,9 @@ def ListIdentifiers(request):
         return Error(request, ['noRecordsMatch'], out)
 
     out['object_list'] = objects
-    return render_to_response('olac/ListIdentifiers.xml', out,
-        context_instance=RequestContext(request),
-                            content_type="application/xhtml+xml")
+    return render(request, 'olac/ListIdentifiers.xml', out,
+        content_type="application/xhtml+xml"
+    )
 
 
 def ListSets(request):
@@ -319,15 +317,13 @@ def ListMetadataFormats(request):
             Model.objects.get(pk=language_id)
         except Model.DoesNotExist:
             return Error(request, ['idDoesNotExist'], out)
-        return render_to_response(
-            'olac/ListMetadataFormats.xml', out,
-            context_instance=RequestContext(request),
+        return render(
+            request, 'olac/ListMetadataFormats.xml', out,
             content_type="application/xhtml+xml"
         )
 
-    return render_to_response(
-        'olac/ListMetadataFormats.xml', out,
-        context_instance=RequestContext(request),
+    return render(
+        request, 'olac/ListMetadataFormats.xml', out,
         content_type="application/xhtml+xml"
     )
 
@@ -425,9 +421,9 @@ def ListRecords(request):
         return Error(request, ['noRecordsMatch'], out)
 
     out['object_list'] = objects
-    return render_to_response('olac/ListRecords.xml', out,
-        context_instance=RequestContext(request),
-                            content_type="application/xhtml+xml")
+    return render(request, 'olac/ListRecords.xml', out,
+        content_type="application/xhtml+xml"
+    )
 
 
 def GetRecord(request):
@@ -498,6 +494,6 @@ def GetRecord(request):
         return Error(request, ['idDoesNotExist'], out)
 
     out['object'] = L
-    return render_to_response('olac/GetRecord.xml', out,
-        context_instance=RequestContext(request),
-                            content_type="application/xhtml+xml")
+    return render(request, 'olac/GetRecord.xml', out,
+        content_type="application/xhtml+xml"
+    )

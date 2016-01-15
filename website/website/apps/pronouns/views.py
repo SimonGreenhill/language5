@@ -1,5 +1,5 @@
 from django.http import Http404
-from django.shortcuts import render, redirect, render_to_response
+from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
@@ -84,9 +84,9 @@ def add(request):
         p.save()
         return redirect('pronouns:edit', p.id)
     
-    return render_to_response('pronouns/add.html', {
+    return render(request, 'pronouns/add.html', {
         'paradigm_form': paradigm_form,
-    }, context_instance=RequestContext(request))
+    })
 
 
 @login_required()
@@ -97,7 +97,6 @@ def edit(request, paradigm_id):
         request.POST or None, instance=pdm, prefix='pdm'
     )
     pronoun_form = create_pronoun_formset(pdm, request.POST or None)
-    
     # save if valid.
     if pronoun_formsets_are_valid(pronoun_form) and paradigm_form.is_valid():
         pdm = paradigm_form.save(commit=False)
@@ -108,11 +107,11 @@ def edit(request, paradigm_id):
         return redirect('pronouns:detail', paradigm_id=pdm.id)
         
     # the initial view and the error view
-    return render_to_response('pronouns/edit.html', {
+    return render(request, 'pronouns/edit.html', {
         'paradigm': pdm,
         'paradigm_form': paradigm_form,
         'pronouns': sort_formset(pronoun_form),
-    }, context_instance=RequestContext(request))
+    })
 
 
 
@@ -145,7 +144,7 @@ def edit_relationships(request, paradigm_id):
     
     ptable = p.pronoun_set.prefetch_related("entries", "pronountype").all()
     
-    return render_to_response('pronouns/edit_relationships.html', {
+    return render(request, 'pronouns/edit_relationships.html', {
         'paradigm': p,
         'language': p.language,
         'source': p.source,
@@ -153,7 +152,7 @@ def edit_relationships(request, paradigm_id):
         'relationships': relationship_form,
         'rule_form': RuleForm(),
         'applied_rules': p.rule_set.all(),
-    }, context_instance=RequestContext(request))
+    })
 
 
 @login_required()
@@ -233,9 +232,9 @@ def copy(request, paradigm_id):
         return redirect('pronouns:detail', new_p.id)
         
     # the initial view and the error view
-    return render_to_response('pronouns/copy.html', {
+    return render(request, 'pronouns/copy.html', {
         'paradigm': p,
         'paradigm_form': paradigm_form,
         'copy_form': copy_form,
-    }, context_instance=RequestContext(request))
+    })
 

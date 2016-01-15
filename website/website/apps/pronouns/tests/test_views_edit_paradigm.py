@@ -1,4 +1,4 @@
-from django.test import TransactionTestCase
+from django.test import TestCase
 from django.test.client import Client
 from django.core.urlresolvers import reverse
 
@@ -432,7 +432,7 @@ PronounCombinations = [
 ]
 
 
-class Test_EditParadigmView(TransactionTestCase):
+class Test_EditParadigmView(TestCase):
     
     def setUp(self):
         """Note, this requires the full pronoun complement."""
@@ -619,23 +619,33 @@ class Test_EditParadigmView(TransactionTestCase):
                     # in response.content?
                     assert "{}-entry".format(key) in self.response.content
                     assert "{}-annotation".format(key) in self.response.content
-
-    def test_form_removes_empties(self):
+    
+    def test_form_removes_empty_string(self):
         postdata = self._generate_post_data(self.fullpdm)
-        
-        empty_id = '1_1-0-entry'
-        null_id = '1_33-0-entry'
-        postdata[empty_id] = u''
-        del(postdata[null_id])
+        postdata['1_1-0-entry'] = u''
         
         response = self.client.post(self.url, postdata)
         self.assertRedirects(response, self.detail_url)
         
         updatedpdm = Paradigm.objects.get(pk=self.fullpdm.id)
         
-        # find the updated lexical entries..
         for pronoun in updatedpdm.pronoun_set.all():
-            if pronoun.id in (1, 33):
+            if pronoun.id == 1:  # the one we deleted
+                assert pronoun.entries.count() == 0
+            else:
+                assert pronoun.entries.count() == 1
+    
+    def test_form_removes_null_value(self):
+        postdata = self._generate_post_data(self.fullpdm)
+        del(postdata['1_1-0-entry'])   # entry not submitted
+        
+        response = self.client.post(self.url, postdata)
+        self.assertRedirects(response, self.detail_url)
+        
+        updatedpdm = Paradigm.objects.get(pk=self.fullpdm.id)
+        
+        for pronoun in updatedpdm.pronoun_set.all():
+            if pronoun.id == 1:  # the one we deleted
                 assert pronoun.entries.count() == 0
             else:
                 assert pronoun.entries.count() == 1

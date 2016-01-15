@@ -104,10 +104,14 @@ def save_pronoun_formset(paradigm, pronoun, formset, user):
     >>>     saved = save_pronoun_formset(paradigm, pronoun, formset, user)
     """
     pks = []
+    if not formset.has_changed():
+        # short circuit exit if no changes.
+        return pks
+    
     instances = formset.save(commit=False)
     for lex in instances:
         # keep things with entries
-        if len(lex.entry.strip()):
+        if len(lex.entry.strip()) > 0:
             lex.editor = user                        # inject editor
             lex.word = pronoun.pronountype.word      # inject word
             lex.source = paradigm.source             # inject source
