@@ -101,7 +101,7 @@ def do_index(request):
             'clade': form.cleaned_data['clade']
         })
         return redirect(url)
-    return render('cognacy/do_index.html', {'form': form})
+    return render(request, 'cognacy/do_index.html', {'form': form})
 
 
 @login_required()
@@ -155,7 +155,7 @@ def do(request, word, clade=None):
     table = CognacyTable(entries_and_cogs)
     RequestConfig(request, paginate=False).configure(table)
     
-    return render('cognacy/do_detail.html', {
+    return render(request, 'cognacy/do_detail.html', {
         'word': w, 'clade': clade, 'lexicon': table,
         'inplay': inplay, 'form': form,
         'mergeform': mergeform,
