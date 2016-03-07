@@ -203,7 +203,7 @@ class Attachment(TrackedModel):
     """Attachments Details"""
     language = models.ForeignKey('Language')
     source = models.ForeignKey('Source')
-    details = models.CharField(max_length="32", null=True, blank=True,
+    details = models.CharField(max_length=32, null=True, blank=True,
         help_text="Extra details e.g. page number")
     file = models.FileField(upload_to='data/%Y-%m/',
         help_text="The Resource File (PDF)", null=True, blank=True)

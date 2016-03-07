@@ -106,7 +106,6 @@ STATICFILES_FINDERS = (
 SECRET_KEY = '=_1)@n652y5qic+)1sj)7!#p##kn0#!k2@yr&amp;e)!019$0tynt2'
 
 MIDDLEWARE_CLASSES = [
-    'djangosecure.middleware.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.gzip.GZipMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -170,7 +169,6 @@ INSTALLED_APPS = [
 
     # third-party
     'reversion',                         # reversion: object version control.
-    'djangosecure',                      # django-secure: Security helper
     'django_tables2',                    # django-tables2: tables helper
     'watson',                            # search
     'dbbackup',                          # backup
@@ -245,13 +243,6 @@ LOGGING = {
 CONN_MAX_AGE = 64
 
 # THIRD-PARTY SETTINGS ==========================================
-
-# Django-Security settings
-SECURE_FRAME_DENY = True          # prevent framing of pages.
-SECURE_BROWSER_XSS_FILTER = True  # enable XSS protection
-SESSION_COOKIE_SECURE = False     # can't login with True?
-SESSION_COOKIE_HTTPONLY = False   # can't login with True?
-SECURE_CONTENT_TYPE_NOSNIFF = True
 
 # Static Sitemaps
 STATICSITEMAPS_ROOT_SITEMAP = 'website.sitemap.sitemaps'

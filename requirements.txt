@@ -1,19 +1,18 @@
-django==1.9.1                                                          # django framework
+django==1.9.4                                                          # django framework
 fabric                                                                 # deployment etc
-pillow                                                                 # A better python imaging library
+pillow==3.1.1                                                          # A better python imaging library
 #psycopg2                                                               # database adaptor
-django-reversion==1.10.0                                               # versioning
-django-secure                                                          # security
-django-tables2==1.0.7                                                  # better table handling
-django-static-sitemaps==2.1.7                                          # static sitemaps
+django-reversion==1.10.1                                               # versioning
+django-tables2==1.1.2                                                  # better table handling
+django-static-sitemaps==4.0.0                                          # static sitemaps
 django_compressor==2.0                                                 # for asset compression/cache busting
 django-twitter-tag                                                     # twitter integration
 django-nvd3                                                            # for graphing statistics
-django-tastypie==0.13.0                                                # API
+django-tastypie==0.13.3                                                # API
 #django-watson==1.2.0                                                   # searching
 
 # backup
-django-dbbackup>=2.0.4
+django-dbbackup>=2.4.1
 simples3
 
 # test coverage
