@@ -1,9 +1,12 @@
-from tastypie.resources import ModelResource
+from website.apps.api import UT8ModelResource
 from tastypie.cache import SimpleCache
 from website.apps.core.models import Language, Source
 
+class LanguageResource(UT8ModelResource):
 
-class LanguageResource(ModelResource):
+    def determine_format(self, request):
+        return 'application/json'
+
     class Meta:
         queryset = Language.objects.all()
         allowed_methods = ['get']
@@ -12,7 +15,11 @@ class LanguageResource(ModelResource):
         detail_uri_name = 'slug'
 
 
-class SourceResource(ModelResource):
+class SourceResource(UT8ModelResource):
+    
+    def determine_format(self, request):
+        return 'application/json'
+    
     class Meta:
         queryset = Source.objects.all()
         allowed_methods = ['get']

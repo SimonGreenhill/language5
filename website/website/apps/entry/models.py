@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from website.apps.core.models import TrackedModel
 from website.apps.entry.dataentry import available_views
-from website.apps.statistics import statistic
+from website.apps.statistics.models import statistic
 
 class Task(TrackedModel):
     """Data Entry Tasks"""
@@ -27,7 +27,7 @@ class Task(TrackedModel):
     checkpoint = models.TextField(help_text="Saved Checkpoint Data", 
         blank=True, null=True)
     lexicon = models.ManyToManyField('lexicon.Lexicon',
-        help_text="Saved Lexical Items", blank=True, null=True)
+        help_text="Saved Lexical Items", blank=True)
     
     def __unicode__(self):
         return self.name

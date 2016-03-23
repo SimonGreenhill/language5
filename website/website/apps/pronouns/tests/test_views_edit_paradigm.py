@@ -6,8 +6,7 @@ from django.contrib.auth.models import User
 from website.apps.core.models import Language, Source
 from website.apps.lexicon.models import Lexicon, Word
 from website.apps.pronouns.tools import full_repr_row, short_repr_row
-from website.apps.pronouns.models import Paradigm, PronounType, Pronoun
-from website.apps.pronouns.tests import DefaultSettingsMixin
+from website.apps.pronouns.models import Paradigm, PronounType
 
 
 PronounCombinations = [
@@ -165,7 +164,7 @@ PronounCombinations = [
         'number': ('sg', 'Singular'),
         'person': ('2', '2nd Person')
     },
-    # 2nd Person Dual. 
+    # 2nd Person Dual.
     {
         'alignment': ('A', 'A'),
         'gender': None,
@@ -264,7 +263,7 @@ PronounCombinations = [
         'number': ('sg', 'Singular'),
         'person': ('3', '3rd Person')
     },
-    {   
+    {
         'alignment': ('A', 'A'),
         'gender': ('N', 'Neuter'),
         'number': ('sg', 'Singular'),
@@ -437,53 +436,61 @@ class Test_EditParadigmView(TestCase):
     
     def setUp(self):
         """Note, this requires the full pronoun complement."""
-        self.editor = User.objects.create_user('admin', 'admin@admin.com', "test")
-        self.lang = Language.objects.create(language='A', slug='langa', 
-                                             information='i.1', 
-                                             classification='a, b',
-                                             isocode='aaa', editor=self.editor)
-        self.source = Source.objects.create(year="1991", author='Smith', 
-                                 slug='Smith1991', reference='S2',
-                                 comment='c1', editor=self.editor)
+        self.editor = User.objects.create_user(
+            'admin', 'admin@admin.com', "test"
+        )
+        self.lang = Language.objects.create(
+            language='A',
+            slug='langa',
+            information='i.1',
+            classification='a, b',
+            isocode='aaa',
+            editor=self.editor
+        )
+        self.source = Source.objects.create(
+            year="1991",
+            author='Smith',
+            slug='Smith1991',
+            reference='S2',
+            comment='c1',
+            editor=self.editor
+        )
         
         # Load all pronoun combinations
         for i, p in enumerate(PronounCombinations, 1):
             # create word
             w = short_repr_row(p)
             this_word = Word.objects.create(
-                word = w,
-                slug = w.lower().replace(" ", "_"),
-                full = full_repr_row(p),
+                word=w,
+                slug=w.lower().replace(" ", "_"),
+                full=full_repr_row(p),
                 editor=self.editor
             )
             this_word.save()
             
-            if p['gender'] is None:
-                gender = None
-            else:
-                gender = p['gender'][0]
+            gender = p['gender'] if p['gender'] is None else p['gender'][0]
             
             ptype = PronounType.objects.create(
-                alignment = p['alignment'][0],
-                person = p['person'][0],
-                number = p['number'][0],
-                gender = gender,
-                sequence = i, 
+                alignment=p['alignment'][0],
+                person=p['person'][0],
+                number=p['number'][0],
+                gender=gender,
+                sequence=i,
                 word=this_word,
                 editor=self.editor
             )
             ptype.save()
             
         # change the paradigm, man
-        self.fullpdm = Paradigm.objects.create(language=self.lang, 
-                                 source=self.source, 
-                                 editor=self.editor,
-                                 comment="full paradigm")
+        self.fullpdm = Paradigm.objects.create(
+            language=self.lang,
+            source=self.source,
+            editor=self.editor,
+            comment="full paradigm"
+        )
         self.fullpdm.save()
-        assert self.fullpdm.pronoun_set.count() == len(PronounCombinations), \
-            "Expected %d pronouns not %d" % (len(PronounCombinations), self.fullpdm.pronoun_set.count())
         
-        # add some lexicon... 
+        # add some lexicon...
         for p in self.fullpdm.pronoun_set.all():
             lex = Lexicon.objects.create(
                 editor=self.editor,
@@ -495,11 +502,16 @@ class Test_EditParadigmView(TestCase):
             lex.save()
             p.entries.add(lex)
         
-        self.url = reverse('pronouns:edit', kwargs={'paradigm_id': self.fullpdm.id})
+        self.url = reverse(
+            'pronouns:edit', kwargs={'paradigm_id': self.fullpdm.id}
+        )
+        self.detail_url = reverse(
+            'pronouns:detail', kwargs={'paradigm_id': self.fullpdm.id}
+        )
+        
         self.client = Client()
         self.client.login(username='admin', password='test')
         self.response = self.client.get(self.url)
-    
     
     def _generate_post_data(self, paradigm):
         """Helper function to generate some post data"""
@@ -518,7 +530,6 @@ class Test_EditParadigmView(TestCase):
                 postdata['%s-%d-id' % (key, idx)] = u'%d' % entry.id
                 postdata['%s-%d-entry' % (key, idx)] = entry.entry
                 postdata['%s-%d-annotation' % (key, idx)] = entry.annotation
-        
         return postdata
     
     def test_template_used(self):
@@ -532,8 +543,9 @@ class Test_EditParadigmView(TestCase):
         self.client.logout()
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, "%s?next=%s" % (reverse('login'), 
-            reverse("pronouns:edit", kwargs={'paradigm_id': self.fullpdm.id})))
+        self.assertRedirects(
+            response, "%s?next=%s" % (reverse('login'), self.url)
+        )
         
     def test_plumbing(self):
         """tests the internal plumbing of this test case."""
@@ -555,8 +567,7 @@ class Test_EditParadigmView(TestCase):
     def test_form_save(self):
         postdata = self._generate_post_data(self.fullpdm)
         response = self.client.post(self.url, postdata)
-        self.assertRedirects(response, 
-            reverse('pronouns:detail', kwargs={'paradigm_id': self.fullpdm.id}))
+        self.assertRedirects(response, self.detail_url)
     
     def test_form_save_with_change(self):
         postdata = self._generate_post_data(self.fullpdm)
@@ -566,8 +577,7 @@ class Test_EditParadigmView(TestCase):
                 postdata[p] = int(postdata[p]) + 10000
         
         response = self.client.post(self.url, postdata)
-        self.assertRedirects(response, 
-            reverse('pronouns:detail', kwargs={'paradigm_id': self.fullpdm.id}))
+        self.assertRedirects(response, self.detail_url)
         
         updatedpdm = Paradigm.objects.get(pk=self.fullpdm.id)
         # find the updated lexical entries..
@@ -583,7 +593,11 @@ class Test_EditParadigmView(TestCase):
         
         for label, formsets in self.response.context['pronouns']:
             for expected in ['A', 'S', 'O', 'P']:
-                assert expected in formsets, "Expected a formset for {}-{}".format(label, expected)
+                
+                if expected not in formsets:
+                    raise AssertionError(
+                        "Expected a formset for {}-{}".format(label, expected)
+                    )
                 assert isinstance(formsets[expected], BaseFormSet)
                 # go through each form
                 for form in formsets[expected]:
@@ -593,8 +607,10 @@ class Test_EditParadigmView(TestCase):
                     assert 'entry' in form.fields
                     assert 'annotation' in form.fields
                     
-                    # expected key 
-                    key = 'id_{}_{}-0'.format(self.fullpdm.id, form.initial['entry'])
+                    # expected key
+                    key = 'id_{}_{}-0'.format(
+                        self.fullpdm.id, form.initial['entry']
+                    )
                     
                     # in form?
                     assert "{}-entry".format(key) in form.as_p()
@@ -603,24 +619,33 @@ class Test_EditParadigmView(TestCase):
                     # in response.content?
                     assert "{}-entry".format(key) in self.response.content
                     assert "{}-annotation".format(key) in self.response.content
-
-
-    def test_form_removes_empties(self):
+    
+    def test_form_removes_empty_string(self):
         postdata = self._generate_post_data(self.fullpdm)
-        
-        empty_id = '1_1-0-entry'
-        null_id = '1_33-0-entry'
-        postdata[empty_id] = u''
-        del(postdata[null_id])
+        postdata['1_1-0-entry'] = u''
         
         response = self.client.post(self.url, postdata)
-        self.assertRedirects(response, 
-            reverse('pronouns:detail', kwargs={'paradigm_id': self.fullpdm.id}))
+        self.assertRedirects(response, self.detail_url)
         
         updatedpdm = Paradigm.objects.get(pk=self.fullpdm.id)
-        # find the updated lexical entries..
+        
         for pronoun in updatedpdm.pronoun_set.all():
-            if pronoun.id in (1, 33):
+            if pronoun.id == 1:  # the one we deleted
+                assert pronoun.entries.count() == 0
+            else:
+                assert pronoun.entries.count() == 1
+    
+    def test_form_removes_null_value(self):
+        postdata = self._generate_post_data(self.fullpdm)
+        del(postdata['1_1-0-entry'])   # entry not submitted
+        
+        response = self.client.post(self.url, postdata)
+        self.assertRedirects(response, self.detail_url)
+        
+        updatedpdm = Paradigm.objects.get(pk=self.fullpdm.id)
+        
+        for pronoun in updatedpdm.pronoun_set.all():
+            if pronoun.id == 1:  # the one we deleted
                 assert pronoun.entries.count() == 0
             else:
                 assert pronoun.entries.count() == 1

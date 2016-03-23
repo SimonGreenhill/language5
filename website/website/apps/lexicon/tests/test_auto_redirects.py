@@ -21,7 +21,3 @@ class RedirectionTestMixin2(RedirectionTestMixin):
 class TestRedirectionWord(RedirectionTestMixin2, TestCase):
     model = Word
 
-
-class TestRedirectionWordSubset(RedirectionTestMixin2, TestCase):
-    model = WordSubset
-

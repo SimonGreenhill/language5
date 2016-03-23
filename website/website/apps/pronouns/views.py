@@ -1,16 +1,19 @@
 from django.http import Http404
-from django.shortcuts import render, redirect, render_to_response, get_object_or_404
+from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
-from django.db.models import Q, Count
+from django.db.models import Count
+from django.core.paginator import EmptyPage, PageNotAnInteger
 
-from website.apps.core.models import Family, Language, Source
 from website.apps.pronouns.models import Paradigm, Pronoun, Relationship, Rule
 from website.apps.pronouns.tables import ParadigmIndexTable
-from website.apps.pronouns.tables import PronounTable
 from website.apps.pronouns.tables import PronounRelationshipTable
 
-from website.apps.pronouns.forms import CopyForm, ParadigmForm, RelationshipFormSet, RuleForm
+from website.apps.pronouns.forms import CopyForm
+from website.apps.pronouns.forms import ParadigmForm
+from website.apps.pronouns.forms import RelationshipFormSet
+from website.apps.pronouns.forms import RuleForm
 from website.apps.pronouns.forms import pronoun_formsets_are_valid
 from website.apps.pronouns.forms import create_pronoun_formset
 from website.apps.pronouns.forms import save_pronoun_formset
@@ -19,11 +22,9 @@ from website.apps.pronouns.forms import sort_formset
 from website.apps.pronouns.tools import add_pronoun_table, copy_paradigm
 from website.apps.pronouns.tools import find_identicals, extract_rule
 
-from website.utilities import expire_view_cache
+from django_tables2 import SingleTableView, RequestConfig
 
-from django_tables2 import SingleTableView
-
-import reversion
+from reversion import revisions as reversion
 
 
 class Index(SingleTableView):
@@ -36,7 +37,21 @@ class Index(SingleTableView):
     
     def get_queryset(self):
         return Paradigm.objects.select_related().all()
-
+    
+    def get_context_data(self, **kwargs):
+        context = super(Index, self).get_context_data(**kwargs)
+        RequestConfig(self.request).configure(context['table'])
+        
+        try:
+            context['table'].paginate(
+                page=self.request.GET.get('page', 1), per_page=50
+            )
+        except EmptyPage:  # 404 on a empty page
+            raise Http404
+        except PageNotAnInteger:  # 404 on invalid page number
+            raise Http404
+        
+        return context
 
 
 def detail(request, paradigm_id):
@@ -56,7 +71,7 @@ def detail(request, paradigm_id):
         
         return render(request, 'pronouns/detail.html', out)
     except Paradigm.DoesNotExist:
-        raise Http404 # fail. Doesn't exist so pop out a 404
+        raise Http404  # fail. Doesn't exist so pop out a 404
         
 
 @login_required()
@@ -69,18 +84,19 @@ def add(request):
         p.save()
         return redirect('pronouns:edit', p.id)
     
-    return render_to_response('pronouns/add.html', {
+    return render(request, 'pronouns/add.html', {
         'paradigm_form': paradigm_form,
-    }, context_instance=RequestContext(request))
+    })
 
 
 @login_required()
 @reversion.create_revision()
 def edit(request, paradigm_id):
     pdm = get_object_or_404(Paradigm, pk=paradigm_id)
-    paradigm_form = ParadigmForm(request.POST or None, instance=pdm, prefix='pdm')
+    paradigm_form = ParadigmForm(
+        request.POST or None, instance=pdm, prefix='pdm'
+    )
     pronoun_form = create_pronoun_formset(pdm, request.POST or None)
-    
     # save if valid.
     if pronoun_formsets_are_valid(pronoun_form) and paradigm_form.is_valid():
         pdm = paradigm_form.save(commit=False)
@@ -88,15 +104,14 @@ def edit(request, paradigm_id):
         pdm.save()
         for pronoun, formset in pronoun_form:
             save_pronoun_formset(pdm, pronoun, formset, request.user)
-        expire_view_cache('pronouns:detail', args=[pdm.id])  # kill cache
         return redirect('pronouns:detail', paradigm_id=pdm.id)
         
     # the initial view and the error view
-    return render_to_response('pronouns/edit.html', {
+    return render(request, 'pronouns/edit.html', {
         'paradigm': pdm,
         'paradigm_form': paradigm_form,
         'pronouns': sort_formset(pronoun_form),
-    }, context_instance=RequestContext(request))
+    })
 
 
 
@@ -129,7 +144,7 @@ def edit_relationships(request, paradigm_id):
     
     ptable = p.pronoun_set.prefetch_related("entries", "pronountype").all()
     
-    return render_to_response('pronouns/edit_relationships.html', {
+    return render(request, 'pronouns/edit_relationships.html', {
         'paradigm': p,
         'language': p.language,
         'source': p.source,
@@ -137,14 +152,14 @@ def edit_relationships(request, paradigm_id):
         'relationships': relationship_form,
         'rule_form': RuleForm(),
         'applied_rules': p.rule_set.all(),
-    }, context_instance=RequestContext(request))
+    })
 
 
 @login_required()
 @reversion.create_revision()
 def process_rule(request, paradigm_id):
     p = get_object_or_404(Paradigm, pk=paradigm_id)
-    # do we have do_identicals? 
+    # do we have do_identicals?
     if 'process_identicals' in request.POST:
         # 1. process form
         members = find_identicals(p)
@@ -153,21 +168,22 @@ def process_rule(request, paradigm_id):
         if len(members) > 0:
             # 3. save rule to rule table.
             rule = Rule.objects.create(
-                paradigm = p,
+                paradigm=p,
                 rule="Identical Entries set to Total Syncretism",
                 editor=request.user
             )
             for m1, m2 in members:
                 # Ignore anything we've already set
-                if not Relationship.objects.has_relationship_between(m1[0], m2[0]):
+                args = (m1[0], m2[0])
+                if not Relationship.objects.has_relationship_between(*args):
                     rel = Relationship.objects.create(
-                        paradigm = p, 
-                        pronoun1_id=m1[0], pronoun2_id=m2[0], 
+                        paradigm=p,
+                        pronoun1_id=m1[0],
+                        pronoun2_id=m2[0],
                         relationship='TS',
                         editor=request.user
                     )
                     rule.relationships.add(rel)
-        
         return redirect('pronouns:edit_relationships', p.id)
         
     elif 'process_rule' in request.POST:
@@ -176,28 +192,11 @@ def process_rule(request, paradigm_id):
         if rule_form.is_valid():
             # 2. implement rule
             try:
-                rule = extract_rule(ruleform.clean())
+                rule = extract_rule(rule_form.clean())
             except ValueError:
                 # form is broken - go away.
                 return redirect('pronouns:edit_relationships', p.id)
                 
-            # members = process_rule(rule, p.pronoun_set.all())
-            
-            # 3. save rule to rule table.
-            # rule = Rule.objects.create(
-            #     paradigm = p,
-            #     rule="Identical Entries set to Total Syncretism",
-            #     editor=request.user
-            # )
-            # for p1, p2 in members:
-            #     # Ignore anything we've already set
-            #     if Relationship.objects.has_relationship_between(p1, p2) == False:
-            #         rel = Relationship.objects.create(
-            #             paradigm = p, pronoun1=p1, pronoun2=p2, relationship='TS',
-            #             editor=request.user
-            #         )
-            #         rule.relationships.add(rel)
-        
         # Note: Invalid forms are IGNORED
         return redirect('pronouns:edit_relationships', p.id)
     else:
@@ -210,13 +209,15 @@ def process_rule(request, paradigm_id):
 def copy(request, paradigm_id):
     """Copies a Paradigm"""
     p = get_object_or_404(Paradigm, pk=paradigm_id)
-    paradigm_form = ParadigmForm(request.POST or None, instance=p, prefix='pdm')
+    paradigm_form = ParadigmForm(
+        request.POST or None, instance=p, prefix='pdm'
+    )
     copy_form = CopyForm(request.POST or None, prefix='copy')
     
     # save if valid.
     if copy_form.is_valid() and paradigm_form.is_valid():
         # construct a temporary paradigm to validate, we do NOT
-        # want to update the original paradigm `p` with the 
+        # want to update the original paradigm `p` with the
         # changed form data, so this is just for holding and
         # validating the incoming form values.
         temp_p = paradigm_form.save(commit=False)
@@ -231,9 +232,9 @@ def copy(request, paradigm_id):
         return redirect('pronouns:detail', new_p.id)
         
     # the initial view and the error view
-    return render_to_response('pronouns/copy.html', {
+    return render(request, 'pronouns/copy.html', {
         'paradigm': p,
         'paradigm_form': paradigm_form,
         'copy_form': copy_form,
-    }, context_instance=RequestContext(request))
+    })
 

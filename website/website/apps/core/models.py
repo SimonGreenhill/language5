@@ -3,10 +3,10 @@ from django.db.models.signals import pre_save
 from django.contrib.auth.models import User
 from website.signals import create_redirect
 
-import reversion
-import watson
+from reversion import revisions as reversion
+from watson import search as watson
 
-from website.apps.statistics import statistic
+from website.apps.statistics.models import statistic
 
 # The AllMethodCachingQueryset and AllMethodCachingManager add cached querysets for 
 # use in formsets. This makes life much easier for the poor database. Have hooked
@@ -122,6 +122,8 @@ class Language(TrackedModel):
         help_text="`Slug` for language (for use in URLS)")
     isocode = models.CharField(max_length=3, blank=True, null=True, db_index=True,
         help_text="3 character ISO-639-3 Code.")
+    glottocode = models.CharField(max_length=8, blank=True, null=True, db_index=True,
+        help_text="Glottolog Code.")
     classification = models.TextField(blank=True, null=True,
         help_text="Classification String")
     information = models.TextField(blank=True, null=True,
@@ -203,7 +205,7 @@ class Attachment(TrackedModel):
     """Attachments Details"""
     language = models.ForeignKey('Language')
     source = models.ForeignKey('Source')
-    details = models.CharField(max_length="32", null=True, blank=True,
+    details = models.CharField(max_length=32, null=True, blank=True,
         help_text="Extra details e.g. page number")
     file = models.FileField(upload_to='data/%Y-%m/',
         help_text="The Resource File (PDF)", null=True, blank=True)

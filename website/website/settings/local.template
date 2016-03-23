@@ -5,10 +5,8 @@ SITE_DOMAIN = ""
 
 ALLOWED_HOSTS = ['.<EDIT>.org', 'www.<EDIT>.org']
 
-DEBUG = TEMPLATE_DEBUG = True
+DEBUG = False
 
-INSTALLED_APPS.append('website.apps.lexicon')   # Lexicon
-INSTALLED_APPS.append('website.apps.olac')      # OLAC utils
 INSTALLED_APPS.append('website.apps.entry')     # Data Entry
 
 # MEDIA: 
