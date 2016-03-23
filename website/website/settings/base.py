@@ -3,7 +3,7 @@ import os
 
 SITE_ROOT = os.path.split(os.path.dirname(os.path.abspath(__file__)))[0]
 
-DEBUG = TEMPLATE_DEBUG = False
+DEBUG = False
 
 ADMINS = (
     ('Simon J. Greenhill', 'test@example.com'),
@@ -129,6 +129,7 @@ TEMPLATES = [
         ],
         'APP_DIRS': True,
         'OPTIONS': {
+            'debug': DEBUG,
             'context_processors': [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
