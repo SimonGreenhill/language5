@@ -15,6 +15,7 @@ class BaseMixin(object):
             information='',
             classification='Austronesian, Malayo-Polynesian, Bali-Sasak, Bali',
             isocode='aaa',
+            glottocode='aaaa1234',
             editor=self.editor
         )
         self.language2 = Language.objects.create(
@@ -23,6 +24,7 @@ class BaseMixin(object):
             information='',
             classification='Mayan, Huastecan',
             isocode='bbb',
+            glottocode='bbbb1234',
             editor=self.editor
         )
         self.language3 = Language.objects.create(
@@ -31,6 +33,7 @@ class BaseMixin(object):
             information='',
             classification='Mayan, Huastecan',
             isocode='bbb',
+            glottocode='bbbb1234',
             editor=self.editor
         )
         self.alt1 = AlternateName.objects.create(
@@ -202,7 +205,7 @@ class Test_ISOLookup(BaseMixin, TestCase):
     #    No matching entries - raise 404
     #    1 Matching entry - redirect to languages.details page
     #    >1 Matching entries - show a list of the languages
-    def test_multiple_iso_entries(self):
+    def test_multiple_entries(self):
         # check that /iso/bbb/ is sent to a list of pages.
         url = reverse('iso-lookup', kwargs={'iso': 'bbb'})
         response = self.client.get(url)
@@ -212,7 +215,7 @@ class Test_ISOLookup(BaseMixin, TestCase):
         self.assertContains(response, 'Language3')
         self.assertNotContains(response, 'Language1')
     
-    def test_redirect_on_unique_iso(self):
+    def test_redirect_on_unique(self):
         iso_url = reverse('iso-lookup', kwargs={'iso': 'aaa'})
         real_url = reverse(
             'language-detail', kwargs={'language': 'language1'}
@@ -229,8 +232,43 @@ class Test_ISOLookup(BaseMixin, TestCase):
         self.assertNotContains(response, 'Language2')
         self.assertNotContains(response, 'Language3')
     
-    def test_iso_notfound(self):
+    def test_notfound(self):
         url = reverse('iso-lookup', kwargs={'iso': 'zzz'})
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
+
+
+class Test_GlottoLookup(BaseMixin, TestCase):
+    #Logic:
+    #    No matching entries - raise 404
+    #    1 Matching entry - redirect to languages.details page
+    #    >1 Matching entries - show a list of the languages
+    def test_multiple_entries(self):
+        url = reverse('glotto-lookup', kwargs={'glotto': 'bbbb1234'})
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'core/language_index.html')
+        self.assertContains(response, 'Language2')
+        self.assertContains(response, 'Language3')
+        self.assertNotContains(response, 'Language1')
+    
+    def test_redirect_on_unique(self):
+        url = reverse('glotto-lookup', kwargs={'glotto': 'aaaa1234'})
+        real_url = reverse(
+            'language-detail', kwargs={'language': 'language1'}
+        )
+        response = self.client.get(url)
+        self.assertRedirects(
+            response, real_url, status_code=301, target_status_code=200
+        )
+        # ...and check the redirected-to page..
+        response = self.client.get(real_url)
+        self.assertContains(response, 'Language1')
+        self.assertNotContains(response, 'Language2')
+        self.assertNotContains(response, 'Language3')
+    
+    def test_notfound(self):
+        url = reverse('glotto-lookup', kwargs={'glotto': 'zzzz1234'})
         response = self.client.get(url)
         self.assertEqual(response.status_code, 404)
 

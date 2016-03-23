@@ -122,6 +122,8 @@ class Language(TrackedModel):
         help_text="`Slug` for language (for use in URLS)")
     isocode = models.CharField(max_length=3, blank=True, null=True, db_index=True,
         help_text="3 character ISO-639-3 Code.")
+    glottocode = models.CharField(max_length=8, blank=True, null=True, db_index=True,
+        help_text="Glottolog Code.")
     classification = models.TextField(blank=True, null=True,
         help_text="Classification String")
     information = models.TextField(blank=True, null=True,

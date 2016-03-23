@@ -23,7 +23,7 @@ v1_api.register(LanguageMapResource())
 from website.apps.core.views import LanguageIndex, RobotsTxt
 from website.apps.core.views import SourceIndex, SourceDetail
 from website.apps.core.views import FamilyIndex, FamilyDetail
-from website.apps.core.views import language_detail, iso_lookup
+from website.apps.core.views import language_detail, iso_lookup, glotto_lookup
 
 from website.apps.lexicon.views import WordIndex, WordDetail
 from website.apps.lexicon.views import LexiconDetail, LexiconEdit
@@ -63,8 +63,9 @@ urlpatterns = [
     # Family-Detail: Show the given family
     url(r'^family/(?P<slug>[\w\d\-\.]+)$', FamilyDetail.as_view(), name="family-detail"),
 
-    # ISO Lookup: redirects to the language page
+    # ISO/Glottocode Lookup: redirects to the language page
     url(r'^iso/(?P<iso>\w{3})$', iso_lookup, name="iso-lookup"),
+    url(r'^glotto/(?P<glotto>\w{8})$', glotto_lookup, name="glotto-lookup"),
 
     # search page
     url(r"^search/", include('watson.urls', namespace='watson'), {'paginate_by': 50, }),

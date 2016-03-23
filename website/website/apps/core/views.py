@@ -284,3 +284,23 @@ def iso_lookup(request, iso):
     else:
         raise Http404
         
+
+def glotto_lookup(request, glotto):
+    """
+    Glotto Code Lookup
+    
+    If there is ONE glotto code found, then the view will redirect to the correct
+        details page.
+        
+    If there are > 1 found, then the view will list them.
+    """
+    languages = Language.objects.all().filter(glottocode=glotto)
+    if len(languages) == 1:
+        return redirect(languages[0], permanent=True)
+    elif len(languages) > 1:
+        return render(request, 'core/language_index.html', {
+            'table': LanguageIndexTable(languages),
+            'message': "Multiple Languages found for Glotto code %s" % glotto,
+        })
+    else:
+        raise Http404
