@@ -4,19 +4,19 @@ from fabric.api import env, run, local, require, get
 STATICDIR = "website/static"
 
 env.hosts=['sjg@simon.net.nz',]
-env.remote_root_dir='/home/sjg/webapps/pdb'
+env.remote_root_dir='/home/sjg/webapps/transnewguinea'
     
 # where apache lives.
-env.remote_apache_dir='/home/sjg/webapps/pdb/apache2'
+env.remote_apache_dir='/home/sjg/webapps/transnewguinea/apache2'
     
 # top of the hg repository.
-env.remote_repository_dir='/home/sjg/webapps/pdb/language5'
+env.remote_repository_dir='/home/sjg/webapps/transnewguinea/transnewguinea'
 
 # the dir with manage.py.
-env.remote_app_dir='/home/sjg/webapps/pdb/language5/website'
+env.remote_app_dir='/home/sjg/webapps/transnewguinea/transnewguinea/website'
     
 # virtualenv
-env.venv = 'pdb'
+env.venv = 'transnewguinea'
 
 # things that dumpdata should ignore
 dump_ignores = [
@@ -118,7 +118,7 @@ def clone():
     local("gunzip dump.json.gz")
     print("moving database.db to database.db-old")
     local("mv website/website/database.db website/website/database.db-old")
-    local("cd website; python manage.py syncdb")
+    #local("cd website; python manage.py syncdb")
     local("cd website; python manage.py migrate --noinput")
     local("cd website; python manage.py loaddata ../dump.json")
     local("cd website; python manage.py createcachetable cache")
