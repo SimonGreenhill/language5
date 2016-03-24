@@ -84,5 +84,6 @@ class Command(BaseCommand):
                 lex.word.slug,
                 lex.source.slug,
                 lex.entry.replace('\t', ''),
+                lex.annotation.replace('\t', ''),
                 cogs
             ]))
