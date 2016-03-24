@@ -1,12 +1,12 @@
 from tastypie import fields
-from website.apps.api import UT8ModelResource
+from website.apps.api import UTF8ModelResource
 from tastypie.authorization import DjangoAuthorization
 from tastypie.cache import SimpleCache
 from website.apps.lexicon.models import Word, Lexicon
 from website.apps.core.resources import LanguageResource, SourceResource
 
 
-class WordResource(UT8ModelResource):
+class WordResource(UTF8ModelResource):
     
     def determine_format(self, request):
         return 'application/json'
@@ -19,7 +19,7 @@ class WordResource(UT8ModelResource):
         detail_uri_name = 'slug'
 
 
-class LexiconResource(UT8ModelResource):
+class LexiconResource(UTF8ModelResource):
     
     language = fields.ForeignKey(LanguageResource, 'language', full=False)
     source = fields.ForeignKey(SourceResource, 'source', full=False)

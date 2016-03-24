@@ -1,8 +1,8 @@
-from website.apps.api import UT8ModelResource
+from website.apps.api import UTF8ModelResource
 from tastypie.cache import SimpleCache
 from website.apps.core.models import Language, Source
 
-class LanguageResource(UT8ModelResource):
+class LanguageResource(UTF8ModelResource):
 
     def determine_format(self, request):
         return 'application/json'
@@ -15,7 +15,7 @@ class LanguageResource(UT8ModelResource):
         detail_uri_name = 'slug'
 
 
-class SourceResource(UT8ModelResource):
+class SourceResource(UTF8ModelResource):
     
     def determine_format(self, request):
         return 'application/json'
