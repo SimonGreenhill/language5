@@ -75,7 +75,7 @@ class Command(BaseCommand):
         
         for lex in lexica:
             cogs = ",".join([
-                repr_cog(_.id, _.source_id) for _ in lex.cognate_set.all()
+                repr_cog(_.cognateset.id, _.source_id) for _ in lex.cognate_set.all()
             ])
             
             print(u"\t".join([
