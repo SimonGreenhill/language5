@@ -12,7 +12,7 @@ def build_content_type(format, encoding='utf-8'):
         return format
     return "%s; charset=%s" % (format, encoding)
 
-class UT8ModelResource(ModelResource):
+class UTF8ModelResource(ModelResource):
     def create_response(self, request, data, response_class=HttpResponse, **response_kwargs):
         """
         Extracts the common "which-format/serialize/return-response" cycle.
