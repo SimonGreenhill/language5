@@ -3,13 +3,12 @@ from django.core.urlresolvers import reverse
 
 from website.apps.core.models import Location, Language
 from website.apps.lexicon.models import Word, CognateSet, Cognate, Lexicon
-from website.apps.lexicon.tests import DataMixinLexicon
+from website.apps.lexicon.tests import DataMixin
 from website.apps.maps.views import prepare_map_data
 
 
-class DataMixinLexiconLocations(DataMixinLexicon):
+class DataMixinLocations(DataMixin):
     def setUp(self):
-        super(DataMixinLexiconLocations, self).setUp()
         self.loc1 = Location.objects.create(
             isocode=self.lang1.isocode,
             latitude=1.0,
@@ -30,7 +29,7 @@ class DataMixinLexiconLocations(DataMixinLexicon):
             assert result[k] == v, "%s is not %r but %r" % (k, v, result[k])
     
 
-class TestPrepareMapDataUtility(DataMixinLexiconLocations, TestCase):
+class TestPrepareMapDataUtility(DataMixinLocations, TestCase):
     def test_one(self):
         result = prepare_map_data(
             Word.objects.get(slug=self.word1.slug).lexicon_set.select_related('language').all()
@@ -129,7 +128,7 @@ class TestPrepareMapDataUtility(DataMixinLexiconLocations, TestCase):
         assert result[0]['label'] == self.lexicon1.entry
 
 
-class TestViewWordMap(DataMixinLexiconLocations, TestCase):
+class TestViewWordMap(DataMixinLocations, TestCase):
     def test_404(self):
         response = self.client.get(
             reverse('maps:word-map', kwargs={'slug': 'elvis'})
@@ -163,7 +162,7 @@ class TestViewWordMap(DataMixinLexiconLocations, TestCase):
         )
     
     
-class TestViewCognateSetMap(DataMixinLexiconLocations, TestCase):
+class TestViewCognateSetMap(DataMixinLocations, TestCase):
     def test_404(self):
         response = self.client.get(
             reverse('maps:cognate-map', kwargs={'pk': '404'})
