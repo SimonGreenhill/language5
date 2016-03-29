@@ -7,71 +7,72 @@ from website.apps.core.models import Source, Language, Family, AlternateName
 from website.apps.core.tests.utils import PaginatorTestMixin
 
 class BaseMixin(object):
-    def setUp(self):
-        self.editor = User.objects.create(username='admin')
-        self.language1 = Language.objects.create(
+    @classmethod
+    def setUpTestData(cls):
+        cls.editor = User.objects.create_user('admin', 'admin@website.com', 'test')
+        cls.language1 = Language.objects.create(
             language='Language1',
             slug='language1',
             information='',
             classification='Austronesian, Malayo-Polynesian, Bali-Sasak, Bali',
             isocode='aaa',
             glottocode='aaaa1234',
-            editor=self.editor
+            editor=cls.editor
         )
-        self.language2 = Language.objects.create(
+        cls.language2 = Language.objects.create(
             language='Language2',
             slug='language2',
             information='',
             classification='Mayan, Huastecan',
             isocode='bbb',
             glottocode='bbbb1234',
-            editor=self.editor
+            editor=cls.editor
         )
-        self.language3 = Language.objects.create(
+        cls.language3 = Language.objects.create(
             language='Language3',
             slug='language3',
             information='',
             classification='Mayan, Huastecan',
             isocode='bbb',
             glottocode='bbbb1234',
-            editor=self.editor
+            editor=cls.editor
         )
-        self.alt1 = AlternateName.objects.create(
-            language=self.language1,
+        cls.alt1 = AlternateName.objects.create(
+            language=cls.language1,
             name='Fudge',
             slug='fudge',
-            editor=self.editor
+            editor=cls.editor
         )
         
-        self.source1 = Source.objects.create(
+        cls.source1 = Source.objects.create(
             year="1991",
             author='Smith',
             slug='smith1991',
             reference='...',
             comment='...',
-            editor=self.editor
+            editor=cls.editor
         )
-        self.source2 = Source.objects.create(
+        cls.source2 = Source.objects.create(
             year="2002",
             author='Jones',
             slug='jones2002',
             reference='...',
             comment='...',
-            editor=self.editor
+            editor=cls.editor
         )
         
-        self.family1 = Family.objects.create(
+        cls.family1 = Family.objects.create(
             family="Austronesian",
             slug="austronesian",
-            editor=self.editor
+            editor=cls.editor
         )
-        self.family2 = Family.objects.create(
+        cls.family2 = Family.objects.create(
             family="Mayan",
             slug="mayan",
-            editor=self.editor
+            editor=cls.editor
         )
         
-        self.client = Client()
+        cls.client = Client()
 
     
 class Test_LanguageIndex(BaseMixin, PaginatorTestMixin, TestCase):
