@@ -22,12 +22,12 @@ env.venv = 'transnewguinea'
 dump_ignores = [
     'contenttypes', 
     'watson.searchentry', 
-    'admin.logentry',
     'sessions.session', 
-    'reversion.revision', 
-    'reversion.version',
 ]
 
+applist = [
+    'auth', 'core', 'lexicon', 'entry', 'pronouns', 'statistics', 'redirects', 'admin', 'reversion'
+]
 
 
 
@@ -103,23 +103,31 @@ def update():
 def snapshot():
     """Takes a snapshot"""
     ignore = " ".join(['-e %s' % i for i in dump_ignores])
-    run("workon %s; cd %s; python manage.py dumpdata --indent=2 %s > %s/dump.json" \
-        % (env.venv, env.remote_app_dir, ignore, env.remote_root_dir))
-    run("cd %s; gzip -9 -f dump.json" % env.remote_root_dir)
-    get("%s/dump.json.gz" % env.remote_root_dir, "dump.json.gz")
+    # mkdir dump
+    for app in applist:
+        run("""
+        workon %s;
+        cd %s;
+        python manage.py dumpdata %s --indent=2 --natural-primary --natural-foreign %s > %s/dump_%s.json
+        """ % (
+            env.venv, env.remote_app_dir, app, ignore, env.remote_root_dir, app)
+        )
+    
+    run("cd %s; zip -r9 dump.zip *.json" % env.remote_root_dir)
+    get("%s/dump.zip" % env.remote_root_dir, "dump.zip")
 
 def clone():
     """Clones the production database"""
-    if os.path.isfile('dump.json.gz'):
-        print("Using cached dump file at dump.json.gz -- remove to clone")
+    if os.path.isfile('dump.zip'):
+        print("Using cached dump file at dump.zip -- remove to clone")
     else:
         snapshot()
     
-    local("gunzip dump.json.gz")
+    local("unzip dump.zip")
     print("moving database.db to database.db-old")
     local("mv website/website/database.db website/website/database.db-old")
-    #local("cd website; python manage.py syncdb")
     local("cd website; python manage.py migrate --noinput")
-    local("cd website; python manage.py loaddata ../dump.json")
+    for app in applist:
+        local("cd website; python manage.py loaddata ../dump_%s.json" % app)
     local("cd website; python manage.py createcachetable cache")
-    local("gzip -9 dump.json") # recompress to keep cached
+    local("rm dump_*.json")
