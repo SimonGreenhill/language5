@@ -33,7 +33,7 @@ class DataMixinLexiconLocations(DataMixinLexicon):
 class TestPrepareMapDataUtility(DataMixinLexiconLocations, TestCase):
     def test_one(self):
         result = prepare_map_data(
-            Word.objects.get(pk=1).lexicon_set.select_related('language').all()
+            Word.objects.get(slug=self.word1.slug).lexicon_set.select_related('language').all()
         )
         assert len(result) == 1
         self.compare(
@@ -47,7 +47,7 @@ class TestPrepareMapDataUtility(DataMixinLexiconLocations, TestCase):
     
     def test_two(self):
         result = prepare_map_data(
-            Word.objects.get(pk=2).lexicon_set.select_related('language').all()
+            Word.objects.get(slug=self.word2.slug).lexicon_set.select_related('language').all()
         )
         assert len(result) == 2
         self.compare(
@@ -100,39 +100,6 @@ class TestPrepareMapDataUtility(DataMixinLexiconLocations, TestCase):
         result = prepare_map_data(records)
         assert len(result) == 1
         assert result[0]['label'] == self.lexicon1.entry
-        
-    def test_invalid_isocode(self):
-        lang3 = Language.objects.create(
-            language='C',
-            slug='langc',
-            information='i.1',
-            classification='a, b',
-            isocode='XXXXXXX',
-            editor=self.editor
-        )
-        Lexicon.objects.create(
-            language=lang3,
-            source=self.source1,
-            word=self.word1,
-            entry="X",
-            phon_entry="x",
-            annotation="",
-            loan=False,
-            loan_source=None,
-            editor=self.editor
-        )
-        # create a location for this one - should NOT show up.
-        Location.objects.create(
-            isocode=lang3.isocode,
-            latitude=-292.4,
-            longitude=221.09,
-            editor=self.editor
-        )
-        records = Word.objects.get(pk=self.word1.pk).lexicon_set.all()
-        records = records.select_related('language')
-        result = prepare_map_data(records)
-        assert len(result) == 1
-        assert result[0]['label'] == self.lexicon1.entry
     
     def test_missing_location(self):
         lang3 = Language.objects.create(
@@ -140,7 +107,7 @@ class TestPrepareMapDataUtility(DataMixinLexiconLocations, TestCase):
             slug='langc',
             information='i.1',
             classification='a, b',
-            isocode='XXX',
+            isocode='X',
             editor=self.editor
         )
         Lexicon.objects.create(
