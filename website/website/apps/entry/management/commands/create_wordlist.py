@@ -78,7 +78,7 @@ class Command(BaseCommand):
         if len(errors):
             if create:
                 # creating the following words...
-                ed = User.objects.get(pk=1)
+                ed = User.objects.all().order_by('id')[0]
                 for order_id, slug in errors:
                     w = Word.objects.create(
                         word=slug.replace("-", " "),

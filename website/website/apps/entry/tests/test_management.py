@@ -114,7 +114,7 @@ class TestWordlistParser(TestCase):
         content.write('two\n')
         content.write('three\n')
         content.reset() # rewind
-
+        
         assert Word.objects.count() == 2
         wl = self.cmd.parse(content, create=True)
         assert Word.objects.count() == 3
