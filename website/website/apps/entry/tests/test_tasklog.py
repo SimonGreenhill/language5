@@ -24,10 +24,7 @@ class Test_GenericView(DataMixin):
     
     def test_save_logging(self):
         self.client.login(username="admin", password="test")
-        
         assert TaskLog.objects.count() == 0
-        
         response = self.client.post(self.task.get_absolute_url(), self.form_data)
-        
         assert TaskLog.objects.count() > 0
         

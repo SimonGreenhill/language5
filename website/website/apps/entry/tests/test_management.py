@@ -112,7 +112,7 @@ class TestWordlistParser(TestCase):
         content = cStringIO.StringIO()
         content.write('one\n')
         content.write('two\n')
-        content.write('three\n')        
+        content.write('three\n')
         content.reset() # rewind
 
         assert Word.objects.count() == 2

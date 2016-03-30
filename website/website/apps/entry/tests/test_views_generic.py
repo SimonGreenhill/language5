@@ -28,15 +28,15 @@ class Test_GenericView(DataMixin):
         from django.conf import settings
         test_file = join(settings.MEDIA_ROOT, self.file_testimage)
         assert isfile(test_file), \
-                """Missing Test Image File on File-System at %s! 
-                   Other tests will fail!""" % test_file
+            """Missing Test Image File on File-System at %s! Other tests will fail!""" % test_file
         
     def test_error_when_not_logged_in(self):
         response = self.client.get(self.task.get_absolute_url())
         self.assertEqual(response.status_code, 302) 
         self.assertRedirects(response, 
-                             "/accounts/login/?next=%s" % self.task.get_absolute_url(), 
-                             status_code=302, target_status_code=200)
+             "/accounts/login/?next=%s" % self.task.get_absolute_url(), 
+             status_code=302, target_status_code=200
+        )
         
     def test_ok_when_logged_in(self):
         self.client.login(username="admin", password="test")
@@ -62,19 +62,28 @@ class Test_GenericView(DataMixin):
         self.client.login(username="admin", password="test")
         response = self.client.get(self.task.get_absolute_url())
         assert len(response.context['formset'].forms) == 1
-        
         self.task.records = 2
+        self.task.done = False
         self.task.save()
-        
         response = self.client.get(self.task.get_absolute_url())
         assert len(response.context['formset'].forms) == 2
         
     def test_post_does_not_set_done_if_not_completable(self):
         self.client.login(username="admin", password="test")
-        self.task.completable = False
-        self.task.save()
-        response = self.client.post(self.task.get_absolute_url(), self.form_data)
-        assert not Task.objects.get(pk=self.task.id).done
+        task = Task.objects.create(
+            editor=self.editor,
+            name="Test Non-completable Task",
+            description="A Test of Data Entry",
+            source=self.source,
+            image=self.file_testimage,
+            language=self.lang,
+            done=False,
+            completable=False,
+            view="GenericView",
+            records=1, # needed so we don't have too many empty forms to validate
+        )
+        response = self.client.post(task.get_absolute_url(), self.form_data)
+        assert not Task.objects.get(pk=task.id).done
     
     def test_post_sets_done_if_completable(self):
         self.client.login(username="admin", password="test")
