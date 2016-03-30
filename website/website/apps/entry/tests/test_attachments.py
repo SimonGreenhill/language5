@@ -12,10 +12,6 @@ from website.apps.entry.tests import DataMixin
 class Test_Attachment(DataMixin):
     """Tests the task image and task file get saved as attachments"""
     
-    def setUp(self):
-        super(Test_Attachment, self).setUp()
-        self.task.language = self.lang
-    
     def test_attachment_is_linked_to_source(self):
         self.client.login(username="admin", password="test")
         self.task.completable = True
@@ -36,10 +32,9 @@ class Test_Attachment(DataMixin):
         assert t.done
         assert Attachment.objects.count() == 1
         a = Attachment.objects.filter(language=t.language)[0]
-        
-        assert a.file.name == t.image.name # file names
-        assert a.file.file.name == t.image.file.name # file paths
-        assert a.file.read() == t.image.file.read() # file content
+        self.assertEqual(a.file.name, t.file.name)
+        self.assertEqual(a.file.file.name, t.image.file.name)  # file paths
+        self.assertEqual(a.file.read(), t.image.file.read())  # file content
         
     def test_task_file_is_attached(self):
         self.client.login(username="admin", password="test")

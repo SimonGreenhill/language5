@@ -9,45 +9,53 @@ from website.apps.lexicon.management.commands import mergeword
 
 
 class TestMergeWordManagementCommand(TestCase):
-    def setUp(self):
-        self.editor = User.objects.create(username='admin')
-        self.word1 = Word.objects.create(word='Hand', slug='hand',
-                                        full='a hand', editor=self.editor)
-        self.word2 = Word.objects.create(word='Leg', slug='leg',
-                                        full='a leg', editor=self.editor)
-        self.lang = Language.objects.create(language='A', slug='lang',
-                                             information='i.1', classification='a, b',
-                                             isocode='aaa', editor=self.editor)
-        self.source = Source.objects.create(year="1991", author='Smith',
-                                 slug='Smith1991', reference='S2',
-                                 comment='c1', editor=self.editor)
-
-        self.lex_1_1 = Lexicon.objects.create(
-            language=self.lang,
-            word=self.word1,
-            source=self.source,
-            editor=self.editor,
+    @classmethod
+    def setUpTestData(cls):
+        cls.editor = User.objects.create(username='admin')
+        cls.word1 = Word.objects.create(
+            word='Hand', slug='hand',
+            full='a hand', editor=cls.editor
+        )
+        cls.word2 = Word.objects.create(
+            word='Leg', slug='leg',
+            full='a leg', editor=cls.editor
+        )
+        cls.lang = Language.objects.create(
+            language='A', slug='lang',
+            information='i.1', classification='a, b',
+            isocode='aaa', editor=cls.editor
+        )
+        cls.source = Source.objects.create(
+            year="1991", author='Smith',
+            slug='Smith1991', reference='S2',
+            comment='c1', editor=cls.editor
+        )
+        cls.lex_1_1 = Lexicon.objects.create(
+            language=cls.lang,
+            word=cls.word1,
+            source=cls.source,
+            editor=cls.editor,
             entry="1_1"
         )
-        self.lex_1_2 = Lexicon.objects.create(
-            language=self.lang,
-            word=self.word1,
-            source=self.source,
-            editor=self.editor,
+        cls.lex_1_2 = Lexicon.objects.create(
+            language=cls.lang,
+            word=cls.word1,
+            source=cls.source,
+            editor=cls.editor,
             entry="1_2"
         )
-        self.lex_2_1 = Lexicon.objects.create(
-            language=self.lang,
-            word=self.word2,
-            source=self.source,
-            editor=self.editor,
+        cls.lex_2_1 = Lexicon.objects.create(
+            language=cls.lang,
+            word=cls.word2,
+            source=cls.source,
+            editor=cls.editor,
             entry="2_1"
         )
-        self.lex_2_2 = Lexicon.objects.create(
-            language=self.lang,
-            word=self.word2,
-            source=self.source,
-            editor=self.editor,
+        cls.lex_2_2 = Lexicon.objects.create(
+            language=cls.lang,
+            word=cls.word2,
+            source=cls.source,
+            editor=cls.editor,
             entry="2_2"
         )
 

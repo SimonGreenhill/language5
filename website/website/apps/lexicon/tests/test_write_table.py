@@ -9,34 +9,47 @@ from website.apps.lexicon.management.commands import write_table
 
 
 class TestWriteTable(TestCase):
-    def setUp(self):
-        self.cmd = write_table.Command()
-        self.editor = User.objects.create(username='admin')
-        self.word1 = Word.objects.create(word='Hand', slug='hand',
-                                        full='a hand', editor=self.editor)
-        self.word2 = Word.objects.create(word='Leg', slug='leg',
-                                        full='a leg', editor=self.editor)
-        self.lang1 = Language.objects.create(language='A', slug='lang_a',
-                                             information='i.1', classification='a, x',
-                                             isocode='aaa', editor=self.editor)
-        self.lang2 = Language.objects.create(language='B', slug='lang_b',
-                                             information='i.1', classification='b, x',
-                                             isocode='bbb', editor=self.editor)
-        self.source1 = Source.objects.create(year="1991", author='Smith',
-                                 slug='Smith1991', reference='...',
-                                 comment='', editor=self.editor)
-        self.source2 = Source.objects.create(year="1992", author='Jones',
-                                 slug='Jones1992', reference='...',
-                                 comment='', editor=self.editor)
+    @classmethod
+    def setUpTestData(cls):
+        cls.cmd = write_table.Command()
+        cls.editor = User.objects.create(username='admin')
+        cls.word1 = Word.objects.create(
+            word='Hand', slug='hand',
+            full='a hand', editor=cls.editor
+        )
+        cls.word2 = Word.objects.create(
+            word='Leg', slug='leg',
+            full='a leg', editor=cls.editor
+        )
+        cls.lang1 = Language.objects.create(
+            language='A', slug='lang_a',
+            information='i.1', classification='a, x',
+            isocode='aaa', editor=cls.editor
+        )
+        cls.lang2 = Language.objects.create(
+            language='B', slug='lang_b',
+            information='i.1', classification='b, x',
+            isocode='bbb', editor=cls.editor
+        )
+        cls.source1 = Source.objects.create(
+            year="1991", author='Smith',
+            slug='Smith1991', reference='...',
+            comment='', editor=cls.editor
+        )
+        cls.source2 = Source.objects.create(
+            year="1992", author='Jones',
+            slug='Jones1992', reference='...',
+            comment='', editor=cls.editor
+        )
 
-        for word in [self.word1, self.word2]:
-            for lang in [self.lang1, self.lang2]:
-                for source in [self.source1, self.source2]:
+        for word in [cls.word1, cls.word2]:
+            for lang in [cls.lang1, cls.lang2]:
+                for source in [cls.source1, cls.source2]:
                     Lexicon.objects.create(
                         language=lang,
                         word=word,
                         source=source,
-                        editor=self.editor,
+                        editor=cls.editor,
                         entry="%s-%s-%s" % (word.slug, lang.slug, source.slug)
                     )
 

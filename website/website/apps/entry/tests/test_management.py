@@ -6,13 +6,15 @@ from website.apps.entry.management.commands import create_wordlist
 
 class TestWordlistParser(TestCase):
     """Tests the wordlist parser in the management comment"""
-    def setUp(self):
+    @classmethod
+    def setUpTestData(cls):
         # create a few words
-        self.editor = User.objects.create_user('admin',
-                                               'admin@example.com', "test")
-        self.word1 = Word.objects.create(editor=self.editor, word="1", slug="one")
-        self.word2 = Word.objects.create(editor=self.editor, word="2", slug="two")
-        self.cmd = create_wordlist.Command()
+        cls.editor = User.objects.create_user(
+            'admin', 'admin@example.com', "test"
+        )
+        cls.word1 = Word.objects.create(editor=cls.editor, word="1", slug="one")
+        cls.word2 = Word.objects.create(editor=cls.editor, word="2", slug="two")
+        cls.cmd = create_wordlist.Command()
     
     def test_ignore_comment(self):
         content = cStringIO.StringIO()

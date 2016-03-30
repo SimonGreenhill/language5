@@ -71,7 +71,6 @@ class Command(BaseCommand):
             #qset = qset.exclude(entry__startswith="*")
             qset = qset.exclude(entry__regex=r'^\*\w+\(\w+[,/]\w+\)\w+')
             
-            
         combined.extend(qset.filter(entry__icontains="/"))
         combined.extend(qset.filter(entry__icontains=", "))
         return combined
@@ -94,15 +93,15 @@ class Command(BaseCommand):
                     editor=obj.editor,
                     entry=c
                 )
-                reversion.set_comment("Automatic split_entries has created this from: %d" % obj.id)
+                reversion.set_comment("Automatic split_entries has created this from: %r" % obj.id)
                 pks.append(o.id)
         
         # now delete old entry
         with reversion.create_revision():
-            obj.delete()
             reversion.set_comment(
                 "Automatic split_entries has moved this item to: %s" % ",".join([str(p) for p in pks])
             )
+            obj.delete()
             
         
     def handle(self, *args, **options):

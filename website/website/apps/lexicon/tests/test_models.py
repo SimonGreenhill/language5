@@ -4,12 +4,11 @@ from django.test import TestCase
 
 from website.apps.core.models import Language, Source
 
-from website.apps.lexicon.tests import DataMixin, DataMixinLexicon
+from website.apps.lexicon.tests import DataMixin
 
 from website.apps.lexicon.models import Word, WordSubset, Lexicon
 from website.apps.lexicon.models import CognateSet, Cognate
 from website.apps.lexicon.models import CorrespondenceSet, Correspondence
-
 
 class Test_Words(DataMixin, TestCase):
     def test_repr(self):
@@ -27,7 +26,7 @@ class Test_Words(DataMixin, TestCase):
         assert unicode(w) == u"Test2", "Got %s not u'Test2'" % unicode(w)
 
 
-class Test_Lexicon(DataMixinLexicon, TestCase):
+class Test_Lexicon(DataMixin, TestCase):
     def test_unicode(self):
         entry = u"Iñtërnâtiônàlizætiøn"
         Lexicon.objects.create(language=self.lang1, 

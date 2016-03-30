@@ -15,11 +15,11 @@ from website.apps.entry.tests import DataMixin
 
 class Test_Checkpointing(DataMixin):
     """Tests the Detail Page's Checkpointing"""
-    
-    def setUp(self):
-        super(Test_Checkpointing, self).setUp()
+    @classmethod
+    def setUpTestData(cls):
+        super(Test_Checkpointing, cls).setUpTestData()
         # need an incomplete entry, or else we get marked as complete.
-        del(self.form_data['form-0-entry'])
+        del(cls.form_data['form-0-entry'])
     
     def test_checkpoint(self):
         self.task.checkpoint = encode_checkpoint(self.form_data)

@@ -79,7 +79,7 @@ class SourceLexiconTable(DataTable):
     
     class Meta(DataTable.Meta):
         model = Lexicon
-        order_by = 'language' # default sorting
+        order_by = 'id' # default sorting
         sequence = ('id', 'language', 'word', 'entry', 'source_gloss', 'annotation', 'loan')
         exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'source',)
     Meta.attrs['summary'] = 'Table of Lexicon'

@@ -117,5 +117,5 @@ def GenericView(request, task):
         'task': task,
         'formset': formset,
         'template': template_name,
-    }, context_instance=RequestContext(request))
+    })
 
