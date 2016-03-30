@@ -25,9 +25,11 @@ class Test_TaskIndex(DataMixin):
     def test_error_when_not_logged_in(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 302) 
-        self.assertRedirects(response, 
-                             "/accounts/login/?next=%s" % self.url, 
-                             status_code=302, target_status_code=200)
+        self.assertRedirects(
+            response, 
+            "/accounts/login/?next=%s" % self.url, 
+            status_code=302, target_status_code=200
+        )
         
     def test_ok_when_logged_in(self):
         self.client.login(username="admin", password="test")
@@ -69,9 +71,11 @@ class Test_TaskComplete(DataMixin):
         url = reverse('entry:complete', kwargs={'pk': self.task.id})
         response = self.client.get(url)
         self.assertEqual(response.status_code, 302) 
-        self.assertRedirects(response, 
-                             "/accounts/login/?next=%s" % url, 
-                             status_code=302, target_status_code=200)
+        self.assertRedirects(
+            response, 
+            "/accounts/login/?next=%s" % url, 
+            status_code=302, target_status_code=200
+        )
         
     def test_ok_when_logged_in(self):
         self.client.login(username="admin", password="test")

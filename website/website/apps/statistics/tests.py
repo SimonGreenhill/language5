@@ -13,28 +13,29 @@ from website.apps.statistics.models import InvalidMethod, InvalidField
 
 class StatisticMixin(object):
     """Mixin for Statistic Tests"""
-    def setUp(self):
-        self.editor = User.objects.create(username='admin')
-        self.lang1 = Language.objects.create(
+    @classmethod
+    def setUpTestData(cls):
+        cls.editor = User.objects.create(username='admin')
+        cls.lang1 = Language.objects.create(
             language='A', slug='langa',
             information='i.1', classification='a, b',
-            isocode='aaa', editor=self.editor
+            isocode='aaa', editor=cls.editor
         )
-        self.lang2 = Language.objects.create(
+        cls.lang2 = Language.objects.create(
             language='B', slug='langb',
             information='i.2', classification='c, d, e',
-            isocode='bbb', editor=self.editor
+            isocode='bbb', editor=cls.editor
         )
-        self.fam1 = Family.objects.create(
-            family='F', slug='f', editor=self.editor
+        cls.fam1 = Family.objects.create(
+            family='F', slug='f', editor=cls.editor
         )
         
         # make sure we're clean (i.e. ignore whatever Statistic's are defined
         # in the above imported models)
-        self.statistic = Statistic()
-        self.statistic.register("NLang", Language, graph=True)
-        self.statistic.register("NFam", Family)
-        self.statistic.register("NSource", Source)
+        cls.statistic = Statistic()
+        cls.statistic.register("NLang", Language, graph=True)
+        cls.statistic.register("NFam", Family)
+        cls.statistic.register("NSource", Source)
 
 
 class StatisticTest(StatisticMixin, TestCase):

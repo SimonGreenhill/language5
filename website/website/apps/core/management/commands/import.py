@@ -42,7 +42,6 @@ class Command(BaseCommand):
                 raise ValueError("No save -- Rollback") 
             else:
                 print("\n<<< COMMIT\n")
-                transaction.commit()
     
     def handle(self, *args, **options):
         # set some environment variables;

@@ -28,15 +28,15 @@ class Test_GenericView(DataMixin):
         from django.conf import settings
         test_file = join(settings.MEDIA_ROOT, self.file_testimage)
         assert isfile(test_file), \
-                """Missing Test Image File on File-System at %s! 
-                   Other tests will fail!""" % test_file
+            """Missing Test Image File on File-System at %s! Other tests will fail!""" % test_file
         
     def test_error_when_not_logged_in(self):
         response = self.client.get(self.task.get_absolute_url())
         self.assertEqual(response.status_code, 302) 
         self.assertRedirects(response, 
-                             "/accounts/login/?next=%s" % self.task.get_absolute_url(), 
-                             status_code=302, target_status_code=200)
+             "/accounts/login/?next=%s" % self.task.get_absolute_url(), 
+             status_code=302, target_status_code=200
+        )
         
     def test_ok_when_logged_in(self):
         self.client.login(username="admin", password="test")
@@ -50,11 +50,21 @@ class Test_GenericView(DataMixin):
         
     def test_completed_task(self):
         self.client.login(username="admin", password="test")
-        self.task.done = True
-        self.task.save()
-        response = self.client.get(self.task.get_absolute_url())
+        task = Task.objects.create(
+            editor=self.editor,
+            name="Test Non-completable Task",
+            description="A Test of Data Entry",
+            source=self.source,
+            image=self.file_testimage,
+            language=self.lang,
+            done=True,
+            completable=False,
+            view="GenericView",
+            records=1, # needed so we don't have too many empty forms to validate
+        )
+        response = self.client.get(task.get_absolute_url())
         self.assertRedirects(response, 
-            reverse('entry:complete', kwargs={'pk': self.task.id}), 
+            reverse('entry:complete', kwargs={'pk': task.id}), 
             status_code=302, target_status_code=200
         )
         
@@ -62,26 +72,54 @@ class Test_GenericView(DataMixin):
         self.client.login(username="admin", password="test")
         response = self.client.get(self.task.get_absolute_url())
         assert len(response.context['formset'].forms) == 1
-        
-        self.task.records = 2
-        self.task.save()
-        
-        response = self.client.get(self.task.get_absolute_url())
+        task = Task.objects.create(
+            editor=self.editor,
+            name="Test Non-completable Task",
+            description="A Test of Data Entry",
+            source=self.source,
+            image=self.file_testimage,
+            language=self.lang,
+            done=False,
+            completable=False,
+            view="GenericView",
+            records=2, # needed so we don't have too many empty forms to validate
+        )
+        response = self.client.get(task.get_absolute_url())
         assert len(response.context['formset'].forms) == 2
         
     def test_post_does_not_set_done_if_not_completable(self):
         self.client.login(username="admin", password="test")
-        self.task.completable = False
-        self.task.save()
-        response = self.client.post(self.task.get_absolute_url(), self.form_data)
-        assert not Task.objects.get(pk=self.task.id).done
+        task = Task.objects.create(
+            editor=self.editor,
+            name="Test Non-completable Task",
+            description="A Test of Data Entry",
+            source=self.source,
+            image=self.file_testimage,
+            language=self.lang,
+            done=False,
+            completable=False,
+            view="GenericView",
+            records=1, # needed so we don't have too many empty forms to validate
+        )
+        response = self.client.post(task.get_absolute_url(), self.form_data)
+        assert not Task.objects.get(pk=task.id).done
     
     def test_post_sets_done_if_completable(self):
         self.client.login(username="admin", password="test")
-        self.task.completable = True
-        self.task.save()
-        response = self.client.post(self.task.get_absolute_url(), self.form_data)
-        assert Task.objects.get(pk=self.task.id).done
+        task = Task.objects.create(
+            editor=self.editor,
+            name="Test Non-completable Task",
+            description="A Test of Data Entry",
+            source=self.source,
+            image=self.file_testimage,
+            language=self.lang,
+            done=False,
+            completable=True,
+            view="GenericView",
+            records=1, # needed so we don't have too many empty forms to validate
+        )
+        response = self.client.post(task.get_absolute_url(), self.form_data)
+        assert Task.objects.get(pk=task.id).done
     
     def test_unfixed_language_in_template(self):
         self.client.login(username="admin", password="test")
@@ -103,14 +141,17 @@ class Test_GenericView(DataMixin):
         
     def test_fixed_language_in_template(self):
         self.client.login(username="admin", password="test")
-        self.lang.language = "TEST LANGUAGE"
-        self.lang.save()
+        
+        lang = self.lang
+        lang.pk = None
+        lang.language = "TEST LANGUAGE"
+        lang.save()
         
         task = Task.objects.create(
             editor=self.editor,
             name="Test Task - Fixed Language",
             description="",
-            language=self.lang,
+            language=lang,
             source=self.source,
             done=False,
             view="GenericView",
@@ -127,14 +168,16 @@ class Test_GenericView(DataMixin):
     
     def test_fixed_source_in_template(self):
         self.client.login(username="admin", password="test")
-        self.source.author = "TEST SOURCE"
-        self.source.save()
+        source = self.source
+        source.pk = None
+        source.author = "TEST SOURCE"
+        source.save()
         task = Task.objects.create(
             editor=self.editor,
             name="Test Task - Fixed Language",
             description="",
             language=self.lang,
-            source=self.source,
+            source=source,
             done=False,
             view="GenericView",
             records=1, # needed so we don't have too many empty forms to validate

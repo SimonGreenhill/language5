@@ -134,8 +134,8 @@ class SourceDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(SourceDetail, self).get_context_data(**kwargs)
         context['attachments'] = kwargs['object'].attachment_set.all()
+        
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
-            
             qset = kwargs['object'].lexicon_set.select_related().all()
             if self.request.user.is_authenticated():
                 context['lexicon_table'] = SourceLexiconEditTable(qset)

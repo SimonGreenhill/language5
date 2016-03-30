@@ -11,81 +11,85 @@ from website.apps.entry.models import Task, Wordlist, WordlistMember
 from website.apps.entry.dataentry import available_views
 from website.apps.entry.views import decode_checkpoint
 
-class WordlistMixin(TestCase):
-    def setUp(self, *args):
-        self.client = Client()
-        self.editor = User.objects.create_user('admin',
-                                               'admin@example.com', "test")
-        self.source = Source.objects.create(
-                year="1991",
-                author='Smith',
-                slug='Smith1991',
-                reference='S2',
-                comment='c1',
-                editor=self.editor
+class TestWordlist(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        cls.client = Client()
+        cls.editor = User.objects.create_user(
+            'admin', 'admin@example.com', "test"
         )
-        self.lang = Language.objects.create(language='A', slug='langa', 
+        cls.source = Source.objects.create(
+            year="1991",
+            author='Smith',
+            slug='Smith1991',
+            reference='S2',
+            comment='c1',
+            editor=cls.editor
+        )
+        cls.lang = Language.objects.create(
+            language='A', slug='langa', 
             information='i.1', classification='a, b',
-            isocode='aaa', editor=self.editor)
+            isocode='aaa', editor=cls.editor
+        )
         
-        self.words = []
-        self.words_in_wordlist = []
-        self.wordlist = Wordlist.objects.create(name="test", editor=self.editor)
+        cls.words = []
+        cls.words_in_wordlist = []
+        cls.wordlist = Wordlist.objects.create(
+            name="test", editor=cls.editor
+        )
         for i in range(5):
             w = Word.objects.create(
-                editor=self.editor, 
+                editor=cls.editor, 
                 word="WORD %d" % i,
                 slug=str(i)
             )
-            self.words.append(w)
+            cls.words.append(w)
             # BUT only add the first 3 words to wordlist
             if i < 3:
-                m = WordlistMember(wordlist=self.wordlist, word=w, order=i)
+                m = WordlistMember(wordlist=cls.wordlist, word=w, order=i)
                 m.save()
-                self.words_in_wordlist.append(w)
-                
-        self.task = Task.objects.create(
-            editor=self.editor,
+                cls.words_in_wordlist.append(w)
+            
+        cls.task = Task.objects.create(
+            editor=cls.editor,
             name="Test Task",
             description="A Test of Data Entry",
-            source=self.source,
-            wordlist=self.wordlist,
+            source=cls.source,
+            wordlist=cls.wordlist,
             done=False,
             view="WordlistView",
             records=1, 
         )
-        
+    
         # for formset validation
-        self.form_data = {
+        cls.form_data = {
             'form-TOTAL_FORMS': u'3',
             'form-INITIAL_FORMS': u'3',
             'form-MAX_NUM_FORMS': u'1000',
             # form 0
-            'form-0-language': self.lang.id,
-            'form-0-source': self.source.id,
-            'form-0-word': self.words[0].id,
+            'form-0-language': cls.lang.id,
+            'form-0-source': cls.source.id,
+            'form-0-word': cls.words[0].id,
             'form-0-entry': 'entry-0',
             'form-0-annotation': 'comment-0',
             # form 1
-            'form-1-language': self.lang.id,
-            'form-1-source': self.source.id,
-            'form-1-word': self.words[1].id,
+            'form-1-language': cls.lang.id,
+            'form-1-source': cls.source.id,
+            'form-1-word': cls.words[1].id,
             'form-1-entry': 'entry-1',
             'form-1-annotation': 'comment-1',
             # form 2
-            'form-2-language': self.lang.id,
-            'form-2-source': self.source.id,
-            'form-2-word': self.words[2].id,
+            'form-2-language': cls.lang.id,
+            'form-2-source': cls.source.id,
+            'form-2-word': cls.words[2].id,
             'form-2-entry': 'entry-2',
             'form-2-annotation': 'comment-2',
             'submit': 'true',
         }
         # and for partial validation...
-        self.bad_form_data = self.form_data.copy()
-        del(self.bad_form_data['form-2-language'])
-
-
-class TestWordlist(WordlistMixin):
+        cls.bad_form_data = cls.form_data.copy()
+        del(cls.bad_form_data['form-2-language'])
+        
     def test_create_wordlist(self):
         assert len(self.wordlist.words.all()) == 3
     
@@ -99,10 +103,7 @@ class TestWordlist(WordlistMixin):
         self.task.save() # need to save to update.
         assert self.task.records == len(self.wordlist.words.all())
 
-
-class Test_WordlistView(WordlistMixin):
-    """Tests the WordlistView Detail Page"""
-    
+    # views
     def test_template_used(self):
         self.client.login(username="admin", password="test")
         response = self.client.get(self.task.get_absolute_url())

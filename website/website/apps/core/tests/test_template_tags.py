@@ -17,12 +17,14 @@ class LanguageMixin(object):
     function = None # Override in child functions
     expected = None # Override in child functions
     
-    def setUp(self):
-        self.editor = User.objects.create(username='admin')
-        self.language = Language.objects.create(
-                        language='A', slug='langa', 
-                        information='i.1', classification='a, b',
-                        isocode='aaa', editor=self.editor)
+    @classmethod
+    def setUpTestData(cls):
+        cls.editor = User.objects.create(username='admin')
+        cls.language = Language.objects.create(
+            language='A', slug='langa', 
+            information='i.1', classification='a, b',
+            isocode='aaa', editor=cls.editor
+        )
     
     def test_empty(self):
         self.assertEqual(self.function(""), "")

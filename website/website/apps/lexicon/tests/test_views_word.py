@@ -3,48 +3,46 @@ from django.test.client import Client
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 
-from website.apps.lexicon.tests import DataMixin, DataMixinLexicon
+from website.apps.lexicon.tests import DataMixin
 from website.apps.lexicon.models import WordSubset, Lexicon
 
 from website.apps.core.tests.utils import PaginatorTestMixin
 
 class Test_WordIndex(DataMixin, PaginatorTestMixin, TestCase):
     """Tests the Word Index page"""
-    def setUp(self):
-        self.client = Client()
-        self.url = reverse('word-index')
-        super(Test_WordIndex, self).setUp()
+    
+    @classmethod
+    def setUpTestData(cls):
+        super(Test_WordIndex, cls).setUpTestData()
+        cls.client = Client()
+        cls.url = reverse('word-index')
+        cls.response = cls.client.get(cls.url)
 
     def test_200ok(self):
-        response = self.client.get(self.url)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(self.response.status_code, 200)
 
     def test_template(self):
-        response = self.client.get(self.url)
-        self.assertTemplateUsed(response, 'lexicon/word_index.html')
+        self.assertTemplateUsed(self.response, 'lexicon/word_index.html')
 
     def test_get_all_words(self):
         # just getting the words index should get all words.
-        response = self.client.get(self.url)
-        self.assertEquals(response.status_code, 200)
-        assert 'table' in response.context
-        self.assertEquals(len(response.context['table'].rows), 3)
+        self.assertEquals(self.response.status_code, 200)
+        assert 'table' in self.response.context
+        self.assertEquals(len(self.response.context['table'].rows), 3)
 
     def test_get_has_subsets(self):
         # page should have subsets listed
-        response = self.client.get(self.url)
-        self.assertEquals(response.status_code, 200)
-        self.assertEquals(len(response.context['subsets']), 3)
+        self.assertEquals(self.response.status_code, 200)
+        self.assertEquals(len(self.response.context['subsets']), 3)
         self.assertEquals(
-            len(response.context['subsets']),
-            len(WordSubset.objects.all())
+            len(self.response.context['subsets']),
+            WordSubset.objects.count()
         )
 
     def test_get_no_subset_context_is_none(self):
         # if there's no subset requested then the var `subset` will be None
-        response = self.client.get(self.url)
-        self.assertEquals(response.status_code, 200)
-        self.assertEquals(response.context['subset'], None)
+        self.assertEquals(self.response.status_code, 200)
+        self.assertEquals(self.response.context['subset'], None)
 
     def test_get_subset(self):
         # if a subset is requested...
@@ -109,7 +107,7 @@ class Test_WordIndex(DataMixin, PaginatorTestMixin, TestCase):
             assert response.context['table'].rows[i].record == obj
 
 
-class Test_WordDetail(DataMixinLexicon, PaginatorTestMixin, TestCase):
+class Test_WordDetail(DataMixin, PaginatorTestMixin, TestCase):
 
     def setUp(self):
         super(Test_WordDetail, self).setUp()
@@ -161,26 +159,27 @@ class Test_WordDetail(DataMixinLexicon, PaginatorTestMixin, TestCase):
 
 
 class Test_WordEdit(DataMixin, TestCase):
-    def setUp(self):
-        super(Test_WordEdit, self).setUp()
-        self.lex1 = Lexicon.objects.create(
-            language=self.lang1,
-            word=self.word1,
-            source=self.source1,
-            editor=self.editor,
+    @classmethod
+    def setUpTestData(cls):
+        super(Test_WordEdit, cls).setUpTestData()
+        cls.lex1 = Lexicon.objects.create(
+            language=cls.lang1,
+            word=cls.word1,
+            source=cls.source1,
+            editor=cls.editor,
             entry="sausage",
             annotation=""
         )
-        self.lex2 = Lexicon.objects.create(
-            language=self.lang1,
-            word=self.word1,
-            source=self.source1,
-            editor=self.editor,
+        cls.lex2 = Lexicon.objects.create(
+            language=cls.lang1,
+            word=cls.word1,
+            source=cls.source1,
+            editor=cls.editor,
             entry="banana",
             annotation=""
         )
-        self.items = [self.lex1, self.lex2]
-        self.url = reverse('word-edit', kwargs={'slug': self.word1.slug})
+        cls.items = [cls.lex1, cls.lex2]
+        cls.url = reverse('word-edit', kwargs={'slug': cls.word1.slug})
 
     def get_post_data(self, objects):
         postdata = {
