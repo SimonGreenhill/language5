@@ -38,6 +38,7 @@ class DataMixin(TestCase):
             image=cls.file_testimage,
             language=cls.lang,
             done=False,
+            checkpoint=None,
             view="GenericView",
             records=1, # needed so we don't have too many empty forms to validate
         )
