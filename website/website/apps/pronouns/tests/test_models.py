@@ -1,9 +1,7 @@
 from django.test import TestCase
-from django.contrib.auth.models import User
 
-from website.apps.core.models import Language, Source
-from website.apps.lexicon.models import Word, Lexicon
-from website.apps.pronouns.models import Paradigm, PronounType, Pronoun
+from website.apps.lexicon.models import Lexicon
+from website.apps.pronouns.models import Paradigm, PronounType, Pronoun, Relationship
 
 from website.apps.pronouns.tests import PronounsTestData
 
@@ -84,4 +82,74 @@ class Test_Paradigm(PronounsTestData, TestCase):
             else:
                 assert pron.entries.count() == 1
                 assert pron.entries.all()[0].entry == 'old'
-        
+
+
+class TestRelationship(PronounsTestData, TestCase):
+    #Tests the _get_pk helper function on Relationship
+    def test_get_pk_object(self):
+        assert Relationship.objects._get_pk(self.p1) == self.p1.pk
+        assert Relationship.objects._get_pk(self.p2) == self.p2.pk
+
+    def test_get_pk_integer(self):
+        assert Relationship.objects._get_pk(int(self.p1.pk)) == self.p1.pk
+        assert Relationship.objects._get_pk(int(self.p2.pk)) == self.p2.pk
+
+    def test_get_pk_something_else(self):
+        with self.assertRaises(ValueError):
+            Relationship.objects._get_pk('1')
+
+    #Test get_relationships_for_pronoun on the RelationshipManager for Relationship
+    def _grfp(self, p):
+        # helper
+        return Relationship.objects.get_relationships_for_pronoun(p)
+
+    def test_grfp_doesnt_find_anything_if_no_relationships(self):
+        # note that the first 2 pronouns have relationships defined, skip them
+        for p in self.pdm.pronoun_set.all()[2:]:
+            assert len(self._grfp(p)) == 0
+
+    def test_grfp_find_arg1_with_obj(self):
+        assert len(self._grfp(self.p1)) == 1
+        assert len(self._grfp(self.p2)) == 1
+        assert self._grfp(self.p1)[0] == self.rel
+        assert self._grfp(self.p2)[0] == self.rel
+
+    def test_grfp_find_arg2_with_obj(self):
+        assert len(self._grfp(self.p2)) == 1
+        assert len(self._grfp(self.p1)) == 1
+        assert self._grfp(self.p2)[0] == self.rel
+        assert self._grfp(self.p1)[0] == self.rel
+
+    def test_grfp_find_arg1_with_pk(self):
+        assert len(self._grfp(self.p1.id)) == 1
+        assert len(self._grfp(self.p2.id)) == 1
+        assert self._grfp(self.p1.id)[0] == self.rel
+        assert self._grfp(self.p2.id)[0] == self.rel
+
+    def test_grfp_find_arg2_with_pk(self):
+        assert len(self._grfp(self.p2.id)) == 1
+        assert len(self._grfp(self.p1.id)) == 1
+        assert self._grfp(self.p2.id)[0] == self.rel
+        assert self._grfp(self.p1.id)[0] == self.rel
+
+    # Test the function has_relationship_between on the RelationshipManager for
+    # Relationship
+    def test_has_relationship_for_arg1_with_obj(self):
+        assert Relationship.objects.has_relationship_between(
+            self.p1, self.p2
+        )
+
+    def test_has_relationship_for_arg2_with_obj(self):
+        assert Relationship.objects.has_relationship_between(
+            self.p2, self.p1
+        )
+
+    def test_has_relationship_for_arg1_with_pk(self):
+        assert Relationship.objects.has_relationship_between(
+            self.p1.pk, self.p2.pk
+        )
+
+    def test_has_relationship_for_arg2_with_pk(self):
+        assert Relationship.objects.has_relationship_between(
+            self.p2.pk, self.p1.pk
+        )

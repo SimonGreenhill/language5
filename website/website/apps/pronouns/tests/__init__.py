@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from website.apps.core.models import Language, Source
-from website.apps.lexicon.models import Word
-from website.apps.pronouns.models import Paradigm, PronounType
+from website.apps.lexicon.models import Word, Lexicon
+from website.apps.pronouns.models import Paradigm, PronounType, Relationship
 
 
 # Mixin for default test content
@@ -42,7 +42,7 @@ class PronounsTestData(object):
                 editor=cls.editor
             )
             p.save()
-            
+        
         # create this here so that _prefill_pronouns() takes advantage of our
         # newly created pronountypes
         cls.pdm = Paradigm.objects.create(
@@ -52,4 +52,33 @@ class PronounsTestData(object):
             comment="test"
         )
         cls.pdm._prefill_pronouns()
+        
+        cls.p1, cls.p2, cls.p3 = cls.pdm.pronoun_set.all()
+            
+        # relationships
+        cls.lex1 = Lexicon.objects.create(
+            editor=cls.editor,
+            source=cls.source,
+            language=cls.lang,
+            word=cls.word,
+            entry='I AM THE SAME'
+        )
+        cls.lex2 = Lexicon.objects.create(
+            editor=cls.editor,
+            source=cls.source,
+            language=cls.lang,
+            word=cls.word,
+            entry='I AM THE SAME'
+        )
+        cls.p1.entries.add(cls.lex1)
+        cls.p1.save()
 
+        cls.p2.entries.add(cls.lex2)
+        cls.p2.save()
+
+        cls.rel = Relationship.objects.create(
+            paradigm=cls.pdm,
+            pronoun1=cls.p1, pronoun2=cls.p2,
+            relationship='TS',
+            editor=cls.editor
+        )
