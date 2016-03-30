@@ -17,8 +17,8 @@ class CognatesInline(admin.TabularInline):
     formfield_overrides = {
         models.TextField: {'widget': Textarea(attrs={'rows':1}) },
     }
-    fields = ('lexicon', 'source', 'comment', 'flag', )
-    readonly_fields = ('lexicon', 'source', 'flag', 'comment', )
+    fields = ('lexicon', 'source', 'comment', )
+    readonly_fields = ('lexicon', 'comment', )
     
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == 'editor':
@@ -29,7 +29,7 @@ class CognatesInline(admin.TabularInline):
         )
 
     def get_queryset(self, request):
-        return super(CognatesInline, self).queryset(request).select_related('source', 'language')
+        return super(CognatesInline, self).get_queryset(request).select_related('source', 'lexicon')
 
 
 class CorrespondenceInline(admin.TabularInline):
@@ -81,7 +81,7 @@ class CognateSetAdmin(TrackedModelAdmin, VersionAdmin):
     inlines = [CognatesInline]
     
     def get_queryset(self, request):
-        return super(CognateSetAdmin, self).queryset(request).select_related('source', 'cognate')
+        return super(CognateSetAdmin, self).get_queryset(request).select_related('source')
 
 
 class CorrespondenceSetAdmin(TrackedModelAdmin, VersionAdmin):
@@ -92,7 +92,7 @@ class CorrespondenceSetAdmin(TrackedModelAdmin, VersionAdmin):
     inlines = [CorrespondenceInline]
     
     def get_queryset(self, request):
-        return super(CorrespondenceSetAdmin, self).queryset(request).select_related('source', 'language')
+        return super(CorrespondenceSetAdmin, self).get_queryset(request).select_related('source')
 
 
 class CognateAdmin(TrackedModelAdmin, VersionAdmin):
@@ -104,7 +104,7 @@ class CognateAdmin(TrackedModelAdmin, VersionAdmin):
     search_fields = ('cognateset__protoform', 'cognateset__gloss', 'source__slug', 'lexicon__entry', 'comment')
     
     def get_queryset(self, request):
-        return super(CognateAdmin, self).queryset(request).select_related('source', 'cognateset')
+        return super(CognateAdmin, self).get_queryset(request).select_related('source', 'cognateset', 'lexicon')
 
 
 class CognateNoteAdmin(TrackedModelAdmin, VersionAdmin):
@@ -115,11 +115,15 @@ class CognateNoteAdmin(TrackedModelAdmin, VersionAdmin):
     search_fields = ('word', 'cognateset', 'editor', 'note')
     
     def get_queryset(self, request):
-        return super(CognateNoteAdmin, self).queryset(request).select_related('word', 'cognateset')
+        return super(CognateNoteAdmin, self).get_queryset(request).select_related('word', 'cognateset')
 
 
 class CorrespondenceAdmin(TrackedModelAdmin, VersionAdmin):
-    pass
+    list_display = ('corrset', 'language', 'rule')
+    list_filter = ('corrset', 'language',)
+    ordering = ('id',)
+    list_select_related = True
+    search_fields = ('language', 'rule')
 
 
 

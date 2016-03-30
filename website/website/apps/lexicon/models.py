@@ -210,7 +210,7 @@ class Correspondence(TrackedModel):
     rule = models.CharField(max_length=32)
     
     def __unicode__(self):
-        return u"Correspondence: %s /%s/" % (self.language.slug, self.rule)
+        return u"Correspondence: /%s/" % self.rule
     
     class Meta:
         db_table = 'correspondences'
