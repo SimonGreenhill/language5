@@ -4,30 +4,40 @@ from django.core.urlresolvers import reverse
 from django.db.models import Q
 
 from website.apps.lexicon.models import Lexicon
-from website.apps.pronouns.models import Rule, Relationship
-from website.apps.pronouns.tests import DefaultSettingsMixin
+from website.apps.pronouns.models import Rule, Relationship, Paradigm
+from website.apps.pronouns.tests import PronounsTestData
 
 
-class ProcessRuleMixin(DefaultSettingsMixin):
-    def setUp(self):
-        self.add_fixtures()
-        self.url = reverse('pronouns:process_rule', kwargs={'paradigm_id': 1})
-        self.client = Client()
-        self.client.login(username='admin', password='test')
-        self.response = self.client.get(self.url)
+class ProcessRuleMixin(PronounsTestData):
+    @classmethod
+    def setUpTestData(cls):
+        super(ProcessRuleMixin, cls).setUpTestData()
+        cls.rulepdm = Paradigm.objects.create(
+            language=cls.lang,
+            source=cls.source,
+            editor=cls.editor,
+            comment="ProcessRuleMixin"
+        )
+        cls.rulepdm._prefill_pronouns()
         
-        self.expected_identicals = []
-        for p in self.pdm.pronoun_set.all()[0:3]:
-            p.entries.add(Lexicon.objects.create(
-                editor=self.editor,
-                source=self.source,
-                language=self.lang,
-                word=self.word,
-                entry='I AM THE SAME'
-            ))
-            p.save()
-            self.expected_identicals.append(p)
+        cls.expected_identicals = []
+        for pron in cls.rulepdm.pronoun_set.all():
+            lex = Lexicon.objects.create(
+                editor=cls.editor,
+                language=cls.lang,
+                source=cls.source,
+                word=cls.word,
+                entry='ProcessRuleMixin'
+            )
+            lex.save()
+            pron.entries.add(lex)
+            pron.save()
+            cls.expected_identicals.append(pron)
         
+        
+        cls.url = reverse('pronouns:process_rule', kwargs={'paradigm_id': cls.rulepdm.id})
+        cls.client = Client()
+    
     def test_fail_if_not_logged_in(self):
         self.client.logout()
         response = self.client.get(self.url)
@@ -39,7 +49,7 @@ class ProcessRuleMixin(DefaultSettingsMixin):
     def test_fail_on_bad_pronoun_id(self):
         # have to do it this way (i.e. replace 1 with 100) or else `reverse`
         # raises a NoReverseMatch exception --> not what we're trying to test!
-        response = self.client.get(self.url.replace("1", '100'))
+        response = self.client.get(self.url.replace("1", '4400'))
         self.assertEqual(response.status_code, 404)
         
     def test_fail_on_nopost(self):
@@ -47,7 +57,7 @@ class ProcessRuleMixin(DefaultSettingsMixin):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(
             response,
-            reverse('pronouns:detail', kwargs={'paradigm_id': 1})
+            reverse('pronouns:detail', kwargs={'paradigm_id': self.rulepdm.id})
         )
 
 
@@ -61,13 +71,17 @@ class Test_ProcessRuleView_process_identicals(ProcessRuleMixin, TestCase):
         'process_identicals': 'true',
     }
     
+    def setUp(self):
+        self.client.login(username='admin', password='test')
+        self.response = self.client.get(self.url)
+    
     def test_saves_identicals(self):
         response = self.client.post(self.url, self.form_data)
         # successes will redirect to the edit_relationships view
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(
             response,
-            reverse('pronouns:edit_relationships', kwargs={'paradigm_id': 1})
+            reverse('pronouns:edit_relationships', kwargs={'paradigm_id': self.rulepdm.id})
         )
         
         assert Rule.objects.count() == 1, "should have saved a rule"
@@ -90,14 +104,14 @@ class Test_ProcessRuleView_process_identicals(ProcessRuleMixin, TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(
             response,
-            reverse('pronouns:edit_relationships', kwargs={'paradigm_id': 1})
+            reverse('pronouns:edit_relationships', kwargs={'paradigm_id': self.rulepdm.id})
         )
         
         assert Rule.objects.count() == 1, "should have saved a rule"
         
         # get the saved rule & test it
         r = Rule.objects.all()[0]
-        assert r.paradigm == self.pdm, "Rule should belong to this paradigm"
+        assert r.paradigm == self.rulepdm, "Rule should belong to this paradigm"
         assert 'Syncret' in r.rule, "Rule should mention syncretims"
     
     def test_save_relationship_set(self):
@@ -106,7 +120,7 @@ class Test_ProcessRuleView_process_identicals(ProcessRuleMixin, TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(
             response,
-            reverse('pronouns:edit_relationships', kwargs={'paradigm_id': 1})
+            reverse('pronouns:edit_relationships', kwargs={'paradigm_id': self.rulepdm.id})
         )
         
         assert Rule.objects.count() == 1, "should have saved a rule"
@@ -123,11 +137,11 @@ class Test_ProcessRuleView_process_identicals(ProcessRuleMixin, TestCase):
             response = self.client.post(self.url, self.form_data)
             self.assertEqual(response.status_code, 302)
             redir_url = reverse(
-                'pronouns:edit_relationships', kwargs={'paradigm_id': 1}
+                'pronouns:edit_relationships', kwargs={'paradigm_id': self.rulepdm.id}
             )
             self.assertRedirects(response, redir_url)
         
-        rule = Rule.objects.get(pk=1)
+        rule = Rule.objects.get(pk=self.rulepdm.pk)
         assert len(rule.relationships.all()) == 3
         n = len(Relationship.objects.all())
         assert n == 3, "Expecting a total of 3 relationships, not %d" % n
@@ -136,9 +150,13 @@ class Test_ProcessRuleView_process_identicals(ProcessRuleMixin, TestCase):
 class Test_ProcessRuleView_process_rules(ProcessRuleMixin, TestCase):
     """Tests for second major action - processing a ruleset"""
     
-    editrel_url = reverse(
-        'pronouns:edit_relationships', kwargs={'paradigm_id': 1}
-    )
+    def setUp(self):
+        self.editrel_url = reverse(
+            'pronouns:edit_relationships', kwargs={'paradigm_id': self.rulepdm.id}
+        )
+        self.client.login(username='admin', password='test')
+        self.response = self.client.get(self.url)
+
     
     def test_fails_on_bad_form(self):
         response = self.client.post(self.url, {'process_rule': 'true', })
