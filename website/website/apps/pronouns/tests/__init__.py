@@ -61,14 +61,14 @@ class PronounsTestData(object):
             source=cls.source,
             language=cls.lang,
             word=cls.word,
-            entry='I AM THE SAME'
+            entry='lexicon 1'
         )
         cls.lex2 = Lexicon.objects.create(
             editor=cls.editor,
             source=cls.source,
             language=cls.lang,
             word=cls.word,
-            entry='I AM THE SAME'
+            entry='lexicon 2'
         )
         cls.p1.entries.add(cls.lex1)
         cls.p1.save()

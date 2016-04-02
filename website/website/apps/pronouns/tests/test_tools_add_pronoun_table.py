@@ -2,7 +2,7 @@ from django.test import TestCase
 
 from website.apps.lexicon.models import Lexicon
 from website.apps.pronouns.tools import add_pronoun_table
-from website.apps.pronouns.tests import DefaultSettingsMixin
+#from website.apps.pronouns.tests import PronounsTestData
 
 
 class TestFindIdenticals(DefaultSettingsMixin, TestCase):
