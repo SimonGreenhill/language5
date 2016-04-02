@@ -8,19 +8,12 @@ from django.core.paginator import EmptyPage, PageNotAnInteger
 
 from website.apps.pronouns.models import Paradigm, Pronoun, Relationship, Rule
 from website.apps.pronouns.tables import ParadigmIndexTable
-from website.apps.pronouns.tables import PronounRelationshipTable
 
-from website.apps.pronouns.forms import CopyForm
-from website.apps.pronouns.forms import ParadigmForm
-from website.apps.pronouns.forms import RelationshipFormSet
-from website.apps.pronouns.forms import RuleForm
-from website.apps.pronouns.forms import pronoun_formsets_are_valid
-from website.apps.pronouns.forms import create_pronoun_formset
-from website.apps.pronouns.forms import save_pronoun_formset
-from website.apps.pronouns.forms import sort_formset
+from website.apps.pronouns.forms import CopyForm, ParadigmForm
+from website.apps.pronouns.forms import pronoun_formsets_are_valid, sort_formset
+from website.apps.pronouns.forms import create_pronoun_formset, save_pronoun_formset
 
 from website.apps.pronouns.tools import add_pronoun_table, copy_paradigm
-from website.apps.pronouns.tools import find_identicals, extract_rule
 
 from django_tables2 import SingleTableView, RequestConfig
 
@@ -65,10 +58,6 @@ def detail(request, paradigm_id):
             'pronoun_rows': add_pronoun_table(ptable),
             'relationship_table': None
         }
-        relationships = p.relationship_set.select_related().all()
-        if len(relationships) > 0:
-            out['relationship_table'] = PronounRelationshipTable(relationships)
-        
         return render(request, 'pronouns/detail.html', out)
     except Paradigm.DoesNotExist:
         raise Http404  # fail. Doesn't exist so pop out a 404
@@ -154,54 +143,6 @@ def edit_relationships(request, paradigm_id):
         'applied_rules': p.rule_set.all(),
     })
 
-
-@login_required()
-@reversion.create_revision()
-def process_rule(request, paradigm_id):
-    p = get_object_or_404(Paradigm, pk=paradigm_id)
-    # do we have do_identicals?
-    if 'process_identicals' in request.POST:
-        # 1. process form
-        members = find_identicals(p)
-        
-        # 2. implement rule
-        if len(members) > 0:
-            # 3. save rule to rule table.
-            rule = Rule.objects.create(
-                paradigm=p,
-                rule="Identical Entries set to Total Syncretism",
-                editor=request.user
-            )
-            for m1, m2 in members:
-                # Ignore anything we've already set
-                args = (m1[0], m2[0])
-                if not Relationship.objects.has_relationship_between(*args):
-                    rel = Relationship.objects.create(
-                        paradigm=p,
-                        pronoun1_id=m1[0],
-                        pronoun2_id=m2[0],
-                        relationship='TS',
-                        editor=request.user
-                    )
-                    rule.relationships.add(rel)
-        return redirect('pronouns:edit_relationships', p.id)
-        
-    elif 'process_rule' in request.POST:
-        # 1. process form
-        rule_form = RuleForm(request.POST or None)
-        if rule_form.is_valid():
-            # 2. implement rule
-            try:
-                rule = extract_rule(rule_form.clean())
-            except ValueError:
-                # form is broken - go away.
-                return redirect('pronouns:edit_relationships', p.id)
-                
-        # Note: Invalid forms are IGNORED
-        return redirect('pronouns:edit_relationships', p.id)
-    else:
-        return redirect('pronouns:detail', p.id)
-        
 
 
 @login_required()

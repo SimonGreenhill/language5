@@ -42,9 +42,9 @@ class Test_Detail(PronounsTestData, TestCase):
     @classmethod
     def setUpTestData(cls):
         super(Test_Detail, cls).setUpTestData()
-        self.url = reverse('pronouns:detail', kwargs={'paradigm_id': self.pdm.id})
-        self.client = Client()
-        self.response = self.client.get(self.url)
+        cls.url = reverse('pronouns:detail', kwargs={'paradigm_id': cls.pdm.id})
+        cls.client = Client()
+        cls.response = cls.client.get(cls.url)
 
     def test_200ok(self):
         self.assertEqual(self.response.status_code, 200)
@@ -95,39 +95,6 @@ class Test_Detail(PronounsTestData, TestCase):
         for p in self.pdm.pronoun_set.all():
             for e in p.entries.all():
                 self.assertContains(response, e.entry)
-
-    def test_shows_relationships(self):
-        """Should show defined relationships if present"""
-        assert False
-        self._create_relationship()
-        assert self.pdm.relationship_set.count() == 1, \
-            "I was expecting one relationship to be defined!"
-
-        # re-call the view.
-        response = self.client.get(self.url)
-
-        # test
-        assert response.context['relationship_table'] is not None, \
-            "Template variable relationship_table should be initialised"
-        self.assertContains(response, "Relationships")
-
-    def test_hides_relationships(self):
-        """Should NOT show relationships block if none are given"""
-        assert self.pdm.relationship_set.count() == 0, \
-            "I was expecting NO relationships to be defined!"
-        self.assertNotContains(self.response, "Relationships")
-
-    def test_relationship_details(self):
-        assert False
-        rel = self._create_relationship()
-        assert self.pdm.relationship_set.count() == 1, \
-            "I was expecting one relationship to be defined!"
-
-        # re-call the view.
-        response = self.client.get(self.url)
-        self.assertContains(response, "fudge-%d" % rel.pronoun1.id)
-        self.assertContains(response, "fudge-%d" % rel.pronoun2.id)
-
 
 
 # Test View: Add paradigm

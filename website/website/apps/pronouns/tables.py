@@ -29,20 +29,3 @@ class PronounTable(DataTable):
         sequence = ('pronountype', 'comment')
         exclude = ('id', 'editor', 'added', 'paradigm')
     Meta.attrs['summary'] = 'Table of Pronouns'
-
-
-class PronounRelationshipTable(DataTable):
-    """Pronoun Listing"""
-    pronoun1 = tables.Column(
-        accessor='pronoun1.pronountype', verbose_name="Pronoun 1"
-    )
-    pronoun2 = tables.Column(
-        accessor='pronoun2.pronountype', verbose_name="Pronoun 2"
-    )
-    
-    class Meta(DataTable.Meta):
-        model = Relationship
-        order_by = 'id'  # default sorting
-        sequence = ('pronoun1', 'relationship', 'pronoun2', 'comment')
-        exclude = ('id', 'editor', 'added', 'paradigm')
-    Meta.attrs['summary'] = 'Table of Pronoun Paradigm Relationship'
