@@ -46,6 +46,7 @@ class Test_Detail(PronounsTestData, TestCase):
         cls.client = Client()
         cls.response = cls.client.get(cls.url)
 
+
     def test_200ok(self):
         self.assertEqual(self.response.status_code, 200)
 
@@ -158,3 +159,43 @@ class Test_AddParadigmView(PronounsTestData, TestCase):
         }, follow=True)
         self.assertEqual(Paradigm.objects.count(), count + 1)
         self.assertContains(response, 'Xyzzy')
+
+
+class TestCopyParadigm(PronounsTestData, TestCase):
+
+    def setUp(self):
+        self.url = reverse(
+            'pronouns:copy_paradigm', kwargs={'paradigm_id': self.pdm.id}
+        )
+        self.client = Client()
+        self.client.login(username='admin', password='test')
+        self.response = self.client.get(self.url)
+
+    def test_200ok(self):
+        self.assertEqual(self.response.status_code, 200)
+        self.assertTemplateUsed(self.response, 'pronouns/copy.html')
+
+    def test_fail_when_not_logged_in(self):
+        self.assertEqual(self.client.get(self.url).status_code, 200)
+        self.client.logout()
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(
+            response, "%s?next=%s" % (reverse('login'), self.url)
+        )
+
+    def test_request_doesnt_generate(self):
+        assert Paradigm.objects.count() == 1
+        self.assertTemplateUsed(self.response, 'pronouns/copy.html')
+        assert Paradigm.objects.count() == 1
+
+    def test_adds_paradigm(self):
+        count = Paradigm.objects.count()
+        postdata = {
+            'submit': 'true',
+            'pdm-language': u'%d' % self.lang.id,
+            'pdm-source': u'%d' % self.source.id,
+        }
+        response = self.client.post(self.url, postdata)
+        assert Paradigm.objects.count() == count + 1
+        

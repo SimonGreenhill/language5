@@ -433,27 +433,27 @@ PronounCombinations = [
 
 
 class Test_EditParadigmView(TestCase):
-    
-    def setUp(self):
+    @classmethod
+    def setUpTestData(cls):
         """Note, this requires the full pronoun complement."""
-        self.editor = User.objects.create_user(
+        cls.editor = User.objects.create_user(
             'admin', 'admin@admin.com', "test"
         )
-        self.lang = Language.objects.create(
+        cls.lang = Language.objects.create(
             language='A',
             slug='langa',
             information='i.1',
             classification='a, b',
             isocode='aaa',
-            editor=self.editor
+            editor=cls.editor
         )
-        self.source = Source.objects.create(
+        cls.source = Source.objects.create(
             year="1991",
             author='Smith',
             slug='Smith1991',
             reference='S2',
             comment='c1',
-            editor=self.editor
+            editor=cls.editor
         )
         
         # Load all pronoun combinations
@@ -464,7 +464,7 @@ class Test_EditParadigmView(TestCase):
                 word=w,
                 slug=w.lower().replace(" ", "_"),
                 full=full_repr_row(p),
-                editor=self.editor
+                editor=cls.editor
             )
             this_word.save()
             
@@ -477,38 +477,39 @@ class Test_EditParadigmView(TestCase):
                 gender=gender,
                 sequence=i,
                 word=this_word,
-                editor=self.editor
+                editor=cls.editor
             )
             ptype.save()
             
         # change the paradigm, man
-        self.fullpdm = Paradigm.objects.create(
-            language=self.lang,
-            source=self.source,
-            editor=self.editor,
+        cls.fullpdm = Paradigm.objects.create(
+            language=cls.lang,
+            source=cls.source,
+            editor=cls.editor,
             comment="full paradigm"
         )
-        self.fullpdm.save()
+        cls.fullpdm.save()
         
         # add some lexicon...
-        for p in self.fullpdm.pronoun_set.all():
+        for p in cls.fullpdm.pronoun_set.all():
             lex = Lexicon.objects.create(
-                editor=self.editor,
-                language=self.lang,
-                source=self.source,
+                editor=cls.editor,
+                language=cls.lang,
+                source=cls.source,
                 word=p.pronountype.word,
                 entry='%d' % p.id
             )
             lex.save()
             p.entries.add(lex)
         
-        self.url = reverse(
-            'pronouns:edit', kwargs={'paradigm_id': self.fullpdm.id}
+        cls.url = reverse(
+            'pronouns:edit', kwargs={'paradigm_id': cls.fullpdm.id}
         )
-        self.detail_url = reverse(
-            'pronouns:detail', kwargs={'paradigm_id': self.fullpdm.id}
+        cls.detail_url = reverse(
+            'pronouns:detail', kwargs={'paradigm_id': cls.fullpdm.id}
         )
-        
+    
+    def setUp(self):
         self.client = Client()
         self.client.login(username='admin', password='test')
         self.response = self.client.get(self.url)
@@ -622,22 +623,30 @@ class Test_EditParadigmView(TestCase):
     
     def test_form_removes_empty_string(self):
         postdata = self._generate_post_data(self.fullpdm)
-        postdata['1_1-0-entry'] = u''
+        
+        deleted_key = [k for k in postdata if k.endswith('-entry')][0]
+        deleted_key_id = int(deleted_key.split("_")[0])
+        postdata[deleted_key] = u''
         
         response = self.client.post(self.url, postdata)
         self.assertRedirects(response, self.detail_url)
         
         updatedpdm = Paradigm.objects.get(pk=self.fullpdm.id)
         
+        print(deleted_key, deleted_key_id)
+        
         for pronoun in updatedpdm.pronoun_set.all():
-            if pronoun.id == 1:  # the one we deleted
+            print(pronoun, pronoun.entries.count())
+            if pronoun.id == deleted_key_id:  # the one we deleted
                 assert pronoun.entries.count() == 0
             else:
                 assert pronoun.entries.count() == 1
     
     def test_form_removes_null_value(self):
         postdata = self._generate_post_data(self.fullpdm)
-        del(postdata['1_1-0-entry'])   # entry not submitted
+        deleted_key = [k for k in postdata if k.endswith('-entry')][0]
+        deleted_key_id = int(deleted_key.split("_")[0])
+        postdata[deleted_key] = u''
         
         response = self.client.post(self.url, postdata)
         self.assertRedirects(response, self.detail_url)
@@ -645,7 +654,7 @@ class Test_EditParadigmView(TestCase):
         updatedpdm = Paradigm.objects.get(pk=self.fullpdm.id)
         
         for pronoun in updatedpdm.pronoun_set.all():
-            if pronoun.id == 1:  # the one we deleted
+            if pronoun.id == deleted_key_id:  # the one we deleted
                 assert pronoun.entries.count() == 0
             else:
                 assert pronoun.entries.count() == 1
