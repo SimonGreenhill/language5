@@ -315,21 +315,6 @@ class TestFormsetCreator(FormsetMixin, TestCase):
                 assert len(entries) == 1
                 assert entries[0].entry == 'pron-{0}'.format(pron.id)
                 assert entries[0].annotation == 'ann-{0}'.format(pron.id)
-        
-    def test_save_with_delete(self):
-        postdata = self._generate_post_data(self.pdm)
-        postdata['1_1-0-entry'] = u''
-        
-        for pronoun, formset in create_pronoun_formset(self.pdm, postdata):
-            save_pronoun_formset(self.pdm, pronoun, formset, self.editor)
-        
-        # should now have 2 lexical items
-        assert Lexicon.objects.count() == 2, "expecting 2"
-        # should have an empty pronoun set for pronoun 1
-        assert Pronoun.objects.get(pk=1).entries.count() == 0
-        # should have deleted the lexical object 1
-        with self.assertRaises(Lexicon.DoesNotExist):
-            assert Lexicon.objects.get(pk=1)
             
 
 class TestFormsetSorter(FormsetMixin, TestCase):

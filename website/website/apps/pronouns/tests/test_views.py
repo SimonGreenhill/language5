@@ -46,7 +46,6 @@ class Test_Detail(PronounsTestData, TestCase):
         cls.client = Client()
         cls.response = cls.client.get(cls.url)
 
-
     def test_200ok(self):
         self.assertEqual(self.response.status_code, 200)
 
@@ -60,15 +59,12 @@ class Test_Detail(PronounsTestData, TestCase):
         self.assertContains(self.response, 'test')
 
     def test_label_in_content(self):
-        assert False
-        # self.pdm.label = 'sausage'
-        # self.pdm.save()
         self.response = self.client.get(self.url)
         self.assertEqual(self.response.status_code, 200)
         self.assertContains(self.response, unicode(self.pdm))
-        self.assertContains(self.response, 'sausage')
+        self.assertContains(self.response, 'label')
         self.assertContains(
-            self.response, '<h1>Pronoun Paradigm: A: sausage</h1>'
+            self.response, '<h1>Pronoun Paradigm: A: label</h1>'
         )
 
     def test_content_rows(self):
@@ -77,10 +73,12 @@ class Test_Detail(PronounsTestData, TestCase):
 
     def test_content_values(self):
         for p in self.pdm.pronoun_set.all():
-            self.assertContains(self.response, p.entries.all()[0].entry)
+            entries = p.entries.all()
+            if len(entries):
+                self.assertContains(self.response, entries[0].entry)
 
     def test_content_multiple_values(self):
-        assert False
+        extra = []
         for counter, p in enumerate(self.pdm.pronoun_set.all(), 1):
             lex = Lexicon.objects.create(
                 editor=self.editor,
@@ -89,13 +87,15 @@ class Test_Detail(PronounsTestData, TestCase):
                 word=self.word,
                 entry='cake-%d' % counter
             )
-            lex.save()
+            extra.append(lex)
             p.entries.add(lex)
-
+        
         response = self.client.get(self.url)
         for p in self.pdm.pronoun_set.all():
             for e in p.entries.all():
                 self.assertContains(response, e.entry)
+        
+        [lex.delete() for lex in extra]           # remove
 
 
 # Test View: Add paradigm

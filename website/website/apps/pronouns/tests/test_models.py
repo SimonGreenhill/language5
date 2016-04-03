@@ -15,11 +15,22 @@ class Test_PronounType(PronounsTestData, TestCase):
 
 class Test_Paradigm(PronounsTestData, TestCase):
     def test_repr_no_label(self):
-        assert unicode(self.pdm) == 'A'
+        pdm = Paradigm(
+            language=self.lang,
+            source=self.source,
+            editor=self.editor,
+            label="",
+        )
+        assert unicode(pdm) == 'A', "Got: %s" % unicode(pdm)
 
     def test_repr_with_label(self):
-        self.pdm.label = 'test'
-        assert unicode(self.pdm) == 'A: test'
+        pdm = Paradigm(
+            language=self.lang,
+            source=self.source,
+            editor=self.editor,
+            label="label",
+        )
+        assert unicode(pdm) == 'A: label', "Got: %s" % unicode(pdm)
         
     def test_have_some_pronoun_types(self):
         assert self.pdm.pronoun_set.count() == 3

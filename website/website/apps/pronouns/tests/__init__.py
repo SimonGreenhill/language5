@@ -49,7 +49,9 @@ class PronounsTestData(object):
             language=cls.lang,
             source=cls.source,
             editor=cls.editor,
-            comment="test"
+            comment="test",
+            label="label",
+            analect="F"
         )
         cls.pdm._prefill_pronouns()
         
@@ -70,11 +72,21 @@ class PronounsTestData(object):
             word=cls.word,
             entry='lexicon 2'
         )
+        cls.lex3 = Lexicon.objects.create(
+            editor=cls.editor,
+            source=cls.source,
+            language=cls.lang,
+            word=cls.word,
+            entry='lexicon 3'
+        )
         cls.p1.entries.add(cls.lex1)
         cls.p1.save()
 
         cls.p2.entries.add(cls.lex2)
         cls.p2.save()
+
+        cls.p3.entries.add(cls.lex3)
+        cls.p3.save()
 
         cls.rel = Relationship.objects.create(
             paradigm=cls.pdm,
