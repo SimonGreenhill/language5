@@ -2,15 +2,12 @@ from django.test import TestCase
 
 from website.apps.pronouns.models import PronounType, Pronoun
 from website.apps.pronouns.tools import full_repr_row
-from website.apps.pronouns.tests import DefaultSettingsMixin
+from website.apps.pronouns.tests import PronounsTestData
 
-class TestReprRow(DefaultSettingsMixin, TestCase):
-    
-    def setUp(self):
-        self.add_fixtures()
+class TestReprRow(PronounsTestData, TestCase):
     
     def test_obj(self):
-        pt = PronounType.objects.create(
+        pt = PronounType(
             number='sg',
             alignment="A",
             person="1",
@@ -19,7 +16,7 @@ class TestReprRow(DefaultSettingsMixin, TestCase):
             editor=self.editor,
             word=self.word
         )
-        p = Pronoun.objects.create(
+        p = Pronoun(
             paradigm=self.pdm,
             editor=self.editor,
             pronountype=pt
@@ -36,7 +33,7 @@ class TestReprRow(DefaultSettingsMixin, TestCase):
         assert full_repr_row(d) == "1st (excl) Person Singular"
         
     def test_obj_no_gender(self):
-        pt = PronounType.objects.create(
+        pt = PronounType(
             number='sg',
             alignment="A",
             person="1",
@@ -45,7 +42,7 @@ class TestReprRow(DefaultSettingsMixin, TestCase):
             editor=self.editor,
             word=self.word
         )
-        p = Pronoun.objects.create(
+        p = Pronoun(
             paradigm=self.pdm, editor=self.editor, pronountype=pt
         )
         assert full_repr_row(p) == "1st (excl) Person Singular Gender 1"

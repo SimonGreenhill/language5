@@ -76,11 +76,6 @@
                 Edit Pronoun Paradigm.
             </a>
             <a class="btn"
-                href="{% url "pronouns:edit_relationships" paradigm.id %}"> 
-                <i class="icon-edit"></i>
-                Edit Pronoun Paradigm Relationships.
-            </a>
-            <a class="btn"
                 href="{% url "pronouns:copy_paradigm" paradigm.id %}"> 
                 <i class="icon-exclamation-sign"></i>
                 Copy Pronoun Paradigm.
@@ -93,11 +88,6 @@
         
         {% include "pronouns/template_pronoun_detail.html" %}
         
-    
-	{% if relationship_table %}
-    	<h3> Relationships: </h3>
-            {% render_table relationship_table "table.html" %}
-    {% endif %}
     
 	<!-- initialise tooltips -->
     <script>

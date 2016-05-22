@@ -1,15 +1,14 @@
 from django.test import TestCase
 
-from website.apps.lexicon.models import Lexicon
-from website.apps.pronouns.models import Pronoun
-from website.apps.pronouns.tests import DefaultSettingsMixin
-from website.apps.pronouns.forms import create_pronoun_formset
-from website.apps.pronouns.forms import save_pronoun_formset
-from website.apps.pronouns.forms import pronoun_formsets_are_valid
-from website.apps.pronouns.forms import sort_formset
+from django.contrib.auth.models import User
+from website.apps.core.models import Language, Source
+from website.apps.lexicon.models import Word, Lexicon
+from website.apps.pronouns.models import Paradigm, PronounType, Pronoun, Relationship
+from website.apps.pronouns.forms import create_pronoun_formset, save_pronoun_formset
+from website.apps.pronouns.forms import pronoun_formsets_are_valid, sort_formset
 
 
-class FormsetMixin(DefaultSettingsMixin):
+class FormsetMixin(object):
     """
     Extra Settings Mixin for Formsets Test
     
@@ -27,16 +26,59 @@ class FormsetMixin(DefaultSettingsMixin):
         annotation = 'banana'
     
     """
-    def setUp(self):
-        self.add_fixtures()
-        # add some entries and comments
-        for pron in self.pdm.pronoun_set.all():
+    @classmethod
+    def setUpTestData(cls):
+        cls.editor = User.objects.create_user(
+            'admin', 'admin@admin.com', "test"
+        )
+        cls.lang = Language.objects.create(
+            language='A', slug='langa',
+            information='i.1',
+            classification='a, b',
+            isocode='aaa', editor=cls.editor
+        )
+        cls.source = Source.objects.create(
+            year="1991", author='Smith',
+            slug='Smith1991', reference='S2',
+            comment='c1', editor=cls.editor
+        )
+        cls.word = Word.objects.create(
+            word='Pronoun', slug='apronoun',
+            full='pronoun', editor=cls.editor
+        )
+        # add some pronoun types
+        for person in [1, 2, 3]:
+            w = Word.objects.create(
+                word="pronoun-a-%d-sg" % person,
+                slug="pronoun-a-%d-sg" % person,
+                editor=cls.editor
+            )
+            w.save()
+            p = PronounType.objects.create(
+                word=w,
+                alignment='A', person=person, number='sg',
+                sequence=person,  # dummy variable just for sorting
+                editor=cls.editor
+            )
+            p.save()
+        
+        # create this here so that _prefill_pronouns() takes advantage of our
+        # newly created pronountypes
+        cls.pdm = Paradigm.objects.create(
+            language=cls.lang,
+            source=cls.source,
+            editor=cls.editor,
+            comment="test"
+        )
+        cls.pdm._prefill_pronouns()
+        
+        for pron in cls.pdm.pronoun_set.all():
             # modify the stored entries so we can identify them later.
             pron.entries.add(Lexicon.objects.create(
-                editor=self.editor,
-                source=self.source,
-                language=self.lang,
-                word=self.word,
+                editor=cls.editor,
+                source=cls.source,
+                language=cls.lang,
+                word=cls.word,
                 entry='pron-{0}'.format(pron.id),
                 annotation='ann-{0}'.format(pron.id)
             ))
@@ -273,21 +315,6 @@ class TestFormsetCreator(FormsetMixin, TestCase):
                 assert len(entries) == 1
                 assert entries[0].entry == 'pron-{0}'.format(pron.id)
                 assert entries[0].annotation == 'ann-{0}'.format(pron.id)
-        
-    def test_save_with_delete(self):
-        postdata = self._generate_post_data(self.pdm)
-        postdata['1_1-0-entry'] = u''
-        
-        for pronoun, formset in create_pronoun_formset(self.pdm, postdata):
-            save_pronoun_formset(self.pdm, pronoun, formset, self.editor)
-        
-        # should now have 2 lexical items
-        assert Lexicon.objects.count() == 2, "expecting 2"
-        # should have an empty pronoun set for pronoun 1
-        assert Pronoun.objects.get(pk=1).entries.count() == 0
-        # should have deleted the lexical object 1
-        with self.assertRaises(Lexicon.DoesNotExist):
-            assert Lexicon.objects.get(pk=1)
             
 
 class TestFormsetSorter(FormsetMixin, TestCase):
