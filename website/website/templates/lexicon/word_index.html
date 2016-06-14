@@ -28,12 +28,12 @@
             </li>
             {% for w in subsets %}
                 <li{% ifequal subset w %} class="active" {% endifequal %}>
-                    <a href="{% url "subset-detail" w %}"><i class="icon-tags"></i> {{ w }} </a>
+                    <a href="{% url "word-index" %}?subset={{w}}"><i class="icon-tags"></i> {{ w }} </a>
                 </li>
             {% endfor %}
             {% for w in letters %}
                 <li{% ifequal subset w %} class="active" {% endifequal %}>
-                    <a href="{% url "subset-detail" w %}"><i class="icon-tags"></i> {{ w }} </a>
+                    <a href="{% url "word-index" %}?subset={{w}}"><i class="icon-tags"></i> {{ w }} </a>
                 </li>
             {% endfor %}
         </ul>
