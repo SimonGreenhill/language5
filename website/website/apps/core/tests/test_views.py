@@ -315,7 +315,7 @@ class Test_FamilyIndex(BaseMixin, PaginatorTestMixin, TestCase):
     def test_show_subsets(self):
         response = self.client.get(self.url)
         for subset in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
-            url = reverse('family-index-subset', kwargs={'subset': subset})
+            url = "%s?subset=%s" % (reverse('family-index'), subset)
             self.assertContains(response, url)
     
     def test_filter_on_subset(self):
@@ -433,7 +433,7 @@ class Test_SourceIndex(BaseMixin, PaginatorTestMixin, TestCase):
     def test_show_subsets(self):
         response = self.client.get(self.url)
         for subset in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
-            url = reverse('source-index-subset', kwargs={'subset': subset})
+            url = "%s?subset=%s" % (reverse('source-index'), subset)
             self.assertContains(response, url)
     
     def test_filter_on_subset(self):
