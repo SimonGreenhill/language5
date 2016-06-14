@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.signals import pre_save
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 from website.signals import create_redirect
 
 from reversion import revisions as reversion
@@ -61,9 +62,8 @@ class Source(TrackedModel):
         else:
             return self.author
     
-    @models.permalink
     def get_absolute_url(self):
-        return ('source-detail', [self.slug])
+        return reverse('source-detail', kwargs={'slug': self.slug})
     
     class Meta:
         db_table = 'sources'
@@ -100,9 +100,8 @@ class Family(TrackedModel):
     def __unicode__(self):
         return self.family
         
-    @models.permalink
     def get_absolute_url(self):
-        return ('family-detail', [self.slug])
+        return reverse('family-detail', kwargs={'slug': self.slug})
     
     class Meta:
         db_table = 'families'
@@ -135,9 +134,8 @@ class Language(TrackedModel):
         else:
             return unicode(self.language)
     
-    @models.permalink
     def get_absolute_url(self):
-        return ('language-detail', [self.slug])
+        return reverse('language-detail', kwargs={'language': self.slug})
     
     class Meta:
         unique_together = ("isocode", "language", "dialect")
@@ -160,9 +158,8 @@ class AlternateName(TrackedModel):
     def __unicode__(self):
         return "%s AKA %s" % (self.language, self.slug)
         
-    @models.permalink
     def get_absolute_url(self):
-        return ('language-detail', [self.language.slug])
+        return reverse('language-detail', kwargs={'language': self.language.slug})
         
     class Meta:
         verbose_name_plural = 'Alternate Language Names'
@@ -213,7 +210,6 @@ class Attachment(TrackedModel):
     def __unicode__(self):
         return self.file.name
     
-    @models.permalink
     def get_absolute_url(self):
         return self.file.url
         
