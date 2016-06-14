@@ -106,9 +106,6 @@ if 'website.apps.lexicon' in settings.INSTALLED_APPS:
         # Word-Detail: Show the given word
         url(r'^word/(?P<slug>[\w\d\-\.]+)$', WordDetail.as_view(), name="word-detail"),
         
-        # Subset-Detail: Show the given word subset
-        url(r'^word/\?subset=(?P<slug>[\w\d\-\.]+)$', WordDetail.as_view(), name="subset-detail"),
-        
         # lexicon-detail: detail of lexical item.
         url(r'^lexicon/(?P<pk>\d+)$', LexiconDetail.as_view(), name="lexicon-detail"),
         
