@@ -33,5 +33,4 @@ class LexiconResource(UTF8ModelResource):
         allowed_methods = ['get']
         excludes = []
         cache = SimpleCache(timeout=10)
-        authorization = DjangoAuthorization()
 
