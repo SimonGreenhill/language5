@@ -89,14 +89,10 @@ class Test_LexiconResource(DataMixin, TestCase):
         assert 'C' in records
 
 
-
-
 class Test_LanguageMapResource(DataMixin, TestCase):
     url = '/api/v1/languagemap/'
     
     def setUp(self):
-        self.response = self.client.get(self.url)
-        self.json = self.response.json()
         self.loc1 = Location.objects.create(
             isocode=self.lang1.isocode,
             latitude=1.0,
@@ -109,12 +105,14 @@ class Test_LanguageMapResource(DataMixin, TestCase):
             longitude=100.1,
             editor=self.editor
         )
+        self.response = self.client.get(self.url)
+        self.json = self.response.json()
     
     def test_200ok(self):
         self.assertEqual(self.response.status_code, 200)
         
     def test_result(self):
-        print(self.json)
-        import IPython; IPython.embed()
-        assert len(self.json['objects']) == 3
-        records = [o['entry'] for o in self.json['objects']]
+        assert len(self.json['objects']) == 2
+        records = [o['language'] for o in self.json['objects']]
+        assert 'A' in records
+        assert 'B' in records
