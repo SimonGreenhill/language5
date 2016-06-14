@@ -77,13 +77,13 @@ class Command(BaseCommand):
             cogs = ",".join([
                 repr_cog(_.cognateset.id, _.source_id) for _ in lex.cognate_set.all()
             ])
-            
+            annot = lex.annotation.replace('\t', '') if lex.annotation else ""
             print(u"\t".join([
                 "%s" % lex.id,
                 lex.language.slug,
                 lex.word.slug,
                 lex.source.slug,
                 lex.entry.replace('\t', ''),
-                lex.annotation.replace('\t', ''),
+                annot,
                 cogs
             ]))

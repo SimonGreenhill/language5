@@ -178,7 +178,6 @@ INSTALLED_APPS = [
     'twitter_tag',                       # twitter tag
     'tastypie',                          # API
     'django_nvd3',                       # for graphing statistics
-
 ]
 
 LOGGING = {
