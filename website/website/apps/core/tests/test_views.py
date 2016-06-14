@@ -119,7 +119,7 @@ class Test_LanguageIndex(BaseMixin, PaginatorTestMixin, TestCase):
     def test_show_subsets(self):
         response = self.client.get(self.url)
         for subset in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
-            url = reverse('language-index-subset', kwargs={'subset': subset})
+            url = "%s?subset=%s" % (reverse('language-index'), subset)
             self.assertContains(response, url)
     
     def test_filter_on_subset(self):
