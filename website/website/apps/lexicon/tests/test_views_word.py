@@ -26,22 +26,22 @@ class Test_WordIndex(DataMixin, PaginatorTestMixin, TestCase):
 
     def test_get_all_words(self):
         # just getting the words index should get all words.
-        self.assertEquals(self.response.status_code, 200)
         assert 'table' in self.response.context
         self.assertEquals(len(self.response.context['table'].rows), 3)
 
     def test_get_has_subsets(self):
         # page should have subsets listed
-        self.assertEquals(self.response.status_code, 200)
         self.assertEquals(len(self.response.context['subsets']), 3)
         self.assertEquals(
             len(self.response.context['subsets']),
             WordSubset.objects.count()
         )
-
+    
+    def test_get_renders_subsets_correctly(self):
+        assert '<a href="/word/?subset=all">' in self.response.content
+    
     def test_get_no_subset_context_is_none(self):
         # if there's no subset requested then the var `subset` will be None
-        self.assertEquals(self.response.status_code, 200)
         self.assertEquals(self.response.context['subset'], None)
 
     def test_get_subset(self):

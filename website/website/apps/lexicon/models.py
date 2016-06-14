@@ -58,9 +58,8 @@ class Word(TrackedModel):
     def fullword(self): 
         return self.__unicode__()
     
-    @models.permalink
     def get_absolute_url(self):
-        return ('word-detail', [self.slug])
+        return reverse('word-detail', kwargs={'slug': self.slug})
     
     class Meta:
         db_table = 'words'
@@ -81,9 +80,8 @@ class WordSubset(TrackedModel):
     def __unicode__(self):
         return self.slug
         
-    @models.permalink
     def get_absolute_url(self):
-        return ('subset-detail', [self.slug])
+        return "%s?subset=%s" % (reverse('word-index'), self.slug)
         
     class Meta:
         db_table = 'wordsubsets'
@@ -115,9 +113,8 @@ class Lexicon(TrackedModel):
     def __unicode__(self):
         return u"%d-%s" % (self.id, self.entry)
         
-    @models.permalink
     def get_absolute_url(self):
-        return ('lexicon-detail', [self.pk])
+        return reverse('lexicon-detail', kwargs={'pk': self.pk})
         
     class Meta:
         db_table = 'lexicon'
@@ -141,9 +138,8 @@ class CognateSet(TrackedModel):
     def __unicode__(self):
         return "%d. %s '%s'" % (self.id, self.protoform, self.gloss)
     
-    @models.permalink
     def get_absolute_url(self):
-        return ('cognacy:detail', [self.pk])
+        return reverse('cognacy:detail', kwargs={'pk': self.pk})
     
     class Meta:
         db_table = 'cognatesets'
