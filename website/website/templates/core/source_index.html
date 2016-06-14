@@ -22,7 +22,7 @@
         <strong>Filter:</strong>
         <a class="btn btn-mini{% ifequal subset None %} btn-success{% endifequal %}" href="{% url "source-index" %}"> (all) </a>
         {% for s in subsets %}
-            <a class="btn btn-mini{% ifequal subset s %} btn-success{% endifequal %}" href="{% url "source-index-subset" s %}"> {{ s }} </a>
+            <a class="btn btn-mini{% ifequal subset s %} btn-success{% endifequal %}" href="{% url "source-index" %}?subset={{ s }}"> {{ s }} </a>
         {% endfor %}
     </div>
     
