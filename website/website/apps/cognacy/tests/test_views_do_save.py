@@ -104,7 +104,7 @@ class Test_Save(DataMixin):
         form_data = self.form_data
         form_data['c-%d' % self.lex_a.id] = "banana"
         response = self.AuthenticatedClient.post(self.url, form_data, follow=True)
-        assert 'ERROR u&#39;banana&#39; for lexicon 1 is not a number' in response.content
+        assert 'ERROR u&#39;banana&#39; for lexicon' in response.content
         
     def test_cant_be_in_same_set_twice(self):
         form_data = self.form_data
@@ -139,11 +139,9 @@ class Test_Save(DataMixin):
         #  assert len(reversion.get_deleted(Lexicon)) == 1   ## FAILS!
     
     def test_notes(self):
-        assert CognateNote.objects.count() == 0
         form_data = self.form_data
         form_data['comment-word'] = self.word.id
         form_data['comment-comment'] = "this is a test"
         response = self.AuthenticatedClient.post(self.url, form_data, follow=True)
-        assert CognateNote.objects.count() == 1
-        assert CognateNote.objects.get(pk=1).note == "this is a test"
+        assert CognateNote.objects.all().filter(word=self.word)[0].note == "this is a test"
  
