@@ -14,15 +14,16 @@ class Command(BaseCommand):
     args = '<filename ../path/to/file>'
     help = 'Imports the given data file'
     output_transaction = True
-    option_list = BaseCommand.option_list + (
-        make_option('--run',
+    
+    DATA_ROOT = os.path.join(os.path.split(settings.SITE_ROOT)[0], 'data')
+    
+    def add_arguments(self, parser):
+        parser.add_argument('--run',
             action='store_true',
             dest='run',
             default=False,
-            help='Run'),
-    )
-    
-    DATA_ROOT = os.path.join(os.path.split(settings.SITE_ROOT)[0], 'data')
+            help='Run'
+        )
     
     def list_datafiles(self):
         files = [_ for _ in os.listdir(self.DATA_ROOT)]

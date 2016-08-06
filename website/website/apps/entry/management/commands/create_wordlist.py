@@ -11,22 +11,22 @@ from website.apps.entry.models import Wordlist, WordlistMember
 class Command(BaseCommand):
     args = 'wordlist_name filename.txt'
     help = 'Creates a wordlist in `wordlist_name` from `filename.txt`'
-    option_list = BaseCommand.option_list + (
-        make_option(
+    
+    def add_arguments(self, parser):
+        parser.add_argument(
             '--run',
             action='store_true',
             dest='run',
             default=False,
             help='Run'
-        ),
-        make_option(
+        )
+        parser.add_argument(
             '--create',
             action='store_true',
             dest='create',
             default=False,
             help='Create unknown words'
-        ),
-    )
+        )
     
     def parse(self, handle, create=False):
         """Reads a filename. Ordering is set to order in file

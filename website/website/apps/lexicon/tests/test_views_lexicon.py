@@ -97,11 +97,11 @@ class Test_LexiconEdit(DataMixin, TestCase):
         assert now > added, "%r is not larger than %r" % (now, added)
         
     def test_create_revision(self):
-        from reversion import revisions as reversion
-        version_list = reversion.get_for_object(self.lexicon1)
+        from reversion.models import Version
+        version_list = Version.objects.get_for_object(self.lexicon1)
         assert len(version_list) == 0
         self.client.login(username="admin", password="test")
         self.client.post(self.url, self.get_post_data(self.lexicon1), follow=True)
-        version_list = reversion.get_for_object(self.lexicon1)
+        version_list = Version.objects.get_for_object(self.lexicon1)
         assert len(version_list) == 1
     

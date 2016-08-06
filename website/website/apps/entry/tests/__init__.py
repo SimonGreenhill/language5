@@ -26,9 +26,12 @@ class DataMixin(TestCase):
             editor=cls.editor
         )
         cls.lang = Language.objects.create(
-            language='A', slug='langa', 
-            information='i.1', classification='a, b',
-            isocode='aaa', editor=cls.editor
+            language='A',
+            slug='langa',
+            information='i.1',
+            classification='a, b',
+            isocode='aaa',
+            editor=cls.editor
         )
         cls.task = Task.objects.create(
             editor=cls.editor,
@@ -43,8 +46,10 @@ class DataMixin(TestCase):
             records=1, # needed so we don't have too many empty forms to validate
         )
         cls.word = Word.objects.create(
-            word='Hand', slug='hand', 
-            full='a hand', editor=cls.editor
+            word='Hand',
+            slug='hand',
+            full='a hand',
+            editor=cls.editor
         )
             
         # for formset validation

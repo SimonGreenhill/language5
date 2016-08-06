@@ -11,35 +11,40 @@ class Command(BaseCommand):
     args = 'split_entries --save [--word --language --source]'
     help = 'Splits Combined Lexical Entries'
     output_transaction = True
-    option_list = BaseCommand.option_list + (
-        make_option('--save',
+    
+    def add_arguments(self, parser):
+        parser.add_argument('--save',
             action='store_true',
             dest='save',
             default=False,
-            help='Save changes'),
-        make_option('--language',
+            help='Save changes'
+        )
+        parser.add_argument('--language',
             action='store',
             type='int',
             dest='language',
             default=False,
-            help='Filter by language_id'),
-        make_option('--word',
+            help='Filter by language_id'
+        )
+        parser.add_argument('--word',
             action='store',
             type='int',
             dest='word',
             default=False,
-            help='Filter by word_id'),
-        make_option('--source',
+            help='Filter by word_id'
+        )
+        parser.add_argument('--source',
             action='store',
             type='int',
             dest='source',
             default=False,
-            help='Filter by source_id'),
-        make_option('--quiet',
+            help='Filter by source_id'
+        )
+        parser.add_argument('--quiet',
             action='store_true',
             dest='save',
             default=False,
-            help='be quiet'),
+            help='be quiet'
         )
         
     def _print(self, message, quiet=False):
