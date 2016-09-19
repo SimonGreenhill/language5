@@ -1,28 +1,30 @@
-django==1.9.4                                                          # django framework
+django==1.10                                                          # django framework
 fabric                                                                 # deployment etc
 pillow==3.1.1                                                          # A better python imaging library
-#psycopg2                                                               # database adaptor
-django-reversion==1.10.1                                               # versioning
-django-tables2==1.1.2                                                  # better table handling
+psycopg2                                                               # database adaptor
+django-reversion==2.0.6                                              # versioning
+django-tables2==1.2.5                                                  # better table handling
 django-static-sitemaps==4.0.0                                          # static sitemaps
 django_compressor==2.0                                                 # for asset compression/cache busting
 django-twitter-tag                                                     # twitter integration
 django-nvd3                                                            # for graphing statistics
 django-tastypie==0.13.3                                                # API
 #django-watson==1.2.0                                                   # searching
+-e git://github.com/etianen/django-watson.git#egg=django-watson     
 
 # backup
 django-dbbackup>=2.4.1
 simples3
 
 # test coverage
-coverage==4.0.3
+coverage==4.2
 
 # data/import
 regex
 xlrd
 requests
 -e git://github.com/LuminosoInsight/python-ftfy.git#egg=python-ftfy    # tidy up unicode
+openpyxl
 
 # development
 IPython

@@ -1,3 +1,4 @@
+from reversion import revisions as reversion
 from reversion.models import Version
 from django.test import TestCase
 from django.test.client import Client
@@ -137,7 +138,6 @@ class Test_Save(DataMixin):
             Lexicon.objects.get(pk=self.lex_b.id)
     
     def test_notes(self):
-        assert CognateNote.objects.count() == 0
         form_data = self.form_data
         form_data['comment-word'] = self.word.id
         form_data['comment-comment'] = "this is a test"

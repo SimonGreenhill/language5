@@ -12,14 +12,9 @@ from website.apps.entry.models import Task
 from website.apps.entry.tests import DataMixin
 
 
-class Test_GenericView(DataMixin):
-    """Tests the GenericView Detail Page"""
-    
-    def test_template_used(self):
-        self.client.login(username="admin", password="test")
-        response = self.client.get(self.task.get_absolute_url())
-        self.assertTemplateUsed(response, 'entry/detail.html')
-    
+class Test_GenericViewBase(DataMixin):
+    """Tests the GenericView Detail Page -- base things"""
+
     def test_testimage_is_present(self):
         """
         This test makes sure that the test image is present on the file-system
@@ -37,31 +32,44 @@ class Test_GenericView(DataMixin):
              "/accounts/login/?next=%s" % self.task.get_absolute_url(), 
              status_code=302, target_status_code=200
         )
-        
+
     def test_ok_when_logged_in(self):
         self.client.login(username="admin", password="test")
         response = self.client.get(self.task.get_absolute_url())
         self.assertEqual(response.status_code, 200)
+
+
+class Test_GenericView(DataMixin):
+    """Tests the GenericView Detail Page"""
+    
+    def setUp(self):
+        self.client.login(username="admin", password="test")
+    
+    # helper
+    def _make_task(self, name="", done=False, records=1):
+        return Task.objects.create(
+            editor=self.editor,
+            name=name,
+            image=self.file_testimage,
+            description="",
+            source=self.source,
+            language=self.lang,
+            done=done,
+            completable=False,
+            view="GenericView",
+            records=records
+        )
+    
+    def test_template_used(self):
+        response = self.client.get(self.task.get_absolute_url())
+        self.assertTemplateUsed(response, 'entry/detail.html')
         
     def test_active_task(self):
-        self.client.login(username="admin", password="test")
         response = self.client.get(self.task.get_absolute_url())
         self.assertEqual(response.status_code, 200)
         
     def test_completed_task(self):
-        self.client.login(username="admin", password="test")
-        task = Task.objects.create(
-            editor=self.editor,
-            name="Test Non-completable Task",
-            description="A Test of Data Entry",
-            source=self.source,
-            image=self.file_testimage,
-            language=self.lang,
-            done=True,
-            completable=False,
-            view="GenericView",
-            records=1, # needed so we don't have too many empty forms to validate
-        )
+        task = self._make_task(done=True)
         response = self.client.get(task.get_absolute_url())
         self.assertRedirects(response, 
             reverse('entry:complete', kwargs={'pk': task.id}), 
@@ -69,187 +77,87 @@ class Test_GenericView(DataMixin):
         )
         
     def test_number_of_records(self):
-        self.client.login(username="admin", password="test")
         response = self.client.get(self.task.get_absolute_url())
         assert len(response.context['formset'].forms) == 1
-        task = Task.objects.create(
-            editor=self.editor,
-            name="Test Non-completable Task",
-            description="A Test of Data Entry",
-            source=self.source,
-            image=self.file_testimage,
-            language=self.lang,
-            done=False,
-            completable=False,
-            view="GenericView",
-            records=2, # needed so we don't have too many empty forms to validate
-        )
+        task = self._make_task(records=2)
         response = self.client.get(task.get_absolute_url())
         assert len(response.context['formset'].forms) == 2
         
     def test_post_does_not_set_done_if_not_completable(self):
-        self.client.login(username="admin", password="test")
-        task = Task.objects.create(
-            editor=self.editor,
-            name="Test Non-completable Task",
-            description="A Test of Data Entry",
-            source=self.source,
-            image=self.file_testimage,
-            language=self.lang,
-            done=False,
-            completable=False,
-            view="GenericView",
-            records=1, # needed so we don't have too many empty forms to validate
-        )
+        task = self._make_task()
         response = self.client.post(task.get_absolute_url(), self.form_data)
         assert not Task.objects.get(pk=task.id).done
     
     def test_post_sets_done_if_completable(self):
-        self.client.login(username="admin", password="test")
-        task = Task.objects.create(
-            editor=self.editor,
-            name="Test Non-completable Task",
-            description="A Test of Data Entry",
-            source=self.source,
-            image=self.file_testimage,
-            language=self.lang,
-            done=False,
-            completable=True,
-            view="GenericView",
-            records=1, # needed so we don't have too many empty forms to validate
-        )
+        task = self._make_task()
+        task.completable = True
+        task.save()
         response = self.client.post(task.get_absolute_url(), self.form_data)
         assert Task.objects.get(pk=task.id).done
     
     def test_unfixed_language_in_template(self):
-        self.client.login(username="admin", password="test")
-        task = Task.objects.create(
-            editor=self.editor,
-            name="Test Task - Fixed Language",
-            description="",
-            source=self.source,
-            done=False,
-            view="GenericView",
-            records=1, # needed so we don't have too many empty forms to validate
-        )
+        task = self._make_task()
+        task.language = None
+        task.save()
+        
         response = self.client.get(task.get_absolute_url())
+        
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'entry/detail.html')
         self.assertTemplateUsed(response, 'entry/formtemplates/generic.html')
-        self.assertContains(response, '<option value="1">A</option>', count=1)
+        self.assertContains(
+            response,
+            '<option value="%d">%s</option>' % (self.lang.id, self.lang.language),
+            count=1
+        )
         self.assertContains(response, 'form-0-language', count=3)
         
     def test_fixed_language_in_template(self):
-        self.client.login(username="admin", password="test")
-        
-        lang = self.lang
-        lang.pk = None
-        lang.language = "TEST LANGUAGE"
-        lang.save()
-        
-        task = Task.objects.create(
-            editor=self.editor,
-            name="Test Task - Fixed Language",
-            description="",
-            language=lang,
-            source=self.source,
-            done=False,
-            view="GenericView",
-            records=1, # needed so we don't have too many empty forms to validate
+        L = Language.objects.create(
+            language='X',
+            slug='another-language',
+            editor=self.editor
         )
+        
+        task = self._make_task()
+        task.language = L
+        task.save()
+        
         response = self.client.get(task.get_absolute_url())
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'entry/detail.html')
         self.assertTemplateUsed(response, 'entry/formtemplates/generic.html')
         self.assertContains(response, 
-            '<input id="id_form-0-language" name="form-0-language" type="hidden" value="1" />', 
+            '<input id="id_form-0-language" name="form-0-language" type="hidden" value="%d" />' % L.id,
             count=1
         )
     
     def test_fixed_source_in_template(self):
-        self.client.login(username="admin", password="test")
-        source = self.source
-        source.pk = None
-        source.author = "TEST SOURCE"
-        source.save()
-        task = Task.objects.create(
-            editor=self.editor,
-            name="Test Task - Fixed Language",
-            description="",
-            language=self.lang,
-            source=source,
-            done=False,
-            view="GenericView",
-            records=1, # needed so we don't have too many empty forms to validate
+        
+        S = Source.objects.create(
+            year="xxxx",
+            author='TEST SOURCE',
+            slug='another-test-source',
+            editor=self.editor
         )
+        task = self._make_task()
+        task.source = S
+        task.save()
+        
         response = self.client.get(task.get_absolute_url())
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'entry/detail.html')
         self.assertTemplateUsed(response, 'entry/formtemplates/generic.html')
         self.assertContains(response, 
-            '<input id="id_form-0-source" name="form-0-source" type="hidden" value="1" />', 
+            '<input id="id_form-0-source" name="form-0-source" type="hidden" value="%d" />' % S.id,
             count=1
         )
         
-    def test_fixed_language_in_save(self):
-        self.client.login(username="admin", password="test")
-        task = Task.objects.create(
-            editor=self.editor,
-            name="Test Task - Fixed Language",
-            description="",
-            language=self.lang,
-            source=self.source,
-            done=False,
-            view="GenericView",
-            records=1, # needed so we don't have too many empty forms to validate
-        )
-        form_data = self.form_data.copy()
-        response = self.client.post(task.get_absolute_url(), form_data, follow=True)
-        
-        # no errors
-        assert task.lexicon.count() == 1
-        self.assertRedirects(response, 
-            reverse('entry:complete', kwargs={'pk': task.id}), 
-            status_code=302, target_status_code=200
-        )
-        self.assertTemplateUsed(response, 'entry/complete.html')
-        
-        assert Task.objects.get(pk=task.id).done
-
-    def test_fixed_source_in_save(self):
-        self.client.login(username="admin", password="test")
-        task = Task.objects.create(
-            editor=self.editor,
-            name="Test Task - Fixed Language",
-            description="",
-            language=self.lang,
-            source=self.source,
-            done=False,
-            view="GenericView",
-            records=1, # needed so we don't have too many empty forms to validate
-        )
-        form_data = self.form_data.copy()
-        response = self.client.post(task.get_absolute_url(), form_data, follow=True)
-        # no errors
-        assert task.lexicon.count() == 1
-        self.assertRedirects(response, 
-            reverse('entry:complete', kwargs={'pk': task.id}), 
-            status_code=302, target_status_code=200
-        )
-        self.assertTemplateUsed(response, 'entry/complete.html')
-        assert Task.objects.get(pk=task.id).done
-
     def test_error_on_unfixed_language_in_save(self):
-        self.client.login(username="admin", password="test")
-        task = Task.objects.create(
-            editor=self.editor,
-            name="Test Task - Fixed Language",
-            description="",
-            source=self.source,
-            done=False,
-            view="GenericView",
-            records=1, # needed so we don't have too many empty forms to validate
-        )
+        task = self._make_task()
+        task.language = None
+        task.save()
+        
         form_data = self.form_data.copy()
         form_data['form-0-language'] =  ""  # remove language
         
