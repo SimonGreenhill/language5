@@ -28,8 +28,13 @@
     
     <h2>Information:</h2>
     
-    <p><strong>ISO 639: </strong>{{ language.isocode }}</p>
-    
+    <p>
+        <strong>Glottocode: </strong>
+        <a href="{{ language|link_glottolog }}">{{ language.glottocode }}</a>
+        <br />
+        <strong>ISO 639: </strong>
+        <a href="{{ language|link_ethnologue }}">{{ language.isocode }}</a>
+    </p>
     {% if alternatenames %}
         <p>
             <strong>Also Known As: </strong>
@@ -72,6 +77,11 @@
           <h2> Resources: </h2>
          
           <ul>
+              {% if language.glottocode %}
+                  <li><a href="{{ language|link_glottolog }}">Glottolog page for {{ language.language }}</a></li>
+              {% else %}
+                  <li>Glottologue code unknown</li>
+              {% endif %}
               {% if language.isocode %}
                   <li><a href="{{ language|link_ethnologue }}">Ethnologue page for {{ language.language }}</a></li>
                   <li><a href="{{ language|link_olac }}">Open Language Archives search for {{ language.language }}</a></li>
