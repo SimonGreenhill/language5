@@ -23,7 +23,8 @@ class LanguageMixin(object):
         cls.language = Language.objects.create(
             language='A', slug='langa', 
             information='i.1', classification='a, b',
-            isocode='aaa', editor=cls.editor
+            isocode='aaa', glottocode='aaaa1234',
+            editor=cls.editor
         )
     
     def test_empty(self):
@@ -54,7 +55,7 @@ class Test_Link_Multitree(LanguageMixin, TestCase):
 
 class Test_Link_Glottolog(LanguageMixin, TestCase):
     function = staticmethod(link_glottolog)
-    expected = "http://glottolog.org/resource/languoid/iso/aaa"
+    expected = "http://glottolog.org/resource/languoid/id/aaaa1234"
 
 
 class Test_Link_Wikipedia(LanguageMixin, TestCase):

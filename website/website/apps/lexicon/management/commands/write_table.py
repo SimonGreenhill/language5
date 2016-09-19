@@ -17,28 +17,32 @@ class Command(BaseCommand):
     args = 'write_table'
     help = 'writes a table of data'
     output_transaction = True
-    option_list = BaseCommand.option_list + (
-        make_option('--language',
+    
+    def add_arguments(self, parser):
+        parser.add_argument('--language',
             action='store',
             dest='language',
             default=False,
-            help='Filter by language slug'),
-        make_option('--word',
+            help='Filter by language slug'
+        )
+        parser.add_argument('--word',
             action='store',
             dest='word',
             default=False,
-            help='Filter by word slug'),
-        make_option('--source',
+            help='Filter by word slug'
+        )
+        parser.add_argument('--source',
             action='store',
             dest='source',
             default=False,
-            help='Filter by source slug'),
-        make_option('--clade',
+            help='Filter by source slug'
+        )
+        parser.add_argument('--clade',
             action='store',
             dest='clade',
             default=False,
-            help='Filter by clade'),
-    )
+            help='Filter by clade'
+        )
     
     def get_entries(self, language=None, word=None, source=None, clade=None):
         lexica = Lexicon.objects.all().select_related()

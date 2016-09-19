@@ -11,17 +11,19 @@ class Command(BaseCommand):
     args = 'hygiene [empty, tidy, dedupe, star] --save [--quiet]'
     help = 'Cleans Data from Database'
     output_transaction = True
-    option_list = BaseCommand.option_list + (
-        make_option('--save',
+    
+    def add_arguments(self, parser):
+        parser.add_argument('--save',
             action='store_true',
             dest='save',
             default=False,
-            help='Save changes to data rather than listing it'),
-        make_option('--quiet',
+            help='Save changes to data rather than listing it'
+        )
+        parser.add_argument('--quiet',
             action='store_true',
             dest='save',
             default=False,
-            help='be quiet'),
+            help='be quiet'
         )
         
     def _print(self, message, quiet=False):
