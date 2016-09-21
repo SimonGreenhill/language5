@@ -45,10 +45,15 @@ class Word(TrackedModel):
         help_text="Full word details/gloss.")
     comment = models.TextField(blank=True, null=True,
         help_text="PUBLIC comment on this word")
-    quality = models.CharField(default=u'0', max_length=1, choices=WORD_QUALITY,
-            help_text="The quality of this word.")
+    quality = models.CharField(
+        default=u'0', max_length=1, choices=WORD_QUALITY,
+        help_text="The quality of this word."
+    )
     
-    concepticon = models.ForeignKey('lexicon.Concepticon', null=True, blank=True)
+    concepticon = models.ForeignKey(
+        'lexicon.Concepticon',
+        null=True, blank=True
+    )
     
     def __unicode__(self):
         if self.full:
@@ -57,7 +62,7 @@ class Word(TrackedModel):
             return self.word
     
     @property
-    def fullword(self): 
+    def fullword(self):
         return self.__unicode__()
     
     def get_absolute_url(self):
@@ -71,12 +76,20 @@ class Word(TrackedModel):
 @reversion.register
 class WordSubset(TrackedModel):
     """Word Subset Details"""
-    subset = models.CharField(max_length=64, db_index=True, unique=True, 
-        help_text="Subset Label")
-    slug = models.SlugField(max_length=64, unique=True,
-        help_text="`Slug` for subset (for use in URLS)")
-    description = models.TextField(blank=True, null=True,
-        help_text="Details of subset.")
+    subset = models.CharField(
+        max_length=64,
+        db_index=True, unique=True,
+        help_text="Subset Label"
+    )
+    slug = models.SlugField(
+        max_length=64,
+        unique=True,
+        help_text="`Slug` for subset (for use in URLS)"
+    )
+    description = models.TextField(
+        blank=True, null=True,
+        help_text="Details of subset."
+    )
     words = models.ManyToManyField('Word', blank=True)
     
     def __unicode__(self):
@@ -91,24 +104,33 @@ class WordSubset(TrackedModel):
         ordering = ['slug', ]
 
 
-@reversion.register(follow=['cognate_set', 'cognateset_set', 'task_set',])
+@reversion.register(
+    follow=['cognate_set', 'cognateset_set', 'task_set']
+)
 class Lexicon(TrackedModel):
     """Lexicon Details"""
     language = models.ForeignKey('core.Language')
     source = models.ForeignKey('core.Source')
     word = models.ForeignKey('Word')
-    entry = models.CharField(max_length=128, db_index=True, 
-        help_text="Entry from source")
-    phon_entry = models.CharField(max_length=128, null=True, blank=True,
-        help_text="Entry in Phonological format (in known)")
-    source_gloss = models.CharField(max_length=128, null=True, blank=True,
-        help_text="Gloss in original source if it is semantically different")
+    entry = models.CharField(
+        max_length=128, db_index=True,
+        help_text="Entry from source"
+    )
+    phon_entry = models.CharField(
+        max_length=128, null=True, blank=True,
+        help_text="Entry in Phonological format (in known)"
+    )
+    source_gloss = models.CharField(
+        max_length=128, null=True, blank=True,
+        help_text="Gloss in original source if it is semantically different"
+    )
     annotation = models.TextField(blank=True, null=True,
         help_text="Annotation for this item")
     loan = models.BooleanField(default=False, db_index=True,
         help_text="Is a loan word?")
-    loan_source = models.ForeignKey('core.Language', blank=True, null=True, 
-        related_name = 'loan_source_set',
+    loan_source = models.ForeignKey(
+        'core.Language', blank=True, null=True,
+        related_name='loan_source_set',
         help_text="Loanword Source (if known)"
     )
     
@@ -127,15 +149,23 @@ class Lexicon(TrackedModel):
 @reversion.register(follow=["lexicon"])
 class CognateSet(TrackedModel):
     """Cognate Sets"""
-    protoform = models.CharField(max_length=128, blank=True, null=True, db_index=True)
-    gloss = models.CharField(max_length=128, blank=True, null=True)
+    protoform = models.CharField(
+        max_length=128, blank=True, null=True, db_index=True
+    )
+    gloss = models.CharField(
+        max_length=128, blank=True, null=True
+    )
     comment = models.TextField(blank=True, null=True,
         help_text="Comment about this cognate set")
-    source = models.ForeignKey('core.Source', 
-        null=True, blank=True)
+    source = models.ForeignKey(
+        'core.Source',
+        null=True, blank=True
+    )
     lexicon = models.ManyToManyField('Lexicon', through='Cognate')
-    quality = models.CharField(default=u'0', max_length=1, choices=COGNATESET_QUALITY,
-            help_text="The quality of this cognate set.")
+    quality = models.CharField(
+        default=u'0', max_length=1, choices=COGNATESET_QUALITY,
+        help_text="The quality of this cognate set."
+    )
     
     def __unicode__(self):
         return "%d. %s '%s'" % (self.id, self.protoform, self.gloss)
@@ -153,12 +183,18 @@ class Cognate(TrackedModel):
     """Cognacy Judgements"""
     lexicon = models.ForeignKey('Lexicon')
     cognateset = models.ForeignKey('CognateSet')
-    source = models.ForeignKey('core.Source', 
-        null=True, blank=True)
-    comment = models.TextField(blank=True, null=True,
-        help_text="Comment about this Cognate set")
-    flag = models.CharField(default=0, max_length=1, choices=COGNATE_QUALITY,
-            help_text="The quality of this cognate.")
+    source = models.ForeignKey(
+        'core.Source',
+        null=True, blank=True
+    )
+    comment = models.TextField(
+        blank=True, null=True,
+        help_text="Comment about this Cognate set"
+    )
+    flag = models.CharField(
+        default=0, max_length=1, choices=COGNATE_QUALITY,
+        help_text="The quality of this cognate."
+    )
     
     def __unicode__(self):
         return u"%d.%d" % (self.cognateset_id, self.id)
@@ -176,7 +212,9 @@ class CognateNote(TrackedModel):
     
     def __unicode__(self):
         if self.cognateset:
-            return u'#%d-%d. %s...' % (self.id, self.cognateset_id, self.note[0:30])
+            return u'#%d-%d. %s...' % (
+                self.id, self.cognateset_id, self.note[0:30]
+            )
         else:
             return u'#%d. %s...' % (self.id, self.note[0:30])
     
@@ -187,7 +225,9 @@ class CognateNote(TrackedModel):
 @reversion.register(follow=["corrset_set"])
 class CorrespondenceSet(TrackedModel):
     """Sound Correspondence Sets"""
-    language = models.ManyToManyField('core.Language', through='Correspondence')
+    language = models.ManyToManyField(
+        'core.Language', through='Correspondence'
+    )
     source = models.ForeignKey('core.Source', blank=True, null=True)
     comment = models.TextField(blank=True, null=True, help_text="Notes")
     
@@ -219,13 +259,15 @@ class Concepticon(TrackedModel):
         db_index=True, unique=True,
         help_text="Concepticon Gloss")
     semanticfield = models.CharField(max_length=32,
-        db_index=True, null=True, blank=True,
+        db_index=True,
+        null=True, blank=True,
         help_text="Semantic Field")
     definition = models.TextField(
         blank=True, null=True,
         help_text="Definition")
     ontologicalcategory = models.CharField(max_length=32,
-        db_index=True, null=True, blank=True,
+        db_index=True,
+        null=True, blank=True,
         help_text="Ontological Category")
 
     def __unicode__(self):
@@ -236,8 +278,12 @@ class Concepticon(TrackedModel):
 
 
 # pre-save adding of redirects when slug field altered.
-pre_save.connect(create_redirect, sender=Word, dispatch_uid="word:001")
-pre_save.connect(create_redirect, sender=WordSubset, dispatch_uid="wordsubset:001")
+pre_save.connect(
+    create_redirect, sender=Word, dispatch_uid="word:001"
+)
+pre_save.connect(
+    create_redirect, sender=WordSubset, dispatch_uid="wordsubset:001"
+)
 
 watson.register(Word, fields=('word', 'full'))
 watson.register(WordSubset, fields=('subset', 'description'))
