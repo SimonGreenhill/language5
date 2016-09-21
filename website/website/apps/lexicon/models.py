@@ -271,7 +271,7 @@ class Concepticon(TrackedModel):
         help_text="Ontological Category")
 
     def __unicode__(self):
-        return u"Concepticon %d. %s" % (self.id, self.gloss)
+        return u"%d. %s" % (self.id, self.gloss)
     
     class Meta:
         db_table = 'concepticon'

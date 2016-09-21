@@ -19,7 +19,7 @@ class WordIndexTable(DataTable):
         model = Word
         order_by = 'fullword' # default sorting
         sequence = ('id', 'fullword', 'count')
-        exclude = ('editor', 'word', 'full', 'added', 'slug', 'quality', 'comment')
+        exclude = ('editor', 'word', 'full', 'added', 'slug', 'quality', 'comment', 'concepticon')
     Meta.attrs['summary'] = 'Table of Words'
 
 
@@ -41,7 +41,7 @@ class WordLexiconTable(DataTable):
         model = Lexicon
         order_by = 'word' # default sorting
         sequence = ('id', 'language', 'entry', 'annotation', 'loan',  'source')
-        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'word',)
+        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'word')
     Meta.attrs['summary'] = 'Table of Lexicon'
 
 
