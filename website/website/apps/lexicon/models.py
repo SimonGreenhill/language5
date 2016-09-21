@@ -48,6 +48,8 @@ class Word(TrackedModel):
     quality = models.CharField(default=u'0', max_length=1, choices=WORD_QUALITY,
             help_text="The quality of this word.")
     
+    concepticon = models.ForeignKey('lexicon.Concepticon', null=True, blank=True)
+    
     def __unicode__(self):
         if self.full:
             return u"%s (%s)" % (self.word, self.full)
@@ -182,7 +184,6 @@ class CognateNote(TrackedModel):
         db_table = 'cognacy_notes'
 
 
-
 @reversion.register(follow=["corrset_set"])
 class CorrespondenceSet(TrackedModel):
     """Sound Correspondence Sets"""
@@ -210,6 +211,24 @@ class Correspondence(TrackedModel):
     
     class Meta:
         db_table = 'correspondences'
+
+
+class Concepticon(TrackedModel):
+    """Concepticon Details"""
+    gloss = models.CharField(max_length=64, db_index=True, unique=True,
+        help_text="Concepticon Gloss")
+    semanticfield = models.CharField(max_length=32, db_index=True, unique=True,
+        help_text="Semantic Field")
+    definition = models.TextField(blank=True, null=True,
+        help_text="Definition")
+    ontologicalcategory = models.CharField(max_length=32, db_index=True, unique=True,
+        help_text="Ontological Category")
+
+    def __unicode__(self):
+        return u"Concepticon %d. %s" % (self.id, self.gloss)
+    
+    class Meta:
+        db_table = 'concepticon'
 
 
 # pre-save adding of redirects when slug field altered.
