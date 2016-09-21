@@ -142,5 +142,5 @@ class Test_Save(DataMixin):
         form_data['comment-word'] = self.word.id
         form_data['comment-comment'] = "this is a test"
         response = self.AuthenticatedClient.post(self.url, form_data, follow=True)
-        assert CognateNote.objects.count() == 1
+        assert CognateNote.objects.all().filter(word=self.word)[0].note == "this is a test"
  
