@@ -215,13 +215,17 @@ class Correspondence(TrackedModel):
 
 class Concepticon(TrackedModel):
     """Concepticon Details"""
-    gloss = models.CharField(max_length=64, db_index=True, unique=True,
+    gloss = models.CharField(max_length=64,
+        db_index=True, unique=True,
         help_text="Concepticon Gloss")
-    semanticfield = models.CharField(max_length=32, db_index=True, unique=True,
+    semanticfield = models.CharField(max_length=32,
+        db_index=True, null=True, blank=True,
         help_text="Semantic Field")
-    definition = models.TextField(blank=True, null=True,
+    definition = models.TextField(
+        blank=True, null=True,
         help_text="Definition")
-    ontologicalcategory = models.CharField(max_length=32, db_index=True, unique=True,
+    ontologicalcategory = models.CharField(max_length=32,
+        db_index=True, null=True, blank=True,
         help_text="Ontological Category")
 
     def __unicode__(self):
