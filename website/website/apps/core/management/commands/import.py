@@ -2,7 +2,6 @@
 import os
 import re
 import sys
-from reversion import revisions as reversion
 from optparse import make_option
 from django.conf import settings
 from django.db import transaction
@@ -37,8 +36,7 @@ class Command(BaseCommand):
         sys.path.insert(0, directory)
         
         with transaction.atomic():
-            with reversion.create_revision():
-                __import__(module_name)
+            __import__(module_name)
             if dryrun:
                 raise ValueError("No save -- Rollback") 
             else:
