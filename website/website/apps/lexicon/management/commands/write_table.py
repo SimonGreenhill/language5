@@ -77,6 +77,12 @@ class Command(BaseCommand):
             clade=options.get('clade', None)
         )
         
+        def detab(v):
+            if v is None:
+                return ''
+            else:
+                return v.replace("\t", "")
+        
         for lex in lexica:
             cogs = ",".join([
                 repr_cog(_.cognateset.id, _.source_id) for _ in lex.cognate_set.all()
@@ -87,7 +93,7 @@ class Command(BaseCommand):
                 lex.language.slug,
                 lex.word.slug,
                 lex.source.slug,
-                lex.entry.replace('\t', ''),
-                lex.annotation.replace('\t', ''),
+                detab(lex.entry),
+                detab(lex.annotation),
                 cogs
             ]))
