@@ -15,7 +15,7 @@ class Test_Language(TestCase):
             information='', classification='',
             isocode='aaa', editor=self.editor
         )
-        assert unicode(l) == u'A'
+        assert str(l) == 'A', 'Expected "A", got %r' % repr(l)
 
     def test_dialect(self):
         l = Language.objects.create(
@@ -24,7 +24,7 @@ class Test_Language(TestCase):
             information='', classification='',
             isocode='aaa', editor=self.editor
         )
-        assert unicode(l) == u'A (B Dialect)'
+        assert str(l) == 'A (B Dialect)', 'Expected "A (B Dialect)", got %r' % repr(l)
     
     def test_dialect_is_none(self):
         l = Language.objects.create(
@@ -33,7 +33,7 @@ class Test_Language(TestCase):
             information='', classification='',
             isocode='aaa', editor=self.editor
         )
-        assert unicode(l) == u'A'
+        assert str(l) == 'A', 'Expected "A", got %r' % repr(l)
         
     def test_empty_dialect(self):
         l = Language.objects.create(
@@ -42,7 +42,7 @@ class Test_Language(TestCase):
             information='', classification='',
             isocode='aaa', editor=self.editor
         )
-        assert unicode(l) == u'A'
+        assert str(l) == 'A', 'Expected "A", got %r' % repr(l)
 
 
 class Test_Source(TestCase):
@@ -57,7 +57,7 @@ class Test_Source(TestCase):
             slug='Smith1991', reference='S2',
             comment='c1', editor=self.editor
         )
-        self.assertEquals(s.__unicode__(), "%s (%s)" % (s.author, s.year))
+        self.assertEquals(str(s), "%s (%s)" % (s.author, s.year))
         
     def test_noyear(self):
         s = Source.objects.create(
@@ -65,4 +65,4 @@ class Test_Source(TestCase):
             slug='Smith1991', reference='S2',
             comment='c1', editor=self.editor
         )
-        self.assertEquals(s.__unicode__(), s.author)
+        self.assertEquals(str(s), s.author)

@@ -3,6 +3,7 @@ from django.db.models.signals import pre_save
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from website.signals import create_redirect
+from django.utils.encoding import python_2_unicode_compatible
 
 from reversion import revisions as reversion
 from watson import search as watson
@@ -39,6 +40,7 @@ class TrackedModel(models.Model):
         get_latest_by = 'added'
 
 
+@python_2_unicode_compatible
 @reversion.register
 class Source(TrackedModel):
     """Source Details"""
@@ -56,7 +58,7 @@ class Source(TrackedModel):
     comment = models.TextField(blank=True, null=True,
         help_text="Private comment on source")
     
-    def __unicode__(self):
+    def __str__(self):
         if self.year is not None:
             return "%s (%s)" % (self.author, self.year)
         else:
@@ -73,6 +75,7 @@ class Source(TrackedModel):
         ]
 
 
+@python_2_unicode_compatible
 @reversion.register
 class Note(TrackedModel):
     """Notes/Information about a language"""
@@ -82,13 +85,14 @@ class Note(TrackedModel):
     location = models.CharField(max_length=50, blank=True, null=True,
         help_text="Location (e.g. p12)")
     
-    def __unicode__(self):
+    def __str__(self):
         return u'#%d. %s on %s' % (self.id, self.source, self.language)
     
     class Meta:
         db_table = 'notes'
 
 
+@python_2_unicode_compatible
 @reversion.register
 class Family(TrackedModel):
     """Language families/Subsets"""
@@ -97,7 +101,7 @@ class Family(TrackedModel):
     slug = models.SlugField(max_length=64, unique=True,
         help_text="`Slug` for language family (for use in URLS)")
     
-    def __unicode__(self):
+    def __str__(self):
         return self.family
         
     def get_absolute_url(self):
@@ -109,6 +113,7 @@ class Family(TrackedModel):
         ordering = ['family', ]
     
 
+@python_2_unicode_compatible
 @reversion.register
 class Language(TrackedModel):
     """Stores language information"""
@@ -128,11 +133,11 @@ class Language(TrackedModel):
     information = models.TextField(blank=True, null=True,
         help_text="Information about language")
     
-    def __unicode__(self):
+    def __str__(self):
         if self.dialect:
-            return u"%s (%s Dialect)" % (self.language, self.dialect)
+            return "%s (%s Dialect)" % (self.language, self.dialect)
         else:
-            return unicode(self.language)
+            return self.language
     
     def get_absolute_url(self):
         return reverse('language-detail', kwargs={'language': self.slug})
@@ -146,6 +151,7 @@ class Language(TrackedModel):
         ordering = ['language', 'dialect']
 
 
+@python_2_unicode_compatible
 @reversion.register
 class AlternateName(TrackedModel):
     """Handles languages with multiple names"""
@@ -155,7 +161,7 @@ class AlternateName(TrackedModel):
     slug = models.SlugField(max_length=64, unique=True,
         help_text="`Slug` for language (for use in URLS)")
     
-    def __unicode__(self):
+    def __str__(self):
         return "%s AKA %s" % (self.language, self.slug)
         
     def get_absolute_url(self):
@@ -167,6 +173,7 @@ class AlternateName(TrackedModel):
         ordering = ['name', ]
 
 
+@python_2_unicode_compatible
 @reversion.register
 class Link(TrackedModel):
     """Stores links to language appropriate resources"""
@@ -174,7 +181,7 @@ class Link(TrackedModel):
     link = models.URLField(help_text="URL to link")
     description = models.TextField(help_text="Language Description")
     
-    def __unicode__(self):
+    def __str__(self):
         return "%d %s" % (self.language.id, self.link)
     
     class Meta:
@@ -183,13 +190,14 @@ class Link(TrackedModel):
         unique_together = ['language', 'link']
         
 
+@python_2_unicode_compatible
 @reversion.register
 class Location(TrackedModel):
     isocode = models.CharField(max_length=3, db_index=True)
     longitude = models.FloatField(help_text="Longitude")
     latitude = models.FloatField(help_text="Latitiude")
 
-    def __unicode__(self):
+    def __str__(self):
         return "%s %2.4f-%2.4f" % (self.isocode, self.longitude, self.latitude)
 
     class Meta:
@@ -197,6 +205,7 @@ class Location(TrackedModel):
         db_table = 'locations'
 
 
+@python_2_unicode_compatible
 @reversion.register
 class Attachment(TrackedModel):
     """Attachments Details"""
@@ -207,7 +216,7 @@ class Attachment(TrackedModel):
     file = models.FileField(upload_to='data/%Y-%m/',
         help_text="The Resource File (PDF)", null=True, blank=True)
         
-    def __unicode__(self):
+    def __str__(self):
         return self.file.name
     
     def get_absolute_url(self):
@@ -217,6 +226,7 @@ class Attachment(TrackedModel):
         db_table = 'attachments'
 
 
+@python_2_unicode_compatible
 @reversion.register
 class PopulationSize(TrackedModel):
     """Population Size Details"""
@@ -224,8 +234,8 @@ class PopulationSize(TrackedModel):
     source = models.ForeignKey('Source')
     populationsize = models.IntegerField()
 
-    def __unicode__(self):
-        return u"%s %d: %d" % (self.language.slug, self.source.year, self.populationsize)
+    def __str__(self):
+        return "%s %d: %d" % (self.language.slug, self.source.year, self.populationsize)
 
     class Meta:
         db_table = 'popsize'

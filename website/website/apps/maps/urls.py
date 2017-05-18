@@ -1,6 +1,6 @@
 from django.conf.urls import *
 
-from views import WordMap, LanguageMap, CognateSetMap, DataMap
+from website.apps.maps.views import WordMap, LanguageMap, CognateSetMap, DataMap
 
 urlpatterns = [
     url(r'word/(?P<slug>[\w\d\-\.]+)$', WordMap.as_view(), name="word-map"),

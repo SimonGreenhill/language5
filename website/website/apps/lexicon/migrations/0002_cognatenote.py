@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('added', models.DateTimeField(auto_now_add=True)),
-                ('note', models.TextField(help_text=b'Note')),
+                ('note', models.TextField(help_text='Note')),
                 ('cognateset', models.ForeignKey(blank=True, to='lexicon.CognateSet', null=True)),
                 ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
                 ('word', models.ForeignKey(blank=True, to='lexicon.Word', null=True)),

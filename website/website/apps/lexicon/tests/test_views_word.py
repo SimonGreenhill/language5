@@ -38,7 +38,7 @@ class Test_WordIndex(DataMixin, PaginatorTestMixin, TestCase):
         )
     
     def test_get_renders_subsets_correctly(self):
-        assert '<a href="/word/?subset=all">' in self.response.content
+        assert b'<a href="/word/?subset=all">' in self.response.content
     
     def test_get_no_subset_context_is_none(self):
         # if there's no subset requested then the var `subset` will be None
@@ -227,8 +227,8 @@ class Test_WordEdit(DataMixin, TestCase):
         self.client.login(username="admin", password="test")
         response = self.client.get(self.url)
         self.assertEquals(response.status_code, 200)
-        assert 'sausage' in response.content
-        assert 'banana' in response.content
+        assert b'sausage' in response.content
+        assert b'banana' in response.content
     
     def test_post(self):
         self.client.login(username="admin", password="test")
@@ -241,8 +241,8 @@ class Test_WordEdit(DataMixin, TestCase):
         )
         self.assertEquals(response.status_code, 200)
         # updated?
-        assert 'sausage' in response.content
-        assert 'banana' in response.content
+        assert b'sausage' in response.content
+        assert b'banana' in response.content
 
     def test_update_entry(self):
         self.client.login(username="admin", password="test")
@@ -257,9 +257,9 @@ class Test_WordEdit(DataMixin, TestCase):
         )
         self.assertEquals(response.status_code, 200)
         # updated?
-        assert 'apricot' in response.content
-        assert 'banana' in response.content
-        assert 'sausage' not in response.content
+        assert b'apricot' in response.content
+        assert b'banana' in response.content
+        assert b'sausage' not in response.content
 
     def test_update_editor(self):
         newuser = User.objects.create_user(
