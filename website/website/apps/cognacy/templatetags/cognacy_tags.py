@@ -5,7 +5,7 @@ from django import template
 register = template.Library()
 
 def get_color(n):
-    hash = md5(str(n)).hexdigest()
+    hash = md5(str(n).encode('utf8')).hexdigest()
     n = float(n)
     if n % 1 == 0 or n % 5 == 0:
         hash = hash[0:6]

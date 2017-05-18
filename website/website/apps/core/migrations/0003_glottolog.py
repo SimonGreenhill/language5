@@ -15,11 +15,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='language',
             name='glottocode',
-            field=models.CharField(blank=True, db_index=True, help_text=b'Glottolog Code.', max_length=8, null=True),
+            field=models.CharField(blank=True, db_index=True, help_text='Glottolog Code.', max_length=8, null=True),
         ),
         migrations.AlterField(
             model_name='attachment',
             name='details',
-            field=models.CharField(blank=True, help_text=b'Extra details e.g. page number', max_length=32, null=True),
+            field=models.CharField(blank=True, help_text='Extra details e.g. page number', max_length=32, null=True),
         ),
     ]

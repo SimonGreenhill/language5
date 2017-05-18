@@ -15,6 +15,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='task',
             name='lexicon',
-            field=models.ManyToManyField(blank=True, help_text=b'Saved Lexical Items', to='lexicon.Lexicon'),
+            field=models.ManyToManyField(blank=True, help_text='Saved Lexical Items', to='lexicon.Lexicon'),
         ),
     ]

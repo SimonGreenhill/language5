@@ -39,7 +39,7 @@ class Command(BaseCommand):
         total = 0
         for count, lang in enumerate(languages, 1):
             if lang.classification != prev_classif:
-                print condense_classification(lang.classification)
+                print(condense_classification(lang.classification))
             
             if lang.count < 50:
                 strength = '   '
@@ -50,14 +50,14 @@ class Command(BaseCommand):
             else:
                 strength = '***'
                 
-            print " ".join([
+            print(" ".join([
                 "\t", 
                 '%3d' % count,
-                "%3s" % lang.isocode, 
-                unicode(lang).ljust(50), 
-                '%5d' % lang.count, 
+                "%3s" % lang.isocode,
+                lang.ljust(50),
+                '%5d' % lang.count,
                 strength
-            ])
+            ]))
             tally[strength] = tally.get(strength, 0) + 1
             
             for family in lang.family.all():
@@ -66,17 +66,17 @@ class Command(BaseCommand):
             prev_classif = lang.classification
             total += lang.count
             
-        print '-' * 76
-        print '%d languages' % count
-        print '%d lexical items' % total
-        print '-' * 76
+        print('-' * 76)
+        print('%d languages' % count)
+        print('%d lexical items' % total)
+        print('-' * 76)
         families = sorted(families.items(), key=lambda x: x[1], reverse=True)
         for f, n in families:
-            print ' %20s = %3d' % (f, n)
-        print '-' * 76
-        print '   0-50 = %3d' % tally['   ']
-        print ' 50-100 = %3d' % tally['*  ']
-        print '100-200 = %3d' % tally['** ']
-        print '200-+   = %3d' % tally['***']
-        print '-' * 76
+            print(' %20s = %3d' % (f, n))
+        print('-' * 76)
+        print('   0-50 = %3d' % tally['   '])
+        print(' 50-100 = %3d' % tally['*  '])
+        print('100-200 = %3d' % tally['** '])
+        print('200-+   = %3d' % tally['***'])
+        print('-' * 76)
         

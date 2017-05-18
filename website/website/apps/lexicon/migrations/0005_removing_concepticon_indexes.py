@@ -15,11 +15,11 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='concepticon',
             name='ontologicalcategory',
-            field=models.CharField(blank=True, db_index=True, help_text=b'Ontological Category', max_length=32, null=True),
+            field=models.CharField(blank=True, db_index=True, help_text='Ontological Category', max_length=32, null=True),
         ),
         migrations.AlterField(
             model_name='concepticon',
             name='semanticfield',
-            field=models.CharField(blank=True, db_index=True, help_text=b'Semantic Field', max_length=32, null=True),
+            field=models.CharField(blank=True, db_index=True, help_text='Semantic Field', max_length=32, null=True),
         ),
     ]

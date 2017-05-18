@@ -23,7 +23,7 @@ class Command(BaseCommand):
             print("\t".join([
                 '%3s' % o.isocode,
                 o.slug,
-                unicode(o).ljust(20),
+                o.ljust(20),
                 ",".join([f.slug for f in o.family.all()]),
                 "%d" % o.lexicon_set.count(),
                 o.classification
@@ -34,7 +34,7 @@ class Command(BaseCommand):
         for o in Family.objects.all().order_by('slug'):
             print "\t".join([
                 o.slug,
-                unicode(o),
+                o,
                 '%d' % o.language_set.count()
             ])
             
@@ -45,8 +45,8 @@ class Command(BaseCommand):
         for o in Source.objects.all().order_by('slug'):
             print("\t".join([
                 o.slug,
-                unicode(o),
-                unicode(o.year),
+                o,
+                o.year,
                 '%d' % o.lexicon_set.count(),
                 '%d' % o.cognate_set.count()
             ]))
@@ -56,7 +56,7 @@ class Command(BaseCommand):
         for o in Word.objects.all().order_by('slug'):
             print("\t".join([
                 o.slug,
-                unicode(o),
+                o,
                 '%d' % o.lexicon_set.count()
             ]))
      

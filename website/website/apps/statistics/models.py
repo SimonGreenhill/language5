@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.encoding import python_2_unicode_compatible
 
 class AlreadyRegistered(Exception):
     pass
@@ -82,6 +83,7 @@ class StatisticManager(models.Manager):
         return qset.order_by('date')
 
 
+@python_2_unicode_compatible
 class StatisticalValue(models.Model):
     """Stores Statistical information"""
     date = models.DateTimeField(auto_now_add=True, db_index=True)
@@ -93,7 +95,7 @@ class StatisticalValue(models.Model):
     
     objects = StatisticManager()
     
-    def __unicode__(self):
+    def __str__(self):
         return "%s = %s" % (self.label, self.value)
     
     class Meta:

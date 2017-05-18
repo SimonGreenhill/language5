@@ -21,7 +21,7 @@ class Test_Paradigm(PronounsTestData, TestCase):
             editor=self.editor,
             label="",
         )
-        assert unicode(pdm) == 'A', "Got: %s" % unicode(pdm)
+        assert str(pdm) == 'A', "Got: %s" % str(pdm)
 
     def test_repr_with_label(self):
         pdm = Paradigm(
@@ -30,7 +30,7 @@ class Test_Paradigm(PronounsTestData, TestCase):
             editor=self.editor,
             label="label",
         )
-        assert unicode(pdm) == 'A: label', "Got: %s" % unicode(pdm)
+        assert str(pdm) == 'A: label', "Got: %s" % str(pdm)
         
     def test_have_some_pronoun_types(self):
         assert self.pdm.pronoun_set.count() == 3

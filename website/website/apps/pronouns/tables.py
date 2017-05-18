@@ -9,9 +9,7 @@ class ParadigmIndexTable(DataTable):
     """Paradigm Listing"""
     def render_language(self, record):
         col = tables.LinkColumn('pronouns:detail', args=[record.id])
-        return col.render(
-            value=unicode(record), record=unicode(record), bound_column=None
-        )
+        return col.render(value=record, record=record, bound_column=None)
     
     class Meta(DataTable.Meta):
         model = Paradigm

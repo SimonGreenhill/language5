@@ -6,7 +6,7 @@ from website.apps.lexicon.models import Word, Lexicon
 
 from website.apps.lexicon.management.commands import split_entries
 
-from test_hygiene import HygieneDataMixin
+from website.apps.lexicon.tests.test_hygiene import HygieneDataMixin
 
 class Test_Split_Entries(HygieneDataMixin):
     """Tests the split_entries management command"""

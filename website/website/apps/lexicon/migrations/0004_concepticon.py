@@ -20,10 +20,10 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('added', models.DateTimeField(auto_now_add=True)),
-                ('gloss', models.CharField(db_index=True, help_text=b'Concepticon Gloss', max_length=64, unique=True)),
-                ('semanticfield', models.CharField(db_index=True, help_text=b'Semantic Field', max_length=32, unique=True)),
-                ('definition', models.TextField(blank=True, help_text=b'Definition', null=True)),
-                ('ontologicalcategory', models.CharField(db_index=True, help_text=b'Ontological Category', max_length=32, unique=True)),
+                ('gloss', models.CharField(db_index=True, help_text='Concepticon Gloss', max_length=64, unique=True)),
+                ('semanticfield', models.CharField(db_index=True, help_text='Semantic Field', max_length=32, unique=True)),
+                ('definition', models.TextField(blank=True, help_text='Definition', null=True)),
+                ('ontologicalcategory', models.CharField(db_index=True, help_text='Ontological Category', max_length=32, unique=True)),
                 ('editor', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
             options={

@@ -24,20 +24,18 @@ class Test_CognateSourceDetail(DataMixin, PaginatorTestMixin, TestCase):
     def test_get_data(self):
         response = self.client.get(self.url)
         self.assertEquals(response.status_code, 200)
-        data = response.context['table'].data.data
         # should have two cognate sets -- 1 & 2
-        assert len(data) == 2
-        # cognate set 1 should contain self.cog_1_a
-        assert self.cog_1_a in data
-        # cognate set 2 should contain self.cog_2_b
-        assert self.cog_2_b in data
+        assert len(response.context['table'].data.data) == 2
+        assert self.cog_1_a in response.context['table'].data.data
+        assert self.cog_2_b in response.context['table'].data.data
     
     def test_content(self):
         response = self.client.get(self.url)
         td = '<td class="lexicon">%s</td>'
-        assert td % self.cog_1_a.lexicon.entry in response.content
-        assert td % self.cog_2_b.lexicon.entry in response.content
-        assert td % self.cog_2_c.lexicon.entry not in response.content
+        #print(response.content)
+        assert td % self.cog_1_a.lexicon.entry in response.content.decode('utf8')
+        assert td % self.cog_2_b.lexicon.entry in response.content.decode('utf8')
+        assert td % self.cog_2_c.lexicon.entry not in response.content.decode('utf8')
     
     def test_empty_source(self):
         url = reverse('cognacy:cognatesource_detail', kwargs={'slug': self.empty_source.slug})

@@ -37,7 +37,7 @@ class CognateSourceDetailTable(DataTable):
     
     def render_lexicon(self, record):
         col = tables.Column()
-        return col.render(value=unicode(record.lexicon.entry))
+        return col.render(value=record.lexicon.entry)
     
     def render_cognateset(self, record):
         return mark_safe(
@@ -65,7 +65,7 @@ class CognateSetDetailTable(DataTable):
     
     def render_language(self, record):
         col = tables.LinkColumn('language-detail', args=[record.language.slug])
-        return col.render(value=unicode(record.language), record=unicode(record.language), bound_column=None)
+        return col.render(value=record.language, record=record.language, bound_column=None)
     
     def render_classification(self, record):
         return mark_safe(render_to_string(
@@ -96,7 +96,7 @@ class CognacyTable(DataTable):
     
     def render_language(self, record):
         col = tables.LinkColumn('language-detail', args=[record.language.slug])
-        return col.render(value=unicode(record.language), record=unicode(record.language), bound_column=None)
+        return col.render(value=record.language, record=record.language, bound_column=None)
     
     def render_cognacy(self, record):
         return mark_safe(

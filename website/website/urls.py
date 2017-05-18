@@ -29,7 +29,7 @@ from website.apps.lexicon.views import WordIndex, WordDetail
 from website.apps.lexicon.views import LexiconDetail, LexiconEdit
 from website.apps.lexicon.views import word_edit, word_alignment
 
-from sitemap import sitemaps
+from website.sitemap import sitemaps
 
 urlpatterns = [
     # Main Page / Home

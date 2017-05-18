@@ -18,8 +18,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('added', models.DateTimeField(auto_now_add=True)),
-                ('name', models.CharField(help_text=b'Alternate Name for this language', unique=True, max_length=64, db_index=True)),
-                ('slug', models.SlugField(help_text=b'`Slug` for language (for use in URLS)', unique=True, max_length=64)),
+                ('name', models.CharField(help_text='Alternate Name for this language', unique=True, max_length=64, db_index=True)),
+                ('slug', models.SlugField(help_text='`Slug` for language (for use in URLS)', unique=True, max_length=64)),
                 ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
             options={
@@ -34,8 +34,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('added', models.DateTimeField(auto_now_add=True)),
-                ('details', models.CharField(help_text=b'Extra details e.g. page number', max_length=b'32', null=True, blank=True)),
-                ('file', models.FileField(help_text=b'The Resource File (PDF)', null=True, upload_to=b'data/%Y-%m/', blank=True)),
+                ('details', models.CharField(help_text='Extra details e.g. page number', max_length='32', null=True, blank=True)),
+                ('file', models.FileField(help_text='The Resource File (PDF)', null=True, upload_to='data/%Y-%m/', blank=True)),
                 ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
             options={
@@ -48,8 +48,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('added', models.DateTimeField(auto_now_add=True)),
-                ('family', models.CharField(help_text=b'Language Family', unique=True, max_length=64, db_index=True)),
-                ('slug', models.SlugField(help_text=b'`Slug` for language family (for use in URLS)', unique=True, max_length=64)),
+                ('family', models.CharField(help_text='Language Family', unique=True, max_length=64, db_index=True)),
+                ('slug', models.SlugField(help_text='`Slug` for language family (for use in URLS)', unique=True, max_length=64)),
                 ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
             options={
@@ -64,12 +64,12 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('added', models.DateTimeField(auto_now_add=True)),
-                ('language', models.CharField(help_text=b'Language Name', max_length=64, db_index=True)),
-                ('dialect', models.CharField(help_text=b'Dialect', max_length=64, null=True, db_index=True, blank=True)),
-                ('slug', models.SlugField(help_text=b'`Slug` for language (for use in URLS)', unique=True, max_length=64)),
-                ('isocode', models.CharField(help_text=b'3 character ISO-639-3 Code.', max_length=3, null=True, db_index=True, blank=True)),
-                ('classification', models.TextField(help_text=b'Classification String', null=True, blank=True)),
-                ('information', models.TextField(help_text=b'Information about language', null=True, blank=True)),
+                ('language', models.CharField(help_text='Language Name', max_length=64, db_index=True)),
+                ('dialect', models.CharField(help_text='Dialect', max_length=64, null=True, db_index=True, blank=True)),
+                ('slug', models.SlugField(help_text='`Slug` for language (for use in URLS)', unique=True, max_length=64)),
+                ('isocode', models.CharField(help_text='3 character ISO-639-3 Code.', max_length=3, null=True, db_index=True, blank=True)),
+                ('classification', models.TextField(help_text='Classification String', null=True, blank=True)),
+                ('information', models.TextField(help_text='Information about language', null=True, blank=True)),
                 ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
                 ('family', models.ManyToManyField(to='core.Family', blank=True)),
             ],
@@ -84,8 +84,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('added', models.DateTimeField(auto_now_add=True)),
-                ('link', models.URLField(help_text=b'URL to link')),
-                ('description', models.TextField(help_text=b'Language Description')),
+                ('link', models.URLField(help_text='URL to link')),
+                ('description', models.TextField(help_text='Language Description')),
                 ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
                 ('language', models.ForeignKey(to='core.Language')),
             ],
@@ -101,8 +101,8 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('added', models.DateTimeField(auto_now_add=True)),
                 ('isocode', models.CharField(max_length=3, db_index=True)),
-                ('longitude', models.FloatField(help_text=b'Longitude')),
-                ('latitude', models.FloatField(help_text=b'Latitiude')),
+                ('longitude', models.FloatField(help_text='Longitude')),
+                ('latitude', models.FloatField(help_text='Latitiude')),
                 ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
             options={
@@ -116,8 +116,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('added', models.DateTimeField(auto_now_add=True)),
-                ('note', models.TextField(help_text=b'Note')),
-                ('location', models.CharField(help_text=b'Location (e.g. p12)', max_length=50, null=True, blank=True)),
+                ('note', models.TextField(help_text='Note')),
+                ('location', models.CharField(help_text='Location (e.g. p12)', max_length=50, null=True, blank=True)),
                 ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
                 ('language', models.ForeignKey(to='core.Language')),
             ],
@@ -145,12 +145,12 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('added', models.DateTimeField(auto_now_add=True)),
-                ('year', models.CharField(help_text=b'Year published', max_length=12, null=True, db_index=True, blank=True)),
-                ('author', models.CharField(help_text=b'Short Author list e.g. (Smith et al.)', max_length=255, db_index=True)),
-                ('slug', models.SlugField(help_text=b'`Slug` for author i.e. author-year (for use in URLS)', unique=True, max_length=64)),
-                ('reference', models.TextField(help_text=b'Reference for Source', null=True, blank=True)),
-                ('bibtex', models.TextField(help_text=b'BibTeX entry', null=True, blank=True)),
-                ('comment', models.TextField(help_text=b'Private comment on source', null=True, blank=True)),
+                ('year', models.CharField(help_text='Year published', max_length=12, null=True, db_index=True, blank=True)),
+                ('author', models.CharField(help_text='Short Author list e.g. (Smith et al.)', max_length=255, db_index=True)),
+                ('slug', models.SlugField(help_text='`Slug` for author i.e. author-year (for use in URLS)', unique=True, max_length=64)),
+                ('reference', models.TextField(help_text='Reference for Source', null=True, blank=True)),
+                ('bibtex', models.TextField(help_text='BibTeX entry', null=True, blank=True)),
+                ('comment', models.TextField(help_text='Private comment on source', null=True, blank=True)),
                 ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
             options={
