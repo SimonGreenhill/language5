@@ -1,4 +1,3 @@
-from django.http import Http404
 from django.views.generic import DetailView, ListView
 from django.core.urlresolvers import reverse
 from website.apps.core.models import Language, Location
@@ -16,7 +15,9 @@ def prepare_map_data(queryset):
                 'label': e.entry,
                 'language': e.language,
                 'isocode': e.language.isocode,
-                'url': reverse('language-detail', kwargs={'language': e.language.slug}),
+                'url': reverse(
+                    'language-detail', kwargs={'language': e.language.slug}
+                ),
             })
             # save isocode
             isos.add(e.language.isocode)
@@ -71,9 +72,10 @@ class CognateSetMap(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(CognateSetMap, self).get_context_data(**kwargs)
+        records = kwargs['object'].cognate_set.all()
+        records = records.select_related('lexicon__language').all()
         context['records'] = prepare_map_data([
-            _.lexicon for _ in 
-            kwargs['object'].cognate_set.select_related('lexicon__language').all()
+            _.lexicon for _ in records
         ])
         return context
 

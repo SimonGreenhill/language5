@@ -1,8 +1,8 @@
 from django.db import models
-from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
+from django.utils.encoding import python_2_unicode_compatible
 
-import reversion
+from reversion import revisions as reversion
 
 from website.apps.core.models import TrackedModel, Language, Source
 
@@ -24,7 +24,7 @@ NUMBER_CHOICES = (
     ('sg', 'Singular'),
     ('du', 'Dual'),
     ('pl', 'Plural'),
-   # ('tr', 'Trial'),
+    # ('tr', 'Trial'),
 )
 
 GENDER_CHOICES = (
@@ -42,10 +42,12 @@ ANALECT_TYPES = (
 class ActivePronounTypeManager(models.Manager):
     """Hides inactive pronouns"""
     def get_queryset(self):
-        return super(ActivePronounTypeManager, self).get_queryset().filter(active=True)
+        return super(
+            ActivePronounTypeManager, self
+        ).get_queryset().filter(active=True)
 
-    
 
+@python_2_unicode_compatible
 @reversion.register
 class PronounType(TrackedModel):
     """Types of Pronouns"""
@@ -58,18 +60,22 @@ class PronounType(TrackedModel):
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES,
         blank=True, null=True,
         help_text="Gender")
-    active = models.BooleanField(default=True, db_index=True, help_text="Show on website?")
+    active = models.BooleanField(
+        default=True, db_index=True,
+        help_text="Show on website?"
+    )
     sequence = models.PositiveSmallIntegerField(db_index=True, unique=True)
     word = models.ForeignKey('lexicon.Word')
     
-    objects = ActivePronounTypeManager() # manager
+    objects = ActivePronounTypeManager()
     
-    def __unicode__(self):
+    def __str__(self):
         return '%s%s %s' % (self.person, self.number, self.alignment)
     
     @staticmethod
     def _generate_all_combinations():
-        return PronounType.objects.all().filter(active=True).order_by("sequence")
+        qset = PronounType.objects.all()
+        return qset.filter(active=True).order_by("sequence")
     
     @staticmethod
     def _get_row_size():
@@ -95,24 +101,32 @@ class PronounType(TrackedModel):
         return out
     
 
+@python_2_unicode_compatible
 @reversion.register
 class Paradigm(TrackedModel):
     """Paradigm Details"""
     language = models.ForeignKey(Language)
     source = models.ForeignKey(Source)
-    comment = models.TextField(blank=True, null=True,
-        help_text="Comment on this paradigm")
-    analect = models.CharField(max_length=1, choices=ANALECT_TYPES, blank=True, null=True,
-        help_text="System Type")
-    label = models.CharField(max_length=32, 
-        blank=True, null=True, 
-        help_text="Short label")
+    comment = models.TextField(
+        blank=True, null=True,
+        help_text="Comment on this paradigm"
+    )
+    analect = models.CharField(
+        max_length=1, choices=ANALECT_TYPES,
+        blank=True, null=True,
+        help_text="System Type"
+    )
+    label = models.CharField(
+        max_length=32,
+        blank=True, null=True,
+        help_text="Short label"
+    )
     
-    def __unicode__(self):
+    def __str__(self):
         if self.label:
-            return u"%s: %s" % (self.language, self.label)
+            return "%s: %s" % (self.language, self.label)
         else:
-            return u"%s" % self.language
+            return "%s" % self.language
     
     def save(self, *args, **kwargs):
         if not self.pk:
@@ -122,14 +136,14 @@ class Paradigm(TrackedModel):
         super(Paradigm, self).save(*args, **kwargs)
         
         if do_prefill:
-            self._prefill_pronouns() # Prefill Pronouns
+            self._prefill_pronouns()
     
     def _prefill_pronouns(self):
-        ed = User.objects.get(pk=1)
+        editor = User.objects.all().order_by('id')[0]
         # figure out the pronouns we already have
         existing_pronouns = []
         for e in self.pronoun_set.select_related().all():
-            token = (e.pronountype.gender, e.pronountype.number, 
+            token = (e.pronountype.gender, e.pronountype.number,
                      e.pronountype.person, e.pronountype.alignment)
             existing_pronouns.append(token)
         
@@ -137,9 +151,9 @@ class Paradigm(TrackedModel):
             token = (p.gender, p.number, p.person, p.alignment)
             if token not in existing_pronouns:
                 obj = Pronoun.objects.create(
-                    editor = ed,
-                    paradigm = self,
-                    pronountype = p,
+                    editor=editor,
+                    paradigm=self,
+                    pronountype=p,
                 )
                 obj.save()
     
@@ -152,6 +166,7 @@ class Paradigm(TrackedModel):
         
 
 
+@python_2_unicode_compatible
 @reversion.register
 class Pronoun(TrackedModel):
     """Pronoun Data"""
@@ -161,8 +176,8 @@ class Pronoun(TrackedModel):
         help_text="Comment on this paradigm")
     entries = models.ManyToManyField('lexicon.Lexicon', blank=True)
     
-    def __unicode__(self):
-        return u'%s' % self.pronountype
+    def __str__(self):
+        return '%s' % self.pronountype
     
     @staticmethod
     def _generate_all_rows():
@@ -192,7 +207,7 @@ class PronounRelationshipManager(models.Manager):
     
     def get_relationships_for_pronoun(self, pronoun):
         return self.filter(
-            models.Q(pronoun1_id=self._get_pk(pronoun)) | 
+            models.Q(pronoun1_id=self._get_pk(pronoun)) |
             models.Q(pronoun2_id=self._get_pk(pronoun))
         )
     
@@ -208,6 +223,7 @@ class PronounRelationshipManager(models.Manager):
             return False
 
 
+@python_2_unicode_compatible
 @reversion.register
 class Relationship(TrackedModel):
     """Relationships Data"""
@@ -228,13 +244,14 @@ class Relationship(TrackedModel):
     
     objects = PronounRelationshipManager()
     
-    def __unicode__(self):
+    def __str__(self):
         return '%s-%s' % (self.pronoun1, self.pronoun2)
         
     class Meta:
         db_table = 'pronoun_relationships'
         
 
+@python_2_unicode_compatible
 @reversion.register
 class Rule(TrackedModel):
     """Pronoun Relationship Rules"""
@@ -242,7 +259,7 @@ class Rule(TrackedModel):
     rule = models.CharField(max_length=64)
     relationships = models.ManyToManyField('Relationship', blank=True)
     
-    def __unicode__(self):
+    def __ustr__(self):
         return '%d-%s' % (self.paradigm.id, self.rule)
         
     class Meta:

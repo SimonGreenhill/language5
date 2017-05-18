@@ -15,6 +15,14 @@ def link_ethnologue(lang):
         return ""
 
 @register.filter
+def link_glottolog(lang):
+    """Links to the Glottolog"""
+    if isinstance(lang, Language) and lang.glottocode:
+        return "http://glottolog.org/resource/languoid/id/%s" % lang.glottocode
+    else:
+        return ""
+
+@register.filter
 def link_olac(lang):
     """Links to the OLAC project"""
     if isinstance(lang, Language) and lang.isocode:
@@ -27,14 +35,6 @@ def link_multitree(lang):
     """Links to MultiTree"""
     if isinstance(lang, Language) and lang.isocode:
         return "http://multitree.org/codes/%s" % lang.isocode
-    else:
-        return ""
-
-@register.filter
-def link_glottolog(lang):
-    """Links to Glottolog"""
-    if isinstance(lang, Language) and lang.isocode:
-        return "http://glottolog.org/resource/languoid/iso/%s" % lang.isocode
     else:
         return ""
 

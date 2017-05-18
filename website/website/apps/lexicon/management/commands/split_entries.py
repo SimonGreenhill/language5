@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import reversion
+from reversion import revisions as reversion
 from optparse import make_option
 from django.core.management.base import BaseCommand
 
@@ -11,35 +11,40 @@ class Command(BaseCommand):
     args = 'split_entries --save [--word --language --source]'
     help = 'Splits Combined Lexical Entries'
     output_transaction = True
-    option_list = BaseCommand.option_list + (
-        make_option('--save',
+    
+    def add_arguments(self, parser):
+        parser.add_argument('--save',
             action='store_true',
             dest='save',
             default=False,
-            help='Save changes'),
-        make_option('--language',
+            help='Save changes'
+        )
+        parser.add_argument('--language',
             action='store',
             type='int',
             dest='language',
             default=False,
-            help='Filter by language_id'),
-        make_option('--word',
+            help='Filter by language_id'
+        )
+        parser.add_argument('--word',
             action='store',
             type='int',
             dest='word',
             default=False,
-            help='Filter by word_id'),
-        make_option('--source',
+            help='Filter by word_id'
+        )
+        parser.add_argument('--source',
             action='store',
             type='int',
             dest='source',
             default=False,
-            help='Filter by source_id'),
-        make_option('--quiet',
+            help='Filter by source_id'
+        )
+        parser.add_argument('--quiet',
             action='store_true',
             dest='save',
             default=False,
-            help='be quiet'),
+            help='be quiet'
         )
         
     def _print(self, message, quiet=False):
@@ -71,7 +76,6 @@ class Command(BaseCommand):
             #qset = qset.exclude(entry__startswith="*")
             qset = qset.exclude(entry__regex=r'^\*\w+\(\w+[,/]\w+\)\w+')
             
-            
         combined.extend(qset.filter(entry__icontains="/"))
         combined.extend(qset.filter(entry__icontains=", "))
         return combined
@@ -94,15 +98,15 @@ class Command(BaseCommand):
                     editor=obj.editor,
                     entry=c
                 )
-                reversion.set_comment("Automatic split_entries has created this from: %d" % obj.id)
+                reversion.set_comment("Automatic split_entries has created this from: %r" % obj.id)
                 pks.append(o.id)
         
         # now delete old entry
         with reversion.create_revision():
-            obj.delete()
             reversion.set_comment(
                 "Automatic split_entries has moved this item to: %s" % ",".join([str(p) for p in pks])
             )
+            obj.delete()
             
         
     def handle(self, *args, **options):

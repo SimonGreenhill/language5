@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import reversion
+from reversion import revisions as reversion
 import unicodedata
 from django.db.models import Count
 from optparse import make_option

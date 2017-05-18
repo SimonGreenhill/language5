@@ -2,7 +2,6 @@
 import os
 import re
 import sys
-import reversion
 from optparse import make_option
 from django.conf import settings
 from django.db import transaction
@@ -14,45 +13,35 @@ class Command(BaseCommand):
     args = '<filename ../path/to/file>'
     help = 'Imports the given data file'
     output_transaction = True
-    option_list = BaseCommand.option_list + (
-        make_option('--run',
+    
+    DATA_ROOT = os.path.join(os.path.split(settings.SITE_ROOT)[0], 'data')
+    
+    def add_arguments(self, parser):
+        parser.add_argument('filename', default=None, action='store')
+        parser.add_argument('--run',
             action='store_true',
             dest='run',
             default=False,
-            help='Run'),
-    )
-    
-    DATA_ROOT = os.path.join(os.path.split(settings.SITE_ROOT)[0], 'data')
+            help='Run'
+        )
     
     def list_datafiles(self):
         files = [_ for _ in os.listdir(self.DATA_ROOT)]
         files = [_ for _ in files if is_script.match(_)]
         for filename in sorted(files):
             print(" - {0}".format(os.path.join('data', filename)))
-        
+    
     def load(self, filename, dryrun=True):
         directory, module_name = os.path.split(filename)
         module_name = os.path.splitext(module_name)[0]
         sys.path.insert(0, directory)
         
-        try:
-            ac = transaction.get_autocommit()
-            transaction.set_autocommit(False)
-            with reversion.create_revision():
-                try:
-                    __import__(module_name)
-                except Exception as e:
-                    raise ImportError(u"Failed to Import - Exception: %s" % e)
-        except ImportError, e:
-            raise
-        finally:
+        with transaction.atomic():
+            __import__(module_name)
             if dryrun:
-                print("\n>>> ROLLBACK\n")
-                transaction.rollback()
+                raise ValueError("No save -- Rollback") 
             else:
                 print("\n<<< COMMIT\n")
-                transaction.commit()
-            transaction.set_autocommit(ac)
     
     def handle(self, *args, **options):
         # set some environment variables;
@@ -60,31 +49,28 @@ class Command(BaseCommand):
         os.environ['IMPORTER_DATAROOT'] = self.DATA_ROOT
         
         # handle no args
-        if len(args) == 0:
+        if options['filename'] is None:
             print("Listing files in {0}:".format(self.DATA_ROOT))
             self.list_datafiles()
             return
-        elif len(args) > 1:
-            raise ValueError("Expecting one argument only!")
         
-        filename = args[0]
         # set some environment variables;
-        os.environ['IMPORTER_FILENAME'] = filename
-        filename = filename.strip()
-        if not os.path.isfile(filename):
-            raise IOError('Invalid Filename %s' % filename)
+        os.environ['IMPORTER_FILENAME'] = options['filename']
+        options['filename'] = options['filename'].strip()
+        if not os.path.isfile(options['filename']):
+            raise IOError('Invalid Filename %s' % options['filename'])
         
-        filehead, fileext = os.path.splitext(filename)
+        filehead, fileext = os.path.splitext(options['filename'])
         
         if fileext != '.py':
             raise IOError('Unable to import a %s file' % fileext)
         
-        self.stdout.write('Importing "%s"\n' % filename)
+        self.stdout.write('Importing "%s"\n' % options['filename'])
         
         if 'run' in options and options['run']:
-            self.load(filename, dryrun=False)
+            self.load(options['filename'], dryrun=False)
         else:
-            self.load(filename, dryrun=True)
+            self.load(options['filename'], dryrun=True)
             sys.stdout.write(
                 "Dry-run complete. Use --run to save changes. Rolling back."
             )

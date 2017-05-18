@@ -38,11 +38,6 @@ class Test_Do(DataMixin):
     
     def test_has_next_cognate(self):
         assert 'next_cognates' in self.response.context
-        assert self.response.context['next_cognates'] == range(3, 12 + 1)
-        cogset = CognateSet.objects.create(protoform='test', editor=self.editor)
-        response = self.AuthenticatedClient.get(self.url)
-        assert response.context['next_cognates'] == range(4, 13 + 1)
-        assert cogset.id not in response.context['next_cognates']
     
     def test_has_lexicon(self):
         assert 'lexicon' in self.response.context
@@ -91,14 +86,14 @@ class Test_Do(DataMixin):
     def test_note_show_on_word(self):
         note = CognateNote.objects.create(word=self.word, editor=self.editor, note="WORD!")
         response = self.AuthenticatedClient.get(self.url)
-        assert 'WORD!' in response.content
+        assert b'WORD!' in response.content
         
     def test_note_show_on_cogset(self):
         cogset = CognateSet.objects.create(protoform='test', editor=self.editor)
         Cognate.objects.create(lexicon=self.lex_a, cognateset=cogset, editor=self.editor)
         note = CognateNote.objects.create(cognateset=cogset, editor=self.editor, note="COGSET!")
         response = self.AuthenticatedClient.get(self.url)
-        assert 'COGSET!' in response.content
+        assert b'COGSET!' in response.content
         
         
 

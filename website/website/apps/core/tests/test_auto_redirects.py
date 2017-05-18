@@ -12,18 +12,26 @@ class RedirectionTestMixin(object):
     model = None
     slug_field = 'slug'
     
-    def setUp(self):
-        self.editor = User.objects.create(username='admin')
-        self.language = Language.objects.create(language='A', slug='langa', 
-                                             information='i.1', classification='a, b',
-                                             isocode='aaa', editor=self.editor)
-        self.altname = AlternateName.objects.create(language=self.language, name='x',
-                                             slug='x', editor=self.editor)
-        self.family = Family.objects.create(family='An', slug='s1', editor=self.editor)
-        self.source = Source.objects.create(year="1991", author='Smith', 
-                                    slug='Smith1991', reference='S2',
-                                    comment='c1', editor=self.editor)
-        self.client = Client()
+    @classmethod
+    def setUpTestData(cls):
+        cls.editor = User.objects.create(username='admin')
+        cls.language = Language.objects.create(
+            language='A', slug='langa', 
+            information='i.1', classification='a, b',
+            isocode='aaa', editor=cls.editor
+        )
+        cls.altname = AlternateName.objects.create(
+            language=cls.language, name='x', slug='x', editor=cls.editor
+        )
+        cls.family = Family.objects.create(
+            family='An', slug='s1', editor=cls.editor
+        )
+        cls.source = Source.objects.create(
+            year="1991", author='Smith', 
+            slug='Smith1991', reference='S2',
+            comment='c1', editor=cls.editor
+        )
+        cls.client = Client()
     
     def _change_slugfield(self, obj, new="newslug"):
         setattr(obj, self.slug_field, new)

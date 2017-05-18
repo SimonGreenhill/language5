@@ -15,17 +15,27 @@ from website.apps.entry.tests import DataMixin
 
 class Test_Checkpointing(DataMixin):
     """Tests the Detail Page's Checkpointing"""
-    
-    def setUp(self):
-        super(Test_Checkpointing, self).setUp()
+    @classmethod
+    def setUpTestData(cls):
+        super(Test_Checkpointing, cls).setUpTestData()
         # need an incomplete entry, or else we get marked as complete.
-        del(self.form_data['form-0-entry'])
+        del(cls.form_data['form-0-entry'])
     
     def test_checkpoint(self):
-        self.task.checkpoint = encode_checkpoint(self.form_data)
-        self.task.save()
+        task = Task.objects.create(
+            editor=self.editor,
+            name="Test Task",
+            description="A Test of Data Entry",
+            source=self.source,
+            image=self.file_testimage,
+            language=self.lang,
+            done=False,
+            checkpoint=encode_checkpoint(self.form_data),
+            view="GenericView",
+            records=1, # needed so we don't have too many empty forms to validate
+        )
         # get from db.
-        t = Task.objects.get(pk=self.task.id)
+        t = Task.objects.get(pk=task.id)
         assert t.checkpoint is not None
         restored = decode_checkpoint(t.checkpoint)
         for k, v in self.form_data.items():
@@ -62,13 +72,6 @@ class Test_Checkpointing(DataMixin):
         t = Task.objects.get(pk=self.task.id)
         assert t.checkpoint is not None
         
-    def test_checkpoint_handles_garbage(self):
-        """Ensure that we don't choke if checkpoint is garbage"""
-        self.task.checkpoint = "fudge"
-        self.task.save()
-        assert self.task.checkpoint is not None
-        assert decode_checkpoint(self.task.checkpoint) is None
-    
     def test_checkpoint_doesnt_override_better(self):
         """Don't restore a checkpoint if we've got a new one coming in via POST"""
         self.client.login(username="admin", password="test")
@@ -94,9 +97,19 @@ class Test_Checkpointing(DataMixin):
     
     def test_checkpoint_with_unicode_via_database(self):
         unicode_sample = u'àáâãäåạɐæʌèéêëɛəìííîïɨịñŋòóôõöøðɔþùúûüụųʔřɬɤƀꝑšʷᵘ·'
-        self.task.checkpoint = encode_checkpoint(unicode_sample)
-        self.task.save()
-        assert unicode_sample == decode_checkpoint(Task.objects.get(pk=self.task.id).checkpoint)
+        task = Task.objects.create(
+            editor=self.editor,
+            name="Test Task",
+            description="A Test of Data Entry",
+            source=self.source,
+            image=self.file_testimage,
+            language=self.lang,
+            done=False,
+            checkpoint=encode_checkpoint(unicode_sample),
+            view="GenericView",
+            records=1, # needed so we don't have too many empty forms to validate
+        )
+        assert unicode_sample == decode_checkpoint(Task.objects.get(pk=task.id).checkpoint)
     
     def test_refresh_sets_checkpoint(self):
         self.client.login(username="admin", password="test")

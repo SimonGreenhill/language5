@@ -7,7 +7,7 @@ from django.template import RequestContext
 from django import forms
 from django.forms.formsets import formset_factory
 
-import reversion
+from reversion import revisions as reversion
 
 from website.apps.core.models import Language, Source
 from website.apps.lexicon.models import Lexicon, Word
@@ -117,5 +117,5 @@ def GenericView(request, task):
         'task': task,
         'formset': formset,
         'template': template_name,
-    }, context_instance=RequestContext(request))
+    })
 

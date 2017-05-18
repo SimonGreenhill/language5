@@ -37,20 +37,20 @@ class Test_CognateSetDetail(DataMixin, TestCase):
         self.client.login(username="admin", password="test")
         response = self.client.get(self.url)
         self.assertEquals(response.status_code, 200)
-        assert 'one' in response.content
+        assert b'one' in response.content
         
         url = reverse('cognacy:detail', kwargs={'pk': self.cogset2.id})
         response = self.client.get(url)
         self.assertEquals(response.status_code, 200)
-        assert 'two' in response.content
-        assert 'three' in response.content
+        assert b'two' in response.content
+        assert b'three' in response.content
         
     def test_notes(self):
         CognateNote.objects.create(cognateset=self.cogset1, note="I AM A NOTE", editor=self.editor)
         self.client.login(username="admin", password="test")
         response = self.client.get(self.url)
         self.assertEquals(response.status_code, 200)
-        assert 'I AM A NOTE' in response.content
+        assert b'I AM A NOTE' in response.content
     
     def test_paginator(self):
         self.client.login(username="admin", password="test")

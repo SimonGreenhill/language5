@@ -53,13 +53,14 @@ class SourceIndexTable(DataTable):
 class LanguageIndexTable(DataTable):
     """Language Listing"""
     isocode = tables.LinkColumn('language-detail', args=[A('slug')])
+    glottocode = tables.LinkColumn('language-detail', args=[A('slug')])
     language = tables.LinkColumn('language-detail', args=[A('slug')])
     classification = tables.Column()
     count = tables.LinkColumn('language-detail', args=[A('slug')])
     
     def render_language(self, record):
         col = tables.LinkColumn('language-detail', args=[record.slug])
-        return col.render(value=unicode(record), record=unicode(record), bound_column=None)
+        return col.render(value=record, record=record, bound_column=None)
     
     def render_classification(self, record):
         return mark_safe(render_to_string(
@@ -69,7 +70,7 @@ class LanguageIndexTable(DataTable):
     class Meta(DataTable.Meta):
         model = Language
         order_by = 'language' # default sorting
-        sequence = ('isocode', 'language', 'classification', 'count')
+        sequence = ('isocode', 'glottocode', 'language', 'classification', 'count')
         exclude = ('id', 'editor', 'added', 'slug', 'information', 'dialect')
     Meta.attrs['summary'] = 'Table of Languages'
 

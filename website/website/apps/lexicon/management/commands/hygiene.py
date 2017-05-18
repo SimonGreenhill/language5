@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import reversion
+from reversion import revisions as reversion
 from django.db.models import Count
 from optparse import make_option
 from django.core.management.base import BaseCommand
@@ -7,26 +7,23 @@ from django.core.management.base import BaseCommand
 from website.apps.core.models import Language
 from website.apps.lexicon.models import Lexicon
 
-try:
-    from ftfy import fix_text
-except ImportError:
-    raise ImportError("Please install python-ftfy")
-
 class Command(BaseCommand):
     args = 'hygiene [empty, tidy, dedupe, star] --save [--quiet]'
     help = 'Cleans Data from Database'
     output_transaction = True
-    option_list = BaseCommand.option_list + (
-        make_option('--save',
+    
+    def add_arguments(self, parser):
+        parser.add_argument('--save',
             action='store_true',
             dest='save',
             default=False,
-            help='Save changes to data rather than listing it'),
-        make_option('--quiet',
+            help='Save changes to data rather than listing it'
+        )
+        parser.add_argument('--quiet',
             action='store_true',
             dest='save',
             default=False,
-            help='be quiet'),
+            help='be quiet'
         )
         
     def _print(self, message, quiet=False):
@@ -54,6 +51,11 @@ class Command(BaseCommand):
         return unstarred
     
     def tidy(self):
+        try:
+            from ftfy import fix_text
+        except ImportError:
+            raise ImportError("Please install python-ftfy")
+        
         tidied = []
         for obj in Lexicon.objects.all():
             new = fix_text(obj.entry.strip(), fix_entities=True, normalization="NFKC", uncurl_quotes=True)
@@ -62,15 +64,17 @@ class Command(BaseCommand):
         return tidied
     
     def find_duplicates(self):
-        dupes = Lexicon.objects.values('language', 'source', 'word', 'entry'
-                    ).annotate(count=Count('entry')
-                        ).filter(count__gte=2)
+        dupes = Lexicon.objects.values('language', 'source', 'word', 'entry')
+        dupes = dupes.annotate(count=Count('entry')).filter(count__gte=2)
+        
         objects = []
         for d in dupes:
-            qset = Lexicon.objects.filter(language_id=d['language'], 
-                                       source_id=d['source'],
-                                       word_id=d['word'],
-                                       entry__exact=d['entry'])
+            qset = Lexicon.objects.filter(
+                language_id=d['language'], 
+                source_id=d['source'],
+                word_id=d['word'],
+                entry__exact=d['entry']
+            ).order_by('id')
             assert len(qset) == d['count']
             objects.extend(qset[1:])
         return objects
