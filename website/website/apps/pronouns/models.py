@@ -259,7 +259,7 @@ class Rule(TrackedModel):
     rule = models.CharField(max_length=64)
     relationships = models.ManyToManyField('Relationship', blank=True)
     
-    def __ustr__(self):
+    def __str__(self):
         return '%d-%s' % (self.paradigm.id, self.rule)
         
     class Meta:
