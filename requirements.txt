@@ -1,21 +1,21 @@
-django==1.10.3                                                         # django framework
+django==1.11.1                                                         # django framework
 fabric                                                                 # deployment etc
-pillow==3.4.2                                                          # A better python imaging library
+pillow==4.1.1                                                          # A better python imaging library
 psycopg2                                                               # database adaptor
 django-reversion==2.0.8                                                # versionin
-django-tables2==1.2.6                                                  # better table handling
+django-tables2==1.6.1                                                  # better table handling
 django-static-sitemaps==4.2.1                                          # static sitemaps
-django_compressor==2.1                                                 # for asset compression/cache busting
+django_compressor==2.1.1                                               # for asset compression/cache busting
 django-twitter-tag                                                     # twitter integration
 django-nvd3                                                            # for graphing statistics
 django-tastypie==0.13.3                                                # API
-django-watson==1.2.4                                                   # searching
+django-watson==1.3.1                                                   # searching
 
 # backup
-django-dbbackup==3.1.2
+django-dbbackup==3.1.3
 
 # test coverage
-coverage==4.2
+coverage==4.4.1
 
 # data/import
 regex
