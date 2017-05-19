@@ -1,5 +1,8 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 from django.test import TestCase
 
+from website.apps.core.models import Language
 from website.apps.lexicon.models import Lexicon
 from website.apps.pronouns.models import Paradigm, PronounType, Pronoun, Relationship
 
@@ -22,6 +25,19 @@ class Test_Paradigm(PronounsTestData, TestCase):
             label="",
         )
         assert str(pdm) == 'A', "Got: %s" % str(pdm)
+
+    def test_repr_utf8(self):
+        LObj = Language.objects.create(
+            language=u"Tést", slug='test', classification='a, b',
+            isocode='ttt', editor=self.editor
+        )
+        pdm = Paradigm(
+            language=LObj,
+            source=self.source,
+            editor=self.editor,
+            label="",
+        )
+        assert str(pdm) == u'Tést'.encode('utf8')
 
     def test_repr_with_label(self):
         pdm = Paradigm(

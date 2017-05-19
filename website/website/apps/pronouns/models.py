@@ -1,3 +1,4 @@
+from django.utils import six
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.encoding import python_2_unicode_compatible
@@ -70,7 +71,7 @@ class PronounType(TrackedModel):
     objects = ActivePronounTypeManager()
     
     def __str__(self):
-        return '%s%s %s' % (self.person, self.number, self.alignment)
+        return six.text_type('%s%s %s' % (self.person, self.number, self.alignment))
     
     @staticmethod
     def _generate_all_combinations():
@@ -124,9 +125,9 @@ class Paradigm(TrackedModel):
     
     def __str__(self):
         if self.label:
-            return "%s: %s" % (self.language, self.label)
+            return six.text_type("%s: %s" % (unicode(self.language), self.label))
         else:
-            return "%s" % self.language
+            return six.text_type("%s" % unicode(self.language))
     
     def save(self, *args, **kwargs):
         if not self.pk:
@@ -177,7 +178,7 @@ class Pronoun(TrackedModel):
     entries = models.ManyToManyField('lexicon.Lexicon', blank=True)
     
     def __str__(self):
-        return '%s' % self.pronountype
+        return six.text_type('%s' % self.pronountype)
     
     @staticmethod
     def _generate_all_rows():
@@ -245,7 +246,7 @@ class Relationship(TrackedModel):
     objects = PronounRelationshipManager()
     
     def __str__(self):
-        return '%s-%s' % (self.pronoun1, self.pronoun2)
+        return six.text_type('%s-%s' % (self.pronoun1, self.pronoun2))
         
     class Meta:
         db_table = 'pronoun_relationships'
@@ -260,7 +261,7 @@ class Rule(TrackedModel):
     relationships = models.ManyToManyField('Relationship', blank=True)
     
     def __str__(self):
-        return '%d-%s' % (self.paradigm.id, self.rule)
+        return six.text_type('%d-%s' % (self.paradigm.id, self.rule))
         
     class Meta:
         db_table = 'pronoun_rules'

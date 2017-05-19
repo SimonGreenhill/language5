@@ -7,7 +7,7 @@ def full_repr_row(p):
     """Build a string representation of the given pronoun `p`"""
 
     def _get(key, choices):
-        if isinstance(key, str):
+        if isinstance(key, basestring):
             for x, y in choices:
                 if key == x:
                     return y
