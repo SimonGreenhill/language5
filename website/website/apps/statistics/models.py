@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils import six
+
 from django.utils.encoding import python_2_unicode_compatible
 
 class AlreadyRegistered(Exception):
@@ -96,7 +98,7 @@ class StatisticalValue(models.Model):
     objects = StatisticManager()
     
     def __str__(self):
-        return "%s = %s" % (self.label, self.value)
+        return six.text_type("%s = %s" % (self.label, self.value))
     
     class Meta:
         db_table = 'statistics'

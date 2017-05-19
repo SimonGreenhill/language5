@@ -199,3 +199,6 @@ class TestCopyParadigm(PronounsTestData, TestCase):
         response = self.client.post(self.url, postdata)
         assert Paradigm.objects.count() == count + 1
         
+
+# class Test_UTF8Names(PronounsTestData, TestCase):
+#     def

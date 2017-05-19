@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models.signals import pre_save
 from django.core.urlresolvers import reverse
 from django.utils.encoding import python_2_unicode_compatible
+from django.utils import six
 
 from watson import search as watson
 from reversion import revisions as reversion
@@ -59,9 +60,9 @@ class Word(TrackedModel):
     
     def __str__(self):
         if self.full:
-            return "%s (%s)" % (self.word, self.full)
+            return six.text_type("%s (%s)" % (self.word, self.full))
         else:
-            return self.word
+            return six.text_type(self.word)
     
     @property
     def fullword(self):
@@ -96,7 +97,7 @@ class WordSubset(TrackedModel):
     words = models.ManyToManyField('Word', blank=True)
     
     def __str__(self):
-        return self.slug
+        return six.text_type(self.slug)
         
     def get_absolute_url(self):
         return "%s?subset=%s" % (reverse('word-index'), self.slug)
@@ -139,7 +140,7 @@ class Lexicon(TrackedModel):
     )
     
     def __str__(self):
-        return u"%d-%s" % (self.id, self.entry)
+        return six.text_type("%d-%s" % (self.id, self.entry))
         
     def get_absolute_url(self):
         return reverse('lexicon-detail', kwargs={'pk': self.pk})
@@ -173,7 +174,7 @@ class CognateSet(TrackedModel):
     )
     
     def __str__(self):
-        return "%d. %s '%s'" % (self.id, self.protoform, self.gloss)
+        return six.text_type("%d. %s '%s'" % (self.id, self.protoform, self.gloss))
     
     def get_absolute_url(self):
         return reverse('cognacy:detail', kwargs={'pk': self.pk})
@@ -203,7 +204,7 @@ class Cognate(TrackedModel):
     )
     
     def __str__(self):
-        return "%d.%d" % (self.cognateset_id, self.id)
+        return six.text_type("%d.%d" % (self.cognateset_id, self.id))
     
     class Meta:
         db_table = 'cognates'
@@ -219,11 +220,11 @@ class CognateNote(TrackedModel):
     
     def __str__(self):
         if self.cognateset:
-            return '#%d-%d. %s...' % (
+            return six.text_type('#%d-%d. %s...' % (
                 self.id, self.cognateset_id, self.note[0:30]
-            )
+            ))
         else:
-            return '#%d. %s...' % (self.id, self.note[0:30])
+            return six.text_type('#%d. %s...' % (self.id, self.note[0:30]))
     
     class Meta:
         db_table = 'cognacy_notes'
@@ -240,7 +241,7 @@ class CorrespondenceSet(TrackedModel):
     comment = models.TextField(blank=True, null=True, help_text="Notes")
     
     def __str__(self):
-        return "Correspondence Set: %s" % self.comment
+        return six.text_type("Correspondence Set: %s" % self.comment)
     
     class Meta:
         db_table = 'corrsets'
@@ -256,7 +257,7 @@ class Correspondence(TrackedModel):
     rule = models.CharField(max_length=32)
     
     def __str__(self):
-        return "Correspondence: /%s/" % self.rule
+        return six.text_type("Correspondence: /%s/" % self.rule)
     
     class Meta:
         db_table = 'correspondences'
@@ -281,7 +282,7 @@ class Concepticon(TrackedModel):
         help_text="Ontological Category")
 
     def __str__(self):
-        return "%d. %s" % (self.id, self.gloss)
+        return six.text_type("%d. %s" % (self.id, self.gloss))
     
     class Meta:
         db_table = 'concepticon'
