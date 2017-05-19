@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.encoding import python_2_unicode_compatible
+from django.utils import six
 from website.apps.core.models import TrackedModel
 from website.apps.entry.dataentry import available_views
 from website.apps.statistics.models import statistic
@@ -33,7 +34,7 @@ class Task(TrackedModel):
         help_text="Saved Lexical Items", blank=True)
     
     def __str__(self):
-        return self.name
+        return six.text_type(self.name)
     
     @models.permalink
     def get_absolute_url(self):
@@ -73,7 +74,7 @@ class Wordlist(TrackedModel):
     words = models.ManyToManyField('lexicon.Word', through="WordlistMember")
     
     def __str__(self):
-        return self.name
+        return six.text_type(self.name)
     
     class Meta:
         db_table = 'task_wordlists'

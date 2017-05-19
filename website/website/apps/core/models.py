@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from website.signals import create_redirect
 from django.utils.encoding import python_2_unicode_compatible
+from django.utils import six
 
 from reversion import revisions as reversion
 from watson import search as watson
@@ -60,9 +61,9 @@ class Source(TrackedModel):
     
     def __str__(self):
         if self.year is not None:
-            return "%s (%s)" % (self.author, self.year)
+            return six.text_type("%s (%s)" % (unicode(self.author), self.year))
         else:
-            return self.author
+            return six.text_type(unicode(self.author))
     
     def get_absolute_url(self):
         return reverse('source-detail', kwargs={'slug': self.slug})
@@ -75,7 +76,6 @@ class Source(TrackedModel):
         ]
 
 
-@python_2_unicode_compatible
 @reversion.register
 class Note(TrackedModel):
     """Notes/Information about a language"""
@@ -84,9 +84,6 @@ class Note(TrackedModel):
     note = models.TextField(help_text="Note")
     location = models.CharField(max_length=50, blank=True, null=True,
         help_text="Location (e.g. p12)")
-    
-    def __str__(self):
-        return u'#%d. %s on %s' % (self.id, self.source, self.language)
     
     class Meta:
         db_table = 'notes'
@@ -102,7 +99,7 @@ class Family(TrackedModel):
         help_text="`Slug` for language family (for use in URLS)")
     
     def __str__(self):
-        return self.family
+        return six.text_type(self.family)
         
     def get_absolute_url(self):
         return reverse('family-detail', kwargs={'slug': self.slug})
@@ -135,9 +132,9 @@ class Language(TrackedModel):
     
     def __str__(self):
         if self.dialect:
-            return "%s (%s Dialect)" % (self.language, self.dialect)
+            return six.text_type("%s (%s Dialect)" % (unicode(self.language), self.dialect))
         else:
-            return self.language
+            return six.text_type(self.language)
     
     def get_absolute_url(self):
         return reverse('language-detail', kwargs={'language': self.slug})
@@ -162,7 +159,7 @@ class AlternateName(TrackedModel):
         help_text="`Slug` for language (for use in URLS)")
     
     def __str__(self):
-        return "%s AKA %s" % (self.language, self.slug)
+        return six.text_type("%s AKA %s" % (self.language, self.slug))
         
     def get_absolute_url(self):
         return reverse('language-detail', kwargs={'language': self.language.slug})
@@ -182,7 +179,7 @@ class Link(TrackedModel):
     description = models.TextField(help_text="Language Description")
     
     def __str__(self):
-        return "%d %s" % (self.language.id, self.link)
+        return six.text_type("%d %s" % (self.language.id, self.link))
     
     class Meta:
         verbose_name_plural = "Resource Links"
@@ -190,15 +187,11 @@ class Link(TrackedModel):
         unique_together = ['language', 'link']
         
 
-@python_2_unicode_compatible
 @reversion.register
 class Location(TrackedModel):
     isocode = models.CharField(max_length=3, db_index=True)
     longitude = models.FloatField(help_text="Longitude")
     latitude = models.FloatField(help_text="Latitiude")
-
-    def __str__(self):
-        return "%s %2.4f-%2.4f" % (self.isocode, self.longitude, self.latitude)
 
     class Meta:
         verbose_name_plural = "Geographical Locations"
@@ -217,7 +210,7 @@ class Attachment(TrackedModel):
         help_text="The Resource File (PDF)", null=True, blank=True)
         
     def __str__(self):
-        return self.file.name
+        return six.text_type(self.file.name)
     
     def get_absolute_url(self):
         return self.file.url
@@ -235,7 +228,7 @@ class PopulationSize(TrackedModel):
     populationsize = models.IntegerField()
 
     def __str__(self):
-        return "%s %d: %d" % (self.language.slug, self.source.year, self.populationsize)
+        return six.text_type("%s %d: %d" % (self.language.slug, self.source.year, self.populationsize))
 
     class Meta:
         db_table = 'popsize'
