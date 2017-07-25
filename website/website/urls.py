@@ -88,6 +88,7 @@ urlpatterns = [
     url(r'^favicon\.ico$', RedirectView.as_view(url='%s/favicon.ico' % settings.STATIC_URL, permanent=True)),
     
     url(r'^api/', include(v1_api.urls)),
+    url(r'^api$', RedirectView.as_view(url='api/v1/')),
 ]
 
 

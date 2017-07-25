@@ -8,22 +8,28 @@ from website.apps.core.resources import LanguageResource, SourceResource
 
 class WordResource(UTF8ModelResource):
     
+    concepticon_id = fields.CharField(attribute='concepticon_id', null=True, blank=True)
+    
     def determine_format(self, request):
         return 'application/json'
     
     class Meta:
-        queryset = Word.objects.all()
+        queryset = Word.objects.all().select_related('concepticon')
         allowed_methods = ['get']
-        excludes = ['comment', 'quality', ]
+        excludes = ['comment', 'quality', 'added', 'full']
         cache = SimpleCache(timeout=10)
         detail_uri_name = 'slug'
+        default_format = 'application/json'
+        limit = 100
 
 
 class LexiconResource(UTF8ModelResource):
-    
-    language = fields.ForeignKey(LanguageResource, 'language', full=False)
-    source = fields.ForeignKey(SourceResource, 'source', full=False)
-    word = fields.ForeignKey(WordResource, 'word', full=False)
+    language = fields.CharField(attribute='language')
+    #language_uri = fields.ForeignKey(LanguageResource, 'language', full=False)
+    source = fields.CharField(attribute='source__slug')
+    #source_uri = fields.ForeignKey(SourceResource, 'source', full=False)
+    word = fields.CharField(attribute='word__slug')
+    #word_uri = fields.ForeignKey(WordResource, 'word', full=False)
     
     def determine_format(self, request):
         return 'application/json'
@@ -31,6 +37,13 @@ class LexiconResource(UTF8ModelResource):
     class Meta:
         queryset = Lexicon.objects.all()
         allowed_methods = ['get']
-        excludes = []
+        excludes = ['phon_entry', ]
         cache = SimpleCache(timeout=10)
-
+        default_format = 'application/json'
+        limit = 100
+        filtering = {
+            "language": ('exact', ),
+            "source": ('exact', ),
+            "word": ('exact', ),
+        }
+        

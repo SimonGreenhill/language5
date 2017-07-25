@@ -12,6 +12,7 @@ def build_content_type(format, encoding='utf-8'):
         return format
     return "%s; charset=%s" % (format, encoding)
 
+
 class UTF8ModelResource(ModelResource):
     def create_response(self, request, data, response_class=HttpResponse, **response_kwargs):
         """
@@ -26,4 +27,3 @@ class UTF8ModelResource(ModelResource):
             content_type=build_content_type(desired_format), 
             **response_kwargs
         )
-        

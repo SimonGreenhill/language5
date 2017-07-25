@@ -67,6 +67,7 @@ class LanguageMapResource(Resource):
         include_resource_uri = False
         allowed_methods = ['get']
         cache = SimpleCache(timeout=60 * 24, public=True)
+        default_format = 'application/json'
     
     def obj_get_list(self, bundle, **kwargs):
         # Filtering disabled for brevity...
