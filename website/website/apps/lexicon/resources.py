@@ -10,9 +10,6 @@ class WordResource(UTF8ModelResource):
     
     concepticon_id = fields.CharField(attribute='concepticon_id', null=True, blank=True)
     
-    def determine_format(self, request):
-        return 'application/json'
-    
     class Meta:
         queryset = Word.objects.all().select_related('concepticon')
         allowed_methods = ['get']
@@ -30,9 +27,6 @@ class LexiconResource(UTF8ModelResource):
     #source_uri = fields.ForeignKey(SourceResource, 'source', full=False)
     word = fields.CharField(attribute='word__slug')
     #word_uri = fields.ForeignKey(WordResource, 'word', full=False)
-    
-    def determine_format(self, request):
-        return 'application/json'
     
     class Meta:
         queryset = Lexicon.objects.all()
