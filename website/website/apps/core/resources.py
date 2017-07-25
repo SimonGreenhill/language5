@@ -4,12 +4,6 @@ from tastypie.cache import SimpleCache
 from website.apps.core.models import Language, Source
 
 class LanguageResource(UTF8ModelResource):
-
-    lexicon = fields.ToManyField('website.apps.lexicon.resources.LexiconResource', 'lexicon_set', related_name='lexicon')
-
-    def determine_format(self, request):
-        return 'application/json'
-
     class Meta:
         queryset = Language.objects.all()
         allowed_methods = ['get']
@@ -21,10 +15,6 @@ class LanguageResource(UTF8ModelResource):
 
 
 class SourceResource(UTF8ModelResource):
-    
-    def determine_format(self, request):
-        return 'application/json'
-    
     class Meta:
         queryset = Source.objects.all()
         allowed_methods = ['get']
