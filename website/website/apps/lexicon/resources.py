@@ -21,12 +21,9 @@ class WordResource(UTF8ModelResource):
 
 
 class LexiconResource(UTF8ModelResource):
-    language = fields.CharField(attribute='language')
-    #language_uri = fields.ForeignKey(LanguageResource, 'language', full=False)
-    source = fields.CharField(attribute='source__slug')
-    #source_uri = fields.ForeignKey(SourceResource, 'source', full=False)
-    word = fields.CharField(attribute='word__slug')
-    #word_uri = fields.ForeignKey(WordResource, 'word', full=False)
+    language = fields.ForeignKey(LanguageResource, 'language', full=False)
+    source = fields.ForeignKey(SourceResource, 'source', full=False)
+    word = fields.ForeignKey(WordResource, 'word', full=False)
     
     class Meta:
         queryset = Lexicon.objects.all()
