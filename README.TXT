@@ -17,7 +17,6 @@ Features:
 ** http://transnewguinea.org/statistics/
 
 
-
 Needed Cronjobs:
 ----------------
 
