@@ -19,7 +19,7 @@ class WordIndexTable(DataTable):
         model = Word
         order_by = 'fullword' # default sorting
         sequence = ('id', 'fullword', 'count')
-        exclude = ('editor', 'word', 'full', 'added', 'slug', 'quality', 'comment')
+        exclude = ('editor', 'word', 'full', 'added', 'slug', 'quality', 'comment', 'concepticon')
     Meta.attrs['summary'] = 'Table of Words'
 
 
@@ -35,13 +35,13 @@ class WordLexiconTable(DataTable):
     
     def render_language(self, record):
         col = tables.LinkColumn('language-detail', args=[record.language.slug])
-        return col.render(value=unicode(record.language), record=unicode(record.language), bound_column=None)
+        return col.render(value=record.language, record=record.language, bound_column=None)
     
     class Meta(DataTable.Meta):
         model = Lexicon
         order_by = 'word' # default sorting
         sequence = ('id', 'language', 'entry', 'annotation', 'loan',  'source')
-        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'word',)
+        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'word')
     Meta.attrs['summary'] = 'Table of Lexicon'
 
 
@@ -75,7 +75,7 @@ class SourceLexiconTable(DataTable):
     
     def render_language(self, record):
         col = tables.LinkColumn('language-detail', args=[record.language.slug])
-        return col.render(value=unicode(record.language), record=unicode(record.language), bound_column=None)
+        return col.render(value=record.language, record=record.language, bound_column=None)
     
     class Meta(DataTable.Meta):
         model = Lexicon
@@ -101,7 +101,7 @@ class WordLexiconEditTable(WordLexiconTable):
     
     def render_language(self, record):
         col = tables.LinkColumn('language-detail', args=[record.language.slug])
-        return col.render(value=unicode(record.language), record=unicode(record.language), bound_column=None)
+        return col.render(value=record.language, record=record.language, bound_column=None)
     
     class Meta(WordLexiconTable.Meta):
         model = Lexicon
@@ -156,7 +156,7 @@ class AlignmentTable(WordLexiconTable):
     
     def render_language(self, record):
         col = tables.LinkColumn('language-detail', args=[record.language.slug])
-        return col.render(value=unicode(record.language), record=unicode(record.language), bound_column=None)
+        return col.render(value=record.language, record=record.language, bound_column=None)
     
     class Meta(WordLexiconTable.Meta):
         model = Lexicon

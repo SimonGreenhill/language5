@@ -1,9 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.encoding import python_2_unicode_compatible
+from django.utils import six
 from website.apps.core.models import TrackedModel
 from website.apps.entry.dataentry import available_views
 from website.apps.statistics.models import statistic
 
+
+@python_2_unicode_compatible
 class Task(TrackedModel):
     """Data Entry Tasks"""
     name = models.CharField(max_length=255, db_index=True,
@@ -29,8 +33,8 @@ class Task(TrackedModel):
     lexicon = models.ManyToManyField('lexicon.Lexicon',
         help_text="Saved Lexical Items", blank=True)
     
-    def __unicode__(self):
-        return self.name
+    def __str__(self):
+        return six.text_type(self.name)
     
     @models.permalink
     def get_absolute_url(self):
@@ -62,14 +66,15 @@ class TaskLog(models.Model):
         get_latest_by = 'time'
 
 
+@python_2_unicode_compatible
 class Wordlist(TrackedModel):
     """Wordlist for data entry tasks"""
     name = models.CharField(max_length=255, db_index=True, unique=True,
         help_text="Name of Wordlist")
     words = models.ManyToManyField('lexicon.Word', through="WordlistMember")
     
-    def __unicode__(self):
-        return self.name
+    def __str__(self):
+        return six.text_type(self.name)
     
     class Meta:
         db_table = 'task_wordlists'

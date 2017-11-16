@@ -23,7 +23,7 @@ class Test_LexiconDetail(DataMixin, TestCase):
     
     def test_get_data(self):
         self.assertEquals(self.response.status_code, 200)
-        assert 'A' in self.response.content
+        assert b'A' in self.response.content
         
 
 class Test_LexiconEditNotLoggedIn(DataMixin, TestCase):
@@ -68,14 +68,14 @@ class Test_LexiconEdit(DataMixin, TestCase):
         
     def test_get(self):
         self.assertEquals(self.response.status_code, 200)
-        assert 'A' in self.response.content
+        assert b'A' in self.response.content
         
     def test_post(self):
         postdata = self.get_post_data(self.lexicon1)
         postdata['entry'] = 'banana'
         response = self.client.post(self.url, postdata, follow=True)
         self.assertEquals(response.status_code, 200)
-        assert 'banana' in response.content
+        assert b'banana' in response.content
         
     def test_update_editor(self):
         from django.contrib.auth.models import User

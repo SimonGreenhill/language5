@@ -2,7 +2,6 @@
 import os
 import re
 import sys
-from reversion import revisions as reversion
 from optparse import make_option
 from django.conf import settings
 from django.db import transaction
@@ -18,6 +17,7 @@ class Command(BaseCommand):
     DATA_ROOT = os.path.join(os.path.split(settings.SITE_ROOT)[0], 'data')
     
     def add_arguments(self, parser):
+        parser.add_argument('filename', default=None, action='store')
         parser.add_argument('--run',
             action='store_true',
             dest='run',
@@ -37,8 +37,7 @@ class Command(BaseCommand):
         sys.path.insert(0, directory)
         
         with transaction.atomic():
-            with reversion.create_revision():
-                __import__(module_name)
+            __import__(module_name)
             if dryrun:
                 raise ValueError("No save -- Rollback") 
             else:
@@ -50,31 +49,28 @@ class Command(BaseCommand):
         os.environ['IMPORTER_DATAROOT'] = self.DATA_ROOT
         
         # handle no args
-        if len(args) == 0:
+        if options['filename'] is None:
             print("Listing files in {0}:".format(self.DATA_ROOT))
             self.list_datafiles()
             return
-        elif len(args) > 1:
-            raise ValueError("Expecting one argument only!")
         
-        filename = args[0]
         # set some environment variables;
-        os.environ['IMPORTER_FILENAME'] = filename
-        filename = filename.strip()
-        if not os.path.isfile(filename):
-            raise IOError('Invalid Filename %s' % filename)
+        os.environ['IMPORTER_FILENAME'] = options['filename']
+        options['filename'] = options['filename'].strip()
+        if not os.path.isfile(options['filename']):
+            raise IOError('Invalid Filename %s' % options['filename'])
         
-        filehead, fileext = os.path.splitext(filename)
+        filehead, fileext = os.path.splitext(options['filename'])
         
         if fileext != '.py':
             raise IOError('Unable to import a %s file' % fileext)
         
-        self.stdout.write('Importing "%s"\n' % filename)
+        self.stdout.write('Importing "%s"\n' % options['filename'])
         
         if 'run' in options and options['run']:
-            self.load(filename, dryrun=False)
+            self.load(options['filename'], dryrun=False)
         else:
-            self.load(filename, dryrun=True)
+            self.load(options['filename'], dryrun=True)
             sys.stdout.write(
                 "Dry-run complete. Use --run to save changes. Rolling back."
             )

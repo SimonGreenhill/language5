@@ -105,7 +105,7 @@ class Test_Save(DataMixin):
         form_data = self.form_data
         form_data['c-%d' % self.lex_a.id] = "banana"
         response = self.AuthenticatedClient.post(self.url, form_data, follow=True)
-        assert 'ERROR u&#39;banana&#39; for lexicon' in response.content
+        assert b'ERROR &#39;banana&#39; for lexicon' in response.content
         
     def test_cant_be_in_same_set_twice(self):
         form_data = self.form_data

@@ -29,9 +29,9 @@ class Command(BaseCommand):
         for i in Language.objects.select_related().filter(language__icontains="%s" % query, isocode__iexact="%s" % query):
             print " ".join([
                 '%d' % i.id,
-                unicode(i).ljust(20),
+                i.ljust(20),
                 i.slug.ljust(20),
-                i.isocode.ljust(20), 
+                i.isocode.ljust(20),
                 i.classification
             ]) 
     
@@ -40,7 +40,7 @@ class Command(BaseCommand):
             print " ".join([
                 '%d' % i.id,
                 i.author.ljust(20),
-                '%d' % i.year, 
+                '%d' % i.year,
                 i.slug.ljust(20),
                 i.reference
             ]) 
@@ -52,8 +52,8 @@ class Command(BaseCommand):
             print " ".join([
                 '%d' % i.id,
                 str(i.language).ljust(20),
-                str(i.source).ljust(20), 
-                str(i.word).ljust(10), 
+                str(i.source).ljust(20),
+                str(i.word).ljust(10),
                 i.entry
             ])
     
@@ -63,7 +63,7 @@ class Command(BaseCommand):
         for i in Word.objects.select_related().filter(word__icontains="%s" % query):
             print " ".join([
                 '%d' % i.id,
-                unicode(i).ljust(20), 
+                i.ljust(20),
                 i.slug.ljust(20),
             ])
             

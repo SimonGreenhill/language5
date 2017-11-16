@@ -1,5 +1,7 @@
+from django.utils import six
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.encoding import python_2_unicode_compatible
 
 from reversion import revisions as reversion
 
@@ -46,6 +48,7 @@ class ActivePronounTypeManager(models.Manager):
         ).get_queryset().filter(active=True)
 
 
+@python_2_unicode_compatible
 @reversion.register
 class PronounType(TrackedModel):
     """Types of Pronouns"""
@@ -67,8 +70,8 @@ class PronounType(TrackedModel):
     
     objects = ActivePronounTypeManager()
     
-    def __unicode__(self):
-        return '%s%s %s' % (self.person, self.number, self.alignment)
+    def __str__(self):
+        return six.text_type('%s%s %s' % (self.person, self.number, self.alignment))
     
     @staticmethod
     def _generate_all_combinations():
@@ -99,6 +102,7 @@ class PronounType(TrackedModel):
         return out
     
 
+@python_2_unicode_compatible
 @reversion.register
 class Paradigm(TrackedModel):
     """Paradigm Details"""
@@ -119,11 +123,11 @@ class Paradigm(TrackedModel):
         help_text="Short label"
     )
     
-    def __unicode__(self):
+    def __str__(self):
         if self.label:
-            return u"%s: %s" % (self.language, self.label)
+            return six.text_type("%s: %s" % (unicode(self.language), self.label))
         else:
-            return u"%s" % self.language
+            return six.text_type("%s" % unicode(self.language))
     
     def save(self, *args, **kwargs):
         if not self.pk:
@@ -163,6 +167,7 @@ class Paradigm(TrackedModel):
         
 
 
+@python_2_unicode_compatible
 @reversion.register
 class Pronoun(TrackedModel):
     """Pronoun Data"""
@@ -172,8 +177,8 @@ class Pronoun(TrackedModel):
         help_text="Comment on this paradigm")
     entries = models.ManyToManyField('lexicon.Lexicon', blank=True)
     
-    def __unicode__(self):
-        return u'%s' % self.pronountype
+    def __str__(self):
+        return six.text_type('%s' % self.pronountype)
     
     @staticmethod
     def _generate_all_rows():
@@ -219,6 +224,7 @@ class PronounRelationshipManager(models.Manager):
             return False
 
 
+@python_2_unicode_compatible
 @reversion.register
 class Relationship(TrackedModel):
     """Relationships Data"""
@@ -239,13 +245,14 @@ class Relationship(TrackedModel):
     
     objects = PronounRelationshipManager()
     
-    def __unicode__(self):
-        return '%s-%s' % (self.pronoun1, self.pronoun2)
+    def __str__(self):
+        return six.text_type('%s-%s' % (self.pronoun1, self.pronoun2))
         
     class Meta:
         db_table = 'pronoun_relationships'
         
 
+@python_2_unicode_compatible
 @reversion.register
 class Rule(TrackedModel):
     """Pronoun Relationship Rules"""
@@ -253,8 +260,8 @@ class Rule(TrackedModel):
     rule = models.CharField(max_length=64)
     relationships = models.ManyToManyField('Relationship', blank=True)
     
-    def __unicode__(self):
-        return '%d-%s' % (self.paradigm.id, self.rule)
+    def __str__(self):
+        return six.text_type('%d-%s' % (self.paradigm.id, self.rule))
         
     class Meta:
         db_table = 'pronoun_rules'

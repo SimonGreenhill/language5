@@ -72,22 +72,6 @@ class Test_Checkpointing(DataMixin):
         t = Task.objects.get(pk=self.task.id)
         assert t.checkpoint is not None
         
-    def test_checkpoint_handles_garbage(self):
-        """Ensure that we don't choke if checkpoint is garbage"""
-        task = Task.objects.create(
-            editor=self.editor,
-            name="Test Task",
-            description="A Test of Data Entry",
-            source=self.source,
-            image=self.file_testimage,
-            language=self.lang,
-            done=False,
-            checkpoint='fudge',  # garbage!
-            view="GenericView",
-            records=1, # needed so we don't have too many empty forms to validate
-        )
-        assert decode_checkpoint(task.checkpoint) is None
-    
     def test_checkpoint_doesnt_override_better(self):
         """Don't restore a checkpoint if we've got a new one coming in via POST"""
         self.client.login(username="admin", password="test")

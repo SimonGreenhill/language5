@@ -34,7 +34,7 @@ class Test_Index(PronounsTestData, PaginatorTestMixin, TestCase):
         p.save()
         self.response = self.client.get(self.url)
         self.assertEqual(self.response.status_code, 200)
-        self.assertContains(self.response, unicode(p))
+        self.assertContains(self.response, str(p))
         self.assertContains(self.response, 'sausage')
         
 
@@ -61,7 +61,7 @@ class Test_Detail(PronounsTestData, TestCase):
     def test_label_in_content(self):
         self.response = self.client.get(self.url)
         self.assertEqual(self.response.status_code, 200)
-        self.assertContains(self.response, unicode(self.pdm))
+        self.assertContains(self.response, str(self.pdm))
         self.assertContains(self.response, 'label')
         self.assertContains(
             self.response, '<h1>Pronoun Paradigm: A: label</h1>'
@@ -199,3 +199,6 @@ class TestCopyParadigm(PronounsTestData, TestCase):
         response = self.client.post(self.url, postdata)
         assert Paradigm.objects.count() == count + 1
         
+
+# class Test_UTF8Names(PronounsTestData, TestCase):
+#     def

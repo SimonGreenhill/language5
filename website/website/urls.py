@@ -29,7 +29,7 @@ from website.apps.lexicon.views import WordIndex, WordDetail
 from website.apps.lexicon.views import LexiconDetail, LexiconEdit
 from website.apps.lexicon.views import word_edit, word_alignment
 
-from sitemap import sitemaps
+from website.sitemap import sitemaps
 
 urlpatterns = [
     # Main Page / Home
@@ -88,6 +88,7 @@ urlpatterns = [
     url(r'^favicon\.ico$', RedirectView.as_view(url='%s/favicon.ico' % settings.STATIC_URL, permanent=True)),
     
     url(r'^api/', include(v1_api.urls)),
+    url(r'^api$', RedirectView.as_view(url='api/v1/')),
 ]
 
 
