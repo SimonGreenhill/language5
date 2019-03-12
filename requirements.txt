@@ -1,7 +1,7 @@
-django==1.11.1                                                         # django framework
+django==1.11.20                                                        # django framework
 fabric                                                                 # deployment etc
 pillow==4.1.1                                                          # A better python imaging library
-psycopg2                                                               # database adaptor
+psycopg2-binary                                                        # database adaptor
 django-reversion==2.0.8                                                # versionin
 django-tables2==1.6.1                                                  # better table handling
 django-static-sitemaps==4.2.1                                          # static sitemaps
