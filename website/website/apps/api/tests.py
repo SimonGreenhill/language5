@@ -111,7 +111,7 @@ class Test_LexiconResource(DataMixin, TestCase):
     def test_expected(self):
         expected = [
             'added', 'word', 'language', 'loan', 'annotation', 'source', 'source_gloss',
-            'entry', 'id', 'cognateset'
+            'entry', 'id',
         ]
         for o in self.json['objects']:
             for e in expected:
