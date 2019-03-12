@@ -4,6 +4,9 @@ from tastypie.cache import SimpleCache
 from website.apps.core.models import Language, Source
 
 class LanguageResource(UTF8ModelResource):
+    
+    fullname = fields.CharField(readonly=True)
+        
     class Meta:
         queryset = Language.objects.all()
         allowed_methods = ['get']
@@ -12,6 +15,10 @@ class LanguageResource(UTF8ModelResource):
         detail_uri_name = 'slug'
         default_format = 'application/json'
         limit = 100
+
+    def dehydrate_fullname(self, bundle):
+        return str(bundle.obj)
+
 
 
 class SourceResource(UTF8ModelResource):

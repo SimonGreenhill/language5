@@ -7,8 +7,8 @@ from website.apps.core.resources import LanguageResource, SourceResource
 
 
 class WordResource(UTF8ModelResource):
-    
     concepticon_id = fields.CharField(attribute='concepticon_id', null=True, blank=True)
+    concepticon_gloss = fields.CharField(attribute='concepticon_gloss', null=True, blank=True)
     
     class Meta:
         queryset = Word.objects.all().select_related('concepticon')
@@ -24,6 +24,7 @@ class LexiconResource(UTF8ModelResource):
     language = fields.ForeignKey(LanguageResource, 'language', full=False)
     source = fields.ForeignKey(SourceResource, 'source', full=False)
     word = fields.ForeignKey(WordResource, 'word', full=False)
+    cognateset = fields.CharField(attribute='cognateset_id', null=True, blank=True)
     
     class Meta:
         queryset = Lexicon.objects.all()

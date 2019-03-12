@@ -32,7 +32,21 @@ class Test_LanguageResource(DataMixin, TestCase):
         assert 'langa' in records
         assert 'langb' in records
         
+    def test_fields(self):
+        expected = [
+            'dialect', 'glottocode', 'added', 'language', 'classification', 'information',
+            'slug', 'isocode', 'id'
+        ]
+        for o in self.json['objects']:
+            for e in expected:
+                assert e in o
     
+    def test_fullname(self):
+        assert self.json['objects'][0]['fullname'] == str(self.lang1)
+        assert self.json['objects'][1]['fullname'] == str(self.lang2)
+        
+
+
 class Test_SourceResource(DataMixin, TestCase):
 
     url = '/api/v1/source/'
@@ -68,6 +82,12 @@ class Test_WordResource(DataMixin, TestCase):
         assert 'hand' in records
         assert 'one' in records
         assert 'two' in records
+    
+    def test_concepticon(self):
+        expected = ['concepticon_gloss', 'concepticon_id']
+        for o in self.json['objects']:
+            for e in expected:
+                assert e in o
 
 
 class Test_LexiconResource(DataMixin, TestCase):
@@ -87,6 +107,15 @@ class Test_LexiconResource(DataMixin, TestCase):
         assert 'A' in records
         assert 'B' in records
         assert 'C' in records
+
+    def test_expected(self):
+        expected = [
+            'added', 'word', 'language', 'loan', 'annotation', 'source', 'source_gloss',
+            'entry', 'id', 'cognateset'
+        ]
+        for o in self.json['objects']:
+            for e in expected:
+                assert e in o
 
 
 class Test_LanguageMapResource(DataMixin, TestCase):
