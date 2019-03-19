@@ -83,8 +83,8 @@ class Command(BaseCommand):
     def split_and_replace(self, obj, quiet=False):
         if '/' in obj.entry:
             components = obj.entry.split("/")
-        elif ',' in obj.entry:
-            components = obj.entry.split(",")
+        elif ', ' in obj.entry:  # note trailing space
+            components = obj.entry.split(", ")
         pks = []
         for c in components:
             c = c.strip()
