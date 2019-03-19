@@ -21,21 +21,21 @@ class Command(BaseCommand):
         )
         parser.add_argument('--language',
             action='store',
-            type='int',
+            type=int,
             dest='language',
             default=False,
             help='Filter by language_id'
         )
         parser.add_argument('--word',
             action='store',
-            type='int',
+            type=int,
             dest='word',
             default=False,
             help='Filter by word_id'
         )
         parser.add_argument('--source',
             action='store',
-            type='int',
+            type=int,
             dest='source',
             default=False,
             help='Filter by source_id'
