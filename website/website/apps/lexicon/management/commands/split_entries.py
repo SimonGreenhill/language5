@@ -126,10 +126,10 @@ class Command(BaseCommand):
         for obj in comb:
             self._print(
                 "L.%4d W.%4d S.%3d %5d: \t %s" % (
-                    obj.id,
                     obj.language.id,
                     obj.word.id,
                     obj.source.id, 
+                    obj.id,
                     obj.entry,
                 ),
                 options.get('quiet', False)
