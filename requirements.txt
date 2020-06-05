@@ -1,4 +1,4 @@
-django==1.11.19                                                        # django framework
+django==1.11.29                                                        # django framework
 fabric                                                                 # deployment etc
 pillow==4.1.1                                                          # A better python imaging library
 psycopg2                                                               # database adaptor
