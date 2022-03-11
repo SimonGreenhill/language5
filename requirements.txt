@@ -1,6 +1,6 @@
 django==1.11.19                                                        # django framework
 fabric                                                                 # deployment etc
-pillow==4.1.1                                                          # A better python imaging library
+pillow==9.0.1                                                          # A better python imaging library
 psycopg2                                                               # database adaptor
 django-reversion==2.0.8                                                # versionin
 django-tables2==1.6.1                                                  # better table handling
