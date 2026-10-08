@@ -6,6 +6,7 @@ from reversion.admin import VersionAdmin
 from website.apps.lexicon.models import Word, WordSubset, Lexicon
 from website.apps.lexicon.models import CognateSet, Cognate, CognateNote
 from website.apps.lexicon.models import CorrespondenceSet, Correspondence
+from website.apps.lexicon.models import Concepticon
 
 from website.apps.core.admin import TrackedModelAdmin
 
@@ -126,6 +127,13 @@ class CorrespondenceAdmin(TrackedModelAdmin, VersionAdmin):
     search_fields = ('language', 'rule')
 
 
+class ConcepticonAdmin(TrackedModelAdmin, VersionAdmin):
+    list_display = ('id', 'gloss', 'semanticfield', 'definition', 'ontologicalcategory')
+    list_filter = ('semanticfield', 'ontologicalcategory',)
+    ordering = ('id',)
+    list_select_related = True
+    search_fields = ('gloss', 'definition')
+
 
 admin.site.register(Word, WordAdmin)
 admin.site.register(WordSubset, WordSubsetAdmin)
@@ -135,3 +143,4 @@ admin.site.register(CorrespondenceSet, CorrespondenceSetAdmin)
 admin.site.register(Cognate, CognateAdmin)
 admin.site.register(CognateNote, CognateNoteAdmin)
 admin.site.register(Correspondence, CorrespondenceAdmin)
+admin.site.register(Concepticon, ConcepticonAdmin)

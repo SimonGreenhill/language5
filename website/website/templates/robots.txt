@@ -1,5 +1,11 @@
 User-agent: *
 Disallow: /admin/
 Disallow: /entry/
+# Close the crawler trap: do not enumerate the ?sort= x ?page= URL space on the
+# list pages (/language/, /word/, /source/, /cognacy/, ...). Canonical pages stay
+# indexable; these query-string permutations are duplicate views only.
+Disallow: /*?*sort=
+Disallow: /*?*page=
+Crawl-delay: 10
 
 Sitemap: http://{{ SITE_DOMAIN }}/sitemap.xml
