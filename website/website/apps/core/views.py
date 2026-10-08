@@ -9,6 +9,9 @@ from website.apps.core.models import Family, Language, AlternateName, Source
 from website.apps.core.models import Location
 
 from django_tables2 import SingleTableView, RequestConfig
+from website.apps.core.crawler_trap import (
+    CrawlerTrapMixin, canonical_sort_redirect, guard_page, list_seo_context
+)
 from website.apps.core.tables import LanguageIndexTable
 from website.apps.core.tables import SourceIndexTable
 from website.apps.core.tables import FamilyIndexTable
@@ -24,7 +27,7 @@ class RobotsTxt(TemplateView):
     content_type = "text/plain"
     
 
-class LanguageIndex(SingleTableView):
+class LanguageIndex(CrawlerTrapMixin, SingleTableView):
     """Language Index"""
     model = Language
     template_name = 'core/language_index.html'
@@ -60,7 +63,7 @@ class LanguageIndex(SingleTableView):
         return context
     
     
-class SourceIndex(SingleTableView):
+class SourceIndex(CrawlerTrapMixin, SingleTableView):
     """Source Index"""
     model = Source
     template_name = 'core/source_index.html'
@@ -94,7 +97,7 @@ class SourceIndex(SingleTableView):
         return context
 
 
-class FamilyIndex(SingleTableView):
+class FamilyIndex(CrawlerTrapMixin, SingleTableView):
     """Family Index"""
     model = Family
     template_name = 'core/family_index.html'
@@ -130,9 +133,18 @@ class SourceDetail(DetailView):
     """Source Detail"""
     model = Source
     template_name = 'core/source_detail.html'
-    
+
+    def get(self, request, *args, **kwargs):
+        guard_page(request)
+        if not request.user.is_authenticated():
+            redirect = canonical_sort_redirect(request, SourceLexiconTable)
+            if redirect is not None:
+                return redirect
+        return super(SourceDetail, self).get(request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
         context = super(SourceDetail, self).get_context_data(**kwargs)
+        context.update(list_seo_context(self.request))
         context['attachments'] = kwargs['object'].attachment_set.all()
         
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
@@ -160,9 +172,17 @@ class FamilyDetail(DetailView):
     """Family Detail"""
     model = Family
     template_name = 'core/family_detail.html'
-    
+
+    def get(self, request, *args, **kwargs):
+        guard_page(request)
+        redirect = canonical_sort_redirect(request, LanguageIndexTable)
+        if redirect is not None:
+            return redirect
+        return super(FamilyDetail, self).get(request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
         context = super(FamilyDetail, self).get_context_data(**kwargs)
+        context.update(list_seo_context(self.request))
         records = kwargs['object'].language_set.all().annotate(
             count=Count('lexicon')
         )
@@ -192,6 +212,15 @@ def language_detail(request, language):
     is checked for a match. If found, then this view will redirect to the
     canonical slug.
     """
+    # Close the crawler trap before any DB work: reject bogus ?page= values and
+    # collapse unknown ?sort= values to the canonical URL (anonymous only, so
+    # logged-in editors keep the full edit-table sort columns).
+    guard_page(request)
+    if not request.user.is_authenticated():
+        redirect_response = canonical_sort_redirect(request, LanguageLexiconTable)
+        if redirect_response is not None:
+            return redirect_response
+
     # if we find the language slug, then render the language detail page.
     try:
         my_lang = Language.objects.get(slug=language)
@@ -201,6 +230,7 @@ def language_detail(request, language):
             'links': my_lang.link_set.all(),
             'attachments': my_lang.attachment_set.all(),
         }
+        out.update(list_seo_context(request))
         
         # sources used
         sources = my_lang.lexicon_set.values('source_id').distinct().all()

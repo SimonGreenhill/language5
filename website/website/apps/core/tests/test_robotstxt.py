@@ -18,5 +18,15 @@ class Test_Robots_Txt(TestCase):
     
     def test_content(self):
         self.assertContains(self.response, 'User-agent')
+
+    def test_disallows_sort_permutations(self):
+        # closes the crawler trap for well-behaved bots
+        self.assertContains(self.response, 'Disallow: /*?*sort=')
+
+    def test_disallows_page_permutations(self):
+        self.assertContains(self.response, 'Disallow: /*?*page=')
+
+    def test_has_crawl_delay(self):
+        self.assertContains(self.response, 'Crawl-delay:')
         
         

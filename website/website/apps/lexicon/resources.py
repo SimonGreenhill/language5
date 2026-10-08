@@ -1,7 +1,9 @@
 from tastypie import fields
-from website.apps.api import UTF8ModelResource
+from tastypie.resources import ALL, ALL_WITH_RELATIONS
 from tastypie.authorization import DjangoAuthorization
 from tastypie.cache import SimpleCache
+
+from website.apps.api import UTF8ModelResource
 from website.apps.lexicon.models import Word, Lexicon
 from website.apps.core.resources import LanguageResource, SourceResource
 
@@ -24,7 +26,7 @@ class LexiconResource(UTF8ModelResource):
     language = fields.ForeignKey(LanguageResource, 'language', full=False)
     source = fields.ForeignKey(SourceResource, 'source', full=False)
     word = fields.ForeignKey(WordResource, 'word', full=False)
-    
+
     class Meta:
         queryset = Lexicon.objects.all()
         allowed_methods = ['get']
@@ -33,8 +35,8 @@ class LexiconResource(UTF8ModelResource):
         default_format = 'application/json'
         limit = 100
         filtering = {
-            "language": ('exact', ),
-            "source": ('exact', ),
-            "word": ('exact', ),
+            "language": ("exact", ),
+            "source": ("exact", ),
+            "word": ("exact", ),
         }
         
