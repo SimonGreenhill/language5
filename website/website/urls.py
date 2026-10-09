@@ -10,14 +10,13 @@ from django.contrib.auth.views import login, logout
 from tastypie.api import Api
 from website.apps.core.resources import LanguageResource, SourceResource
 from website.apps.lexicon.resources import WordResource, LexiconResource
+from website.apps.maps.resources import LanguageMapResource
 
 v1_api = Api(api_name='v1')
 v1_api.register(LanguageResource())
 v1_api.register(SourceResource())
 v1_api.register(WordResource())
 v1_api.register(LexiconResource())
-
-from website.apps.maps.resources import LanguageMapResource
 v1_api.register(LanguageMapResource())
 
 from website.apps.core.views import LanguageIndex, RobotsTxt

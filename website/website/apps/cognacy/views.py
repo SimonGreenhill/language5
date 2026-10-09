@@ -12,6 +12,9 @@ from django_tables2 import SingleTableView, RequestConfig
 
 from reversion import revisions as reversion
 
+from website.apps.core.crawler_trap import (
+    CrawlerTrapMixin, canonical_sort_redirect, guard_page, list_seo_context
+)
 from website.apps.core.models import Source
 from website.apps.lexicon.models import Word, Lexicon, CognateSet, Cognate, CognateNote
 from website.apps.cognacy.forms import DoCognateForm, MergeCognateForm, CognateNoteForm, get_clades
@@ -21,13 +24,13 @@ from website.apps.cognacy.tables import CognacyTable, CognateSetDetailTable
 from website.apps.cognacy.utils import get_missing_cogids
 
 
-class CognateSourceIndex(SingleTableView):
+class CognateSourceIndex(CrawlerTrapMixin, SingleTableView):
     """Cognate Index By Source"""
     model = Source
     template_name = 'cognacy/index.html'
     table_class = CognateSourceIndexTable
     table_pagination = {"per_page": 100}
-    
+
     def get_queryset(self):
         return Source.objects.all().annotate(count=Count('cognate')).filter(count__gt=0)
     
@@ -37,9 +40,18 @@ class CognateSourceDetail(DetailView):
     model = Source
     template_name = 'cognacy/detail.html'
     table_pagination = {"per_page": 50}
-    
+
+    def get(self, request, *args, **kwargs):
+        guard_page(request)
+        if not request.user.is_authenticated():
+            redirect = canonical_sort_redirect(request, CognateSourceDetailTable)
+            if redirect is not None:
+                return redirect
+        return super(CognateSourceDetail, self).get(request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
         context = super(CognateSourceDetail, self).get_context_data(**kwargs)
+        context.update(list_seo_context(self.request))
         qset = []
         for o in kwargs['object'].cognate_set.select_related().all():
             o.language = o.lexicon.language

@@ -88,6 +88,20 @@ class Test_LexiconResource(DataMixin, TestCase):
         assert 'B' in records
         assert 'C' in records
 
+    def test_filter(self):
+        response = self.client.get("%s?language=%d" % (self.url, self.lang1.id))
+        records = [o['entry'] for o in response.json()['objects']]
+        assert 'A' in records
+        assert 'B' not in records
+        assert 'C' in records
+
+        response = self.client.get("%s?source=%d" % (self.url, self.source2.id))
+        records = [o['entry'] for o in response.json()['objects']]
+        assert 'A' not in records
+        assert 'B' in records
+        assert 'C' not in records
+
+
 
 class Test_LanguageMapResource(DataMixin, TestCase):
     url = '/api/v1/languagemap/'

@@ -112,9 +112,12 @@ class Test_LanguageIndex(BaseMixin, PaginatorTestMixin, TestCase):
             assert response.context['table'].rows[i].record == obj
     
     def test_sorting_invalid(self):
+        # An unknown sort column is a crawler-trap URL: 301 to the canonical
+        # (sort-less) page rather than rendering an expensive duplicate view.
         response = self.client.get('%s?sort=sausage' % self.url)
-        for i, obj in enumerate(Language.objects.all().order_by('language')):
-            assert response.context['table'].rows[i].record == obj
+        self.assertRedirects(
+            response, self.url, status_code=301, target_status_code=200
+        )
     
     def test_show_subsets(self):
         response = self.client.get(self.url)

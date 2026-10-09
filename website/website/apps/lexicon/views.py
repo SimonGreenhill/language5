@@ -16,6 +16,9 @@ from website.apps.lexicon.models import Word, WordSubset, Lexicon
 from website.apps.lexicon.forms import LexiconForm
 
 from django_tables2 import SingleTableView, RequestConfig
+from website.apps.core.crawler_trap import (
+    CrawlerTrapMixin, canonical_sort_redirect, guard_page, list_seo_context
+)
 from website.apps.lexicon.tables import WordIndexTable, WordLexiconTable
 from website.apps.lexicon.tables import WordLexiconEditTable
 
@@ -24,7 +27,7 @@ from django.forms.models import modelformset_factory
 from website.apps.lexicon.forms import WordForm
 
 
-class WordIndex(SingleTableView):
+class WordIndex(CrawlerTrapMixin, SingleTableView):
     """Word Index"""
     model = Word
     template_name = 'lexicon/word_index.html'
@@ -70,10 +73,19 @@ class WordDetail(DetailView):
     template_name = 'lexicon/word_detail.html'
     table_class = WordLexiconTable
     table_pagination = {"per_page": 50}
-    
+
+    def get(self, request, *args, **kwargs):
+        guard_page(request)
+        if not request.user.is_authenticated():
+            redirect = canonical_sort_redirect(request, WordLexiconTable)
+            if redirect is not None:
+                return redirect
+        return super(WordDetail, self).get(request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
         context = super(WordDetail, self).get_context_data(**kwargs)
-        
+        context.update(list_seo_context(self.request))
+
         qset = kwargs['object'].lexicon_set.select_related().all()
         if self.request.user.is_authenticated():
             context['lexicon'] = WordLexiconEditTable(qset)
