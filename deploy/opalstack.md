@@ -4,7 +4,7 @@ App: `~/apps/transnewguinea2`, Opalstack Django/uWSGI app, port 14764. `A=~/apps
 
 ## 0. Before you start
 
-- **Prod has uncommitted edits.** Live `robots.txt` and the Twitter link differ from every committed revision. In the prod checkout, run `hg status && hg diff` (or `git status && git diff`) and send me the output, so nothing is lost at cut-over.
+- **Prod has uncommitted edits.** Live `robots.txt` (and, before its removal, the Twitter link) differ from every committed revision. In the prod checkout, run `hg status && hg diff` (or `git status && git diff`) and send me the output, so nothing is lost at cut-over.
 - Python: `$A/env/bin/python -V`. The port needs **≥ 3.11** (django-tables2 3.0). If it's 3.10, use 2b.
 
 ## 1. Code
