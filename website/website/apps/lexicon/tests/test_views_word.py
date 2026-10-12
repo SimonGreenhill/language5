@@ -180,6 +180,25 @@ class Test_WordEdit(DataMixin, TestCase):
         cls.items = [cls.lex1, cls.lex2]
         cls.url = reverse('word-edit', kwargs={'slug': cls.word1.slug})
 
+    def test_queries_do_not_scale_with_rows(self):
+        """Choice lists are queried once, not once per row."""
+        from django.db import connection
+        from django.test.utils import CaptureQueriesContext
+        self.client.login(username="admin", password="test")
+
+        def count():
+            with CaptureQueriesContext(connection) as q:
+                self.client.get(self.url)
+            return len(q)
+
+        before = count()
+        for i in range(5):
+            Lexicon.objects.create(
+                language=self.lang1, word=self.word1, source=self.source1,
+                editor=self.editor, entry="extra%d" % i, annotation=""
+            )
+        self.assertEqual(count(), before)
+
     def get_post_data(self, objects):
         postdata = {
             'form-TOTAL_FORMS': '2',

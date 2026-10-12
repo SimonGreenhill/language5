@@ -138,7 +138,14 @@ def word_edit(request, slug):
     formset = GenericFormSet(
         request.POST or None, queryset=w.lexicon_set.all()
     )
-    
+    # build each choice list once and share it, instead of one query per row
+    choices = {}
+    for form in formset:
+        for name in ('language', 'source', 'word'):
+            if name not in choices:
+                choices[name] = list(form.fields[name].choices)
+            form.fields[name].choices = choices[name]
+
     if request.POST and formset.is_valid():
         from reversion import revisions as reversion
         for form in formset:
