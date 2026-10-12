@@ -3,7 +3,7 @@ from reversion.models import Version
 from django.test import TestCase
 from django.test.client import Client
 from django.forms import ValidationError
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from website.apps.cognacy.tests.data import DataMixin
 from website.apps.lexicon.models import Lexicon, CognateSet, Cognate, CognateNote
@@ -14,7 +14,7 @@ class Test_Save(DataMixin):
     url = reverse('cognacy:save', kwargs={'word': 'hand', 'clade': ''})
     
     def setUp(self):
-        super(Test_Save, self).setUp()
+        super().setUp()
         self.AuthenticatedClient = Client()
         self.AuthenticatedClient.login(username="admin", password="test")
         self.form_data = {

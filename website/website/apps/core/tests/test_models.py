@@ -37,7 +37,7 @@ class Test_Language(TestCase):
         
     def test_empty_dialect(self):
         l = Language.objects.create(
-            language='A', dialect=u"",
+            language='A', dialect="",
             slug='a', 
             information='', classification='',
             isocode='aaa', editor=self.editor
@@ -57,7 +57,7 @@ class Test_Source(TestCase):
             slug='Smith1991', reference='S2',
             comment='c1', editor=self.editor
         )
-        self.assertEquals(str(s), "%s (%s)" % (s.author, s.year))
+        self.assertEqual(str(s), f"{s.author} ({s.year})")
         
     def test_noyear(self):
         s = Source.objects.create(
@@ -65,4 +65,4 @@ class Test_Source(TestCase):
             slug='Smith1991', reference='S2',
             comment='c1', editor=self.editor
         )
-        self.assertEquals(str(s), s.author)
+        self.assertEqual(str(s), s.author)

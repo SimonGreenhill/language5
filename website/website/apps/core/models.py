@@ -1,10 +1,8 @@
 from django.db import models
 from django.db.models.signals import pre_save
 from django.contrib.auth.models import User
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from website.signals import create_redirect
-from django.utils.encoding import python_2_unicode_compatible
-from django.utils import six
 
 from reversion import revisions as reversion
 from watson import search as watson
@@ -30,7 +28,7 @@ class AllMethodCachingManager(models.Manager):
 
 class TrackedModel(models.Model):
     """Abstract base class containing editorial information"""
-    editor = models.ForeignKey(User)
+    editor = models.ForeignKey(User, on_delete=models.CASCADE)
     added = models.DateTimeField(auto_now_add=True)
     
     objects = models.Manager()
@@ -41,7 +39,6 @@ class TrackedModel(models.Model):
         get_latest_by = 'added'
 
 
-@python_2_unicode_compatible
 @reversion.register
 class Source(TrackedModel):
     """Source Details"""
@@ -61,9 +58,9 @@ class Source(TrackedModel):
     
     def __str__(self):
         if self.year is not None:
-            return six.text_type("%s (%s)" % (unicode(self.author), self.year))
+            return str(f"{unicode(self.author)} ({self.year})")
         else:
-            return six.text_type(unicode(self.author))
+            return str(unicode(self.author))
     
     def get_absolute_url(self):
         return reverse('source-detail', kwargs={'slug': self.slug})
@@ -71,16 +68,14 @@ class Source(TrackedModel):
     class Meta:
         db_table = 'sources'
         ordering = ['author', 'year', ]
-        index_together = [
-            ["author", "year"],
-        ]
+        indexes = [models.Index(fields=["author", "year"])]
 
 
 @reversion.register
 class Note(TrackedModel):
     """Notes/Information about a language"""
-    language = models.ForeignKey('Language')
-    source = models.ForeignKey('Source')
+    language = models.ForeignKey('Language', on_delete=models.CASCADE)
+    source = models.ForeignKey('Source', on_delete=models.CASCADE)
     note = models.TextField(help_text="Note")
     location = models.CharField(max_length=50, blank=True, null=True,
         help_text="Location (e.g. p12)")
@@ -89,7 +84,6 @@ class Note(TrackedModel):
         db_table = 'notes'
 
 
-@python_2_unicode_compatible
 @reversion.register
 class Family(TrackedModel):
     """Language families/Subsets"""
@@ -99,7 +93,7 @@ class Family(TrackedModel):
         help_text="`Slug` for language family (for use in URLS)")
     
     def __str__(self):
-        return six.text_type(self.family)
+        return str(self.family)
         
     def get_absolute_url(self):
         return reverse('family-detail', kwargs={'slug': self.slug})
@@ -110,7 +104,6 @@ class Family(TrackedModel):
         ordering = ['family', ]
     
 
-@python_2_unicode_compatible
 @reversion.register
 class Language(TrackedModel):
     """Stores language information"""
@@ -132,34 +125,31 @@ class Language(TrackedModel):
     
     def __str__(self):
         if self.dialect:
-            return six.text_type("%s (%s Dialect)" % (unicode(self.language), self.dialect))
+            return str(f"{unicode(self.language)} ({self.dialect} Dialect)")
         else:
-            return six.text_type(self.language)
+            return str(self.language)
     
     def get_absolute_url(self):
         return reverse('language-detail', kwargs={'language': self.slug})
     
     class Meta:
         unique_together = ("isocode", "language", "dialect")
-        index_together = [
-            ["language", "dialect"],
-        ]
+        indexes = [models.Index(fields=["language", "dialect"])]
         db_table = 'languages'
         ordering = ['language', 'dialect']
 
 
-@python_2_unicode_compatible
 @reversion.register
 class AlternateName(TrackedModel):
     """Handles languages with multiple names"""
-    language = models.ForeignKey('Language')
+    language = models.ForeignKey('Language', on_delete=models.CASCADE)
     name = models.CharField(max_length=64, unique=True, db_index=True,
         help_text="Alternate Name for this language")
     slug = models.SlugField(max_length=64, unique=True,
         help_text="`Slug` for language (for use in URLS)")
     
     def __str__(self):
-        return six.text_type("%s AKA %s" % (self.language, self.slug))
+        return str(f"{self.language} AKA {self.slug}")
         
     def get_absolute_url(self):
         return reverse('language-detail', kwargs={'language': self.language.slug})
@@ -170,16 +160,15 @@ class AlternateName(TrackedModel):
         ordering = ['name', ]
 
 
-@python_2_unicode_compatible
 @reversion.register
 class Link(TrackedModel):
     """Stores links to language appropriate resources"""
-    language = models.ForeignKey('Language')
+    language = models.ForeignKey('Language', on_delete=models.CASCADE)
     link = models.URLField(help_text="URL to link")
     description = models.TextField(help_text="Language Description")
     
     def __str__(self):
-        return six.text_type("%d %s" % (self.language.id, self.link))
+        return str("%d %s" % (self.language.id, self.link))
     
     class Meta:
         verbose_name_plural = "Resource Links"
@@ -198,19 +187,18 @@ class Location(TrackedModel):
         db_table = 'locations'
 
 
-@python_2_unicode_compatible
 @reversion.register
 class Attachment(TrackedModel):
     """Attachments Details"""
-    language = models.ForeignKey('Language')
-    source = models.ForeignKey('Source')
+    language = models.ForeignKey('Language', on_delete=models.CASCADE)
+    source = models.ForeignKey('Source', on_delete=models.CASCADE)
     details = models.CharField(max_length=32, null=True, blank=True,
         help_text="Extra details e.g. page number")
     file = models.FileField(upload_to='data/%Y-%m/',
         help_text="The Resource File (PDF)", null=True, blank=True)
         
     def __str__(self):
-        return six.text_type(self.file.name)
+        return str(self.file.name)
     
     def get_absolute_url(self):
         return self.file.url
@@ -219,16 +207,15 @@ class Attachment(TrackedModel):
         db_table = 'attachments'
 
 
-@python_2_unicode_compatible
 @reversion.register
 class PopulationSize(TrackedModel):
     """Population Size Details"""
-    language = models.ForeignKey('Language')
-    source = models.ForeignKey('Source')
+    language = models.ForeignKey('Language', on_delete=models.CASCADE)
+    source = models.ForeignKey('Source', on_delete=models.CASCADE)
     populationsize = models.IntegerField()
 
     def __str__(self):
-        return six.text_type("%s %d: %d" % (self.language.slug, self.source.year, self.populationsize))
+        return str("%s %d: %d" % (self.language.slug, self.source.year, self.populationsize))
 
     class Meta:
         db_table = 'popsize'

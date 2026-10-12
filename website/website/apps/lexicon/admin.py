@@ -25,12 +25,12 @@ class CognatesInline(admin.TabularInline):
         if db_field.name == 'editor':
             kwargs['initial'] = request.user
             return db_field.formfield(**kwargs)
-        return super(CognatesInline, self).formfield_for_foreignkey(
+        return super().formfield_for_foreignkey(
             db_field, request, **kwargs
         )
 
     def get_queryset(self, request):
-        return super(CognatesInline, self).get_queryset(request).select_related('source', 'lexicon')
+        return super().get_queryset(request).select_related('source', 'lexicon')
 
 
 class CorrespondenceInline(admin.TabularInline):
@@ -41,12 +41,13 @@ class CorrespondenceInline(admin.TabularInline):
         if db_field.name == 'editor':
             kwargs['initial'] = request.user
             return db_field.formfield(**kwargs)
-        return super(CorrespondenceInline, self).formfield_for_foreignkey(
+        return super().formfield_for_foreignkey(
             db_field, request, **kwargs
         )
 
 
 # Admin Classes
+@admin.register(Word)
 class WordAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_display = ('id', 'word', 'concepticon_id', 'full', 'quality', 'comment')
@@ -56,6 +57,7 @@ class WordAdmin(TrackedModelAdmin, VersionAdmin):
     search_fields = ('word', 'full', 'comment')
     
 
+@admin.register(WordSubset)
 class WordSubsetAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_display = ('id', 'subset', 'description')
@@ -65,6 +67,7 @@ class WordSubsetAdmin(TrackedModelAdmin, VersionAdmin):
     filter_horizontal = ('words',)
 
 
+@admin.register(Lexicon)
 class LexiconAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_display = ('id', 'language', 'source', 'word', 'entry', 'source_gloss', 'annotation', 'loan')
@@ -73,6 +76,7 @@ class LexiconAdmin(TrackedModelAdmin, VersionAdmin):
     ordering = ('id',)
     
 
+@admin.register(CognateSet)
 class CognateSetAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_display = ('id', 'protoform', 'gloss', 'source', 'quality')
@@ -82,9 +86,10 @@ class CognateSetAdmin(TrackedModelAdmin, VersionAdmin):
     inlines = [CognatesInline]
     
     def get_queryset(self, request):
-        return super(CognateSetAdmin, self).get_queryset(request).select_related('source')
+        return super().get_queryset(request).select_related('source')
 
 
+@admin.register(CorrespondenceSet)
 class CorrespondenceSetAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_display = ('id', 'source', 'comment')
@@ -93,9 +98,10 @@ class CorrespondenceSetAdmin(TrackedModelAdmin, VersionAdmin):
     inlines = [CorrespondenceInline]
     
     def get_queryset(self, request):
-        return super(CorrespondenceSetAdmin, self).get_queryset(request).select_related('source')
+        return super().get_queryset(request).select_related('source')
 
 
+@admin.register(Cognate)
 class CognateAdmin(TrackedModelAdmin, VersionAdmin):
     list_display = ('cognateset', 'source', 'lexicon')
     raw_id_fields = ('lexicon', 'cognateset', )
@@ -105,9 +111,10 @@ class CognateAdmin(TrackedModelAdmin, VersionAdmin):
     search_fields = ('cognateset__protoform', 'cognateset__gloss', 'source__slug', 'lexicon__entry', 'comment')
     
     def get_queryset(self, request):
-        return super(CognateAdmin, self).get_queryset(request).select_related('source', 'cognateset', 'lexicon')
+        return super().get_queryset(request).select_related('source', 'cognateset', 'lexicon')
 
 
+@admin.register(CognateNote)
 class CognateNoteAdmin(TrackedModelAdmin, VersionAdmin):
     list_display = ('word', 'cognateset', 'editor', 'note')
     list_filter = ('word', 'editor',)
@@ -116,9 +123,10 @@ class CognateNoteAdmin(TrackedModelAdmin, VersionAdmin):
     search_fields = ('word', 'cognateset', 'editor', 'note')
     
     def get_queryset(self, request):
-        return super(CognateNoteAdmin, self).get_queryset(request).select_related('word', 'cognateset')
+        return super().get_queryset(request).select_related('word', 'cognateset')
 
 
+@admin.register(Correspondence)
 class CorrespondenceAdmin(TrackedModelAdmin, VersionAdmin):
     list_display = ('corrset', 'language', 'rule')
     list_filter = ('corrset', 'language',)
@@ -127,6 +135,7 @@ class CorrespondenceAdmin(TrackedModelAdmin, VersionAdmin):
     search_fields = ('language', 'rule')
 
 
+@admin.register(Concepticon)
 class ConcepticonAdmin(TrackedModelAdmin, VersionAdmin):
     list_display = ('id', 'gloss', 'semanticfield', 'definition', 'ontologicalcategory')
     list_filter = ('semanticfield', 'ontologicalcategory',)
@@ -135,12 +144,3 @@ class ConcepticonAdmin(TrackedModelAdmin, VersionAdmin):
     search_fields = ('gloss', 'definition')
 
 
-admin.site.register(Word, WordAdmin)
-admin.site.register(WordSubset, WordSubsetAdmin)
-admin.site.register(Lexicon, LexiconAdmin)
-admin.site.register(CognateSet, CognateSetAdmin)
-admin.site.register(CorrespondenceSet, CorrespondenceSetAdmin)
-admin.site.register(Cognate, CognateAdmin)
-admin.site.register(CognateNote, CognateNoteAdmin)
-admin.site.register(Correspondence, CorrespondenceAdmin)
-admin.site.register(Concepticon, ConcepticonAdmin)

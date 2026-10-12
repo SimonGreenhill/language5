@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from reversion import revisions as reversion
 from optparse import make_option
 from django.core.management.base import BaseCommand
@@ -19,7 +18,7 @@ class Command(BaseCommand):
         print("%d. /%s/ %s" % (cogset.id, cogset.protoform, cogset.gloss))
         for lex in cogset.lexicon.all():
             print(
-                u" %5d.\t%20s\t%20s\t%s" % (
+                " %5d.\t%20s\t%20s\t%s" % (
                     lex.id,
                     lex.language,
                     lex.word,

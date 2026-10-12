@@ -1,12 +1,11 @@
 #http://www.openarchives.org/OAI/openarchivesprotocol.html
+import datetime as dt
 import re
 import time
 from datetime import datetime
 
 from django.conf import settings
-from django.template import RequestContext
 from django.shortcuts import render
-from django.utils.timezone import utc
 
 from reversion.models import Revision
 
@@ -52,7 +51,7 @@ def parse_time(timestamp):
         d = datetime.fromtimestamp(
             time.mktime(time.strptime(timestamp, "%Y-%m-%d"))
         )
-    d = d.replace(tzinfo=utc)
+    d = d.replace(tzinfo=dt.timezone.utc)
     return d
 
 
@@ -62,7 +61,7 @@ def get_last_update():
         return qset.only('date_created')[0].date_created
     except IndexError:
         # no Revisions (i.e. when running tests), return current time
-        return datetime.utcnow().replace(tzinfo=utc)
+        return datetime.utcnow().replace(tzinfo=dt.timezone.utc)
 
 
 def oai(request):

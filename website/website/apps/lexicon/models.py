@@ -1,8 +1,6 @@
 from django.db import models
 from django.db.models.signals import pre_save
-from django.core.urlresolvers import reverse
-from django.utils.encoding import python_2_unicode_compatible
-from django.utils import six
+from django.urls import reverse
 
 from watson import search as watson
 from reversion import revisions as reversion
@@ -36,7 +34,6 @@ WORD_QUALITY = (
     ('9', 'Highly unsuitable'),
 )
 
-@python_2_unicode_compatible
 @reversion.register
 class Word(TrackedModel):
     """Word Details"""
@@ -49,20 +46,20 @@ class Word(TrackedModel):
     comment = models.TextField(blank=True, null=True,
         help_text="PUBLIC comment on this word")
     quality = models.CharField(
-        default=u'0', max_length=1, choices=WORD_QUALITY,
+        default='0', max_length=1, choices=WORD_QUALITY,
         help_text="The quality of this word."
     )
     
     concepticon = models.ForeignKey(
-        'lexicon.Concepticon',
+        'lexicon.Concepticon', on_delete=models.CASCADE,
         null=True, blank=True
     )
     
     def __str__(self):
         if self.full:
-            return six.text_type("%s (%s)" % (self.word, self.full))
+            return str(f"{self.word} ({self.full})")
         else:
-            return six.text_type(self.word)
+            return str(self.word)
     
     @property
     def fullword(self):
@@ -76,7 +73,6 @@ class Word(TrackedModel):
         ordering = ['word', ]
 
 
-@python_2_unicode_compatible
 @reversion.register
 class WordSubset(TrackedModel):
     """Word Subset Details"""
@@ -97,10 +93,10 @@ class WordSubset(TrackedModel):
     words = models.ManyToManyField('Word', blank=True)
     
     def __str__(self):
-        return six.text_type(self.slug)
+        return str(self.slug)
         
     def get_absolute_url(self):
-        return "%s?subset=%s" % (reverse('word-index'), self.slug)
+        return "{}?subset={}".format(reverse('word-index'), self.slug)
         
     class Meta:
         db_table = 'wordsubsets'
@@ -108,15 +104,14 @@ class WordSubset(TrackedModel):
         ordering = ['slug', ]
 
 
-@python_2_unicode_compatible
 @reversion.register(
     follow=['cognate_set', 'cognateset_set', 'task_set']
 )
 class Lexicon(TrackedModel):
     """Lexicon Details"""
-    language = models.ForeignKey('core.Language')
-    source = models.ForeignKey('core.Source')
-    word = models.ForeignKey('Word')
+    language = models.ForeignKey('core.Language', on_delete=models.CASCADE)
+    source = models.ForeignKey('core.Source', on_delete=models.CASCADE)
+    word = models.ForeignKey('Word', on_delete=models.CASCADE)
     entry = models.CharField(
         max_length=128, db_index=True,
         help_text="Entry from source"
@@ -134,13 +129,13 @@ class Lexicon(TrackedModel):
     loan = models.BooleanField(default=False, db_index=True,
         help_text="Is a loan word?")
     loan_source = models.ForeignKey(
-        'core.Language', blank=True, null=True,
+        'core.Language', on_delete=models.CASCADE, blank=True, null=True,
         related_name='loan_source_set',
         help_text="Loanword Source (if known)"
     )
     
     def __str__(self):
-        return six.text_type("%d-%s" % (self.id, self.entry))
+        return str("%d-%s" % (self.id, self.entry))
         
     def get_absolute_url(self):
         return reverse('lexicon-detail', kwargs={'pk': self.pk})
@@ -151,7 +146,6 @@ class Lexicon(TrackedModel):
         ordering = ['entry', ]
 
 
-@python_2_unicode_compatible
 @reversion.register(follow=["lexicon"])
 class CognateSet(TrackedModel):
     """Cognate Sets"""
@@ -164,7 +158,7 @@ class CognateSet(TrackedModel):
     comment = models.TextField(blank=True, null=True,
         help_text="Comment about this cognate set")
     source = models.ForeignKey(
-        'core.Source',
+        'core.Source', on_delete=models.CASCADE,
         null=True, blank=True
     )
     lexicon = models.ManyToManyField('Lexicon', through='Cognate')
@@ -174,7 +168,7 @@ class CognateSet(TrackedModel):
     )
     
     def __str__(self):
-        return six.text_type("%d. %s '%s'" % (self.id, self.protoform, self.gloss))
+        return str("%d. %s '%s'" % (self.id, self.protoform, self.gloss))
     
     def get_absolute_url(self):
         return reverse('cognacy:detail', kwargs={'pk': self.pk})
@@ -184,14 +178,13 @@ class CognateSet(TrackedModel):
         verbose_name_plural = 'Cognate Sets'
     
 
-@python_2_unicode_compatible
 @reversion.register(follow=["lexicon", "cognateset"])
 class Cognate(TrackedModel):
     """Cognacy Judgements"""
-    lexicon = models.ForeignKey('Lexicon')
-    cognateset = models.ForeignKey('CognateSet')
+    lexicon = models.ForeignKey('Lexicon', on_delete=models.CASCADE)
+    cognateset = models.ForeignKey('CognateSet', on_delete=models.CASCADE)
     source = models.ForeignKey(
-        'core.Source',
+        'core.Source', on_delete=models.CASCADE,
         null=True, blank=True
     )
     comment = models.TextField(
@@ -204,66 +197,62 @@ class Cognate(TrackedModel):
     )
     
     def __str__(self):
-        return six.text_type("%d.%d" % (self.cognateset_id, self.id))
+        return str("%d.%d" % (self.cognateset_id, self.id))
     
     class Meta:
         db_table = 'cognates'
 
 
-@python_2_unicode_compatible
 @reversion.register
 class CognateNote(TrackedModel):
     """Notes/Information about a Cognate Set"""
-    word = models.ForeignKey(Word, blank=True, null=True)
-    cognateset = models.ForeignKey(CognateSet, blank=True, null=True)
+    word = models.ForeignKey(Word, on_delete=models.CASCADE, blank=True, null=True)
+    cognateset = models.ForeignKey(CognateSet, on_delete=models.CASCADE, blank=True, null=True)
     note = models.TextField(help_text="Note")
     
     def __str__(self):
         if self.cognateset:
-            return six.text_type('#%d-%d. %s...' % (
+            return str('#%d-%d. %s...' % (
                 self.id, self.cognateset_id, self.note[0:30]
             ))
         else:
-            return six.text_type('#%d. %s...' % (self.id, self.note[0:30]))
+            return str('#%d. %s...' % (self.id, self.note[0:30]))
     
     class Meta:
         db_table = 'cognacy_notes'
 
 
-@python_2_unicode_compatible
 @reversion.register(follow=["corrset_set"])
 class CorrespondenceSet(TrackedModel):
     """Sound Correspondence Sets"""
     language = models.ManyToManyField(
         'core.Language', through='Correspondence'
     )
-    source = models.ForeignKey('core.Source', blank=True, null=True)
+    source = models.ForeignKey('core.Source', on_delete=models.CASCADE, blank=True, null=True)
     comment = models.TextField(blank=True, null=True, help_text="Notes")
     
     def __str__(self):
-        return six.text_type("Correspondence Set: %s" % self.comment)
+        return str("Correspondence Set: %s" % self.comment)
     
     class Meta:
         db_table = 'corrsets'
         verbose_name_plural = 'Correspondence Sets'
         
 
-@python_2_unicode_compatible
 @reversion.register
 class Correspondence(TrackedModel):
     """Sound Correspondence Rules"""
-    language = models.ForeignKey('core.Language')
-    corrset = models.ForeignKey('CorrespondenceSet')
+    language = models.ForeignKey('core.Language', on_delete=models.CASCADE)
+    corrset = models.ForeignKey('CorrespondenceSet', on_delete=models.CASCADE)
     rule = models.CharField(max_length=32)
     
     def __str__(self):
-        return six.text_type("Correspondence: /%s/" % self.rule)
+        return str("Correspondence: /%s/" % self.rule)
     
     class Meta:
         db_table = 'correspondences'
 
 
-@python_2_unicode_compatible
 class Concepticon(TrackedModel):
     """Concepticon Details"""
     gloss = models.CharField(max_length=64,
@@ -282,7 +271,7 @@ class Concepticon(TrackedModel):
         help_text="Ontological Category")
 
     def __str__(self):
-        return six.text_type("%d. %s" % (self.id, self.gloss))
+        return str("%d. %s" % (self.id, self.gloss))
     
     class Meta:
         db_table = 'concepticon'

@@ -45,9 +45,9 @@ class LanguageIndex(CrawlerTrapMixin, SingleTableView):
         return qset
     
     def get_context_data(self, **kwargs):
-        context = super(LanguageIndex, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['subset'] = self.request.GET.get('subset', None)
-        context['subsets'] = [_ for _ in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
+        context['subsets'] = [*'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
         
         RequestConfig(self.request).configure(context['table'])
         
@@ -79,9 +79,9 @@ class SourceIndex(CrawlerTrapMixin, SingleTableView):
         return qset
 
     def get_context_data(self, **kwargs):
-        context = super(SourceIndex, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['subset'] = self.request.GET.get('subset', None)
-        context['subsets'] = [_ for _ in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
+        context['subsets'] = [*'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
         
         RequestConfig(self.request).configure(context['table'])
         
@@ -111,9 +111,9 @@ class FamilyIndex(CrawlerTrapMixin, SingleTableView):
         return qset
 
     def get_context_data(self, **kwargs):
-        context = super(FamilyIndex, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['subset'] = self.request.GET.get('subset', None)
-        context['subsets'] = [_ for _ in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
+        context['subsets'] = [*'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
         
         RequestConfig(self.request).configure(context['table'])
 
@@ -136,20 +136,20 @@ class SourceDetail(DetailView):
 
     def get(self, request, *args, **kwargs):
         guard_page(request)
-        if not request.user.is_authenticated():
+        if not request.user.is_authenticated:
             redirect = canonical_sort_redirect(request, SourceLexiconTable)
             if redirect is not None:
                 return redirect
-        return super(SourceDetail, self).get(request, *args, **kwargs)
+        return super().get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
-        context = super(SourceDetail, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context.update(list_seo_context(self.request))
         context['attachments'] = kwargs['object'].attachment_set.all()
         
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
             qset = kwargs['object'].lexicon_set.select_related().all()
-            if self.request.user.is_authenticated():
+            if self.request.user.is_authenticated:
                 context['lexicon_table'] = SourceLexiconEditTable(qset)
             else:
                 context['lexicon_table'] = SourceLexiconTable(qset)
@@ -178,10 +178,10 @@ class FamilyDetail(DetailView):
         redirect = canonical_sort_redirect(request, LanguageIndexTable)
         if redirect is not None:
             return redirect
-        return super(FamilyDetail, self).get(request, *args, **kwargs)
+        return super().get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
-        context = super(FamilyDetail, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context.update(list_seo_context(self.request))
         records = kwargs['object'].language_set.all().annotate(
             count=Count('lexicon')
@@ -216,7 +216,7 @@ def language_detail(request, language):
     # collapse unknown ?sort= values to the canonical URL (anonymous only, so
     # logged-in editors keep the full edit-table sort columns).
     guard_page(request)
-    if not request.user.is_authenticated():
+    if not request.user.is_authenticated:
         redirect_response = canonical_sort_redirect(request, LanguageLexiconTable)
         if redirect_response is not None:
             return redirect_response
@@ -251,7 +251,7 @@ def language_detail(request, language):
         # load lexicon if installed.
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
             qset = my_lang.lexicon_set.select_related().all()
-            if request.user.is_authenticated():
+            if request.user.is_authenticated:
                 out['lexicon_table'] = LanguageLexiconEditTable(qset)
             else:
                 out['lexicon_table'] = LanguageLexiconTable(qset)

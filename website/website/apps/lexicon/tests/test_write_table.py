@@ -50,7 +50,7 @@ class TestWriteTable(TestCase):
                         word=word,
                         source=source,
                         editor=cls.editor,
-                        entry="%s-%s-%s" % (word.slug, lang.slug, source.slug)
+                        entry=f"{word.slug}-{lang.slug}-{source.slug}"
                     )
 
     def test_find_all(self):
@@ -98,5 +98,5 @@ class TestWriteTable(TestCase):
                             source=source.slug, word=word.slug, language=lang.slug
                     )
                     assert len(lex) == 1
-                    assert lex[0].entry == "%s-%s-%s" % (word.slug, lang.slug, source.slug)
+                    assert lex[0].entry == f"{word.slug}-{lang.slug}-{source.slug}"
 

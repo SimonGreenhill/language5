@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Tests for the crawler-trap mitigation (see fix.md / crawler_trap.py).
 
@@ -9,7 +8,7 @@ available). Run with:  ./manage.py test website.apps.core.tests.test_crawler_tra
 from django.test import TestCase
 from django.test.client import Client, RequestFactory
 from django.http import Http404, HttpResponsePermanentRedirect
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from website.apps.core.models import Language
 from website.apps.core.tables import LanguageIndexTable

@@ -1,7 +1,7 @@
-from django.conf.urls import *
+from django.urls import path
 
 from website.apps.olac.views import oai
 
 urlpatterns = [
-    url(r'^$', oai, name='baseurl'),
+    path('', oai, name='baseurl'),
 ]

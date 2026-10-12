@@ -11,7 +11,7 @@ from website.apps.statistics.models import AlreadyRegistered
 from website.apps.statistics.models import InvalidMethod, InvalidField
 
 
-class StatisticMixin(object):
+class StatisticMixin:
     """Mixin for Statistic Tests"""
     @classmethod
     def setUpTestData(cls):
@@ -75,8 +75,8 @@ class StatisticTest(StatisticMixin, TestCase):
         self.statistic.update()
         # note the list comprehension is because .values_list returns a
         # django.db.models.query.ValuesListQuerySet which is not a normal list
-        assert [_ for _ in StatisticalValue.objects.get_all("NFam")] == [1.0]
-        assert [_ for _ in StatisticalValue.objects.get_all("NLang")] == [2.0]
+        assert [*StatisticalValue.objects.get_all("NFam")] == [1.0]
+        assert [*StatisticalValue.objects.get_all("NLang")] == [2.0]
 
     def test_get_all_ordering(self):
         """Tests the manager method .get_all ordering"""
@@ -92,19 +92,19 @@ class StatisticTest(StatisticMixin, TestCase):
             )
         # note the list comprehension is because .values_list returns a
         # django.db.models.query.ValuesListQuerySet which is not a normal list
-        nlangs = [_ for _ in StatisticalValue.objects.get_all("NLang")]
+        nlangs = [*StatisticalValue.objects.get_all("NLang")]
         assert nlangs == [2.0, 3.0, 4.0]
 
 
 class Test_StatisticView(StatisticMixin, TestCase):
     """Tests the view."""
     def setUp(self):
-        super(Test_StatisticView, self).setUp()
+        super().setUp()
         self.client = Client()
         self.response = self.client.get('/statistics/')
     
     def test_200ok(self):
-        self.assertEquals(self.response.status_code, 200)
+        self.assertEqual(self.response.status_code, 200)
     
     def test_template(self):
         self.assertTemplateUsed(self.response, 'statistics/details.html')

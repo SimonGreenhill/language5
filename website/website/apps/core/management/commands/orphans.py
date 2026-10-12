@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from django.db.models import Count
 from django.core.management.base import BaseCommand
 

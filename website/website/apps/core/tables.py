@@ -27,7 +27,7 @@ class DataTable(tables.Table):
     """Parent class for Datatables"""
     class Meta:
         orderable = True
-        default = u''
+        default = ''
         attrs = {
             'class': "table table-bordered table-condensed",
             'summary': '',

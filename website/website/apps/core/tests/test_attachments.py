@@ -8,7 +8,7 @@ from website.apps.core.tests.test_views import BaseMixin
 class AttachmentDataMixin(BaseMixin):
     @classmethod
     def setUpTestData(cls):
-        super(AttachmentDataMixin, cls).setUpTestData()
+        super().setUpTestData()
         cls.att = Attachment.objects.create(
             editor=cls.editor,
             language=cls.language1,

@@ -3,7 +3,7 @@ Extra tests for core views with lexicon add-ons
 """
 from django.test import TestCase
 from django.test.client import Client
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from website.apps.lexicon.tests import DataMixin
 from website.apps.lexicon.models import Word, WordSubset, Lexicon

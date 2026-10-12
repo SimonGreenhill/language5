@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 from django.test import TestCase
 from django.test.client import Client
 
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from django.contrib.auth.models import User
 from website.apps.core.models import Source, Language
@@ -63,9 +62,9 @@ class TestWordlist(TestCase):
     
         # for formset validation
         cls.form_data = {
-            'form-TOTAL_FORMS': u'3',
-            'form-INITIAL_FORMS': u'3',
-            'form-MAX_NUM_FORMS': u'1000',
+            'form-TOTAL_FORMS': '3',
+            'form-INITIAL_FORMS': '3',
+            'form-MAX_NUM_FORMS': '1000',
             # form 0
             'form-0-language': cls.lang.id,
             'form-0-source': cls.source.id,
@@ -181,7 +180,7 @@ class TestWordlist(TestCase):
         self.bad_form_data['form-3-word'] = self.words_in_wordlist[0].id
         self.bad_form_data['form-3-entry'] = 'entry-3'
         self.bad_form_data['form-3-annotation'] = 'comment-3'
-        self.bad_form_data['form-TOTAL_FORMS'] =  u'4'
+        self.bad_form_data['form-TOTAL_FORMS'] =  '4'
         
         # post...
         response = self.client.post(self.task.get_absolute_url(), self.bad_form_data)
@@ -214,7 +213,7 @@ class TestWordlist(TestCase):
         self.bad_form_data['form-3-word'] = self.words_in_wordlist[0].id
         self.bad_form_data['form-3-entry'] = 'entry-3'
         self.bad_form_data['form-3-annotation'] = 'comment-3'
-        self.bad_form_data['form-TOTAL_FORMS'] =  u'4'
+        self.bad_form_data['form-TOTAL_FORMS'] =  '4'
         
         # post...
         response = self.client.post(self.task.get_absolute_url(), self.bad_form_data)
@@ -247,7 +246,7 @@ class TestWordlist(TestCase):
         self.form_data['form-3-word'] = self.words_in_wordlist[0].id
         self.form_data['form-3-entry'] = 'entry-3'
         self.form_data['form-3-annotation'] = 'comment-3'
-        self.form_data['form-TOTAL_FORMS'] =  u'4'
+        self.form_data['form-TOTAL_FORMS'] =  '4'
         
         # post...
         response = self.client.post(self.task.get_absolute_url(), self.form_data, follow=True)

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from reversion import revisions as reversion
 from django.db.models import Count
 from optparse import make_option
@@ -94,7 +93,7 @@ class Command(BaseCommand):
             tidier = self.tidy()
             for (obj, new) in tidier:
                 self._print(
-                    'Tidied: %s (%r) - %s (%r)' % (obj.entry, obj.entry, new, new),
+                    f'Tidied: {obj.entry} ({obj.entry!r}) - {new} ({new!r})',
                     options.get('quiet', False)
                         
                 )
@@ -134,7 +133,7 @@ class Command(BaseCommand):
             for obj in self.find_unstarred():
                 new = '*%s' % obj.entry
                 self._print(
-                    'Starred: %s - %s (%r) - %s (%r)' % (obj.language, obj.entry, obj.entry, new, new),
+                    f'Starred: {obj.language} - {obj.entry} ({obj.entry!r}) - {new} ({new!r})',
                     options.get('quiet', False)
                 )
                 if 'save' in options and options['save']:

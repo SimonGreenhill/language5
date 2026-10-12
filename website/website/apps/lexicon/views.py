@@ -8,7 +8,6 @@ from django.http import Http404
 from django.views.generic import DetailView
 from django.views.generic.edit import UpdateView
 from django.shortcuts import get_object_or_404, render, redirect
-from django.template import RequestContext
 from django.utils.decorators import method_decorator
 from django.utils import timezone
 
@@ -48,10 +47,10 @@ class WordIndex(CrawlerTrapMixin, SingleTableView):
         return qset.annotate(count=Count("lexicon"))
 
     def get_context_data(self, **kwargs):
-        context = super(WordIndex, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['subset'] = self.subset
         context['subsets'] = WordSubset.objects.all()
-        context['letters'] = [_ for _ in ascii_uppercase]
+        context['letters'] = [*ascii_uppercase]
         
         RequestConfig(self.request).configure(context['table'])
         
@@ -76,18 +75,18 @@ class WordDetail(DetailView):
 
     def get(self, request, *args, **kwargs):
         guard_page(request)
-        if not request.user.is_authenticated():
+        if not request.user.is_authenticated:
             redirect = canonical_sort_redirect(request, WordLexiconTable)
             if redirect is not None:
                 return redirect
-        return super(WordDetail, self).get(request, *args, **kwargs)
+        return super().get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
-        context = super(WordDetail, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context.update(list_seo_context(self.request))
 
         qset = kwargs['object'].lexicon_set.select_related().all()
-        if self.request.user.is_authenticated():
+        if self.request.user.is_authenticated:
             context['lexicon'] = WordLexiconEditTable(qset)
         else:
             context['lexicon'] = WordLexiconTable(qset)
@@ -123,11 +122,11 @@ class LexiconEdit(UpdateView):
         form.instance.added = timezone.now()
         with reversion.create_revision():
             form.save()
-        return super(LexiconEdit, self).form_valid(form)
+        return super().form_valid(form)
     
     @method_decorator(login_required)  # ensure logged in
     def dispatch(self, *args, **kwargs):
-        return super(LexiconEdit, self).dispatch(*args, **kwargs)
+        return super().dispatch(*args, **kwargs)
 
 
 

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from django.core.management.base import BaseCommand
 
 from website.apps.statistics.models import statistic
@@ -10,4 +9,4 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         s = statistic.update(save=False)
         for label, value in s.items():
-            print(u"%s %s" % (label.ljust(30), value))
+            print(f"{label.ljust(30)} {value}")

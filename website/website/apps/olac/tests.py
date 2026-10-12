@@ -34,7 +34,7 @@ OLAC_SETTINGS = {
     'deletedRecord': 'no',
     'protocolVersion': '2.0',
     '_identifier': re.compile(
-        r"""oai:%s:(\w{3})\.(\d+)""" % TEST_DOMAIN.replace(".", "\.")
+        r"""oai:%s:(\w{3})\.(\d+)""" % TEST_DOMAIN.replace(".", r"\.")
     ),
     'institution': 'Test, Inc',
     'institutionURL': 'http://example.com',
@@ -42,7 +42,7 @@ OLAC_SETTINGS = {
 }
 
 def url(token):
-    return 'http://%s/language/%s' % (TEST_DOMAIN, token)
+    return f'http://{TEST_DOMAIN}/language/{token}'
 
 class TestSiteNameSetProperly(TestCase):
     @classmethod
@@ -52,21 +52,21 @@ class TestSiteNameSetProperly(TestCase):
         cls.response = cls.client.get('/oai/?verb=Identify')
 
     def test_sitename(self):
-        self.assertEquals(
+        self.assertEqual(
             TEST_SITENAME,
             self.response.context['OLAC']['sitename']
         )
-        self.assertEquals(
+        self.assertEqual(
             OLAC_SETTINGS['sitename'],
             self.response.context['OLAC']['sitename']
         )
 
     def test_sitedomain(self):
-        self.assertEquals(
+        self.assertEqual(
             TEST_DOMAIN,
             self.response.context['OLAC']['sitedomain']
         )
-        self.assertEquals(
+        self.assertEqual(
             OLAC_SETTINGS['sitedomain'],
             self.response.context['OLAC']['sitedomain']
         )

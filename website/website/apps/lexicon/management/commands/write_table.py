@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from optparse import make_option
 from django.core.management.base import BaseCommand
 
@@ -10,7 +9,7 @@ def repr_cog(cog_id, source_id=None):
     if source_id:
         return "%03d.%x" % (source_id, cog_id)
     else:
-        return "{0:x}".format(cog_id)
+        return f"{cog_id:x}"
 
 
 class Command(BaseCommand):
@@ -88,7 +87,7 @@ class Command(BaseCommand):
                 repr_cog(_.cognateset.id, _.source_id) for _ in lex.cognate_set.all()
             ])
             
-            print(u"\t".join([
+            print("\t".join([
                 "%s" % lex.id,
                 lex.language.slug,
                 lex.word.slug,

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from django.test import TestCase
 from django.test.client import Client
 
@@ -54,9 +53,9 @@ class DataMixin(TestCase):
             
         # for formset validation
         cls.form_data = {
-            'form-TOTAL_FORMS': u'1',
-            'form-INITIAL_FORMS': u'1',
-            'form-MAX_NUM_FORMS': u'1000',
+            'form-TOTAL_FORMS': '1',
+            'form-INITIAL_FORMS': '1',
+            'form-MAX_NUM_FORMS': '1000',
             'form-0-language': cls.lang.id,
             'form-0-source': cls.source.id,
             'form-0-word': cls.word.id,

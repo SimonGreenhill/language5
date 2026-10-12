@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
 # flake8: noqa
-from __future__ import unicode_literals
 
 from django.db import models, migrations
 from django.conf import settings
@@ -20,7 +18,7 @@ class Migration(migrations.Migration):
                 ('added', models.DateTimeField(auto_now_add=True)),
                 ('name', models.CharField(help_text='Alternate Name for this language', unique=True, max_length=64, db_index=True)),
                 ('slug', models.SlugField(help_text='`Slug` for language (for use in URLS)', unique=True, max_length=64)),
-                ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('editor', models.ForeignKey(on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'ordering': ['name'],
@@ -36,7 +34,7 @@ class Migration(migrations.Migration):
                 ('added', models.DateTimeField(auto_now_add=True)),
                 ('details', models.CharField(help_text='Extra details e.g. page number', max_length='32', null=True, blank=True)),
                 ('file', models.FileField(help_text='The Resource File (PDF)', null=True, upload_to='data/%Y-%m/', blank=True)),
-                ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('editor', models.ForeignKey(on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'db_table': 'attachments',
@@ -50,7 +48,7 @@ class Migration(migrations.Migration):
                 ('added', models.DateTimeField(auto_now_add=True)),
                 ('family', models.CharField(help_text='Language Family', unique=True, max_length=64, db_index=True)),
                 ('slug', models.SlugField(help_text='`Slug` for language family (for use in URLS)', unique=True, max_length=64)),
-                ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('editor', models.ForeignKey(on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'ordering': ['family'],
@@ -70,7 +68,7 @@ class Migration(migrations.Migration):
                 ('isocode', models.CharField(help_text='3 character ISO-639-3 Code.', max_length=3, null=True, db_index=True, blank=True)),
                 ('classification', models.TextField(help_text='Classification String', null=True, blank=True)),
                 ('information', models.TextField(help_text='Information about language', null=True, blank=True)),
-                ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('editor', models.ForeignKey(on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL)),
                 ('family', models.ManyToManyField(to='core.Family', blank=True)),
             ],
             options={
@@ -86,8 +84,8 @@ class Migration(migrations.Migration):
                 ('added', models.DateTimeField(auto_now_add=True)),
                 ('link', models.URLField(help_text='URL to link')),
                 ('description', models.TextField(help_text='Language Description')),
-                ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
-                ('language', models.ForeignKey(to='core.Language')),
+                ('editor', models.ForeignKey(on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('language', models.ForeignKey(on_delete=models.CASCADE, to='core.Language')),
             ],
             options={
                 'db_table': 'links',
@@ -103,7 +101,7 @@ class Migration(migrations.Migration):
                 ('isocode', models.CharField(max_length=3, db_index=True)),
                 ('longitude', models.FloatField(help_text='Longitude')),
                 ('latitude', models.FloatField(help_text='Latitiude')),
-                ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('editor', models.ForeignKey(on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'db_table': 'locations',
@@ -118,8 +116,8 @@ class Migration(migrations.Migration):
                 ('added', models.DateTimeField(auto_now_add=True)),
                 ('note', models.TextField(help_text='Note')),
                 ('location', models.CharField(help_text='Location (e.g. p12)', max_length=50, null=True, blank=True)),
-                ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
-                ('language', models.ForeignKey(to='core.Language')),
+                ('editor', models.ForeignKey(on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('language', models.ForeignKey(on_delete=models.CASCADE, to='core.Language')),
             ],
             options={
                 'db_table': 'notes',
@@ -132,8 +130,8 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('added', models.DateTimeField(auto_now_add=True)),
                 ('populationsize', models.IntegerField()),
-                ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
-                ('language', models.ForeignKey(to='core.Language')),
+                ('editor', models.ForeignKey(on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('language', models.ForeignKey(on_delete=models.CASCADE, to='core.Language')),
             ],
             options={
                 'db_table': 'popsize',
@@ -151,7 +149,7 @@ class Migration(migrations.Migration):
                 ('reference', models.TextField(help_text='Reference for Source', null=True, blank=True)),
                 ('bibtex', models.TextField(help_text='BibTeX entry', null=True, blank=True)),
                 ('comment', models.TextField(help_text='Private comment on source', null=True, blank=True)),
-                ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('editor', models.ForeignKey(on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'ordering': ['author', 'year'],
@@ -161,48 +159,48 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterIndexTogether(
             name='source',
-            index_together=set([('author', 'year')]),
+            index_together={('author', 'year')},
         ),
         migrations.AddField(
             model_name='populationsize',
             name='source',
-            field=models.ForeignKey(to='core.Source'),
+            field=models.ForeignKey(on_delete=models.CASCADE, to='core.Source'),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='note',
             name='source',
-            field=models.ForeignKey(to='core.Source'),
+            field=models.ForeignKey(on_delete=models.CASCADE, to='core.Source'),
             preserve_default=True,
         ),
         migrations.AlterUniqueTogether(
             name='link',
-            unique_together=set([('language', 'link')]),
+            unique_together={('language', 'link')},
         ),
         migrations.AlterUniqueTogether(
             name='language',
-            unique_together=set([('isocode', 'language', 'dialect')]),
+            unique_together={('isocode', 'language', 'dialect')},
         ),
         migrations.AlterIndexTogether(
             name='language',
-            index_together=set([('language', 'dialect')]),
+            index_together={('language', 'dialect')},
         ),
         migrations.AddField(
             model_name='attachment',
             name='language',
-            field=models.ForeignKey(to='core.Language'),
+            field=models.ForeignKey(on_delete=models.CASCADE, to='core.Language'),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='attachment',
             name='source',
-            field=models.ForeignKey(to='core.Source'),
+            field=models.ForeignKey(on_delete=models.CASCADE, to='core.Source'),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='alternatename',
             name='language',
-            field=models.ForeignKey(to='core.Language'),
+            field=models.ForeignKey(on_delete=models.CASCADE, to='core.Language'),
             preserve_default=True,
         ),
     ]

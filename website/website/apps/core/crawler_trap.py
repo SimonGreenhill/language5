@@ -25,11 +25,11 @@ MAX_PAGE = 10000
 def valid_sort_columns(table_class):
     """Return the set of orderable column names for a django-tables2 table."""
     table = table_class([])
-    return set(
+    return {
         bound_column.name
         for bound_column in table.columns
         if bound_column.orderable
-    )
+    }
 
 
 def canonical_sort_redirect(request, table_class):
@@ -90,7 +90,7 @@ def list_seo_context(request):
     querystring = params.urlencode()
     canonical = request.build_absolute_uri(request.path)
     if querystring:
-        canonical = '%s?%s' % (canonical, querystring)
+        canonical = f'{canonical}?{querystring}'
 
     noindex = ('sort' in request.GET) or (
         request.GET.get('page', '1') not in ('', '1')
@@ -98,7 +98,7 @@ def list_seo_context(request):
     return {'canonical_url': canonical, 'noindex': noindex}
 
 
-class CrawlerTrapMixin(object):
+class CrawlerTrapMixin:
     """
     Mixin for ``SingleTableView`` index views. Validates ``?sort=``/``?page=``
     before the (expensive) queryset is built, and injects self-canonicalizing
@@ -110,9 +110,9 @@ class CrawlerTrapMixin(object):
         if redirect is not None:
             return redirect
         guard_page(request)
-        return super(CrawlerTrapMixin, self).get(request, *args, **kwargs)
+        return super().get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
-        context = super(CrawlerTrapMixin, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context.update(list_seo_context(self.request))
         return context

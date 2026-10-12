@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
 # flake8: noqa
-from __future__ import unicode_literals
 
 from django.db import models, migrations
 from django.conf import settings
@@ -29,10 +27,10 @@ class Migration(migrations.Migration):
                 ('completable', models.BooleanField(default=True, help_text='Is task completable or not?', db_index=True)),
                 ('done', models.BooleanField(default=False, help_text='Data has been entered', db_index=True)),
                 ('checkpoint', models.TextField(help_text='Saved Checkpoint Data', null=True, blank=True)),
-                ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
-                ('language', models.ForeignKey(blank=True, to='core.Language', null=True)),
+                ('editor', models.ForeignKey(on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('language', models.ForeignKey(on_delete=models.CASCADE, blank=True, to='core.Language', null=True)),
                 ('lexicon', models.ManyToManyField(help_text='Saved Lexical Items', to='lexicon.Lexicon', null=True, blank=True)),
-                ('source', models.ForeignKey(to='core.Source')),
+                ('source', models.ForeignKey(on_delete=models.CASCADE, to='core.Source')),
             ],
             options={
                 'ordering': ['name'],
@@ -48,8 +46,8 @@ class Migration(migrations.Migration):
                 ('page', models.CharField(max_length=64)),
                 ('message', models.CharField(max_length=255)),
                 ('time', models.DateTimeField(auto_now_add=True)),
-                ('person', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
-                ('task', models.ForeignKey(blank=True, to='entry.Task', null=True)),
+                ('person', models.ForeignKey(on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('task', models.ForeignKey(on_delete=models.CASCADE, blank=True, to='entry.Task', null=True)),
             ],
             options={
                 'ordering': ['time'],
@@ -64,7 +62,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('added', models.DateTimeField(auto_now_add=True)),
                 ('name', models.CharField(help_text='Name of Wordlist', unique=True, max_length=255, db_index=True)),
-                ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('editor', models.ForeignKey(on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'ordering': ['name'],
@@ -77,8 +75,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('order', models.IntegerField(db_index=True)),
-                ('word', models.ForeignKey(to='lexicon.Word')),
-                ('wordlist', models.ForeignKey(to='entry.Wordlist')),
+                ('word', models.ForeignKey(on_delete=models.CASCADE, to='lexicon.Word')),
+                ('wordlist', models.ForeignKey(on_delete=models.CASCADE, to='entry.Wordlist')),
             ],
             options={
                 'ordering': ['order'],
@@ -95,7 +93,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='task',
             name='wordlist',
-            field=models.ForeignKey(blank=True, to='entry.Wordlist', null=True),
+            field=models.ForeignKey(on_delete=models.CASCADE, blank=True, to='entry.Wordlist', null=True),
             preserve_default=True,
         ),
     ]

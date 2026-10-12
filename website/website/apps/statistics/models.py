@@ -1,7 +1,5 @@
 from django.db import models
-from django.utils import six
 
-from django.utils.encoding import python_2_unicode_compatible
 
 class AlreadyRegistered(Exception):
     pass
@@ -15,7 +13,7 @@ class InvalidMethod(Exception):
     pass
 
 
-class Statistic(object):
+class Statistic:
     def __init__(self):
         self._registry = {}
         self._statistics = {
@@ -61,13 +59,13 @@ class Statistic(object):
         """
         if label in self._registry:
             raise AlreadyRegistered(
-                'The model %s is already registered as %s' % (
+                'The model {} is already registered as {}'.format(
                     model.__name__, label
                 )
             )
         if method not in self._statistics:
             raise InvalidMethod(
-                'Invalid statistical method `%s`. Valid values are: %s' % (
+                'Invalid statistical method `{}`. Valid values are: {}'.format(
                     method, ",".join(self._statistics)
                 )
             )
@@ -85,7 +83,6 @@ class StatisticManager(models.Manager):
         return qset.order_by('date')
 
 
-@python_2_unicode_compatible
 class StatisticalValue(models.Model):
     """Stores Statistical information"""
     date = models.DateTimeField(auto_now_add=True, db_index=True)
@@ -98,7 +95,7 @@ class StatisticalValue(models.Model):
     objects = StatisticManager()
     
     def __str__(self):
-        return six.text_type("%s = %s" % (self.label, self.value))
+        return str(f"{self.label} = {self.value}")
     
     class Meta:
         db_table = 'statistics'

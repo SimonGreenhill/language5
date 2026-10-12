@@ -1,5 +1,5 @@
 from django.db.models import Count
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from tastypie import fields
 from tastypie.resources import Resource
@@ -8,7 +8,7 @@ from tastypie.cache import SimpleCache
 from website.apps.core.models import Language, Location
 
 
-class MapObj(object):
+class MapObj:
     def __init__(self, adict):
         self.isocode = None
         self.language = None

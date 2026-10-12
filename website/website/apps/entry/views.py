@@ -46,7 +46,7 @@ class TaskIndex(SingleTableView):
     queryset = Task.objects.filter(done=False).select_related('source', 'wordlist', 'language')    
     
     def get_context_data(self, **kwargs):
-        context = super(TaskIndex, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['quickform'] = QuickEntryViewForm()
         return context
         
@@ -54,7 +54,7 @@ class TaskIndex(SingleTableView):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         task_log(self.request, task=None, message="Viewed Task Index")
-        return super(TaskIndex, self).dispatch(*args, **kwargs)
+        return super().dispatch(*args, **kwargs)
 
 
 
@@ -74,7 +74,7 @@ def task_detail(request, task_id):
         task_log(request, task=t, message="Saved Checkpoint")
         t.checkpoint = encode_checkpoint(request.POST)
         t.save()
-    elif t.checkpoint not in (None, u""):
+    elif t.checkpoint not in (None, ""):
         task_log(request, task=t, message="Loaded Checkpoint")
         request.POST = make_querydict(decode_checkpoint(t.checkpoint))
     
@@ -87,7 +87,7 @@ def task_detail(request, task_id):
     else:
         task_log(request, task=t, message="Error - Can't find View Func %s" % t.view)
         # ...but if we don't know which view, then we die.
-        return HttpResponseServerError("Can't find view %s for task %s" % (t.view, task_id))
+        return HttpResponseServerError(f"Can't find view {t.view} for task {task_id}")
     
     
 
@@ -100,14 +100,14 @@ def quick_entry(request):
         return redirect('entry:index')
     
     # fake a task.
-    descr = u"Source: %s\nLanguage: %s\nWordlist: %s" % (
+    descr = "Source: {}\nLanguage: {}\nWordlist: {}".format(
            form.cleaned_data['source'], 
            form.cleaned_data['language'],
            form.cleaned_data['wordlist']
     )
     
     t = Task.objects.create(
-        name=u"Quick", 
+        name="Quick", 
         description=descr,
         editor=request.user,
         source=form.cleaned_data['source'],
@@ -128,7 +128,7 @@ class TaskComplete(DetailView):
     template_name = 'entry/complete.html'
     
     def get_context_data(self, **kwargs):
-        context = super(TaskComplete, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['lexicon'] = TaskLexiconTable(kwargs['object'].lexicon.select_related().all())
         RequestConfig(self.request).configure(context['lexicon'])
         return context
@@ -136,4 +136,4 @@ class TaskComplete(DetailView):
     # ensure logged in
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
-        return super(TaskComplete, self).dispatch(*args, **kwargs)
+        return super().dispatch(*args, **kwargs)

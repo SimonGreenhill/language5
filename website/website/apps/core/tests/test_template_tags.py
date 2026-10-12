@@ -7,7 +7,7 @@ from website.apps.core.templatetags.website_tags import link_glottolog
 from website.apps.core.templatetags.website_tags import link_wikipedia
 from website.apps.core.models import Language
 
-class LanguageMixin(object):
+class LanguageMixin:
     """
     Mixin for testing the various linking functions
     

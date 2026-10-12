@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
 # flake8: noqa
-from __future__ import unicode_literals
 
 from django.db import models, migrations
 from django.conf import settings
@@ -36,7 +34,7 @@ class Migration(migrations.Migration):
                 ('gloss', models.CharField(max_length=128, null=True, blank=True)),
                 ('comment', models.TextField(help_text='Comment about this cognate set', null=True, blank=True)),
                 ('quality', models.CharField(default='0', help_text='The quality of this cognate set.', max_length=1, choices=[('0', 'Unassessed'), ('1', 'Published'), ('2', 'Accepted'), ('9', 'Problematic')])),
-                ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('editor', models.ForeignKey(on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'db_table': 'cognatesets',
@@ -62,9 +60,9 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('added', models.DateTimeField(auto_now_add=True)),
                 ('comment', models.TextField(help_text='Notes', null=True, blank=True)),
-                ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('editor', models.ForeignKey(on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL)),
                 ('language', models.ManyToManyField(to='core.Language', through='lexicon.Correspondence')),
-                ('source', models.ForeignKey(blank=True, to='core.Source', null=True)),
+                ('source', models.ForeignKey(on_delete=models.CASCADE, blank=True, to='core.Source', null=True)),
             ],
             options={
                 'db_table': 'corrsets',
@@ -82,10 +80,10 @@ class Migration(migrations.Migration):
                 ('source_gloss', models.CharField(help_text='Gloss in original source if it is semantically different', max_length=128, null=True, blank=True)),
                 ('annotation', models.TextField(help_text='Annotation for this item', null=True, blank=True)),
                 ('loan', models.BooleanField(default=False, help_text='Is a loan word?', db_index=True)),
-                ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
-                ('language', models.ForeignKey(to='core.Language')),
-                ('loan_source', models.ForeignKey(related_name='loan_source_set', blank=True, to='core.Language', help_text='Loanword Source (if known)', null=True)),
-                ('source', models.ForeignKey(to='core.Source')),
+                ('editor', models.ForeignKey(on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('language', models.ForeignKey(on_delete=models.CASCADE, to='core.Language')),
+                ('loan_source', models.ForeignKey(on_delete=models.CASCADE, related_name='loan_source_set', blank=True, to='core.Language', help_text='Loanword Source (if known)', null=True)),
+                ('source', models.ForeignKey(on_delete=models.CASCADE, to='core.Source')),
             ],
             options={
                 'ordering': ['entry'],
@@ -104,7 +102,7 @@ class Migration(migrations.Migration):
                 ('full', models.TextField(help_text='Full word details/gloss.', null=True, blank=True)),
                 ('comment', models.TextField(help_text='PUBLIC comment on this word', null=True, blank=True)),
                 ('quality', models.CharField(default='0', help_text='The quality of this word.', max_length=1, choices=[('0', 'Unassessed'), ('1', 'Extremely stable or reliable'), ('8', 'Open to serious objections as a test item'), ('9', 'Highly unsuitable')])),
-                ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('editor', models.ForeignKey(on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'ordering': ['word'],
@@ -120,7 +118,7 @@ class Migration(migrations.Migration):
                 ('subset', models.CharField(help_text='Subset Label', unique=True, max_length=64, db_index=True)),
                 ('slug', models.SlugField(help_text='`Slug` for subset (for use in URLS)', unique=True, max_length=64)),
                 ('description', models.TextField(help_text='Details of subset.', null=True, blank=True)),
-                ('editor', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('editor', models.ForeignKey(on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL)),
                 ('words', models.ManyToManyField(to='lexicon.Word', null=True, blank=True)),
             ],
             options={
@@ -133,25 +131,25 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='lexicon',
             name='word',
-            field=models.ForeignKey(to='lexicon.Word'),
+            field=models.ForeignKey(on_delete=models.CASCADE, to='lexicon.Word'),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='correspondence',
             name='corrset',
-            field=models.ForeignKey(to='lexicon.CorrespondenceSet'),
+            field=models.ForeignKey(on_delete=models.CASCADE, to='lexicon.CorrespondenceSet'),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='correspondence',
             name='editor',
-            field=models.ForeignKey(to=settings.AUTH_USER_MODEL),
+            field=models.ForeignKey(on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='correspondence',
             name='language',
-            field=models.ForeignKey(to='core.Language'),
+            field=models.ForeignKey(on_delete=models.CASCADE, to='core.Language'),
             preserve_default=True,
         ),
         migrations.AddField(
@@ -163,31 +161,31 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='cognateset',
             name='source',
-            field=models.ForeignKey(blank=True, to='core.Source', null=True),
+            field=models.ForeignKey(on_delete=models.CASCADE, blank=True, to='core.Source', null=True),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='cognate',
             name='cognateset',
-            field=models.ForeignKey(to='lexicon.CognateSet'),
+            field=models.ForeignKey(on_delete=models.CASCADE, to='lexicon.CognateSet'),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='cognate',
             name='editor',
-            field=models.ForeignKey(to=settings.AUTH_USER_MODEL),
+            field=models.ForeignKey(on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='cognate',
             name='lexicon',
-            field=models.ForeignKey(to='lexicon.Lexicon'),
+            field=models.ForeignKey(on_delete=models.CASCADE, to='lexicon.Lexicon'),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='cognate',
             name='source',
-            field=models.ForeignKey(blank=True, to='core.Source', null=True),
+            field=models.ForeignKey(on_delete=models.CASCADE, blank=True, to='core.Source', null=True),
             preserve_default=True,
         ),
     ]

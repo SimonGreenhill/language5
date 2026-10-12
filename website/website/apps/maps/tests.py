@@ -1,5 +1,5 @@
 from django.test import TestCase
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from website.apps.core.models import Location, Language
 from website.apps.lexicon.models import Word, CognateSet, Cognate, Lexicon
@@ -26,7 +26,7 @@ class DataMixinLocations(DataMixin):
         """Helper for comparing a dict with the kwargs"""
         for k, v in kwargs.items():
             assert k in result, 'No key for %s' % k
-            assert result[k] == v, "%s is not %r but %r" % (k, v, result[k])
+            assert result[k] == v, f"{k} is not {v!r} but {result[k]!r}"
     
 
 class TestPrepareMapDataUtility(DataMixinLocations, TestCase):
@@ -133,14 +133,14 @@ class TestViewWordMap(DataMixinLocations, TestCase):
         response = self.client.get(
             reverse('maps:word-map', kwargs={'slug': 'elvis'})
         )
-        self.assertEquals(response.status_code, 404)
+        self.assertEqual(response.status_code, 404)
     
     def test_context(self):
         # what entries are in context['records']
         response = self.client.get(
             reverse('maps:word-map', kwargs={'slug': self.word2.slug})
         )
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         assert 'records' in response.context
         result = response.context['records']
         assert len(result) == 2
@@ -167,7 +167,7 @@ class TestViewCognateSetMap(DataMixinLocations, TestCase):
         response = self.client.get(
             reverse('maps:cognate-map', kwargs={'pk': '404'})
         )
-        self.assertEquals(response.status_code, 404)
+        self.assertEqual(response.status_code, 404)
     
     def test_context(self):
         cogset1 = CognateSet.objects.create(
@@ -187,7 +187,7 @@ class TestViewCognateSetMap(DataMixinLocations, TestCase):
         response = self.client.get(
             reverse('maps:cognate-map', kwargs={'pk': cogset1.pk})
         )
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         assert 'records' in response.context
         result = response.context['records']
         assert len(result) == 2

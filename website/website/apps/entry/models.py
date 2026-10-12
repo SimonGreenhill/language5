@@ -1,26 +1,24 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import User
-from django.utils.encoding import python_2_unicode_compatible
-from django.utils import six
 from website.apps.core.models import TrackedModel
 from website.apps.entry.dataentry import available_views
 from website.apps.statistics.models import statistic
 
 
-@python_2_unicode_compatible
 class Task(TrackedModel):
     """Data Entry Tasks"""
     name = models.CharField(max_length=255, db_index=True,
         help_text="Name of Task")
     description = models.TextField(help_text="Task Description", blank=True, null=True)
-    source = models.ForeignKey('core.Source', blank=True, null=True)
-    wordlist = models.ForeignKey('Wordlist', blank=True, null=True)
-    language = models.ForeignKey('core.Language', blank=True, null=True)
+    source = models.ForeignKey('core.Source', on_delete=models.CASCADE, blank=True, null=True)
+    wordlist = models.ForeignKey('Wordlist', on_delete=models.CASCADE, blank=True, null=True)
+    language = models.ForeignKey('core.Language', on_delete=models.CASCADE, blank=True, null=True)
     records = models.IntegerField(blank=True, null=True, default=20)
     view = models.CharField(default=available_views[0][0], max_length=256,
             choices=available_views,
             help_text="Data entry view to Use")
-    image = models.ImageField(upload_to='data/%Y-%m/',
+    image = models.FileField(upload_to='data/%Y-%m/',
         help_text="The Page Image", null=True, blank=True)
     file = models.FileField(upload_to='data/%Y-%m/',
         help_text="The Resource File (PDF)", null=True, blank=True)
@@ -34,17 +32,16 @@ class Task(TrackedModel):
         help_text="Saved Lexical Items", blank=True)
     
     def __str__(self):
-        return six.text_type(self.name)
+        return str(self.name)
     
-    @models.permalink
     def get_absolute_url(self):
-        return ('entry:detail', [self.id])
+        return reverse('entry:detail', args=[self.id])
     
     def save(self, *args, **kwargs):
         # over-ride records with length of wordlist.
         if self.wordlist:
             self.records = self.wordlist.words.count()
-        super(Task, self).save(*args, **kwargs)
+        super().save(*args, **kwargs)
 
     class Meta:
         db_table = 'tasks'
@@ -54,8 +51,8 @@ class Task(TrackedModel):
 
 class TaskLog(models.Model):
     """Task Log"""
-    person = models.ForeignKey(User)
-    task = models.ForeignKey(Task, blank=True, null=True, db_index=True)
+    person = models.ForeignKey(User, on_delete=models.CASCADE)
+    task = models.ForeignKey(Task, on_delete=models.CASCADE, blank=True, null=True, db_index=True)
     page = models.CharField(max_length=64)
     message = models.CharField(max_length=255)
     time = models.DateTimeField(auto_now_add=True)
@@ -66,7 +63,6 @@ class TaskLog(models.Model):
         get_latest_by = 'time'
 
 
-@python_2_unicode_compatible
 class Wordlist(TrackedModel):
     """Wordlist for data entry tasks"""
     name = models.CharField(max_length=255, db_index=True, unique=True,
@@ -74,7 +70,7 @@ class Wordlist(TrackedModel):
     words = models.ManyToManyField('lexicon.Word', through="WordlistMember")
     
     def __str__(self):
-        return six.text_type(self.name)
+        return str(self.name)
     
     class Meta:
         db_table = 'task_wordlists'
@@ -82,8 +78,8 @@ class Wordlist(TrackedModel):
     
 
 class WordlistMember(models.Model):
-    wordlist = models.ForeignKey("entry.Wordlist")
-    word = models.ForeignKey("lexicon.Word")
+    wordlist = models.ForeignKey("entry.Wordlist", on_delete=models.CASCADE)
+    word = models.ForeignKey("lexicon.Word", on_delete=models.CASCADE)
     order = models.IntegerField(db_index=True)
     
     class Meta:

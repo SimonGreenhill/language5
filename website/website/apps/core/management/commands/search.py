@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from optparse import make_option
 from django.core.management.base import BaseCommand
 
@@ -18,60 +17,60 @@ class Command(BaseCommand):
     
     def search_isocodes(self, query):
         for i in Language.objects.select_related().filter(isocode__iexact="%s" % query):
-            print " ".join([
+            print(" ".join([
                 '%d' % i.id,
                 i.language.ljust(20),
                 i.isocode.ljust(20), 
                 i.classification
-            ])
+            ]))
     
     def search_languages(self, query):
         for i in Language.objects.select_related().filter(language__icontains="%s" % query, isocode__iexact="%s" % query):
-            print " ".join([
+            print(" ".join([
                 '%d' % i.id,
                 i.ljust(20),
                 i.slug.ljust(20),
                 i.isocode.ljust(20),
                 i.classification
-            ]) 
+            ])) 
     
     def search_sources(self, query):
         for i in Source.objects.select_related().filter(author__icontains="%s" % query):
-            print " ".join([
+            print(" ".join([
                 '%d' % i.id,
                 i.author.ljust(20),
                 '%d' % i.year,
                 i.slug.ljust(20),
                 i.reference
-            ]) 
+            ])) 
     
     def search_lexicon(self, query):
         if Lexicon is None:
             raise NotImplementedError("website.apps.lexicon not installed")
         for i in Lexicon.objects.select_related().filter(entry__icontains="%s" % query):
-            print " ".join([
+            print(" ".join([
                 '%d' % i.id,
                 str(i.language).ljust(20),
                 str(i.source).ljust(20),
                 str(i.word).ljust(10),
                 i.entry
-            ])
+            ]))
     
     def search_words(self, query):
         if Word is None:
             raise NotImplementedError("website.apps.lexicon not installed")
         for i in Word.objects.select_related().filter(word__icontains="%s" % query):
-            print " ".join([
+            print(" ".join([
                 '%d' % i.id,
                 i.ljust(20),
                 i.slug.ljust(20),
-            ])
+            ]))
             
     def handle(self, *args, **options):
         try:
             what, query = args
         except ValueError:
-            print self.args
+            print(self.args)
             quit()
         
         if what in ('languages', 'language', 'lang', 'l'):

@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.test.client import Client
 from django.contrib.auth.models import User
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from website.apps.core.models import Source, Language, Family, AlternateName, Location
 from website.apps.lexicon.tests import DataMixin

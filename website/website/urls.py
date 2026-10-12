@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.conf.urls import *
+from django.urls import include, path, re_path
 from django.views.generic import TemplateView, RedirectView
 
 from django.contrib import admin
@@ -35,63 +35,63 @@ from website.sitemap import sitemaps
 
 urlpatterns = [
     # Main Page / Home
-    url(r'^$', TemplateView.as_view(template_name="index.html"), name="index"),
+    path('', TemplateView.as_view(template_name="index.html"), name="index"),
     
     # About
-    url(r'^about', TemplateView.as_view(template_name="about.html"), name="about"),
+    re_path(r'^about', TemplateView.as_view(template_name="about.html"), name="about"),
     
     # ------------------------------------------------------------------------ #
     # Core
     # ------------------------------------------------------------------------ #
     
     # Language-Index: Show all languages
-    url(r'^language/$', LanguageIndex.as_view(), name="language-index"),
+    path('language/', LanguageIndex.as_view(), name="language-index"),
     
     # Source-Index: Show all sources
-    url(r'^source/$', SourceIndex.as_view(), name="source-index"),
+    path('source/', SourceIndex.as_view(), name="source-index"),
     
     # Family-Index: Show all families
-    url(r'^family/$', FamilyIndex.as_view(), name="family-index"),
+    path('family/', FamilyIndex.as_view(), name="family-index"),
     
     # Language-Detail: Show the given language
-    url(r'^language/(?P<language>[\w\d\-\.]+)$', language_detail, name="language-detail"),
+    re_path(r'^language/(?P<language>[\w\d\-\.]+)$', language_detail, name="language-detail"),
     
     # Source-Detail: Show the given source
-    url(r'^source/(?P<slug>[\w\d\-\.]+)$', SourceDetail.as_view(), name="source-detail"),
+    re_path(r'^source/(?P<slug>[\w\d\-\.]+)$', SourceDetail.as_view(), name="source-detail"),
 
     # Family-Detail: Show the given family
-    url(r'^family/(?P<slug>[\w\d\-\.]+)$', FamilyDetail.as_view(), name="family-detail"),
+    re_path(r'^family/(?P<slug>[\w\d\-\.]+)$', FamilyDetail.as_view(), name="family-detail"),
 
     # ISO/Glottocode Lookup: redirects to the language page
-    url(r'^iso/(?P<iso>\w{3})$', iso_lookup, name="iso-lookup"),
-    url(r'^glotto/(?P<glotto>\w{8})$', glotto_lookup, name="glotto-lookup"),
+    re_path(r'^iso/(?P<iso>\w{3})$', iso_lookup, name="iso-lookup"),
+    re_path(r'^glotto/(?P<glotto>\w{8})$', glotto_lookup, name="glotto-lookup"),
 
     # search page
-    url(r"^search/", include('watson.urls', namespace='watson'), {'paginate_by': 50, }),
+    path("search/", include('watson.urls', namespace='watson'), {'paginate_by': 50, }),
     
     # Sitemap
-    url(r'^sitemap\.xml$', cache_page(86400)(sitemap_views.index),
+    path('sitemap.xml', cache_page(86400)(sitemap_views.index),
         {'sitemaps': sitemaps, 'sitemap_url_name': 'sitemap-section'}, name='sitemap'),
-    url(r'^sitemap-(?P<section>\w+)\.xml$', cache_page(86400)(sitemap_views.sitemap),
+    re_path(r'^sitemap-(?P<section>\w+)\.xml$', cache_page(86400)(sitemap_views.sitemap),
         {'sitemaps': sitemaps}, name='sitemap-section'),
        
     # Robots.txt
-    url(r'^robots\.txt$', RobotsTxt.as_view(),  name='robots_txt'),
+    path('robots.txt', RobotsTxt.as_view(),  name='robots_txt'),
     
     # OAI:
-    url(r'^oai/', include('website.apps.olac.urls')),
+    path('oai/', include('website.apps.olac.urls')),
     
     # ADMIN
-    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    url(r'^admin/', admin.site.urls),
+    path('admin/doc/', include('django.contrib.admindocs.urls')),
+    re_path(r'^admin/', admin.site.urls),
     
-    url(r'^accounts/login/$', LoginView.as_view(template_name='login.html'), name="login"),
-    url(r'^accounts/logout/$', LogoutView.as_view(), name="logout"),
+    path('accounts/login/', LoginView.as_view(template_name='login.html'), name="login"),
+    path('accounts/logout/', LogoutView.as_view(), name="logout"),
     
-    url(r'^favicon\.ico$', RedirectView.as_view(url='%s/favicon.ico' % settings.STATIC_URL, permanent=True)),
+    path('favicon.ico', RedirectView.as_view(url='%s/favicon.ico' % settings.STATIC_URL, permanent=True)),
     
-    url(r'^api/', include(v1_api.urls)),
-    url(r'^api$', RedirectView.as_view(url='api/v1/')),
+    path('api/', include(v1_api.urls)),
+    path('api', RedirectView.as_view(url='api/v1/')),
 ]
 
 
@@ -102,22 +102,22 @@ urlpatterns = [
 if 'website.apps.lexicon' in settings.INSTALLED_APPS:
     urlpatterns.extend([
         # Word-Index: Show all words
-        url(r'^word/$', WordIndex.as_view(), name="word-index"),
+        path('word/', WordIndex.as_view(), name="word-index"),
         
         # Word-Detail: Show the given word
-        url(r'^word/(?P<slug>[\w\d\-\.]+)$', WordDetail.as_view(), name="word-detail"),
+        re_path(r'^word/(?P<slug>[\w\d\-\.]+)$', WordDetail.as_view(), name="word-detail"),
         
         # lexicon-detail: detail of lexical item.
-        url(r'^lexicon/(?P<pk>\d+)$', LexiconDetail.as_view(), name="lexicon-detail"),
+        path('lexicon/<int:pk>', LexiconDetail.as_view(), name="lexicon-detail"),
         
         # Admin/Editor pages
         # lexicon-edit: edit lexical item.
-        url(r'^lexicon/(?P<pk>\d+)/edit$', LexiconEdit.as_view(), name="lexicon-edit"),
-        url(r'^word/(?P<slug>[\w\d\-\.]+)/edit$', word_edit, name="word-edit"),
-        url(r'^word/(?P<slug>[\w\d\-\.]+)/alignment$', word_alignment, name="word-alignment"),
+        path('lexicon/<int:pk>/edit', LexiconEdit.as_view(), name="lexicon-edit"),
+        re_path(r'^word/(?P<slug>[\w\d\-\.]+)/edit$', word_edit, name="word-edit"),
+        re_path(r'^word/(?P<slug>[\w\d\-\.]+)/alignment$', word_alignment, name="word-alignment"),
     ])
     urlpatterns.extend([
-        url(r"^cognacy/", include('website.apps.cognacy.urls', namespace='cognacy')),
+        path("cognacy/", include('website.apps.cognacy.urls', namespace='cognacy')),
     ])
 
 # ------------------------------------------------------------------------ #
@@ -125,7 +125,7 @@ if 'website.apps.lexicon' in settings.INSTALLED_APPS:
 # ------------------------------------------------------------------------ #
 if 'website.apps.entry' in settings.INSTALLED_APPS:
     urlpatterns.append(
-        url(r"^entry/", include('website.apps.entry.urls', namespace='entry'))
+        path("entry/", include('website.apps.entry.urls', namespace='entry'))
     )
 
 # ------------------------------------------------------------------------ #
@@ -133,7 +133,7 @@ if 'website.apps.entry' in settings.INSTALLED_APPS:
 # ------------------------------------------------------------------------ #
 if 'website.apps.statistics' in settings.INSTALLED_APPS:
     urlpatterns.append(
-        url(r"^statistics/", include('website.apps.statistics.urls', namespace='statistics'))
+        path("statistics/", include('website.apps.statistics.urls', namespace='statistics'))
     )
 
 
@@ -142,7 +142,7 @@ if 'website.apps.statistics' in settings.INSTALLED_APPS:
 # ------------------------------------------------------------------------ #
 if 'website.apps.maps' in settings.INSTALLED_APPS:
     urlpatterns.append(
-        url(r"^maps/", include('website.apps.maps.urls', namespace='maps'))
+        path("maps/", include('website.apps.maps.urls', namespace='maps'))
     )
 
 
@@ -153,6 +153,6 @@ if 'website.apps.maps' in settings.INSTALLED_APPS:
 if settings.DEBUG:
     from django.views.static import serve
     urlpatterns.append(
-        url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT})
+        re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT})
     )
     

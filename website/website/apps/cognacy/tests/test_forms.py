@@ -9,9 +9,9 @@ class Test_GetClades(DataMixin):
         #langb = 'a, b'
         clades = get_clades()
         assert ('', 'ALL (2)') in clades  # root
-        assert (u'a', u'a (2)') in clades  # clade a, both languages
-        assert (u'a, a', u'a, a (1)') in clades  # clade a, a - langa
-        assert (u'a, b', u'a, b (1)') in clades  # clade a, b - langb
+        assert ('a', 'a (2)') in clades  # clade a, both languages
+        assert ('a, a', 'a, a (1)') in clades  # clade a, a - langa
+        assert ('a, b', 'a, b (1)') in clades  # clade a, b - langb
 
 
 class Test_DoCognateForm(DataMixin):

@@ -1,6 +1,5 @@
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.template import RequestContext
 
 from django import forms
 from django.forms.formsets import formset_factory
@@ -36,7 +35,7 @@ def WordlistView(request, task):
     else:
         formset = GenericFormset(initial=initial)
     
-    return render_to_response('entry/detail.html', {
+    return render(request, 'entry/detail.html', {
         'task': task,
         'formset': formset,
         'template': template_name,

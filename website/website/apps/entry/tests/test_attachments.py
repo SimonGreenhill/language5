@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 from django.test import TestCase
 from django.test.client import Client
 
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from website.apps.core.models import Attachment
 from website.apps.entry.models import Task

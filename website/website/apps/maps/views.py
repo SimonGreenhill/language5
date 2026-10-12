@@ -1,5 +1,5 @@
 from django.views.generic import DetailView, ListView
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from website.apps.core.models import Language, Location
 from website.apps.lexicon.models import Word, CognateSet
 
@@ -58,7 +58,7 @@ class WordMap(DetailView):
     template_name = 'maps/word.html'
     
     def get_context_data(self, **kwargs):
-        context = super(WordMap, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['records'] = prepare_map_data(
             kwargs['object'].lexicon_set.select_related('language').all()
         )
@@ -71,7 +71,7 @@ class CognateSetMap(DetailView):
     template_name = 'maps/cognateset.html'
 
     def get_context_data(self, **kwargs):
-        context = super(CognateSetMap, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         records = kwargs['object'].cognate_set.all()
         records = records.select_related('lexicon__language').all()
         context['records'] = prepare_map_data([

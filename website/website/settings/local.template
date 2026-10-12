@@ -10,7 +10,6 @@ CSRF_TRUSTED_ORIGINS = ['https://<EDIT>.org', 'https://www.<EDIT>.org']
 
 DEBUG = False
 
-INSTALLED_APPS.append('website.apps.entry')     # Data Entry
 
 # MEDIA: user-uploaded files
 MEDIA_ROOT = '<EDIT>'

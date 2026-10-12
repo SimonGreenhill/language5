@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from django.core.management.base import BaseCommand
 
 from website.apps.core.models import Language, Family, Source
@@ -32,11 +31,11 @@ class Command(BaseCommand):
     def list_families(self):
         print("\t".join(["Slug", "Family", "NLanguages"]))
         for o in Family.objects.all().order_by('slug'):
-            print "\t".join([
+            print("\t".join([
                 o.slug,
                 o,
                 '%d' % o.language_set.count()
-            ])
+            ]))
             
     def list_sources(self):
         print("\t".join([

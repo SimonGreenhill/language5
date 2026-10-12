@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.test.client import Client
 from django.forms import ValidationError
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from website.apps.cognacy.tests.data import DataMixin
 

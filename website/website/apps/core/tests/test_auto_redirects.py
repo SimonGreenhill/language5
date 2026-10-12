@@ -6,7 +6,7 @@ from django.contrib.redirects.models import Redirect
 from website.apps.core.models import Language, Source, Family, AlternateName
 
 
-class RedirectionTestMixin(object):
+class RedirectionTestMixin:
     """Test automatic redirection on slug editing"""
     
     model = None

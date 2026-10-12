@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from reversion import revisions as reversion
 from django.db.models import Count
 from optparse import make_option

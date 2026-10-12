@@ -1,12 +1,12 @@
-from django.conf.urls import *
+from django.urls import path
 
 from website.apps.entry import views as v
 
 app_name = 'entry'
 
 urlpatterns = [
-    url(r'^$', v.TaskIndex.as_view(), name="index"),
-    url(r'^task/quick$', v.quick_entry, name="quick"),
-    url(r'^task/(?P<task_id>\d+)$', v.task_detail, name="detail"),
-    url(r'^task/(?P<pk>\d+)/done$', v.TaskComplete.as_view(), name="complete"),
+    path('', v.TaskIndex.as_view(), name="index"),
+    path('task/quick', v.quick_entry, name="quick"),
+    path('task/<int:task_id>', v.task_detail, name="detail"),
+    path('task/<int:pk>/done', v.TaskComplete.as_view(), name="complete"),
 ]

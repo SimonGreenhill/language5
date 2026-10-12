@@ -10,7 +10,7 @@ def build_content_type(format, encoding='utf-8'):
     """
     if 'charset' in format:
         return format
-    return "%s; charset=%s" % (format, encoding)
+    return f"{format}; charset={encoding}"
 
 
 class UTF8ModelResource(ModelResource):

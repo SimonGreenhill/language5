@@ -244,7 +244,7 @@ class Test_Ignore_Protoforms(HygieneDataMixin):
     """Tests the split_entries management command ignores protoforms"""
     @classmethod
     def setUpTestData(cls):
-        super(Test_Ignore_Protoforms, cls).setUpTestData()
+        super().setUpTestData()
         cls.pform1 = Lexicon.objects.create(
             language=cls.lang,
             word=cls.word,

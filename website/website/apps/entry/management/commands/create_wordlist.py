@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import sys
 from reversion import revisions as reversion
 from optparse import make_option
@@ -59,7 +58,7 @@ class Command(BaseCommand):
                 continue
             else:
                 if " " in line:
-                    order_id, line = [x.strip() for x in line.split(" ", 1)]
+                    order_id, line = (x.strip() for x in line.split(" ", 1))
                     try:
                         order_id = int(order_id)
                     except ValueError:
@@ -103,7 +102,7 @@ class Command(BaseCommand):
             )
             quit()
         
-        with open(args[1], 'rU') as handle:
+        with open(args[1]) as handle:
             words = self.parse(handle, options['create'])
         sys.stdout.write("%d words loaded from %s" % (len(words), args[1]))
         

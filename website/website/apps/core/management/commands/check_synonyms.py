@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import os
 import sys
 from django.conf import settings
@@ -21,5 +20,5 @@ class Command(BaseCommand):
                 Word.objects.get(slug=slug)
             except Word.DoesNotExist:
                 print(
-                    "Error: '%s' does not exist for synonym '%s'" % (slug, syn)
+                    f"Error: '{slug}' does not exist for synonym '{syn}'"
                 )

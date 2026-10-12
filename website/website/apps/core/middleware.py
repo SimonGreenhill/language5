@@ -1,5 +1,5 @@
 from django.core.exceptions import ImproperlyConfigured
-from django.core.urlresolvers import reverse, resolve
+from django.urls import resolve, reverse
 from django.http import HttpResponseRedirect
 
 class LoginRequiredMiddleware:
@@ -19,7 +19,7 @@ class LoginRequiredMiddleware:
             """)
         
         # if we're not authenticated...
-        if not request.user.is_authenticated():
+        if not request.user.is_authenticated:
             url = resolve(request.path_info)
             # and not trying to load an admin URL...
             if not url.namespace == 'admin':

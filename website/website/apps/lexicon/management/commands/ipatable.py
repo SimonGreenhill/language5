@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from reversion import revisions as reversion
 import unicodedata
 from django.db.models import Count
@@ -20,7 +19,7 @@ class Command(BaseCommand):
         try:
              SObj = Source.objects.get(slug=args[0])
         except Source.DoesNotExist:
-            raise Source.DoesNotExist(u"Unable to find {}".format(args[0]))
+            raise Source.DoesNotExist(f"Unable to find {args[0]}")
         
         chars = Counter()
         total = 0
@@ -34,4 +33,4 @@ class Command(BaseCommand):
                 u = unicodedata.name(char)
             except:
                 u = "<UNKNOWN>"
-            print(u"\t".join([char, '%d' % chars[char], u.ljust(50), u"?"]))
+            print("\t".join([char, '%d' % chars[char], u.ljust(50), "?"]))

@@ -1,11 +1,10 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.core.paginator import EmptyPage, PageNotAnInteger
 from django.db import transaction
 from django.db.models import Max, Q, Count
 from django.shortcuts import get_object_or_404, Http404, render, redirect
-from django.template import RequestContext
 from django.utils.decorators import method_decorator
 from django.views.generic import DetailView
 from django_tables2 import SingleTableView, RequestConfig
@@ -43,14 +42,14 @@ class CognateSourceDetail(DetailView):
 
     def get(self, request, *args, **kwargs):
         guard_page(request)
-        if not request.user.is_authenticated():
+        if not request.user.is_authenticated:
             redirect = canonical_sort_redirect(request, CognateSourceDetailTable)
             if redirect is not None:
                 return redirect
-        return super(CognateSourceDetail, self).get(request, *args, **kwargs)
+        return super().get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
-        context = super(CognateSourceDetail, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context.update(list_seo_context(self.request))
         qset = []
         for o in kwargs['object'].cognate_set.select_related().all():
@@ -78,7 +77,7 @@ class CognateSetDetail(DetailView):
     table_pagination = {"per_page": 100}
     
     def get_context_data(self, **kwargs):
-        context = super(CognateSetDetail, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         qset = []   # yuck
         for o in kwargs['object'].lexicon.select_related('language', 'word', 'source').all():
             o.classification = o.language.classification
@@ -100,7 +99,7 @@ class CognateSetDetail(DetailView):
 
     @method_decorator(login_required) # ensure logged in
     def dispatch(self, *args, **kwargs):
-        return super(CognateSetDetail, self).dispatch(*args, **kwargs)
+        return super().dispatch(*args, **kwargs)
 
 
 @login_required()
@@ -151,7 +150,7 @@ def do(request, word, clade=None):
             inplay[o] = inplay.get(o, set())
             inplay[o].add(e.entry)
     
-    inplay = dict([(k, ", ".join(sorted(v)[0:20])) for (k, v) in inplay.items()])
+    inplay = {k: ", ".join(sorted(v)[0:20]) for (k, v) in inplay.items()}
     inplay = sorted([(k.id, k, v) for (k, v) in inplay.items()])
     inplay = [(_[1], _[2]) for _ in inplay]
     
@@ -198,7 +197,7 @@ def save(request, word, clade=None):
         # collect lexicon ids and actions
         # 1. get anything (lex_id, value) that is a cognacy field and isn't empty
         changes = [
-            (k[2:], v) for (k, v) in request.POST.items() if k.startswith('c-') and v != u''
+            (k[2:], v) for (k, v) in request.POST.items() if k.startswith('c-') and v != ''
         ]
         
         # check that we've got valid lexical ids
@@ -332,11 +331,11 @@ def merge(request, word, clade=None):
         new = form.cleaned_data['new']
         
         messages.add_message(request, messages.INFO,
-            'Moving cognate set %r to %r' % (old, new),
+            f'Moving cognate set {old!r} to {new!r}',
             extra_tags='warning'
         )
         # get the lexical items already in this cognateset
-        already = [lex for lex in new.lexicon.all()]
+        already = [*new.lexicon.all()]
         
         with reversion.create_revision():
             for cog in old.cognate_set.all():

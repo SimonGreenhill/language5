@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 from django.test import TestCase
 from django.test.client import Client
 
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from django.contrib.auth.models import User
 from website.apps.core.models import Source, Language
@@ -17,7 +16,7 @@ class Test_Checkpointing(DataMixin):
     """Tests the Detail Page's Checkpointing"""
     @classmethod
     def setUpTestData(cls):
-        super(Test_Checkpointing, cls).setUpTestData()
+        super().setUpTestData()
         # need an incomplete entry, or else we get marked as complete.
         del(cls.form_data['form-0-entry'])
     
@@ -40,7 +39,7 @@ class Test_Checkpointing(DataMixin):
         restored = decode_checkpoint(t.checkpoint)
         for k, v in self.form_data.items():
             assert k in restored, "Missing %s from checkpoint" % k
-            assert restored[k] == v, "Expected %s to be %s" % (k, v)
+            assert restored[k] == v, f"Expected {k} to be {v}"
     
     def test_checkpoint_in_view(self):
         """Test checkpoint data goes through to view"""
@@ -78,7 +77,7 @@ class Test_Checkpointing(DataMixin):
         assert self.task.checkpoint is None
         response = self.client.post(self.task.get_absolute_url(), self.form_data)
         # make sure the response has annotation = comment
-        form = response.context['formset'].forms[0].data['form-0-annotation'] == u'comment'
+        form = response.context['formset'].forms[0].data['form-0-annotation'] == 'comment'
         
         # make sure we've saved something...
         assert Task.objects.get(pk=self.task.id).checkpoint is not None
@@ -88,15 +87,15 @@ class Test_Checkpointing(DataMixin):
         form_data['form-0-annotation'] = 'TWO'
         response = self.client.post(self.task.get_absolute_url(), form_data)
         # Make sure - response contains annotation = 'TWO' not 'comment'
-        form = response.context['formset'].forms[0].data['form-0-annotation'] == u'TWO'
+        form = response.context['formset'].forms[0].data['form-0-annotation'] == 'TWO'
         
     def test_checkpoint_with_unicode(self):
-        unicode_sample = u'àáâãäåạɐæʌèéêëɛəìííîïɨịñŋòóôõöøðɔþùúûüụųʔřɬɤƀꝑšʷᵘ·'
+        unicode_sample = 'àáâãäåạɐæʌèéêëɛəìííîïɨịñŋòóôõöøðɔþùúûüụųʔřɬɤƀꝑšʷᵘ·'
         retrieved = decode_checkpoint(encode_checkpoint(unicode_sample))
         assert unicode_sample == retrieved
     
     def test_checkpoint_with_unicode_via_database(self):
-        unicode_sample = u'àáâãäåạɐæʌèéêëɛəìííîïɨịñŋòóôõöøðɔþùúûüụųʔřɬɤƀꝑšʷᵘ·'
+        unicode_sample = 'àáâãäåạɐæʌèéêëɛəìííîïɨịñŋòóôõöøðɔþùúûüụųʔřɬɤƀꝑšʷᵘ·'
         task = Task.objects.create(
             editor=self.editor,
             name="Test Task",

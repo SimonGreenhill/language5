@@ -36,6 +36,7 @@ class CheckpointListFilter(admin.SimpleListFilter):
             return queryset.filter(checkpoint__isnull=True).filter(checkpoint__exact='')
 
 
+@admin.register(Task)
 class TaskAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_display = ('id', 'name', 'editor', 'records', 'completable', 'done')
@@ -45,6 +46,7 @@ class TaskAdmin(TrackedModelAdmin, VersionAdmin):
     list_select_related = True
     
 
+@admin.register(TaskLog)
 class TaskLogAdmin(admin.ModelAdmin):
     date_hierarchy = 'time'
     list_display = ('person', 'task_id', 'time', 'page', 'message')
@@ -61,23 +63,22 @@ class WordlistMembersInline(admin.TabularInline):
     extra = 0 # don't add anything new unless explicitly told to.
 
 
+@admin.register(Wordlist)
 class TaskWordlistAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_display = ('id', 'name', 'words_count')
     ordering = ('name',)
-    filter_horizontal = ('words',)
     inlines = [WordlistMembersInline,]
     
     def get_queryset(self, request):
         return Wordlist.objects.annotate(words_count=Count("words"))
         
+    @admin.display(
+        ordering='words_count'
+    )
     def words_count(self, inst):
         return inst.words_count
-    words_count.admin_order_field = 'words_count'
 
 
-admin.site.register(Task, TaskAdmin)
-admin.site.register(TaskLog, TaskLogAdmin)
-admin.site.register(Wordlist, TaskWordlistAdmin)
 
 

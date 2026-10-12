@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.test.client import Client
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.contrib.auth.models import User
 
 from website.apps.lexicon.tests import DataMixin
@@ -13,7 +13,7 @@ class Test_WordIndex(DataMixin, PaginatorTestMixin, TestCase):
     
     @classmethod
     def setUpTestData(cls):
-        super(Test_WordIndex, cls).setUpTestData()
+        super().setUpTestData()
         cls.client = Client()
         cls.url = reverse('word-index')
         cls.response = cls.client.get(cls.url)
@@ -27,12 +27,12 @@ class Test_WordIndex(DataMixin, PaginatorTestMixin, TestCase):
     def test_get_all_words(self):
         # just getting the words index should get all words.
         assert 'table' in self.response.context
-        self.assertEquals(len(self.response.context['table'].rows), 3)
+        self.assertEqual(len(self.response.context['table'].rows), 3)
 
     def test_get_has_subsets(self):
         # page should have subsets listed
-        self.assertEquals(len(self.response.context['subsets']), 3)
-        self.assertEquals(
+        self.assertEqual(len(self.response.context['subsets']), 3)
+        self.assertEqual(
             len(self.response.context['subsets']),
             WordSubset.objects.count()
         )
@@ -42,64 +42,64 @@ class Test_WordIndex(DataMixin, PaginatorTestMixin, TestCase):
     
     def test_get_no_subset_context_is_none(self):
         # if there's no subset requested then the var `subset` will be None
-        self.assertEquals(self.response.context['subset'], None)
+        self.assertEqual(self.response.context['subset'], None)
 
     def test_get_subset(self):
         # if a subset is requested...
         response = self.client.get(self.url, {'subset': 'numbers'})
         # ... then the var `subset` will be the same as the GET request
-        self.assertEquals(response.context['subset'], 'numbers')
+        self.assertEqual(response.context['subset'], 'numbers')
         # ...and the number of words will change.
         assert 'table' in response.context
-        self.assertEquals(len(response.context['table'].rows), 2)
+        self.assertEqual(len(response.context['table'].rows), 2)
 
     def test_get_letter(self):
         # if a letter is requested...
         response = self.client.get(self.url, {'subset': 'H'})
         # ... then the var `subset` will be the same as the GET request
-        self.assertEquals(response.context['subset'], 'H')
+        self.assertEqual(response.context['subset'], 'H')
         # ...and the number of words will change.
         assert 'table' in response.context
-        self.assertEquals(len(response.context['table'].rows), 1)
+        self.assertEqual(len(response.context['table'].rows), 1)
         assert response.context['table'].rows[0].record == self.word1
 
     def test_get_empty_subset(self):
         # if a subset is requested...
         response = self.client.get(self.url, {'subset': 'nothing'})
         # ... then the var `subset` will be the same as the GET request
-        self.assertEquals(response.context['subset'], 'nothing')
+        self.assertEqual(response.context['subset'], 'nothing')
         # ...and the number of words will change.
         assert 'table' in response.context
-        self.assertEquals(len(response.context['table'].rows), 0)
+        self.assertEqual(len(response.context['table'].rows), 0)
 
     def test_invalid_subset_is_empty(self):
         response = self.client.get(self.url, {'subset': 'fudge'})
-        self.assertEquals(response.context['subset'], 'fudge')
+        self.assertEqual(response.context['subset'], 'fudge')
         assert 'table' in response.context
-        self.assertEquals(len(response.context['table'].rows), 0)
+        self.assertEqual(len(response.context['table'].rows), 0)
 
     def test_sorting(self):
         response = self.client.get(self.url, {'sort': 'fullword'})
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         for i, obj in enumerate([self.word1, self.word2, self.word3]):
             assert response.context['table'].rows[i].record == obj
         response = self.client.get(self.url, {'sort': '-fullword'})
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         for i, obj in enumerate([self.word3, self.word2, self.word1]):
             assert response.context['table'].rows[i].record == obj
 
     def test_ordering_on_count(self):
         response = self.client.get(self.url, {'sort': 'count'})
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         assert 'table' in response.context
-        self.assertEquals(len(response.context['table'].rows), 3)
+        self.assertEqual(len(response.context['table'].rows), 3)
 
     def test_ordering_on_fullword(self):
         # just getting the words index should get all words.
         response = self.client.get(self.url, {'sort': 'fullword'})
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         assert 'table' in response.context
-        self.assertEquals(len(response.context['table'].rows), 3)
+        self.assertEqual(len(response.context['table'].rows), 3)
 
     def test_sorting_invalid(self):
         response = self.client.get(self.url, {'sort': 'sausage'})
@@ -110,7 +110,7 @@ class Test_WordIndex(DataMixin, PaginatorTestMixin, TestCase):
 class Test_WordDetail(DataMixin, PaginatorTestMixin, TestCase):
 
     def setUp(self):
-        super(Test_WordDetail, self).setUp()
+        super().setUp()
         self.url = reverse('word-detail', kwargs={'slug': self.word1.slug})
     
     def test_200ok(self):
@@ -123,16 +123,16 @@ class Test_WordDetail(DataMixin, PaginatorTestMixin, TestCase):
 
     def test_get_all_words(self):
         response = self.client.get(self.url)
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         assert 'table' in response.context
-        self.assertEquals(len(response.context['table'].rows), 1)
+        self.assertEqual(len(response.context['table'].rows), 1)
 
     def test_get_all_words_two(self):
         url = reverse('word-detail', kwargs={'slug': self.word2.slug})
         response = self.client.get(url)
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         assert 'table' in response.context
-        self.assertEquals(len(response.context['table'].rows), 2)
+        self.assertEqual(len(response.context['table'].rows), 2)
 
     def test_bad_paginator(self):
         response = self.client.get('/word/hand?page=10000')
@@ -161,7 +161,7 @@ class Test_WordDetail(DataMixin, PaginatorTestMixin, TestCase):
 class Test_WordEdit(DataMixin, TestCase):
     @classmethod
     def setUpTestData(cls):
-        super(Test_WordEdit, cls).setUpTestData()
+        super().setUpTestData()
         cls.lex1 = Lexicon.objects.create(
             language=cls.lang1,
             word=cls.word1,
@@ -183,9 +183,9 @@ class Test_WordEdit(DataMixin, TestCase):
 
     def get_post_data(self, objects):
         postdata = {
-            'form-TOTAL_FORMS': u'2',
-            'form-INITIAL_FORMS': u'2',
-            'form-MAX_NUM_FORMS': u'1000',
+            'form-TOTAL_FORMS': '2',
+            'form-INITIAL_FORMS': '2',
+            'form-MAX_NUM_FORMS': '1000',
             'submit': 'true',
         }
         skip = ('added', 'editor_id', 'loan_source_id', 'loan')
@@ -199,7 +199,7 @@ class Test_WordEdit(DataMixin, TestCase):
 
     def test_error_on_notlogged_in(self):
         response = self.client.get(self.url)
-        self.assertEquals(response.status_code, 302)
+        self.assertEqual(response.status_code, 302)
         self.assertRedirects(
             response,
             "/accounts/login/?next=%s" % self.url,
@@ -209,7 +209,7 @@ class Test_WordEdit(DataMixin, TestCase):
     def test_200ok_logged_in(self):
         self.client.login(username="admin", password="test")
         response = self.client.get(self.url)
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
 
     def test_template(self):
         self.client.login(username="admin", password="test")
@@ -221,12 +221,12 @@ class Test_WordEdit(DataMixin, TestCase):
         response = self.client.get(
             reverse('word-edit', kwargs={'slug': 'sausage'})
         )
-        self.assertEquals(response.status_code, 404)
+        self.assertEqual(response.status_code, 404)
 
     def test_get(self):
         self.client.login(username="admin", password="test")
         response = self.client.get(self.url)
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         assert b'sausage' in response.content
         assert b'banana' in response.content
     
@@ -239,7 +239,7 @@ class Test_WordEdit(DataMixin, TestCase):
         self.assertRedirects(
             response, redir_url, status_code=302, target_status_code=200
         )
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         # updated?
         assert b'sausage' in response.content
         assert b'banana' in response.content
@@ -255,7 +255,7 @@ class Test_WordEdit(DataMixin, TestCase):
         self.assertRedirects(
             response, redir_url, status_code=302, target_status_code=200
         )
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         # updated?
         assert b'apricot' in response.content
         assert b'banana' in response.content
@@ -270,7 +270,7 @@ class Test_WordEdit(DataMixin, TestCase):
         # replace 'sausage' with 'apricot'
         postdata['form-0-entry'] = 'apricot'
         response = self.client.post(self.url, postdata, follow=True)
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         
         if Lexicon.objects.get(pk=self.lex1.id).editor != newuser:
             raise AssertionError("Have not updated editor!")
@@ -283,7 +283,7 @@ class Test_WordEdit(DataMixin, TestCase):
         postdata['form-0-entry'] = 'apricot'
         self.client.post(self.url, postdata, follow=True)
         now = Lexicon.objects.get(pk=self.lex1.id).added
-        assert now > added, "%r is not larger than %r" % (now, added)
+        assert now > added, f"{now!r} is not larger than {added!r}"
 
     def test_create_revision(self):
         from reversion.models import Version

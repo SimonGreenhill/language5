@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 import re
 from django.test import TestCase
 from django.test.client import Client
 from django.forms import ValidationError
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from django.contrib.auth.models import User
 from website.apps.core.models import Source, Language

@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.test.client import Client
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from website.apps.core.models import Source
 from website.apps.cognacy.tests.data import DataMixin
@@ -9,7 +9,7 @@ from website.apps.core.tests.utils import PaginatorTestMixin
 
 class Test_CognateSourceDetail(DataMixin, PaginatorTestMixin, TestCase):
     def setUp(self):
-        super(Test_CognateSourceDetail, self).setUp()
+        super().setUp()
         self.url = reverse('cognacy:cognatesource_detail', kwargs={'slug': self.source.slug})
         self.empty_source = Source.objects.create(
             year="1992", author='Greenhill', 
@@ -23,7 +23,7 @@ class Test_CognateSourceDetail(DataMixin, PaginatorTestMixin, TestCase):
     
     def test_get_data(self):
         response = self.client.get(self.url)
-        self.assertEquals(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         # should have two cognate sets -- 1 & 2
         assert len(response.context['table'].data.data) == 2
         assert self.cog_1_a in response.context['table'].data.data

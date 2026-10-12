@@ -9,7 +9,7 @@ class TrackedModelAdmin(admin.ModelAdmin):
         data = request.GET.copy()
         data['editor'] = request.user.id
         request.GET = data
-        return super(TrackedModelAdmin, self).add_view(request, form_url="", extra_context=extra_context)
+        return super().add_view(request, form_url="", extra_context=extra_context)
 
 # Inlines
 class AltNameInline(admin.TabularInline):
@@ -21,12 +21,13 @@ class AltNameInline(admin.TabularInline):
         if db_field.name == 'editor':
             kwargs['initial'] = request.user
             return db_field.formfield(**kwargs)
-        return super(AltNameInline, self).formfield_for_foreignkey(
+        return super().formfield_for_foreignkey(
             db_field, request, **kwargs
         )
 
 
 # Admin
+@admin.register(Language)
 class LanguageAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_display = ('slug', 'isocode', 'language', 'language', 'dialect',)
@@ -38,6 +39,7 @@ class LanguageAdmin(TrackedModelAdmin, VersionAdmin):
     inlines = [AltNameInline,]
     
 
+@admin.register(Source)
 class SourceAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_display = ('slug', 'author', 'year', 'reference',)
@@ -47,6 +49,7 @@ class SourceAdmin(TrackedModelAdmin, VersionAdmin):
     search_fields = ('author', 'year')
 
 
+@admin.register(Note)
 class NoteAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_filter = ('editor', 'language', 'source')
@@ -54,6 +57,7 @@ class NoteAdmin(TrackedModelAdmin, VersionAdmin):
     search_fields = ('language', 'source', 'note')
 
 
+@admin.register(Family)
 class FamilyAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_filter = ('editor',)
@@ -62,6 +66,7 @@ class FamilyAdmin(TrackedModelAdmin, VersionAdmin):
     search_fields = ('family', )
 
 
+@admin.register(AlternateName)
 class AlternateNameAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_filter = ('editor', 'language')
@@ -71,6 +76,7 @@ class AlternateNameAdmin(TrackedModelAdmin, VersionAdmin):
     list_select_related = True
 
 
+@admin.register(Link)
 class LinkAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_display = ('language', 'link', 'description')
@@ -78,16 +84,10 @@ class LinkAdmin(TrackedModelAdmin, VersionAdmin):
     search_fields = ('language', 'link', 'description')
 
 
+@admin.register(Location)
 class LocationAdmin(TrackedModelAdmin, VersionAdmin):
     date_hierarchy = 'added'
     list_display = ('isocode', 'latitude', 'longitude')
     list_filter = ('editor', 'isocode', )
 
 
-admin.site.register(Language, LanguageAdmin)
-admin.site.register(Family, FamilyAdmin)
-admin.site.register(AlternateName, AlternateNameAdmin)
-admin.site.register(Link, LinkAdmin)
-admin.site.register(Location, LocationAdmin)
-admin.site.register(Source, SourceAdmin)
-admin.site.register(Note, NoteAdmin)

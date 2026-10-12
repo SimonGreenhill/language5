@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.test.client import Client
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 class Test_Robots_Txt(TestCase):
     """Tests the robots.txt page"""

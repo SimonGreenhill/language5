@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from reversion import revisions as reversion
 from optparse import make_option
 from django.core.management.base import BaseCommand
@@ -89,7 +88,7 @@ class Command(BaseCommand):
         for c in components:
             c = c.strip()
             assert len(c) > 0, "Unable to split properly - zero length component"
-            self._print("Splitting: %s -> %s" % (obj.entry, c), quiet)
+            self._print(f"Splitting: {obj.entry} -> {c}", quiet)
             with reversion.create_revision():
                 o = Lexicon.objects.create(
                     language=obj.language, 

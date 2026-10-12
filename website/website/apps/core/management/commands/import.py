@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import os
 import re
 import sys
@@ -26,10 +25,10 @@ class Command(BaseCommand):
         )
     
     def list_datafiles(self):
-        files = [_ for _ in os.listdir(self.DATA_ROOT)]
+        files = [*os.listdir(self.DATA_ROOT)]
         files = [_ for _ in files if is_script.match(_)]
         for filename in sorted(files):
-            print(" - {0}".format(os.path.join('data', filename)))
+            print(" - {}".format(os.path.join('data', filename)))
     
     def load(self, filename, dryrun=True):
         directory, module_name = os.path.split(filename)
@@ -50,7 +49,7 @@ class Command(BaseCommand):
         
         # handle no args
         if options['filename'] is None:
-            print("Listing files in {0}:".format(self.DATA_ROOT))
+            print(f"Listing files in {self.DATA_ROOT}:")
             self.list_datafiles()
             return
         
@@ -58,12 +57,12 @@ class Command(BaseCommand):
         os.environ['IMPORTER_FILENAME'] = options['filename']
         options['filename'] = options['filename'].strip()
         if not os.path.isfile(options['filename']):
-            raise IOError('Invalid Filename %s' % options['filename'])
+            raise OSError('Invalid Filename %s' % options['filename'])
         
         filehead, fileext = os.path.splitext(options['filename'])
         
         if fileext != '.py':
-            raise IOError('Unable to import a %s file' % fileext)
+            raise OSError('Unable to import a %s file' % fileext)
         
         self.stdout.write('Importing "%s"\n' % options['filename'])
         

@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 import re
 from django.test import TestCase
 from django.test.client import Client
 from django.forms import ValidationError
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from django.contrib.auth.models import User
 from website.apps.core.models import Source, Language
@@ -163,5 +162,5 @@ class Test_GenericView(DataMixin):
         
         response = self.client.post(task.get_absolute_url(), form_data)
         self.assertEqual(response.status_code, 200)
-        assert response.context['formset'].errors[0] == {'language': [u'This field is required.']}
+        assert response.context['formset'].errors[0] == {'language': ['This field is required.']}
     

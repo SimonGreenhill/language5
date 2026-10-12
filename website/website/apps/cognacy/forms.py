@@ -37,7 +37,7 @@ class DoCognateForm(forms.Form):
     def __init__(self, *args, **kwargs):
         is_hidden = kwargs.pop('is_hidden', None)
         clades = kwargs.pop('clades', None)
-        super(DoCognateForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         if is_hidden:
             self.fields['word'].widget = forms.HiddenInput()
             self.fields['clade'].widget = forms.HiddenInput()
@@ -54,12 +54,12 @@ class MergeCognateForm(forms.Form):
     
     def __init__(self, *args, **kwargs):
         queryset = kwargs.pop('queryset', None)
-        super(MergeCognateForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.fields['old'].queryset = queryset
         self.fields['new'].queryset = queryset
     
     def clean(self):
-        cleaned_data = super(MergeCognateForm, self).clean()
+        cleaned_data = super().clean()
         if cleaned_data.get('old', None) == cleaned_data.get('new', None):
             raise forms.ValidationError('The cognate sets cannot be the same!')
         return cleaned_data
@@ -78,7 +78,7 @@ class CognateNoteForm(forms.Form):
     
     def __init__(self, *args, **kwargs):
         queryset = kwargs.pop('queryset', None)
-        super(CognateNoteForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.fields['cogset'].queryset = queryset
 
     class Meta:

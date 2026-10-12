@@ -1,12 +1,12 @@
 from django.test import TestCase
 from django.test.client import Client
 from django.contrib.auth.models import User
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from website.apps.core.models import Source, Language, Family, AlternateName
 from website.apps.core.tests.utils import PaginatorTestMixin
 
-class BaseMixin(object):
+class BaseMixin:
     @classmethod
     def setUpTestData(cls):
         cls.editor = User.objects.create_user('admin', 'admin@website.com', 'test')
@@ -122,7 +122,7 @@ class Test_LanguageIndex(BaseMixin, PaginatorTestMixin, TestCase):
     def test_show_subsets(self):
         response = self.client.get(self.url)
         for subset in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
-            url = "%s?subset=%s" % (reverse('language-index'), subset)
+            url = "{}?subset={}".format(reverse('language-index'), subset)
             self.assertContains(response, url)
     
     def test_filter_on_subset(self):
@@ -161,7 +161,7 @@ class Test_LanguageIndex(BaseMixin, PaginatorTestMixin, TestCase):
 
 class Test_LanguageDetail(BaseMixin, PaginatorTestMixin, TestCase):
     def setUp(self):
-        super(Test_LanguageDetail, self).setUp()
+        super().setUp()
         self.url = reverse(
             'language-detail', kwargs={'language': self.language1.slug}
         )
@@ -318,7 +318,7 @@ class Test_FamilyIndex(BaseMixin, PaginatorTestMixin, TestCase):
     def test_show_subsets(self):
         response = self.client.get(self.url)
         for subset in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
-            url = "%s?subset=%s" % (reverse('family-index'), subset)
+            url = "{}?subset={}".format(reverse('family-index'), subset)
             self.assertContains(response, url)
     
     def test_filter_on_subset(self):
@@ -344,7 +344,7 @@ class Test_FamilyIndex(BaseMixin, PaginatorTestMixin, TestCase):
 class Test_FamilyDetail(BaseMixin, PaginatorTestMixin, TestCase):
     """Tests the family_detail view"""
     def setUp(self):
-        super(Test_FamilyDetail, self).setUp()
+        super().setUp()
         # 1 is Austronesian
         # 2 & 3 are Mayan
         self.family1.language_set.add(self.language1)
@@ -436,7 +436,7 @@ class Test_SourceIndex(BaseMixin, PaginatorTestMixin, TestCase):
     def test_show_subsets(self):
         response = self.client.get(self.url)
         for subset in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
-            url = "%s?subset=%s" % (reverse('source-index'), subset)
+            url = "{}?subset={}".format(reverse('source-index'), subset)
             self.assertContains(response, url)
     
     def test_filter_on_subset(self):
@@ -462,7 +462,7 @@ class Test_SourceIndex(BaseMixin, PaginatorTestMixin, TestCase):
 class Test_SourceDetail(BaseMixin, PaginatorTestMixin):
     """Tests the source_detail view"""
     def setUp(self):
-        super(Test_SourceDetail, self).setUp()
+        super().setUp()
         self.url = reverse('source-detail', kwargs={'slug': self.source1.slug})
         
     def test_200ok(self):

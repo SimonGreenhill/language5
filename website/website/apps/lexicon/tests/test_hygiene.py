@@ -202,7 +202,7 @@ class Test_Duplicates(HygieneDataMixin):
 class Test_FindUnstarred(HygieneDataMixin):
     """Tests the hygiene management command - find_unstarred"""
     def setUp(self):
-        super(Test_FindUnstarred, self).setUp()
+        super().setUp()
         self.ProtoLang = Language.objects.create(
             language="Proto-World",
             slug="proto-world",

@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.test.client import Client
 from django.forms import ValidationError
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from website.apps.cognacy.tests.data import DataMixin
 from website.apps.lexicon.models import CognateSet, Cognate
@@ -12,7 +12,7 @@ class Test_Merge(DataMixin):
     url = reverse('cognacy:merge', kwargs={'word': 'hand', 'clade': ''})
     
     def setUp(self):
-        super(Test_Merge, self).setUp()
+        super().setUp()
         self.AuthenticatedClient = Client()
         self.AuthenticatedClient.login(username="admin", password="test")
         

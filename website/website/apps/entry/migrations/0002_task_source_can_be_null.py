@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.db import models, migrations
 
 
@@ -14,7 +11,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='task',
             name='source',
-            field=models.ForeignKey(blank=True, to='core.Source', null=True),
+            field=models.ForeignKey(on_delete=models.CASCADE, blank=True, to='core.Source', null=True),
             preserve_default=True,
         ),
     ]

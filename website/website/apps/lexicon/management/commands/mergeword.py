@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from reversion import revisions as reversion
 from django.db.models import Count
 from optparse import make_option
@@ -53,17 +52,17 @@ class Command(BaseCommand):
         try:
             dest = Word.objects.get(slug=args[0])
         except Word.DoesNotExist:
-            raise Word.DoesNotExist(u"Unable to find {}".format(args[0]))
+            raise Word.DoesNotExist(f"Unable to find {args[0]}")
             
         # try get word 2
         try:
             source = Word.objects.get(slug=args[1])
         except Word.DoesNotExist:
-            raise Word.DoesNotExist(u"Unable to find {}".format(args[1]))
+            raise Word.DoesNotExist(f"Unable to find {args[1]}")
         
         for obj in source.lexicon_set.all():
             self._print(
-                u"Moving {} to {}".format(obj, dest),
+                f"Moving {obj} to {dest}",
                 options.get('quiet', False)
             )
             if not dryrun:
@@ -76,7 +75,7 @@ class Command(BaseCommand):
             assert source.lexicon_set.count() == 0
             with reversion.create_revision():
                 self._print(
-                    "Deleting Word {}".format(source),
+                    f"Deleting Word {source}",
                     options.get('quiet', False)
                 )
                 source.delete()

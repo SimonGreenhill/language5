@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 from django.contrib.auth.models import User
 from website.apps.core.models import Language, Source
 from website.apps.lexicon.models import Word, WordSubset, Lexicon
 
-class DataMixin(object):
+class DataMixin:
     """Mixin for test data"""
     @classmethod
     def setUpTestData(cls):
