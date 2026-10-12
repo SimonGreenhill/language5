@@ -20,9 +20,9 @@ class TaskIndexTable(DataTable):
 
 class TaskLexiconTable(DataTable):
     id = tables.LinkColumn('lexicon-edit', args=[A('id')])
-    language = tables.LinkColumn('language-detail', args=[A('language.slug')])
-    source = tables.LinkColumn('source-detail', args=[A('source.slug')])
-    word = tables.LinkColumn('word-detail', args=[A('word.slug')])
+    language = tables.LinkColumn('language-detail', args=[A('language__slug')])
+    source = tables.LinkColumn('source-detail', args=[A('source__slug')])
+    word = tables.LinkColumn('word-detail', args=[A('word__slug')])
     entry = tables.Column()
     annotation = tables.Column()
     loan = tables.BooleanColumn(null=False, yesno=('x', ''))

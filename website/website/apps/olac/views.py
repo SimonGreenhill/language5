@@ -61,7 +61,7 @@ def get_last_update():
         return qset.only('date_created')[0].date_created
     except IndexError:
         # no Revisions (i.e. when running tests), return current time
-        return datetime.utcnow().replace(tzinfo=dt.timezone.utc)
+        return datetime.now(dt.UTC)
 
 
 def oai(request):

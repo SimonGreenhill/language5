@@ -31,8 +31,8 @@ class CognateSourceIndexTable(DataTable):
 class CognateSourceDetailTable(DataTable):
     """Table of cognate sets by source"""
     cognateset = tables.Column()
-    language = tables.LinkColumn('language-detail', args=[A('language.slug')])
-    word = tables.LinkColumn('word-detail', args=[A('word.slug')])
+    language = tables.LinkColumn('language-detail', args=[A('language__slug')])
+    word = tables.LinkColumn('word-detail', args=[A('word__slug')])
     lexicon = tables.Column()
     
     def render_lexicon(self, record):
@@ -55,10 +55,10 @@ class CognateSourceDetailTable(DataTable):
 class CognateSetDetailTable(DataTable):
     """Cognate set detail table"""
     id = tables.Column()
-    language = tables.LinkColumn('language-detail', args=[A('language.slug')])
+    language = tables.LinkColumn('language-detail', args=[A('language__slug')])
     classification = tables.Column()
-    word = tables.LinkColumn('word-detail', args=[A('word.slug')])
-    source = tables.LinkColumn('source-detail', args=[A('source.slug')])
+    word = tables.LinkColumn('word-detail', args=[A('word__slug')])
+    source = tables.LinkColumn('source-detail', args=[A('source__slug')])
     entry = tables.Column()
     annotation = tables.Column()
     loan = tables.BooleanColumn(null=False, yesno=('x', ''))
@@ -84,8 +84,8 @@ class CognateSetDetailTable(DataTable):
 class CognacyTable(DataTable):
     """Do Cognacy Table"""
     id = tables.LinkColumn('lexicon-edit', args=[A('id')])
-    language = tables.LinkColumn('language-detail', args=[A('language.slug')])
-    source = tables.LinkColumn('source-detail', args=[A('source.slug')])
+    language = tables.LinkColumn('language-detail', args=[A('language__slug')])
+    source = tables.LinkColumn('source-detail', args=[A('source__slug')])
     classification = tables.Column()
     entry = tables.Column()
     annotation = tables.Column()

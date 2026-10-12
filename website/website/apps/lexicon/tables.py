@@ -26,8 +26,8 @@ class WordIndexTable(DataTable):
 class WordLexiconTable(DataTable):
     """Lexicon table for Word pages"""
     id = tables.Column()
-    language = tables.LinkColumn('language-detail', args=[A('language.slug')])
-    source = tables.LinkColumn('source-detail', args=[A('source.slug')])
+    language = tables.LinkColumn('language-detail', args=[A('language__slug')])
+    source = tables.LinkColumn('source-detail', args=[A('source__slug')])
     entry = tables.Column()
     source_gloss = tables.Column()
     annotation = tables.Column()
@@ -47,8 +47,8 @@ class WordLexiconTable(DataTable):
 class LanguageLexiconTable(DataTable):
     """Lexicon table for Language pages"""
     id = tables.Column()
-    source = tables.LinkColumn('source-detail', args=[A('source.slug')])
-    word = tables.LinkColumn('word-detail', args=[A('word.slug')])
+    source = tables.LinkColumn('source-detail', args=[A('source__slug')])
+    word = tables.LinkColumn('word-detail', args=[A('word__slug')])
     entry = tables.Column()
     source_gloss = tables.Column()
     annotation = tables.Column()
@@ -65,8 +65,8 @@ class LanguageLexiconTable(DataTable):
 class SourceLexiconTable(DataTable):
     """Lexicon table for Source pages"""
     id = tables.Column()
-    language = tables.LinkColumn('language-detail', args=[A('language.slug')])
-    word = tables.LinkColumn('word-detail', args=[A('word.slug')])
+    language = tables.LinkColumn('language-detail', args=[A('language__slug')])
+    word = tables.LinkColumn('word-detail', args=[A('word__slug')])
     entry = tables.Column()
     source_gloss = tables.Column()
     annotation = tables.Column()
@@ -90,8 +90,8 @@ class SourceLexiconTable(DataTable):
 # aren't inherited (esp. LinkColumn's get converted to Column's etc)
 class WordLexiconEditTable(WordLexiconTable):
     id = tables.LinkColumn('lexicon-edit', args=[A('id')])
-    language = tables.LinkColumn('language-detail', args=[A('language.slug')])
-    source = tables.LinkColumn('source-detail', args=[A('source.slug')])
+    language = tables.LinkColumn('language-detail', args=[A('language__slug')])
+    source = tables.LinkColumn('source-detail', args=[A('source__slug')])
     entry = tables.Column()
     source_gloss = tables.Column()
     annotation = tables.Column()
@@ -110,8 +110,8 @@ class WordLexiconEditTable(WordLexiconTable):
 
 class LanguageLexiconEditTable(LanguageLexiconTable):
     id = tables.LinkColumn('lexicon-edit', args=[A('id')])
-    source = tables.LinkColumn('source-detail', args=[A('source.slug')])
-    word = tables.LinkColumn('word-detail', args=[A('word.slug')])
+    source = tables.LinkColumn('source-detail', args=[A('source__slug')])
+    word = tables.LinkColumn('word-detail', args=[A('word__slug')])
     entry = tables.Column()
     source_gloss = tables.Column()
     annotation = tables.Column()
@@ -127,8 +127,8 @@ class LanguageLexiconEditTable(LanguageLexiconTable):
 
 class SourceLexiconEditTable(SourceLexiconTable):
     id = tables.LinkColumn('lexicon-edit', args=[A('id')])
-    language = tables.LinkColumn('language-detail', args=[A('language.slug')])
-    word = tables.LinkColumn('word-detail', args=[A('word.slug')])
+    language = tables.LinkColumn('language-detail', args=[A('language__slug')])
+    word = tables.LinkColumn('word-detail', args=[A('word__slug')])
     entry = tables.Column()
     source_gloss = tables.Column()
     annotation = tables.Column()
@@ -144,8 +144,8 @@ class SourceLexiconEditTable(SourceLexiconTable):
 
 class AlignmentTable(WordLexiconTable):
     id = tables.LinkColumn('lexicon-edit', args=[A('id')])
-    language = tables.LinkColumn('language-detail', args=[A('language.slug')])
-    source = tables.LinkColumn('source-detail', args=[A('source.slug')])
+    language = tables.LinkColumn('language-detail', args=[A('language__slug')])
+    source = tables.LinkColumn('source-detail', args=[A('source__slug')])
     entry = tables.Column()
     alignment = tables.Column(attrs={"td": {"style": "font-family: monospace;"}})
     annotation = tables.Column()
