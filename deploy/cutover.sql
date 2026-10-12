@@ -2,8 +2,8 @@
 --   1. manage.py migrate
 --   2. psql -f deploy/cutover.sql            (this file)
 --   3. manage.py remove_stale_contenttypes --noinput
---   4. PGOPTIONS='-c statement_timeout=0' manage.py buildwatson
---      (~2 min; drops stale search entries; Opalstack's statement_timeout would cancel it)
+--   4. PG_STATEMENT_TIMEOUT=0 manage.py buildwatson
+--      (~2 min; drops stale search entries; local.py's statement_timeout would cancel it)
 -- Drops tables no code uses any more: the removed pronouns app (all empty in the
 -- 2026-10-12 dump), South's history table, and an unused database cache table.
 BEGIN;

@@ -1,3 +1,5 @@
+import os
+
 from .base import *
 
 SITE_NAME = ""
@@ -37,6 +39,10 @@ DATABASES = {
         'PORT': '',
         # Opalstack users can't CREATE DATABASE: pre-create this one, run tests with --keepdb
         'TEST': {'NAME': '<EDIT>_test'},
+        # cap runaway queries; one-off jobs override with PG_STATEMENT_TIMEOUT=0
+        'OPTIONS': {
+            'options': '-c statement_timeout=%s' % (os.environ.get('PG_STATEMENT_TIMEOUT') or '30s'),
+        },
     }
 }
 
