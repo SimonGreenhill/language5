@@ -9,6 +9,7 @@ ALLOWED_HOSTS = ['.<EDIT>.org', 'www.<EDIT>.org']
 CSRF_TRUSTED_ORIGINS = ['https://<EDIT>.org', 'https://www.<EDIT>.org']
 
 DEBUG = False
+SESSION_COOKIE_SECURE = CSRF_COOKIE_SECURE = True
 
 
 # MEDIA: user-uploaded files
