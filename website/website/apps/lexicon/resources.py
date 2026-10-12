@@ -26,7 +26,7 @@ class LexiconResource(UTF8ModelResource):
     word = fields.ForeignKey(WordResource, 'word', full=False)
 
     class Meta:
-        queryset = Lexicon.objects.all()
+        queryset = Lexicon.objects.select_related('language', 'source', 'word')
         allowed_methods = ['get']
         excludes = ['phon_entry', ]
         cache = SimpleCache(timeout=10)

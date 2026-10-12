@@ -100,15 +100,27 @@ def list_seo_context(request):
 
 class CrawlerTrapMixin:
     """
-    Mixin for ``SingleTableView`` index views. Validates ``?sort=``/``?page=``
+    Mixin for ``SingleTableView`` index views. Validates ``?sort=``/``?page=``/``?subset=``
     before the (expensive) queryset is built, and injects self-canonicalizing
     SEO context. Requires ``self.table_class`` (set on all the index views).
     """
+
+    def valid_subset(self, value):
+        """Index pages filter on a single letter. Override to allow more."""
+        return len(value) == 1 and value.isascii() and value.isalpha()
 
     def get(self, request, *args, **kwargs):
         redirect = canonical_sort_redirect(request, self.table_class)
         if redirect is not None:
             return redirect
+        subset = request.GET.get('subset')
+        if subset is not None and not self.valid_subset(subset):
+            params = request.GET.copy()
+            del params['subset']
+            querystring = params.urlencode()
+            return HttpResponsePermanentRedirect(
+                request.path + (('?' + querystring) if querystring else '')
+            )
         guard_page(request)
         return super().get(request, *args, **kwargs)
 

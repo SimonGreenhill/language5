@@ -10,6 +10,10 @@ CSRF_TRUSTED_ORIGINS = ['https://<EDIT>.org', 'https://www.<EDIT>.org']
 
 DEBUG = False
 SESSION_COOKIE_SECURE = CSRF_COOKIE_SECURE = True
+# behind Cloudflare + nginx: trust the proxy's scheme header
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# HSTS is sticky in browsers: start at a day, raise to 31536000 once HTTPS is confirmed
+SECURE_HSTS_SECONDS = 86400
 
 
 # MEDIA: user-uploaded files

@@ -710,23 +710,26 @@ class Test_GetRecord_metadataPrefix_olac(TestCase):
         )
 
 
-class TestNoHTML(TestCase):
-    """Test that the XML output does not contain html entities."""
-    # but it *should* in URLS.
+class TestXMLEscaping(TestCase):
+    """Data containing &, < or > must still yield well-formed XML."""
 
-    fixtures = ['test_core.json']
+    @classmethod
+    def setUpTestData(cls):
+        from django.contrib.auth.models import User
+        editor = User.objects.create_user('admin', 'admin@example.com', 'test')
+        cls.lang = Language.objects.create(
+            language='Foo & <Bar>', slug='foo', isocode='foo', editor=editor
+        )
 
     @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
-    def test_nohtml(self):
-        l = Language.objects.get(pk=2)
-        l.language = '<language2>'
-        l.save()
-        
-        id = 'oai:%s:aaa.%d' % (TEST_DOMAIN, l.id)
-        
-        response = self.client.get(
-            '/oai/?verb=GetRecord&metadataPrefix=oai_dc&identifier=%s' % id
-        )
-        self.assertNotContains(response, '&lt;')
-        self.assertNotContains(response, '&gt;')
-
+    def test_well_formed(self):
+        ident = 'oai:%s:foo.%d' % (TEST_DOMAIN, self.lang.pk)
+        for prefix in ('olac', 'oai_dc'):
+            for query in (
+                f'verb=ListRecords&metadataPrefix={prefix}',
+                f'verb=GetRecord&metadataPrefix={prefix}&identifier={ident}',
+            ):
+                with self.subTest(query=query):
+                    content = self.client.get('/oai/?' + query).content
+                    minidom.parseString(content)
+                    assert b'Foo &amp; &lt;Bar&gt;' in content

@@ -72,11 +72,9 @@ class Test_WordIndex(DataMixin, PaginatorTestMixin, TestCase):
         assert 'table' in response.context
         self.assertEqual(len(response.context['table'].rows), 0)
 
-    def test_invalid_subset_is_empty(self):
+    def test_invalid_subset_redirects(self):
         response = self.client.get(self.url, {'subset': 'fudge'})
-        self.assertEqual(response.context['subset'], 'fudge')
-        assert 'table' in response.context
-        self.assertEqual(len(response.context['table'].rows), 0)
+        self.assertRedirects(response, self.url, status_code=301)
 
     def test_sorting(self):
         response = self.client.get(self.url, {'sort': 'fullword'})

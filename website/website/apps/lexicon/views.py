@@ -33,6 +33,9 @@ class WordIndex(CrawlerTrapMixin, SingleTableView):
     table_class = WordIndexTable
     table_pagination = {"per_page": 50}
     
+    def valid_subset(self, value):
+        return super().valid_subset(value) or WordSubset.objects.filter(slug=value).exists()
+
     def get_queryset(self):
         # filter on subset if necessary
         self.subset = self.request.GET.get('subset', None)

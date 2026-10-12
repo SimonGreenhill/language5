@@ -156,3 +156,25 @@ class Test_LanguageMapResource(DataMixin, TestCase):
         records = [o['language'] for o in self.json['objects']]
         assert 'A' in records
         assert 'B' in records
+
+
+class Test_LexiconResourceQueries(DataMixin, TestCase):
+    """Lexicon list must not issue queries per row (anonymous DoS vector)."""
+
+    def count(self, url):
+        from django.db import connection
+        from django.test.utils import CaptureQueriesContext
+        with CaptureQueriesContext(connection) as q:
+            self.assertEqual(self.client.get(url).status_code, 200)
+        return len(q)
+
+    def test_queries_do_not_scale_with_rows(self):
+        from website.apps.lexicon.models import Lexicon
+        before = self.count('/api/v1/lexicon/?limit=1000')
+        for i in range(5):
+            Lexicon.objects.create(
+                language=self.lang1, word=self.word1, source=self.source1,
+                editor=self.editor, entry='extra%d' % i
+            )
+        # different URL so tastypie's SimpleCache doesn't answer
+        self.assertEqual(self.count('/api/v1/lexicon/?limit=999'), before)

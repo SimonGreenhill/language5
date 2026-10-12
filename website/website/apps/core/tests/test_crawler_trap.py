@@ -161,3 +161,29 @@ class Test_LanguageIndex_CrawlerTrap(TestCase):
         response = self.client.get(self.url)
         self.assertContains(response, 'rel="canonical"')
         self.assertNotContains(response, 'noindex')
+
+
+class Test_SubsetGuard(TestCase):
+    """Unknown ?subset= values 301 to the clean URL (another crawler-trap axis)."""
+
+    @classmethod
+    def setUpTestData(cls):
+        from django.contrib.auth.models import User
+        from website.apps.lexicon.models import WordSubset
+        editor = User.objects.create_user('admin', 'admin@example.com', 'test')
+        WordSubset.objects.create(subset='Swadesh', slug='swadesh', editor=editor)
+
+    def test_letter_ok(self):
+        for name in ('language-index', 'source-index', 'family-index', 'word-index'):
+            with self.subTest(name=name):
+                self.assertEqual(self.client.get(reverse(name), {'subset': 'A'}).status_code, 200)
+
+    def test_wordsubset_slug_ok(self):
+        self.assertEqual(self.client.get(reverse('word-index'), {'subset': 'swadesh'}).status_code, 200)
+
+    def test_junk_redirects(self):
+        for name in ('language-index', 'source-index', 'family-index', 'word-index'):
+            with self.subTest(name=name):
+                url = reverse(name)
+                response = self.client.get(url, {'subset': 'zzzz', 'page': '2'})
+                self.assertRedirects(response, url + '?page=2', status_code=301, fetch_redirect_response=False)
