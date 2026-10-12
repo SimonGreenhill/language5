@@ -15,7 +15,8 @@ DEBUG = False
 MEDIA_ROOT = '<EDIT>'
 MEDIA_URL = '<EDIT>'
 
-# STATIC: collected static files
+# STATIC: collected static files, hashed names for cache-busting
+STORAGES['staticfiles'] = {'BACKEND': 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'}
 STATIC_ROOT = '<EDIT>'
 STATIC_URL = '<EDIT>'
 

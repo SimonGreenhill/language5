@@ -58,9 +58,9 @@ class Source(TrackedModel):
     
     def __str__(self):
         if self.year is not None:
-            return str(f"{unicode(self.author)} ({self.year})")
+            return f"{self.author} ({self.year})"
         else:
-            return str(unicode(self.author))
+            return str(self.author)
     
     def get_absolute_url(self):
         return reverse('source-detail', kwargs={'slug': self.slug})
@@ -125,7 +125,7 @@ class Language(TrackedModel):
     
     def __str__(self):
         if self.dialect:
-            return str(f"{unicode(self.language)} ({self.dialect} Dialect)")
+            return f"{self.language} ({self.dialect} Dialect)"
         else:
             return str(self.language)
     

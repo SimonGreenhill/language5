@@ -47,7 +47,8 @@ def url(token):
 class TestSiteNameSetProperly(TestCase):
     @classmethod
     @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
-    def setUpTestData(cls):
+    def setUpClass(cls):
+        super().setUpClass()
         cls.client = Client()
         cls.response = cls.client.get('/oai/?verb=Identify')
 
@@ -101,7 +102,8 @@ class Test_Identify(TestCase):
 
     @classmethod
     @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
-    def setUpTestData(cls):
+    def setUpClass(cls):
+        super().setUpClass()
         cls.client = Client()
         cls.response = cls.client.get('/oai/?verb=Identify')
 
@@ -439,7 +441,8 @@ class Test_ListRecords_metadataPrefix_oai_dc(TestCase):
     
     @classmethod
     @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
-    def setUpTestData(cls):
+    def setUpClass(cls):
+        super().setUpClass()
         cls.client = Client()
         cls.response = cls.client.get(
             '/oai/?verb=ListRecords&metadataPrefix=oai_dc'
@@ -491,7 +494,8 @@ class Test_ListRecords_metadataPrefix_olac(TestCase):
     
     @classmethod
     @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
-    def setUpTestData(cls):
+    def setUpClass(cls):
+        super().setUpClass()
         cls.client = Client()
         cls.response = cls.client.get(
             '/oai/?verb=ListRecords&metadataPrefix=olac'
@@ -589,7 +593,8 @@ class Test_GetRecord_metadataPrefix_oai_dc(TestCase):
 
     @classmethod
     @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
-    def setUpTestData(cls):
+    def setUpClass(cls):
+        super().setUpClass()
         cls.client = Client()
         id = 'oai:%s:aaa.1' % TEST_DOMAIN
         cls.response = cls.client.get(
@@ -645,7 +650,8 @@ class Test_GetRecord_metadataPrefix_olac(TestCase):
     
     @classmethod
     @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
-    def setUpTestData(cls):
+    def setUpClass(cls):
+        super().setUpClass()
         cls.client = Client()
         id = 'oai:%s:bbb.2' % TEST_DOMAIN
         cls.response = cls.client.get(

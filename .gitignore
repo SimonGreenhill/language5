@@ -7,7 +7,6 @@ __pycache__/
 /website/data
 /website/website/database*
 /website/website/settings/local.py
-/website/website/templates/revision.txt
 /website/django.log
 /website/django-db.log
 dump.json.gz

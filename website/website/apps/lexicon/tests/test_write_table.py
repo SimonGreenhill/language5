@@ -9,9 +9,11 @@ from website.apps.lexicon.management.commands import write_table
 
 
 class TestWriteTable(TestCase):
+    def setUp(self):
+        self.cmd = write_table.Command()
+
     @classmethod
     def setUpTestData(cls):
-        cls.cmd = write_table.Command()
         cls.editor = User.objects.create(username='admin')
         cls.word1 = Word.objects.create(
             word='Hand', slug='hand',

@@ -15,7 +15,7 @@
             <identifier>{{ obj|oai_id }}</identifier>
             <datestamp>{{ last_update|date:"Y-m-d" }}</datestamp>
         </header>
-        {% ifequal metadataPrefix 'oai_dc' %}
+        {% if metadataPrefix == 'oai_dc' %}
             <metadata>
                 <oai_dc:dc xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dc="http://purl.org/dc/elements/1.1/">
                     <dc:title>{{ OLAC.sitename }} Resources for {{ obj.language }}</dc:title>
@@ -30,9 +30,9 @@
                 </oai_dc:dc>
             </metadata>
             
-        {% endifequal %}
+        {% endif %}
         
-        {% ifequal metadataPrefix 'olac' %}
+        {% if metadataPrefix == 'olac' %}
             <metadata>
                 <olac:olac xsi:schemaLocation="http://www.language-archives.org/OLAC/1.1/ http://www.language-archives.org/OLAC/1.1/olac.xsd" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:olac="http://www.language-archives.org/OLAC/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dc="http://purl.org/dc/elements/1.1/">
                     <dc:title>{{ OLAC.sitename }} Resources for {{ obj.language }}</dc:title>
@@ -50,7 +50,7 @@
                     <dcterms:extent>{{ obj.entry_set.count }} entries</dcterms:extent>
                 </olac:olac>
             </metadata>
-        {% endifequal %}
+        {% endif %}
     </record>
     {% endfor %}
     </ListRecords>

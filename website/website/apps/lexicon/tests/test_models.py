@@ -17,12 +17,12 @@ class Test_Words(DataMixin, TestCase):
         
         w = Word.objects.create(word='Test', slug='test', editor=self.editor)
         w.save()
-        assert str(w) == "Test", "Got %s not u'Test'" % unicode(w)
+        assert str(w) == "Test", "Got %s not u'Test'" % w
         
         # test we're ok with None
         w = Word.objects.create(word='Test2', slug='test2', full=None, editor=self.editor)
         w.save()
-        assert str(w) == "Test2", "Got %s not u'Test2'" % unicode(w)
+        assert str(w) == "Test2", "Got %s not u'Test2'" % w
 
 
 class Test_Lexicon(DataMixin, TestCase):

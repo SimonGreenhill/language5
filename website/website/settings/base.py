@@ -235,7 +235,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 STORAGES = {
     'default': {'BACKEND': 'django.core.files.storage.FileSystemStorage'},
-    'staticfiles': {'BACKEND': 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'},
+    'staticfiles': {'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage'},
 }
 
 # THIRD-PARTY SETTINGS ==========================================

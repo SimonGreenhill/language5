@@ -64,8 +64,7 @@ class CognateSetDetailTable(DataTable):
     loan = tables.BooleanColumn(null=False, yesno=('x', ''))
     
     def render_language(self, record):
-        col = tables.LinkColumn('language-detail', args=[record.language.slug])
-        return col.render(value=record.language, record=record.language, bound_column=None)
+        return str(record.language)
     
     def render_classification(self, record):
         return mark_safe(render_to_string(
@@ -95,8 +94,7 @@ class CognacyTable(DataTable):
     edit = tables.Column()
     
     def render_language(self, record):
-        col = tables.LinkColumn('language-detail', args=[record.language.slug])
-        return col.render(value=record.language, record=record.language, bound_column=None)
+        return str(record.language)
     
     def render_cognacy(self, record):
         return mark_safe(

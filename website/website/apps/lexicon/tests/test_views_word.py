@@ -12,8 +12,8 @@ class Test_WordIndex(DataMixin, PaginatorTestMixin, TestCase):
     """Tests the Word Index page"""
     
     @classmethod
-    def setUpTestData(cls):
-        super().setUpTestData()
+    def setUpClass(cls):
+        super().setUpClass()
         cls.client = Client()
         cls.url = reverse('word-index')
         cls.response = cls.client.get(cls.url)

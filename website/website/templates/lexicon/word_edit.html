@@ -110,11 +110,11 @@
                         <tr>
                             {% for field in form %}
                                 <td {% if field.errors %}class="error"{% endif %}>
-                                    {% ifequal field.name "word" %}
+                                    {% if field.name == "word" %}
                                         {% if form.initial.order_id %}
                                             {{ form.initial.order_id }}.
                                         {% endif %}
-                                    {% endifequal %}
+                                    {% endif %}
                                     
                                     {{ field }}
                                     {% if field.errors %}

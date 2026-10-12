@@ -23,9 +23,9 @@
     
     <div class="well">
         <strong>Filter:</strong>
-        <a class="btn btn-mini{% ifequal subset None %} btn-success{% endifequal %}" href="{% url "language-index" %}"> (all) </a>
+        <a class="btn btn-mini{% if subset == None %} btn-success{% endif %}" href="{% url "language-index" %}"> (all) </a>
         {% for s in subsets %}
-            <a class="btn btn-mini{% ifequal subset s %} btn-success{% endifequal %}" href="{% url "language-index" %}?subset={{s}}"> {{ s }} </a>
+            <a class="btn btn-mini{% if subset == s %} btn-success{% endif %}" href="{% url "language-index" %}?subset={{s}}"> {{ s }} </a>
         {% endfor %}
     </div>
     

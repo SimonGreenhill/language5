@@ -11,7 +11,7 @@
         <tr>
         {% for column in table.columns %}
             {% if column.orderable %}
-                <th {{ column.attrs.th.as_html }}><a href="{% querystring table.prefixed_order_by_field=column.order_by_alias.next %}">{{ column.header }}</a></th>
+                <th {{ column.attrs.th.as_html }}><a href="{% querystring_replace table.prefixed_order_by_field=column.order_by_alias.next %}">{{ column.header }}</a></th>
             {% else %}
                 <th {{ column.attrs.th.as_html }}>{{ column.header }}</th>
             {% endif %}
@@ -52,20 +52,20 @@
                     {% if table.page.has_previous %}
                         {% block pagination.previous %}
                             <li class="previous">
-                                <a href="{% querystring table.prefixed_page_field=table.page.previous_page_number %}">&laquo;</a>
+                                <a href="{% querystring_replace table.prefixed_page_field=table.page.previous_page_number %}">&laquo;</a>
                             </li>
                         {% endblock pagination.previous %}
                     {% endif %}
                     {% for p in table.page.paginator.page_range %}
-                        <li{% ifequal p table.page.number %} class="active"{% endifequal %}>
-                            <a href="{% querystring table.prefixed_page_field=p %}">{{ p }}</a>
+                        <li{% if p == table.page.number %} class="active"{% endif %}>
+                            <a href="{% querystring_replace table.prefixed_page_field=p %}">{{ p }}</a>
                         </li>
                     {% endfor %}
                     
                     {% if table.page.has_next %}
                         {% block pagination.next %}
                             <li class="next">
-                                <a href="{% querystring table.prefixed_page_field=table.page.next_page_number %}">&raquo;</a>
+                                <a href="{% querystring_replace table.prefixed_page_field=table.page.next_page_number %}">&raquo;</a>
                             </li>
                         {% endblock pagination.next %}
                     {% endif %}

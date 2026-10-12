@@ -14,8 +14,10 @@ class TestWordlistParser(TestCase):
         )
         cls.word1 = Word.objects.create(editor=cls.editor, word="1", slug="one")
         cls.word2 = Word.objects.create(editor=cls.editor, word="2", slug="two")
-        cls.cmd = create_wordlist.Command()
     
+    def setUp(self):
+        self.cmd = create_wordlist.Command()
+
     def test_ignore_comment(self):
         content = StringIO()
         content.write('one\n')

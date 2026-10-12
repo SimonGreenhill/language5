@@ -1,41 +1,48 @@
 {% extends "base.html" %}
 {% load static %}
-{% load nvd3_tags %}
 
 {% block title %} {{ SITE_NAME }} Statistics {% endblock %}
 
 {% block head %}
-    <link media="all" href="{% static "nvd3/nv.d3.min.css" %}" type="text/css" rel="stylesheet" />
-    <script src="{% static "nvd3/d3.min.js" %}" type="text/javascript"></script>
-    <script src="{% static "nvd3/nv.d3.min.js" %}" type="text/javascript"></script>
-    
-    {% for chart in charts %}
-        {% load_chart chart.type chart.data chart.id chart.extra %}
-    {% endfor %}
-    
-    {% load_chart family.type family.data family.id family.extra %}
-
+    <script src="{% static "js/chart.umd.min.js" %}"></script>
 {% endblock %}
 
 {% block content %}
     <div class="page-header">
         <h1>Statistics for {{ SITE_NAME }}</h1>
     </div>
-    
-    
+
     {% for chart in charts %}
         <div class="span6">
             <h2>{{ chart.label }}</h2>
-        
-            {% include_container chart.id 200 600 %}
+            <canvas class="chart" data-type="line" data-source="{{ chart.id }}" height="200" width="600"></canvas>
+            {{ chart.data|json_script:chart.id }}
         </div>
     {% endfor %}
-    
+
     <div class="span8">
         <h2> {{ family.label }} </h2>
-        
-        {% include_container family.id 400 600 %}
-    
+        <canvas class="chart" data-type="pie" data-source="{{ family.id }}" height="400" width="600"></canvas>
+        {{ family.data|json_script:family.id }}
     </div>
-    
+
+    <script>
+    document.querySelectorAll('canvas.chart').forEach(function (canvas) {
+        var d = JSON.parse(document.getElementById(canvas.dataset.source).textContent);
+        var line = canvas.dataset.type === 'line';
+        new Chart(canvas, {
+            type: canvas.dataset.type,
+            data: line
+                ? {datasets: [{label: d.name, data: d.x.map(function (x, i) { return {x: x, y: d.y[i]}; })}]}
+                : {labels: d.x, datasets: [{data: d.y}]},
+            options: {
+                responsive: false,
+                plugins: {legend: {display: !line}},
+                scales: line ? {x: {type: 'linear', ticks: {callback: function (v) {
+                    return new Date(v).toLocaleDateString('en-GB', {day: '2-digit', month: 'short', year: 'numeric'});
+                }}}} : {}
+            }
+        });
+    });
+    </script>
 {% endblock %}

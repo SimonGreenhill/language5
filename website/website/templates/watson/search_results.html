@@ -31,7 +31,7 @@
                                 {% endblock pagination.previous %}
                             {% endif %}
                             {% for p in page_obj.paginator.page_range %}
-                                <li{% ifequal p page_obj.number %} class="active"{% endifequal %}>
+                                <li{% if p == page_obj.number %} class="active"{% endif %}>
                                     <a href="?q={{ query }}&amp;page={{ p }}">{{ p }}</a>
                                 </li>
                             {% endfor %}

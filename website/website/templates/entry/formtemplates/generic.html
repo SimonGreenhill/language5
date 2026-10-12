@@ -35,11 +35,11 @@
                 {% for field in form %}
                     <td {% if field.errors %}class="error"{% endif %}>
                         
-                        {% ifequal field.name "word" %}
+                        {% if field.name == "word" %}
                             {% if form.initial.order_id %}
                                 {{ form.initial.order_id }}.
                             {% endif %}
-                        {% endifequal %}
+                        {% endif %}
                         
                         {% comment %} 
                         This is gross -- hand writing html because django's field.as_hidden 
