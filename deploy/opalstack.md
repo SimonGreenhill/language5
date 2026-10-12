@@ -5,7 +5,6 @@ App: `~/apps/transnewguinea2`, Opalstack Django/uWSGI app, port 14764. `A=~/apps
 ## 0. Before you start
 
 - **Prod has uncommitted edits.** Live `robots.txt` (and, before its removal, the Twitter link) differ from every committed revision. In the prod checkout, run `hg status && hg diff` (or `git status && git diff`) and send me the output, so nothing is lost at cut-over.
-- Python: `$A/env/bin/python -V`. The port needs **≥ 3.11** (django-tables2 3.0). If it's 3.10, use 2b.
 
 ## 1. Code
 
@@ -13,7 +12,7 @@ App: `~/apps/transnewguinea2`, Opalstack Django/uWSGI app, port 14764. `A=~/apps
 git clone -b modernise https://github.com/SimonGreenhill/language5.git $A/language5
 ```
 
-## 2a. Env is Python ≥ 3.11 (keep uWSGI)
+## 2. Dependencies (env is Python 3.13.16, so Opalstack's uWSGI stays)
 
 ```
 $A/env/bin/pip install -r $A/language5/requirements.txt
@@ -24,27 +23,6 @@ python-path = /home/sjg/apps/transnewguinea2/language5/website
 wsgi-file = /home/sjg/apps/transnewguinea2/language5/website/website/wsgi.py
 touch-reload = /home/sjg/apps/transnewguinea2/language5/website/website/wsgi.py
 ```
-
-## 2b. Env is Python 3.10 (switch to gunicorn on the same port)
-
-uWSGI has no wheels for glibc 2.17, and compiling it isn't worth it. gunicorn is pure Python.
-```
-mv $A/env $A/env-uwsgi && python3.13 -m venv $A/env
-$A/env/bin/pip install -r $A/language5/requirements.txt gunicorn
-```
-Replace `$A/start` (keep `$A/stop-uwsgi` as a backup of the old `stop`):
-```
-#!/bin/bash
-A=/home/sjg/apps/transnewguinea2
-mkdir -p $A/tmp; PIDFILE=$A/tmp/gunicorn.pid
-if [ -e "$PIDFILE" ] && (pgrep -u sjg | grep -x -f $PIDFILE &> /dev/null); then exit 99; fi
-cd $A/language5/website
-$A/env/bin/gunicorn website.wsgi -w 3 -D -p $PIDFILE -b 127.0.0.1:14764 \
-  --access-logfile /home/sjg/logs/apps/transnewguinea2/access.log \
-  --error-logfile /home/sjg/logs/apps/transnewguinea2/error.log
-```
-`$A/stop`: `kill $(cat $A/tmp/gunicorn.pid) && rm $A/tmp/gunicorn.pid`. Opalstack's cron entry already calls `start`.
-In `deploy/deploy.sh`, replace `touch website/wsgi.py` with `kill -HUP $(cat $APP/tmp/gunicorn.pid)`.
 
 ## 3. Database
 
