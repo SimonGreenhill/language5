@@ -50,9 +50,36 @@
 
         <h4>Citation:</h4>
         <p>If you find this project useful in your work, please cite:</p>
-        <blockquote>
+        <blockquote id="citation">
             Greenhill SJ. 2015. <a href="https://doi.org/10.1371/journal.pone.0141563">TransNewGuinea.org: An Online Database of New Guinea Languages</a>. <i>PLoS ONE</i> 10(10): e0141563.
         </blockquote>
+        <p>
+            <button type="button" class="btn btn-mini" data-copy="citation">Copy citation</button>
+            <button type="button" class="btn btn-mini" data-copy="bibtex">Copy BibTeX</button>
+        </p>
+        <pre id="bibtex">@article{greenhill2015,
+  author  = {Greenhill, Simon J.},
+  title   = {{TransNewGuinea.org}: An Online Database of New Guinea Languages},
+  journal = {PLoS ONE},
+  year    = {2015},
+  volume  = {10},
+  number  = {10},
+  pages   = {e0141563},
+  doi     = {10.1371/journal.pone.0141563}
+}</pre>
+        <script>
+        document.querySelectorAll('[data-copy]').forEach(function (button) {
+            button.addEventListener('click', function () {
+                var text = document.getElementById(button.dataset.copy).innerText.trim();
+                if (button.dataset.copy === 'citation') { text = text.replace(/\s+/g, ' '); }
+                navigator.clipboard.writeText(text).then(function () {
+                    var label = button.textContent;
+                    button.textContent = 'Copied';
+                    setTimeout(function () { button.textContent = label; }, 1500);
+                });
+            });
+        });
+        </script>
 
         <div class="map">
             <img src="{% static "img/map-600.png" %}" width="600" height="304" class="img-rounded" alt="Map of New Guinea" />
