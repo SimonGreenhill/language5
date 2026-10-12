@@ -1,13 +1,5 @@
-import re
-from django.test import TestCase
-from django.test.client import Client
-from django.forms import ValidationError
 from django.urls import reverse
 
-from django.contrib.auth.models import User
-from website.apps.core.models import Source, Language
-from website.apps.lexicon.models import Word, Lexicon
-from website.apps.entry.models import Task
 from website.apps.entry.tests import DataMixin
 
 

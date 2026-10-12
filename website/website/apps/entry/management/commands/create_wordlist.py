@@ -1,6 +1,5 @@
 import sys
 from reversion import revisions as reversion
-from optparse import make_option
 from django.core.management.base import BaseCommand
 from django.contrib.auth.models import User
 
@@ -86,7 +85,6 @@ class Command(BaseCommand):
                         editor=ed
                     )
                     w.save()
-                    #print("Created word: {}".format(w))
                     words[order_id] = w  # move into words
             else:
                 errorstring = ", ".join(["%d. %s" % err for err in errors])

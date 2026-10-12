@@ -3,7 +3,7 @@ from django.test.client import Client
 
 from django.contrib.auth.models import User
 from website.apps.core.models import Language, Source
-from website.apps.lexicon.models import Word, Lexicon, CognateSet, Cognate, CognateNote
+from website.apps.lexicon.models import Word, Lexicon, CognateSet, Cognate
 
 class DataMixin(TestCase):
     @classmethod

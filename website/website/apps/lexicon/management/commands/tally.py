@@ -1,6 +1,4 @@
-from reversion import revisions as reversion
 from django.db.models import Count
-from optparse import make_option
 from django.core.management.base import BaseCommand
 
 from website.apps.core.models import Language
@@ -34,7 +32,6 @@ class Command(BaseCommand):
         tally = {}
         families = {}
         languages = Language.objects.annotate(count=Count('lexicon')).all()
-        #languages = languages.filter(count__gt=0)
         languages = languages.order_by("classification")
         
         prev_classif = None

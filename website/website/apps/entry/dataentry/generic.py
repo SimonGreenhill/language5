@@ -1,4 +1,3 @@
-import copy
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
@@ -70,14 +69,14 @@ def process_post_and_save(request, task, formset):
             if task.language and task.source and (task.image or task.file):
                 from website.apps.core.models import Attachment
                 if task.image:
-                    a = Attachment.objects.create(
+                    Attachment.objects.create(
                         editor = request.user,
                         language = task.language,
                         source = task.source,
                         file = task.image
                     )
                 if task.file:
-                    a = Attachment.objects.create(
+                    Attachment.objects.create(
                         editor = request.user,
                         language = task.language,
                         source = task.source,

@@ -2,11 +2,9 @@
 Extra tests for core views with lexicon add-ons
 """
 from django.test import TestCase
-from django.test.client import Client
 from django.urls import reverse
 
 from website.apps.lexicon.tests import DataMixin
-from website.apps.lexicon.models import Word, WordSubset, Lexicon
 
 class Test_SourceDetailWithLexicon(DataMixin, TestCase):
     def test_sorting(self):

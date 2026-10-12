@@ -1,10 +1,8 @@
 from django.test import TestCase
-from django.test.client import Client
 from django.urls import reverse
 
 from website.apps.cognacy.tests.data import DataMixin
-from website.apps.lexicon.models import Word, WordSubset, Lexicon
-from website.apps.lexicon.models import CognateSet, Cognate, CognateNote
+from website.apps.lexicon.models import CognateNote
 
 
 class Test_CognateSetDetail(DataMixin, TestCase):

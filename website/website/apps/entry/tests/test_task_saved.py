@@ -1,9 +1,6 @@
-from django.test import TestCase
-from django.test.client import Client
 
 from django.urls import reverse
 
-from django.contrib.auth.models import User
 from website.apps.entry.models import Task
 
 from website.apps.entry.tests import DataMixin

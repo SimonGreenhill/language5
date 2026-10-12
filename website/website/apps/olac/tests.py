@@ -6,7 +6,7 @@ from django.test.client import Client
 
 from website.apps.core.models import Language
 
-from website.apps.olac.views import parse_time, check_ident
+from website.apps.olac.views import check_ident
 
 # NOTE: as at Oct 2010, the override_settings decorator doesn't seem to
 # work if defined at the class level.

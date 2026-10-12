@@ -1,6 +1,5 @@
 from django import template
 from django.urls import resolve
-from django.utils.safestring import mark_safe
 from website.apps.core.models import Language
 from website.apps.core.templatetags.ifinstalled import do_ifinstalled
 

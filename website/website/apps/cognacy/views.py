@@ -2,8 +2,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.core.paginator import EmptyPage, PageNotAnInteger
-from django.db import transaction
-from django.db.models import Max, Q, Count
+from django.db.models import Q, Count
 from django.shortcuts import get_object_or_404, Http404, render, redirect
 from django.utils.decorators import method_decorator
 from django.views.generic import DetailView
@@ -192,8 +191,6 @@ def save(request, word, clade=None):
         )
     
     if request.POST and form.is_valid():
-        word = form.cleaned_data['word']
-        clade = form.cleaned_data['clade']
         # collect lexicon ids and actions
         # 1. get anything (lex_id, value) that is a cognacy field and isn't empty
         changes = [

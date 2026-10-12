@@ -1,13 +1,6 @@
-from django.test import TestCase
-from django.test.client import Client
 
-from django.urls import reverse
 
-from django.contrib.auth.models import User
-from website.apps.core.models import Source, Language
-from website.apps.lexicon.models import Word, Lexicon
 from website.apps.entry.models import Task
-from website.apps.entry.dataentry import available_views
 from website.apps.entry.views import encode_checkpoint, decode_checkpoint
 
 from website.apps.entry.tests import DataMixin

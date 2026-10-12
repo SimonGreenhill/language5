@@ -1,6 +1,4 @@
 from reversion import revisions as reversion
-from django.db.models import Count
-from optparse import make_option
 from django.core.management.base import BaseCommand
 
 from website.apps.lexicon.models import Word

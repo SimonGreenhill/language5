@@ -1,8 +1,6 @@
 from django.test import TestCase
-from django.test.client import Client
-from django.contrib.auth.models import User
 
-from website.apps.core.models import Language, Source, Attachment
+from website.apps.core.models import Attachment
 from website.apps.core.tests.test_views import BaseMixin
 
 class AttachmentDataMixin(BaseMixin):

@@ -43,7 +43,6 @@ class SourceIndexTable(DataTable):
     
     class Meta(DataTable.Meta):
         model = Source
-        #order_by = ('author', 'year',)
         order_by = 'author'
         sequence = ('author', 'year', 'reference', 'count')
         exclude = ('id', 'editor', 'added', 'slug', 'comment', 'bibtex')

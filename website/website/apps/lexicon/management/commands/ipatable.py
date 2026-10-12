@@ -1,7 +1,4 @@
-from reversion import revisions as reversion
 import unicodedata
-from django.db.models import Count
-from optparse import make_option
 from django.core.management.base import BaseCommand
 from collections import Counter
 from website.apps.core.models import Source

@@ -1,9 +1,7 @@
-from django.db.models import Count
-from optparse import make_option
 from django.core.management.base import BaseCommand
 
 from website.apps.core.models import Language, Family, Source
-from website.apps.lexicon.models import Word, Lexicon
+from website.apps.lexicon.models import Word
 from website.apps.statistics import statistic
 
 class Command(BaseCommand):

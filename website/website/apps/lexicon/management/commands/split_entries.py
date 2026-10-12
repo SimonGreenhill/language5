@@ -1,5 +1,4 @@
 from reversion import revisions as reversion
-from optparse import make_option
 from django.core.management.base import BaseCommand
 
 from website.apps.core.models import Language, Source
@@ -73,7 +72,6 @@ class Command(BaseCommand):
         
         # remove protoforms 
         if ignore_protoforms:
-            #qset = qset.exclude(entry__startswith="*")
             qset = qset.exclude(entry__regex=r'^\*\w+\(\w+[,/]\w+\)\w+')
             
         combined.extend(qset.filter(entry__icontains="/"))

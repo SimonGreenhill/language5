@@ -1,6 +1,4 @@
 from tastypie import fields
-from tastypie.resources import ALL, ALL_WITH_RELATIONS
-from tastypie.authorization import DjangoAuthorization
 from tastypie.cache import SimpleCache
 
 from website.apps.api import UTF8ModelResource

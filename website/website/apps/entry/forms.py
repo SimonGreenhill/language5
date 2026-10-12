@@ -1,6 +1,5 @@
 from django import forms
 from website.apps.core.models import Language, Source
-from website.apps.lexicon.models import Lexicon, Word
 from website.apps.entry.models import Wordlist
 
 

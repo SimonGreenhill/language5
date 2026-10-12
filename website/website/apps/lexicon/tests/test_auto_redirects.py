@@ -1,7 +1,4 @@
 from django.test import TestCase
-from django.test.client import Client
-from django.contrib.auth.models import User
-from django.contrib.redirects.models import Redirect
 
 from website.apps.core.tests.test_auto_redirects import RedirectionTestMixin
 from website.apps.lexicon.models import Word, WordSubset

@@ -1,8 +1,5 @@
-from reversion import revisions as reversion
 from reversion.models import Version
-from django.test import TestCase
 from django.test.client import Client
-from django.forms import ValidationError
 from django.urls import reverse
 
 from website.apps.cognacy.tests.data import DataMixin

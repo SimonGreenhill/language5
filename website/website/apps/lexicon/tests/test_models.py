@@ -1,13 +1,9 @@
-from django.contrib.auth.models import User
 from django.test import TestCase
 
-from website.apps.core.models import Language, Source
 
 from website.apps.lexicon.tests import DataMixin
 
-from website.apps.lexicon.models import Word, WordSubset, Lexicon
-from website.apps.lexicon.models import CognateSet, Cognate
-from website.apps.lexicon.models import CorrespondenceSet, Correspondence
+from website.apps.lexicon.models import Word, Lexicon
 
 class Test_Words(DataMixin, TestCase):
     def test_repr(self):

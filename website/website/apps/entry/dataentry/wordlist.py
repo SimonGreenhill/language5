@@ -1,11 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
-from django import forms
-from django.forms.formsets import formset_factory
 
-from website.apps.core.models import Language, Source
-from website.apps.lexicon.models import Lexicon, Word
 from website.apps.entry.dataentry.generic import process_post_and_save, GenericFormset
 
 @login_required()

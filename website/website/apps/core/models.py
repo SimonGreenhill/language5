@@ -207,20 +207,6 @@ class Attachment(TrackedModel):
         db_table = 'attachments'
 
 
-@reversion.register
-class PopulationSize(TrackedModel):
-    """Population Size Details"""
-    language = models.ForeignKey('Language', on_delete=models.CASCADE)
-    source = models.ForeignKey('Source', on_delete=models.CASCADE)
-    populationsize = models.IntegerField()
-
-    def __str__(self):
-        return str("%s %d: %d" % (self.language.slug, self.source.year, self.populationsize))
-
-    class Meta:
-        db_table = 'popsize'
-
-
 # pre-save adding of redirects when slug field altered.
 pre_save.connect(create_redirect, sender=Source, dispatch_uid="source:001")
 pre_save.connect(create_redirect, sender=Family, dispatch_uid="family:001")
@@ -234,7 +220,6 @@ watson.register(Family, fields=('family',))
 watson.register(Source, fields=('author', 'year', 'reference'))
 watson.register(AlternateName, fields=('language', 'name'))
 watson.register(Link, fields=('language', 'link', 'description'))
-#watson.register(Note, fields=('language', 'source', 'note'))
 
 statistic.register("Number of Families", Family)
 statistic.register("Number of Languages", Language, graph=1)

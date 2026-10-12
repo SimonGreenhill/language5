@@ -1,5 +1,4 @@
 from django.test import TestCase
-from django.test.client import Client
 from django.urls import reverse
 
 from website.apps.core.models import Source

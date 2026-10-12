@@ -1,5 +1,4 @@
 from django.utils.safestring import mark_safe
-from django.urls import reverse
 from django.template.loader import render_to_string
 
 import django_tables2 as tables
@@ -8,7 +7,7 @@ from django_tables2.utils import A  # alias for Accessor
 from website.apps.core.tables import DataTable
 
 from website.apps.core.models import Source
-from website.apps.lexicon.models import Lexicon, CognateSet, Cognate
+from website.apps.lexicon.models import Lexicon, Cognate
 from website.apps.cognacy.templatetags.cognacy_tags import cognate_button
 from website.apps.core.templatetags.website_tags import condense_classification
 

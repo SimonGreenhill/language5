@@ -1,6 +1,4 @@
 import json
-import codecs
-from django.db import transaction
 from django.core.management.base import BaseCommand
 
 from website.apps.entry.models import Task

@@ -1,7 +1,6 @@
 import os
 import re
 import sys
-from optparse import make_option
 from django.conf import settings
 from django.db import transaction
 from django.core.management.base import BaseCommand
