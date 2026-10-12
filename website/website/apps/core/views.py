@@ -267,18 +267,6 @@ def language_detail(request, language):
             except PageNotAnInteger:  # 404 on invalid page number
                 raise Http404
         
-        # load pronouns
-        if 'website.apps.pronouns' in settings.INSTALLED_APPS:
-            from website.apps.pronouns.models import Paradigm
-            from website.apps.pronouns.tools import add_pronoun_table
-            try:
-                out['pronoun'] = Paradigm.objects.filter(language=my_lang)[0]
-                out['pronoun_rows'] = add_pronoun_table(
-                    out['pronoun'].pronoun_set.all()
-                )
-            except IndexError:  # no paradigm
-                pass
-            
         return render(request, 'core/language_detail.html', out)
     except Language.DoesNotExist:
         pass

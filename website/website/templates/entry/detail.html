@@ -1,5 +1,4 @@
-{% load staticfiles %}
-{% load compress %}
+{% load static %}
 {% load website_tags %}
 {% load render_table from django_tables2 %}
 <!DOCTYPE html>
@@ -17,7 +16,6 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   
-  {% compress css %}
   <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}" />
   <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-responsive.min.css" %}" />
   
@@ -32,9 +30,7 @@
   .add-row{ padding: 1em; }
   </style>
 
-  {% endcompress %}
   
-  {% compress js %}
   <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
   <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
   <script type="text/javascript" src="{% static "js/jquery.keypad.min.js" %}"></script>
@@ -44,7 +40,6 @@
   <script type="text/javascript" src="{% static "js/jquery.formset.min.js" %}"></script>
   <script type="text/javascript" src="{% static "js/select2.min.js" %}"></script>
   <script type="text/javascript" src="{% static "admin/js/admin/RelatedObjectLookups.js" %}"></script>
-  {% endcompress %}
 </head>
 <body>
     <div class="navbar navbar-static-top">

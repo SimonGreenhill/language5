@@ -107,13 +107,6 @@
     </div>
     
 
-    {% ifinstalled "website.apps.pronouns" %}
- 	   	{% if pronoun %}
-	        <h2> Pronouns: </h2>
-	        {% include "pronouns/template_pronoun_detail.html" %}
-		{% endif %}
-    {% endifinstalled %}
-
     {% ifinstalled "website.apps.lexicon" %}
         <h2> Lexicon: </h2>
         

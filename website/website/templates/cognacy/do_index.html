@@ -1,6 +1,5 @@
 {% extends "base.html" %}
-{% load staticfiles %}
-{% load compress %}
+{% load static %}
 
 {% block title %} Do Cognacy: {% endblock %}
 
@@ -8,10 +7,8 @@
 {% block head %}
   <link rel="stylesheet" type="text/css" href="{% static "css/select2.css" %}" />
   <link rel="stylesheet" type="text/css" href="{% static "css/select2-bootstrap.css" %}" />
-  {% compress js %}
   <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
   <script type="text/javascript" src="{% static "js/select2.min.js" %}"></script>
-  {% endcompress %}
 {% endblock %}
 
 

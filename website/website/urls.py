@@ -5,7 +5,9 @@ from django.views.generic import TemplateView, RedirectView
 from django.contrib import admin
 admin.autodiscover()
 
-from django.contrib.auth.views import login, logout
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.sitemaps import views as sitemap_views
+from django.views.decorators.cache import cache_page
 
 from tastypie.api import Api
 from website.apps.core.resources import LanguageResource, SourceResource
@@ -68,7 +70,10 @@ urlpatterns = [
     url(r"^search/", include('watson.urls', namespace='watson'), {'paginate_by': 50, }),
     
     # Sitemap
-    url(r'^sitemap.xml', include('static_sitemaps.urls')),
+    url(r'^sitemap\.xml$', cache_page(86400)(sitemap_views.index),
+        {'sitemaps': sitemaps, 'sitemap_url_name': 'sitemap-section'}, name='sitemap'),
+    url(r'^sitemap-(?P<section>\w+)\.xml$', cache_page(86400)(sitemap_views.sitemap),
+        {'sitemaps': sitemaps}, name='sitemap-section'),
        
     # Robots.txt
     url(r'^robots\.txt$', RobotsTxt.as_view(),  name='robots_txt'),
@@ -78,12 +83,10 @@ urlpatterns = [
     
     # ADMIN
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
     
-    url(r'^accounts/login/$', login, 
-        {'template_name': 'login.html'}, 
-        name="login"),
-    url(r'^accounts/logout/$', logout, name="logout"),
+    url(r'^accounts/login/$', LoginView.as_view(template_name='login.html'), name="login"),
+    url(r'^accounts/logout/$', LogoutView.as_view(), name="logout"),
     
     url(r'^favicon\.ico$', RedirectView.as_view(url='%s/favicon.ico' % settings.STATIC_URL, permanent=True)),
     
@@ -116,14 +119,6 @@ if 'website.apps.lexicon' in settings.INSTALLED_APPS:
     urlpatterns.extend([
         url(r"^cognacy/", include('website.apps.cognacy.urls', namespace='cognacy')),
     ])
-
-# ------------------------------------------------------------------------ #
-# Pronouns
-# ------------------------------------------------------------------------ #
-if 'website.apps.pronouns' in settings.INSTALLED_APPS:
-    urlpatterns.append(
-        url(r"^pronouns/", include('website.apps.pronouns.urls', namespace='pronouns'))
-    )
 
 # ------------------------------------------------------------------------ #
 # Data Entry

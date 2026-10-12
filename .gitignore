@@ -1,0 +1,13 @@
+.DS_Store
+*.pyc
+__pycache__/
+.coverage
+.venv/
+/static_root/
+/website/data
+/website/website/database*
+/website/website/settings/local.py
+/website/website/templates/revision.txt
+/website/django.log
+/website/django-db.log
+dump.json.gz

@@ -1,19 +1,14 @@
 {% extends "base.html" %}
-{% load staticfiles %}
-{% load compress %}
+{% load static %}
 {% load render_table from django_tables2 %}
 
 {% block title %} Active Data-Entry Tasks: {% endblock %}
 
 {% block head %}
-    {% compress css %}
       <link rel="stylesheet" type="text/css" href="{% static "css/select2.css" %}" />
       <link rel="stylesheet" type="text/css" href="{% static "css/select2-bootstrap.css" %}" />
-    {% endcompress %}
-    {% compress js %}
         <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
         <script type="text/javascript" src="{% static "js/select2.min.js" %}"></script>
-    {% endcompress %}
 {% endblock %}
 
 

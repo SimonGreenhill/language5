@@ -2,6 +2,8 @@ from django.conf.urls import *
 
 from website.apps.cognacy import views as v
 
+app_name = 'cognacy'
+
 urlpatterns = [
     # PUBLIC
     

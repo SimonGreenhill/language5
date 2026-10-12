@@ -18,7 +18,6 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(SITE_ROOT, 'database.db'),
         'USER': '',
@@ -61,10 +60,6 @@ LOGIN_REDIRECT_URL = "/?logged-in"
 # to load the internationalization machinery.
 USE_I18N = True
 
-# If you set this to False, Django will not format dates, numbers and
-# calendars according to the current locale.
-USE_L10N = True
-
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
@@ -99,13 +94,12 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
 )
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '=_1)@n652y5qic+)1sj)7!#p##kn0#!k2@yr&amp;e)!019$0tynt2'
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.gzip.GZipMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -165,19 +159,13 @@ INSTALLED_APPS = [
     'website.apps.cognacy',              # lexicon -- cognacy
     'website.apps.olac',                 # OLAC
     'website.apps.entry',                # Data Entry
-    'website.apps.pronouns',             # pronoun paradigm project
     'website.apps.maps',                 # maps
 
     # third-party
     'reversion',                         # reversion: object version control.
     'django_tables2',                    # django-tables2: tables helper
     'watson',                            # search
-    'dbbackup',                          # backup
-    'static_sitemaps',                   # static sitemaps.
-    'compressor',                        # django-compressor
-    'twitter_tag',                       # twitter tag
     'tastypie',                          # API
-    'django_nvd3',                       # for graphing statistics
 ]
 
 LOGGING = {
@@ -242,10 +230,15 @@ LOGGING = {
 # maximum age of persistent database connection
 CONN_MAX_AGE = 64
 
-# THIRD-PARTY SETTINGS ==========================================
+# keep integer primary keys (avoids BigAutoField migrations)
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
-# Static Sitemaps
-STATICSITEMAPS_ROOT_SITEMAP = 'website.sitemap.sitemaps'
+STORAGES = {
+    'default': {'BACKEND': 'django.core.files.storage.FileSystemStorage'},
+    'staticfiles': {'BACKEND': 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'},
+}
+
+# THIRD-PARTY SETTINGS ==========================================
 
 OLAC_SETTINGS = {
     'sitename': SITE_NAME,
@@ -261,10 +254,4 @@ OLAC_SETTINGS = {
     'institutionURL': '',
     'shortLocation': '',
 }
-
-# override in local.py
-TWITTER_OAUTH_TOKEN = None
-TWITTER_OAUTH_SECRET = None
-TWITTER_CONSUMER_KEY = None
-TWITTER_CONSUMER_SECRET = None
 

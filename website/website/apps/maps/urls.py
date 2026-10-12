@@ -2,6 +2,8 @@ from django.conf.urls import *
 
 from website.apps.maps.views import WordMap, LanguageMap, CognateSetMap, DataMap
 
+app_name = 'maps'
+
 urlpatterns = [
     url(r'word/(?P<slug>[\w\d\-\.]+)$', WordMap.as_view(), name="word-map"),
     url(r'cognate/(?P<pk>\d+)$', CognateSetMap.as_view(), name="cognate-map"),
