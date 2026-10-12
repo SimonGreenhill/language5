@@ -51,7 +51,7 @@ class CognateSourceDetail(DetailView):
         context = super().get_context_data(**kwargs)
         context.update(list_seo_context(self.request))
         qset = []
-        for o in kwargs['object'].cognate_set.select_related().all():
+        for o in kwargs['object'].cognate_set.select_related('lexicon', 'lexicon__language', 'lexicon__word'):
             o.language = o.lexicon.language
             o.word = o.lexicon.word
             qset.append(o)

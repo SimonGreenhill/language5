@@ -18,8 +18,8 @@ class CognatesInline(admin.TabularInline):
     formfield_overrides = {
         models.TextField: {'widget': Textarea(attrs={'rows':1}) },
     }
-    fields = ('lexicon', 'source', 'comment', )
-    readonly_fields = ('lexicon', 'comment', )
+    fields = ('lexicon', 'source', 'comment', 'editor')
+    raw_id_fields = ('lexicon', )
     
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == 'editor':

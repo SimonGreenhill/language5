@@ -53,7 +53,7 @@ class Command(BaseCommand):
                 "\t", 
                 '%3d' % count,
                 "%3s" % lang.isocode,
-                lang.ljust(50),
+                str(lang).ljust(50),
                 '%5d' % lang.count,
                 strength
             ]))
