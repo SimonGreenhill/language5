@@ -6,7 +6,86 @@ from website.apps.lexicon.models import Word, Lexicon
 
 from website.apps.lexicon.management.commands import split_entries
 
-from website.apps.lexicon.tests.test_hygiene import HygieneDataMixin
+
+class HygieneDataMixin(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        cls.editor = User.objects.create(username='admin')
+        cls.word = Word.objects.create(
+            word='Hand', slug='hand',
+            full='a hand', editor=cls.editor
+        )
+        cls.lang = Language.objects.create(
+            language='A', slug='lang',
+            information='i.1', classification='a, b',
+            isocode='aaa', editor=cls.editor
+        )
+        cls.source = Source.objects.create(
+            year="1991", author='Smith',
+            slug='Smith1991', reference='S2',
+            comment='c1', editor=cls.editor
+        )
+        
+        # some ok entries;
+        cls.good1 = Lexicon.objects.create(
+            language=cls.lang,
+            word=cls.word,
+            source=cls.source,
+            editor=cls.editor,
+            entry="not empty"
+        )
+        cls.good2 = Lexicon.objects.create(
+            language=cls.lang,
+            word=cls.word,
+            source=cls.source,
+            editor=cls.editor,
+            entry="a word"
+        )
+        
+        cls.slash = Lexicon.objects.create(
+            language=cls.lang,
+            word=cls.word,
+            source=cls.source,
+            editor=cls.editor,
+            entry="hello/world"
+        )
+        cls.comma = Lexicon.objects.create(
+            language=cls.lang,
+            word=cls.word,
+            source=cls.source,
+            editor=cls.editor,
+            entry="foo, bar"
+        )
+        cls.dash = Lexicon.objects.create(
+            language=cls.lang,
+            word=cls.word,
+            source=cls.source,
+            editor=cls.editor,
+            entry="-"
+        )
+        cls.dashdash = Lexicon.objects.create(
+            language=cls.lang,
+            word=cls.word,
+            source=cls.source,
+            editor=cls.editor,
+            entry="--"
+        )
+        cls.dashdashdash =  Lexicon.objects.create(
+            language=cls.lang,
+            word=cls.word,
+            source=cls.source,
+            editor=cls.editor,
+            entry="---"
+        )
+        cls.empty = Lexicon.objects.create(
+            language=cls.lang,
+            word=cls.word,
+            source=cls.source,
+            editor=cls.editor,
+            entry=""
+        )
+        cls.count = Lexicon.objects.count()
+
 
 class Test_Split_Entries(HygieneDataMixin):
     """Tests the split_entries management command"""
