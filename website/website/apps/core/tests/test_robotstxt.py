@@ -30,3 +30,7 @@ class Test_Robots_Txt(TestCase):
         self.assertContains(self.response, 'Crawl-delay:')
         
         
+
+    def test_disallows_private_sections(self):
+        for path in ('/admin/', '/entry/', '/cognacy/', '/accounts/'):
+            self.assertContains(self.response, 'Disallow: %s\n' % path)

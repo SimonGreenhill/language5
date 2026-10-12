@@ -31,7 +31,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         tally = {}
         families = {}
-        languages = Language.objects.annotate(count=Count('lexicon')).all()
+        languages = Language.objects.annotate(count=Count('lexicon')).order_by('language', 'dialect')
         languages = languages.order_by("classification")
         
         prev_classif = None

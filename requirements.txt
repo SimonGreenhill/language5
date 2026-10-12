@@ -4,5 +4,4 @@ django-reversion==6.3.0
 django-tables2==3.0.1
 django-tastypie==0.15.1
 django-watson==1.6.3
-gunicorn==26.2.0
 coverage==7.16.2

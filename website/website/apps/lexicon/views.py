@@ -46,7 +46,7 @@ class WordIndex(CrawlerTrapMixin, SingleTableView):
         else:
             qset = Word.objects.all()
         
-        return qset.annotate(count=Count("lexicon"))
+        return qset.annotate(count=Count("lexicon")).order_by("word")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

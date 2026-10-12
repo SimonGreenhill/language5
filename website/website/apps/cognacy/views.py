@@ -30,7 +30,7 @@ class CognateSourceIndex(CrawlerTrapMixin, SingleTableView):
     table_pagination = {"per_page": 100}
 
     def get_queryset(self):
-        return Source.objects.all().annotate(count=Count('cognate')).filter(count__gt=0)
+        return Source.objects.annotate(count=Count('cognate')).filter(count__gt=0).order_by('author', 'year')
     
 
 class CognateSourceDetail(DetailView):

@@ -70,7 +70,7 @@ class TaskWordlistAdmin(TrackedModelAdmin, VersionAdmin):
     inlines = [WordlistMembersInline,]
     
     def get_queryset(self, request):
-        return Wordlist.objects.annotate(words_count=Count("words"))
+        return Wordlist.objects.annotate(words_count=Count("words")).order_by("name")
         
     @admin.display(
         ordering='words_count'

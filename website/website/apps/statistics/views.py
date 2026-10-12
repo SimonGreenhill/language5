@@ -34,7 +34,7 @@ def get_xy(label, get_latest=False):
 
 def make_family_chart():
     x, y = [], []
-    for f in Family.objects.annotate(count=Count('language')):
+    for f in Family.objects.annotate(count=Count('language')).order_by('family'):
         x.append(f.family)
         y.append(f.count)
         

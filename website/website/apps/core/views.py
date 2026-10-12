@@ -41,7 +41,7 @@ class LanguageIndex(CrawlerTrapMixin, SingleTableView):
                 language__istartswith=self.request.GET['subset']
             )
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
-            qset = qset.annotate(count=Count('lexicon')).all()
+            qset = qset.annotate(count=Count('lexicon')).order_by('language', 'dialect')
         return qset
     
     def get_context_data(self, **kwargs):
@@ -75,7 +75,7 @@ class SourceIndex(CrawlerTrapMixin, SingleTableView):
         if 'subset' in self.request.GET:
             qset = qset.filter(author__istartswith=self.request.GET['subset'])
         if 'website.apps.lexicon' in settings.INSTALLED_APPS:
-            return qset.annotate(count=Count('lexicon')).all()
+            return qset.annotate(count=Count('lexicon')).order_by('author', 'year')
         return qset
 
     def get_context_data(self, **kwargs):
@@ -105,7 +105,7 @@ class FamilyIndex(CrawlerTrapMixin, SingleTableView):
     table_pagination = {"per_page": 50}
     
     def get_queryset(self):
-        qset = Family.objects.annotate(count=Count('language'))
+        qset = Family.objects.annotate(count=Count('language')).order_by('family')
         if 'subset' in self.request.GET:
             qset = qset.filter(family__istartswith=self.request.GET['subset'])
         return qset
@@ -183,9 +183,9 @@ class FamilyDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(list_seo_context(self.request))
-        records = kwargs['object'].language_set.all().annotate(
+        records = kwargs['object'].language_set.annotate(
             count=Count('lexicon')
-        )
+        ).order_by('language', 'dialect')
         context['languages'] = LanguageIndexTable(records)
         RequestConfig(self.request).configure(context['languages'])
         

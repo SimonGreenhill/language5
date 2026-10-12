@@ -20,21 +20,21 @@ class Command(BaseCommand):
         print("")
         
         print('Languages with zero entries:')
-        languages = Language.objects.annotate(count=Count('lexicon')).all()
+        languages = Language.objects.annotate(count=Count('lexicon')).order_by('language', 'dialect')
         for o in languages.order_by('slug'):
             if o.count == 0:
                 print(" - %s" % o.slug)
         print("")
         
         print('Sources with zero entries:')
-        sources = Source.objects.annotate(count=Count('lexicon')).all()
+        sources = Source.objects.annotate(count=Count('lexicon')).order_by('author', 'year')
         for o in sources.order_by('slug'):
             if o.count == 0:
                 print(" - %s" % o.slug)
         print("")
         
         print('Words with zero entries:')
-        words = Word.objects.annotate(count=Count('lexicon')).all()
+        words = Word.objects.annotate(count=Count('lexicon')).order_by('word')
         for o in words.order_by('slug'):
             if o.count == 0:
                 print(" - %s" % o.slug)

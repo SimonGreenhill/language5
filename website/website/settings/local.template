@@ -14,6 +14,8 @@ SESSION_COOKIE_SECURE = CSRF_COOKIE_SECURE = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # HSTS is sticky in browsers: start at a day, raise to 31536000 once HTTPS is confirmed
 SECURE_HSTS_SECONDS = 86400
+# HTTPS redirect is done by Cloudflare; no HSTS subdomains/preload yet
+SILENCED_SYSTEM_CHECKS = ['security.W005', 'security.W008', 'security.W021']
 
 
 # MEDIA: user-uploaded files

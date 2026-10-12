@@ -75,7 +75,7 @@ class LanguageMapResource(Resource):
         
     def get_object_list(self, request):
         results = []
-        for L in Language.objects.annotate(count=Count('lexicon')).all():
+        for L in Language.objects.annotate(count=Count('lexicon')).order_by('language', 'dialect'):
             if L.count > 0:
                 results.append({
                     'isocode': L.isocode,
