@@ -140,23 +140,3 @@ class SourceLexiconEditTable(SourceLexiconTable):
     Meta.attrs['summary'] = 'Table of Lexicon'
 
 
-class AlignmentTable(WordLexiconTable):
-    id = tables.LinkColumn('lexicon-edit', args=[A('id')])
-    language = tables.LinkColumn('language-detail', args=[A('language__slug')])
-    source = tables.LinkColumn('source-detail', args=[A('source__slug')])
-    entry = tables.Column()
-    alignment = tables.Column(attrs={"td": {"style": "font-family: monospace;"}})
-    annotation = tables.Column()
-    loan = tables.BooleanColumn(null=False, yesno=('x', ''))
-    
-    def render_language(self, record):
-        return str(record.language)
-    
-    class Meta(WordLexiconTable.Meta):
-        model = Lexicon
-        order_by = 'word' # default sorting
-        sequence = ('id', 'language', 'entry', 'alignment', 'annotation', 'loan',  'source')
-        exclude = ('editor', 'added', 'slug', 'phon_entry', 'loan_source', 'word', 'source_gloss')
-    Meta.attrs['summary'] = 'Table of Lexicon'
-
-

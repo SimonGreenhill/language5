@@ -29,7 +29,7 @@ from website.apps.core.views import language_detail, iso_lookup, glotto_lookup
 
 from website.apps.lexicon.views import WordIndex, WordDetail
 from website.apps.lexicon.views import LexiconDetail, LexiconEdit
-from website.apps.lexicon.views import word_edit, word_alignment
+from website.apps.lexicon.views import word_edit
 
 from website.sitemap import sitemaps
 
@@ -114,7 +114,6 @@ if 'website.apps.lexicon' in settings.INSTALLED_APPS:
         # lexicon-edit: edit lexical item.
         path('lexicon/<int:pk>/edit', LexiconEdit.as_view(), name="lexicon-edit"),
         re_path(r'^word/(?P<slug>[\w\d\-\.]+)/edit$', word_edit, name="word-edit"),
-        re_path(r'^word/(?P<slug>[\w\d\-\.]+)/alignment$', word_alignment, name="word-alignment"),
     ])
     urlpatterns.extend([
         path("cognacy/", include('website.apps.cognacy.urls', namespace='cognacy')),

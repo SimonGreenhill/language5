@@ -98,7 +98,6 @@
         <div class="btn-group">
             <button class="btn"><a href="{% url "word-detail" word.slug %}">View this word</a></button>
             <button class="btn"><a href="{% url "word-edit" word.slug %}">Edit this word</a></button>
-            <button class="btn"><a href="{% url "word-alignment" word.slug %}">Show Alignment</a></button>
         </div>
         
         {{ form.as_p }}
