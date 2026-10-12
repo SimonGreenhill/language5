@@ -52,7 +52,7 @@ class Test_LexiconEdit(DataMixin, TestCase):
     def get_post_data(self, obj):
         skip = ('added', 'editor_id', 'loan_source_id', 'loan')
         return {
-            k.replace("_id", ""): v for k, v in obj.__dict__.items()
+            k.replace("_id", ""): "" if v is None else v for k, v in obj.__dict__.items()
             if not k.startswith("_") and k not in skip
         }
     

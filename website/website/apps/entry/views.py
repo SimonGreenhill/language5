@@ -18,7 +18,7 @@ def encode_checkpoint(content):
     """Encodes a checkpoint (request.POST QueryDict) as database storable"""
     # make sure we're using protocol 2: http://bugs.python.org/issue2980
     # pickle it, then base64 it.
-    return base64.b64encode(pickle.dumps(content, protocol=2))
+    return base64.b64encode(pickle.dumps(content, protocol=2)).decode('ascii')
     
 def decode_checkpoint(content):
     """Restores the encoded checkpoint (request.POST QueryDict)"""

@@ -102,9 +102,9 @@ class Test_WordIndex(DataMixin, PaginatorTestMixin, TestCase):
         self.assertEqual(len(response.context['table'].rows), 3)
 
     def test_sorting_invalid(self):
-        response = self.client.get(self.url, {'sort': 'sausage'})
-        for i, obj in enumerate([self.word1, self.word2, self.word3]):
-            assert response.context['table'].rows[i].record == obj
+        url = self.url
+        response = self.client.get(url, {'sort': 'sausage'})
+        self.assertRedirects(response, url, status_code=301)
 
 
 class Test_WordDetail(DataMixin, PaginatorTestMixin, TestCase):
@@ -154,8 +154,7 @@ class Test_WordDetail(DataMixin, PaginatorTestMixin, TestCase):
     def test_sorting_invalid(self):
         url = reverse('word-detail', kwargs={'slug': self.word2.slug})
         response = self.client.get(url, {'sort': 'sausage'})
-        for i, obj in enumerate([self.lexicon2, self.lexicon3]):
-            assert response.context['table'].rows[i].record == obj
+        self.assertRedirects(response, url, status_code=301)
 
 
 class Test_WordEdit(DataMixin, TestCase):
@@ -194,7 +193,7 @@ class Test_WordEdit(DataMixin, TestCase):
             for k, v in obj.__dict__.items():
                 if not k.startswith("_") and k not in skip:
                     k = k.replace("_id", "")
-                    postdata["form-%d-%s" % (i, k)] = v
+                    postdata["form-%d-%s" % (i, k)] = "" if v is None else v
         return postdata
 
     def test_error_on_notlogged_in(self):

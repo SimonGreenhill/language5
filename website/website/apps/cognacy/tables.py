@@ -30,7 +30,7 @@ class CognateSourceIndexTable(DataTable):
 
 class CognateSourceDetailTable(DataTable):
     """Table of cognate sets by source"""
-    cognateset = tables.LinkColumn('cognacy:detail', args=[A('cognateset_id')])
+    cognateset = tables.Column()
     language = tables.LinkColumn('language-detail', args=[A('language.slug')])
     word = tables.LinkColumn('word-detail', args=[A('word.slug')])
     lexicon = tables.Column()

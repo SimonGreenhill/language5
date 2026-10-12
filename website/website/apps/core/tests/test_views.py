@@ -311,9 +311,9 @@ class Test_FamilyIndex(BaseMixin, PaginatorTestMixin, TestCase):
             assert response.context['table'].rows[i].record == obj
     
     def test_sorting_invalid(self):
-        response = self.client.get("%s?sort=sausage" % self.url)
-        for i, obj in enumerate(Family.objects.all().order_by('family')):
-            assert response.context['table'].rows[i].record == obj
+        url = self.url
+        response = self.client.get(url, {'sort': 'sausage'})
+        self.assertRedirects(response, url, status_code=301)
         
     def test_show_subsets(self):
         response = self.client.get(self.url)
@@ -395,9 +395,8 @@ class Test_FamilyDetail(BaseMixin, PaginatorTestMixin, TestCase):
     
     def test_sorting_invalid(self):
         url = reverse('family-detail', kwargs={'slug': 'mayan'})
-        response = self.client.get("%s?sort=sausage" % url)
-        for i, obj in enumerate([self.language2, self.language3]):
-            assert response.context['languages'].rows[i].record == obj
+        response = self.client.get(url, {'sort': 'sausage'})
+        self.assertRedirects(response, url, status_code=301)
 
 
 class Test_SourceIndex(BaseMixin, PaginatorTestMixin, TestCase):

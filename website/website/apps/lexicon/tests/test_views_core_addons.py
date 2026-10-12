@@ -22,8 +22,7 @@ class Test_SourceDetailWithLexicon(DataMixin, TestCase):
     def test_sorting_invalid(self):
         url = reverse('source-detail', kwargs={'slug': self.source1.slug})
         response = self.client.get(url, {'sort': 'sausage'})
-        for i, obj in enumerate([self.lexicon1, self.lexicon3]):
-            assert response.context['table'].rows[i].record == obj
+        self.assertRedirects(response, url, status_code=301)
 
 
 class Test_LanguageDetailWithLexicon(DataMixin, TestCase):
@@ -39,6 +38,5 @@ class Test_LanguageDetailWithLexicon(DataMixin, TestCase):
     def test_sorting_invalid(self):
         url = reverse('language-detail', kwargs={'language': self.lang1.slug})
         response = self.client.get(url, {'sort': 'sausage'})
-        for i, obj in enumerate([self.lexicon1, self.lexicon3]):
-            assert response.context['table'].rows[i].record == obj
+        self.assertRedirects(response, url, status_code=301)
 

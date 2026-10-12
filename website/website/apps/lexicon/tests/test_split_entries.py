@@ -39,7 +39,7 @@ class Test_Split_Entries(HygieneDataMixin):
             word=self.word,
             source=self.source,
             editor=self.editor,
-            entry=",hello"
+            entry=", hello"
         )
         with self.assertRaises(AssertionError):
             cmd.split_and_replace(o, quiet=True)
@@ -65,7 +65,7 @@ class Test_Split_Entries(HygieneDataMixin):
             word=self.word,
             source=self.source,
             editor=self.editor,
-            entry="hello,"
+            entry="hello, "
         )
         with self.assertRaises(AssertionError):
             cmd.split_and_replace(o, quiet=True)
