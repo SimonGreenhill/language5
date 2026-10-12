@@ -1,4 +1,7 @@
-from django.test import TestCase
+import os
+
+from django.conf import settings
+from django.test import TestCase, override_settings
 from django.test.client import Client
 
 from django.contrib.auth.models import User
@@ -7,6 +10,11 @@ from website.apps.lexicon.models import Word, Lexicon
 from website.apps.entry.models import Task
 
 
+# the test image lives in the repo's media/, not the deployment's MEDIA_ROOT
+REPO_MEDIA = os.path.join(os.path.dirname(settings.SITE_ROOT), 'media')
+
+
+@override_settings(MEDIA_ROOT=REPO_MEDIA)
 class DataMixin(TestCase):
     @classmethod
     def setUpTestData(cls):
