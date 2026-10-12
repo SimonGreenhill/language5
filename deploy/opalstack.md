@@ -26,7 +26,7 @@ touch-reload = /home/sjg/apps/transnewguinea2/language5/website/website/wsgi.py
 
 ## 3. Database
 
-Create a Postgres DB and user in the Opalstack panel (e.g. `sjg_tng2`). Restore a **fresh** prod dump:
+Create a Postgres DB and user in the Opalstack panel (e.g. `sjg_tng2`). Also create an empty `sjg_tng2_test` with the same user: Opalstack users can't `CREATE DATABASE`, so tests reuse it via `--keepdb`. Restore a **fresh** prod dump:
 ```
 pg_dump -Fc -U simon -h localhost sjg_tng > ~/tng-staging.dump
 pg_restore --no-owner --no-acl -h localhost -U <dbuser> -d sjg_tng2 ~/tng-staging.dump
@@ -60,7 +60,7 @@ psql -h localhost -U <dbuser> -d sjg_tng2 -f ../deploy/cutover.sql
 $A/env/bin/python manage.py remove_stale_contenttypes --noinput
 $A/env/bin/python manage.py buildwatson
 $A/env/bin/python manage.py collectstatic --noinput
-$A/env/bin/python manage.py test --noinput   # needs CREATEDB on the db user; skip if not granted
+$A/env/bin/python manage.py test --noinput --keepdb   # uses the pre-made test DB (see section 3)
 $A/stop; sleep 2; $A/start
 ```
 

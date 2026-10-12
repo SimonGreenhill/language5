@@ -35,6 +35,8 @@ DATABASES = {
         'PASSWORD': '<EDIT>',
         'HOST': 'localhost',
         'PORT': '',
+        # Opalstack users can't CREATE DATABASE: pre-create this one, run tests with --keepdb
+        'TEST': {'NAME': '<EDIT>_test'},
     }
 }
 
