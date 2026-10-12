@@ -1,5 +1,4 @@
-import base64
-import pickle
+import json
 from django.shortcuts import redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -15,17 +14,19 @@ from website.apps.entry import dataentry
 from website.apps.entry.utils import task_log
 
 def encode_checkpoint(content):
-    """Encodes a checkpoint (request.POST QueryDict) as database storable"""
-    # make sure we're using protocol 2: http://bugs.python.org/issue2980
-    # pickle it, then base64 it.
-    return base64.b64encode(pickle.dumps(content, protocol=2)).decode('ascii')
-    
+    """Encodes a checkpoint (request.POST QueryDict) as JSON"""
+    return json.dumps(dict(content.lists()))
+
 def decode_checkpoint(content):
     """Restores the encoded checkpoint (request.POST QueryDict)"""
     try:
-        return pickle.loads(base64.b64decode(content))
-    except TypeError:
+        data = json.loads(content)
+    except (TypeError, ValueError):
         return None
+    q = QueryDict(mutable=True)
+    for key, values in data.items():
+        q.setlist(key, values)
+    return q
         
 def make_querydict(content):
     qdict = QueryDict('checkpoint=1')

@@ -1,7 +1,7 @@
 
 
 from website.apps.entry.models import Task
-from website.apps.entry.views import encode_checkpoint, decode_checkpoint
+from website.apps.entry.views import encode_checkpoint, decode_checkpoint, make_querydict
 
 from website.apps.entry.tests import DataMixin
 
@@ -22,7 +22,7 @@ class Test_Checkpointing(DataMixin):
             image=self.file_testimage,
             language=self.lang,
             done=False,
-            checkpoint=encode_checkpoint(self.form_data),
+            checkpoint=encode_checkpoint(make_querydict(self.form_data)),
             view="GenericView",
             records=1, # needed so we don't have too many empty forms to validate
         )
@@ -84,8 +84,8 @@ class Test_Checkpointing(DataMixin):
         
     def test_checkpoint_with_unicode(self):
         unicode_sample = 'àáâãäåạɐæʌèéêëɛəìííîïɨịñŋòóôõöøðɔþùúûüụųʔřɬɤƀꝑšʷᵘ·'
-        retrieved = decode_checkpoint(encode_checkpoint(unicode_sample))
-        assert unicode_sample == retrieved
+        retrieved = decode_checkpoint(encode_checkpoint(make_querydict({'entry': unicode_sample})))
+        assert unicode_sample == retrieved['entry']
     
     def test_checkpoint_with_unicode_via_database(self):
         unicode_sample = 'àáâãäåạɐæʌèéêëɛəìííîïɨịñŋòóôõöøðɔþùúûüụųʔřɬɤƀꝑšʷᵘ·'
@@ -97,11 +97,11 @@ class Test_Checkpointing(DataMixin):
             image=self.file_testimage,
             language=self.lang,
             done=False,
-            checkpoint=encode_checkpoint(unicode_sample),
+            checkpoint=encode_checkpoint(make_querydict({'entry': unicode_sample})),
             view="GenericView",
             records=1, # needed so we don't have too many empty forms to validate
         )
-        assert unicode_sample == decode_checkpoint(Task.objects.get(pk=task.id).checkpoint)
+        assert unicode_sample == decode_checkpoint(Task.objects.get(pk=task.id).checkpoint)['entry']
     
     def test_refresh_sets_checkpoint(self):
         self.client.login(username="admin", password="test")
@@ -111,3 +111,57 @@ class Test_Checkpointing(DataMixin):
         t = Task.objects.get(pk=self.task.id)
         assert t.checkpoint is not None
 
+
+
+class Test_CheckpointFormat(DataMixin):
+    """Checkpoints are JSON; pickles are never loaded."""
+
+    def test_is_json(self):
+        import json
+        from django.http import QueryDict
+        q = QueryDict('a=1&a=2&b=ŋ')
+        encoded = encode_checkpoint(q)
+        self.assertEqual(json.loads(encoded), {'a': ['1', '2'], 'b': ['ŋ']})
+        restored = decode_checkpoint(encoded)
+        self.assertEqual(restored.getlist('a'), ['1', '2'])
+        self.assertEqual(restored['b'], 'ŋ')
+
+    def test_pickle_not_loaded(self):
+        import base64, pickle
+
+        class Boom:
+            def __reduce__(self):
+                return (exec, ("raise SystemExit('unpickled')",))
+
+        payload = base64.b64encode(pickle.dumps(Boom())).decode('ascii')
+        self.assertIsNone(decode_checkpoint(payload))
+
+    def test_migration_converts_legacy_pickle(self):
+        import base64, importlib, pickle
+        from django.http import QueryDict
+        mig = importlib.import_module('website.apps.entry.migrations.0005_checkpoint_json')
+        legacy = base64.b64encode(pickle.dumps(QueryDict('x=1&x=2&y=ŋ'), protocol=2)).decode('ascii')
+        restored = decode_checkpoint(mig.pickle_to_json(legacy))
+        self.assertEqual(restored.getlist('x'), ['1', '2'])
+        self.assertEqual(restored['y'], 'ŋ')
+        # and back, for rollback
+        back = pickle.loads(base64.b64decode(mig.json_to_pickle(mig.pickle_to_json(legacy))))
+        self.assertEqual(back.getlist('x'), ['1', '2'])
+
+    def test_migration_loop_converts_and_reverts(self):
+        import base64, importlib, pickle
+        from django.apps import apps
+        from django.http import QueryDict
+        mig = importlib.import_module('website.apps.entry.migrations.0005_checkpoint_json')
+        legacy = base64.b64encode(pickle.dumps(QueryDict('x=1&x=2'), protocol=2)).decode('ascii')
+        task = Task.objects.create(
+            editor=self.editor, name="T", description="", source=self.source,
+            language=self.lang, view="GenericView", records=1, checkpoint=legacy,
+        )
+        mig.convert(apps, mig.pickle_to_json, legacy=True)
+        task.refresh_from_db()
+        self.assertEqual(decode_checkpoint(task.checkpoint).getlist('x'), ['1', '2'])
+        mig.convert(apps, mig.pickle_to_json, legacy=True)  # idempotent
+        mig.convert(apps, mig.json_to_pickle, legacy=False)
+        task.refresh_from_db()
+        self.assertEqual(pickle.loads(base64.b64decode(task.checkpoint)).getlist('x'), ['1', '2'])
