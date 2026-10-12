@@ -28,7 +28,7 @@ class AllMethodCachingManager(models.Manager):
 
 class TrackedModel(models.Model):
     """Abstract base class containing editorial information"""
-    editor = models.ForeignKey(User, on_delete=models.CASCADE)
+    editor = models.ForeignKey(User, on_delete=models.PROTECT)
     added = models.DateTimeField(auto_now_add=True)
     
     objects = models.Manager()

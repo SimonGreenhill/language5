@@ -51,7 +51,7 @@ class Task(TrackedModel):
 
 class TaskLog(models.Model):
     """Task Log"""
-    person = models.ForeignKey(User, on_delete=models.CASCADE)
+    person = models.ForeignKey(User, on_delete=models.PROTECT)
     task = models.ForeignKey(Task, on_delete=models.CASCADE, blank=True, null=True, db_index=True)
     page = models.CharField(max_length=64)
     message = models.CharField(max_length=255)

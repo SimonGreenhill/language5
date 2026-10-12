@@ -1,4 +1,8 @@
--- Run once at cut-over, after `manage.py migrate`, then `manage.py remove_stale_contenttypes --noinput`.
+-- Cut-over, run once in this order:
+--   1. manage.py migrate
+--   2. psql -f deploy/cutover.sql            (this file)
+--   3. manage.py remove_stale_contenttypes --noinput
+--   4. manage.py buildwatson                 (~2 min; drops stale search entries for deleted objects)
 -- Drops tables no code uses any more: the removed pronouns app (all empty in the
 -- 2026-10-12 dump), South's history table, and an unused database cache table.
 BEGIN;
