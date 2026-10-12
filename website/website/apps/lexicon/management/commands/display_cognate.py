@@ -9,6 +9,9 @@ class Command(BaseCommand):
     args = 'display_cognate <id>'
     help = 'Displays a cognate set'
     output_transaction = True
+
+    def add_arguments(self, parser):
+        parser.add_argument('args', nargs='*')
     
     def handle(self, *args, **options):
         if len(args) != 1:

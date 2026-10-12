@@ -11,6 +11,9 @@ from website.apps.entry.dataentry.generic import GenericFormset
 class Command(BaseCommand):
     args = '<task_id>'
     help = 'Tests a task to see if it is complete'
+
+    def add_arguments(self, parser):
+        parser.add_argument('args', nargs='*')
     
     def display_task(self, task):
         print() 

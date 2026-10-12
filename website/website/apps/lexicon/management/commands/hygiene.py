@@ -12,6 +12,7 @@ class Command(BaseCommand):
     output_transaction = True
     
     def add_arguments(self, parser):
+        parser.add_argument('args', nargs='*')
         parser.add_argument('--save',
             action='store_true',
             dest='save',

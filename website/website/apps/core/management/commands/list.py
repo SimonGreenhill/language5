@@ -13,51 +13,54 @@ class Command(BaseCommand):
     args = 'list language/source/word/family'
     help = 'Lists the entries in the database'
     output_transaction = True
+
+    def add_arguments(self, parser):
+        parser.add_argument('args', nargs='*')
     
     def list_languages(self):
-        print("\t".join([
+        print("\t".join(map(str, [
             "ISO", "Slug", "Language", "Families", "NLexicon", "Classification"
-        ]))
+        ])))
         for o in Language.objects.all().order_by('slug'):
-            print("\t".join([
+            print("\t".join(map(str, [
                 '%3s' % o.isocode,
                 o.slug,
                 o.ljust(20),
                 ",".join([f.slug for f in o.family.all()]),
                 "%d" % o.lexicon_set.count(),
                 o.classification
-            ]))
+            ])))
     
     def list_families(self):
         print("\t".join(["Slug", "Family", "NLanguages"]))
         for o in Family.objects.all().order_by('slug'):
-            print("\t".join([
+            print("\t".join(map(str, [
                 o.slug,
                 o,
                 '%d' % o.language_set.count()
-            ]))
+            ])))
             
     def list_sources(self):
-        print("\t".join([
+        print("\t".join(map(str, [
             "Slug", "Source", "Year", "NLexicon", "NCognateSets"
-        ]))
+        ])))
         for o in Source.objects.all().order_by('slug'):
-            print("\t".join([
+            print("\t".join(map(str, [
                 o.slug,
                 o,
                 o.year,
                 '%d' % o.lexicon_set.count(),
                 '%d' % o.cognate_set.count()
-            ]))
+            ])))
     
     def list_words(self):
         print("\t".join(["Slug", "Word", "NLexicon"]))
         for o in Word.objects.all().order_by('slug'):
-            print("\t".join([
+            print("\t".join(map(str, [
                 o.slug,
                 o,
                 '%d' % o.lexicon_set.count()
-            ]))
+            ])))
      
     def handle(self, *args, **options):
         try:

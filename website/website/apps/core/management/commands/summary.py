@@ -10,6 +10,9 @@ class Command(BaseCommand):
     args = ''
     help = 'summary of database'
     output_transaction = True
+
+    def add_arguments(self, parser):
+        parser.add_argument('args', nargs='*')
     
     def handle(self, *args, **options):
         print("# Families:")

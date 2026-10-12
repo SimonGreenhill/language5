@@ -18,6 +18,7 @@ class Command(BaseCommand):
     output_transaction = True
     
     def add_arguments(self, parser):
+        parser.add_argument('args', nargs='*')
         parser.add_argument('--language',
             action='store',
             dest='language',

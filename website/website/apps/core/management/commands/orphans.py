@@ -8,6 +8,9 @@ class Command(BaseCommand):
     args = ''
     help = 'lists the orphaned data'
     output_transaction = True
+
+    def add_arguments(self, parser):
+        parser.add_argument('args', nargs='*')
     
     def handle(self, *args, **options):
         print('Languages not in a family:')

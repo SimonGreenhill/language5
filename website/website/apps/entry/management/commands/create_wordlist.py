@@ -12,6 +12,7 @@ class Command(BaseCommand):
     help = 'Creates a wordlist in `wordlist_name` from `filename.txt`'
     
     def add_arguments(self, parser):
+        parser.add_argument('args', nargs='*')
         parser.add_argument(
             '--run',
             action='store_true',

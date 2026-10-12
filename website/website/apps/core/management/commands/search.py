@@ -14,6 +14,9 @@ class Command(BaseCommand):
     args = 'search language/source/word/lexicon query'
     help = 'Searches Database'
     output_transaction = True
+
+    def add_arguments(self, parser):
+        parser.add_argument('args', nargs='*')
     
     def search_isocodes(self, query):
         for i in Language.objects.select_related().filter(isocode__iexact="%s" % query):

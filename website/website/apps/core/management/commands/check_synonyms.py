@@ -13,6 +13,9 @@ class Command(BaseCommand):
     args = ''
     help = 'Checks the synonym list'
     output_transaction = True
+
+    def add_arguments(self, parser):
+        parser.add_argument('args', nargs='*')
     
     def handle(self, *args, **options):
         for syn, slug in SYNONYMS.items():

@@ -9,6 +9,9 @@ from website.apps.entry.views import decode_checkpoint, encode_checkpoint, make_
 class Command(BaseCommand):
     args = '<task_id>'
     help = 'Tests a task to see if it is complete'
+
+    def add_arguments(self, parser):
+        parser.add_argument('args', nargs='*')
     
     def _get(self, id, word):
         return 'form-%d-%s' % (id, word)

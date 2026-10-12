@@ -11,6 +11,9 @@ class Command(BaseCommand):
     args = 'ipatable source'
     help = 'Prints the IPA table for the given source'
     output_transaction = True
+
+    def add_arguments(self, parser):
+        parser.add_argument('args', nargs='*')
     
     def handle(self, *args, **options):
         if len(args) != 1:

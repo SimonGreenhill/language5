@@ -6,6 +6,9 @@ from website.apps.statistics.models import StatisticalValue
 class Command(BaseCommand):
     args = ''
     help = 'Displays all the defined statistics in the database'
+
+    def add_arguments(self, parser):
+        parser.add_argument('args', nargs='*')
     
     def handle(self, *args, **options):
         statistic.update(save=True)

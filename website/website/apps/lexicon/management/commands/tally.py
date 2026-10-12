@@ -26,6 +26,9 @@ class Command(BaseCommand):
     args = 'tally'
     help = 'Tallys the counts of language data'
     output_transaction = True
+
+    def add_arguments(self, parser):
+        parser.add_argument('args', nargs='*')
         
     def handle(self, *args, **options):
         tally = {}
