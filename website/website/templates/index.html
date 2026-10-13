@@ -3,6 +3,15 @@
 
 {% block title %} {{ SITE_NAME }} {% endblock %}
 
+{% block head %}
+<style>
+  .map { margin: 10px 0 25px; text-align: center; }
+  .map img { max-width: 100%; height: auto; }
+  .map figcaption { color: #777; font-size: 13px; margin-top: 4px; }
+  [hidden] { display: none !important; }
+</style>
+{% endblock %}
+
 {% block content %}
     
     <div class="page-header">
@@ -14,6 +23,11 @@
             Welcome to the {{ SITE_NAME }}, a {{ SITE_DESCRIPTION }}.
         </p>
         
+        <figure class="map">
+            <img src="{% static "img/map-600.png" %}" width="600" height="304" alt="Map of the Trans-New Guinea languages" />
+            <figcaption>Map of the Trans-New Guinea Languages.</figcaption>
+        </figure>
+
         <div class="alert alert-block">
           <h4>Warning!</h4> 
           <p>This website is under active development. </p>
@@ -54,7 +68,7 @@
             <button type="button" class="btn btn-mini" data-copy="citation">Copy citation</button>
             <button type="button" class="btn btn-mini" data-copy="bibtex">Copy BibTeX</button>
         </p>
-        <pre id="bibtex">@article{greenhill2015,
+        <pre id="bibtex" hidden>@article{greenhill2015,
   author  = {Greenhill, Simon J.},
   title   = {{TransNewGuinea.org}: An Online Database of New Guinea Languages},
   journal = {PLoS ONE},
@@ -67,7 +81,7 @@
         <script>
         document.querySelectorAll('[data-copy]').forEach(function (button) {
             button.addEventListener('click', function () {
-                var text = document.getElementById(button.dataset.copy).innerText.trim();
+                var text = document.getElementById(button.dataset.copy).textContent.trim();
                 if (button.dataset.copy === 'citation') { text = text.replace(/\s+/g, ' '); }
                 navigator.clipboard.writeText(text).then(function () {
                     var label = button.textContent;
@@ -78,10 +92,6 @@
         });
         </script>
 
-        <div class="map">
-            <img src="{% static "img/map-600.png" %}" width="600" height="304" class="img-rounded" alt="Map of New Guinea" />
-            <p class="caption">Map of the Trans-New Guinea Languages.</p>
-        </div>
     </div>
 
     
