@@ -8,13 +8,7 @@
 
 <script>
     $(document).ready(function() {
-        var map = L.map('map', {
-            fullscreenControl: true,
-            minZoom: 1,
-            fullscreenControlOptions: {
-              position: 'topleft'
-          }
-        }).setView([{{ latitude }}, {{ longitude }}], 5);
+        var map = L.map('map', {minZoom: 1}).setView([{{ latitude }}, {{ longitude }}], 5);
         var p = L.icon({
             iconUrl: '{% static "img/orange-star.png" %}',
             iconSize: [20, 20],
@@ -24,6 +18,6 @@
             maxZoom: 18,
             attribution: 'Language data &copy; <a href="https://transnewguinea.org">TransNewGuinea.org</a>, Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
-        L.marker([{{ latitude }}, {{ longitude }}], { icon: p, clickable: false }).addTo(map);
+        L.marker([{{ latitude }}, {{ longitude }}], {icon: p, interactive: false}).addTo(map);
     });
 </script>

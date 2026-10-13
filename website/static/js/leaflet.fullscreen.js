@@ -1,163 +1,299 @@
-(function() {
+/*!
+ * leaflet.fullscreen
+ * (c) Bruno B.; MIT License
+ * https://github.com/brunob/leaflet.fullscreen
+ */
+/*! GENERATED FILE - DO NOT EDIT DIRECTLY. Edit files in src/ and run 'npm run build' */
+(function (global, factory) {
+	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('leaflet')) :
+	typeof define === 'function' && define.amd ? define(['leaflet'], factory) :
+	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, (global.L = global.L || {}, global.L.Control = global.L.Control || {}, global.L.Control.FullScreen = factory(global.L)));
+})(this, (function (leaflet) { 'use strict';
 
-L.Control.FullScreen = L.Control.extend({
-	options: {
-		position: 'topleft',
-		title: 'Full Screen',
-		forceSeparateButton: false,
-		forcePseudoFullscreen: false
-	},
-	
-	onAdd: function (map) {
-		var className = 'leaflet-control-zoom-fullscreen', container;
-		
-		if (map.zoomControl && !this.options.forceSeparateButton) {
-			container = map.zoomControl._container;
-		} else {
-			container = L.DomUtil.create('div', 'leaflet-bar');
-		}
-		
-		this._createButton(this.options.title, className, container, this.toogleFullScreen, map);
-
-		return container;
-	},
-	
-	_createButton: function (title, className, container, fn, context) {
-		var link = L.DomUtil.create('a', className, container);
-		link.href = '#';
-		link.title = title;
-
-		L.DomEvent
-			.addListener(link, 'click', L.DomEvent.stopPropagation)
-			.addListener(link, 'click', L.DomEvent.preventDefault)
-			.addListener(link, 'click', fn, context);
-		
-		L.DomEvent
-			.addListener(container, fullScreenApi.fullScreenEventName, L.DomEvent.stopPropagation)
-			.addListener(container, fullScreenApi.fullScreenEventName, L.DomEvent.preventDefault)
-			.addListener(container, fullScreenApi.fullScreenEventName, this._handleEscKey, context);
-		
-		L.DomEvent
-			.addListener(document, fullScreenApi.fullScreenEventName, L.DomEvent.stopPropagation)
-			.addListener(document, fullScreenApi.fullScreenEventName, L.DomEvent.preventDefault)
-			.addListener(document, fullScreenApi.fullScreenEventName, this._handleEscKey, context);
-
-		return link;
-	},
-	
-	toogleFullScreen: function () {
-		this._exitFired = false;
-		var container = this._container;
-		if (this._isFullscreen) {
-			if (fullScreenApi.supportsFullScreen && !this.options.forcePseudoFullscreen) {
-				fullScreenApi.cancelFullScreen(container);
-			} else {
-				L.DomUtil.removeClass(container, 'leaflet-pseudo-fullscreen');
-			}
-			this.invalidateSize();
-			this.fire('exitFullscreen');
-			this._exitFired = true;
-			this._isFullscreen = false;
-		}
-		else {
-			if (fullScreenApi.supportsFullScreen && !this.options.forcePseudoFullscreen) {
-				fullScreenApi.requestFullScreen(container);
-			} else {
-				L.DomUtil.addClass(container, 'leaflet-pseudo-fullscreen');
-			}
-			this.invalidateSize();
-			this.fire('enterFullscreen');
-			this._isFullscreen = true;
-		}
-	},
-	
-	_handleEscKey: function () {
-		if (!fullScreenApi.isFullScreen(this) && !this._exitFired) {
-			this.fire('exitFullscreen');
-			this._exitFired = true;
-			this._isFullscreen = false;
-		}
-	}
-});
-
-L.Map.addInitHook(function () {
-	if (this.options.fullscreenControl) {
-		this.fullscreenControl = L.control.fullscreen(this.options.fullscreenControlOptions);
-		this.addControl(this.fullscreenControl);
-	}
-});
-
-L.control.fullscreen = function (options) {
-	return new L.Control.FullScreen(options);
-};
-
-/* 
-Native FullScreen JavaScript API
--------------
-Assumes Mozilla naming conventions instead of W3C for now
-
-source : http://johndyer.name/native-fullscreen-javascript-api-plus-jquery-plugin/
-
-*/
-
-	var 
-		fullScreenApi = { 
-			supportsFullScreen: false,
-			isFullScreen: function() { return false; }, 
-			requestFullScreen: function() {}, 
-			cancelFullScreen: function() {},
-			fullScreenEventName: '',
-			prefix: ''
-		},
-		browserPrefixes = 'webkit moz o ms khtml'.split(' ');
-	
-	// check for native support
-	if (typeof document.exitFullscreen != 'undefined') {
-		fullScreenApi.supportsFullScreen = true;
-	} else {
-		// check for fullscreen support by vendor prefix
-		for (var i = 0, il = browserPrefixes.length; i < il; i++ ) {
-			fullScreenApi.prefix = browserPrefixes[i];
-			if (typeof document[fullScreenApi.prefix + 'CancelFullScreen' ] != 'undefined' ) {
-				fullScreenApi.supportsFullScreen = true;
-				break;
-			}
-		}
-	}
-	
-	// update methods to do something useful
-	if (fullScreenApi.supportsFullScreen) {
-		fullScreenApi.fullScreenEventName = fullScreenApi.prefix + 'fullscreenchange';
-		fullScreenApi.isFullScreen = function() {
-			switch (this.prefix) {	
-				case '':
-					return document.fullScreen;
-				case 'webkit':
-					return document.webkitIsFullScreen;
-				default:
-					return document[this.prefix + 'FullScreen'];
-			}
-		}
-		fullScreenApi.requestFullScreen = function(el) {
-			return (this.prefix === '') ? el.requestFullscreen() : el[this.prefix + 'RequestFullScreen']();
-		}
-		fullScreenApi.cancelFullScreen = function(el) {
-			return (this.prefix === '') ? document.exitFullscreen() : document[this.prefix + 'CancelFullScreen']();
-		}
+	if (typeof document === 'undefined') {
+		console.warn('"window.document" is undefined; leaflet.fullscreen requires this object to access the DOM');
 	}
 
-	// jQuery plugin
-	if (typeof jQuery != 'undefined') {
-		jQuery.fn.requestFullScreen = function() {
-			return this.each(function() {
-				var el = jQuery(this);
-				if (fullScreenApi.supportsFullScreen) {
-					fullScreenApi.requestFullScreen(el);
+	const nativeAPI = (() => {
+		const methodMap = [
+			// Standard
+			[
+				'requestFullscreen',
+				'exitFullscreen',
+				'fullscreenElement',
+				'fullscreenEnabled',
+				'fullscreenchange',
+				'fullscreenerror'
+			],
+			// New WebKit
+			[
+				'webkitRequestFullscreen',
+				'webkitExitFullscreen',
+				'webkitFullscreenElement',
+				'webkitFullscreenEnabled',
+				'webkitfullscreenchange',
+				'webkitfullscreenerror'
+			]
+		];
+
+		const baseList = methodMap[0];
+		const ret = {};
+
+		for (const methodList of methodMap) {
+			if (methodList[1] in document) {
+				for (let i = 0; i < methodList.length; i++) {
+					ret[baseList[i]] = methodList[i];
 				}
-			});
-		};
-	}
+				return ret;
+			}
+		}
 
-	// export api
-	window.fullScreenApi = fullScreenApi;
-})();
+		return false;
+	})();
+
+	const eventNameMap = {
+		change: nativeAPI.fullscreenchange,
+		error: nativeAPI.fullscreenerror,
+	};
+
+	const fullscreenAPI = {
+		// Request fullscreen for a specific element
+		async request(element, options) {
+			element = element || document.documentElement;
+			const requestMethod = nativeAPI.requestFullscreen;
+
+			await this._callNative(() => {
+				return element[requestMethod](options);
+			});
+		},
+		// Exit fullscreen mode
+		async exit() {
+			if (!this.isFullscreen) {
+				return;
+			}
+			const exitMethod = nativeAPI.exitFullscreen;
+
+			await this._callNative(() => {
+				return document[exitMethod]();
+			});
+		},
+		// Helper to handle browser differences (Promise vs Event)
+		async _callNative(action) {
+			const result = action();
+
+			// Modern browsers return a Promise from requestFullscreen/exitFullscreen
+			if (result instanceof Promise) {
+				await result;
+				return;
+			}
+
+			// Fallback for Safari < 16.4 (March 2023) which doesn't return a Promise
+			await new Promise((resolve) => {
+				const listener = () => {
+					this.off('change', listener);
+					resolve();
+				};
+				this.on('change', listener);
+			});
+		},
+		// Add event listener for fullscreen changes
+		on(event, callback) {
+			const eventName = eventNameMap[event];
+			if (eventName) {
+				document.addEventListener(eventName, callback);
+			}
+		},
+		// Remove event listener
+		off(event, callback) {
+			const eventName = eventNameMap[event];
+			if (eventName) {
+				document.removeEventListener(eventName, callback);
+			}
+		},
+		nativeAPI: nativeAPI
+	};
+
+	Object.defineProperties(fullscreenAPI, {
+		isFullscreen: {
+			get() {
+				return Boolean(document[nativeAPI.fullscreenElement]);
+			}
+		},
+		isEnabled: {
+			enumerable: true,
+			get() {
+				// Coerce to boolean in case of old WebKit
+				return Boolean(document[nativeAPI.fullscreenEnabled]);
+			}
+		}
+	});
+
+	const FullScreen = leaflet.Control.extend({
+		options: {
+			position: 'topleft',
+			title: 'Full Screen',
+			titleCancel: 'Exit Full Screen',
+			forceSeparateButton: false,
+			forcePseudoFullscreen: false,
+			fullscreenElement: false
+		},
+
+		_screenfull: fullscreenAPI,
+
+		onAdd(map) {
+			let className = 'leaflet-control-zoom-fullscreen';
+			let container;
+			let content = '';
+
+			if (map.zoomControl && !this.options.forceSeparateButton) {
+				container = map.zoomControl._container;
+			} else {
+				container = document.createElement('div');
+				container.className = 'leaflet-bar';
+			}
+
+			if (this.options.content) {
+				content = this.options.content;
+			} else {
+				className += ' leaflet-fullscreen-icon';
+			}
+
+			this._createButton(this.options.title, className, content, container, this.toggleFullScreen, this);
+			this._map.fullscreenControl = this;
+
+			this._map.on('enterFullscreen exitFullscreen', this._toggleState, this);
+
+			return container;
+		},
+
+		onRemove() {
+			leaflet.DomEvent
+				.off(this.link, 'click', leaflet.DomEvent.stop)
+				.off(this.link, 'click', this.toggleFullScreen, this);
+
+			if (this._screenfull.isEnabled) {
+				leaflet.DomEvent
+					.off(document, this._screenfull.nativeAPI.fullscreenchange, leaflet.DomEvent.stop)
+					.off(document, this._screenfull.nativeAPI.fullscreenchange, this._handleFullscreenChange, this);
+			}
+		},
+
+		_createButton(title, className, content, container, fn, context) {
+			this.link = document.createElement('a');
+			this.link.className = className;
+			container.appendChild(this.link);
+			this.link.href = '#';
+			this.link.title = title;
+			this.link.innerHTML = content;
+
+			this.link.setAttribute('role', 'button');
+			this.link.setAttribute('aria-label', title);
+
+			leaflet.DomEvent.disableClickPropagation(container);
+
+			leaflet.DomEvent
+				.on(this.link, 'click', leaflet.DomEvent.stop)
+				.on(this.link, 'click', fn, context);
+
+			if (this._screenfull.isEnabled) {
+				leaflet.DomEvent
+					.on(document, this._screenfull.nativeAPI.fullscreenchange, leaflet.DomEvent.stop)
+					.on(document, this._screenfull.nativeAPI.fullscreenchange, this._handleFullscreenChange, context);
+			}
+
+			return this.link;
+		},
+
+		async toggleFullScreen() {
+			const map = this._map;
+			const { fullscreenElement, forcePseudoFullscreen } = this.options;
+
+			// Target element: use custom element if provided, otherwise the map container
+			const container = fullscreenElement || map.getContainer();
+
+			// Check if we should use the native Fullscreen API
+			const useNative = this._screenfull.isEnabled && !forcePseudoFullscreen;
+
+			if (map._isFullscreen) {
+				// --- EXIT FULLSCREEN ---
+
+				// Set flag to prevent the 'fullscreenchange' listener from firing a duplicate exit event
+				map._exitFired = true;
+
+				if (useNative) {
+					await this._screenfull.exit();
+				} else {
+					container.classList.remove('leaflet-pseudo-fullscreen');
+				}
+
+				map.invalidateSize();
+				map._isFullscreen = false;
+				map.fire('exitFullscreen');
+			} else {
+				// --- ENTER FULLSCREEN ---
+
+				map._exitFired = false;
+
+				if (useNative) {
+					await this._screenfull.request(container);
+				} else {
+					container.classList.add('leaflet-pseudo-fullscreen');
+				}
+
+				map.invalidateSize();
+				map._isFullscreen = true;
+				map.fire('enterFullscreen');
+			}
+		},
+
+		_toggleState() {
+			const { title, titleCancel } = this.options;
+			const isFullscreen = this._map._isFullscreen;
+
+			// Update Title & Aria Label
+			this.link.title = isFullscreen ? titleCancel : title;
+			this.link.setAttribute('aria-label', this.link.title);
+			this.link.setAttribute('aria-pressed', isFullscreen.toString());
+
+			// Update Icon Class
+			this.link.classList.toggle('leaflet-fullscreen-on', isFullscreen);
+		},
+
+		_handleFullscreenChange() {
+			const map = this._map;
+
+			// Check if fullscreen was exited via browser (ESC key or browser UI)
+			// and we didn't trigger the exit ourselves
+			const wasExitedExternally = !this._screenfull.isFullscreen && map._isFullscreen && !map._exitFired;
+
+			if (wasExitedExternally) {
+				// Sync internal state with browser state
+				map._exitFired = true;
+				map._isFullscreen = false;
+
+				// Notify listeners and adjust map size
+				map.fire('exitFullscreen');
+				map.invalidateSize();
+			}
+		}
+	});
+
+	leaflet.Map.include({
+		toggleFullscreen() {
+			this.fullscreenControl.toggleFullScreen();
+		}
+	});
+
+	leaflet.Map.mergeOptions({
+		fullscreenControl: false
+	});
+
+	leaflet.Map.addInitHook(function() {
+		if (this.options.fullscreenControl) {
+			this.addControl(new FullScreen(this.options.fullscreenControlOptions));
+		}
+	});
+
+	return FullScreen;
+
+}));

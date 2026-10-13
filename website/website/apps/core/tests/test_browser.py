@@ -246,15 +246,30 @@ class TestEntryWithImage(BrowserTestCase):
 
 
 class TestPublicPages(BrowserTestCase):
-    def test_language_map_has_markers(self):
+    def test_language_map_labels_fullscreen_spiderfy(self):
+        # a second language at the same location, with markup in its name
+        Language.objects.create(language='Ku<b>x</b>', slug='kux', isocode='kue', editor=self.editor)
+        Lexicon.objects.create(language=Language.objects.get(slug='kux'), source=self.source, word=self.word, entry='a', editor=self.editor)
         self.open(reverse('maps:language-map'))
-        self.page.wait_for_selector('.leaflet-marker-icon')
-        self.assertEqual(self.page.locator('.leaflet-marker-icon').count(), 1)
+        self.page.wait_for_selector('.leaflet-tooltip')
+        labels = self.page.locator('.leaflet-tooltip').all_inner_texts()
+        self.assertEqual(sorted(labels), ['Ku<b>x</b>', 'Kuman'])  # shown as text, not markup
+        self.assertEqual(self.page.locator('.leaflet-tooltip b').count(), 0)
+        self.assertEqual(self.page.locator('.leaflet-control-zoom-fullscreen').count(), 1)
+        # overlapping markers fan out when clicked
+        self.page.locator('.leaflet-marker-icon').first.click(force=True)
+        self.page.wait_for_selector('path.leaflet-interactive')
         self.assertNoJSErrors()
 
-    def test_word_map_has_markers(self):
+    def test_word_map_labels(self):
         self.open(reverse('maps:word-map', kwargs={'slug': 'hand'}))
-        self.page.wait_for_selector('.leaflet-marker-icon')
+        self.page.wait_for_selector('.leaflet-tooltip')
+        self.assertTrue(set(self.page.locator('.leaflet-tooltip').all_inner_texts()) <= {'ku', 'kan'})  # labels are entries
+        self.assertNoJSErrors()
+
+    def test_language_page_minimap(self):
+        self.open(reverse('language-detail', kwargs={'language': 'kuman'}))
+        self.page.wait_for_selector('#map .leaflet-marker-icon')
         self.assertNoJSErrors()
 
     def test_statistics_charts_render(self):
