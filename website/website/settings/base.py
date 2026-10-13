@@ -5,9 +5,8 @@ SITE_ROOT = os.path.split(os.path.dirname(os.path.abspath(__file__)))[0]
 
 DEBUG = False
 
-ADMINS = (
-    ('Simon J. Greenhill', 'test@example.com'),
-)
+# set in local.py: who gets emailed about server errors
+ADMINS = []
 
 INTERNAL_IPS = ('127.0.0.1',)
 
@@ -33,8 +32,9 @@ DATABASES = {
 
 # Site details
 SITE_ID = 1
-SITE_NAME = SITE_DOMAIN = 'language5'
-SITE_DESCRIPTION = "Language5"
+SITE_NAME = "TransNewGuinea.org"
+SITE_DOMAIN = "transnewguinea.org"
+SITE_DESCRIPTION = "database of the languages of New Guinea"
 
 # test runner
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'

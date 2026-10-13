@@ -43,3 +43,14 @@ class TestLogging(SimpleTestCase):
     def test_django_logger_not_debug(self):
         from django.conf import settings
         self.assertNotEqual(settings.LOGGING['loggers']['django']['level'], 'DEBUG')
+
+
+class TestTemplateDefaults(SimpleTestCase):
+    def test_local_template_does_not_disable_cache(self):
+        import website.settings
+        with open(website.settings.__path__[0] + '/local.template') as f:
+            self.assertNotIn('DummyCache', f.read())
+
+    def test_no_placeholder_admin_email(self):
+        from django.conf import settings
+        self.assertNotIn('test@example.com', [a[1] for a in settings.ADMINS])

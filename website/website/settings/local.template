@@ -2,8 +2,7 @@ import os
 
 from .base import *
 
-SITE_NAME = ""
-SITE_DOMAIN = ""
+ADMINS = [('<EDIT name>', '<EDIT email>')]  # emailed on server errors
 
 SECRET_KEY = '<EDIT>'
 
@@ -74,8 +73,3 @@ OLAC_SETTINGS = {
 # Set PIWIK ID
 PIWIK_ID = '<EDIT>'
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
-    }
-}

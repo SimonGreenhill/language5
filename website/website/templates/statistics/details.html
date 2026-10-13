@@ -12,17 +12,19 @@
         <h1>Statistics for {{ SITE_NAME }}</h1>
     </div>
 
+    <div class="row">
     {% for chart in charts %}
-        <div class="col-md-6">
+        <div class="col-md-6 mb-4">
             <h2>{{ chart.label }}</h2>
-            <canvas class="chart" data-type="line" data-source="{{ chart.id }}" height="200" width="600"></canvas>
+            <canvas class="chart" data-type="line" data-source="{{ chart.id }}"></canvas>
             {{ chart.data|json_script:chart.id }}
         </div>
     {% endfor %}
+    </div>
 
-    <div class="col-md-8">
+    <div class="col-md-8 col-lg-6">
         <h2> {{ family.label }} </h2>
-        <canvas class="chart" data-type="pie" data-source="{{ family.id }}" height="400" width="600"></canvas>
+        <canvas class="chart" data-type="pie" data-source="{{ family.id }}"></canvas>
         {{ family.data|json_script:family.id }}
     </div>
 
@@ -36,8 +38,9 @@
                 ? {datasets: [{label: d.name, data: d.x.map(function (x, i) { return {x: x, y: d.y[i]}; })}]}
                 : {labels: d.x, datasets: [{data: d.y}]},
             options: {
-                responsive: false,
+                responsive: true,
                 plugins: {legend: {display: !line}},
+                elements: {point: {radius: line ? 0 : 3}},
                 scales: line ? {x: {type: 'linear', ticks: {callback: function (v) {
                     return new Date(v).toLocaleDateString('en-GB', {day: '2-digit', month: 'short', year: 'numeric'});
                 }}}} : {}
