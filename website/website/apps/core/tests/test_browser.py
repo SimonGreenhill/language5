@@ -177,6 +177,10 @@ class TestDataEntry(BrowserTestCase):
         # the formset plugin adds and removes rows
         self.page.click('a:has-text("Add entry")')
         self.assertEqual(rows.count(), 2)
+        added = rows.nth(1).locator('input[name$="-entry"]')
+        added.focus()
+        self.page.locator('#picker button', has_text='ʔ').first.click()
+        self.assertEqual(added.input_value(), 'ʔ')
         rows.nth(1).locator('a.delete-row').click()
         self.assertEqual(rows.count(), 1)
 
