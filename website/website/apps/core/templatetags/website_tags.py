@@ -30,14 +30,6 @@ def link_olac(lang):
         return ""
 
 @register.filter
-def link_multitree(lang):
-    """Links to MultiTree"""
-    if isinstance(lang, Language) and lang.isocode:
-        return "http://multitree.org/codes/%s" % lang.isocode
-    else:
-        return ""
-
-@register.filter
 def link_wikipedia(lang):
     """Links to Wikipedia"""
     if isinstance(lang, Language) and lang.isocode:

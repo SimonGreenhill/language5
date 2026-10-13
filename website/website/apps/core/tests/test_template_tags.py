@@ -2,7 +2,6 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from website.apps.core.templatetags.website_tags import link_ethnologue
 from website.apps.core.templatetags.website_tags import link_olac
-from website.apps.core.templatetags.website_tags import link_multitree
 from website.apps.core.templatetags.website_tags import link_glottolog
 from website.apps.core.templatetags.website_tags import link_wikipedia
 from website.apps.core.models import Language
@@ -46,11 +45,6 @@ class Test_Link_Ethnologue(LanguageMixin, TestCase):
 class Test_Link_Olac(LanguageMixin, TestCase):
     function = staticmethod(link_olac)
     expected = "http://search.language-archives.org/search.html?q=aaa"
-
-
-class Test_Link_Multitree(LanguageMixin, TestCase):
-    function = staticmethod(link_multitree)
-    expected = "http://multitree.org/codes/aaa"
 
 
 class Test_Link_Glottolog(LanguageMixin, TestCase):
