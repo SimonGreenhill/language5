@@ -12,24 +12,23 @@
 
 
 {% block content %}
-    <div class="page-header">
+    <div class="pb-2 mb-4 border-bottom">
         <h1>Do Cognacy:</h1>
     </div>
     
     <ul class="breadcrumb">
-      <li>
-          <a href="{% url "index" %}">Home</a> 
-          <span class="divider">/</span>
+      <li class="breadcrumb-item">
+          <a href="{% url "index" %}">Home</a>
       </li>
     </ul>
     
-    <div class="well">
+    <div class="p-3 mb-3 bg-body-tertiary border rounded">
         <h2>Do Cognacy</h2>
         
-        <form action="{% url "cognacy:do_index" %}" method="post" class="form-inline">
+        <form action="{% url "cognacy:do_index" %}" method="post" class="">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" name="submit" class="btn"><i class="icon-ok"></i> Go </button>
+            <button type="submit" name="submit" class="btn btn-outline-secondary"><i class="bi bi-check-lg"></i> Go </button>
         </form>
     </div>
     

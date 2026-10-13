@@ -8,19 +8,19 @@
 {% endblock %}
 
 {% block content %}
-    <div class="page-header">
+    <div class="pb-2 mb-4 border-bottom">
         <h1>Statistics for {{ SITE_NAME }}</h1>
     </div>
 
     {% for chart in charts %}
-        <div class="span6">
+        <div class="col-md-6">
             <h2>{{ chart.label }}</h2>
             <canvas class="chart" data-type="line" data-source="{{ chart.id }}" height="200" width="600"></canvas>
             {{ chart.data|json_script:chart.id }}
         </div>
     {% endfor %}
 
-    <div class="span8">
+    <div class="col-md-8">
         <h2> {{ family.label }} </h2>
         <canvas class="chart" data-type="pie" data-source="{{ family.id }}" height="400" width="600"></canvas>
         {{ family.data|json_script:family.id }}

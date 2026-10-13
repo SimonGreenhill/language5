@@ -5,7 +5,7 @@
 {% endif %}
 {% block table %}
 {% spaceless %}
-<table{% if table.attrs %} {{ table.attrs.as_html }}{% endif %}>
+<div class="table-responsive"><table{% if table.attrs %} {{ table.attrs.as_html }}{% endif %}>
     {% block table.thead %}
     <thead>
         <tr>
@@ -38,7 +38,7 @@
         {% endfor %}
     </tbody>
     {% endblock table.tbody %}
-</table>
+</table></div>
 {% endspaceless %}
 {% endblock table %}
 
@@ -47,37 +47,36 @@
     {% with table.page.paginator.count as total %}
         {% with table.page.object_list|length as count %}
             {% block pagination %}
-            <div class="pagination pagination-large pagination-centered">
-                <ul>
+            <nav aria-label="Pages"><ul class="pagination pagination-lg justify-content-center">
                     {% if table.page.has_previous %}
                         {% block pagination.previous %}
-                            <li class="previous">
-                                <a href="{% querystring_replace table.prefixed_page_field=table.page.previous_page_number %}">&laquo;</a>
+                            <li class="page-item">
+                                <a class="page-link" href="{% querystring_replace table.prefixed_page_field=table.page.previous_page_number %}">&laquo;</a>
                             </li>
                         {% endblock pagination.previous %}
                     {% endif %}
                     {% for p in table.page.paginator.page_range %}
-                        <li{% if p == table.page.number %} class="active"{% endif %}>
-                            <a href="{% querystring_replace table.prefixed_page_field=p %}">{{ p }}</a>
+                        <li class="page-item{% if p == table.page.number %} active{% endif %}">
+                            <a class="page-link" href="{% querystring_replace table.prefixed_page_field=p %}">{{ p }}</a>
                         </li>
                     {% endfor %}
                     
                     {% if table.page.has_next %}
                         {% block pagination.next %}
-                            <li class="next">
-                                <a href="{% querystring_replace table.prefixed_page_field=table.page.next_page_number %}">&raquo;</a>
+                            <li class="page-item">
+                                <a class="page-link" href="{% querystring_replace table.prefixed_page_field=table.page.next_page_number %}">&raquo;</a>
                             </li>
                         {% endblock pagination.next %}
                     {% endif %}
                 
                 </ul>
                 {% block pagination.cardinality %}
-                    <p class="cardinality">
+                    <p class="cardinality text-center text-secondary">
                         {% if total != count %}{% blocktrans %}Showing {{ count }} of {{ total }}{% endblocktrans %}{% else %}{{ total }}{% endif %} 
                         {% if total == 1 %}{{ table.data.verbose_name }}{% else %}{{ table.data.verbose_name_plural }}{% endif %}
                     </p>
                 {% endblock pagination.cardinality %}
-            </div>
+            </nav>
             
             
             {% endblock pagination %}

@@ -5,16 +5,15 @@
 {% block title %} Lexicon #{{ object }} | {{SITE_NAME }} {% endblock %}
 
 {% block content %}
-    <div class="page-header">
+    <div class="pb-2 mb-4 border-bottom">
         <h1>
             {{ object }}
         </h1>
     </div>
     
     <ul class="breadcrumb">
-      <li>
-          <a href="{% url "index" %}">Home</a> 
-          <span class="divider">/</span>
+      <li class="breadcrumb-item">
+          <a href="{% url "index" %}">Home</a>
       </li>
     </ul>
     
@@ -23,7 +22,7 @@
     
     <div class="table-container">
     
-        <table class="table table-bordered table-condensed" summary="Table of Lexical Item">
+        <table class="table table-bordered table-sm" summary="Table of Lexical Item">
             <tr>
                 <th>Language:</th>  
                 <td> <a href="{% url "language-detail" object.language.slug %}">{{ object.language }}</a></td>

@@ -4,20 +4,18 @@
 {% block title %} {{ object.family }} {% endblock %}
 
 {% block content %}
-    <div class="page-header">
+    <div class="pb-2 mb-4 border-bottom">
         <h1>Language Family: {{ object.family }}:</h1>
     </div>
     
     <ul class="breadcrumb">
-      <li>
-          <a href="{% url "index" %}">Home</a> 
-          <span class="divider">/</span>
+      <li class="breadcrumb-item">
+          <a href="{% url "index" %}">Home</a>
       </li>
-      <li>
+      <li class="breadcrumb-item">
           <a href="{% url "family-index" %}">Families</a>
-          <span class="divider">/</span>
       </li>
-      <li class="active">
+      <li class="breadcrumb-item active" aria-current="page">
           <a href="{% url "family-detail" object.slug %}">{{ object.family }}</a>
       </li>
     </ul>

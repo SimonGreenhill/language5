@@ -6,20 +6,18 @@
 {% block title %} Cognate Set: {{ object }} | {{SITE_NAME }} {% endblock %}
 
 {% block content %}
-    <div class="page-header">
+    <div class="pb-2 mb-4 border-bottom">
         <h1>
             Cognates
         </h1>
     </div>
     
     <ul class="breadcrumb">
-      <li>
-          <a href="{% url "index" %}">Home</a> 
-          <span class="divider">/</span>
+      <li class="breadcrumb-item">
+          <a href="{% url "index" %}">Home</a>
       </li>
-      <li class="active">
+      <li class="breadcrumb-item active" aria-current="page">
           <a href="{% url "cognacy:index" %}">Cognates</a>
-          <span class="divider">/</span>
       </li>
     </ul>
     

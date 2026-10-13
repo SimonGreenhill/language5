@@ -8,20 +8,18 @@
 
 
 {% block content %}
-    <div class="page-header">
+    <div class="pb-2 mb-4 border-bottom">
         <h1>Language: {{ language }}</h1>
     </div>
     
     <ul class="breadcrumb">
-      <li>
-          <a href="{% url "index" %}">Home</a> 
-          <span class="divider">/</span>
+      <li class="breadcrumb-item">
+          <a href="{% url "index" %}">Home</a>
       </li>
-      <li>
+      <li class="breadcrumb-item">
           <a href="{% url "language-index" %}">Languages</a>
-          <span class="divider">/</span>
       </li>
-      <li class="active">
+      <li class="breadcrumb-item active" aria-current="page">
           <a href="{% url "language-detail" language.slug %}"> {{ language }}</a>
       </li>
     </ul>
@@ -64,16 +62,16 @@
         {{ language.classification }}
     </p>
     
-    <div class="row-fluid">
-      <div class="span5">
+    <div class="row">
+      <div class="col-md-5">
           <h2> Map: </h2>
           {% if location %}
               {% show_map location %}
           {% else %}
-              <div class="alert alert-error">Location Not Stored</div>
+              <div class="alert alert-danger">Location Not Stored</div>
           {% endif %}
       </div>
-      <div class="span5">
+      <div class="col-md-5">
           <h2> Resources: </h2>
          
           <ul>

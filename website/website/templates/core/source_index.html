@@ -4,25 +4,24 @@
 {% block title %} Sources: {% endblock %}
 
 {% block content %}
-    <div class="page-header">
+    <div class="pb-2 mb-4 border-bottom">
         <h1>Sources:</h1>
     </div>
     
     <ul class="breadcrumb">
-      <li>
-          <a href="{% url "index" %}">Home</a> 
-          <span class="divider">/</span>
+      <li class="breadcrumb-item">
+          <a href="{% url "index" %}">Home</a>
       </li>
-      <li>
+      <li class="breadcrumb-item">
           <a href="{% url "source-index" %}">Sources</a>
       </li>
     </ul>
     
-    <div class="well">
+    <div class="p-3 mb-3 bg-body-tertiary border rounded">
         <strong>Filter:</strong>
-        <a class="btn btn-mini{% if subset == None %} btn-success{% endif %}" href="{% url "source-index" %}"> (all) </a>
+        <a class="btn btn-sm{% if subset == None %} btn-success{% else %} btn-outline-secondary{% endif %}" href="{% url "source-index" %}"> (all) </a>
         {% for s in subsets %}
-            <a class="btn btn-mini{% if subset == s %} btn-success{% endif %}" href="{% url "source-index" %}?subset={{ s }}"> {{ s }} </a>
+            <a class="btn btn-sm{% if subset == s %} btn-success{% else %} btn-outline-secondary{% endif %}" href="{% url "source-index" %}?subset={{ s }}"> {{ s }} </a>
         {% endfor %}
     </div>
     

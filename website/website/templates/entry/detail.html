@@ -11,13 +11,9 @@
   <meta name="description" content="{{ SITE_DESCRIPTION }}" />
   <meta name="author" content="{{ SITE_AUTHORS }}">
   
-  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-  <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  
   <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}" />
-  <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-responsive.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-icons.min.css" %}" />
+  <link rel="stylesheet" type="text/css" href="{% static "css/site.css" %}" />
   
   <!-- for javascript charpicker, image zoomer, scroller, and formset adder -->
   <link rel="stylesheet" type="text/css" href="{% static "css/jquery.fs.zoomer.css" %}" />
@@ -31,7 +27,7 @@
 
   
   <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
-  <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/bootstrap.bundle.min.js" %}"></script>
   <script type="text/javascript" src="{% static "js/charpicker.js" %}"></script>
   <script type="text/javascript" src="{% static "js/jquery.fs.zoomer.min.js" %}"></script>
   <script type="text/javascript" src="{% static "js/jquery.formset.min.js" %}"></script>
@@ -41,24 +37,21 @@
   <script type="text/javascript" src="{% static "admin/js/admin/RelatedObjectLookups.js" %}"></script>
 </head>
 <body>
-    <div class="navbar navbar-static-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="brand" href="{% url "index" %}">{{ SITE_NAME }} - {{ SITE_DESCRIPTION }}</a>
-          </div><!--/.nav-collapse -->
-        </div>
+    <nav class="navbar bg-body-tertiary border-bottom mb-3">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url "index" %}">{{ SITE_NAME }} <span class="text-secondary">- {{ SITE_DESCRIPTION }}</span></a>
       </div>
-    </div>
+    </nav>
     
     <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span12">
-            <div class="page-header">
+      <div class="row">
+        <div class="col-md-12">
+            <div class="pb-2 mb-4 border-bottom">
                 <h1>Data Entry Task: {{ task }} {{ content }}</h1>
             </div>
             
             {% if task.description %}
-                <div class="alert alert-block">
+                <div class="alert">
                   <h4>Please Note: </h4>
                   <p>{{ task.description|linebreaks }}</p>
                 </div>
@@ -66,10 +59,10 @@
             
             {% if task.file %}
                 <div class="row clearfix">
-                  <div class="span8 offset2 well">
+                  <div class="col-md-8 offset-md-2 p-3 mb-3 bg-body-tertiary border rounded">
                      <p>
                          Download Data File: 
-                          <a class="btn" href="{{ task.file.url }}"><i class="icon-file"></i>{{ task.file }}</a>
+                          <a class="btn btn-outline-secondary" href="{{ task.file.url }}"><i class="bi bi-file-earmark"></i>{{ task.file }}</a>
                      </p>
                   </div>
                 </div>
@@ -78,16 +71,16 @@
             <div id="scroller">
                 {% if task.image %}
                     <div class="row clearfix">
-                      <div class="span8 offset2 zoomer_wrapper zoomer" style="height: 300px;">
+                      <div class="col-md-8 offset-md-2 zoomer_wrapper zoomer" style="height: 300px;">
                         {% comment %}
-                            <img class="img-polaroid" src="{{ task.image.url }}" alt="{{ task.image }}" />
+                            <img class="img-thumbnail" src="{{ task.image.url }}" alt="{{ task.image }}" />
                         {% endcomment %}
                       </div>
                     </div>
                 {% endif %}
                 
                 <div class="row clearfix">
-                    <p class="well well-small span8 offset2">
+                    <p class="p-3 mb-3 bg-body-tertiary border rounded p-2 col-md-8 offset-md-2">
                         <span id="picker"></span>
                     </p>
                 </div>
@@ -95,14 +88,14 @@
             </div>
             
             {% if form.non_field_errors %}
-                <div class="alert alert-error">
+                <div class="alert alert-danger">
                     {{ form.non_field_errors }}
                 </div>
             {% endif %}
             
             {% comment %}
             <!-- admin tools -->
-            <div class="span4 well">
+            <div class="col-md-4 p-3 mb-3 bg-body-tertiary border rounded">
                 <a href="{% url "admin:core_language_add" %}?_to_field=id&amp;_popup=1" class="add-another" id="add_id_language" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon-addlink.svg" %}" alt="Add New Language"/>Add New Language</a>
                 <a href="{% url "admin:core_source_add" %}?_to_field=id&amp;_popup=1" class="add-another" id="add_id_source" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon-addlink.svg" %}" alt="Add New Source"/>Add New Source</a>
                 <a href="{% url "admin:lexicon_word_add" %}?_to_field=id&amp;_popup=1" class="add-another" id="add_id_word" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon-addlink.svg" %}" alt="Add New Word"/>Add New Word</a>
@@ -122,7 +115,7 @@
           {% if task.image %}
               $(".zoomer").zoomer({
                 source: "{{ task.image.url }}",
-                customClass: "img-polaroid",
+                customClass: "img-thumbnail",
                 increment: 0.1
               });
               $(window).on("rubberband.enter", function() {
@@ -132,8 +125,8 @@
           $('#entryform tbody tr').formset({
               addCssClass: 'btn btn-success',
               keepFieldValues: ':hidden',
-              addText: '<i class="icon-plus"></i> Add entry',
-              deleteText: '<i class="icon-remove"></i>',
+              addText: '<i class="bi bi-plus-lg"></i> Add entry',
+              deleteText: '<i class="bi bi-x-lg"></i>',
           });
           $('select').each(function(i) {
               $(this).select2({width:"element"});

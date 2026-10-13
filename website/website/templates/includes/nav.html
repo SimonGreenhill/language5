@@ -1,0 +1,35 @@
+{% load website_tags %}
+<ul class="nav flex-column">
+    <li{% active 'index' %}><a class="nav-link" href="{% url "index" %}">Main</a></li>
+    <li{% active 'about' %}><a class="nav-link" href="{% url "about" %}">About</a></li>
+    <li{% active 'family-index' %}><a class="nav-link" href="{% url "family-index" %}">Families</a></li>
+    <li{% active 'language-index' %}><a class="nav-link" href="{% url "language-index" %}">Languages</a></li>
+    <li{% active 'source-index' %}><a class="nav-link" href="{% url "source-index" %}">Sources</a></li>
+    <li{% active 'maps:language-map' %}><a class="nav-link" href="{% url "maps:language-map" %}">Language Map</a></li>
+    {% ifinstalled "website.apps.lexicon" %}
+    <li{% active 'word-index' %}><a class="nav-link" href="{% url "word-index" %}">Words</a></li>
+    <li{% active 'cognacy:index' %}><a class="nav-link" href="{% url "cognacy:index" %}">Cognates</a></li>
+    {% endifinstalled %}
+    {% ifinstalled "website.apps.statistics" %}
+    <li{% active 'statistics:statistics' %}><a class="nav-link" href="{% url "statistics:statistics" %}">Statistics</a></li>
+    {% endifinstalled %}
+    <li class="nav-header">Search</li>
+    <li>
+        <form class="d-flex gap-1 px-2" role="search" action="{% url "watson:search" %}">
+            <input name="q" class="form-control form-control-sm" value="{{ request.GET.q }}" aria-label="Search">
+            <button type="submit" class="btn btn-outline-secondary btn-sm">&raquo;</button>
+        </form>
+    </li>
+    {% if user.is_staff %}
+        <li class="nav-header">Editors</li>
+        <li><a class="nav-link" href="{% url "admin:index" %}">Admin</a></li>
+        {% ifinstalled "website.apps.entry" %}
+        <li{% active 'entry:index' %}><a class="nav-link" href="{% url "entry:index" %}">Data Entry</a></li>
+        {% endifinstalled %}
+        {% ifinstalled "website.apps.lexicon" %}
+        <li{% active 'cognacy:do_index' %}><a class="nav-link" href="{% url "cognacy:do_index" %}">Do Cognacy</a></li>
+        {% endifinstalled %}
+    {% else %}
+        <li class="mt-2"><a class="nav-link" href="{% url "login" %}">Log in</a></li>
+    {% endif %}
+</ul>

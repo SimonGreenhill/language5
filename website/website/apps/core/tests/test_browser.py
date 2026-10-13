@@ -272,6 +272,16 @@ class TestPublicPages(BrowserTestCase):
         self.page.wait_for_selector('#map .leaflet-marker-icon')
         self.assertNoJSErrors()
 
+    def test_mobile_menu(self):
+        self.page.set_viewport_size({'width': 390, 'height': 800})
+        self.open('/')
+        self.assertFalse(self.page.is_visible('#topnav a:has-text("Languages")'))
+        self.page.click('.navbar-toggler')
+        self.page.click('#topnav a:has-text("Languages")')
+        self.page.wait_for_load_state('networkidle')
+        self.assertTrue(self.page.url.endswith(reverse('language-index')))
+        self.assertNoJSErrors()
+
     def test_statistics_charts_render(self):
         self.open(reverse('statistics:statistics'))
         self.assertGreater(self.page.evaluate('Object.keys(Chart.instances).length'), 0)

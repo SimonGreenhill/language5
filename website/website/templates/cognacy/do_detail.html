@@ -6,32 +6,30 @@
 {% block title %} Do Cognacy: {{ word }} {% endblock %}
 
 {% block content %}
-    <div class="page-header">
+    <div class="pb-2 mb-4 border-bottom">
         <h1>Do Cognacy: {{ word }}</h1>
-        <h2><i class="icon-chevron-right"></i> Word: {{ word }}</h2>
-        {% if clade %}<h2><i class="icon-chevron-right"></i> Clade: {{ clade }} </h2>{% endif %}
+        <h2><i class="bi bi-chevron-right"></i> Word: {{ word }}</h2>
+        {% if clade %}<h2><i class="bi bi-chevron-right"></i> Clade: {{ clade }} </h2>{% endif %}
     </div>
     
     <ul class="breadcrumb">
-      <li>
-          <a href="{% url "index" %}">Home</a> 
-          <span class="divider">/</span>
+      <li class="breadcrumb-item">
+          <a href="{% url "index" %}">Home</a>
       </li>
-      <li>
-          <a href="{% url "cognacy:index" %}">Cognacy</a> 
-          <span class="divider">/</span>
+      <li class="breadcrumb-item">
+          <a href="{% url "cognacy:index" %}">Cognacy</a>
       </li>
     </ul>
     
-    <div class="well">
+    <div class="p-3 mb-3 bg-body-tertiary border rounded">
         <p><strong>Cognate sets in-play:</strong></p>
-        <ul class="unstyled">
+        <ul class="list-unstyled">
             
         {% for cog, entries in inplay %}
-            <li class="row-fluid">
-                <span class="span1">{% cognate_button cog.id %}</span>
-                <span class="span2">{% if cog.source %} {{ cog.source }} {% else %} TNG {% endif %}</span>
-                : {{ entries }} 
+            <li class="row">
+                <span class="col-md-1">{% cognate_button cog.id %}</span>
+                <span class="col-md-2">{% if cog.source %} {{ cog.source }} {% else %} TNG {% endif %}</span>
+                <span class="col-md-9">: {{ entries }}</span>
             </li>
         {% endfor %}
         </ul>
@@ -46,9 +44,9 @@
         </p>
     </div>
     
-    <div class="well">
+    <div class="p-3 mb-3 bg-body-tertiary border rounded">
         <p><strong>Merge Cognate Sets: </strong>
-        <form action="{% url "cognacy:merge" word=word.slug clade=clade %}" method="post" class="form-inline">
+        <form action="{% url "cognacy:merge" word=word.slug clade=clade %}" method="post" class="">
             {% csrf_token %}
             {{ mergeform.old }}-&raquo;
             {{ mergeform.new }}
@@ -56,15 +54,15 @@
             {{ mergeform.non_field_errors }}
             {{ mergeform.old.errors }}
             {{ mergeform.new.errors }}
-            <button type="submit" class="btn">Merge</button>
+            <button type="submit" class="btn btn-outline-secondary">Merge</button>
         </form>
     </div>
 
-    <form action="{% url "cognacy:save" word=word.slug clade=clade %}" method="post" class="form-inline">
+    <form action="{% url "cognacy:save" word=word.slug clade=clade %}" method="post" class="">
         {% csrf_token %}
 
         {% if notes %}
-            <div class="well">
+            <div class="p-3 mb-3 bg-body-tertiary border rounded">
         
             <p><strong> Notes: </strong></p>
                 <ul>
@@ -84,11 +82,11 @@
     
 
         {% if messages %}
-            <div class="well">
+            <div class="p-3 mb-3 bg-body-tertiary border rounded">
                 <ul class="messages">
                     {% for message in messages %}
                         <li>
-                             <span class="label label-{{ message.tags }}">{{ message.tags }}.</span> {{ message }}
+                             <span class="badge text-bg-{% if 'error' in message.tags %}danger{% else %}secondary{% endif %}">{{ message.tags }}.</span> {{ message }}
                         </li>
                     {% endfor %}
                 </ul>
@@ -96,14 +94,14 @@
         {% endif %}
     
         <div class="btn-group">
-            <button class="btn"><a href="{% url "word-detail" word.slug %}">View this word</a></button>
-            <button class="btn"><a href="{% url "word-edit" word.slug %}">Edit this word</a></button>
+            <a class="btn btn-outline-secondary" href="{% url "word-detail" word.slug %}">View this word</a>
+            <a class="btn btn-outline-secondary" href="{% url "word-edit" word.slug %}">Edit this word</a>
         </div>
         
         {{ form.as_p }}
         
         {% render_table lexicon "table.html" %}
-        <button type="submit" class="btn btn-large btn-primary pull-right">Save Changes</button>
+        <button type="submit" class="btn btn-lg btn-primary float-end">Save Changes</button>
     </form>
     
 {% endblock %}

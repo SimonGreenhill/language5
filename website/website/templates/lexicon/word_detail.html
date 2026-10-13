@@ -6,7 +6,7 @@
 {% block title %} Words meaning &laquo;{{ object }}&raquo; | {{SITE_NAME }} {% endblock %}
 
 {% block content %}
-    <div class="page-header">
+    <div class="pb-2 mb-4 border-bottom">
         <h1>
             Words meaning &laquo;
             {{ object }}
@@ -16,17 +16,14 @@
     </div>
     
     <ul class="breadcrumb">
-      <li>
-          <a href="{% url "index" %}">Home</a> 
-          <span class="divider">/</span>
+      <li class="breadcrumb-item">
+          <a href="{% url "index" %}">Home</a>
       </li>
-      <li class="active">
+      <li class="breadcrumb-item active" aria-current="page">
           <a href="{% url "word-index" %}">Words</a>
-          <span class="divider">/</span>
       </li>
-      <li>
+      <li class="breadcrumb-item">
           <a href="{% url "word-detail" object.slug %}">{{ object }}</a>
-          <span class="divider">/</span>
       </li>
     </ul>
     
@@ -35,9 +32,9 @@
     
     {% if user.is_staff %}
         <div class="btn-group">
-            <button class="btn"><a href="{% url "word-detail" object.slug %}">View this word</a></button>
-            <button class="btn"><a href="{% url "word-edit" object.slug %}">Edit this word</a></button>
-            <button class="btn"><a href="{% url "cognacy:do" word=object.slug clade="" %}">Edit Cognacy</a></button>
+            <a class="btn btn-outline-secondary" href="{% url "word-detail" object.slug %}">View this word</a>
+            <a class="btn btn-outline-secondary" href="{% url "word-edit" object.slug %}">Edit this word</a>
+            <a class="btn btn-outline-secondary" href="{% url "cognacy:do" word=object.slug clade="" %}">Edit Cognacy</a>
         </div>
     {% endif %}
     

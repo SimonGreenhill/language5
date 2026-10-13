@@ -4,35 +4,31 @@
 {% block title %} Words: {% endblock %}
 
 {% block content %}
-    <div class="page-header">
+    <div class="pb-2 mb-4 border-bottom">
         <h1>Words:</h1>
     </div>
     
     <ul class="breadcrumb">
-      <li>
-          <a href="{% url "index" %}">Home</a> 
-          <span class="divider">/</span>
+      <li class="breadcrumb-item">
+          <a href="{% url "index" %}">Home</a>
       </li>
-      <li class="active">
+      <li class="breadcrumb-item active" aria-current="page">
           <a href="{% url "word-index" %}">Words</a>
       </li>
     </ul>
     
-    <div class="well">
+    <div class="p-3 mb-3 bg-body-tertiary border rounded">
         <h2>Word Subsets:</h2>
 
         <ul class="nav nav-pills">
-            <li {% if not subset %} class="active" {% endif %}>
-                <a href="{% url "word-index" %}"><i class="icon-tags"></i> All words </a>
+            <li class="nav-item"><a class="nav-link{% if not subset %} active{% endif %}" href="{% url "word-index" %}"><i class="bi bi-tags"></i> All words </a>
             </li>
             {% for w in subsets %}
-                <li{% if subset == w %} class="active" {% endif %}>
-                    <a href="{% url "word-index" %}?subset={{w}}"><i class="icon-tags"></i> {{ w }} </a>
+                <li class="nav-item"><a class="nav-link{% if subset == w %} active{% endif %}" href="{% url "word-index" %}?subset={{w}}"><i class="bi bi-tags"></i> {{ w }} </a>
                 </li>
             {% endfor %}
             {% for w in letters %}
-                <li{% if subset == w %} class="active" {% endif %}>
-                    <a href="{% url "word-index" %}?subset={{w}}"><i class="icon-tags"></i> {{ w }} </a>
+                <li class="nav-item"><a class="nav-link{% if subset == w %} active{% endif %}" href="{% url "word-index" %}?subset={{w}}"><i class="bi bi-tags"></i> {{ w }} </a>
                 </li>
             {% endfor %}
         </ul>

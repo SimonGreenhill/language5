@@ -14,11 +14,11 @@
 
 {% block content %}
     
-    <div class="page-header">
+    <div class="pb-2 mb-4 border-bottom">
         <h1>{{ SITE_NAME }}</h1> 
     </div>
     
-    <div class="span8">
+    <div class="col-md-8">
         <p class="lead">
             Welcome to the {{ SITE_NAME }}, a {{ SITE_DESCRIPTION }}.
         </p>
@@ -59,8 +59,8 @@
             Greenhill SJ. 2015. <a href="https://doi.org/10.1371/journal.pone.0141563">TransNewGuinea.org: An Online Database of New Guinea Languages</a>. <i>PLoS ONE</i> 10(10): e0141563.
         </blockquote>
         <p>
-            <button type="button" class="btn btn-mini" data-copy="citation">Copy citation</button>
-            <button type="button" class="btn btn-mini" data-copy="bibtex">Copy BibTeX</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-copy="citation">Copy citation</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-copy="bibtex">Copy BibTeX</button>
         </p>
         <pre id="bibtex" hidden>@article{greenhill2015,
   author  = {Greenhill, Simon J.},

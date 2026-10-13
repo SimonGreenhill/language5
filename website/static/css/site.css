@@ -1,0 +1,37 @@
+/* TNG theme, carried over from the old customised Bootstrap 2 build */
+:root {
+  --bs-body-font-size: .9rem;
+  --bs-primary: #176273; --bs-primary-rgb: 23, 98, 115;
+  --bs-link-color: #176273; --bs-link-color-rgb: 23, 98, 115;
+  --bs-link-hover-color: #0a2c33; --bs-link-hover-color-rgb: 10, 44, 51;
+}
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+.btn:hover { text-decoration: none; }
+.btn-primary { --bs-btn-bg: #176273; --bs-btn-border-color: #176273; --bs-btn-hover-bg: #0f4a57; --bs-btn-hover-border-color: #0f4a57; --bs-btn-active-bg: #0a2c33; --bs-btn-active-border-color: #0a2c33; }
+.pagination { --bs-pagination-color: #176273; --bs-pagination-active-bg: #176273; --bs-pagination-active-border-color: #176273; }
+.nav-pills { --bs-nav-pills-link-active-bg: #176273; }
+.logo-dark { background-color: #333; }
+.table { font-size: .85rem; }
+.table th a { font-weight: 600; }
+
+/* Site styles on top of Bootstrap 5 */
+.sidebar-nav .nav-link { padding: .2rem .5rem; }
+.sidebar-nav li.active > a, .sidebar-nav li.active > a:hover { background: var(--bs-primary); color: #fff; border-radius: .25rem; }
+.sidebar-nav .nav-header { font-size: .75rem; font-weight: 600; text-transform: uppercase; color: var(--bs-secondary); padding: .75rem .5rem .25rem; }
+.logo { text-align: center; }
+.footer { margin-top: 2rem; padding: 1rem 0; border-top: 1px solid var(--bs-border-color); font-size: .85rem; }
+/* Bootstrap 2 fixed-width inputs, still used by form widgets */
+.input-mini { width: 60px; }
+.input-small { width: 90px; }
+.input-medium { width: 150px; }
+.input-large { width: 210px; }
+.input-xxlarge { width: 530px; max-width: 100%; }
+td.error { background: var(--bs-danger-bg-subtle); }
+.pagination { flex-wrap: wrap; }
+/* Bootstrap 2 default widths for bare form controls (zero specificity: classes override) */
+:where(select) { width: 220px; max-width: 100%; }
+:where(input[type=text], input:not([type]), textarea) { width: 206px; max-width: 100%; }
+/* character picker */
+#picker { display: flex; flex-wrap: wrap; gap: 2px; }
+.charpicker-key { padding: 0 .35rem; font-size: .85rem; line-height: 1.6; border: 1px solid var(--bs-border-color); }

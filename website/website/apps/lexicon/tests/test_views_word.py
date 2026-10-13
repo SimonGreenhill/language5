@@ -38,7 +38,7 @@ class Test_WordIndex(DataMixin, PaginatorTestMixin, TestCase):
         )
     
     def test_get_renders_subsets_correctly(self):
-        assert b'<a href="/word/?subset=all">' in self.response.content
+        assert b'href="/word/?subset=all"' in self.response.content
     
     def test_get_no_subset_context_is_none(self):
         # if there's no subset requested then the var `subset` will be None

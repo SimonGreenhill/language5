@@ -15,7 +15,7 @@
 
 
 {% block content %}
-    <div class="page-header">
+    <div class="pb-2 mb-4 border-bottom">
         <h1>Data Entry Tasks:</h1>
     </div>
     
@@ -25,19 +25,19 @@
         <p class="error">No results found!</p>
     {% endif %}
     
-    <div class="well">
+    <div class="p-3 mb-3 bg-body-tertiary border rounded">
         <h2>Quick Entry</h2>
         
-        <a href="{% url "admin:core_language_add" %}?_to_field=id&amp;_popup=1" class="btn add-another" id="add_id_language" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon-addlink.svg" %}" alt="Add New Language"/> Add New Language</a>
-        <a href="{% url "admin:core_source_add" %}?_to_field=id&amp;_popup=1" class="btn add-another" id="add_id_source" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon-addlink.svg" %}" alt="Add New Source"/> Add New Source</a>
-        <a href="{% url "admin:lexicon_word_add" %}?_to_field=id&amp;_popup=1" class="btn add-another" id="add_id_word" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon-addlink.svg" %}" alt="Add New Word"/> Add New Word</a>
+        <a href="{% url "admin:core_language_add" %}?_to_field=id&amp;_popup=1" class="btn add-another btn-outline-secondary" id="add_id_language" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon-addlink.svg" %}" alt="Add New Language"/> Add New Language</a>
+        <a href="{% url "admin:core_source_add" %}?_to_field=id&amp;_popup=1" class="btn add-another btn-outline-secondary" id="add_id_source" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon-addlink.svg" %}" alt="Add New Source"/> Add New Source</a>
+        <a href="{% url "admin:lexicon_word_add" %}?_to_field=id&amp;_popup=1" class="btn add-another btn-outline-secondary" id="add_id_word" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon-addlink.svg" %}" alt="Add New Word"/> Add New Word</a>
         
         <hr />
         
-        <form action="{% url "entry:quick" %}" method="post" class="form-inline">
+        <form action="{% url "entry:quick" %}" method="post" class="">
             {% csrf_token %}
             {{ quickform }}
-            <button type="submit" name="submit" class="btn"><i class="icon-ok"></i> Go </button>
+            <button type="submit" name="submit" class="btn btn-outline-secondary"><i class="bi bi-check-lg"></i> Go </button>
             <script>
                 $(document).ready(function() {
                   $('select').each(function(i) {

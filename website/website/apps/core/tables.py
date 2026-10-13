@@ -29,7 +29,7 @@ class DataTable(tables.Table):
         orderable = True
         default = ''
         attrs = {
-            'class': "table table-bordered table-condensed",
+            'class': "table table-bordered table-sm",
             'summary': '',
         }
     

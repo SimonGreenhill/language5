@@ -3,7 +3,7 @@
 
     <ul>
     {% for f in attachments %}
-        <li> <a href="{{ f.file.url }}" alt="{{ f.file.name }}"><i class="icon-book"></i> {{ f.source }}</a> </li>
+        <li> <a href="{{ f.file.url }}" alt="{{ f.file.name }}"><i class="bi bi-book"></i> {{ f.source }}</a> </li>
     {% endfor %}
     </ul>
 {% endif %}

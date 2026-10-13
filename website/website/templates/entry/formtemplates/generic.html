@@ -1,7 +1,7 @@
-<form action="{% url "entry:detail" task.id %}" method="post" class="form-inline">
+<form action="{% url "entry:detail" task.id %}" method="post" class="">
     {% csrf_token %}
     {{ formset.management_form }}
-    <table id="entryform" class="table table-bordered table-condensed">
+    <table id="entryform" class="table table-bordered table-sm">
         <!-- header -->
         {% for form in formset %}
             {% if forloop.first %}
@@ -9,15 +9,15 @@
                     <tr>
                         <th>
                             {{ form.language.label_tag }}
-                            <a class="add-another btn btn-mini btn-success" href="{% url "admin:core_language_add" %}?_to_field=id&amp;_popup=1" id="add_id_language" onclick="return showAddAnotherPopup(this);"> <i class="icon-plus"></i></a>
+                            <a class="add-another btn btn-sm btn-success" href="{% url "admin:core_language_add" %}?_to_field=id&amp;_popup=1" id="add_id_language" onclick="return showAddAnotherPopup(this);"> <i class="bi bi-plus-lg"></i></a>
                         </th>
                         <th>
                             {{ form.source.label_tag }}
-                            <a class="add-another btn btn-mini btn-success" href="{% url "admin:core_source_add" %}?_to_field=id&amp;_popup=1" id="add_id_source" onclick="return showAddAnotherPopup(this);"> <i class="icon-plus"></i></a>
+                            <a class="add-another btn btn-sm btn-success" href="{% url "admin:core_source_add" %}?_to_field=id&amp;_popup=1" id="add_id_source" onclick="return showAddAnotherPopup(this);"> <i class="bi bi-plus-lg"></i></a>
                         </th>
                         <th>
                             {{ form.word.label_tag }}
-                            <a class="add-another btn btn-mini btn-success" href="{% url "admin:lexicon_word_add" %}?_to_field=id&amp;_popup=1" id="add_id_word" onclick="return showAddAnotherPopup(this);"> <i class="icon-plus"></i></a>
+                            <a class="add-another btn btn-sm btn-success" href="{% url "admin:lexicon_word_add" %}?_to_field=id&amp;_popup=1" id="add_id_word" onclick="return showAddAnotherPopup(this);"> <i class="bi bi-plus-lg"></i></a>
                         </th>
                         <th>
                             {{ form.entry.label_tag }}
@@ -55,10 +55,10 @@
                         {% else %}
                             {{ field }}
                             {% if field.errors %}
-                                <i class="tip icon-exclamation-sign" 
-                                    data-toggle="tooltip" 
-                                    data-placement="top" 
-                                    data-container="td"
+                                <i class="tip bi bi-exclamation-circle" 
+                                    data-bs-toggle="tooltip" 
+                                    data-bs-placement="top" 
+                                    data-bs-container="td"
                                     title="
                                     {% for error in field.errors %}
                                         {{ error|escape }} 
@@ -73,9 +73,9 @@
             {% endfor %}
         </tbody>
     </table>
-    <p class="well">
-        <button type="submit" name="refresh" class="btn btn-success"><i class="icon-refresh"></i> Store/Refresh </button>
-        <button type="submit" name="submit" class="btn btn-primary"><i class="icon-ok"></i> Save </button>
+    <p class="p-3 mb-3 bg-body-tertiary border rounded">
+        <button type="submit" name="refresh" class="btn btn-success"><i class="bi bi-arrow-clockwise"></i> Store/Refresh </button>
+        <button type="submit" name="submit" class="btn btn-primary"><i class="bi bi-check-lg"></i> Save </button>
     </p>
 </form>
 
