@@ -54,3 +54,18 @@ class TestTemplateDefaults(SimpleTestCase):
     def test_no_placeholder_admin_email(self):
         from django.conf import settings
         self.assertNotIn('test@example.com', [a[1] for a in settings.ADMINS])
+
+
+class TestCollectstaticManifest(SimpleTestCase):
+    """Production uses ManifestStaticFilesStorage; every referenced file must exist."""
+
+    def test_collectstatic_with_manifest(self):
+        import tempfile
+        from django.core.management import call_command
+        from django.test import override_settings
+        with tempfile.TemporaryDirectory() as root, override_settings(
+            STATIC_ROOT=root,
+            STORAGES={'default': {'BACKEND': 'django.core.files.storage.FileSystemStorage'},
+                      'staticfiles': {'BACKEND': 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'}},
+        ):
+            call_command('collectstatic', interactive=False, verbosity=0)
