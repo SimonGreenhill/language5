@@ -195,6 +195,21 @@ class TestDataEntry(BrowserTestCase):
         self.assertNoJSErrors()
 
 
+class TestEntryWithImage(BrowserTestCase):
+    def test_image_toolbar_sticks_and_zoomer_loads(self):
+        task = Task.objects.create(
+            name='Scan', description='', editor=self.editor, language=self.lang, source=self.source,
+            image='data/2013-01/test.png', view='GenericView', records=40,
+        )
+        self.login()
+        self.open(reverse('entry:detail', kwargs={'task_id': task.pk}))
+        self.assertGreater(self.page.locator('.zoomer').count(), 0)
+        self.page.mouse.wheel(0, 3000)
+        self.page.wait_for_timeout(300)
+        self.assertLess(abs(self.page.locator('#scroller').bounding_box()['y']), 2)
+        self.assertNoJSErrors()
+
+
 class TestPublicPages(BrowserTestCase):
     def test_language_map_has_markers(self):
         self.open(reverse('maps:language-map'))
