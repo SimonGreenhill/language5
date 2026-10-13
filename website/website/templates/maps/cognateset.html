@@ -7,7 +7,6 @@
 
 {% block records %}
     {% for rec in records %}
-        var m = L.marker([{{ rec.latitude }}, {{ rec.longitude }}], {icon: p}).bindTooltip("{{ rec.label|force_escape|escapejs }}", label).addTo(map);
-        oms.addMarker(m);
+        addMarker({{ rec.latitude }}, {{ rec.longitude }}, "{{ rec.label|force_escape|escapejs }}");
     {% endfor %}
 {% endblock %}

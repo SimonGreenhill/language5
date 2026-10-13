@@ -261,6 +261,25 @@ class TestPublicPages(BrowserTestCase):
         self.page.wait_for_selector('path.leaflet-interactive')
         self.assertNoJSErrors()
 
+    def test_crowded_map_labels_on_hover_then_zoom(self):
+        for i in range(60):
+            iso = 'x%02d' % i
+            lang = Language.objects.create(language=f'Lang{i}', slug=f'lang{i}', isocode=iso, editor=self.editor)
+            Location.objects.create(isocode=iso, latitude=-6 + i / 10, longitude=145 + i / 10, editor=self.editor)
+            Lexicon.objects.create(language=lang, source=self.source, word=self.word, entry='e', editor=self.editor)
+        self.open(reverse('maps:language-map'))
+        self.page.wait_for_selector('.leaflet-marker-icon')
+        self.assertEqual(self.page.locator('.leaflet-tooltip').count(), 0)
+        self.page.locator('.leaflet-marker-icon').nth(5).hover(force=True)
+        self.page.wait_for_selector('.leaflet-tooltip')
+        self.page.mouse.move(5, 5)
+        # zoom in: labels become permanent
+        for _ in range(3):
+            self.page.click('.leaflet-control-zoom-in')
+            self.page.wait_for_timeout(400)
+        self.assertGreater(self.page.locator('.leaflet-tooltip').count(), 5)
+        self.assertNoJSErrors()
+
     def test_word_map_labels(self):
         self.open(reverse('maps:word-map', kwargs={'slug': 'hand'}))
         self.page.wait_for_selector('.leaflet-tooltip')

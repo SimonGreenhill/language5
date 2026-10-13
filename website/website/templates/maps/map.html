@@ -36,7 +36,7 @@
         <h1>{% block pageheader %}{% endblock %}</h1>
     </div>
     
-    <div id="map" style="width: 700px; height: 500px"></div>
+    <div id="map" style="width: 100%; height: 70vh; min-height: 400px"></div>
     
     <script>
         $(document).ready(function() {
@@ -53,7 +53,22 @@
                 iconSize: [10, 10],
                 iconAnchor: [5, 5]
             });
-            var label = {permanent: true, direction: 'right', offset: [6, 0]};
+            // labels: on hover when crowded, permanent when zoomed in or few markers
+            var labelled = [];
+            function addMarker(lat, lng, text) {
+                var m = L.marker([lat, lng], {icon: p}).addTo(map);
+                m.labelText = text;
+                labelled.push(m);
+                oms.addMarker(m);
+                return m;
+            }
+            function updateLabels() {
+                var permanent = map.getZoom() >= 7 || labelled.length <= 50;
+                labelled.forEach(function (m) {
+                    m.unbindTooltip().bindTooltip(m.labelText, {permanent: permanent, direction: 'right', offset: [6, 0]});
+                });
+            }
+            map.on('zoomend', updateLabels);
             function esc(text) {  // tooltips render HTML; labels are data
                 var div = document.createElement('div');
                 div.textContent = text;
@@ -64,6 +79,7 @@
                 attribution: 'Language data &copy; <a href="https://transnewguinea.org">TransNewGuinea.org</a>, Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(map);
             {% block records %}{% endblock %}
+            updateLabels();
         });
     </script>
 {% endblock %}

@@ -7,12 +7,9 @@
 
 {% block records %}
     $.getJSON('/api/v1/languagemap/?format=json', function(data){
-        var markers = [];
-        $.each(data.objects, function(i) {
-            rec = data.objects[i];
-            var m = L.marker([rec.latitude, rec.longitude], {icon: p}).bindTooltip(esc(rec.label), label).addTo(map);
-            markers.push(m);
-            oms.addMarker(m);
+        $.each(data.objects, function(i, rec) {
+            addMarker(rec.latitude, rec.longitude, esc(rec.label));
         });
+        updateLabels();
     });
 {% endblock %}
