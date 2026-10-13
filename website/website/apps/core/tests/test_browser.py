@@ -105,6 +105,11 @@ class TestLexiconEdit(BrowserTestCase):
         entry.focus()
         self.page.locator('#picker button', has_text='ŋ').first.click()
         self.assertEqual(entry.input_value(), 'kuŋ')
+        # inserts at the cursor, not just at the end
+        entry.evaluate('e => e.setSelectionRange(1, 1)')
+        self.page.locator('#picker button', has_text='ə').first.click()
+        self.assertEqual(entry.input_value(), 'kəuŋ')
+        entry.fill('kuŋ')
         self.page.click('button[name=submit]')
         self.page.wait_for_load_state('networkidle')
         self.lex1.refresh_from_db()
