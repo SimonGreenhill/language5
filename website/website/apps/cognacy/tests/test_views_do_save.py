@@ -66,10 +66,11 @@ class Test_Save(DataMixin):
         
     def test_additions_to_new_cognateset(self):
         form_data = self.form_data
-        form_data['c-%d' % self.lex_b.id] = "5"  # does not exist
+        new_id = CognateSet.objects.order_by('-id').values_list('id', flat=True).first() + 100  # does not exist
+        form_data['c-%d' % self.lex_b.id] = str(new_id)
         response = self.AuthenticatedClient.post(self.url, form_data, follow=True)
         assert CognateSet.objects.count() == 3
-        newcog = CognateSet.objects.get(pk=5)
+        newcog = CognateSet.objects.get(pk=new_id)
         lexica = newcog.lexicon.all()
         assert len(lexica) == 1
         assert self.lex_a not in lexica
