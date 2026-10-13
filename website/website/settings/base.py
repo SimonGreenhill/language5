@@ -174,9 +174,6 @@ LOGGING = {
         'verbose': {
             'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
         },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
-        },
     },
     'filters': {
         'require_debug_false': {
@@ -185,19 +182,12 @@ LOGGING = {
     },
     'handlers': {
         'file_logging': {
-            'level': 'DEBUG',
+            'level': 'WARNING',
             'class': 'logging.handlers.RotatingFileHandler',
-            'backupCount': 0,
+            'backupCount': 3,
             'maxBytes': 5000000,
             'filename': 'django.log',
-            'filters': ['require_debug_false'],
-        },
-        'db_logging': {
-            'level': 'DEBUG',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'backupCount': 0,
-            'maxBytes': 5000000,
-            'filename': 'django-db.log',
+            'formatter': 'verbose',
             'filters': ['require_debug_false'],
         },
         'mail_admins': {
@@ -206,21 +196,15 @@ LOGGING = {
             'class': 'django.utils.log.AdminEmailHandler',
         },
     },
-
     'loggers': {
         'django': {
             'handlers': ['file_logging'],
-            'level': 'DEBUG',
+            'level': 'WARNING',
             'propagate': False,
         },
         'django.request': {
-            'handlers': ['mail_admins'],
+            'handlers': ['file_logging', 'mail_admins'],
             'level': 'ERROR',
-            'propagate': False,
-        },
-        'django.db': {
-            'handlers': ['db_logging'],
-            'level': 'DEBUG',
             'propagate': False,
         },
     }

@@ -9,15 +9,15 @@
                     <tr>
                         <th>
                             {{ form.language.label_tag }}
-                            <a class="add-another btn btn-mini btn-success" href="{% url "admin:core_language_add" %}" id="add_id_language" onclick="return showAddAnotherPopup(this);"> <i class="icon-plus"></i></a>
+                            <a class="add-another btn btn-mini btn-success" href="{% url "admin:core_language_add" %}?_to_field=id&amp;_popup=1" id="add_id_language" onclick="return showAddAnotherPopup(this);"> <i class="icon-plus"></i></a>
                         </th>
                         <th>
                             {{ form.source.label_tag }}
-                            <a class="add-another btn btn-mini btn-success" href="{% url "admin:core_source_add" %}" id="add_id_source" onclick="return showAddAnotherPopup(this);"> <i class="icon-plus"></i></a>
+                            <a class="add-another btn btn-mini btn-success" href="{% url "admin:core_source_add" %}?_to_field=id&amp;_popup=1" id="add_id_source" onclick="return showAddAnotherPopup(this);"> <i class="icon-plus"></i></a>
                         </th>
                         <th>
                             {{ form.word.label_tag }}
-                            <a class="add-another btn btn-mini btn-success" href="{% url "admin:lexicon_word_add" %}" id="add_id_word" onclick="return showAddAnotherPopup(this);"> <i class="icon-plus"></i></a>
+                            <a class="add-another btn btn-mini btn-success" href="{% url "admin:lexicon_word_add" %}?_to_field=id&amp;_popup=1" id="add_id_word" onclick="return showAddAnotherPopup(this);"> <i class="icon-plus"></i></a>
                         </th>
                         <th>
                             {{ form.entry.label_tag }}

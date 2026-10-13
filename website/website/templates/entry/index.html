@@ -9,6 +9,9 @@
       <link rel="stylesheet" type="text/css" href="{% static "css/select2-bootstrap.css" %}" />
         <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
         <script type="text/javascript" src="{% static "js/select2.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "admin/js/vendor/jquery/jquery.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "admin/js/jquery.init.js" %}"></script>
+        <script type="text/javascript" src="{% static "admin/js/admin/RelatedObjectLookups.js" %}"></script>
 {% endblock %}
 
 
@@ -26,9 +29,9 @@
     <div class="well">
         <h2>Quick Entry</h2>
         
-        <a href="{% url "admin:core_language_add" %}" class="btn add-another" id="add_id_language" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon_addlink.gif" %}" alt="Add New Language"/> Add New Language</a>
-        <a href="{% url "admin:core_source_add" %}" class="btn add-another" id="add_id_source" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon_addlink.gif" %}" alt="Add New Source"/> Add New Source</a>
-        <a href="{% url "admin:lexicon_word_add" %}" class="btn add-another" id="add_id_word" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon_addlink.gif" %}" alt="Add New Word"/> Add New Word</a>
+        <a href="{% url "admin:core_language_add" %}?_to_field=id&amp;_popup=1" class="btn add-another" id="add_id_language" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon-addlink.svg" %}" alt="Add New Language"/> Add New Language</a>
+        <a href="{% url "admin:core_source_add" %}?_to_field=id&amp;_popup=1" class="btn add-another" id="add_id_source" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon-addlink.svg" %}" alt="Add New Source"/> Add New Source</a>
+        <a href="{% url "admin:lexicon_word_add" %}?_to_field=id&amp;_popup=1" class="btn add-another" id="add_id_word" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon-addlink.svg" %}" alt="Add New Word"/> Add New Word</a>
         
         <hr />
         

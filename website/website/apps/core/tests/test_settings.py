@@ -28,3 +28,18 @@ class TestMapTilePolicy(SimpleTestCase):
             with self.subTest(template=name):
                 self.assertIn("https://tile.openstreetmap.org/{z}/{x}/{y}.png", source)
                 self.assertIn("openstreetmap.org/copyright", source)
+
+
+class TestLogging(SimpleTestCase):
+    """django.log must rotate and not record DEBUG noise (it reached 1.1 GB)."""
+
+    def test_file_handlers_rotate(self):
+        from django.conf import settings
+        for name, handler in settings.LOGGING['handlers'].items():
+            if handler['class'].endswith('RotatingFileHandler'):
+                with self.subTest(handler=name):
+                    self.assertGreater(handler['backupCount'], 0)
+
+    def test_django_logger_not_debug(self):
+        from django.conf import settings
+        self.assertNotEqual(settings.LOGGING['loggers']['django']['level'], 'DEBUG')

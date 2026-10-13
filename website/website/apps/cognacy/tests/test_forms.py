@@ -58,3 +58,19 @@ class Test_Forms(DataMixin):
         f = MergeCognateForm(form_data, queryset=CognateSet.objects.all())
         assert not f.is_valid()
         
+
+
+from django.test import TestCase
+
+
+class TestGetCladesNullClassification(TestCase):
+    def test_null_classification_ignored(self):
+        from django.contrib.auth.models import User
+        from website.apps.core.models import Language
+        from website.apps.cognacy.forms import get_clades
+        from website.apps.core.templatetags.website_tags import condense_classification
+        ed = User.objects.create_user('ed', 'e@example.com', 'test')
+        Language.objects.create(language='A', slug='a', editor=ed, classification=None)
+        Language.objects.create(language='B', slug='b', editor=ed, classification='TNG, Madang')
+        self.assertEqual([c for c, _ in get_clades()], ['', 'TNG', 'TNG, Madang'])
+        self.assertEqual(condense_classification(None), {'classif': []})

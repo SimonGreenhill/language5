@@ -40,7 +40,7 @@ def link_wikipedia(lang):
 @register.inclusion_tag('includes/condense_classification.html')
 def condense_classification(classification):
     """Returns a condensed classification string"""
-    return { 'classif': [_.strip() for _ in classification.split(",")] }
+    return {'classif': [_.strip() for _ in classification.split(",")] if classification else []}
 
 @register.inclusion_tag('includes/map.html')
 def show_map(location):
