@@ -229,6 +229,9 @@ LOGGING = {
 # maximum age of persistent database connection
 CONN_MAX_AGE = 64
 
+# send origin-only Referer cross-site (OSM tile servers require one)
+SECURE_REFERRER_POLICY = 'strict-origin-when-cross-origin'
+
 # keep integer primary keys (avoids BigAutoField migrations)
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
