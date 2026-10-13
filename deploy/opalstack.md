@@ -58,7 +58,7 @@ $A/env/bin/python manage.py check --deploy --fail-level WARNING
 $A/env/bin/python manage.py migrate
 psql -h localhost -U <dbuser> -d sjg_tng2 -f ../deploy/cutover.sql
 $A/env/bin/python manage.py remove_stale_contenttypes --noinput
-PG_STATEMENT_TIMEOUT=0 $A/env/bin/python manage.py buildwatson   # lifts local.py's statement_timeout for watson's cleanup DELETE
+$A/env/bin/python manage.py shell < ../deploy/watson_sync.py   # not buildwatson: its cleanup is quadratic on PG14
 $A/env/bin/python manage.py collectstatic --noinput
 $A/env/bin/python manage.py test --noinput --keepdb   # uses the pre-made test DB (see section 3)
 $A/stop; sleep 2; $A/start
