@@ -347,7 +347,8 @@ class Test_ListIdentifiers(TestCase):
 @override_settings(OLAC_SETTINGS=OLAC_SETTINGS)
 class Test_ListSets(TestCase):
     # Not Implemented as no set hierarchy available.
-    response = Client().get('/oai/?verb=ListSets')
+    def setUp(self):
+        self.response = self.client.get('/oai/?verb=ListSets')
     
     def test_listSets(self):
         # Identify should also be generated if no verb is given
