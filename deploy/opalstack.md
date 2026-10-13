@@ -9,7 +9,7 @@ App: `~/apps/transnewguinea2`, Opalstack Django/uWSGI app, port 14764. `A=~/apps
 ## 1. Code
 
 ```
-git clone -b modernise https://github.com/SimonGreenhill/language5.git $A/language5
+git clone -b main https://github.com/SimonGreenhill/language5.git $A/language5
 ```
 
 ## 2. Dependencies (env is Python 3.13.16, so Opalstack's uWSGI stays)
