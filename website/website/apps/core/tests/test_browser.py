@@ -62,6 +62,13 @@ class BrowserTestCase(StaticLiveServerTestCase):
     def tearDown(self):
         self.context.close()
 
+    def select2(self, select_css, text):
+        """Pick an option through the select2 widget attached to `select_css`."""
+        self.page.click(f'{select_css} + .select2-container')
+        self.page.fill('.select2-container--open .select2-search__field', text)
+        self.page.wait_for_selector('.select2-results__option--highlighted')
+        self.page.keyboard.press('Enter')
+
     def login(self):
         client = Client()
         client.force_login(self.editor)
@@ -130,12 +137,18 @@ class TestCognacy(BrowserTestCase):
         self.assertNoJSErrors()
 
 
+class TestCognacyIndex(BrowserTestCase):
+    def test_pick_word_with_select2(self):
+        self.login()
+        self.open(reverse('cognacy:do_index'))
+        self.select2('#id_word', 'hand')
+        self.page.click('button[name=submit]')
+        self.page.wait_for_load_state('networkidle')
+        self.assertIn('/cognacy/do/hand', self.page.url)
+        self.assertNoJSErrors()
+
+
 class TestDataEntry(BrowserTestCase):
-    def select2(self, select_css, text):
-        """Pick an option through the select2 widget attached to `select_css`."""
-        self.page.locator(select_css).locator('xpath=preceding-sibling::div[contains(@class,"select2-container")]').click()
-        self.page.keyboard.type(text)
-        self.page.keyboard.press('Enter')
 
     def test_quick_entry_creates_task_and_saves_lexicon(self):
         self.login()
