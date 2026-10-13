@@ -1,0 +1,42 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:14  # same major version as production
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+          cache: pip
+      - run: pip install --require-hashes -r requirements.txt -r requirements-dev.txt
+      - run: python -m playwright install --with-deps chromium
+      - run: pipx run ruff check .
+      - name: local settings
+        run: |
+          cat > website/website/settings/local.py <<'PY'
+          from .base import *
+          SECRET_KEY = 'ci-' + 'x' * 60
+          DATABASES = {'default': {
+              'ENGINE': 'django.db.backends.postgresql', 'NAME': 'tng',
+              'USER': 'postgres', 'PASSWORD': 'postgres', 'HOST': 'localhost', 'PORT': '5432',
+          }}
+          PY
+      - working-directory: website
+        run: |
+          python manage.py check
+          python manage.py makemigrations --check --dry-run
+          python manage.py test --noinput --shuffle

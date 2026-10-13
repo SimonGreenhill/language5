@@ -1,0 +1,8 @@
+extend-exclude = ["*/migrations/*", "website/website/settings/*"]
+
+[lint]
+select = ["F"]  # pyflakes: undefined names, unused imports
+
+[lint.per-file-ignores]
+"*/tests/*" = ["F841"]
+"*/tests.py" = ["F841"]

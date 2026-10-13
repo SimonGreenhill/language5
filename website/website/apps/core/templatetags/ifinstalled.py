@@ -36,7 +36,7 @@ def do_ifinstalled(parser, token):
     """
     bits = list(token.split_contents())
     if len(bits) != 2:
-        raise TemplateSyntaxError("%r takes two arguments" % bits[0])
+        raise template.TemplateSyntaxError("%r takes two arguments" % bits[0])
     end_tag = 'end' + bits[0]
     nodelist_true = parser.parse(('else', end_tag))
     token = parser.next_token()

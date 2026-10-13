@@ -6,7 +6,7 @@ from django.test.client import Client
 
 from django.contrib.auth.models import User
 from website.apps.core.models import Source, Language
-from website.apps.lexicon.models import Word, Lexicon
+from website.apps.lexicon.models import Word
 from website.apps.entry.models import Task
 
 

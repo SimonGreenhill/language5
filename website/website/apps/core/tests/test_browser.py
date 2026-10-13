@@ -2,7 +2,7 @@
 Browser tests for the JavaScript-dependent pages (keypad, formsets, select2,
 cognacy save, maps, charts, copy buttons). They guard the front-end rewrite.
 
-Needs `pip install -r requirements-dev.txt && playwright install chromium`.
+Needs `pip install -r requirements.txt -r requirements-dev.txt && playwright install chromium`.
 Skipped when Playwright isn't installed. Run only these: `manage.py test --tag browser`.
 """
 import os

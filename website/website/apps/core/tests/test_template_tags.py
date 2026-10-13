@@ -56,3 +56,10 @@ class Test_Link_Wikipedia(LanguageMixin, TestCase):
     function = staticmethod(link_wikipedia)
     expected = "https://en.wikipedia.org/wiki/ISO_639:aaa"
 
+
+
+class Test_IfInstalledSyntax(TestCase):
+    def test_bad_arguments_raise_template_syntax_error(self):
+        from django.template import Template, TemplateSyntaxError
+        with self.assertRaises(TemplateSyntaxError):
+            Template('{% load website_tags %}{% ifinstalled %}x{% endifinstalled %}')

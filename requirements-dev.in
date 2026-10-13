@@ -1,0 +1,2 @@
+-c requirements.txt
+playwright==1.63.0
