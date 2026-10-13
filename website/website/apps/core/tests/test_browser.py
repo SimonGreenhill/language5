@@ -22,6 +22,16 @@ try:
 except ImportError:  # pragma: no cover
     sync_playwright = None
 
+def png(width, height):
+    """A solid grey PNG of the given size (stdlib only)."""
+    import struct, zlib
+    def chunk(kind, data):
+        return struct.pack('>I', len(data)) + kind + data + struct.pack('>I', zlib.crc32(kind + data))
+    rows = b''.join(b'\x00' + b'\x88' * width for _ in range(height))
+    return (b'\x89PNG\r\n\x1a\n' + chunk(b'IHDR', struct.pack('>IIBBBBB', width, height, 8, 0, 0, 0, 0))
+            + chunk(b'IDAT', zlib.compress(rows)) + chunk(b'IEND', b''))
+
+
 # Playwright's sync API runs an event loop; the live server's ORM calls are still synchronous.
 os.environ.setdefault('DJANGO_ALLOW_ASYNC_UNSAFE', 'true')
 
@@ -195,15 +205,40 @@ class TestDataEntry(BrowserTestCase):
         self.assertNoJSErrors()
 
 
+class TestEntryValidation(BrowserTestCase):
+    def test_error_tooltip(self):
+        task = Task.objects.create(name='T', description='', editor=self.editor, language=self.lang,
+                                   source=self.source, view='GenericView', records=1)
+        self.login()
+        self.open(reverse('entry:detail', kwargs={'task_id': task.pk}))
+        self.page.click('button[name=submit]')  # empty row -> field errors
+        self.page.wait_for_load_state('networkidle')
+        self.page.hover('td.error .tip >> nth=0')
+        self.page.wait_for_selector('.tooltip')
+        self.assertIn('required', self.page.inner_text('.tooltip').lower())
+        self.assertNoJSErrors()
+
+
 class TestEntryWithImage(BrowserTestCase):
     def test_image_toolbar_sticks_and_zoomer_loads(self):
         task = Task.objects.create(
             name='Scan', description='', editor=self.editor, language=self.lang, source=self.source,
             image='data/2013-01/test.png', view='GenericView', records=40,
         )
+        # the live server doesn't serve media: answer image requests with a page-sized PNG
+        self.context.route('**/media/**', lambda route: route.fulfill(body=png(2000, 1500), content_type='image/png'))
         self.login()
         self.open(reverse('entry:detail', kwargs={'task_id': task.pk}))
-        self.assertGreater(self.page.locator('.zoomer').count(), 0)
+        self.page.wait_for_selector('.zoomer-zoom-in')
+        width = lambda: self.page.locator('.zoomer-image').bounding_box()['width']
+        before = width()
+        # zoomer zooms while the button is held down
+        self.page.hover('.zoomer-zoom-in')
+        self.page.mouse.down()
+        self.page.wait_for_timeout(500)
+        self.page.mouse.up()
+        self.page.wait_for_timeout(300)
+        self.assertGreater(width(), before)
         self.page.mouse.wheel(0, 3000)
         self.page.wait_for_timeout(300)
         self.assertLess(abs(self.page.locator('#scroller').bounding_box()['y']), 2)
