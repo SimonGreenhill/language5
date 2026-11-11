@@ -24,10 +24,19 @@
     </ul>
     
     
-    <p class="reference">
-        {{ object.reference }}
-    <p>
-    
+    {% if object.reference %}
+        <blockquote class="reference fs-5 border-start border-4 ps-3 my-4">
+            {{ object.reference }}
+        </blockquote>
+    {% endif %}
+    {% if object.bibtex %}
+        <p>
+            <a class="btn btn-sm btn-outline-secondary" href="{% url "source-bibtex" object.slug %}">
+                <i class="bi bi-download"></i> Download BibTeX
+            </a>
+        </p>
+    {% endif %}
+
     {% if attachments %}
         {% include "includes/filelist.html" %}
     {% endif %}

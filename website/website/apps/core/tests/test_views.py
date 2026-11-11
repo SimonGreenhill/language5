@@ -458,7 +458,7 @@ class Test_SourceIndex(BaseMixin, PaginatorTestMixin, TestCase):
         self.assertNotContains(response, 'Smith')
     
 
-class Test_SourceDetail(BaseMixin, PaginatorTestMixin):
+class Test_SourceDetail(BaseMixin, PaginatorTestMixin, TestCase):
     """Tests the source_detail view"""
     def setUp(self):
         super().setUp()
@@ -481,4 +481,21 @@ class Test_SourceDetail(BaseMixin, PaginatorTestMixin):
         response = self.client.get(self.url)
         self.assertContains(response, 'Smith')
         self.assertContains(response, '1991')
-    
+
+    def test_no_bibtex_link_without_bibtex(self):
+        response = self.client.get(self.url)
+        self.assertNotContains(response, 'Download BibTeX')
+        url = reverse('source-bibtex', kwargs={'slug': self.source1.slug})
+        self.assertEqual(self.client.get(url).status_code, 404)
+
+    def test_bibtex_download(self):
+        self.source1.bibtex = '@book{12345, title={Words}}'
+        self.source1.save()
+        url = reverse('source-bibtex', kwargs={'slug': self.source1.slug})
+        self.assertContains(self.client.get(self.url), url)
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response['Content-Type'], 'application/x-bibtex; charset=utf-8')
+        self.assertIn('filename="smith1991.bib"', response['Content-Disposition'])
+        self.assertEqual(response.content.decode(), '@book{smith1991, title={Words}}')
+

@@ -1,7 +1,9 @@
+import re
+
 from django.db.models import Count
 from django.conf import settings
-from django.http import Http404
-from django.shortcuts import render, redirect
+from django.http import Http404, HttpResponse
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import DetailView, TemplateView
 from django.core.paginator import EmptyPage, PageNotAnInteger
 
@@ -167,6 +169,17 @@ class SourceDetail(DetailView):
         
         return context
     
+
+def source_bibtex(request, slug):
+    """Download a source's BibTeX entry"""
+    source = get_object_or_404(Source, slug=slug)
+    if not source.bibtex:
+        raise Http404
+    bibtex = re.sub(r'^(\s*@\w+\s*\{)[^,]*,', rf'\g<1>{source.slug},', source.bibtex, count=1)
+    response = HttpResponse(bibtex, content_type='application/x-bibtex; charset=utf-8')
+    response['Content-Disposition'] = f'attachment; filename="{source.slug}.bib"'
+    return response
+
 
 class FamilyDetail(DetailView):
     """Family Detail"""

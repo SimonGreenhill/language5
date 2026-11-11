@@ -23,7 +23,7 @@ from website.apps.maps.resources import LanguageMapResource
 v1_api.register(LanguageMapResource())
 
 from website.apps.core.views import LanguageIndex, RobotsTxt
-from website.apps.core.views import SourceIndex, SourceDetail
+from website.apps.core.views import SourceIndex, SourceDetail, source_bibtex
 from website.apps.core.views import FamilyIndex, FamilyDetail
 from website.apps.core.views import language_detail, iso_lookup, glotto_lookup
 
@@ -56,6 +56,9 @@ urlpatterns = [
     # Language-Detail: Show the given language
     re_path(r'^language/(?P<language>[\w\d\-\.]+)$', language_detail, name="language-detail"),
     
+    # Source-BibTeX: Download the given source's BibTeX entry
+    re_path(r'^source/(?P<slug>[\w\d\-\.]+)\.bib$', source_bibtex, name="source-bibtex"),
+
     # Source-Detail: Show the given source
     re_path(r'^source/(?P<slug>[\w\d\-\.]+)$', SourceDetail.as_view(), name="source-detail"),
 
