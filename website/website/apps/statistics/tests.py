@@ -110,3 +110,19 @@ class Test_StatisticView(StatisticMixin, TestCase):
         self.assertTemplateUsed(self.response, 'statistics/details.html')
     
 
+
+
+class Test_FamilyChart(StatisticMixin, TestCase):
+    """Languages per family: sorted, top N, tail folded into 'Other', empty families dropped."""
+    def test_rows(self):
+        from website.apps.statistics.views import make_family_chart
+        fam2 = Family.objects.create(family='G', slug='g', editor=self.editor)
+        fam3 = Family.objects.create(family='H', slug='h', editor=self.editor)
+        Family.objects.create(family='Empty', slug='empty', editor=self.editor)
+        self.lang1.family.add(self.fam1, fam2)
+        self.lang2.family.add(fam2, fam3)
+        rows = make_family_chart(top=1)['rows']
+        self.assertEqual([(r['label'], r['count']) for r in rows], [('G', 2), ('Other (2 families)', 2)])
+        self.assertEqual(rows[0]['url'], '/family/g')
+        self.assertIsNone(rows[1]['url'])
+        self.assertEqual([r['fraction'] for r in rows], [1.0, 1.0])

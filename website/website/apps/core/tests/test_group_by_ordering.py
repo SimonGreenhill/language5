@@ -33,4 +33,4 @@ class TestGroupByOrdering(TestCase):
 
     def test_family_chart(self):
         from website.apps.statistics.views import make_family_chart
-        self.assertEqual(make_family_chart()['data']['x'], ['Alpha', 'Muon', 'Zeta'])
+        self.assertEqual([r['label'] for r in make_family_chart()['rows']], ['Alpha', 'Muon', 'Zeta'])

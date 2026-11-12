@@ -22,28 +22,53 @@
     {% endfor %}
     </div>
 
-    <div class="col-md-8 col-lg-6">
-        <h2> {{ family.label }} </h2>
-        <canvas class="chart" data-type="pie" data-source="{{ family.id }}"></canvas>
-        {{ family.data|json_script:family.id }}
+    <div class="col-lg-9">
+        <h2>{{ family.label }}</h2>
+        <table class="table table-borderless table-sm bar-chart">
+            <tbody>
+            {% for row in family.rows %}
+                <tr>
+                    <th scope="row">{% if row.url %}<a href="{{ row.url }}">{{ row.label }}</a>{% else %}<span class="text-body-secondary">{{ row.label }}</span>{% endif %}</th>
+                    <td><div class="bar{% if not row.url %} bar-other{% endif %}" style="width: calc((100% - 3.5rem) * {{ row.fraction|floatformat:"3u" }})"></div><span class="value">{{ row.count }}</span></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     </div>
 
     <script>
+    var teal = getComputedStyle(document.documentElement).getPropertyValue('--bs-primary').trim() || '#176273';
     document.querySelectorAll('canvas.chart').forEach(function (canvas) {
         var d = JSON.parse(document.getElementById(canvas.dataset.source).textContent);
-        var line = canvas.dataset.type === 'line';
         new Chart(canvas, {
-            type: canvas.dataset.type,
-            data: line
-                ? {datasets: [{label: d.name, data: d.x.map(function (x, i) { return {x: x, y: d.y[i]}; })}]}
-                : {labels: d.x, datasets: [{data: d.y}]},
+            type: 'line',
+            data: {datasets: [{
+                label: d.name, borderColor: teal, borderWidth: 2, pointRadius: 0,
+                data: d.x.map(function (x, i) { return {x: x, y: d.y[i]}; })
+            }]},
             options: {
                 responsive: true,
-                plugins: {legend: {display: !line}},
-                elements: {point: {radius: line ? 0 : 3}},
-                scales: line ? {x: {type: 'linear', ticks: {callback: function (v) {
-                    return new Date(v).toLocaleDateString('en-GB', {day: '2-digit', month: 'short', year: 'numeric'});
-                }}}} : {}
+                interaction: {mode: 'nearest', axis: 'x', intersect: false},
+                plugins: {legend: {display: false}, tooltip: {callbacks: {title: function (items) {
+                    return new Date(items[0].parsed.x).toLocaleDateString('en-GB', {month: 'short', year: 'numeric'});
+                }}}},
+                scales: {
+                    x: {
+                        type: 'linear', min: d.x[0], max: d.x[d.x.length - 1], grid: {display: false},
+                        // one tick every second 1 January, labelled with the year only
+                        afterBuildTicks: function (scale) {
+                            var ticks = [];
+                            for (var y = new Date(scale.min).getFullYear() + 1; ; y += 2) {
+                                var t = Date.UTC(y, 0, 1);
+                                if (t > scale.max) { break; }
+                                ticks.push({value: t});
+                            }
+                            scale.ticks = ticks;
+                        },
+                        ticks: {maxRotation: 0, callback: function (v) { return new Date(v).getUTCFullYear(); }}
+                    },
+                    y: {beginAtZero: true, grid: {color: 'rgba(0,0,0,.06)'}}
+                }
             }
         });
     });

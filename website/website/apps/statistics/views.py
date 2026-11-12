@@ -32,20 +32,20 @@ def get_xy(label, get_latest=False):
     return {'x': x, 'y': y, 'name': label}
 
 
-def make_family_chart():
-    x, y = [], []
-    for f in Family.objects.annotate(count=Count('language')).order_by('family'):
-        x.append(f.family)
-        y.append(f.count)
-        
-    return {
-        'label': 'Language Families',
-        'type': "pieChart",
-        'extra': {},
-        'id': 'chart_id_family',
-        'data': {'x': x, 'y': y},
-    }
-    
+def make_family_chart(top=15):
+    """Families by number of languages, largest first; the tail folded into 'Other'"""
+    families = list(
+        Family.objects.annotate(count=Count('language')).filter(count__gt=0).order_by('-count', 'family')
+    )
+    rows = [{'label': f.family, 'url': f.get_absolute_url(), 'count': f.count} for f in families[:top]]
+    rest = families[top:]
+    if rest:
+        rows.append({'label': f'Other ({len(rest)} families)', 'url': None, 'count': sum(f.count for f in rest)})
+    largest = max((r['count'] for r in rows), default=1)
+    for r in rows:
+        r['fraction'] = r['count'] / largest
+    return {'label': 'Languages per Family', 'rows': rows}
+
     
 
 def statistics(request):
