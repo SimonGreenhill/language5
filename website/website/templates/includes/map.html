@@ -1,6 +1,7 @@
 {% load static %}
 
-<div id="map" style="width: 400px; height: 200px"></div>
+<div id="map" class="language-map rounded" style="width: 100%; height: 300px"></div>
+{{ nearby|json_script:"map-nearby" }}
 
 <link media="all" href="{% static "css/leaflet.css" %}" type="text/css" rel="stylesheet" />
 <script src="{% static "js/jquery.js" %}" type="text/javascript"></script>
@@ -8,16 +9,34 @@
 
 <script>
     $(document).ready(function() {
-        var map = L.map('map', {minZoom: 1}).setView([{{ latitude }}, {{ longitude }}], 5);
-        var p = L.icon({
-            iconUrl: '{% static "img/orange-star.png" %}',
-            iconSize: [20, 20],
-            iconAnchor: [5, 5],
+        var here = [{{ latitude }}, {{ longitude }}];
+        var map = L.map('map', {minZoom: 4, maxZoom: 10, scrollWheelZoom: false, zoomSnap: 0.5})
+            .setView(here, 5.5);
+        map.attributionControl.setPrefix(false).addAttribution(
+            'Language data &copy; <a href="https://transnewguinea.org">TransNewGuinea.org</a>, land &copy; <a href="https://www.naturalearthdata.com/">Natural Earth</a>'
+        );
+
+        // land: flat teal, as on the home page map
+        fetch('{% static "data/land.geojson" %}').then(function (r) { return r.json(); }).then(function (land) {
+            L.geoJSON(land, {
+                interactive: false,
+                style: {fillColor: '#1f6e7e', fillOpacity: 1, color: '#e9f1f2', weight: 0.6}
+            }).addTo(map).bringToBack();
         });
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 18,
-            attribution: 'Language data &copy; <a href="https://transnewguinea.org">TransNewGuinea.org</a>, Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-        L.marker([{{ latitude }}, {{ longitude }}], {icon: p, interactive: false}).addTo(map);
+
+        // other TNG languages
+        JSON.parse(document.getElementById('map-nearby').textContent).forEach(function (l) {
+            L.circleMarker([l.lat, l.lng], {
+                radius: 3.5, weight: 0, fillColor: '#0b3d49', fillOpacity: 1
+            }).bindTooltip(l.name, {direction: 'top', offset: [0, -4]})
+              .on('click', function () { window.location = l.url; })
+              .addTo(map);
+        });
+
+        // this language
+        L.circleMarker(here, {
+            radius: 8, color: '#ffffff', weight: 2.5, fillColor: '#b8a48f', fillOpacity: 1
+        }).bindTooltip('{{ name|escapejs }}', {permanent: true, direction: 'right', offset: [10, 0], className: 'here-label'})
+          .addTo(map);
     });
 </script>

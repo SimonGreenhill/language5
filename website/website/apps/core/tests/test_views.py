@@ -200,7 +200,7 @@ class Test_LanguageDetail(BaseMixin, PaginatorTestMixin, TestCase):
     def test_alternate_names_shown_in_details(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'Also Known As:')
+        self.assertContains(response, 'Also known as')
         self.assertContains(response, 'Fudge')
     
 

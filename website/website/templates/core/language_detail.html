@@ -8,10 +8,6 @@
 
 
 {% block content %}
-    <div class="pb-2 mb-4 border-bottom">
-        <h1>Language: {{ language }}</h1>
-    </div>
-    
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
           <a href="{% url "index" %}">Home</a>
@@ -24,85 +20,84 @@
       </li>
     </ul>
     
-    <h2>Information:</h2>
-    
-    <p>
-        <strong>Glottocode: </strong>
-        <a href="{{ language|link_glottolog }}">{{ language.glottocode }}</a>
-        <br />
-        <strong>ISO 639: </strong>
-        <a href="{{ language|link_ethnologue }}">{{ language.isocode }}</a>
-    </p>
-    {% if alternatenames %}
-        <p>
-            <strong>Also Known As: </strong>
-            {% for name in alternatenames %}
-                {% if not forloop.first %}
-                  {% if forloop.last %} &amp; {% else %}, {% endif %}
-                {% endif %}
-                {{ name.name }}
-            {% endfor %}
-        </p>
-    {% endif %}
-    
-    {% if sources_used %}
-        <p>
-            <strong>Sources: </strong>
-            {% for source in sources_used %}
-                {% if not forloop.first %}
-                  {% if forloop.last %} &amp; {% else %}, {% endif %}
-                {% endif %}
-                <a href="{% url "source-detail" source.slug %}">{{ source }}</a>
-            {% endfor %}
-        </p>
-    {% endif %}
-    
-    <p> 
-        <strong>Classification: </strong> 
-        {{ language.classification }}
-    </p>
-    
-    <div class="row">
-      <div class="col-md-5">
-          <h2> Map: </h2>
-          {% if location %}
-              {% show_map location %}
-          {% else %}
-              <div class="alert alert-danger">Location Not Stored</div>
+    <div class="row gx-4 gy-3 mb-4 pb-4 border-bottom language-header">
+      <div class="col-lg-7">
+        <h1 class="display-5 fw-semibold mb-1">{{ language.language }}</h1>
+        {% if language.dialect %}
+          <p class="lead text-body-secondary mb-1">{{ language.dialect }} dialect</p>
+        {% endif %}
+        {% if alternatenames %}
+          <p class="text-body-secondary mb-2">
+            Also known as
+            {% for name in alternatenames %}{% if not forloop.first %}{% if forloop.last %} &amp; {% else %}, {% endif %}{% endif %}{{ name.name }}{% endfor %}
+          </p>
+        {% endif %}
+
+        {% if language.classification %}
+          <nav aria-label="Classification">
+            <ol class="breadcrumb classification mb-3">
+              {% with family=language.family.first %}
+              {% for node in language.classification|classification_nodes %}
+                <li class="breadcrumb-item">{% if forloop.first and family %}<a href="{{ family.get_absolute_url }}">{{ node }}</a>{% else %}{{ node }}{% endif %}</li>
+              {% endfor %}
+              {% endwith %}
+            </ol>
+          </nav>
+        {% endif %}
+
+        <div class="d-flex flex-wrap gap-2 mb-3 stats">
+          <span class="badge rounded-pill text-bg-primary">
+            <strong>{{ lexicon_table.paginator.count|default:0 }}</strong> words
+          </span>
+          <span class="badge rounded-pill text-bg-primary">
+            <strong>{{ sources_used|length }}</strong> source{{ sources_used|length|pluralize }}
+          </span>
+          {% if language.glottocode %}
+            <a class="badge rounded-pill text-bg-light border" href="{{ language|link_glottolog }}">
+              Glottolog <strong>{{ language.glottocode }}</strong> <i class="bi bi-box-arrow-up-right"></i>
+            </a>
           {% endif %}
+          {% if language.isocode %}
+            <a class="badge rounded-pill text-bg-light border" href="{{ language|link_ethnologue }}">
+              ISO 639-3 <strong>{{ language.isocode }}</strong> <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+          {% endif %}
+        </div>
+
+        {% if sources_used %}
+          <p class="mb-2">
+            <span class="text-body-secondary">Sources:</span>
+            {% for source in sources_used %}{% if not forloop.first %}{% if forloop.last %} &amp; {% else %}, {% endif %}{% endif %}<a href="{% url "source-detail" source.slug %}">{{ source }}</a>{% endfor %}
+          </p>
+        {% endif %}
+
+        {% if language.isocode or links %}
+          <p class="small mb-0">
+            <span class="text-body-secondary">See also:</span>
+            {% if language.isocode %}
+              <a href="{{ language|link_wikipedia }}">Wikipedia</a> ·
+              <a href="{{ language|link_olac }}">OLAC</a>{% if links %} ·{% endif %}
+            {% endif %}
+            {% for link in links %}<a href="{{ link.link }}">{{ link.description }}</a>{% if not forloop.last %} · {% endif %}{% endfor %}
+          </p>
+        {% endif %}
       </div>
-      <div class="col-md-5">
-          <h2> Resources: </h2>
-         
-          <ul>
-              {% if language.glottocode %}
-                  <li><a href="{{ language|link_glottolog }}">Glottolog page for {{ language.language }}</a></li>
-              {% else %}
-                  <li>Glottologue code unknown</li>
-              {% endif %}
-              {% if language.isocode %}
-                  <li><a href="{{ language|link_ethnologue }}">Ethnologue page for {{ language.language }}</a></li>
-                  <li><a href="{{ language|link_olac }}">Open Language Archives search for {{ language.language }}</a></li>
-                  <li><a href="{{ language|link_wikipedia }}">Wikipedia page for {{ language.language }}</a></li>
-                  <li><a href="{{ language|link_glottolog }}">Glottolog resources for {{ language.language }}</a></li>
-              {% endif %}
-        
-              {% if links %}
-                  {% for link in links %}
-                      <li><a href="{{ link.link }}">{{ link.description }}</a></li>
-                  {% endfor %}
-              {% endif %}
-              
-              {% if attachments %}
-                  {% include "includes/filelist.html" %}
-              {% endif %}
-          </ul>
+      <div class="col-lg-5">
+        {% if location %}
+          {% show_map location language %}
+        {% else %}
+          <div class="alert alert-secondary small mb-0">No location stored</div>
+        {% endif %}
       </div>
     </div>
-    
+
+    {% if attachments %}
+      {% include "includes/filelist.html" %}
+    {% endif %}
+
 
     {% ifinstalled "website.apps.lexicon" %}
-        <h2> Lexicon: </h2>
+        <h2 class="h4">Lexicon</h2>
         
         {% if lexicon_table %}
             {% render_table lexicon_table "table.html" %}

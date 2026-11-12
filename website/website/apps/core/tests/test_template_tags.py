@@ -44,7 +44,7 @@ class Test_Link_Ethnologue(LanguageMixin, TestCase):
 
 class Test_Link_Olac(LanguageMixin, TestCase):
     function = staticmethod(link_olac)
-    expected = "http://search.language-archives.org/search.html?q=aaa"
+    expected = "https://www.language-archives.org/language/aaa"
 
 
 class Test_Link_Glottolog(LanguageMixin, TestCase):

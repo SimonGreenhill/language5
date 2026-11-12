@@ -288,7 +288,8 @@ class TestPublicPages(BrowserTestCase):
 
     def test_language_page_minimap(self):
         self.open(reverse('language-detail', kwargs={'language': 'kuman'}))
-        self.page.wait_for_selector('#map .leaflet-marker-icon')
+        self.page.wait_for_selector('#map .here-label')
+        self.page.wait_for_selector('#map path[fill="#1f6e7e"]', state='attached')  # land layer loaded
         self.assertNoJSErrors()
 
     def test_mobile_menu(self):

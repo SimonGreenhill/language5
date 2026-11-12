@@ -23,7 +23,7 @@ class TestMapTilePolicy(SimpleTestCase):
 
     def test_tile_url(self):
         from django.template.loader import get_template
-        for name in ('includes/map.html', 'maps/map.html'):
+        for name in ('maps/map.html',):  # includes/map.html draws vector land, no tiles
             source = open(get_template(name).origin.name).read()
             with self.subTest(template=name):
                 self.assertIn("https://tile.openstreetmap.org/{z}/{x}/{y}.png", source)
