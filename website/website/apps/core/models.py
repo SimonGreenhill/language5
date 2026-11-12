@@ -91,7 +91,9 @@ class Family(TrackedModel):
         help_text="Language Family")
     slug = models.SlugField(max_length=64, unique=True,
         help_text="`Slug` for language family (for use in URLS)")
-    
+    glottocode = models.CharField(max_length=8, unique=True, null=True, blank=True,
+        help_text="Glottolog code of the top-level family (set by sync_families)")
+
     def __str__(self):
         return str(self.family)
         
