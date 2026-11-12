@@ -288,7 +288,14 @@ class Test_FamilyIndex(BaseMixin, PaginatorTestMixin, TestCase):
     def test_template_used(self):
         response = self.client.get(self.url)
         self.assertTemplateUsed(response, 'core/family_index.html')
-    
+
+    def test_glottocode_links_to_glottolog(self):
+        self.family1.glottocode = 'aust1307'
+        self.family1.save()
+        self.assertContains(
+            self.client.get(self.url),
+            '<a href="https://glottolog.org/resource/languoid/id/aust1307">aust1307</a>', html=True)
+
     def test_missing_trailing_slash(self):
         """index pages should redirect to trailing slash"""
         response = self.client.get(self.url[0:-1])

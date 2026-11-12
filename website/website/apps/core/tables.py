@@ -1,3 +1,4 @@
+from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 import django_tables2 as tables
 from django_tables2.utils import A  # alias for Accessor
@@ -76,12 +77,16 @@ class LanguageIndexTable(DataTable):
 class FamilyIndexTable(DataTable):
     """Family Listing"""
     family = tables.LinkColumn('family-detail', args=[A('slug')])
+    glottocode = tables.Column()
     count = tables.LinkColumn('family-detail', args=[A('slug')])
-    
+
+    def render_glottocode(self, value):
+        return format_html('<a href="https://glottolog.org/resource/languoid/id/{0}">{0}</a>', value)
+
     class Meta(DataTable.Meta):
         model = Family
         order_by = 'family' # default sorting
-        sequence = ('family', 'count')
+        sequence = ('family', 'glottocode', 'count')
         exclude = ('id', 'editor', 'added', 'slug')
     Meta.attrs['summary'] = 'Table of Language Families'
     
