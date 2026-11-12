@@ -28,7 +28,7 @@ class Command(BaseCommand):
                             help='families to delete without a redirect (their URLs 404)')
 
     def handle(self, *args, **options):
-        langs, paths = read_glottolog(options['cldf'])
+        langs, paths = self.glottolog = read_glottolog(options["cldf"])
         name = lambda gc: langs[gc]['Name']
         slug = lambda gc: slugify(name(gc))[:64]
 
@@ -125,3 +125,15 @@ class Command(BaseCommand):
 
         for lang in languages:
             lang.family.set([claimed[target[lang.pk]]] if lang.pk in target else [])
+
+        # each family's Glottolog subtree, for the coverage tree on family pages;
+        # update() skips reversion and the redirect signal
+        langs, paths = self.glottolog
+        trees = {gc: {} for gc in claimed}
+        for gc, row in langs.items():
+            lineage = paths.get(gc, [])
+            root = lineage[0] if lineage else gc
+            if root in trees:
+                trees[root][gc] = [row['Name'], row['Level'], lineage[-1] if lineage else None]
+        for gc, f in claimed.items():
+            Family.objects.filter(pk=f.pk).update(glottolog_tree=trees[gc])

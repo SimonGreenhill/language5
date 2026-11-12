@@ -348,7 +348,7 @@ class Test_FamilyIndex(BaseMixin, PaginatorTestMixin, TestCase):
         self.assertNotContains(response, 'Mayan')
     
         
-class Test_FamilyDetail(BaseMixin, PaginatorTestMixin, TestCase):
+class Test_FamilyDetail(BaseMixin, TestCase):
     """Tests the family_detail view"""
     def setUp(self):
         super().setUp()
@@ -382,6 +382,19 @@ class Test_FamilyDetail(BaseMixin, PaginatorTestMixin, TestCase):
         self.assertNotContains(response, 'Language2')
         self.assertNotContains(response, 'Language3')
         
+    def test_coverage_tree(self):
+        self.family1.glottolog_tree = {'aust1307': ['Austronesian', 'family', None],
+                                       'xxxx1234': ['Other Lang', 'language', 'aust1307']}
+        self.family1.save()
+        response = self.client.get(reverse('family-detail', kwargs={'slug': 'austronesian'}))
+        self.assertContains(response, 'Coverage by subgroup')
+        self.assertContains(response, 'Other Lang')
+        self.assertContains(response, 'Not placed in the Glottolog tree (1)')
+
+    def test_no_tree_without_glottolog_data(self):
+        response = self.client.get(reverse('family-detail', kwargs={'slug': 'mayan'}))
+        self.assertNotContains(response, 'Coverage by subgroup')
+
     def test_family_detail_2(self):
         url = reverse('family-detail', kwargs={'slug': 'mayan'})
         response = self.client.get(url)
@@ -389,22 +402,6 @@ class Test_FamilyDetail(BaseMixin, PaginatorTestMixin, TestCase):
         self.assertNotContains(response, 'Language1')
         self.assertContains(response, 'Language2')
         self.assertContains(response, 'Language3')
-        
-    def test_sorting(self):
-        url = reverse('family-detail', kwargs={'slug': 'mayan'})
-        response = self.client.get('%s?sort=language' % url)
-        for i, obj in enumerate([self.language2, self.language3]):
-            assert response.context['languages'].rows[i].record == obj
-            
-        response = self.client.get('%s?sort=-language' % url)
-        for i, obj in enumerate([self.language3, self.language2]):
-            assert response.context['languages'].rows[i].record == obj
-    
-    def test_sorting_invalid(self):
-        url = reverse('family-detail', kwargs={'slug': 'mayan'})
-        response = self.client.get(url, {'sort': 'sausage'})
-        self.assertRedirects(response, url, status_code=301)
-
 
 class Test_SourceIndex(BaseMixin, PaginatorTestMixin, TestCase):
     """Tests the source_index view"""

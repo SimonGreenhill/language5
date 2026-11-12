@@ -14,6 +14,7 @@ from django_tables2 import SingleTableView, RequestConfig
 from website.apps.core.crawler_trap import (
     CrawlerTrapMixin, canonical_sort_redirect, guard_page, list_seo_context
 )
+from website.apps.core.coverage import Tree
 from website.apps.core.tables import LanguageIndexTable
 from website.apps.core.tables import SourceIndexTable
 from website.apps.core.tables import FamilyIndexTable
@@ -123,7 +124,7 @@ class FamilyIndex(CrawlerTrapMixin, SingleTableView):
     table_pagination = {"per_page": 50}
     
     def get_queryset(self):
-        qset = Family.objects.annotate(count=Count('language')).order_by('family')
+        qset = Family.objects.defer('glottolog_tree').annotate(count=Count('language')).order_by('family')
         if 'subset' in self.request.GET:
             qset = qset.filter(family__istartswith=self.request.GET['subset'])
         return qset
@@ -198,35 +199,19 @@ def source_bibtex(request, slug):
 
 
 class FamilyDetail(DetailView):
-    """Family Detail"""
+    """Family Detail: the family's Glottolog tree with TNG coverage"""
     model = Family
     template_name = 'core/family_detail.html'
 
     def get(self, request, *args, **kwargs):
         guard_page(request)
-        redirect = canonical_sort_redirect(request, LanguageIndexTable)
-        if redirect is not None:
-            return redirect
         return super().get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(list_seo_context(self.request))
-        records = kwargs['object'].language_set.prefetch_related('family').annotate(
-            count=Count('lexicon')
-        ).order_by('language', 'dialect')
-        context['languages'] = LanguageIndexTable(records)
-        RequestConfig(self.request).configure(context['languages'])
-        
-        try:
-            context['languages'].paginate(
-                page=self.request.GET.get('page', 1), per_page=50
-            )
-        except EmptyPage:  # 404 on a empty page
-            raise Http404
-        except PageNotAnInteger:  # 404 on invalid page number
-            raise Http404
-        
+        records = kwargs['object'].language_set.annotate(count=Count('lexicon')).order_by('language', 'dialect')
+        context['tree'] = Tree(kwargs['object'].glottolog_tree, records)
         return context
 
 

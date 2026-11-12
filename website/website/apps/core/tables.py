@@ -91,6 +91,6 @@ class FamilyIndexTable(DataTable):
         model = Family
         order_by = 'family' # default sorting
         sequence = ('family', 'glottocode', 'count')
-        exclude = ('id', 'editor', 'added', 'slug')
+        exclude = ('id', 'editor', 'added', 'slug', 'glottolog_tree')
     Meta.attrs['summary'] = 'Table of Language Families'
     

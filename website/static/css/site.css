@@ -65,3 +65,26 @@ td.error { background: var(--bs-danger-bg-subtle); }
 .search-list li { padding: .3rem 0; border-bottom: 1px solid var(--bs-border-color-translucent); }
 .search-list li span { margin-left: .5rem; }
 .search-lexicon .entry { font-size: 1.05em; }
+
+/* family page: coverage tree */
+.coverage summary { list-style: none; cursor: pointer; }
+.coverage summary::-webkit-details-marker { display: none; }
+.cov-row { display: grid; grid-template-columns: 1fr 10rem 6rem; gap: .5rem; padding: 2px 0; border-bottom: 1px solid #eee; }
+.cov-head { font-weight: 600; border-bottom: 2px solid #ccc; }
+.cov-name { padding-left: calc(var(--d, 0) * 1.2rem); }
+.cov-lang .cov-name { padding-left: calc(var(--d, 0) * 1.2rem + 1rem); }
+.cov-num { text-align: right; font-variant-numeric: tabular-nums; }
+.cov-clade { font-weight: 600; background: #f6f8f8; }
+.cov-clade:hover { background: #e8f1f0; }
+.cov-glang { font-weight: 400; }
+.cov-clade .cov-name::before { content: "▸ "; color: #999; }
+details[open] > summary .cov-clade .cov-name::before, details[open] > summary.cov-clade .cov-name::before { content: "▾ "; }
+.cov-missing, .cov-missing a, .cov-empty a { color: #aaa; }
+.cov-code { color: #999; font-size: .85em; font-weight: 400; }
+.cov-tag { font-size: .75em; background: #eee; border-radius: 3px; padding: 0 4px; color: #666; font-weight: 400; }
+.cov-bar { display: inline-block; width: 4rem; height: 6px; margin-left: .5rem; background: #e6e6e6; border-radius: 3px; overflow: hidden; vertical-align: middle; }
+.cov-bar i { display: block; height: 100%; background: #2a9d8f; }
+.pill { display: inline-block; min-width: 3.2rem; padding: 0 6px; border-radius: 4px; text-align: right; font-weight: 400; }
+.b0 { background: #eee; color: #999; } .b1 { background: #fde2d4; color: #7a2e0b; } .b2 { background: #cdeae6; color: #14514c; }
+.b3 { background: #6cc0b4; color: #0b3532; } .b4 { background: #1f7a70; color: #fff; }
+.coverage p .pill { min-width: 0; text-align: center; }

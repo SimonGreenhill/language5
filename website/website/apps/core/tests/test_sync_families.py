@@ -115,6 +115,19 @@ class TestSyncFamilies(TestCase):
         self.assertFalse(Family.objects.filter(slug='loser').exists())
         self.assertEqual(Redirect.objects.get(old_path='/family/loser').new_path, '/family/family-a')
 
+    def test_stores_glottolog_tree(self):
+        self.run_cmd('--apply')
+        self.assertEqual(Family.objects.get(slug='family-a').glottolog_tree, {
+            'fama1234': ['Family A', 'family', None],
+            'suba1234': ['Sub A', 'family', 'fama1234'],
+            'lana1234': ['Lang A', 'language', 'suba1234'],
+            'lanb1234': ['Lang B', 'language', 'fama1234'],
+        })
+        self.assertEqual(Family.objects.get(slug='isolate-x').glottolog_tree, {
+            'isol1234': ['Isolate X', 'language', None],
+            'isod1234': ['Isolate X Dialect', 'dialect', 'isol1234'],
+        })
+
     def test_rerun_is_noop(self):
         self.run_cmd('--apply')
         out = self.run_cmd('--apply')

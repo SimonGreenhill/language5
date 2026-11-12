@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load render_table from django_tables2 %}
 
 {% block title %}{{ object.family }}{% endblock %}
 
@@ -20,10 +19,23 @@
     
     <h1 class="mb-4">{{ object.family }} <small class="text-body-secondary fs-5">language family</small></h1>
 
-    {% if languages %}
-        {% render_table languages "table.html" %}
-    {% else %}
+    {% if tree.root %}
+    <section class="coverage mb-5">
+        <h2 class="h4">Coverage by subgroup</h2>
+        <p class="text-body-secondary small mb-2">
+            Glottolog classification of the family. Grey entries have no data here yet.
+            Items per entry: {{ tree.legend }}
+        </p>
+        <div class="cov-row cov-head"><span>Subgroup / language</span><span class="cov-num">Languages with data</span><span class="cov-num">Items</span></div>
+        {{ tree.html }}
+    </section>
+    {% endif %}
+
+    {% if tree.unplaced %}
+    <details class="coverage"{% if not tree.root %} open{% endif %}><summary class="cov-row cov-clade"><span class="cov-name">{% if tree.root %}Not placed in the Glottolog tree{% else %}Languages{% endif %} ({{ tree.unplaced|length }})</span></summary>
+        {% for lang in tree.unplaced %}<div class="cov-row cov-lang" style="--d:1"><span class="cov-name"><a href="{{ lang.get_absolute_url }}">{{ lang }}</a> <span class="cov-code">{{ lang.glottocode|default:"no glottocode" }}</span></span><span></span><span class="cov-num">{{ lang.count }}</span></div>{% endfor %}
+    </details>
+    {% elif not tree.root %}
         <p class="error">No results found!</p>
     {% endif %}
-    
 {% endblock %}
