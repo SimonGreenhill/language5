@@ -26,7 +26,8 @@ class TestMaps(SimpleTestCase):
         for name in ('includes/map.html', 'maps/map.html'):
             source = open(get_template(name).origin.name).read()
             with self.subTest(template=name):
-                self.assertIn('data/land.geojson', source)
+                self.assertIn('data/land.js', source)
+                self.assertNotIn('fetch(', source)  # static files may be on another origin (no CORS)
                 self.assertIn('naturalearthdata.com', source)
                 self.assertNotIn('tile.openstreetmap.org', source)
 

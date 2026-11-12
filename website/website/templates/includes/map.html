@@ -6,6 +6,7 @@
 <link media="all" href="{% static "css/leaflet.css" %}" type="text/css" rel="stylesheet" />
 <script src="{% static "js/jquery.js" %}" type="text/javascript"></script>
 <script src="{% static "js/leaflet.js" %}" type="text/javascript"></script>
+    <script src="{% static "data/land.js" %}" type="text/javascript"></script>
 
 <script>
     $(document).ready(function() {
@@ -17,12 +18,10 @@
         );
 
         // land: flat teal, as on the home page map
-        fetch('{% static "data/land.geojson" %}').then(function (r) { return r.json(); }).then(function (land) {
-            L.geoJSON(land, {
-                interactive: false,
-                style: {fillColor: '#1f6e7e', fillOpacity: 1, color: '#e9f1f2', weight: 0.6}
-            }).addTo(map).bringToBack();
-        });
+        L.geoJSON(window.TNG_LAND, {
+            interactive: false,
+            style: {fillColor: '#1f6e7e', fillOpacity: 1, color: '#e9f1f2', weight: 0.6}
+        }).addTo(map).bringToBack();
 
         // other TNG languages
         JSON.parse(document.getElementById('map-nearby').textContent).forEach(function (l) {
