@@ -40,5 +40,6 @@ td.error { background: var(--bs-danger-bg-subtle); }
 .language-header .stats .badge { font-size: .9rem; font-weight: 400; padding: .45em .9em; }
 .language-header .stats a.badge { text-decoration: none; }
 /* language page map: flat land on white, as on the home page */
-.language-map.leaflet-container { background: #fff; }
+.language-map.leaflet-container, .flat-map.leaflet-container { background: #fff; }
+.map-dot { background: #e3cfb4; border: 1px solid #0b3d49; border-radius: 50%; }
 .language-map .here-label { font-weight: 600; }

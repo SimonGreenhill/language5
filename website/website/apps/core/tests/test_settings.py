@@ -14,20 +14,21 @@ class TestSettings(SimpleTestCase):
             self.assertIn(name, template)
 
 
-class TestMapTilePolicy(SimpleTestCase):
-    """OSM tile usage policy: send a Referer, use the https tile URL, attribute OSM."""
+class TestMaps(SimpleTestCase):
+    """Maps draw Natural Earth land locally (no third-party tiles) and attribute it."""
 
     def test_referrer_sent_cross_origin(self):
         from django.conf import settings
         self.assertEqual(settings.SECURE_REFERRER_POLICY, 'strict-origin-when-cross-origin')
 
-    def test_tile_url(self):
+    def test_land_layer(self):
         from django.template.loader import get_template
-        for name in ('maps/map.html',):  # includes/map.html draws vector land, no tiles
+        for name in ('includes/map.html', 'maps/map.html'):
             source = open(get_template(name).origin.name).read()
             with self.subTest(template=name):
-                self.assertIn("https://tile.openstreetmap.org/{z}/{x}/{y}.png", source)
-                self.assertIn("openstreetmap.org/copyright", source)
+                self.assertIn('data/land.geojson', source)
+                self.assertIn('naturalearthdata.com', source)
+                self.assertNotIn('tile.openstreetmap.org', source)
 
 
 class TestLogging(SimpleTestCase):

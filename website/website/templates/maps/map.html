@@ -36,23 +36,20 @@
         <h1>{% block pageheader %}{% endblock %}</h1>
     </div>
     
-    <div id="map" style="width: 100%; height: 70vh; min-height: 400px"></div>
-    
+    <div id="map" class="flat-map" style="width: 100%; height: 70vh; min-height: 400px"></div>
+
     <script>
         $(document).ready(function() {
             var map = L.map('map', {
                 fullscreenControl: true,
-                minZoom: 1,
+                minZoom: 4,
+                maxZoom: 12,
                 fullscreenControlOptions: {
                   position: 'topleft'
               }
             }).setView([-5.3, 141.0], 5);
             var oms = new OverlappingMarkerSpiderfier(map);
-            var p = L.icon({
-                iconUrl: '{% static "img/orange-star.png" %}',
-                iconSize: [10, 10],
-                iconAnchor: [5, 5]
-            });
+            var p = L.divIcon({className: 'map-dot', iconSize: [8, 8]});
             // labels: on hover when crowded, permanent when zoomed in or few markers
             var labelled = [];
             function addMarker(lat, lng, text) {
@@ -74,10 +71,16 @@
                 div.textContent = text;
                 return div.innerHTML;
             }
-            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 18,
-                attribution: 'Language data &copy; <a href="https://transnewguinea.org">TransNewGuinea.org</a>, Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
+            // flat teal land on white, as on the home page map
+            map.attributionControl.setPrefix(false).addAttribution(
+                'Language data &copy; <a href="https://transnewguinea.org">TransNewGuinea.org</a>, land &copy; <a href="https://www.naturalearthdata.com/">Natural Earth</a>'
+            );
+            fetch('{% static "data/land.geojson" %}').then(function (r) { return r.json(); }).then(function (land) {
+                L.geoJSON(land, {
+                    interactive: false,
+                    style: {fillColor: '#1f6e7e', fillOpacity: 1, color: '#e9f1f2', weight: 0.6}
+                }).addTo(map).bringToBack();
+            });
             {% block records %}{% endblock %}
             updateLabels();
         });
