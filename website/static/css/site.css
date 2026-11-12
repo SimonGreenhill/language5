@@ -50,3 +50,10 @@ td.error { background: var(--bs-danger-bg-subtle); }
 .bar-chart .bar-other { background: var(--bs-secondary-bg); }
 .bar-chart .value { margin-left: .4rem; font-variant-numeric: tabular-nums; color: var(--bs-secondary-color); }
 .bar-chart th a { font-weight: 400; }
+/* home page */
+.home-stats a { display: block; text-decoration: none; }
+.home-stats .value { display: block; font-size: 1.6rem; font-weight: 600; line-height: 1.1; color: var(--bs-primary); font-variant-numeric: tabular-nums; }
+.home-stats .label { display: block; font-size: .8rem; color: var(--bs-secondary-color); text-transform: uppercase; letter-spacing: .04em; }
+.home-card { transition: border-color .15s, box-shadow .15s; }
+.home-card:hover { border-color: var(--bs-primary); box-shadow: 0 .25rem .75rem rgba(23, 98, 115, .12); text-decoration: none; }
+.home-card .card-title { color: var(--bs-primary); }

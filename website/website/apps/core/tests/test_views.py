@@ -506,3 +506,14 @@ class Test_SourceDetail(BaseMixin, PaginatorTestMixin, TestCase):
         self.assertIn('filename="smith1991.bib"', response['Content-Disposition'])
         self.assertEqual(response.content.decode(), '@book{smith1991, title={Words}}')
 
+
+
+class Test_Index(BaseMixin, TestCase):
+    """Home page shows live counts linking to the indexes"""
+    def test_stats(self):
+        response = self.client.get(reverse('index'))
+        self.assertEqual(response.status_code, 200)
+        stats = {label: (value, url) for value, label, url in response.context['stats']}
+        self.assertEqual(stats['languages'], (Language.objects.count(), 'language-index'))
+        self.assertEqual(stats['sources'], (2, 'source-index'))
+        self.assertContains(response, f'href="{reverse("source-index")}"')

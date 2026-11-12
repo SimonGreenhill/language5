@@ -23,6 +23,22 @@ from website.apps.lexicon.tables import LanguageLexiconEditTable
 from website.apps.lexicon.tables import SourceLexiconEditTable
 
 
+class Index(TemplateView):
+    """Home page, with headline counts"""
+    template_name = 'index.html'
+
+    def get_context_data(self, **kwargs):
+        from website.apps.lexicon.models import Lexicon
+        context = super().get_context_data(**kwargs)
+        context['stats'] = [
+            (Language.objects.count(), 'languages', 'language-index'),
+            (Lexicon.objects.count(), 'lexical items', 'word-index'),
+            (Source.objects.count(), 'sources', 'source-index'),
+            (Family.objects.count(), 'families', 'family-index'),
+        ]
+        return context
+
+
 class RobotsTxt(TemplateView):
     """simple robots.txt implementation"""
     template_name = "robots.txt"

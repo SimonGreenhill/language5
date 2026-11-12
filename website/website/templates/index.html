@@ -1,68 +1,92 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static humanize %}
 
 {% block title %} {{ SITE_NAME }} {% endblock %}
 
 {% block head %}
 <style>
-  .map { margin: 10px 0 25px; text-align: center; }
-  .map img { max-width: 100%; height: auto; }
-  .map figcaption { color: #777; font-size: 13px; margin-top: 4px; }
   [hidden] { display: none !important; }
 </style>
 {% endblock %}
 
 {% block content %}
-    
-    <div class="pb-2 mb-4 border-bottom">
-        <h1>{{ SITE_NAME }}</h1> 
-    </div>
-    
-    <div class="col-md-8">
-        <p class="lead">
-            Welcome to the {{ SITE_NAME }}, a {{ SITE_DESCRIPTION }}.
-        </p>
-        
-        <figure class="map">
-            <img src="{% static "img/map-600.png" %}" width="600" height="304" alt="Map of the Trans-New Guinea languages" />
-            <figcaption>Map of the Trans-New Guinea Languages.</figcaption>
-        </figure>
 
-        <p>
-            {{ SITE_NAME }} is a database of the Trans-New Guinea language family and
-            friends. The Trans-New Guinea language family currently occupies most of 
-            the interior of New Guinea. This family is possibly the third largest in 
-            the world with 400 languages and is tentatively thought to have originated 
-            with root-crop agriculture around 10,000 years ago. However, vanishingly little 
-            is known about this family’s history. 
-        </p>
-        <p>
-            This project aims to reveal the prehistory of New Guinea using the
-            linguistic comparative method combined with novel
-            computational phylogenetic methods. 
-        </p>
-    
-        <p>
-            This website is run by <a href="https://simon.net.nz">Simon Greenhill</a>.
-        </p>
-    
-        <p>
-            Funding for this project was provided by an <a href="http://www.arc.gov.au/">Australian 
-            Research Council</a> &laquo;DECRA&raquo; Discovery Grant 
-            <em>Discovering Trans-New Guinea: Revealing the prehistory of New Guinea</em>
-            (#DE120101954) to Simon Greenhill.
-        </p>
+    <section class="row align-items-center gx-4 gy-3 pb-4 mb-4 border-bottom home-hero">
+        <div class="col-lg-6">
+            <h1 class="display-5 fw-semibold mb-3">The languages of New Guinea</h1>
+            <p class="lead mb-4">
+                {{ SITE_NAME }} is a database of wordlists for the Trans-New Guinea
+                language family and its neighbours.
+            </p>
+            <form class="d-flex gap-2 mb-4" role="search" action="{% url "watson:search" %}">
+                <input name="q" class="form-control form-control-lg" type="search"
+                       placeholder="Search languages, words, sources…" aria-label="Search the database">
+                <button class="btn btn-primary btn-lg" type="submit">Search</button>
+            </form>
+            <div class="row row-cols-2 row-cols-sm-4 g-2 home-stats">
+                {% for value, label, url in stats %}
+                    <div class="col">
+                        <a href="{% url url %}">
+                            <span class="value">{{ value|intcomma }}</span>
+                            <span class="label">{{ label }}</span>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-lg-6 text-center">
+            <a href="{% url "maps:language-map" %}" title="Open the language map">
+                <img class="img-fluid" src="{% static "img/map-600.png" %}" width="600" height="304"
+                     alt="Map of the Trans-New Guinea languages" />
+            </a>
+        </div>
+    </section>
 
-        <h4>Citation:</h4>
-        <p>If you find this project useful in your work, please cite:</p>
-        <blockquote id="citation">
-            Greenhill SJ. 2015. <a href="https://doi.org/10.1371/journal.pone.0141563">TransNewGuinea.org: An Online Database of New Guinea Languages</a>. <i>PLoS ONE</i> 10(10): e0141563.
-        </blockquote>
-        <p>
-            <button type="button" class="btn btn-sm btn-outline-secondary" data-copy="citation">Copy citation</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary" data-copy="bibtex">Copy BibTeX</button>
-        </p>
-        <pre id="bibtex" hidden>@article{greenhill2015,
+    <section class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 gx-4 gy-3 mb-4 home-cards">
+        {% url "language-index" as u %}{% include "includes/home_card.html" with url=u icon="translate" title="Languages" text="Browse every language and dialect by name, family, ISO or Glottolog code." %}
+        {% url "maps:language-map" as u %}{% include "includes/home_card.html" with url=u icon="map" title="Map" text="See where each language is spoken, and map any word across the region." %}
+        {% url "cognacy:index" as u %}{% include "includes/home_card.html" with url=u icon="diagram-3" title="Cognate sets" text="Explore words grouped into cognate sets and their reconstructed protoforms." %}
+        {% include "includes/home_card.html" with url="/api/v1/" icon="code-slash" title="Data" text="Access languages, sources, words and lexical items through the JSON API." %}
+    </section>
+
+    <section class="row gx-4 gy-4">
+        <div class="col-lg-7">
+            <h2 class="h4">About</h2>
+            <p>
+                The Trans-New Guinea language family currently occupies most of
+                the interior of New Guinea. This family is possibly the third largest in
+                the world with 400 languages and is tentatively thought to have originated
+                with root-crop agriculture around 10,000 years ago. However, vanishingly little
+                is known about this family’s history.
+            </p>
+            <p>
+                This project aims to reveal the prehistory of New Guinea using the
+                linguistic comparative method combined with novel computational
+                phylogenetic methods. The website is run by
+                <a href="https://simon.net.nz">Simon Greenhill</a>.
+            </p>
+            <p class="small text-body-secondary">
+                Funding was provided by an <a href="http://www.arc.gov.au/">Australian
+                Research Council</a> &laquo;DECRA&raquo; Discovery Grant
+                <em>Discovering Trans-New Guinea: Revealing the prehistory of New Guinea</em>
+                (#DE120101954) to Simon Greenhill.
+            </p>
+        </div>
+        <div class="col-lg-5">
+            <div class="card bg-body-tertiary border-0">
+                <div class="card-body">
+                    <h2 class="h4">Cite this database</h2>
+                    <blockquote id="citation" class="mb-3">
+                        Greenhill SJ. 2015. <a href="https://doi.org/10.1371/journal.pone.0141563">TransNewGuinea.org: An Online Database of New Guinea Languages</a>. <i>PLoS ONE</i> 10(10): e0141563.
+                    </blockquote>
+                    <button type="button" class="btn btn-sm btn-outline-secondary" data-copy="citation">Copy citation</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary" data-copy="bibtex">Copy BibTeX</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <pre id="bibtex" hidden>@article{greenhill2015,
   author  = {Greenhill, Simon J.},
   title   = {{TransNewGuinea.org}: An Online Database of New Guinea Languages},
   journal = {PLoS ONE},
@@ -72,24 +96,18 @@
   pages   = {e0141563},
   doi     = {10.1371/journal.pone.0141563}
 }</pre>
-        <script>
-        document.querySelectorAll('[data-copy]').forEach(function (button) {
-            button.addEventListener('click', function () {
-                var text = document.getElementById(button.dataset.copy).textContent.trim();
-                if (button.dataset.copy === 'citation') { text = text.replace(/\s+/g, ' '); }
-                navigator.clipboard.writeText(text).then(function () {
-                    var label = button.textContent;
-                    button.textContent = 'Copied';
-                    setTimeout(function () { button.textContent = label; }, 1500);
-                });
+    <script>
+    document.querySelectorAll('[data-copy]').forEach(function (button) {
+        button.addEventListener('click', function () {
+            var text = document.getElementById(button.dataset.copy).textContent.trim();
+            if (button.dataset.copy === 'citation') { text = text.replace(/\s+/g, ' '); }
+            navigator.clipboard.writeText(text).then(function () {
+                var label = button.textContent;
+                button.textContent = 'Copied';
+                setTimeout(function () { button.textContent = label; }, 1500);
             });
         });
-        </script>
-
-    </div>
-
-    
-
-    
+    });
+    </script>
 
 {% endblock %}

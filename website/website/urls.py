@@ -22,7 +22,7 @@ v1_api.register(LexiconResource())
 from website.apps.maps.resources import LanguageMapResource
 v1_api.register(LanguageMapResource())
 
-from website.apps.core.views import LanguageIndex, RobotsTxt
+from website.apps.core.views import Index, LanguageIndex, RobotsTxt
 from website.apps.core.views import SourceIndex, SourceDetail, source_bibtex
 from website.apps.core.views import FamilyIndex, FamilyDetail
 from website.apps.core.views import language_detail, iso_lookup, glotto_lookup
@@ -35,7 +35,7 @@ from website.sitemap import sitemaps
 
 urlpatterns = [
     # Main Page / Home
-    path('', TemplateView.as_view(template_name="index.html"), name="index"),
+    path("", Index.as_view(), name="index"),
     
     # About
     re_path(r'^about', TemplateView.as_view(template_name="about.html"), name="about"),
