@@ -15,7 +15,7 @@
     {% endifinstalled %}
     <li class="nav-header">Search</li>
     <li>
-        <form class="d-flex gap-1 px-2" role="search" action="{% url "watson:search" %}">
+        <form class="d-flex gap-1 px-2" role="search" action="{% url "search" %}">
             <input name="q" class="form-control form-control-sm" value="{{ request.GET.q }}" aria-label="Search">
             <button type="submit" class="btn btn-outline-secondary btn-sm">&raquo;</button>
         </form>

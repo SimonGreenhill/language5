@@ -23,6 +23,7 @@ from website.apps.maps.resources import LanguageMapResource
 v1_api.register(LanguageMapResource())
 
 from website.apps.core.views import Index, LanguageIndex, RobotsTxt
+from website.apps.core.search import search
 from website.apps.core.views import SourceIndex, SourceDetail, source_bibtex
 from website.apps.core.views import FamilyIndex, FamilyDetail
 from website.apps.core.views import language_detail, iso_lookup, glotto_lookup
@@ -70,7 +71,7 @@ urlpatterns = [
     re_path(r'^glotto/(?P<glotto>\w{8})$', glotto_lookup, name="glotto-lookup"),
 
     # search page
-    path("search/", include('watson.urls', namespace='watson'), {'paginate_by': 50, }),
+    path("search/", search, name="search"),
     
     # Sitemap
     path('sitemap.xml', cache_page(86400)(sitemap_views.index),

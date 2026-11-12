@@ -57,3 +57,10 @@ td.error { background: var(--bs-danger-bg-subtle); }
 .home-card { transition: border-color .15s, box-shadow .15s; }
 .home-card:hover { border-color: var(--bs-primary); box-shadow: 0 .25rem .75rem rgba(23, 98, 115, .12); text-decoration: none; }
 .home-card .card-title { color: var(--bs-primary); }
+/* search */
+.search-page-form { max-width: 48rem; }
+.search-tabs .nav-link .badge { background: var(--bs-secondary-bg); color: var(--bs-body-color); font-weight: 500; }
+.search-tabs .nav-link.active .badge { background: rgba(255,255,255,.25); color: #fff; }
+.search-list li { padding: .3rem 0; border-bottom: 1px solid var(--bs-border-color-translucent); }
+.search-list li span { margin-left: .5rem; }
+.search-lexicon .entry { font-size: 1.05em; }

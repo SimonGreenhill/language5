@@ -1,0 +1,37 @@
+{% if group.key == "lexicon" %}
+    <table class="table table-sm align-middle search-lexicon">
+        <thead><tr><th>Entry</th><th>Meaning</th><th>Language</th><th>Source</th></tr></thead>
+        <tbody>
+        {% for lex in group.results %}
+            <tr>
+                <td class="entry">{% if lex.exact == 0 %}<strong>{% endif %}{{ lex.entry }}{% if lex.exact == 0 %}</strong>{% endif %}</td>
+                <td><a href="{% url "word-detail" lex.word.slug %}">{{ lex.word }}</a></td>
+                <td><a href="{% url "language-detail" lex.language.slug %}">{{ lex.language }}</a></td>
+                <td><a href="{% url "source-detail" lex.source.slug %}">{{ lex.source }}</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <ul class="list-unstyled search-list">
+    {% for obj in group.results %}
+        <li>
+            {% if group.key == "names" %}
+                <a href="{{ obj.language.get_absolute_url }}">{{ obj.language }}</a>
+                <span class="text-body-secondary">also known as {{ obj.name }}</span>
+            {% elif group.key == "languages" %}
+                <a href="{{ obj.get_absolute_url }}">{{ obj }}</a>
+                {% if obj.classification %}<span class="text-body-secondary small">{{ obj.classification }}</span>{% endif %}
+            {% elif group.key == "words" %}
+                <a href="{{ obj.get_absolute_url }}">{{ obj }}</a>
+                {% if obj.full and obj.full != obj.word %}<span class="text-body-secondary small">{{ obj.full }}</span>{% endif %}
+            {% elif group.key == "sources" %}
+                <a href="{{ obj.get_absolute_url }}">{{ obj }}</a>
+                {% if obj.reference %}<span class="text-body-secondary small">{{ obj.reference|truncatechars:140 }}</span>{% endif %}
+            {% else %}
+                <a href="{{ obj.get_absolute_url }}">{{ obj }}</a>
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}

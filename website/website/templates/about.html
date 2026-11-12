@@ -1,73 +1,85 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %} 
-    About {{ SITE_NAME }} 
-{% endblock %}
+{% block title %}About {{ SITE_NAME }}{% endblock %}
 
 {% block content %}
-    
-    <div class="pb-2 mb-4 border-bottom">
-        <h1>About {{ SITE_NAME }}</h1>
-    </div>
-    
-    <p>
-        This website is run by <a href="https://simon.net.nz">Simon Greenhill</a>.
-    </p>
-    
-    <p>
-        Funding for this project was provided by an <a href="http://www.arc.gov.au/">Australian 
-        Research Council</a> &laquo;DECRA&raquo; Discovery Grant 
-        <em>Discovering Trans-New Guinea: Revealing the prehistory of New Guinea</em>
-        (#DE120101954) to Simon Greenhill.
-    </p>
-    
-    
-    <h2>Colophon &para;</h2>
-    
-    <p>{{ SITE_NAME }} has made great use of the wonderful open-source
-    web-development ecosystem. Key technologies that have enabled this website
-    are:
-    </p>
-    
-    <table class="table align-middle">
-        <tr>
-            <td class="text-center" style="width: 140px"><a href="https://home.unicode.org/"><img src="{% static "img/unicode.png" %}" width="100" alt="Unicode" title="Unicode" /></a></td>
-            <td>All data are encoded according to the Unicode&reg; Standard.</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="width: 140px"><a href="https://www.python.org/"><strong>Python</strong></a></td>
-            <td>The Python programming language.</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="width: 140px"><a href="https://www.djangoproject.com/"><img src="{% static "img/django.gif" %}" width="100" alt="Django" title="Django" /></a></td>
-            <td>Django, a high-level Python web framework.</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="width: 140px"><a href="https://www.postgresql.org/"><img src="{% static "img/postgresql.gif" %}" width="100" alt="PostgreSQL" title="PostgreSQL" /></a></td>
-            <td>The PostgreSQL open-source relational database.</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="width: 140px"><a href="https://getbootstrap.com/"><img src="{% static "img/bootstrap.png" %}" width="100" alt="Bootstrap" title="Bootstrap" /></a></td>
-            <td>Bootstrap, for layout and interface components.</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="width: 140px"><a href="https://jquery.com/"><img src="{% static "img/jquery.png" %}" width="100" alt="jQuery" title="jQuery" /></a></td>
-            <td>The jQuery JavaScript library.</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="width: 140px"><a href="https://leafletjs.com/"><img src="{% static "img/leaflet.png" %}" width="100" alt="Leaflet" title="Leaflet" /></a></td>
-            <td>Leaflet, for the interactive maps.</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="width: 140px"><a href="https://www.openstreetmap.org/copyright"><strong>OpenStreetMap</strong></a></td>
-            <td>Map tiles &copy; OpenStreetMap contributors.</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="width: 140px"><a href="https://www.chartjs.org/"><strong>Chart.js</strong></a></td>
-            <td>Chart.js, for the statistics charts.</td>
-        </tr>
-    </table>
-    
+    <div class="about">
+    <h1 class="display-6 fw-semibold mb-4">About {{ SITE_NAME }}</h1>
 
+    <div class="row gx-4 gy-4">
+        <div class="col-lg-8">
+            <p class="lead">
+                {{ SITE_NAME }} is a database of wordlists for the Trans-New Guinea language
+                family and its neighbours, built to study the prehistory of New Guinea with the
+                comparative method and computational phylogenetics.
+            </p>
+
+            <h2 class="h4 mt-4">The data</h2>
+            <ul>
+                <li><strong>Wordlists</strong> are transcribed from
+                    <a href="{% url "source-index" %}">sources</a>. Every lexical item records its source,
+                    and each source page has a BibTeX download.</li>
+                <li><strong>Meanings</strong> are standardised to a common list of
+                    <a href="{% url "word-index" %}">words</a>, so forms can be compared across languages.
+                    The original gloss is kept where it differs.</li>
+                <li><strong>Classifications and families</strong> follow
+                    <a href="https://glottolog.org/">Glottolog</a> and are updated with each Glottolog release.</li>
+                <li><strong>Locations</strong> on the <a href="{% url "maps:language-map" %}">maps</a> are
+                    attached through each language's ISO 639-3 code.</li>
+                <li><strong>Cognate sets</strong> group related forms where they have been
+                    <a href="{% url "cognacy:index" %}">coded</a>.</li>
+            </ul>
+
+            <h2 class="h4 mt-4">Using the data</h2>
+            <p>
+                The data are licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative
+                Commons Attribution 4.0 International License</a>. Please cite the database (see right)
+                together with the original sources you use. Languages, sources, words and lexical items
+                are also available through the <a href="/api/v1/">JSON API</a>.
+            </p>
+
+            <h2 class="h4 mt-4">Corrections</h2>
+            <p>
+                Found an error in a form, a gloss or a classification? Please
+                <a href="https://github.com/SimonGreenhill/language5/issues">open an issue on GitHub</a>,
+                with a link to the page and, where possible, a reference.
+            </p>
+
+            <h2 class="h4 mt-4">People and funding</h2>
+            <p>
+                {{ SITE_NAME }} is run by <a href="https://simon.net.nz">Simon Greenhill</a>.
+                Funding was provided by an <a href="https://www.arc.gov.au/">Australian Research Council</a>
+                &laquo;DECRA&raquo; Discovery Grant <em>Discovering Trans-New Guinea: Revealing the prehistory
+                of New Guinea</em> (#DE120101954), with support from the Australian National University and the
+                Max Planck Institute for the Science of Human History.
+            </p>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card bg-body-tertiary border-0 mb-4">
+                <div class="card-body">
+                    <h2 class="h5">Cite this database</h2>
+                    <p class="mb-0">
+                        Greenhill SJ. 2015. <a href="https://doi.org/10.1371/journal.pone.0141563">TransNewGuinea.org:
+                        An Online Database of New Guinea Languages</a>. <i>PLoS ONE</i> 10(10): e0141563.
+                    </p>
+                </div>
+            </div>
+
+            <h2 class="h6 text-uppercase text-body-secondary">Colophon</h2>
+            <p class="small text-body-secondary">Built with open-source software and open data:</p>
+            <ul class="small colophon">
+                <li><a href="https://home.unicode.org/">Unicode</a>: all data are Unicode-encoded</li>
+                <li><a href="https://www.python.org/">Python</a> and <a href="https://www.djangoproject.com/">Django</a></li>
+                <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+                <li><a href="https://getbootstrap.com/">Bootstrap</a> and <a href="https://icons.getbootstrap.com/">Bootstrap Icons</a></li>
+                <li><a href="https://leafletjs.com/">Leaflet</a> and <a href="https://jquery.com/">jQuery</a> for the maps</li>
+                <li><a href="https://www.naturalearthdata.com/">Natural Earth</a> coastlines</li>
+                <li><a href="https://www.chartjs.org/">Chart.js</a> for the statistics</li>
+                <li><a href="https://glottolog.org/">Glottolog</a> classifications</li>
+            </ul>
+        </div>
+    </div>
+    </div>
 {% endblock %}

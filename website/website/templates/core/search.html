@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block title %}{{ SITE_NAME }}: Search{% if query %} for “{{ query }}”{% endif %}{% endblock %}
+
+{% block content %}
+    <form class="d-flex gap-2 mb-3 search-page-form" role="search" action="{% url "search" %}">
+        <input name="q" class="form-control form-control-lg" type="search" value="{{ query }}"
+               placeholder="Search languages, words, sources…" aria-label="Search the database" autofocus>
+        <button class="btn btn-primary btn-lg" type="submit">Search</button>
+    </form>
+
+    {% if query %}
+        {% if tabs %}
+            <ul class="nav nav-pills mb-4 search-tabs">
+                <li class="nav-item">
+                    <a class="nav-link{% if not selected %} active{% endif %}" href="{{ all_url }}">
+                        All <span class="badge rounded-pill">{{ total|intcomma }}</span></a>
+                </li>
+                {% for tab in tabs %}
+                <li class="nav-item">
+                    <a class="nav-link{% if selected == tab.key %} active{% endif %}" href="{{ tab.url }}">
+                        {{ tab.label }} <span class="badge rounded-pill">{{ tab.count|intcomma }}</span></a>
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="lead">No results for “{{ query }}”.</p>
+            <p class="text-body-secondary">Try fewer or shorter words, or browse the
+                <a href="{% url "language-index" %}">languages</a> and <a href="{% url "word-index" %}">words</a>.</p>
+        {% endif %}
+
+        {% for group in groups %}
+            <section class="mb-4 search-group">
+                {% if not selected %}<h2 class="h5">{{ group.label }}</h2>{% endif %}
+                {% include "includes/search_group.html" %}
+                {% if not selected and group.count > group.results|length %}
+                    <a class="small" href="{{ group.url }}">All {{ group.count|intcomma }} {{ group.label|lower }} →</a>
+                {% endif %}
+            </section>
+        {% endfor %}
+
+        {% if page_obj and page_obj.paginator.num_pages > 1 %}
+            <nav aria-label="Pages">
+                <ul class="pagination justify-content-center">
+                    {% if prev_url %}<li class="page-item"><a class="page-link" href="{{ prev_url }}">&laquo;</a></li>{% endif %}
+                    <li class="page-item disabled"><span class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span></li>
+                    {% if next_url %}<li class="page-item"><a class="page-link" href="{{ next_url }}">&raquo;</a></li>{% endif %}
+                </ul>
+            </nav>
+        {% endif %}
+    {% endif %}
+{% endblock %}

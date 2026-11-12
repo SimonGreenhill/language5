@@ -18,7 +18,7 @@
                 {{ SITE_NAME }} is a database of wordlists for the Trans-New Guinea
                 language family and its neighbours.
             </p>
-            <form class="d-flex gap-2 mb-4" role="search" action="{% url "watson:search" %}">
+            <form class="d-flex gap-2 mb-4" role="search" action="{% url "search" %}">
                 <input name="q" class="form-control form-control-lg" type="search"
                        placeholder="Search languages, words, sources…" aria-label="Search the database">
                 <button class="btn btn-primary btn-lg" type="submit">Search</button>
