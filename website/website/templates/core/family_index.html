@@ -1,13 +1,9 @@
 {% extends "base.html" %}
 {% load render_table from django_tables2 %}
 
-{% block title %} Language Families: {% endblock %}
+{% block title %}Language families{% endblock %}
 
 {% block content %}
-    <div class="pb-2 mb-4 border-bottom">
-        <h1>Language Families:</h1>
-    </div>
-    
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
           <a href="{% url "index" %}">Home</a>
@@ -17,6 +13,8 @@
       </li>
     </ul>
     
+    <h1 class="mb-4">Language families</h1>
+
     <div class="p-3 mb-3 bg-body-tertiary border rounded">
         <strong>Filter:</strong>
         <a class="btn btn-sm{% if subset == None %} btn-success{% else %} btn-outline-secondary{% endif %}" href="{% url "family-index" %}"> (all) </a>

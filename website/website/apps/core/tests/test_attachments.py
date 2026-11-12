@@ -20,7 +20,7 @@ class Test_Attachment_LanguageDetails(AttachmentDataMixin, TestCase):
     def test_no_attachments(self):
         response = self.client.get(self.language2.get_absolute_url())
         self.assertEqual(response.status_code, 200)
-        assert b'Files:' not in response.content
+        assert b'>Files<' not in response.content
         
     def test_show_attachments_to_logged_in(self):
         self.client.login(username="admin", password="test")
@@ -28,7 +28,7 @@ class Test_Attachment_LanguageDetails(AttachmentDataMixin, TestCase):
         assert len(self.language1.attachment_set.all()) == 1
         self.assertEqual(response.status_code, 200)
         
-        assert b'Files:' in response.content
+        assert b'>Files<' in response.content
         assert b'simon.jpg' in response.content
 
     def test_do_not_show_attachments_to_anonymous(self):
@@ -36,7 +36,7 @@ class Test_Attachment_LanguageDetails(AttachmentDataMixin, TestCase):
         assert len(self.language1.attachment_set.all()) == 1
         self.assertEqual(response.status_code, 200)
         
-        assert b'Files:' not in response.content
+        assert b'>Files<' not in response.content
         assert b'simon.jpg' not in response.content
 
 
@@ -46,7 +46,7 @@ class Test_Attachment_SourceDetails(AttachmentDataMixin, TestCase):
     def test_no_attachments(self):
         response = self.client.get(self.source2.get_absolute_url())
         self.assertEqual(response.status_code, 200)
-        assert b'Files:' not in response.content
+        assert b'>Files<' not in response.content
 
     def test_show_attachments_to_logged_in(self):
         self.client.login(username="admin", password="test")
@@ -54,7 +54,7 @@ class Test_Attachment_SourceDetails(AttachmentDataMixin, TestCase):
         assert len(self.language1.attachment_set.all()) == 1
         self.assertEqual(response.status_code, 200)
 
-        assert b'Files:' in response.content
+        assert b'>Files<' in response.content
         assert b'simon.jpg' in response.content
 
     def test_do_not_show_attachments_to_anonymous(self):
@@ -62,5 +62,5 @@ class Test_Attachment_SourceDetails(AttachmentDataMixin, TestCase):
         assert len(self.language1.attachment_set.all()) == 1
         self.assertEqual(response.status_code, 200)
 
-        assert b'Files:' not in response.content
+        assert b'>Files<' not in response.content
         assert b'simon.jpg' not in response.content

@@ -1,14 +1,10 @@
 {% extends "base.html" %}
 {% load render_table from django_tables2 %}
 
-{% block title %} Languages: {% endblock %}
+{% block title %}Languages{% endblock %}
 
 {% block content %}
 
-
-    <div class="pb-2 mb-4 border-bottom">
-        <h1>Languages:</h1>
-    </div>
 
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
@@ -20,6 +16,8 @@
     </ul>
     
     
+    <h1 class="mb-4">Languages</h1>
+
     <div class="p-3 mb-3 bg-body-tertiary border rounded">
         <strong>Filter:</strong>
         <a class="btn btn-sm{% if subset == None %} btn-success{% else %} btn-outline-secondary{% endif %}" href="{% url "language-index" %}"> (all) </a>

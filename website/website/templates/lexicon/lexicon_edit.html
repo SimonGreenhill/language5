@@ -3,7 +3,7 @@
 
 {% block extra_keywords %} {{object}} {% endblock %}
 
-{% block title %} Lexicon #{{ object }} | {{SITE_NAME }} {% endblock %}
+{% block title %}Edit lexicon #{{ object }}{% endblock %}
 
 {% block head %}
         <script type="text/javascript" src="{% static "js/jquery.js" %}"></script>
@@ -11,12 +11,10 @@
 {% endblock %}
 
 {% block content %}
-    <div class="pb-2 mb-4 border-bottom">
-        <h1>
+    <h1 class="mb-4">
             Lexicon #{{ object.id }}:
         </h1>
-    </div>
-    
+
     <div class="row clearfix">
         <p class="p-3 mb-3 bg-body-tertiary border rounded p-2 col-md-8 offset-md-2">
             <span id="picker"></span>

@@ -2,7 +2,9 @@
 {% load website_tags %}
 {% load render_table from django_tables2 %}
 
-{% block title %} {{ language.language }} {% endblock %}
+{% block title %}{{ language }}{% endblock %}
+
+{% block description %}{{ language }}{% with fam=language.family.first %}{% if fam %} ({{ fam }} family){% endif %}{% endwith %}: wordlist of {{ lexicon_table.paginator.count|default:0 }} words{% if sources_used %} from {{ sources_used|join:", " }}{% endif %}.{% if language.isocode %} ISO 639-3 {{ language.isocode }}.{% endif %}{% if language.glottocode %} Glottocode {{ language.glottocode }}.{% endif %}{% endblock %}
 
 {% block extra_keywords %}{{ language.language }}{% endblock %}
 

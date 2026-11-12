@@ -53,7 +53,7 @@ class LanguageIndex(CrawlerTrapMixin, SingleTableView):
     table_pagination = {"per_page": 50}
     
     def get_queryset(self):
-        qset = Language.objects.all()
+        qset = Language.objects.prefetch_related('family')
         if 'subset' in self.request.GET:
             qset = qset.filter(
                 language__istartswith=self.request.GET['subset']
@@ -212,7 +212,7 @@ class FamilyDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(list_seo_context(self.request))
-        records = kwargs['object'].language_set.annotate(
+        records = kwargs['object'].language_set.prefetch_related('family').annotate(
             count=Count('lexicon')
         ).order_by('language', 'dialect')
         context['languages'] = LanguageIndexTable(records)

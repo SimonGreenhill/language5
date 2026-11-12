@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %} {{ SITE_NAME }} Map {% endblock %}
+{% block title %}Map{% endblock %}
 
 {% block head %}
     <link media="all" href="{% static "css/leaflet.css" %}" type="text/css" rel="stylesheet" />
@@ -32,10 +32,8 @@
 {% endblock %}
 
 {% block content %}
-    <div class="pb-2 mb-4 border-bottom">
-        <h1>{% block pageheader %}{% endblock %}</h1>
-    </div>
-    
+    <h1 class="mb-4">{% block pageheader %}{% endblock %}</h1>
+
     <div id="map" class="flat-map" style="width: 100%; height: 70vh; min-height: 400px"></div>
 
     <script>

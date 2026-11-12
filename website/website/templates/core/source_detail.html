@@ -4,13 +4,11 @@
 
 {% block extra_keywords %} {{object}} {% endblock %}
 
-{% block title %} {{ object }} {% endblock %}
+{% block title %}{{ object }}{% endblock %}
+
+{% block description %}{{ object }}{% if object.reference %}: {{ object.reference|truncatechars:200 }}{% endif %}{% endblock %}
 
 {% block content %}
-    <div class="pb-2 mb-4 border-bottom">
-        <h1>Source: {{ object }}</h1>
-    </div>
-    
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
           <a href="{% url "index" %}">Home</a>
@@ -24,6 +22,8 @@
     </ul>
     
     
+    <h1 class="mb-4">{{ object }}</h1>
+
     {% if object.reference %}
         <blockquote class="reference fs-5 border-start border-4 ps-3 my-4">
             {{ object.reference }}
@@ -43,7 +43,7 @@
     
     {% ifinstalled "website.apps.lexicon" %}
         
-        <h2> Provided Lexicon: </h2>
+        <h2 class="h4">Lexicon</h2>
         
         {% if lexicon_table %}
             {% render_table lexicon_table "table.html" %}

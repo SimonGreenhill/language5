@@ -3,15 +3,9 @@
 
 {% block extra_keywords %} {{object}} {% endblock %}
 
-{% block title %} Cognate Set: {{ object }} | {{SITE_NAME }} {% endblock %}
+{% block title %}Cognate set: {{ object }}{% endblock %}
 
 {% block content %}
-    <div class="pb-2 mb-4 border-bottom">
-        <h1>
-            Cognates
-        </h1>
-    </div>
-    
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
           <a href="{% url "index" %}">Home</a>
@@ -21,8 +15,12 @@
       </li>
     </ul>
     
+    <h1 class="mb-4">
+            Cognates
+        </h1>
+
     {% if notes %}
-        <h2> Notes: </h2>
+        <h2 class="h4">Notes</h2>
 
         <ul>
             {% for n in notes %}

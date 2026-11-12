@@ -1,16 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %} {{ SITE_NAME }} Statistics {% endblock %}
+{% block title %}Statistics{% endblock %}
 
 {% block head %}
     <script src="{% static "js/chart.umd.min.js" %}"></script>
 {% endblock %}
 
 {% block content %}
-    <div class="pb-2 mb-4 border-bottom">
-        <h1>Statistics for {{ SITE_NAME }}</h1>
-    </div>
+    <h1 class="mb-4">Statistics</h1>
 
     <div class="row">
     {% for chart in charts %}

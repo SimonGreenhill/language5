@@ -2,15 +2,9 @@
 
 {% block extra_keywords %} {{object}} {% endblock %}
 
-{% block title %} Lexicon #{{ object }} | {{SITE_NAME }} {% endblock %}
+{% block title %}Lexicon #{{ object }}{% endblock %}
 
 {% block content %}
-    <div class="pb-2 mb-4 border-bottom">
-        <h1>
-            {{ object }}
-        </h1>
-    </div>
-    
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
           <a href="{% url "index" %}">Home</a>
@@ -18,7 +12,11 @@
     </ul>
     
     
-    <h2> Lexicon #{{ object.id }}:</h2>
+    <h1 class="mb-4">
+            {{ object }}
+        </h1>
+
+    <h2 class="h4">Lexicon #{{ object.id }}</h2>
     
     <div class="table-container">
     

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load humanize %}
 
-{% block title %}{{ SITE_NAME }}: Search{% if query %} for “{{ query }}”{% endif %}{% endblock %}
+{% block title %}Search{% if query %}: “{{ query }}”{% endif %}{% endblock %}
 
 {% block content %}
     <form class="d-flex gap-2 mb-3 search-page-form" role="search" action="{% url "search" %}">

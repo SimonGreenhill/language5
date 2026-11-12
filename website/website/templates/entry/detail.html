@@ -46,11 +46,9 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-            <div class="pb-2 mb-4 border-bottom">
-                <h1>Data Entry Task: {{ task }} {{ content }}</h1>
-            </div>
-            
-            {% if task.description %}
+            <h1 class="mb-4">Data Entry Task: {{ task }} {{ content }}</h1>
+
+    {% if task.description %}
                 <div class="alert">
                   <h4>Please Note: </h4>
                   <p>{{ task.description|linebreaks }}</p>

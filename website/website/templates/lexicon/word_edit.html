@@ -40,11 +40,9 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-            <div class="pb-2 mb-4 border-bottom">
-                <h1>Editing: {{ word }}</h1>
-            </div>
-            
-             {% if user.is_staff %}
+            <h1 class="mb-4">Editing: {{ word }}</h1>
+
+    {% if user.is_staff %}
                  <div class="btn-group">
                      <a class="btn btn-outline-secondary" href="{% url "word-detail" word.slug %}">View this word</a>
                      <a class="btn btn-outline-secondary" href="{% url "word-edit" word.slug %}">Edit this word</a>

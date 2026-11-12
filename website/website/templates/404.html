@@ -1,6 +1,14 @@
-    <h1>404 / Not Found</h1>
+{% extends "base.html" %}
 
-    <p class="error">
-        I'm sorry, I can't seem to find what you were looking for.
-        <a href="/">Go back to the start</a>
-    </p>
+{% block title %}Page not found{% endblock %}
+
+{% block content %}
+    <h1 class="mb-3">Page not found</h1>
+    <p class="lead">Sorry, there's nothing at this address. It may have moved, or the link may be wrong.</p>
+    <form class="d-flex gap-2 my-4" role="search" action="{% url "search" %}" style="max-width: 36rem">
+        <input name="q" class="form-control" type="search" placeholder="Search languages, words, sources…" aria-label="Search the database">
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+    <p>Or go to the <a href="{% url "index" %}">home page</a>, or browse
+        <a href="{% url "language-index" %}">languages</a> and <a href="{% url "word-index" %}">words</a>.</p>
+{% endblock %}

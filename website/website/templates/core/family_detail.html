@@ -1,13 +1,11 @@
 {% extends "base.html" %}
 {% load render_table from django_tables2 %}
 
-{% block title %} {{ object.family }} {% endblock %}
+{% block title %}{{ object.family }}{% endblock %}
+
+{% block description %}Languages of the {{ object.family }} family in {{ SITE_NAME }}, with wordlists and sources.{% endblock %}
 
 {% block content %}
-    <div class="pb-2 mb-4 border-bottom">
-        <h1>Language Family: {{ object.family }}:</h1>
-    </div>
-    
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
           <a href="{% url "index" %}">Home</a>
@@ -20,6 +18,8 @@
       </li>
     </ul>
     
+    <h1 class="mb-4">{{ object.family }} <small class="text-body-secondary fs-5">language family</small></h1>
+
     {% if languages %}
         {% render_table languages "table.html" %}
     {% else %}

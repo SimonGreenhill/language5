@@ -8,6 +8,7 @@
 a { text-decoration: none; }
 a:hover { text-decoration: underline; }
 .btn:hover { text-decoration: none; }
+.btn-outline-primary { --bs-btn-color: #176273; --bs-btn-border-color: #176273; --bs-btn-hover-bg: #176273; --bs-btn-hover-border-color: #176273; --bs-btn-active-bg: #0f4a57; --bs-btn-active-border-color: #0f4a57; }
 .btn-primary { --bs-btn-bg: #176273; --bs-btn-border-color: #176273; --bs-btn-hover-bg: #0f4a57; --bs-btn-hover-border-color: #0f4a57; --bs-btn-active-bg: #0a2c33; --bs-btn-active-border-color: #0a2c33; }
 .pagination { --bs-pagination-color: #176273; --bs-pagination-active-bg: #176273; --bs-pagination-active-border-color: #176273; }
 .nav-pills { --bs-nav-pills-link-active-bg: #176273; }

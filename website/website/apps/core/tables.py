@@ -1,11 +1,9 @@
-from django.utils.html import format_html
-from django.utils.safestring import mark_safe
+from django.utils.html import format_html, format_html_join
 import django_tables2 as tables
 from django_tables2.utils import A  # alias for Accessor
-from django.template.loader import render_to_string
 
 from website.apps.core.models import Source, Language, Family
-from website.apps.core.templatetags.website_tags import condense_classification
+from website.apps.core.templatetags.website_tags import classification_nodes
 
 # Note, due to the current version of django_tables2 not merging in Meta classes
 # https://github.com/bradleyayers/django-tables2/issues/85
@@ -62,10 +60,16 @@ class LanguageIndexTable(DataTable):
         return str(record)
     
     def render_classification(self, record):
-        return mark_safe(render_to_string(
-            'includes/condense_classification.html', condense_classification(record.classification)
-        ))
-        
+        """Top node (linked to the family page) › … › lowest subgroup; full path on hover"""
+        nodes = classification_nodes(record.classification)
+        if not nodes:
+            return ''
+        family = next(iter(record.family.all()), None)
+        top = format_html('<a href="{}">{}</a>', family.get_absolute_url(), nodes[0]) if family else nodes[0]
+        shown = [top] + (['…'] if len(nodes) > 2 else []) + ([nodes[-1]] if len(nodes) > 1 else [])
+        return format_html('<span title="{}">{}</span>', ', '.join(nodes),
+                           format_html_join(' › ', '{}', ((n,) for n in shown)))
+
     class Meta(DataTable.Meta):
         model = Language
         order_by = 'language' # default sorting

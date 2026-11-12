@@ -1,5 +1,5 @@
 from django import template
-from django.urls import resolve
+from django.urls import Resolver404, resolve
 from website.apps.core.models import Language, Location
 from website.apps.core.templatetags.ifinstalled import do_ifinstalled
 
@@ -70,7 +70,7 @@ def show_map(location, language=None, radius=7):
 def active(context, view):
     try:
         resolved = resolve(context['request'].path_info)
-    except KeyError:
+    except (KeyError, Resolver404):  # no request, or rendering the 404 page
         return ''
 
     if resolved.view_name == view:

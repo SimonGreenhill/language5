@@ -1,13 +1,9 @@
 {% extends "base.html" %}
 {% load render_table from django_tables2 %}
 
-{% block title %} Words: {% endblock %}
+{% block title %}Words{% endblock %}
 
 {% block content %}
-    <div class="pb-2 mb-4 border-bottom">
-        <h1>Words:</h1>
-    </div>
-    
     <ul class="breadcrumb">
       <li class="breadcrumb-item">
           <a href="{% url "index" %}">Home</a>
@@ -17,8 +13,10 @@
       </li>
     </ul>
     
+    <h1 class="mb-4">Words</h1>
+
     <div class="p-3 mb-3 bg-body-tertiary border rounded">
-        <h2>Word Subsets:</h2>
+        <h2 class="h4">Word subsets</h2>
 
         <ul class="nav nav-pills">
             <li class="nav-item"><a class="nav-link{% if not subset %} active{% endif %}" href="{% url "word-index" %}"><i class="bi bi-tags"></i> All words </a>
@@ -37,7 +35,7 @@
     {% if subset %}
         <h2> Words in subset {{ subset|title }}</h2>
     {% else %}
-        <h2> All Words: </h2>
+        <h2 class="h4">All words</h2>
     {% endif %}
     
     {% if table %}

@@ -517,3 +517,12 @@ class Test_Index(BaseMixin, TestCase):
         self.assertEqual(stats['languages'], (Language.objects.count(), 'language-index'))
         self.assertEqual(stats['sources'], (2, 'source-index'))
         self.assertContains(response, f'href="{reverse("source-index")}"')
+
+
+class Test_404(TestCase):
+    """The 404 page renders inside the site layout (nav included) without erroring"""
+    def test_404_page(self):
+        response = self.client.get('/no-such-page')
+        self.assertEqual(response.status_code, 404)
+        self.assertContains(response, 'Page not found', status_code=404)
+        self.assertContains(response, 'name="q"', status_code=404)
