@@ -127,19 +127,6 @@ class TestLexiconEdit(BrowserTestCase):
         self.assertNoJSErrors()
 
 
-class TestWordEdit(BrowserTestCase):
-    def test_formset_edit_saves(self):
-        self.login()
-        self.open(reverse('word-edit', kwargs={'slug': 'hand'}))
-        self.assertEqual(self.page.locator('#entryform tbody tr').count(), 2)
-        self.page.fill(f'input[name$="-entry"][value="{self.lex1.entry}"]', 'kuu')
-        self.page.click('button[name=submit]')
-        self.page.wait_for_load_state('networkidle')
-        self.lex1.refresh_from_db()
-        self.assertEqual(self.lex1.entry, 'kuu')
-        self.assertNoJSErrors()
-
-
 class TestCognacy(BrowserTestCase):
     def test_assign_cognate_set(self):
         cogset = CognateSet.objects.create(protoform='*ku', editor=self.editor)

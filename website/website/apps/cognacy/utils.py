@@ -1,7 +1,7 @@
 from website.apps.lexicon.models import CognateSet
 
 def get_missing_cogids(limit=10):
-    cogids = CognateSet.objects.all().values_list('id', flat=True)
+    cogids = set(CognateSet.objects.values_list('id', flat=True))
     # handle no cognate case.
     if len(cogids) == 0:
         return range(1, limit + 1)

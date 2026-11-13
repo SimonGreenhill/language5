@@ -6,7 +6,6 @@ from django.db.models import Count
 from django.http import Http404
 from django.views.generic import DetailView
 from django.views.generic.edit import UpdateView
-from django.shortcuts import get_object_or_404, render, redirect
 from django.utils.decorators import method_decorator
 from django.utils import timezone
 
@@ -21,8 +20,6 @@ from website.apps.lexicon.tables import WordIndexTable, WordLexiconTable
 from website.apps.lexicon.tables import WordLexiconEditTable
 
 # for WordEdit
-from django.forms.models import modelformset_factory
-from website.apps.lexicon.forms import WordForm
 
 
 class WordIndex(CrawlerTrapMixin, SingleTableView):
@@ -118,7 +115,6 @@ class LexiconEdit(UpdateView):
     template_name_suffix = '_edit'
     
     def form_valid(self, form):
-        from django.utils import timezone
         from reversion import revisions as reversion
         form.instance.editor = self.request.user
         form.instance.added = timezone.now()
@@ -129,38 +125,3 @@ class LexiconEdit(UpdateView):
     @method_decorator(login_required)  # ensure logged in
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
-
-
-
-
-@login_required()
-def word_edit(request, slug):
-    w = get_object_or_404(Word, slug=slug)
-    GenericFormSet = modelformset_factory(Lexicon, form=WordForm, extra=0)
-    formset = GenericFormSet(
-        request.POST or None, queryset=w.lexicon_set.all()
-    )
-    # build each choice list once and share it, instead of one query per row
-    choices = {}
-    for form in formset:
-        for name in ('language', 'source', 'word'):
-            if name not in choices:
-                choices[name] = list(form.fields[name].choices)
-            form.fields[name].choices = choices[name]
-
-    if request.POST and formset.is_valid():
-        from reversion import revisions as reversion
-        for form in formset:
-            if form.is_valid() and len(form.changed_data):
-                # if form is valid and some fields have changed
-                # two stages here to set default fields
-                with reversion.create_revision():
-                    obj = form.save(commit=False)
-                    obj.editor = request.user
-                    obj.added = timezone.now()
-                    obj.save()
-        return redirect(w)
-    else:
-        return render(request, 'lexicon/word_edit.html', {
-            'word': w, 'formset': formset
-        })

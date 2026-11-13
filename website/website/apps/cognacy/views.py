@@ -138,14 +138,16 @@ def do(request, word, clade=None):
     # 3. go through entries and attach a list of cognateset ids if needed, else empty list
     entries_and_cogs = []
     inplay = {}
+    by_lexicon = {}
+    for lex_id, cog_id, cog in cogs:
+        by_lexicon.setdefault(lex_id, []).append((cog_id, cog))
     for e in entries:
-        e.cognacy = [c[1] for c in cogs if c[0] == e.id]
+        e.cognacy = [cog_id for cog_id, _ in by_lexicon.get(e.id, [])]
         e.edit = True  # dummy value so django-tables2 passes to render_edit()
         e.classification = e.language.classification
         entries_and_cogs.append(e)
         
-        cogobjs = [_[2] for _ in cogs if _[1] in e.cognacy]
-        for o in cogobjs:
+        for _, o in by_lexicon.get(e.id, []):
             inplay[o] = inplay.get(o, set())
             inplay[o].add(e.entry)
     
